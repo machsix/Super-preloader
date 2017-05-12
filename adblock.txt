@@ -1,3 +1,4 @@
+[Adblock Plus 2.0]
 @@||openload.co^$stylesheet
 @@||ads.exoclick.com/ads.js$domain=javhub.net
 @@||puhtml.com^$script,domain=openload.co
