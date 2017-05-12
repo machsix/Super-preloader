@@ -5,7 +5,6 @@
 @@||openload.co^$other
 @@||openload.io^$other
 @@||openload.io^$script
-
 @@||ads.exoclick.com/ads.js$domain=javhub.net
 @@||puhtml.com^$script,domain=openload.co
 @@||puhtml.com^$script,domain=javhub.net
