@@ -20,3 +20,6 @@
 @@||ads.exoclick.com/ads.js$domain=javhub.net
 @@||puhtml.com^$script,domain=openload.co
 @@||puhtml.com^$script,domain=javhub.net
+||openload.co/*license
+||openload.co/*script
+@@|https://*.club/*.js|$domain=openload.co
