@@ -1,6 +1,6 @@
 [Adblock Plus 2.0]
-! Title: AakList (Anti-Adblock Killer)
-! Author: Reek | http://reeksite.com/
+! Title: Personal Filter
+! Author: Internet
 ! Version: 10.0
 ! Expires: 1 days
 ! License: https://creativecommons.org/licenses/by-sa/4.0/
