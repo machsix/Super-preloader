@@ -1,12 +1,4 @@
-!javhub
 @@||openload.co^$stylesheet
-@@||openload.co^$image
-@@||openload.io^$image
-@@||openload.co^$other
-@@||openload.io^$other
-@@||openload.io^$script
 @@||ads.exoclick.com/ads.js$domain=javhub.net
 @@||puhtml.com^$script,domain=openload.co
 @@||puhtml.com^$script,domain=javhub.net
-https://ee.e7006.com/cpc/*
-@@||adnostri.com^$script,domain=videomega.tv@@||adv4biz.com^$script,domain=videomega.tv
