@@ -133,32 +133,11 @@ if ( __name__ == '__main__' ):
     , "Connection": "keep-alive"
     }
 
-    catpage=['http://www.toutiao.de/?YouMi/',
-             'http://www.toutiao.de/?Tuigirl/',
-             'http://www.toutiao.de/?Girlt/',
-             'http://www.toutiao.de/?MiStar/',
-             'http://www.toutiao.de/?Xgyw/',
-             'http://www.toutiao.de/?Micat/',
-             'http://www.toutiao.de/?Tgod/',
-             'http://www.toutiao.de/?LEGBABY/',
-             'http://www.toutiao.de/?Huayan/',
-             'http://www.toutiao.de/?Aiyouwu/',
-             'http://www.toutiao.de/?BoLoli/',
-             'http://www.toutiao.de/?MFStar/',
-             'http://www.toutiao.de/?DKGirl/',
-             'http://www.toutiao.de/?Ugirls/',
-             'http://www.toutiao.de/?Xiuren/',
-             'http://www.toutiao.de/?FeiLin/',
-             'http://www.toutiao.de/?MiiTao/',
-             'http://www.toutiao.de/?IMiss/'
-             'http://www.toutiao.de/?MyGirl/']
+    catpage=['http://www.toutiao.de/?Xiuren/',]
 
     name = [re.findall('(?<=\?).*(?=\/)',i)[0] for i in catpage]
 
-    mythread = [0]*len(catpage)
+    #mythread = [0]*len(catpage)
 
     for i in range(len(catpage)):
-        mythread[i] = MyThread(catpage[i],name[i],header)
-
-    for i in range(len(catpage)):
-        mythread[i].start()
+        loadCategory(catpage[i],name[i],header)
