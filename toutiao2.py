@@ -11,11 +11,12 @@ def loadCategory(catpage,catname,header):
     htmldata = html.read()
     htmlpath = etree.HTML(htmldata)
     pages  = htmlpath.xpath('//div[@class="page"]/a/@href')
-    word = htmlpath.xpath('//div[@class="page"]/a/text()')
-    lastpage = word.index('尾页')
-    lastpagelink = pages[lastpage]
+   # word = htmlpath.xpath('//div[@class="page"]/a/text()')
+    pagenumberstr = [re.findall('(?<=page_)\d+',i) for i in pages]
+    pagenumber = [int(i[0]) for i in pagenumberstr if i]
+    numpage = max(pagenumber)
+    lastpagelink = pages[pagenumberstr.index([str(numpage)])]
     linktemp  = urllib.parse.urljoin(catpage,lastpagelink)
-    numpage = int(re.findall('(?<=page_)\d+',linktemp)[0])
     linktemp = re.findall('http.*\/page_',linktemp)[0]
 
     if not os.path.isdir(catname):
@@ -49,9 +50,9 @@ def loadOnePage(onepage,header,catname,fid):
         if (status == 0 and i == len(link)-1):
             return 0
         elif (status == 1):
-            time.sleep(3+random.randint(0,99))
+            time.sleep(1+random.randint(0,5))
         else:
-            time.sleep(1)
+            time.sleep(0.5)
     return 1
 
 
@@ -133,11 +134,23 @@ if ( __name__ == '__main__' ):
     , "Connection": "keep-alive"
     }
 
-    catpage=['http://www.toutiao.de/?Xiuren/',]
+    catpage=['http://www.toutiao.de/?Xiuren/',
+             'http://www.toutiao.de/?IMiss/',
+             'http://www.toutiao.de/?MyGirl/']
 
     name = [re.findall('(?<=\?).*(?=\/)',i)[0] for i in catpage]
 
-    #mythread = [0]*len(catpage)
+    mythread = [0]*len(catpage)
 
     for i in range(len(catpage)):
-        loadCategory(catpage[i],name[i],header)
+        mythread[i] = MyThread(catpage[i],name[i],header)
+
+    for i in range(len(catpage)):
+        mythread[i].start()
+
+#    name = [re.findall('(?<=\?).*(?=\/)',i)[0] for i in catpage]
+#
+#    #mythread = [0]*len(catpage)
+#
+#    for i in range(len(catpage)):
+#        loadCategory(catpage[i],name[i],header)

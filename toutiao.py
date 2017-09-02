@@ -12,18 +12,18 @@ def loadCategory(catpage,catname,header):
     htmlpath = etree.HTML(htmldata)
     pages  = htmlpath.xpath('//div[@class="page"]/a/@href')
     word = htmlpath.xpath('//div[@class="page"]/a/text()')
-    lastpage = word.index('尾页')
-    lastpagelink = pages[lastpage]
+    pagenumberstr = [re.findall('(?<=page_)\d+',i) for i in pages]
+    pagenumber = [int(i[0]) for i in pagenumberstr if i]
+    numpage = max(pagenumber)
+    lastpagelink = pages[pagenumberstr.index([str(numpage)])]
     linktemp  = urllib.parse.urljoin(catpage,lastpagelink)
-    numpage = int(re.findall('(?<=page_)\d+',linktemp)[0])
     linktemp = re.findall('http.*\/page_',linktemp)[0]
-
     if not os.path.isdir(catname):
        os.mkdir(catname)
 
    # fid = open(file=os.path.join(catname,'Log.txt'),mode='a')
     fid = 1
-    for i in range(numpage+1):
+    for i in range(6,numpage+1):
         if i == 0:
             onepage = catpage
         else:
@@ -147,11 +147,11 @@ if ( __name__ == '__main__' ):
              'http://www.toutiao.de/?MFStar/',
              'http://www.toutiao.de/?DKGirl/',
              'http://www.toutiao.de/?Ugirls/',
-             'http://www.toutiao.de/?Xiuren/',
              'http://www.toutiao.de/?FeiLin/',
              'http://www.toutiao.de/?MiiTao/',
-             'http://www.toutiao.de/?IMiss/'
+             'http://www.toutiao.de/?IMiss/',
              'http://www.toutiao.de/?MyGirl/']
+           #  'http://www.toutiao.de/?Xiuren/',
 
     name = [re.findall('(?<=\?).*(?=\/)',i)[0] for i in catpage]
 
