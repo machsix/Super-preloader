@@ -1,12 +1,12 @@
-(function() {
+ï»¿(function() {
 // ==UserScript==
 // @name         Super_preloaderPlus_one_New
-// @name:zh-CN   Super_preloaderPlus_one_¸Ä
+// @name:zh-CN   Super_preloaderPlus_one_æ”¹
 // @namespace    https://github.com/ywzhaiqi
 // @description  Preload and Autopagerize, Forked from https://greasyfork.org/scripts/293-super-preloaderplus-one with additional rule
-// @description:zh-cn  Ô¤¶Á+·­Ò³..È«¼ÓËÙÄãµÄä¯ÀÀÌåÑé... ĞŞ¸Ä×Ôhttps://greasyfork.org/scripts/293-super-preloaderplus-one with additional rule
-// @author       Mach6(Ô­×÷Õß ywzhaiqi && NLF)
-// @version      6.5.1
+// @description:zh-cn  é¢„è¯»+ç¿»é¡µ..å…¨åŠ é€Ÿä½ çš„æµè§ˆä½“éªŒ... ä¿®æ”¹è‡ªhttps://greasyfork.org/scripts/293-super-preloaderplus-one with additional rule
+// @author       Mach6(åŸä½œè€… ywzhaiqi && NLF)
+// @version      6.5.10
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
 
 // @grant        GM_addStyle
@@ -38,13 +38,14 @@
 // @exclude      http://v.youku.com/*
 // @exclude      http://www.iqiyi.com/*
 // @exclude      http://www.duokan.com/reader/*
+// @exclude      https://www.kohls.com/*
 // ==/UserScript==
 
 
-// Ö÷ÒªÓÃÓÚ chrome Ô­ÉúÏÂ¼ì²é¸üĞÂ£¬Ò²¿ÉÓÃÓÚÊÖ¶¯¼ì²é¸üĞÂ
+// ä¸»è¦ç”¨äº chrome åŸç”Ÿä¸‹æ£€æŸ¥æ›´æ–°ï¼Œä¹Ÿå¯ç”¨äºæ‰‹åŠ¨æ£€æŸ¥æ›´æ–°
 var scriptInfo = {
-    version: '6.5.1',
-    updateTime: '2017/09/27',
+    version: '6.5.10',
+    updateTime: '2017/10/22',
     homepageURL: 'https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new',
     downloadUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.user.js',
     metaUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.meta.js',
@@ -58,11 +59,11 @@ if (window.name === 'mynovelreader-iframe') {
     return;
 }
 
-// Èç¹ûÊÇÈ¡³öÏÂÒ»Ò³Ê¹ÓÃµÄiframe window
-if (window.name === 'superpreloader-iframe') { // ËÑ¹·,iframeÀïÃæÔõÃ´²»¼ÓÔØjs°¡?
-    // È¥µôÁËÔ­°æµÄÁíÒ»ÖÖ·½·¨£¬ÒòÎªĞÂ°æ±¾ chrome ÒÑ¾­Ö§³Ö¡£¾É°æ±¾ chrome iframeÀïÃæ ÎŞ·¨·ÃÎÊwindow.parent,·µ»Øundefined
+// å¦‚æœæ˜¯å–å‡ºä¸‹ä¸€é¡µä½¿ç”¨çš„iframe window
+if (window.name === 'superpreloader-iframe') { // æœç‹—,iframeé‡Œé¢æ€ä¹ˆä¸åŠ è½½jså•Š?
+    // å»æ‰äº†åŸç‰ˆçš„å¦ä¸€ç§æ–¹æ³•ï¼Œå› ä¸ºæ–°ç‰ˆæœ¬ chrome å·²ç»æ”¯æŒã€‚æ—§ç‰ˆæœ¬ chrome iframeé‡Œé¢ æ— æ³•è®¿é—®window.parent,è¿”å›undefined
 
-    var domloaded = function (){  // ¹ö¶¯µ½µ×²¿,Õë¶Ô,Ä³Ğ©Ê¹ÓÃ¹ö¶¯ÊÂ¼ş¼ÓÔØÍ¼Æ¬µÄÍøÕ¾.
+    var domloaded = function (){  // æ»šåŠ¨åˆ°åº•éƒ¨,é’ˆå¯¹,æŸäº›ä½¿ç”¨æ»šåŠ¨äº‹ä»¶åŠ è½½å›¾ç‰‡çš„ç½‘ç«™.
         window.scroll(window.scrollX, 99999);
         window.parent.postMessage('superpreloader-iframe:DOMLoaded', '*');
     };
@@ -76,47 +77,47 @@ if (window.name === 'superpreloader-iframe') { // ËÑ¹·,iframeÀïÃæÔõÃ´²»¼ÓÔØjs°¡?
 }
 
 
-// GM ¼æÈİ
+// GM å…¼å®¹
 
 gmCompatible();
 
-/////////////////////ÉèÖÃ(Çë×¢Òâ¿ª¹ØµÄËõ½ø¹ØÏµ..×Ó¿ª¹ØÒ»°ãÔÚ¸¸¿ª¹ØÎªtrueµÄÊ±ºò²Å»áÉúĞ§.)//////////////////////
+/////////////////////è®¾ç½®(è¯·æ³¨æ„å¼€å…³çš„ç¼©è¿›å…³ç³»..å­å¼€å…³ä¸€èˆ¬åœ¨çˆ¶å¼€å…³ä¸ºtrueçš„æ—¶å€™æ‰ä¼šç”Ÿæ•ˆ.)//////////////////////
 var prefs={
-    floatWindow: true,       // ÏÔÊ¾Ğü¸¡´°
-        FW_position: 2,         // 1:³öÏÖÔÚ×óÉÏ½Ç;2:³öÏÖÔÚÓÒÉÏ½Ç;3£º³öÏÖÔÚÓÒÏÂ½Ç;4£º³öÏÖÔÚ×óÏÂ½Ç;
-        FW_offset: [20, 38],    // Æ«Àë°æ±ßµÄ´¹Ö±ºÍË®Æ½·½ÏòµÄÊıÖµ..(µ¥Î»:ÏñËØ)
-        FW_RAS: true,           // µã»÷Ğü¸¡´°ÉÏµÄ±£´æ°´Å¥..Á¢¼´Ë¢ĞÂÒ³Ãæ;
-    pauseA: true,            // ¿ìËÙÍ£Ö¹×Ô¶¯·­Ò³(µ±Ç°Ä£Ê½Îª·­Ò³Ä£Ê½µÄÊ±ºòÉúĞ§.);
-        Pbutton: [2, 0, 0],     // ĞèÒª°´×¡µÄ¼ü.....0: ²»°´×¡ÈÎºÎ¼ü;1: shiftæI;2: ctrlæI; 3: altæI;(Í¬Ê±°´3¸ö¼ü.¾ÍÌî 1 2 3)(Ò»¸ö¶¼²»°´.¾ÍÌî 0 0 0)
-        mouseA: true,           // °´×¡Êó±ê×ó¼ü..·ñÔò.Ë«»÷;
-            Atimeout: 200,      // °´×¡×ó¼üÊ±..ÑÓÊ±.¶àÉÙÉúĞ§..(µ¥Î»:ºÁÃë);
-        stop_ipage: true,       // Èç¹ûÔÚÁ¬Ğø·­Ò³¹ı³ÌÖĞÔİÍ£.ÖØĞÂÆôÓÃºó.²»ÔÚ¼ÌĞø..Á¬Ğø·­Ò³..
+    floatWindow: true,       // æ˜¾ç¤ºæ‚¬æµ®çª—
+        FW_position: 2,         // 1:å‡ºç°åœ¨å·¦ä¸Šè§’;2:å‡ºç°åœ¨å³ä¸Šè§’;3ï¼šå‡ºç°åœ¨å³ä¸‹è§’;4ï¼šå‡ºç°åœ¨å·¦ä¸‹è§’;
+        FW_offset: [20, 38],    // åç¦»ç‰ˆè¾¹çš„å‚ç›´å’Œæ°´å¹³æ–¹å‘çš„æ•°å€¼..(å•ä½:åƒç´ )
+        FW_RAS: true,           // ç‚¹å‡»æ‚¬æµ®çª—ä¸Šçš„ä¿å­˜æŒ‰é’®..ç«‹å³åˆ·æ–°é¡µé¢;
+    pauseA: true,            // å¿«é€Ÿåœæ­¢è‡ªåŠ¨ç¿»é¡µ(å½“å‰æ¨¡å¼ä¸ºç¿»é¡µæ¨¡å¼çš„æ—¶å€™ç”Ÿæ•ˆ.);
+        Pbutton: [2, 0, 0],     // éœ€è¦æŒ‰ä½çš„é”®.....0: ä¸æŒ‰ä½ä»»ä½•é”®;1: shiftéµ;2: ctrléµ; 3: altéµ;(åŒæ—¶æŒ‰3ä¸ªé”®.å°±å¡« 1 2 3)(ä¸€ä¸ªéƒ½ä¸æŒ‰.å°±å¡« 0 0 0)
+        mouseA: true,           // æŒ‰ä½é¼ æ ‡å·¦é”®..å¦åˆ™.åŒå‡»;
+            Atimeout: 200,      // æŒ‰ä½å·¦é”®æ—¶..å»¶æ—¶.å¤šå°‘ç”Ÿæ•ˆ..(å•ä½:æ¯«ç§’);
+        stop_ipage: true,       // å¦‚æœåœ¨è¿ç»­ç¿»é¡µè¿‡ç¨‹ä¸­æš‚åœ.é‡æ–°å¯ç”¨å.ä¸åœ¨ç»§ç»­..è¿ç»­ç¿»é¡µ..
 
-    Aplus: true,             // ×Ô¶¯·­Ò³Ä£Ê½µÄÊ±ºò..ÌáÇ°Ô¤¶ÁºÃÒ»Ò³..¾ÍÊÇ·­ÍêµÚ1Ò³,Á¢ÂíÔ¤¶ÁµÚ2Ò³,·­ÍêµÚ2Ò³,Á¢ÂíÔ¤¶ÁµÚ3Ò³..(´ó·ù¼Ó¿ì·­Ò³¿ì¸Ğ-_-!!)(½¨Òé¿ªÆô)..
-    sepP: true,              // ·­Ò³Ä£Ê½ÏÂ.·Ö¸ô·û.ÔÚÊ¹ÓÃÉÏ¹öÒ»Ò³»òÏÂ¹öÒ»Ò³µÄÊ±ºòÊÇ·ñ±£³ÖÏà¶ÔÎ»ÖÃ..
-    sepT: true,              // ·­Ò³Ä£Ê½ÏÂ.·Ö¸ô·û.ÔÚÊ¹ÓÃÉÏ¹öÒ»Ò³»òÏÂ¹öÒ»Ò³µÄÊ±ºòÊ¹ÓÃ¶¯»­¹ı¶É..
-        s_method: 3,            // ¶¯»­·½Ê½ 0-10 Ò»ÖÖ11ÖÖ¶¯»­Ğ§¹û..×Ô¼ºÊÔÊÔ°É
-        s_ease: 2,              // µ­Èëµ­³öĞ§¹û 0£ºµ­Èë 1£ºµ­³ö 2£ºµ­Èëµ­³ö
-        s_FPS: 60,              // Ö¡ËÙ.(µ¥Î»:Ö¡/Ãë)
-        s_duration: 333,        // ¶¯»­³ÖĞøÊ±³¤.(µ¥Î»:ºÁÃë);
-    someValue: '',           // ÏÔÊ¾ÔÚ·­Ò³µ¼º½×îÓÒ±ßµÄÒ»¸öĞ¡¾ä×Ó..-_-!!..Powered by Super_preloader Òş²ØÁË
-    DisableI: true,          // Ö»ÔÚ¶¥²ã´°¿Ú¼ÓÔØJS..ÌáÉıĞÔÄÜ..Èç¹û¿ªÆôÁËÕâÏî,ÄÇÃ´DIExcludeÊı×éÓĞĞ§,ÀïÃæµÄÍøÒ³¼´Ê¹²»ÔÚ¶¥²ã´°¿ÚÒ²»á¼ÓÔØ....
-    arrowKeyPage: true,      // ÔÊĞíÊ¹ÓÃ ×óÓÒ·½Ïò¼ü ·­Ò³..
-    sepStartN: 2,            // ·­Ò³µ¼º½ÉÏµÄ,´Ó¼¸¿ªÊ¼¼ÆÊı.(Ã²ËÆÓĞÈËÔÚÒâÕâ¸ö,ËùÒÔÅª¸ö¿ª¹Ø³öÀ´,·´Õı¼òµ¥.-_-!!)
+    Aplus: true,             // è‡ªåŠ¨ç¿»é¡µæ¨¡å¼çš„æ—¶å€™..æå‰é¢„è¯»å¥½ä¸€é¡µ..å°±æ˜¯ç¿»å®Œç¬¬1é¡µ,ç«‹é©¬é¢„è¯»ç¬¬2é¡µ,ç¿»å®Œç¬¬2é¡µ,ç«‹é©¬é¢„è¯»ç¬¬3é¡µ..(å¤§å¹…åŠ å¿«ç¿»é¡µå¿«æ„Ÿ-_-!!)(å»ºè®®å¼€å¯)..
+    sepP: true,              // ç¿»é¡µæ¨¡å¼ä¸‹.åˆ†éš”ç¬¦.åœ¨ä½¿ç”¨ä¸Šæ»šä¸€é¡µæˆ–ä¸‹æ»šä¸€é¡µçš„æ—¶å€™æ˜¯å¦ä¿æŒç›¸å¯¹ä½ç½®..
+    sepT: true,              // ç¿»é¡µæ¨¡å¼ä¸‹.åˆ†éš”ç¬¦.åœ¨ä½¿ç”¨ä¸Šæ»šä¸€é¡µæˆ–ä¸‹æ»šä¸€é¡µçš„æ—¶å€™ä½¿ç”¨åŠ¨ç”»è¿‡æ¸¡..
+        s_method: 3,            // åŠ¨ç”»æ–¹å¼ 0-10 ä¸€ç§11ç§åŠ¨ç”»æ•ˆæœ..è‡ªå·±è¯•è¯•å§
+        s_ease: 2,              // æ·¡å…¥æ·¡å‡ºæ•ˆæœ 0ï¼šæ·¡å…¥ 1ï¼šæ·¡å‡º 2ï¼šæ·¡å…¥æ·¡å‡º
+        s_FPS: 60,              // å¸§é€Ÿ.(å•ä½:å¸§/ç§’)
+        s_duration: 333,        // åŠ¨ç”»æŒç»­æ—¶é•¿.(å•ä½:æ¯«ç§’);
+    someValue: '',           // æ˜¾ç¤ºåœ¨ç¿»é¡µå¯¼èˆªæœ€å³è¾¹çš„ä¸€ä¸ªå°å¥å­..-_-!!..Powered by Super_preloader éšè—äº†
+    DisableI: true,          // åªåœ¨é¡¶å±‚çª—å£åŠ è½½JS..æå‡æ€§èƒ½..å¦‚æœå¼€å¯äº†è¿™é¡¹,é‚£ä¹ˆDIExcludeæ•°ç»„æœ‰æ•ˆ,é‡Œé¢çš„ç½‘é¡µå³ä½¿ä¸åœ¨é¡¶å±‚çª—å£ä¹Ÿä¼šåŠ è½½....
+    arrowKeyPage: true,      // å…è®¸ä½¿ç”¨ å·¦å³æ–¹å‘é”® ç¿»é¡µ..
+    sepStartN: 2,            // ç¿»é¡µå¯¼èˆªä¸Šçš„,ä»å‡ å¼€å§‹è®¡æ•°.(è²Œä¼¼æœ‰äººåœ¨æ„è¿™ä¸ª,æ‰€ä»¥å¼„ä¸ªå¼€å…³å‡ºæ¥,åæ­£ç®€å•.-_-!!)
 
-    // ĞÂÔö»òĞŞ¸ÄµÄ
-    forceTargetWindow: GM_getValue('forceTargetWindow', true),  // ÏÂÒ»Ò³µÄÁ´½ÓÉèÖÃ³ÉÔÚĞÂ±êÇ©Ò³´ò¿ª
+    // æ–°å¢æˆ–ä¿®æ”¹çš„
+    forceTargetWindow: GM_getValue('forceTargetWindow', true),  // ä¸‹ä¸€é¡µçš„é“¾æ¥è®¾ç½®æˆåœ¨æ–°æ ‡ç­¾é¡µæ‰“å¼€
     debug: GM_getValue('debug', false),
-    enableHistory: GM_getValue('enableHistory', false),    // °ÑÏÂÒ»Ò³Á´½ÓÌí¼Óµ½ÀúÊ·¼ÇÂ¼
-    autoGetPreLink: false,   // Ò»¿ªÊ¼²»×Ô¶¯²éÕÒÉÏÒ»Ò³Á´½Ó£¬¸ÄÎªµ÷ÓÃÊ±ÔÙ²éÕÒ
+    enableHistory: GM_getValue('enableHistory', false),    // æŠŠä¸‹ä¸€é¡µé“¾æ¥æ·»åŠ åˆ°å†å²è®°å½•
+    autoGetPreLink: false,   // ä¸€å¼€å§‹ä¸è‡ªåŠ¨æŸ¥æ‰¾ä¸Šä¸€é¡µé“¾æ¥ï¼Œæ”¹ä¸ºè°ƒç”¨æ—¶å†æŸ¥æ‰¾
     excludes: GM_getValue('excludes', ''),
     custom_siteinfo: GM_getValue('custom_siteinfo', '[]'),
     lazyImgSrc: 'zoomfile|file|original|load-src|_src|imgsrc|real_src|src2|data-lazyload-src|data-ks-lazyload|data-lazyload|data-src|data-original|data-thumb|data-imageurl|data-defer-src|data-placeholder',
 };
 
-// ºÚÃûµ¥,ÍøÕ¾ÕıÔò..
+// é»‘åå•,ç½‘ç«™æ­£åˆ™..
 var blackList=[
-    // Àı×Ó
+    // ä¾‹å­
     // 'http://*.douban.com/*',
 ];
 
@@ -125,94 +126,94 @@ blackList = blackList.concat(prefs.excludes.split(/[\n\r]+/).map(function(line) 
 }));
 
 
-//ÔÚÒÔÏÂÍøÕ¾ÉÏÔÊĞíÔÚ·Ç¶¥²ã´°¿ÚÉÏ¼ÓÔØJS..±ÈÈçÃ¨ÆËÖ®ÀàµÄ¿ò¼Ü¼¯ÍøÒ³.
+//åœ¨ä»¥ä¸‹ç½‘ç«™ä¸Šå…è®¸åœ¨éé¡¶å±‚çª—å£ä¸ŠåŠ è½½JS..æ¯”å¦‚çŒ«æ‰‘ä¹‹ç±»çš„æ¡†æ¶é›†ç½‘é¡µ.
 var DIExclude = [
-    ['Ã¨ÆËÌû×Ó', true, /http:\/\/dzh\.mop\.com\/[a-z]{3,6}\/\d{8}\/.*\.shtml$/i],
-    ['ÌúÑªÉçÇø', true, /^http:\/\/bbs\.tiexue\.net\/.*\.html$/i],
-    ['ÌúÑªÉçÇø-2', true, /^http:\/\/bbs\.qichelian\.com\/bbsqcl\.php\?fid/i],
-    // Ïñ http://so.baiduyun.me/ ÄÚÇ¶µÄ°Ù¶È¡¢Google ¿ò¼Ü
-    ['°Ù¶ÈÍøÅÌËÑË÷ÒıÇæ-°Ù¶È', true, /^https?:\/\/www\.baidu\.com\/baidu/i],
-    ['°Ù¶ÈÍøÅÌËÑË÷ÒıÇæ-Google', true, /^https?:\/\/74\.125\.128\.147\/custom/i],
+    ['çŒ«æ‰‘å¸–å­', true, /http:\/\/dzh\.mop\.com\/[a-z]{3,6}\/\d{8}\/.*\.shtml$/i],
+    ['é“è¡€ç¤¾åŒº', true, /^http:\/\/bbs\.tiexue\.net\/.*\.html$/i],
+    ['é“è¡€ç¤¾åŒº-2', true, /^http:\/\/bbs\.qichelian\.com\/bbsqcl\.php\?fid/i],
+    // åƒ http://so.baiduyun.me/ å†…åµŒçš„ç™¾åº¦ã€Google æ¡†æ¶
+    ['ç™¾åº¦ç½‘ç›˜æœç´¢å¼•æ“-ç™¾åº¦', true, /^https?:\/\/www\.baidu\.com\/baidu/i],
+    ['ç™¾åº¦ç½‘ç›˜æœç´¢å¼•æ“-Google', true, /^https?:\/\/74\.125\.128\.147\/custom/i],
 ];
 
-// Ò³Ãæ²»Ë¢ĞÂµÄÕ¾µã
+// é¡µé¢ä¸åˆ·æ–°çš„ç«™ç‚¹
 var HashchangeSites = [
     { url: /^https?:\/\/(www|encrypted)\.google(stable)?\..{2,9}\/(webhp|#|$|\?)/, timer: 2000, mutationSelector: '#main' },
-    // ÔËÓªÉÌ¿ÉÄÜ»áÔÚ #wd= Ç°ÃæÌí¼Ó ?tn=07084049_pg
+    // è¿è¥å•†å¯èƒ½ä¼šåœ¨ #wd= å‰é¢æ·»åŠ  ?tn=07084049_pg
     { url: /^https?:\/\/www\.baidu\.com\/($|#wd=)/, timer: 1000, mutationSelector: '#wrapper_wrapper' },
     { url: /^https?:\/\/www\.newsmth\.net/, timer: 1000 },
 ];
 
-//////////////////////////---------------¹æÔò-------////////////////
-//·­Ò³ËùÒªµÄÕ¾µãĞÅÏ¢.
-//¸ß¼¶¹æÔòµÄÒ»Ğ©Ä¬ÈÏÉèÖÃ..Èç¹ûÄã²»ÖªµÀÊÇÊ²Ã´..ÇëÎñ±Ø²»ÒªĞŞ¸Ä(É¾³ı)Ëü.´ËĞŞ¸Ä»áÓ°Ïìµ½ËùÓĞ¸ß¼¶¹æÔò...
+//////////////////////////---------------è§„åˆ™-------////////////////
+//ç¿»é¡µæ‰€è¦çš„ç«™ç‚¹ä¿¡æ¯.
+//é«˜çº§è§„åˆ™çš„ä¸€äº›é»˜è®¤è®¾ç½®..å¦‚æœä½ ä¸çŸ¥é“æ˜¯ä»€ä¹ˆ..è¯·åŠ¡å¿…ä¸è¦ä¿®æ”¹(åˆ é™¤)å®ƒ.æ­¤ä¿®æ”¹ä¼šå½±å“åˆ°æ‰€æœ‰é«˜çº§è§„åˆ™...
 var SITEINFO_D={
-    enable: true,               // ÆôÓÃ
-    useiframe: GM_getValue('SITEINFO_D.useiframe') || false,           // (Ô¤¶Á)ÊÇ·ñÊ¹ÓÃiframe..
-    viewcontent: false,         // ²é¿´Ô¤¶ÁµÄÄÚÈİ,ÏÔÊ¾ÔÚÒ³ÃæµÄ×îÏÂ·½.
+    enable: true,               // å¯ç”¨
+    useiframe: GM_getValue('SITEINFO_D.useiframe') || false,           // (é¢„è¯»)æ˜¯å¦ä½¿ç”¨iframe..
+    viewcontent: false,         // æŸ¥çœ‹é¢„è¯»çš„å†…å®¹,æ˜¾ç¤ºåœ¨é¡µé¢çš„æœ€ä¸‹æ–¹.
     autopager: {
-        enable: true,           // ÆôÓÃ×Ô¶¯·­Ò³...
-        force_enable: GM_getValue('SITEINFO_D.autopager.force_enable') || false,  //Ä¬ÈÏÆôÓÃÇ¿ÖÆÆ´½Ó
-        manualA: false,         // ÊÖ¶¯·­Ò³.
-        useiframe: false,       // (·­Ò³)ÊÇ·ñÊ¹ÓÃiframe..
-            iloaded: false,     // ÊÇ·ñÔÚiframeÍêÈ«loadºó²Ù×÷..·ñÔòÔÚDOMÍê³Éºó²Ù×÷
-            itimeout: 0,        // ÑÓÊ±¶àÉÙºÁÃëºó,ÔÚ²Ù×÷..
+        enable: true,           // å¯ç”¨è‡ªåŠ¨ç¿»é¡µ...
+        force_enable: GM_getValue('SITEINFO_D.autopager.force_enable') || false,  //é»˜è®¤å¯ç”¨å¼ºåˆ¶æ‹¼æ¥
+        manualA: false,         // æ‰‹åŠ¨ç¿»é¡µ.
+        useiframe: false,       // (ç¿»é¡µ)æ˜¯å¦ä½¿ç”¨iframe..
+            iloaded: false,     // æ˜¯å¦åœ¨iframeå®Œå…¨loadåæ“ä½œ..å¦åˆ™åœ¨DOMå®Œæˆåæ“ä½œ
+            itimeout: 0,        // å»¶æ—¶å¤šå°‘æ¯«ç§’å,åœ¨æ“ä½œ..
             newIframe: false,
-        remain: 1,              // Ê£ÓàÒ³ÃæµÄ¸ß¶È..ÊÇÏÔÊ¾¸ß¶ÈµÄ remain ±¶¿ªÊ¼·­Ò³..
-        maxpage: 99,            // ×î¶à·­¶àÉÙÒ³..
-        ipages: [false, 2],     // Á¢¼´·­Ò³,µÚÒ»ÏîÊÇ¿ØÖÆÊÇ·ñÔÚjs¼ÓÔØµÄÊ±ºòÁ¢¼´·­µÚ¶şÏî(±ØĞëĞ¡ÓÚmaxpage)µÄÒ³Êı,±ÈÈç[true,3].¾ÍÊÇËµJS¼ÓÔØºó.Á¢¼´·­3Ò³.
-        separator: true,        // ÏÔÊ¾·­Ò³µ¼º½..(ÍÆ¼öÏÔÊ¾.)
-            separatorReal: true,  // ÏÔÊ¾ÕæÊµµÄÒ³Êı
+        remain: 1,              // å‰©ä½™é¡µé¢çš„é«˜åº¦..æ˜¯æ˜¾ç¤ºé«˜åº¦çš„ remain å€å¼€å§‹ç¿»é¡µ..
+        maxpage: 99,            // æœ€å¤šç¿»å¤šå°‘é¡µ..
+        ipages: [false, 2],     // ç«‹å³ç¿»é¡µ,ç¬¬ä¸€é¡¹æ˜¯æ§åˆ¶æ˜¯å¦åœ¨jsåŠ è½½çš„æ—¶å€™ç«‹å³ç¿»ç¬¬äºŒé¡¹(å¿…é¡»å°äºmaxpage)çš„é¡µæ•°,æ¯”å¦‚[true,3].å°±æ˜¯è¯´JSåŠ è½½å.ç«‹å³ç¿»3é¡µ.
+        separator: true,        // æ˜¾ç¤ºç¿»é¡µå¯¼èˆª..(æ¨èæ˜¾ç¤º.)
+            separatorReal: true,  // æ˜¾ç¤ºçœŸå®çš„é¡µæ•°
     }
 };
 
-//¸ßÓÅÏÈ¼¶¹æÔò,µÚÒ»¸öÊÇ½Ì³Ì.
+//é«˜ä¼˜å…ˆçº§è§„åˆ™,ç¬¬ä¸€ä¸ªæ˜¯æ•™ç¨‹.
 var SITEINFO=[
-    {name: 'GoogleËÑË÷',                                                                                                                               //Õ¾µãÃû×Ö...(¿ÉÑ¡)
-        url: '^https?://(?:(?:www|encrypted)\\.google(?:stable)?\\..{2,9}|wen\\.lu)/(?:webhp|search|#|$|\\?)',   // Õ¾µãÕıÔò...(~~±ØĞë~~)
+    {name: 'Googleæœç´¢',                                                                                                                               //ç«™ç‚¹åå­—...(å¯é€‰)
+        url: '^https?://(?:(?:www|encrypted)\\.google(?:stable)?\\..{2,9}|wen\\.lu)/(?:webhp|search|#|$|\\?)',   // ç«™ç‚¹æ­£åˆ™...(~~å¿…é¡»~~)
         //url:'wildc;http://www.google.com.hk/search*',
-        siteExample:'http://www.google.com',                                                                                                //Õ¾µãÊµÀı...(¿ÉÑ¡)
-        enable:true,                                                                                                                                            //ÆôÓÃ.(×Ü¿ª¹Ø)(¿ÉÑ¡)
-        useiframe:false,                                                                                                                                        //ÊÇ·ñÓÃiframeÔ¤¶Á...(¿ÉÑ¡)
+        siteExample:'http://www.google.com',                                                                                                //ç«™ç‚¹å®ä¾‹...(å¯é€‰)
+        enable:true,                                                                                                                                            //å¯ç”¨.(æ€»å¼€å…³)(å¯é€‰)
+        useiframe:false,                                                                                                                                        //æ˜¯å¦ç”¨iframeé¢„è¯»...(å¯é€‰)
         viewcontent:false,
 
-        nextLink: 'id("pnnext") | id("navbar navcnt nav")//td[span]/following-sibling::td[1]/a | id("nn")/parent::a',                                                                                                                           //²é¿´Ô¤¶ÁµÄÄÚÈİ,ÏÔÊ¾ÔÚÒ³ÃæµÄ×îÏÂ·½.(¿ÉÑ¡)
+        nextLink: 'id("pnnext") | id("navbar navcnt nav")//td[span]/following-sibling::td[1]/a | id("nn")/parent::a',                                                                                                                           //æŸ¥çœ‹é¢„è¯»çš„å†…å®¹,æ˜¾ç¤ºåœ¨é¡µé¢çš„æœ€ä¸‹æ–¹.(å¯é€‰)
         // nextLink:'auto;',
-        //nextLink:'//table[@id="nav"]/descendant::a[last()][parent::td[@class="b"]]',              //ÏÂÒ»Ò³Á´½Ó xpath »òÕß CSSÑ¡ÔñÆ÷ »òÕß º¯Êı·µ»ØÖµ(´Ëº¯Êı±ØĞëÊ¹ÓÃµÚÒ»¸ö´«ÈëµÄ²ÎÊı×÷Îªdocument¶ÔÏó) (~~±ØÑ¡~~)
+        //nextLink:'//table[@id="nav"]/descendant::a[last()][parent::td[@class="b"]]',              //ä¸‹ä¸€é¡µé“¾æ¥ xpath æˆ–è€… CSSé€‰æ‹©å™¨ æˆ–è€… å‡½æ•°è¿”å›å€¼(æ­¤å‡½æ•°å¿…é¡»ä½¿ç”¨ç¬¬ä¸€ä¸ªä¼ å…¥çš„å‚æ•°ä½œä¸ºdocumentå¯¹è±¡) (~~å¿…é€‰~~)
         //nextLink:'css;table#nav>tbody>tr>td.b:last-child>a',
         //nextLink:function(D,W){return D.evaluate('//table[@id="nav"]/descendant::a[last()][parent::td[@class="b"]]',D,null,XPathResult.FIRST_ORDERED_NODE_TYPE,null).singleNodeValue;},
-        // ĞÂÔö Array µÄ¸ñÊ½£¬ÒÀ´Î²éÕÒ
+        // æ–°å¢ Array çš„æ ¼å¼ï¼Œä¾æ¬¡æŸ¥æ‰¾
 
         // preLink:'auto;',
         preLink: '//a[@id="pnprev"]',
-        //preLink:'//table[@id="nav"]/descendant::a[1][parent::td[@class="b"]]',            //ÉÏÒ»Ò³Á´½Ó xpath »òÕß CSSÑ¡ÔñÆ÷ »òÕß º¯Êı·µ»ØÖµ (¿ÉÑ¡)
+        //preLink:'//table[@id="nav"]/descendant::a[1][parent::td[@class="b"]]',            //ä¸Šä¸€é¡µé“¾æ¥ xpath æˆ–è€… CSSé€‰æ‹©å™¨ æˆ–è€… å‡½æ•°è¿”å›å€¼ (å¯é€‰)
         autopager:{
-            enable:true ,                                                                                               //ÆôÓÃ(×Ô¶¯·­Ò³)(¿ÉÑ¡)
-            useiframe:false,                                                                                        //ÊÇ·ñÊ¹ÓÃiframe·­Ò³(¿ÉÑ¡)
-                iloaded:false,                                                                                      //ÊÇ·ñÔÚiframeÍêÈ«loadÖ®ºó²Ù×÷..·ñÔòÔÚDOMÍê³Éºó²Ù×÷.
-                itimeout:0,                                                                                             //ÑÓÊ±¶àÉÙºÁÃëºó,ÔÚ²Ù×÷..
-                newIframe: false,  // ÏÂÒ»Ò³Ê¹ÓÃĞÂµÄ iframe£¬ÄÜ½â¾ö°´Å¥ÎŞ·¨µã»÷µÄÎÊÌâ
-            pageElement: '//div[@id="ires"]',                                          //Ö÷ÌåÄÚÈİ xpath »ò CSSÑ¡ÔñÆ÷ »òº¯Êı·µ»ØÖµ(~~±ØĞë~~)
+            enable:true ,                                                                                               //å¯ç”¨(è‡ªåŠ¨ç¿»é¡µ)(å¯é€‰)
+            useiframe:false,                                                                                        //æ˜¯å¦ä½¿ç”¨iframeç¿»é¡µ(å¯é€‰)
+                iloaded:false,                                                                                      //æ˜¯å¦åœ¨iframeå®Œå…¨loadä¹‹åæ“ä½œ..å¦åˆ™åœ¨DOMå®Œæˆåæ“ä½œ.
+                itimeout:0,                                                                                             //å»¶æ—¶å¤šå°‘æ¯«ç§’å,åœ¨æ“ä½œ..
+                newIframe: false,  // ä¸‹ä¸€é¡µä½¿ç”¨æ–°çš„ iframeï¼Œèƒ½è§£å†³æŒ‰é’®æ— æ³•ç‚¹å‡»çš„é—®é¢˜
+            pageElement: '//div[@id="ires"]',                                          //ä¸»ä½“å†…å®¹ xpath æˆ– CSSé€‰æ‹©å™¨ æˆ–å‡½æ•°è¿”å›å€¼(~~å¿…é¡»~~)
             // pageElement:'css;div#ires',
             //pageElement:function(doc,win){return doc.getElementById('ires')},
-            //filter:'//li[@class="g"]',                                                                        //(´ËÏî¹¦ÄÜÎ´Íê³É)xpath »ò CSSÑ¡ÔñÆ÷´ÓÆ¥Åäµ½µÄ½ÚµãÀïÃæ¹ıÂËµô·ûºÏµÄ½Úµã.
-            remain: 1/3,                                                                                                 //Ê£ÓàÒ³ÃæµÄ¸ß¶È..ÊÇÏÔÊ¾¸ß¶ÈµÄ remain ±¶¿ªÊ¼·­Ò³(¿ÉÑ¡)
-                relatedObj: ['css;div#navcnt','bottom'],                                                         //ÒÔÕâ¸öÔªËØµ±×ö×îµ×µÄÔªËØ,¼ÆËãÒ³Ãæ×Ü¸ß¶ÈµÄ¼ÆËã.(¿ÉÑ¡)
-            replaceE: '//div[@id="navcnt"]',                 //ĞèÒªÌæ»»µÄ²¿·Ö xpat h»ò CSSÑ¡ÔñÆ÷ Ò»°ãÊÇÒ³ÃæµÄ±¾À´µÄ·­Ò³µ¼º½(¿ÉÑ¡);
+            //filter:'//li[@class="g"]',                                                                        //(æ­¤é¡¹åŠŸèƒ½æœªå®Œæˆ)xpath æˆ– CSSé€‰æ‹©å™¨ä»åŒ¹é…åˆ°çš„èŠ‚ç‚¹é‡Œé¢è¿‡æ»¤æ‰ç¬¦åˆçš„èŠ‚ç‚¹.
+            remain: 1/3,                                                                                                 //å‰©ä½™é¡µé¢çš„é«˜åº¦..æ˜¯æ˜¾ç¤ºé«˜åº¦çš„ remain å€å¼€å§‹ç¿»é¡µ(å¯é€‰)
+                relatedObj: ['css;div#navcnt','bottom'],                                                         //ä»¥è¿™ä¸ªå…ƒç´ å½“åšæœ€åº•çš„å…ƒç´ ,è®¡ç®—é¡µé¢æ€»é«˜åº¦çš„è®¡ç®—.(å¯é€‰)
+            replaceE: '//div[@id="navcnt"]',                 //éœ€è¦æ›¿æ¢çš„éƒ¨åˆ† xpat hæˆ– CSSé€‰æ‹©å™¨ ä¸€èˆ¬æ˜¯é¡µé¢çš„æœ¬æ¥çš„ç¿»é¡µå¯¼èˆª(å¯é€‰);
             //replaceE:'css;div#navcnt',
-            ipages: [false,3],                               //Á¢¼´·­Ò³,µÚÒ»ÏîÊÇ¿ØÖÆÊÇ·ñÔÚjs¼ÓÔØµÄÊ±ºòÁ¢¼´·­µÚ¶şÏî(±ØĞëĞ¡ÓÚmaxpage)µÄÒ³Êı,±ÈÈç[true,3].¾ÍÊÇËµJS¼ÓÔØºó.Á¢¼´·­3Ò³.(¿ÉÑ¡)
-            separator: true,                                 //ÊÇ·ñÏÔÊ¾·­Ò³µ¼º½(¿ÉÑ¡)
+            ipages: [false,30],                               //ç«‹å³ç¿»é¡µ,ç¬¬ä¸€é¡¹æ˜¯æ§åˆ¶æ˜¯å¦åœ¨jsåŠ è½½çš„æ—¶å€™ç«‹å³ç¿»ç¬¬äºŒé¡¹(å¿…é¡»å°äºmaxpage)çš„é¡µæ•°,æ¯”å¦‚[true,3].å°±æ˜¯è¯´JSåŠ è½½å.ç«‹å³ç¿»3é¡µ.(å¯é€‰)
+            separator: true,                                 //æ˜¯å¦æ˜¾ç¤ºç¿»é¡µå¯¼èˆª(å¯é€‰)
                 separatorReal: true,
-            maxpage: 66,                                     //×î¶à·­Ò³ÊıÁ¿(¿ÉÑ¡)
-            manualA: false,                                  //ÊÇ·ñÊ¹ÓÃÊÖ¶¯·­Ò³.
-            HT_insert: ['//div[@id="res"]',2],               //²åÈë·½Ê½´ËÏîÎªÒ»¸öÊı×é: [½Úµãxpath»òCSSÑ¡ÔñÆ÷,²åÈë·½Ê½(1£º²åÈëµ½¸ø¶¨½ÚµãÖ®Ç°;2£º¸½¼Óµ½¸ø¶¨½ÚµãµÄÀïÃæ;)](¿ÉÑ¡);
+            maxpage: 66,                                     //æœ€å¤šç¿»é¡µæ•°é‡(å¯é€‰)
+            manualA: false,                                  //æ˜¯å¦ä½¿ç”¨æ‰‹åŠ¨ç¿»é¡µ.
+            HT_insert: ['//div[@id="res"]',2],               //æ’å…¥æ–¹å¼æ­¤é¡¹ä¸ºä¸€ä¸ªæ•°ç»„: [èŠ‚ç‚¹xpathæˆ–CSSé€‰æ‹©å™¨,æ’å…¥æ–¹å¼(1ï¼šæ’å…¥åˆ°ç»™å®šèŠ‚ç‚¹ä¹‹å‰;2ï¼šé™„åŠ åˆ°ç»™å®šèŠ‚ç‚¹çš„é‡Œé¢;)](å¯é€‰);
             //HT_insert:['css;div#res',2],
             lazyImgSrc: 'imgsrc',
-            // ĞÂÔöµÄ×Ô¶¨ÒåÑùÊ½¡£ÏÂÃæÕâ¸öÊÇµ÷Õû Google ÏÂÒ»Ò³¿ÉÄÜ³öÏÖµÄÍ¼Æ¬ÅÅÁĞÎÊÌâ¡£
+            // æ–°å¢çš„è‡ªå®šä¹‰æ ·å¼ã€‚ä¸‹é¢è¿™ä¸ªæ˜¯è°ƒæ•´ Google ä¸‹ä¸€é¡µå¯èƒ½å‡ºç°çš„å›¾ç‰‡æ’åˆ—é—®é¢˜ã€‚
             stylish: 'hr.rgsep{display:none;}' +
                 '.rg_meta{display:none}.bili{display:inline-block;margin:0 6px 6px 0;overflow:hidden;position:relative;vertical-align:top}._HG{margin-bottom:2px;margin-right:2px}',
             documentFilter: function(doc){
-                // ĞŞÕıÏÂÒ»Ò³µÄÍ¼Æ¬
+                // ä¿®æ­£ä¸‹ä¸€é¡µçš„å›¾ç‰‡
                 var x = doc.evaluate('//script/text()[contains(self::text(), "data:image/")]', doc, null, 9, null).singleNodeValue;
                 if (x) {
                     try {
@@ -220,18 +221,18 @@ var SITEINFO=[
                     } catch (e) {}
                 }
 
-                // ĞŞÕı¿ÉÄÜ³öÏÖµÄ Ğ¡¼ıÍ·¸ü¶à°´Å¥ ÅÅ°æ²»ÕıÈ·µÄÇé¿ö£¨2014-7-29£©
+                // ä¿®æ­£å¯èƒ½å‡ºç°çš„ å°ç®­å¤´æ›´å¤šæŒ‰é’® æ’ç‰ˆä¸æ­£ç¡®çš„æƒ…å†µï¼ˆ2014-7-29ï¼‰
                 var oClassName = window.document.querySelector('#ires .ab_button').className;
                 [].forEach.call(doc.querySelectorAll('#ires .ab_button'), function(elem){
                     if (elem.className != oClassName)
                         elem.className = oClassName;
                 });
             },
-            filter: function() {  // ÔÚÌí¼ÓÄÚÈİµ½Ò³ÃæºóÔËĞĞ
+            filter: function() {  // åœ¨æ·»åŠ å†…å®¹åˆ°é¡µé¢åè¿è¡Œ
 
             },
-            startFilter: function(win, doc) {  // Ö»×÷ÓÃÒ»´Î
-                // ÒÆ³ı Google ÖØ¶¨Ïò
+            startFilter: function(win, doc) {  // åªä½œç”¨ä¸€æ¬¡
+                // ç§»é™¤ Google é‡å®šå‘
                 var script = doc.createElement('script');
                 script.type = 'text/javascript';
                 script.textContent = '\
@@ -246,7 +247,7 @@ var SITEINFO=[
                 doc.documentElement.appendChild(script);
                 doc.documentElement.removeChild(script);
 
-                // ÒÆ¶¯Ïà¹ØËÑË÷µ½µÚÒ»Ò³
+                // ç§»åŠ¨ç›¸å…³æœç´¢åˆ°ç¬¬ä¸€é¡µ
                 var brs = doc.getElementById('brs'),
                     ins = doc.getElementById('ires');
                 if (brs && ins) {
@@ -255,41 +256,41 @@ var SITEINFO=[
             }
         }
     },
-    {name: '°Ù¶ÈËÑË÷',
-        // ÓÉÓÚ Super_preloader Ä¬ÈÏÈ¥µôÁË # ºóÃæ²¿·Ö
+    {name: 'ç™¾åº¦æœç´¢',
+        // ç”±äº Super_preloader é»˜è®¤å»æ‰äº† # åé¢éƒ¨åˆ†
         // url: "^https?://www\\.baidu\\.com/(s|baidu|#wd=)",
         url: "^https?://www\\.baidu\\.com/",
         enable:true,
-        nextLink:'//div[@id="page"]/a[contains(text(),"ÏÂÒ»Ò³")][@href]',
-        preLink:'//div[@id="page"]/a[contains(text(),"ÉÏÒ»Ò³")][@href]',
+        nextLink:'//div[@id="page"]/a[contains(text(),"ä¸‹ä¸€é¡µ")][@href]',
+        preLink:'//div[@id="page"]/a[contains(text(),"ä¸Šä¸€é¡µ")][@href]',
         autopager: {
             pageElement: 'css;div#content_left > *',
             HT_insert:['css;div#content_left',2],
             replaceE: 'css;#page',
             stylish: '.autopagerize_page_info, div.sp-separator {margin-bottom: 10px !important;}',
             startFilter: function(win) {
-                // ÉèÖÃ°Ù¶ÈËÑË÷ÀàĞÍÎª s?wd=
+                // è®¾ç½®ç™¾åº¦æœç´¢ç±»å‹ä¸º s?wd=
                 try {
                     win.document.cookie = "ISSW=1";
                 } catch (ex) {}
             }
         }
     },
-    {name: '°Ù¶ÈËÑË÷ - baidulocal',
+    {name: 'ç™¾åº¦æœç´¢ - baidulocal',
         url: '^https?://www\\.baidu\\.com/s.*&tn=baidulocal',
-        nextLink: '//a[font[text()="ÏÂÒ»Ò³"]]',
+        nextLink: '//a[font[text()="ä¸‹ä¸€é¡µ"]]',
         pageElement: '//table[@width="100%" and @border="0"]/tbody/tr/td/ol',
         exampleUrl: 'http://www.baidu.com/s?wd=firefox&rsv_spt=1&issp=1&rsv_bp=0&ie=utf-8&tn=baidulocal&inputT=1364',
     },
-    {name: '360ËÑË÷',
+    {name: '360æœç´¢',
         url: "http://www\\.so\\.com/s",
-        nextLink:'//div[@id="page"]/a[text()="ÏÂÒ»Ò³>"] | id("snext")',
+        nextLink:'//div[@id="page"]/a[text()="ä¸‹ä¸€é¡µ>"] | id("snext")',
         autopager:{
             pageElement:'//div[@id="container"]',
             stylish: '.autopagerize_page_info, div.sp-separator { margin-bottom: 20px !important; }'
         }
     },
-    {name: 'ËÑ¹·ËÑË÷',
+    {name: 'æœç‹—æœç´¢',
         url:/^https?:\/\/www\.sogou\.com\/(?:web|sogou)/i,
         siteExample:'http://www.sogou.com',
         enable:true,
@@ -299,7 +300,7 @@ var SITEINFO=[
             replaceE: 'id("pagebar_container")'
         }
     },
-    {name: 'BingÍøÒ³ËÑË÷',
+    {name: 'Bingç½‘é¡µæœç´¢',
         url:/bing\.com\/search\?q=/i,
         siteExample:'bing.com/search?q=',
         nextLink:'//nav[@aria-label="navigation"]/descendant::a[last()][@class="sb_pagN"]',
@@ -308,16 +309,16 @@ var SITEINFO=[
             replaceE: '//nav[@aria-label="navigation"]'
         }
     },
-    {name: 'ÓĞµÀÍøÒ³ËÑË÷',
+    {name: 'æœ‰é“ç½‘é¡µæœç´¢',
         url: /http:\/\/www\.youdao\.com\/search\?/i,
         siteExample: 'http://www.youdao.com/search?',
-        nextLink: '//div[@class="c-pages"]/a[text()="ÏÂÒ»Ò³"]',
+        nextLink: '//div[@class="c-pages"]/a[text()="ä¸‹ä¸€é¡µ"]',
         autopager: {
             pageElement: '//ol[@id="results"]',
             replaceE: 'id("resc")/div[@class="c-pages"]'
         }
     },
-    {name: 'SoSoÍøÒ³ËÑË÷',
+    {name: 'SoSoç½‘é¡µæœç´¢',
         url:/http:\/\/www\.soso\.com\/q/i,
         siteExample:'http://www.soso.com/q',
         nextLink:'//div[@class="pg"]/descendant::a[last()][@class="next"]',
@@ -335,7 +336,7 @@ var SITEINFO=[
             replaceE: '//div[@class="pagination"]',
         }
     },
-    {name: 'AOL ËÑË÷',
+    {name: 'AOL æœç´¢',
         url: '^http://(www\\.)aolsearch.com/search\\?.+?[?&]q=',
         siteExample: 'http://www.aolsearch.com/search?q=test',
         nextLink: '//a[span[@class="nextRes"][text()="Next"]]',
@@ -343,7 +344,7 @@ var SITEINFO=[
             pageElement: '//*[@id="c"]/div'
         }
     },
-    {name: '¹ÈËÑ¿Í',
+    {name: 'è°·æœå®¢',
        url: /^https?:\/\/gusouk\.com\/search/i,
        siteExample: 'http://gusouk.com/search?q=firefox',
        nextLink: 'auto;',
@@ -351,7 +352,7 @@ var SITEINFO=[
            pageElement: '//div[@class="search_result"]'
        }
     },
-    {name: 'tmd123ËÑË÷',  // www.tmd123.com
+    {name: 'tmd123æœç´¢',  // www.tmd123.com
        url: /^https?:\/\/54\.64\.24\.234\/search/i,
        siteExample: 'http://54.64.24.234/search/?q=firefox',
        nextLink: 'auto;',
@@ -367,16 +368,16 @@ var SITEINFO=[
         }
     },
 
-    // ====== Ä¿Ç° Super_preloaderPlus_one »¹ÓĞÎÊÌâµÄ ========
-    {name: 'Ë®Ä¾ÉçÇø',
+    // ====== ç›®å‰ Super_preloaderPlus_one è¿˜æœ‰é—®é¢˜çš„ ========
+    {name: 'æ°´æœ¨ç¤¾åŒº',
         url: '^http://www\\.newsmth\\.net/nForum',
-        nextLink: '//a[@title="ÏÂÒ»Ò³"]',
+        nextLink: '//a[@title="ä¸‹ä¸€é¡µ"]',
         pageElement: '//div[@class="b-content"] | //div[@class="b-content corner"]',
         exampleUrl: 'http://www.newsmth.net/nForum/#!board/TouHou'
     },
 
-    // =============== baidu ÆäËü ===========
-    {name: '°Ù¶ÈÌù°ÉÁĞ±í',
+    // =============== baidu å…¶å®ƒ ===========
+    {name: 'ç™¾åº¦è´´å§åˆ—è¡¨',
         url: /^http:\/\/tieba\.baidu\.(cn|com)\/f/i,
         nextLink: '//div[@class="pager clearfix"]/descendant::a[@class="next"]',
         preLink: '//div[@class="pager clearfix"]/descendant::a[@class="pre"]',
@@ -390,11 +391,11 @@ var SITEINFO=[
             // lazyImgSrc: "bpic",
         }
     },
-    {name: '°Ù¶ÈÌù°ÉÌû×Ó',
+    {name: 'ç™¾åº¦è´´å§å¸–å­',
         url:/^http:\/\/tieba\.baidu\.com\/p/i,
         siteExample:'http://tieba.baidu.com/p/918674650',
-        nextLink:'//ul[@class="l_posts_num"]/descendant::a[text()="ÏÂÒ»Ò³"]',
-        preLink:'//ul[@class="l_posts_num"]/descendant::a[text()="ÉÏÒ»Ò³"]',
+        nextLink:'//ul[@class="l_posts_num"]/descendant::a[text()="ä¸‹ä¸€é¡µ"]',
+        preLink:'//ul[@class="l_posts_num"]/descendant::a[text()="ä¸Šä¸€é¡µ"]',
         autopager:{
             enable: false,
             pageElement: "id('j_p_postlist')",  // "css;.l_post"
@@ -408,24 +409,24 @@ var SITEINFO=[
             // }
         }
     },
-    {name: '°Ù¶È°ÉÄÚËÑË÷',
+    {name: 'ç™¾åº¦å§å†…æœç´¢',
         url: /^http:\/\/tieba\.baidu\.com\/f\/search/i,
         siteExample: 'http://tieba.baidu.com/f/search/',
         nextLink: 'auto;',
         pageElement: 'css;.s_post'
     },
-    {name: '°Ù¶ÈĞÂÎÅËÑË÷',
+    {name: 'ç™¾åº¦æ–°é—»æœç´¢',
         url: '^http://news\\.baidu\\.(?:[^.]{2,3}\\.)?[^./]{2,3}/ns',
-        nextLink: 'id("page")/a[text()="ÏÂÒ»Ò³>"]',
+        nextLink: 'id("page")/a[text()="ä¸‹ä¸€é¡µ>"]',
         pageElement: 'id("content_left")',
     },
-    {name: '°Ù¶ÈÖªµÀ',
+    {name: 'ç™¾åº¦çŸ¥é“',
         url:/^https?:\/\/zhidao\.baidu\.com\/search\?/i,
         siteExample:'http://zhidao.baidu.com/search?pn=0&&rn=10&word=%BD%AD%C4%CFstyle',
         nextLink:'auto;',
         pageElement:'css;#wgt-list',
     },
-    {name: '°Ù¶È¿Õ¼ä',
+    {name: 'ç™¾åº¦ç©ºé—´',
         url: '^http://hi\\.baidu\\.com',
         nextLink: 'id("pagerBar")/div/a[@class="next"]',
         autopager: {
@@ -434,7 +435,7 @@ var SITEINFO=[
         },
         exampleUrl: 'http://hi.baidu.com/gelida',
     },
-    {name: '°Ù¶ÈÎÄ¿âËÑË÷',
+    {name: 'ç™¾åº¦æ–‡åº“æœç´¢',
         url: /^http:\/\/wenku\.baidu\.com\/search\?/i,
         exampleUrl: 'http://wenku.baidu.com/search?word=firefox&lm=0&od=0&fr=top_home',
         nextLink: '//div[@class="page-content"]/a[@class="next"]',
@@ -443,17 +444,17 @@ var SITEINFO=[
         }
     },
 
-    // ================ news¡¢Reading ===========================
-    {name: 'ĞÂÀËĞÂÎÅ',
+    // ================ newsã€Reading ===========================
+    {name: 'æ–°æµªæ–°é—»',
         url: /^http:\/\/[a-z]+\.sina\.com\.cn\//i,
         exampleUrl: 'http://news.sina.com.cn/c/sd/2013-11-08/165728658916.shtml',
-        nextLink: '//p[@class="page"]/a[text()="ÏÂÒ»Ò³"]',
+        nextLink: '//p[@class="page"]/a[text()="ä¸‹ä¸€é¡µ"]',
         autopager: {
             pageElement: '//div[@id="artibody"]',
             relatedObj: true,
         }
     },
-    {name: 'ËÑºüĞÂÎÅ',
+    {name: 'æœç‹æ–°é—»',
         url: /^http:\/\/news\.sohu\.com\/.*\.shtml/i,
         exampleUrl: 'http://news.sohu.com/20120901/n352071543.shtml',
         nextLink: 'auto;',
@@ -461,26 +462,26 @@ var SITEINFO=[
             pageElement: 'id("contentText")',
         }
     },
-    {name: 'ĞÂ»ªÍøĞÂÎÅÒ³Ãæ',
+    {name: 'æ–°åç½‘æ–°é—»é¡µé¢',
         url:/http:\/\/news\.xinhuanet\.com\/.+\/\d+-/i,
         siteExample:'http://news.xinhuanet.com/politics/2010-07/19/c_12347755.htm',
-        nextLink:'//div[@id="div_currpage"]/a[text()="ÏÂÒ»Ò³"]',
+        nextLink:'//div[@id="div_currpage"]/a[text()="ä¸‹ä¸€é¡µ"]',
         autopager:{
             remain:2,
             pageElement:'//table[@id="myTable"] | id("content")'
         }
     },
-    {name: 'ÌÚÑ¶Íø-´ó³ÉÍø,ĞÂÎÅ',
+    {name: 'è…¾è®¯ç½‘-å¤§æˆç½‘,æ–°é—»',
         url: /^http:\/\/[a-z]+\.qq\.com\/.*\.htm/i,
         exampleUrl: 'http://cd.qq.com/a/20131119/002713.htm',
-        nextLink: 'id("ArtPLink")/ul/li/a[text()="ÏÂÒ»Ò³"]',
+        nextLink: 'id("ArtPLink")/ul/li/a[text()="ä¸‹ä¸€é¡µ"]',
         autopager: {
             pageElement: 'id("Cnt-Main-Article-QQ")',
             relatedObj: true,
             replaceE: "css;#ArtPLink"
         }
     },
-    {name: '´ó³ÉÉçÇø',
+    {name: 'å¤§æˆç¤¾åŒº',
         url: /^http:\/\/[a-z]+\.qq\.com\/(?:forum\.php|.*\.htm)/i,
         exampleUrl: 'http://mycd.qq.com/forum.php?mod=forumdisplay&fid=1001037360&page=',
         nextLink: '//div[@class="pgb"]/a[@class="nxt"]',
@@ -490,10 +491,10 @@ var SITEINFO=[
             lazyImgSrc: 'zoomfile'
         }
     },
-    {name: 'ÖĞ¹úĞÂÎÅÍø',
+    {name: 'ä¸­å›½æ–°é—»ç½‘',
         url:/http:\/\/www\.chinanews\.com\/[a-z]+\/.+\.shtml/i,
-        siteExample:'http://www.chinanews.com/Ó¢ÎÄ/Äê/ÈÕÆÚ/±àºÅ.shtml',
-        nextLink: '//div[@id="function_code_page"]/a[text()="ÏÂÒ»Ò³"]',
+        siteExample:'http://www.chinanews.com/è‹±æ–‡/å¹´/æ—¥æœŸ/ç¼–å·.shtml',
+        nextLink: '//div[@id="function_code_page"]/a[text()="ä¸‹ä¸€é¡µ"]',
         autopager:{
             pageElement:'//div[@class="left_zw"] | //div[@class="hd_photo"]',
             relatedObj: true,
@@ -501,7 +502,7 @@ var SITEINFO=[
             filter:'//div[@id="function_code_page"]',
         }
     },
-    {name: 'ÈËÃñÍøĞÂÎÅ',
+    {name: 'äººæ°‘ç½‘æ–°é—»',
         url: /^http:\/\/[a-z]+\.people\.com\.cn\/.*\.html/i,
         exampleUrl: 'http://ent.people.com.cn/n/2013/0823/c1012-22672732-2.html',
         nextLink: 'auto;',
@@ -510,27 +511,27 @@ var SITEINFO=[
             relatedObj: true
         }
     },
-    {name: 'ÖĞ¹Ø´åÔÚÏßĞÂÎÅÒ³Ãæ',
+    {name: 'ä¸­å…³æ‘åœ¨çº¿æ–°é—»é¡µé¢',
         url:/http:\/\/(?:[^\.]+\.)?zol\.com\.cn\/\d+\/\d+/i,
         siteExample:'http://lcd.zol.com.cn/187/1875145.html',
-        nextLink: '//div[@class="page"]/a[text()="ÏÂÒ»Ò³"]',
+        nextLink: '//div[@class="page"]/a[text()="ä¸‹ä¸€é¡µ"]',
         autopager:{
             pageElement:'//div[@id="cotent_idd" or @id="article-content"]',
             relatedObj: true,
             replaceE: 'css;.page'
         }
     },
-    {name: 'FTÖĞÎÄÍø',
+    {name: 'FTä¸­æ–‡ç½‘',
         url: /^http:\/\/www\.ftchinese\.com\/story\//i,
         exampleUrl: 'http://www.ftchinese.com/story/001053472',
-        nextLink: '//div[@class="pagination"]/a[text()="ÓàÏÂÈ«ÎÄ"]',
+        nextLink: '//div[@class="pagination"]/a[text()="ä½™ä¸‹å…¨æ–‡"]',
         autopager: {
             pageElement: '//div[@id="bodytext"]',
             relatedObj: true,
             replaceE: '//div[@class="pagination"]'
         }
     },
-    {name: 'Solidot: Ææ¿ÍµÄ×ÊÑ¶£¬ÖØÒªµÄ¶«Î÷',
+    {name: 'Solidot: å¥‡å®¢çš„èµ„è®¯ï¼Œé‡è¦çš„ä¸œè¥¿',
         url: /^http:\/\/www\.solidot\.org\//i,
         exampleUrl: 'http://www.solidot.org/?issue=20131205',
         nextLink: 'id("center")/div[@class="page"]/a[last()]',
@@ -539,7 +540,7 @@ var SITEINFO=[
             separatorReal: false
         }
     },
-    {name: 'IT Ö®¼Ò',
+    {name: 'IT ä¹‹å®¶',
         url: /^http:\/\/\w+\.ithome\.com\//i,
         nextLink: 'id("Pager")/div[@class="pagenew"]/a[text()=">"]',
         autopager: {
@@ -547,22 +548,22 @@ var SITEINFO=[
             replaceE: 'id("Pager")/div[@class="pagenew"]'
         }
     },
-    {name: '»¢ĞáÍø',
+    {name: 'è™å—…ç½‘',
         url: "^http://www\\.huxiu\\.com/",
         nextLink: '//span[@class="next"]/a[text()=">"]',
         pageElement: '//div[@class="center-ctr-box"]'
     },
-    {name: '36ë´',
+    {name: '36æ°ª',
         url: "^http://www\\.36kr\\.com/.+",
         nextLink: '//a[@rel="next"]',
         pageElement: 'id("mainContainer")/descendant::div[contains(concat(" ", @class, ""),"krContent")]'
     },
-    {name: '°®·¶¶ù ¡¤ Beats of Bits - ·¢ÏÖ´´ĞÂ¼ÛÖµµÄ¿Æ¼¼Ã½Ìå',
+    {name: 'çˆ±èŒƒå„¿ Â· Beats of Bits - å‘ç°åˆ›æ–°ä»·å€¼çš„ç§‘æŠ€åª’ä½“',
         url: "^http://www\\.ifanr\\.com/",
-        nextLink: '//div[@class="content-nav"]/a[text()="ÏÂÒ»Ò³"]',
+        nextLink: '//div[@class="content-nav"]/a[text()="ä¸‹ä¸€é¡µ"]',
         pageElement: 'id("content")/div[contains(concat(" ", @class, ""), "main")]'
     },
-    {name: '´´Òµ°ï',
+    {name: 'åˆ›ä¸šå¸®',
         url: /^http:\/\/www\.cyzone\.cn\//i,
         exampleUrl: 'http://www.cyzone.cn/',
         nextLink: 'id("pages")/*[@class="current"]/following-sibling::a[1]',
@@ -570,26 +571,26 @@ var SITEINFO=[
             pageElement: '//div[@class="left"]/div[starts-with(@class, "intere")]/ul[@class="list clearfix"]',
         }
     },
-    {name: 'ÂÜ²·Íø',
+    {name: 'èåœç½‘',
         url: /^http:\/\/luo\.bo\//i,
         exampleUrl: 'http://luo.bo/',
-        nextLink: '//div[@class="pagenavi"]/a[text()="ÏÂÒ»Ò³"]',
+        nextLink: '//div[@class="pagenavi"]/a[text()="ä¸‹ä¸€é¡µ"]',
         autopager: {
             pageElement: '//div[@class="homeposts"]/ul[contains(@class, "explist homelist")] | //div[@class="container"]/div[@class="content"]',
             replaceE: '//div[@class="pagenavi"]'
         }
     },
-    {name: '°®»îÍø Evolife.cn_¿Æ¼¼½ø»¯Éú»î',
+    {name: 'çˆ±æ´»ç½‘ Evolife.cn_ç§‘æŠ€è¿›åŒ–ç”Ÿæ´»',
         url: /^http:\/\/[a-z]+\.evolife\.cn\//i,
         exampleUrl: 'http://go.evolife.cn/category/focus_121_1.html',
-        nextLink: '//div[contains(@class, "pages")]/a[text()="ÏÂÒ»Ò³" or contains(text(), ">")]',
+        nextLink: '//div[contains(@class, "pages")]/a[text()="ä¸‹ä¸€é¡µ" or contains(text(), ">")]',
         autopager: {
             pageElement: '//div[@class="zuijingengxin"]/div[@class="zuijingengxin_box"] | //div[@class="zuijingengxin"]/div[@class="text"]',
             replaceE: 'css;.pages',
             relatedObj: true,
         }
     },
-    {name: '·ï»ËÍø - ·ï»ËÆû³µ',
+    {name: 'å‡¤å‡°ç½‘ - å‡¤å‡°æ±½è½¦',
         url: /^http:\/\/auto\.ifeng\.com\/.*\.shtml/i,
         exampleUrl: 'http://auto.ifeng.com/youji/20131115/1003513.shtml',
         nextLink: '//div[@class="arl-pages"]/a[@class="next"]',
@@ -599,30 +600,30 @@ var SITEINFO=[
             replaceE: '//div[@class="arl-pages"]'
         }
     },
-    {name: '·ï»ËÍø - ĞÂÎÅ¡¢²Æ¾­',
+    {name: 'å‡¤å‡°ç½‘ - æ–°é—»ã€è´¢ç»',
         url: /^http:\/\/\w+\.ifeng\.com\//i,
         exampleUrl: 'http://finance.ifeng.com/a/20131115/11089994_1.shtml',
-        nextLink: '//a[@id="pagenext"] | //div[@class="next" or @class="fy"]/a[text()="ÏÂÒ»Ò³"]',
+        nextLink: '//a[@id="pagenext"] | //div[@class="next" or @class="fy"]/a[text()="ä¸‹ä¸€é¡µ"]',
         autopager: {
             pageElement: '//div[@id="artical_real"] | //div[@class="content"]/div[@class="contentL"] | //div[@class="yib_left"]/div[@class="box_list"]',
             relatedObj: true,
             replaceE: 'id("artical")/div[@class="an"]/div[@class="next"] | //div[@class="yib_left"]/div[@class="fy"]'
         }
     },
-    {name: 'ºÍÑ¶²Æ¾­Î¢²©',
+    {name: 'å’Œè®¯è´¢ç»å¾®åš',
         url: /^http:\/\/t\.hexun\.com\/.*\.html/i,
         exampleUrl: 'http://t.hexun.com/21210301/default.html',
-        nextLink: '//li[contains(@class, "nextbtn2")]/a[text()="ÏÂÒ»Ò³ >"]',
+        nextLink: '//li[contains(@class, "nextbtn2")]/a[text()="ä¸‹ä¸€é¡µ >"]',
         autopager: {
             pageElement: '//div[@id="listWeibo"]',
             replaceE: '//div[@id="page2"]'
         }
     },
-    {name: 'ºÍÑ¶²©¿Í',
+    {name: 'å’Œè®¯åšå®¢',
         url: /^http:\/\/\w+\.blog\.hexun\.com\//i,
         exampleUrl: 'http://23802543.blog.hexun.com/',
         nextLink: function(doc) {
-            var url = doc.querySelector('.PageSkip_1 a[title="ÏÂÒ»Ò³"]').getAttribute('href');
+            var url = doc.querySelector('.PageSkip_1 a[title="ä¸‹ä¸€é¡µ"]').getAttribute('href');
             url = url.replace(/(\/p\d+\/).*/, '$1default.html');
             return url;
         },
@@ -630,7 +631,7 @@ var SITEINFO=[
             pageElement: 'id("DefaultContainer1_ArticleList_Panel1")'
         }
     },
-    {name: 'Æû³µÖ®¼Ò',
+    {name: 'æ±½è½¦ä¹‹å®¶',
         url: /^http:\/\/www\.autohome\.com\.cn\/.*\.html/i,
         exampleUrl: 'http://www.autohome.com.cn/culture/201310/643479-7.html',
         nextLink: 'id("articlewrap")/div[@class="page"]/a[@class="page-item-next"]',
@@ -640,7 +641,7 @@ var SITEINFO=[
             replaceE: 'id("articlewrap")/div[@class="page"]'
         }
     },
-    {name: 'Æû³µÖ®¼ÒÂÛÌ³Ìû×ÓºÍÁĞ±í',
+    {name: 'æ±½è½¦ä¹‹å®¶è®ºå›å¸–å­å’Œåˆ—è¡¨',
         url:/^http:\/\/club\.autohome\.com\.cn\/bbs/i,
         siteExample:'http://club.autohome.com.cn/bbs/forum-c-2313-1.html',
         nextLink:'auto;',
@@ -648,7 +649,7 @@ var SITEINFO=[
             pageElement:'//dl[@class="list_dl "][@lang] | //div[@class="conmain"]',
         }
     },
-    {name: '°®¿¨Æû³µ',
+    {name: 'çˆ±å¡æ±½è½¦',
         url: /^http:\/\/yp\.xcar\.com\.cn\/.*\.html/i,
         exampleUrl: 'http://yp.xcar.com.cn/201311/news_1351064_1.html',
         nextLink: '//div[@class="article_page_bottom"]/a[@class="page_down"]',
@@ -658,24 +659,24 @@ var SITEINFO=[
             replaceE: '//div[@class="article_page_bottom"]'
         }
     },
-    {name: '°®¿¨Æû³µÂÛÌ³Ìû×Ó',
+    {name: 'çˆ±å¡æ±½è½¦è®ºå›å¸–å­',
         url:/^http:\/\/www\.xcar\.com\.cn\/bbs\/viewthread/i,
         siteExample:'http://www.xcar.com.cn/bbs/viewthread.php?tid=12474760',
-        nextLink:'//a[text()="ÏÂÒ»Ò³£¾"][@href]',
+        nextLink:'//a[text()="ä¸‹ä¸€é¡µï¼"][@href]',
         autopager:{
             pageElement:'//form[@id="delpost"] | //div[@class="maintable"][@id="_img"]',
         }
     },
-    {name: 'ĞÂÎÅ - ¼ÓÄÃ´ó»ªÈËÍø',
+    {name: 'æ–°é—» - åŠ æ‹¿å¤§åäººç½‘',
         url: /^http:\/\/www\.sinonet\.org\/.*\.html/i,
         exampleUrl: 'http://www.sinonet.org/news/society/2013-11-15/301940.html',
-        nextLink: '//p[@class="pageLink"]/a[text()="ÏÂÒ»Ò³"]',
+        nextLink: '//p[@class="pageLink"]/a[text()="ä¸‹ä¸€é¡µ"]',
         autopager: {
             pageElement: 'id("zoom")',
             relatedObj: true
         }
     },
-    {name: 'ÃÀ¹úÖĞÎÄÍø',
+    {name: 'ç¾å›½ä¸­æ–‡ç½‘',
         url: /^http:\/\/news\.sinovision\.net\/.*\.htm/i,
         exampleUrl: 'http://news.sinovision.net/politics/201401/00279206.htm',
         nextLink: '//div[@class="pg"]/a[@class="nxt"]',
@@ -685,7 +686,7 @@ var SITEINFO=[
             relatedObj: true
         }
     },
-    {name: '»ğĞÇÍø£­ÖĞ¹úÁìÏÈµÄÊı×ÖÒÕÊõÃÅ»§',
+    {name: 'ç«æ˜Ÿç½‘ï¼ä¸­å›½é¢†å…ˆçš„æ•°å­—è‰ºæœ¯é—¨æˆ·',
         url: /^http:\/\/news\.hxsd\.com\/.*\.html/i,
         exampleUrl: 'http://news.hxsd.com/CG-dynamic/201401/684528.html',
         nextLink: 'auto;',
@@ -693,16 +694,16 @@ var SITEINFO=[
             pageElement: '//div[@class="news_content_left"]/div[@class="content"]',
         }
     },
-    {name: 'ÌúÑªÍø',
+    {name: 'é“è¡€ç½‘',
         url: /^http:\/\/bbs\.tiexue\.net\/post.*\.html/i,
         exampleUrl: 'http://bbs.tiexue.net/post2_7969883_3.html',
-        nextLink: '//div[@class="page"]/a[text()="ÏÂÒ»Ò³"]',
+        nextLink: '//div[@class="page"]/a[text()="ä¸‹ä¸€é¡µ"]',
         autopager: {
             pageElement: 'id("postContent")/div[@class="newconli2"]',
             relatedObj: true
         }
     },
-    {name: '¿´ÌìÏÂ',
+    {name: 'çœ‹å¤©ä¸‹',
         url: /^http:\/\/www\.vistastory\.com\/.*\.html/i,
         exampleUrl: 'http://www.vistastory.com/a/201408/5395.html',
         nextLink: '//a[@class="cpnext"]',
@@ -710,32 +711,32 @@ var SITEINFO=[
             pageElement: 'css;.arc_body',
         }
     },
-    {name: '²ÎÕşÏûÏ¢',
+    {name: 'å‚æ”¿æ¶ˆæ¯',
         url: '^http://china\\.cankaoxiaoxi\\.com/.*\\.shtml',
         nextLink: 'id("next_page")',
         pageElement: 'id("ctrlfscont")',
         exampleUrl: 'http://china.cankaoxiaoxi.com/roll10/2014/0817/464381.shtml',
     },
-    {name: 'ÖĞ¹úÍøÉ½¶«ÆµµÀ',
+    {name: 'ä¸­å›½ç½‘å±±ä¸œé¢‘é“',
         url: '^http://sd\\.china\\.com\\.cn/.*\\.html',
         autopager: {
             pageElement: 'css;.content',
                 relatedObj: true,
         }
     },
-    {name: '¿­µÏÉçÇø',
+    {name: 'å‡¯è¿ªç¤¾åŒº',
         url: '^http://club\\.kdnet\\.net/list\\.asp',
         nextLink: 'auto;',
         pageElement: '//div[@class="lf w840px"]/div[@class="list-table"]/table',
         exampleUrl: 'http://club.kdnet.net/list.asp?t=0&boardid=1&selTimeLimit=0&action=&topicmode=0&s=&page=1',
     },
-    {name: 'Ä¾Ä¾ÎÄÕª',
+    {name: 'æœ¨æœ¨æ–‡æ‘˜',
         url: 'http://www\\.85nian\\.net/',
         nextLink: 'auto;',
         pageElement: 'css;.entry-content'
     },
 
-    //--- ¹úÍâĞÂÎÅ
+    //--- å›½å¤–æ–°é—»
     {name: 'TouringCarTimes',
         url: /^http:\/\/www\.touringcartimes\.com\/category\//i,
         nextLink: '//li[@class="bpn-next-link"]/a',
@@ -753,45 +754,45 @@ var SITEINFO=[
     },
 
     // ========================= video =====================
-    {name: 'ÓÅ¿áÊÓÆµ',
+    {name: 'ä¼˜é…·è§†é¢‘',
         url: /^http:\/\/(?:www|u|i|tv)\.youku\.com\//i,
-        nextLink: '//a[@title="ÏÂÒ»Ò³"] | //li[@class="next"]/a[text()="ÏÂÒ»Ò³"] | //a[em/@class="ico_next"] | //a[span/@class="ico__pagenext"]',
+        nextLink: '//a[@title="ä¸‹ä¸€é¡µ"] | //li[@class="next"]/a[text()="ä¸‹ä¸€é¡µ"] | //a[em/@class="ico_next"] | //a[span/@class="ico__pagenext"]',
         autopager: {
             pageElement: '//div[@id="list" or @id="listofficial"] | id("getVideoList") | id("imgType") | //div[@class="YK_main" or @class="mainCol"]/descendant::div[@class="items"]',
         }
     },
-    {name: "ËÑ¿â-×¨ÕÒÊÓÆµ",
+    {name: "æœåº“-ä¸“æ‰¾è§†é¢‘",
         url: "^http://www\\.soku\\.com/",
-        nextLink: '//li[@class="next"]/a[@title="ÏÂÒ»Ò³"]',
+        nextLink: '//li[@class="next"]/a[@title="ä¸‹ä¸€é¡µ"]',
         autopager: {
             pageElement: '//div[@class="sk_result"]',
             separatorReal: false,
         }
     },
-    {name: '°®ÆæÒÕ',
+    {name: 'çˆ±å¥‡è‰º',
         url: /^http:\/\/(list|so)\.iqiyi\.com\//i,
-        nextLink: '//div[@class="page"]/a[text()="ÏÂÒ»Ò³"]',
+        nextLink: '//div[@class="page"]/a[text()="ä¸‹ä¸€é¡µ"]',
         autopager: {
             pageElement: '//div[@class="list_content"]/div[@class="list0"] | //div[@class="s_main"]/descendant::div[@class="mod_sideright clearfix"]/ul',
         }
     },
-    {name: 'ÍÁ¶¹Íø - È«²¿ÊÓÆµ',
+    {name: 'åœŸè±†ç½‘ - å…¨éƒ¨è§†é¢‘',
         url: /^http:\/\/www\.tudou\.com\/cate\/.*\.html/i,
         exampleUrl: 'http://www.tudou.com/cate/ach30.html',
-        nextLink: '//div[@class="page-nav-bar"]/a[text()="ÏÂÒ»Ò³>"]',
+        nextLink: '//div[@class="page-nav-bar"]/a[text()="ä¸‹ä¸€é¡µ>"]',
         autopager: {
             pageElement: '//div[@class="content"]',
         }
     },
-    {name: 'ËÑºüÊÓÆµ ËÑË÷',
+    {name: 'æœç‹è§†é¢‘ æœç´¢',
         url: /^http:\/\/so\.tv\.sohu\.com\/mts\?&wd=/i,
         exampleUrl: 'http://so.tv.sohu.com/mts?&wd=%u6211%u662F%u7279%u79CD%u5175%u4E4B%u706B%u51E4%u51F0',
-        nextLink: '//div[@class="page"]/a[text()="ÏÂÒ»Ò³"]',
+        nextLink: '//div[@class="page"]/a[text()="ä¸‹ä¸€é¡µ"]',
         autopager: {
             pageElement: '//div[@class="listBox clear"]/div[@class="column picList"]',
         }
     },
-    {name: 'ËÑºüÊÓÆµ',
+    {name: 'æœç‹è§†é¢‘',
         url: /^http:\/\/so\.tv\.sohu\.com\/list/i,
         exampleUrl: 'http://so.tv.sohu.com/list_p1169_p2_u4E16_u754C_u676F_p3_p4_p5_p6_p7_p8_p9_p10_p11.html',
         nextLink: '//div[@class="page"]/a[@class="next"]',
@@ -805,7 +806,7 @@ var SITEINFO=[
         "nextLink": "//div[@class=\"pagelistbox\"]/a[@class=\"nextPage\"]|//ul[@class=\"page\"]/li[@class=\"current\"]/following-sibling::li[1]/a",
         "pageElement": "//div[@class=\"searchlist\"]/ul[@class=\"search_result\"]/li|//div[@class=\"main_list\"]/ul/li"
     },
-    {name: 'youtube ËÑË÷ÁĞ±í',
+    {name: 'youtube æœç´¢åˆ—è¡¨',
         url: /^https?:\/\/www\.youtube\.com\/results/i,
         nextLink: '//div[contains(concat(" ", @class, " "), " yt-uix-pager ")]//a[last()][@href]',
         autopager: {
@@ -822,8 +823,8 @@ var SITEINFO=[
         }
     },
 
-    // ====================== shopping¡¢Éú»î ===========================
-    {name: 'ÌÔ±¦ËÑË÷',
+    // ====================== shoppingã€ç”Ÿæ´» ===========================
+    {name: 'æ·˜å®æœç´¢',
         url: '^http://(?:list|s|search[^.]*)\\.taobao\\.com/search',
         nextLink: '//a[@class="page-next"]',
         autopager: {
@@ -831,7 +832,7 @@ var SITEINFO=[
             lazyImgSrc: 'data-lazyload-src|data-ks-lazyload',
         }
     },
-    {name: "ÌÔ±¦",
+    {name: "æ·˜å®",
         url: /^http:\/\/(?!bbs).*\.taobao\.com\//i,
         nextLink: 'auto;',
         autopager: {
@@ -839,9 +840,9 @@ var SITEINFO=[
             lazyImgSrc: 'data-lazyload-src|data-ks-lazyload',
         }
     },
-    {name: 'ÌìÃ¨ - ËÑË÷',
+    {name: 'å¤©çŒ« - æœç´¢',
         url: '^http://list\\.tmall\\.com//?search_product\\.htm\\?',
-        nextLink: '//a[@class="ui-page-next" and (text()="ÏÂÒ»Ò³>>")]',
+        nextLink: '//a[@class="ui-page-next" and (text()="ä¸‹ä¸€é¡µ>>")]',
         autopager: {
             pageElement: '//div[@id="J_ItemList"]',
             relatedObj: true,
@@ -849,16 +850,16 @@ var SITEINFO=[
             lazyImgSrc: 'data-lazyload-src|data-ks-lazyload',
         },
     },
-    {name: 'µêÄÚËÑË÷Ò³-ÌÔ±¦Íø',
+    {name: 'åº—å†…æœç´¢é¡µ-æ·˜å®ç½‘',
         url: /^http:\/\/[^.]+\.taobao\.com\/search\.htm\?/i,
         exampleUrl: 'http://jiaqibaihou.taobao.com/search.htm?spm=a1z10.3.w4002-1381691988.18.GgWBry&mid=w-1381691988-0&search=y&keyword=%BC%AA%C1%D0&pageNo=1',
-        nextLink: '//a[(text()="ÏÂÒ»Ò³")][not(@class="disable")]',
+        nextLink: '//a[(text()="ä¸‹ä¸€é¡µ")][not(@class="disable")]',
         autopager: {
             pageElement: '//div[@id="J_ShopSearchResult"]/div/div[contains(@class, "shop-hesper-bd")]',
             lazyImgSrc: 'data-lazyload-src|data-ks-lazyload',
         }
     },
-    {name: 'ÌÔ±¦ÂÛÌ³ ',
+    {name: 'æ·˜å®è®ºå› ',
         url: /^http:\/\/bbs\.taobao\.com\//i,
         exampleUrl: 'http://bbs.taobao.com/catalog/thread/647133-264959947.htm?spm=0.0.0.0.Ji1u2u',
         nextLink: 'auto;',
@@ -867,7 +868,7 @@ var SITEINFO=[
             replaceE: '//div[@class="pagination"]'
         }
     },
-    {name: '¾©¶«ÉÌ³Ç',
+    {name: 'äº¬ä¸œå•†åŸ',
         url: /^http:\/\/.*\.jd\.com\//i,
         exampleUrl: 'http://list.jd.com/670-686-690-0-0-0-0-0-0-0-1-1-1-1-18-1574-29455-0.html',
         nextLink: 'auto;',
@@ -877,7 +878,7 @@ var SITEINFO=[
             lazyImgSrc: 'data-lazyload',
         }
     },
-    {name: '¾©¶«¶ÁÊé',
+    {name: 'äº¬ä¸œè¯»ä¹¦',
         url: /^http:\/\/read\.jd\.com\/.*\/.*\.html/i,
         exampleUrl: 'http://read.jd.com/16171/778043.html',
         nextLink: 'auto;',
@@ -885,37 +886,37 @@ var SITEINFO=[
             pageElement: '//div[@class="mc clearfix"]',
         }
     },
-    {name: 'ÑÇÂíÑ·',
+    {name: 'äºšé©¬é€Š',
         url: /^http:\/\/www\.amazon\.cn\/gp\/search\//i,
         nextLink: 'auto;',
         autopager: {
             pageElement: 'id("mainResults") | id("btfResults")',
         }
     },
-    {name: 'Ò×Ñ¸Íø',
+    {name: 'æ˜“è¿…ç½‘',
         url: /^http:\/\/searchex\.yixun\.com\//i,
         exampleUrl: 'http://searchex.yixun.com/705798t706810-1001-/?YTAG=3.706810246020',
-        nextLink: '//div[@class="sort_page_num"]/a[@title="ÏÂÒ»Ò³"]',
+        nextLink: '//div[@class="sort_page_num"]/a[@title="ä¸‹ä¸€é¡µ"]',
         autopager: {
             pageElement: '//UL[@id="itemList"]',
             lazyImgSrc: 'init_src'
         }
     },
-    {name: 'Ç°³ÌÎŞÓÇ - ËÑË÷',
+    {name: 'å‰ç¨‹æ— å¿§ - æœç´¢',
         url: /^http:\/\/search\.51job\.com\/jobsearch\/search_result/i,
         nextLink: '//table[@class="searchPageNav"]//td[@class="currPage"]/following-sibling::td[1]/a',
         autopager: {
             pageElement: 'id("resultList")',
         }
     },
-    {name: 'ÇÀÁË¸ö±ãÒË | ¸ßĞÔ¼Û±ÈÕıÆ·µÍ¼ÛÉÌÆ·ÍÆ¼öÍø',
+    {name: 'æŠ¢äº†ä¸ªä¾¿å®œ | é«˜æ€§ä»·æ¯”æ­£å“ä½ä»·å•†å“æ¨èç½‘',
         url: /^http:\/\/www\.qlgpy\.com\//i,
-        nextLink: '//div[@class="wpagenavi"]/a[text()="ÏÂÒ³"]',
+        nextLink: '//div[@class="wpagenavi"]/a[text()="ä¸‹é¡µ"]',
         autopager: {
             pageElement: 'id("wrapmain")//ul[starts-with(@id, "post-")]',
         }
     },
-    {name: 'Ãë±ãÒËÂÛÌ³',
+    {name: 'ç§’ä¾¿å®œè®ºå›',
         url: /^http:\/\/bbs\.miaopy\.com\//i,
         exampleUrl: 'http://bbs.miaopy.com/activity/list-3.aspx',
         nextLink: 'auto;',
@@ -924,7 +925,7 @@ var SITEINFO=[
             stylish: 'div.sp-separator { width: 800px !important;}'
         }
     },
-    {name: 'Â¶ÌìÅÄÙu',
+    {name: 'éœ²å¤©æ‹è³£',
         url: /^http:\/\/[a-z]+\.ruten\.com\.tw\//i,
         exampleUrl: 'http://class.ruten.com.tw/category/sub00.php?c=0019000800010001',
         nextLink: 'auto;',
@@ -932,7 +933,7 @@ var SITEINFO=[
             pageElement: '//div[@class="searchResult"]',
         }
     },
-    {name: 'Yahoo!ÆæÄ¦ÅÄÙu',
+    {name: 'Yahoo!å¥‡æ‘©æ‹è³£',
         url: /^https:\/\/tw\.bid\.yahoo\.com\//i,
         exampleUrl: 'https://tw.bid.yahoo.com/tw/2092076277-category-leaf.html?.r=1408853888',
         nextLink: 'auto;',
@@ -940,8 +941,8 @@ var SITEINFO=[
             pageElement: 'id("srp_sl_result")',
         }
     },
-    // ÊÖ»úÆÀ²âµÈ
-    {name: 'É±¼Û°ï3Cµ¼¹ºÍø¡ªÕæÊµ ¿Í¹Û ¶ÀÁ¢ ×ÔÓÉ',
+    // æ‰‹æœºè¯„æµ‹ç­‰
+    {name: 'æ€ä»·å¸®3Cå¯¼è´­ç½‘â€”çœŸå® å®¢è§‚ ç‹¬ç«‹ è‡ªç”±',
         url: /^http:\/\/www\.shajia\.cn\/article/i,
         exampleUrl: 'http://www.shajia.cn/article_list.php',
         nextLink: 'auto;',
@@ -949,7 +950,7 @@ var SITEINFO=[
             pageElement: 'id("agreement")',
         }
     },
-    {name: '»ú·æÍø',
+    {name: 'æœºé”‹ç½‘',
         url: /^http:\/\/www\.gfan\.com\/review\/\w+\.html/,
         exampleUrl: 'http://www.gfan.com/review/2014091557751.html',
         nextLink: 'auto;',
@@ -959,31 +960,31 @@ var SITEINFO=[
         }
     },
 
-    // ========================= ÖªÊ¶¡¢ÔÄ¶Á ============================
-    {name: '¶¹°ê-ÊéÓ°ÒôÆÀÂÛ',
+    // ========================= çŸ¥è¯†ã€é˜…è¯» ============================
+    {name: 'è±†ç“£-ä¹¦å½±éŸ³è¯„è®º',
         url: '^http://.*\\.douban\\.com/subject',
-        nextLink: '//div[@class="paginator"]/span[@class="next"]/a[contains(text(),"ºóÒ³>")]',
+        nextLink: '//div[@class="paginator"]/span[@class="next"]/a[contains(text(),"åé¡µ>")]',
         autopager: {
             pageElement: '//ul[contains(@class,"topic-reply")] | //div[@class="article"]/table | //div[@id="comments" or @class="post-comments"]'
         }
     },
-    {name: 'ÎÒµÄĞ¡×é»°Ìâ - ¶¹°ê',
+    {name: 'æˆ‘çš„å°ç»„è¯é¢˜ - è±†ç“£',
         url: /^http:\/\/www\.douban\.com\/group\//i,
         exampleUrl: 'http://www.douban.com/group/',
-        nextLink: '//div[@class="paginator"]/span[@class="next"]/a[text()="ºóÒ³>"]',
+        nextLink: '//div[@class="paginator"]/span[@class="next"]/a[text()="åé¡µ>"]',
         autopager: {
             pageElement: 'id("content")/div/div[@class="article"]',
         }
     },
-    {name: '¶¹°êÈ«Õ¾',
+    {name: 'è±†ç“£å…¨ç«™',
         url: '^http://.*\\.douban\\.com/.*',
-        nextLink: '//div[@class="paginator"]/span[@class="next"]/a[contains(text(),"ºóÒ³>")]',
+        nextLink: '//div[@class="paginator"]/span[@class="next"]/a[contains(text(),"åé¡µ>")]',
         autopager: {
             pageElement: 'id("miniblog") | //*[@class="photolst clearfix" or @class="photolst clearbox" or @class="event-photo-list" or @class="poster-col4 clearfix"] | \
             //div[@id="comment-section"] | //table[@class="olt" or @class="list-b"]/tbody | //div[contains(@class,"clearfix")]/div[@class="article"]'
         }
     },
-    {name: 'Öªºõ',
+    {name: 'çŸ¥ä¹',
         url: /^http:\/\/www\.zhihu\.com\/collection/i,
         exampleUrl: 'http://www.zhihu.com/collection/19561986',
         nextLink: 'auto;',
@@ -993,23 +994,23 @@ var SITEINFO=[
                 newIframe: true
         }
     },
-    {name: 'ÒëÑÔÍø | ÒëÎÄ¿âºÍÔ­ÎÄ¿â',
+    {name: 'è¯‘è¨€ç½‘ | è¯‘æ–‡åº“å’ŒåŸæ–‡åº“',
         url: /^http:\/\/(?:article|source)\.yeeyan\.org\//i,
-        nextLink: '//ul[contains(concat(" ",normalize-space(@class)," "), " y_page") ]/li/a[text()="ÏÂÒ»Ò³"]',
+        nextLink: '//ul[contains(concat(" ",normalize-space(@class)," "), " y_page") ]/li/a[text()="ä¸‹ä¸€é¡µ"]',
         autopager: {
             pageElement: '//div[contains(concat(" ",normalize-space(@class)," "), "content_box")] | //div[@class="y_l"]/div[@class="y_s_list"]',
             replaceE: '//ul[contains(concat(" ",normalize-space(@class)," "), " y_page") ]'
         }
     },
-    {name: 'ÒëÑÔ¾«Ñ¡',
+    {name: 'è¯‘è¨€ç²¾é€‰',
         url: /^http:\/\/select\.yeeyan\.org\//i,
-        nextLink: '//ul[contains(@class, "s_page_n")]/li/a[text()="ÏÂÒ»Ò³"]',
+        nextLink: '//ul[contains(@class, "s_page_n")]/li/a[text()="ä¸‹ä¸€é¡µ"]',
         autopager: {
             pageElement: 'id("article_list")',
             replaceE: '//ul[contains(@class, "s_page_n")]'
         }
     },
-    {name: ' ÒëÑÔĞ¡×é',
+    {name: ' è¯‘è¨€å°ç»„',
         url: /^http:\/\/group\.yeeyan\.org\//i,
         nextLink: '//div[@class="paginator"]/a[@class="next"]',
         autopager: {
@@ -1017,27 +1018,27 @@ var SITEINFO=[
             replaceE: '//div[@class="paginator"]',
         }
     },
-    {name: 'Ö÷ÌâÕ¾ | ¹û¿ÇÍø ',
+    {name: 'ä¸»é¢˜ç«™ | æœå£³ç½‘ ',
         url: '^http://www\\.guokr\\.com/(?:site|group|ask|event)/',
-        nextLink: '//ul[@class="gpages"]/li/a[contains(.,"ÏÂÒ»Ò³")]',
+        nextLink: '//ul[@class="gpages"]/li/a[contains(.,"ä¸‹ä¸€é¡µ")]',
         pageElement: '//div[@class="article-list"] | //ul[@class="titles"] | //ul[@class="ask-list"] | //ul[@class="event_list gclear"]',
     },
-    {name: '´óÖÚµãÆÀÍø',
+    {name: 'å¤§ä¼—ç‚¹è¯„ç½‘',
         url: '^http://www\\.dianping\\.com/.*',
-        nextLink: '//a[@class="NextPage" and @title="ÏÂÒ»Ò³" and (text()="ÏÂÒ»Ò³")]',
+        nextLink: '//a[@class="NextPage" and @title="ä¸‹ä¸€é¡µ" and (text()="ä¸‹ä¸€é¡µ")]',
         pageElement: '//div[@id="searchList"]',
     },
-    {name: 'ÎÒÃÇÒ»Æğ³É³¤ | ĞÒ¸£½ø»¯¾ãÀÖ²¿¹²Í¬³É³¤²©¿ÍÈ¦',
+    {name: 'æˆ‘ä»¬ä¸€èµ·æˆé•¿ | å¹¸ç¦è¿›åŒ–ä¿±ä¹éƒ¨å…±åŒæˆé•¿åšå®¢åœˆ',
         url: /^http:\/\/upwith\.me\//i,
         exampleUrl: 'http://upwith.me/',
-        nextLink: '//div[@class="pagination"]/descendant::a[text()="ÏÂÒ»Ò³"]',
+        nextLink: '//div[@class="pagination"]/descendant::a[text()="ä¸‹ä¸€é¡µ"]',
         autopager: {
             pageElement: '//div[@class="content"]',
         }
     },
-    {name: 'ÖªºõÈÕ±¨',
+    {name: 'çŸ¥ä¹æ—¥æŠ¥',
         url: '^http://zhihudaily\\.jd-app\\.com/',
-        nextLink: '//h3/a[text()="<<< Ç°Ò»Ìì"]',
+        nextLink: '//h3/a[text()="<<< å‰ä¸€å¤©"]',
         autopager: {
             pageElement: 'css;body > *',
             separatorReal: false,
@@ -1046,27 +1047,27 @@ var SITEINFO=[
     },
 
     // ========================= download ===========================
-    {name: 'VeryCDËÑË÷Ò³Ãæ',
+    {name: 'VeryCDæœç´¢é¡µé¢',
         url: /http:\/\/www\.verycd\.com\/search\/folders.+/i,
         siteExample: 'http://www.verycd.com/search/folders/',
-        nextLink: '//ul[@class="page"]//a[contains(text(),"ÏÂÒ»Ò³")][@href]',
+        nextLink: '//ul[@class="page"]//a[contains(text(),"ä¸‹ä¸€é¡µ")][@href]',
         autopager: {
             pageElement: '//ul[@id="resultsContainer"]',
             replaceE: 'id("page_html")/ul[@class="page"]',
             lazyImgSrc: '_src'
         }
     },
-    {name: "VeryCD·ÖÀà×ÊÔ´Ò³",
+    {name: "VeryCDåˆ†ç±»èµ„æºé¡µ",
         url: /^http:\/\/www\.verycd\.com\/sto\/.+/i,
         exampleUrl: "http://www.verycd.com/sto/music/page1",
-        nextLink: '//div[@class="pages-nav"]/a[text()="ÏÂÒ»Ò³ ?"]',
+        nextLink: '//div[@class="pages-nav"]/a[text()="ä¸‹ä¸€é¡µ ?"]',
         autopager: {
             pageElement: '//div[@id="content"]/ul',
             lazyImgSrc: 'load-src',
             replaceE: '//div[@class="pages-nav"]'
         }
     },
-    {name: 'SimpleCD | ÈÃ±»Ç½±äµÃ¼òµ¥',
+    {name: 'SimpleCD | è®©è¢«å¢™å˜å¾—ç®€å•',
         url: /^http:\/\/www\.simplecd\.me\//i,
         exampleUrl: 'http://www.simplecd.me/search/entry/?query=%E7%81%8C%E7%AF%AE%E9%AB%98%E6%89%8B',
         nextLink: '//td[@class="next"]/a[@class="enabled"]',
@@ -1074,7 +1075,7 @@ var SITEINFO=[
             pageElement: '//div[@class="result-list" or @class="sub-recommend"]/div[@class="content"]',
         }
     },
-    {name: 'µçÂ¿Õ¾ °®´ÅÁ¦ iCiLi - µçÂ¿ÏÂÔØÕ¾',
+    {name: 'ç”µé©´ç«™ çˆ±ç£åŠ› iCiLi - ç”µé©´ä¸‹è½½ç«™',
         url: /^http:\/\/www\.icili\.com\/emule/i,
         exampleUrl: 'http://www.icili.com/emule',
         nextLink: 'id("main")/div[@class="pager"]/descendant::a[text()=" > "]',
@@ -1083,7 +1084,7 @@ var SITEINFO=[
             replaceE: 'id("main")/div[@class="pager"]'
         }
     },
-    {name: 'ÉäÊÖÍø',
+    {name: 'å°„æ‰‹ç½‘',
         url: /^http:\/\/(?:www\.)?shooter\.cn\/search\//i,
         exampleUrl: 'http://www.shooter.cn/search/Elysium/',
         preLink:{
@@ -1100,16 +1101,16 @@ var SITEINFO=[
             pageElement: '//div[@id="resultsdiv"]/div[@class="subitem"]',
         }
     },
-    {name: "YYeTs ÈËÈËÓ°ÊÓ",
+    {name: "YYeTs äººäººå½±è§†",
         url: "^http://www\\.yyets\\.com/",
-        nextLink: "//div[starts-with(@class, 'pages')]/descendant::a[text()='ÏÂÒ»Ò³'] | //div[@class='pages']//a[@class='cur']/following-sibling::a",
+        nextLink: "//div[starts-with(@class, 'pages')]/descendant::a[text()='ä¸‹ä¸€é¡µ'] | //div[@class='pages']//a[@class='cur']/following-sibling::a",
         autopager: {
             pageElement: "//div[@class='box_1 topicList'] | //div[@class='box_4 res_listview' or @class='box_4 bg_eb'] | //ul[@class='u_d_list']/li | //ul[@class='allsearch dashed boxPadd6' or @class='dashed bbs_info_list']",
             replaceE: '//div[@class="pages" or @class="pages clearfix"]',
             separatorReal: false
         }
     },
-    {name: 'TTmeiju.Com ÄúµÄ¸ßÇåÃÀ¾çÆ¬Ô´ÏÂÔØÖĞĞÄ',
+    {name: 'TTmeiju.Com æ‚¨çš„é«˜æ¸…ç¾å‰§ç‰‡æºä¸‹è½½ä¸­å¿ƒ',
         url: /^http:\/\/www\.ttmeiju\.com\//i,
         exampleUrl: 'http://www.ttmeiju.com/meiju/Person.of.Interest.html?page=1',
         nextLink: 'auto;',
@@ -1117,24 +1118,24 @@ var SITEINFO=[
             pageElement: '//div[@class="seedlistdiv" or @class="contentbox"]/table[@class="seedtable"]',
         }
     },
-    {name: 'µçÓ°ÌìÌÃ',
+    {name: 'ç”µå½±å¤©å ‚',
         url: /^http:\/\/www\.dy2018\.com\//i,
         exampleUrl: 'http://www.dy2018.com/html/gndy/dyzz/index.html',
-        nextLink: '//div[@class="x"]/descendant::a[text()="ÏÂÒ»Ò³"]',
+        nextLink: '//div[@class="x"]/descendant::a[text()="ä¸‹ä¸€é¡µ"]',
         autopager: {
             pageElement: '//div[@class="co_area2"]/div[@class="co_content8"]',
         }
     },
-    {name: '×îĞÂµçÓ° | Áú²¿Âä',
+    {name: 'æœ€æ–°ç”µå½± | é¾™éƒ¨è½',
         url: /^http:\/\/www\.longbuluo\.com\//i,
         exampleUrl: 'http://www.longbuluo.com/category/movie',
-        nextLink: '//div[@class="pagebar"]/a[text()="ÏÂÒ»Ò³"]',
+        nextLink: '//div[@class="pagebar"]/a[text()="ä¸‹ä¸€é¡µ"]',
         autopager: {
             pageElement: '//div[@class="postlist"]',
             replaceE: "css;.pagebar"
         }
     },
-    {name: '¸ßÇåÁ¬Ğø¾ç | Ò»ÆğÏÂÔØ°É',
+    {name: 'é«˜æ¸…è¿ç»­å‰§ | ä¸€èµ·ä¸‹è½½å§',
         url: /^http:\/\/17down\.net\/category/i,
         exampleUrl: 'http://17down.net/category/tv',
         nextLink: 'auto;',
@@ -1143,7 +1144,7 @@ var SITEINFO=[
             replaceE: '//div[@class="pagination"]'
         }
     },
-    {name: 'GoÏÂÔØ',
+    {name: 'Goä¸‹è½½',
         url: /^http:\/\/goxiazai\.cc\//i,
         exampleUrl: 'http://goxiazai.cc/',
         nextLink: 'auto;',
@@ -1152,7 +1153,7 @@ var SITEINFO=[
             replaceE: 'id("pagenavi")'
         }
     },
-    {name: '720PµçÓ°ÏÂÔØ,1080PµçÓ°ÏÂÔØ,btÀ¶¹âµçÓ°ÏÂÔØ,BTÔ­ÅÌµçÓ°ÏÂÔØ£ºBTÖ®¼ÒÀÏÅÆµçÓ°ÏÂÔØÍøÕ¾£¬°ÙÍòÓÃ»§Ñ¡ÔñÁËÕâÀï',
+    {name: '720Pç”µå½±ä¸‹è½½,1080Pç”µå½±ä¸‹è½½,btè“å…‰ç”µå½±ä¸‹è½½,BTåŸç›˜ç”µå½±ä¸‹è½½ï¼šBTä¹‹å®¶è€ç‰Œç”µå½±ä¸‹è½½ç½‘ç«™ï¼Œç™¾ä¸‡ç”¨æˆ·é€‰æ‹©äº†è¿™é‡Œ',
         url: /^http:\/\/bbs\.1lou\.com\//i,
         exampleUrl: 'http://bbs.1lou.com/forum-index-fid-1183.htm',
         nextLink: '//div[@class="page"]/a[text()="?"]',
@@ -1160,7 +1161,7 @@ var SITEINFO=[
             pageElement: 'id("threadlist") | id("body")/div/table[@class="post_table"]',
         }
     },
-    {name: 'ºÜBTµçÓ°ÁªÃË',
+    {name: 'å¾ˆBTç”µå½±è”ç›Ÿ',
         url: /^http:\/\/henbt\.com\//i,
         exampleUrl: 'http://henbt.com/',
         nextLink: '//div[@class="pages clear"]/a[@class="nextprev"]',
@@ -1170,7 +1171,7 @@ var SITEINFO=[
         }
     },
     // ================== PT ==============================
-    {name: '¹â»ª£¬cmct£¬chd£¬»Êºó£¬hd86£¬khdbits£¬hdsky£¬hdvnbits£¬hd-sportbits£¬tccf£¬»Êºómv£¬mt£¬hd4fans£¬hdhc£¬·¢ÉÕÓÑ£¬tlfbits£¬joyhd£¬ÂìÒÏpt£¬ÇåÓ°pt£¬±±ÓÊÈË£¬u2',
+    {name: 'å…‰åï¼Œcmctï¼Œchdï¼Œçš‡åï¼Œhd86ï¼Œkhdbitsï¼Œhdskyï¼Œhdvnbitsï¼Œhd-sportbitsï¼Œtccfï¼Œçš‡åmvï¼Œmtï¼Œhd4fansï¼Œhdhcï¼Œå‘çƒ§å‹ï¼Œtlfbitsï¼Œjoyhdï¼Œèš‚èšptï¼Œæ¸…å½±ptï¼ŒåŒ—é‚®äººï¼Œu2',
         url: /^https?:\/\/(?:bt\.upc\.edu|hdcmct|chdbits|open|hd86|khdbits|hdsky|hdvnbits|hd-sportbits|et8|mv\.open|tp\.m-team|www\.hd4fans|www\.hdhc|www\.pt|pt\.eastgame|www\.joyhd|ipv6\.antsoul|ipv4\.antsoul|pt\.hit\.edu|bt\.byr|u2\.dmhy)\.(net|cn|org|com|cd|cc|me|cm)\//i,
         exampleUrl: 'http://hdcmct.org/torrents.php',
         nextLink: '//b[@title="Alt+Pagedown"]/parent::a',
@@ -1178,18 +1179,18 @@ var SITEINFO=[
             pageElement: '//table[@class="torrents"]',
         }
     },
-    {name: 'ÆÏÌÑ :: ÖÖ×Ó',
+    {name: 'è‘¡è„ :: ç§å­',
         url: /^https:\/\/pt\.sjtu\.edu\.cn\/torrents\.php/i,
         exampleUrl: 'https://pt.sjtu.edu.cn/torrents.php',
-        nextLink: '//b[contains(text(), "ÏÂÒ»Ò³")]/parent::a',
+        nextLink: '//b[contains(text(), "ä¸‹ä¸€é¡µ")]/parent::a',
         autopager: {
             pageElement: '//table[@class="torrents"]',
         }
     },
-    {name: '- HDWinG ¸ßÇåÓ°ÒôÈËÊ¿µÄ·ÖÏíÀÖÔ°',
+    {name: '- HDWinG é«˜æ¸…å½±éŸ³äººå£«çš„åˆ†äº«ä¹å›­',
         url: /^https?:\/\/hdwing\.com\/browse\.php/i,
         exampleUrl: 'http://hdwing.com/browse.php',
-        nextLink: '//b[contains(text(), "ÏÂÒ³")]/parent::a',
+        nextLink: '//b[contains(text(), "ä¸‹é¡µ")]/parent::a',
         autopager: {
             pageElement: '//table[@class="torrents_list"]',
         }
@@ -1197,58 +1198,58 @@ var SITEINFO=[
     {name: 'TTG',
         url: /^http:\/\/ttg\.im\/browse\.php/i,
         exampleUrl: 'http://ttg.im/browse.php',
-        nextLink: '//b[contains(text(), "ÏÂÒ³")]/parent::a',
+        nextLink: '//b[contains(text(), "ä¸‹é¡µ")]/parent::a',
         autopager: {
         pageElement: 'id("torrent_table")',
         }
     },
-    {name: 'ÂóÌï',
+    {name: 'éº¦ç”°',
         url: /^http:\/\/pt\.nwsuaf6\.edu\.cn\/torrents\.php/i,
         exampleUrl: 'http://hdcmct.org/torrents.php',
-        nextLink: '//b[contains(text(), "ÏÂÒ»Ò³")]/parent::a[@class="next"]',
+        nextLink: '//b[contains(text(), "ä¸‹ä¸€é¡µ")]/parent::a[@class="next"]',
         autopager: {
             pageElement: '//table[@class="torrents"]',
         }
     },
-    {name: 'ÀÖºõÍø-ÓĞÀÖºõ£¡',
+    {name: 'ä¹ä¹ç½‘-æœ‰ä¹ä¹ï¼',
         url: '^http://www\\.ulehu\\.com/',
-        nextLink: '//a[@class="a1" and (text()="ÏÂÒ»Ò³")]',
+        nextLink: '//a[@class="a1" and (text()="ä¸‹ä¸€é¡µ")]',
         pageElement: '//body/div[@class="container mt20"]/div[@class="content"]/div[@class="colMain"]/div',
         exampleUrl: 'http://www.ulehu.com/',
     },
-    {name: 'HDRoad - ×ÊÔ´Çø',
+    {name: 'HDRoad - èµ„æºåŒº',
         url: /^http:\/\/hdroad\.org\/browse\.php/i,
         exampleUrl: 'http://hdroad.org/browse.php',
-        nextLink: '//a[contains(text(), "ÏÂÒ»Ò³")]',
+        nextLink: '//a[contains(text(), "ä¸‹ä¸€é¡µ")]',
         autopager: {
             pageElement: '//div[@id="torrent-list"]',
         }
     },
-    {name: 'ÖÖ×ÓÁĞ±í-±±¾©½»Í¨´óÑ§ÖªĞĞPT',
+    {name: 'ç§å­åˆ—è¡¨-åŒ—äº¬äº¤é€šå¤§å­¦çŸ¥è¡ŒPT',
         url: '^http://pt\\.zhixing\\.bjtu\\.edu\\.cn/search/',
         nextLink: '//a[@class="next"]',
         pageElement: '//table[@class="torrenttable"]',
         exampleUrl: 'http://pt.zhixing.bjtu.edu.cn/search/',
     },
-    {name: '×Ï¾£Õ¾ | ZiJingBT v2 | ÖÖ×ÓÒ³',
+    {name: 'ç´«è†ç«™ | ZiJingBT v2 | ç§å­é¡µ',
         url: /^http:\/\/zijingbt\.njuftp\.org\//i,
         exampleUrl: 'http://zijingbt.njuftp.org/index.html',
-        nextLink: '//a[contains(text(), "ÏÂÒ»Ò³")]',
+        nextLink: '//a[contains(text(), "ä¸‹ä¸€é¡µ")]',
         autopager: {
             pageElement: '//table[@class="torrent_table"]',
         }
     },
 
-    // ========================= bbs¡¢blog ======================
-    {name: 'ÌìÑÄÂÛÌ³_Ìû×ÓÁĞ±í',
+    // ========================= bbsã€blog ======================
+    {name: 'å¤©æ¶¯è®ºå›_å¸–å­åˆ—è¡¨',
         url: '^http://bbs\\.tianya\\.cn/list',
-        nextLink: '//a[text()="ÏÂÒ»Ò³"]',
+        nextLink: '//a[text()="ä¸‹ä¸€é¡µ"]',
         pageElement: '//div[@class="mt5"]',
     },
-    {name: 'ÌìÑÄÂÛÌ³Ìû×Ó',
+    {name: 'å¤©æ¶¯è®ºå›å¸–å­',
         url:/http:\/\/bbs\.tianya\.cn\/.+\.shtml/i,
         siteExample:'http://bbs.tianya.cn/post-feeling-2792523-1.shtml',
-        nextLink:'//div[@class="atl-pages"]/descendant::a[text()="ÏÂÒ³"][@href]',
+        nextLink:'//div[@class="atl-pages"]/descendant::a[text()="ä¸‹é¡µ"][@href]',
         autopager:{
             useiframe:true,
             pageElement:'//div[@class="atl-main"]',
@@ -1262,7 +1263,7 @@ var SITEINFO=[
             }
         }
     },
-    {name: 'mozestÉçÇø',
+    {name: 'mozestç¤¾åŒº',
         url: /^https?:\/\/g\.mozest\.com/i,
         nextLink: '//div[@class="pages"]//a[@class="next"]',
         autopager: {
@@ -1271,30 +1272,30 @@ var SITEINFO=[
             replaceE: 'css;.pages_btns > .pages'
         }
     },
-    {name: 'FirefoxÖĞÎÄÉçÇø - ÁĞ±í',
+    {name: 'Firefoxä¸­æ–‡ç¤¾åŒº - åˆ—è¡¨',
         url: '^https?://www\\.firefox\\.net\\.cn/thread',
-        nextLink: '//div[@class="pages"]/a[contains(text(), "ÏÂÒ»Ò³")]',
+        nextLink: '//div[@class="pages"]/a[contains(text(), "ä¸‹ä¸€é¡µ")]',
         autopager: {
             pageElement: 'id("J_posts_list")',
             replaceE: 'css;.pages',
             documentFilter: function(doc) {
-                // Í·ÏñÔØÈë³ö´íµÄĞŞÕı
+                // å¤´åƒè½½å…¥å‡ºé”™çš„ä¿®æ­£
                 [].forEach.call(doc.querySelectorAll('img.J_avatar'), function(img){
                     img.setAttribute('onerror', 'this.src="http://www.firefox.net.cn/res/images/face/face_small.jpg";');
                 });
             }
         }
     },
-    {name: 'FirefoxÖĞÎÄÉçÇø - Ìû×Ó',
+    {name: 'Firefoxä¸­æ–‡ç¤¾åŒº - å¸–å­',
         url: '^https?://www\\.firefox\\.net\\.cn/read',
-        nextLink: '//div[@class="pages"]/a[contains(text(), "ÏÂÒ»Ò³")]',
+        nextLink: '//div[@class="pages"]/a[contains(text(), "ä¸‹ä¸€é¡µ")]',
         autopager: {
             pageElement: 'id("J_posts_list")/*',
             useiframe: true,
                 newIframe: true
         }
     },
-    {name: 'Mozilla Addons - ÓÃ»§ĞÅÏ¢',
+    {name: 'Mozilla Addons - ç”¨æˆ·ä¿¡æ¯',
         url: /^https:\/\/addons\.mozilla\.org\/zh-CN\/[^\/]+\/user\//i,
         exampleUrl: 'https://addons.mozilla.org/zh-CN/firefox/user/Vasiliy_Temnikov/',
         nextLink: '//p[@class="rel"]/a[@class="button next"]',
@@ -1314,22 +1315,22 @@ var SITEINFO=[
             replaceE: 'css;.paginator'
         }
     },
-    {name: 'ËÑË÷ | Mozilla ¼¼ÊõÖ§³Ö',
+    {name: 'æœç´¢ | Mozilla æŠ€æœ¯æ”¯æŒ',
         url: '^https://support\\.mozilla\\.org/zh-CN/search\\?',
         exampleUrl: 'https://support.mozilla.org/zh-CN/search?esab=a&product=firefox&q=%E7%BE%A4%E7%BB%84',
-        nextLink: '//a[@class="btn-page btn-page-next" and contains(text(),"ÏÂÒ»¸ö")]',
+        nextLink: '//a[@class="btn-page btn-page-next" and contains(text(),"ä¸‹ä¸€ä¸ª")]',
         autopager: {
             pageElement: '//div[@id="search-results"]/div[@class="grid_9"]/div[@class="content-box"]',
         }
     },
-    {name: '°ÁÓÎä¯ÀÀÆ÷-²å¼şÖĞĞÄ',
+    {name: 'å‚²æ¸¸æµè§ˆå™¨-æ’ä»¶ä¸­å¿ƒ',
         url: "^http://extension\\.maxthon\\.cn/",
         nextLink: '//div[@class="pages page-right"]/a[text()=">"]',
         pageElement: '//ul[@id="delegate-all"]'
     },
-    {name: "Ğ¡Ã×ÊÖ»ú¹Ù·½ÂÛÌ³",
+    {name: "å°ç±³æ‰‹æœºå®˜æ–¹è®ºå›",
         url: "^http://bbs\\.xiaomi\\.cn/",
-        nextLink: "//a[@class='nxt' and (text()='ÏÂÒ»Ò³')]",
+        nextLink: "//a[@class='nxt' and (text()='ä¸‹ä¸€é¡µ')]",
         autopager: {
             pageElement: "id('postlist') | id('threadlist')",
             replaceE: '//div[@class="pg"][child::a[@class="nxt"]]',
@@ -1341,7 +1342,7 @@ var SITEINFO=[
             }
         }
     },
-    {name: 'ÆåÓÑ¼ÒÔ°',
+    {name: 'æ£‹å‹å®¶å›­',
         url: /^http:\/\/www\.weiqitv\.com\/home\/forum/i,
         exampleUrl: 'http://www.weiqitv.com/home/forum.php?mod=viewthread&tid=1623&extra=&page=1',
         nextLink: '//div[@class="pg"]/a[@class="nxt"]',
@@ -1350,7 +1351,7 @@ var SITEINFO=[
             useiframe: true,
         }
     },
-    {name: 'Discuz X2.5ĞŞ¸´',
+    {name: 'Discuz X2.5ä¿®å¤',
         url:/^http?:\/\/(bbs.gfan|bbs.xda|bbs.weiphone|bbs.feng|www.weiqitv|www.diypda|f.ppxclub|bbs.sd001|bbs.itiankong)\.(com|cn)/i,
         nextLink:'auto;',
         autopager:{
@@ -1358,15 +1359,15 @@ var SITEINFO=[
             replaceE: '//div[@class="pg"][child::a[@class="nxt"]]',
         }
     },
-    {name: 'Íş·æÂÛÌ³ËÑË÷',
+    {name: 'å¨é”‹è®ºå›æœç´¢',
         url: /^http:\/\/s\.feng\.com\/f\?srchtxt=/i,
-        nextLink: '//div[@class="pages"]/a[text()="ÏÂÒ»Ò³"]',
+        nextLink: '//div[@class="pages"]/a[text()="ä¸‹ä¸€é¡µ"]',
         autopager: {
             pageElement: '//div[@id="searchresult"]',
             replaceE: '//div[@class="pages"]'
         }
     },
-    {name: 'Discuz Ò³ÃæÌø×ªĞŞ¸´',
+    {name: 'Discuz é¡µé¢è·³è½¬ä¿®å¤',
         url:/^http:\/\/(bbs.pcbeta|bbs.besgold|www.pt80)\.(com|net)/i,
         nextLink:'//div[@class="pg"]/descendant::a[@class="nxt"]',
         autopager:{
@@ -1374,7 +1375,7 @@ var SITEINFO=[
             replaceE: '//div[@class="pg"][child::a[@class="nxt"]]',
         }
     },
-    {name: 'vBulletinÂÛÌ³ ¼Ó¼Ó/¿´Ñ©/XDA',
+    {name: 'vBulletinè®ºå› åŠ åŠ /çœ‹é›ª/XDA',
         url:/http:\/\/(bbs|forum)\.(jjol|pediy|xda-developers)\.(cn|com)\/(forumdisplay|showthread)/i,
         nextLink:'auto;',
         autopager:{
@@ -1390,7 +1391,7 @@ var SITEINFO=[
             separatorReal: false
         }
     },
-    {name: 'Íæ»úÈ¦',
+    {name: 'ç©æœºåœˆ',
         url: /^http:\/\/www\.wanjiquan\.com\//i,
         exampleUrl: 'http://www.wanjiquan.com/forum-169-1.html',
         nextLink: 'css;.ma_tiezi_list_page > .next',
@@ -1398,33 +1399,33 @@ var SITEINFO=[
             pageElement: '//form[@id="moderate"] | id("postlist")',
         }
     },
-    {name: '¼«ÏŞÉçÇø',
+    {name: 'æé™ç¤¾åŒº',
         url: '^http://bbs\\.themex\\.net/',
         nextLink: '//a[@rel="next"]',
         pageElement: 'id("threadslist posts")',
     },
-    {name: 'ÌìÌ³',
+    {name: 'å¤©å›',
         url:/http:\/\/bbs\.waptw\.com/i,
         nextLink:'auto;',
         autopager:{
             pageElement:'//div[@id="content"]',
         }
     },
-    {name: 'ÌúÑªÉçÇø',
+    {name: 'é“è¡€ç¤¾åŒº',
         url:/^http:\/\/bbs\.tiexue\.net\/.*\.html$/i,
         nextLink:'//div[@class="pages"]/span/a[text()=">>"]',
         autopager:{
             pageElement:'//div[@class="posts_list"]',
         }
     },
-    {name: 'ÌúÑªÍø',
+    {name: 'é“è¡€ç½‘',
         url:/http:\/\/[a-z]+\.tiexue\.net/i,
         nextLink:'auto;',
         autopager:{
             pageElement:'//div[@class="fontListBox"]',
         }
     },
-    {name: 'ö­·²ÂÛÌ³ - Ìû×ÓÁĞ±í',
+    {name: 'éœå‡¡è®ºå› - å¸–å­åˆ—è¡¨',
         url:/http:\/\/bbs\.crsky\.com\/read\.php/i,
         nextLink:'//div[@class="pages"]//a[text()=">"]',
         autopager:{
@@ -1432,7 +1433,7 @@ var SITEINFO=[
             pageElement:'//div[@class="t5 t2"]',
         }
     },
-    {name: '»¢ÆËÀºÇòÂÛÌ³',
+    {name: 'è™æ‰‘ç¯®çƒè®ºå›',
         url: /^http:\/\/bbs\.hupu\.com\//i,
         exampleUrl: 'http://bbs.hupu.com/8173461.html',
         nextLink: 'id("j_next")',
@@ -1441,7 +1442,7 @@ var SITEINFO=[
             replaceE: 'css;.page'
         }
     },
-    {name: 'ÈË´ó¾­¼ÃÂÛÌ³',
+    {name: 'äººå¤§ç»æµè®ºå›',
         url:/http:\/\/bbs\.pinggu\.org\/thread/i,
         siteExample:'http://bbs.pinggu.org/thread-1562552-3-1.html',
         nextLink:'//div[@id="pgt"]/descendant::a[@class="nxt"]',
@@ -1449,7 +1450,7 @@ var SITEINFO=[
             pageElement:'//div[@id="postlist"]',
         }
     },
-    {name: '¾ÅÎ²Íø',
+    {name: 'ä¹å°¾ç½‘',
         url:/joowii\.com\/arc/i,
         siteExample:'http://www.joowii.com/arc/ysyl/ssgx/2012/0905/125571.html',
         nextLink:'auto;',
@@ -1458,23 +1459,23 @@ var SITEINFO=[
             pageElement:'//div[@class="article"]',
         }
     },
-    {name: '17173.comÖĞ¹úÓÎÏ·µÚÒ»ÃÅ»§Õ¾',
+    {name: '17173.comä¸­å›½æ¸¸æˆç¬¬ä¸€é—¨æˆ·ç«™',
         url: '^http://news\\.17173\\.com/content/.*\\.shtml',
         nextLink: '//a[@class="page-next"]',
         pageElement: '//div[@id="matterc"]',
     },
-    {name: 'ÓÎÏÀÍø',
+    {name: 'æ¸¸ä¾ ç½‘',
         url: /^http:\/\/(?:www|down)\.ali213\.net\//i,
         exampleUrl: 'http://www.ali213.net/news/html/2013-12/91377.html',
         nextLink: 'auto;',
-        // nextLink: '//a[@id="after_this_page"][@href] | //div[@class="p_bar"]/a[text()="ÏÂÒ³"] | //div[@class="list_body_page"]/a[@title="ÏÂÒ»Ò³"]',
+        // nextLink: '//a[@id="after_this_page"][@href] | //div[@class="p_bar"]/a[text()="ä¸‹é¡µ"] | //div[@class="list_body_page"]/a[@title="ä¸‹ä¸€é¡µ"]',
         autopager: {
             pageElement: '//div[@id="Content" or @id="game_content" or @id="rqjxhb"]',
             relatedObj: true,
             lazyImgSrc: 'data-original'
         }
     },
-    {name: 'ÓÎÃñĞÇ¿Õ',
+    {name: 'æ¸¸æ°‘æ˜Ÿç©º',
         url:/http:\/\/www\.gamersky\.com/i,
         siteExample:'http://www.gamersky.com/news/201207/206490.shtml',
         nextLink:'auto;',
@@ -1492,14 +1493,14 @@ var SITEINFO=[
             relatedObj: true,
         }
     },
-    {name: 'ºïµºÂÛÌ³',
+    {name: 'çŒ´å²›è®ºå›',
         url:/^http:\/\/bbs\.houdao\.com/i,
         nextLink:'auto;',
         autopager:{
             pageElement:'//div[@class="z threadCommon"] | //div[@class="mb10 bodd"]',
         }
     },
-    {name: '178 Ä§ÊŞÊÀ½ç¡¢178¶¯ÂşÆµµÀ',
+    {name: '178 é­”å…½ä¸–ç•Œã€178åŠ¨æ¼«é¢‘é“',
         url: /^http:\/\/[a-z]+\.178\.com\/.*\.html/i,
         exampleUrl: 'http://wow.178.com/201308/170546277543.html',
         nextLink: 'id("cms_page_next")',
@@ -1509,14 +1510,14 @@ var SITEINFO=[
             relatedObj: true
         }
     },
-    {name: 'ÚäÄ°¾Ó',
+    {name: 'é˜¡é™Œå±…',
         url:/http:\/\/www\.1000qm\.com\/(?:thread\.php\?fid\-\d+|read\.php\?tid\-\d+)\.html/i,
         nextLink:'auto;',
         autopager:{
             pageElement:'//div[@class="z threadCommon"] | //div[@id="pw_content"][@class="mb10"]',
         }
     },
-    {name: '¼åµ°Ê×Ò³',
+    {name: 'ç…è›‹é¦–é¡µ',
         url:/http:\/\/jandan\.net\/(?:page)?/i,
         siteExample:'http://jandan.net/',
         useiframe:true,
@@ -1525,7 +1526,7 @@ var SITEINFO=[
            pageElement:'//div[@id="content"] | id("comments")'
         }
     },
-    {name: '·äÄñÍø',
+    {name: 'èœ‚é¸Ÿç½‘',
         url:/http:\/\/qicai\.fengniao\.com\/\d+\/\d+.html/i,
         siteExample:'http://qicai.fengniao.com/370/3705137.html',
         useiframe:true,
@@ -1536,7 +1537,7 @@ var SITEINFO=[
             pageElement:'//div[@class="article"]',
         }
     },
-    {name: '55188ÂÛÌ³',
+    {name: '55188è®ºå›',
         url:/http:\/\/www\.55188\.com/i,
         siteExample:'http://www.55188.com/forum-8-1.html',
         nextLink:'auto;',
@@ -1544,7 +1545,7 @@ var SITEINFO=[
             pageElement:'//div[@class="mainbox threadlist"] | //div[@class="mainbox viewthread"]',
         }
     },
-    {name: 'PCHOME ÉçÇø',
+    {name: 'PCHOME ç¤¾åŒº',
         url:/http:\/\/club\.pchome\.net/i,
         siteExample:'http://club.pchome.net/forum_1_15.html#',
         nextLink:'auto;',
@@ -1570,17 +1571,17 @@ var SITEINFO=[
             replaceE: '//div[@class="pg"]',
         }
     },
-    {name: 'ôÜÊÂ°Ù¿Æ',
+    {name: 'ç³—äº‹ç™¾ç§‘',
         url: '^http://www\\.qiushibaike\\.com/',
-        nextLink: '//a[@class="next" and @title="ÏÂÒ»Ò³"]',
+        nextLink: '//a[@class="next" and @title="ä¸‹ä¸€é¡µ"]',
         autopager: {
             pageElement: '//div[@class="main"]/div[contains(@class, "content-block")]/div[@class="col1"]',
             stylish: '.sp-separator { width: 620px !important; }'
         }
     },
-    {name: '³éÌëĞÂÈÈ°ñ',
+    {name: 'æŠ½å±‰æ–°çƒ­æ¦œ',
         url: /^http:\/\/dig\.chouti\.com\//i,
-        nextLink: '//a[@class="ct_page_edge" and (text()="ÏÂÒ»Ò³")]',
+        nextLink: '//a[@class="ct_page_edge" and (text()="ä¸‹ä¸€é¡µ")]',
         autopager: {
             pageElement: '//div[@id="content-list"]',
             lazyImgSrc: 'original',
@@ -1595,24 +1596,24 @@ var SITEINFO=[
             }
         }
     },
-    {name: 'Ã¨ÆË´óÔÓ»âÌû×Ó',
+    {name: 'çŒ«æ‰‘å¤§æ‚çƒ©å¸–å­',
         url:/http:\/\/dzh\.mop\.com\/topic\/readSub/i,
-        nextLink:'//a[contains(text(),"ÏÂÒ»Ò³")][@href]',
+        nextLink:'//a[contains(text(),"ä¸‹ä¸€é¡µ")][@href]',
         autopager:{
             pageElement:'//div[@class="huitie"]',
         }
     },
-    {name: 'Ã¨ÆËÊıÂë¡¢Ã¨ÆËÆû³µµÈ',
+    {name: 'çŒ«æ‰‘æ•°ç ã€çŒ«æ‰‘æ±½è½¦ç­‰',
         url: /^http:\/\/(?!dzh).*\.mop\.com\/.*\.shtml/i,
         exampleUrl: 'http://digi.mop.com/sjsj/140522002176016.shtml',
-        nextLink: 'id("nextp") | id("page_use")/a[text()="ÏÂÒ»Ò³"]',
+        nextLink: 'id("nextp") | id("page_use")/a[text()="ä¸‹ä¸€é¡µ"]',
         autopager: {
             pageElement: '//div[@id="article"] | //div[@class="content"]/div[@class="inner"]/div[@class="nr_con"]',
                 replaceE: '//div[@class="page"]',
             relatedObj: true,
         }
     },
-    {name: 'É«Ó°ÎŞ¼ÉÌû×Ó',
+    {name: 'è‰²å½±æ— å¿Œå¸–å­',
         url:/http:\/\/forum\.xitek\.com\/showthread/i,
         siteExample:'http://forum.xitek.com/showthread.php?threadid=571986',
         nextLink:'//font[@size="2"]/font[@class="thtcolor"]/following-sibling::a[@href]',
@@ -1620,7 +1621,7 @@ var SITEINFO=[
             pageElement:'//body/table[position()>2 and position()<(last()-2)]',
         }
     },
-    {name: '19Â¥Ìû×Ó',
+    {name: '19æ¥¼å¸–å­',
         url:/^http:\/\/www\.19lou\.com/i,
         siteExample:'http://www.19lou.com/forum-1502-thread-29762777-1-1.html',
         nextLink:'auto;',
@@ -1639,7 +1640,7 @@ var SITEINFO=[
             relatedObj: true,
             replaceE: "css;#blog-pager"            }
     },
-    {name: '±±º£365Íø',
+    {name: 'åŒ—æµ·365ç½‘',
         url: /^http:\/\/[a-z]+\.beihai365\.com\//i,
         exampleUrl: 'http://kj.beihai365.com/',
         nextLink: '//div[@class="pages"]/*[contains(concat(" ",normalize-space(@class)," "), " active ")]/following-sibling::a[1]',
@@ -1654,7 +1655,7 @@ var SITEINFO=[
         pageElement: 'id("post-list")/div[@class="content"]//span[contains(@class,"thumb")]|id("content")/table',
         exampleUrl: 'http://gelbooru.com/index.php?page=post&s=list http://safebooru.org/index.php?page=post&s=list&tags=all http://safebooru.org/index.php?page=tags&s=list'
     },
-    {name: '¶ú»ú´ó¼ÒÌ³ È«Çò×î´óÖĞÎÄ¶ú»úÂÛÌ³',
+    {name: 'è€³æœºå¤§å®¶å› å…¨çƒæœ€å¤§ä¸­æ–‡è€³æœºè®ºå›',
         url: /^http:\/\/www\.erji\.net\//i,
         exampleUrl: 'http://www.erji.net/thread.php?fid=138',
         nextLink: '//div[starts-with(@class,"pages")]/b[1]/following-sibling::a[1][not(@class)]',
@@ -1663,10 +1664,10 @@ var SITEINFO=[
             replaceE: '//div[@class="pages"]'
         }
     },
-    {name: '°¬ÔóÀ­Ë¹¹ú¼ÒµØÀíÂÛÌ³',
+    {name: 'è‰¾æ³½æ‹‰æ–¯å›½å®¶åœ°ç†è®ºå›',
         url: /^http:\/\/(?:bbs\.ngacn\.cc|nga\.178\.com)\//i,
         exampleUrl: 'http://bbs.ngacn.cc/thread.php?fid=390&rand=183',
-        nextLink: '//a[@title="ÏÂÒ»Ò³"][@href]',
+        nextLink: '//a[@title="ä¸‹ä¸€é¡µ"][@href]',
         autopager: {
             pageElement: 'id("topicrows") | id("m_posts_c")',
             useiframe: true,
@@ -1681,28 +1682,28 @@ var SITEINFO=[
             pageElement: 'id("thread_inlinemod_form") | id("postlist")',
         }
     },
-    {name: 'ÌìÃ¨Ä§ºĞÂÛÌ³',
+    {name: 'å¤©çŒ«é­”ç›’è®ºå›',
         url: '^http://www\\.znds\\.com/*',
-        nextLink: '//a[contains(text(), "ÏÂÒ»Ò³")]',
+        nextLink: '//a[contains(text(), "ä¸‹ä¸€é¡µ")]',
         pageElement: 'id("threadlist")/div[@class="bm_c"]',
         exampleUrl: 'http://www.znds.com/bbs-172-3.html',
     },
     {name: 'Mobile01',
         url: /^http:\/\/www\.mobile01\.com\/topicdetail\.php.*$/i,
         exampleUrl: 'http://www.mobile01.com/topicdetail.php?f=254&t=3966939',
-        nextLink: '//a[contains(text(), "ÏÂÒ»í“")]',
+        nextLink: '//a[contains(text(), "ä¸‹ä¸€é ")]',
         autopager: {
             pageElement: 'id("section")/div[@class="main"]/div[@class="forum-content"]',
         }
     },
-    {name: 'À¥ö - ×ÊÔ´/Á¬ÔØ',
+    {name: 'æ˜†ä¾– - èµ„æº/è¿è½½',
         url: '^http://bbs\\.ikunlun\\.net/forum\\.php.*$',
         nextLink: '//a[@class="now"]/following-sibling::a[1][not(@class="last") ]',
         pageElement: '//tr[@class="topic_list_row"]',
     },
 
     // ========================= picture ================================================
-    {name: 'FlickrËÑË÷',
+    {name: 'Flickræœç´¢',
         url:/http:\/\/www\.flickr\.com\/search\/\?q=/i,
         siteExample:'http://www.flickr.com/search/?q=opera',
         nextLink:'//div[@class="Paginator"]/a[@class="Next"][@href]',
@@ -1727,16 +1728,16 @@ var SITEINFO=[
             replaceE: 'css;.pager-container > .page-list'
         }
     },
-    {name: 'ÕÕÆ¬´¦ÀíÍø',
+    {name: 'ç…§ç‰‡å¤„ç†ç½‘',
         url:/http:\/\/www\.photops\.com\/Article\/.+/i,
         siteExample:'http://www.photops.com/Article/xsjc/20100728172116.html',
-        nextLink:'//a[text()="ÏÂÒ»Ò³"][@href]',
+        nextLink:'//a[text()="ä¸‹ä¸€é¡µ"][@href]',
         autopager:{
             pageElement:'//body/table[last()-2]',
             useiframe:true,
         }
     },
-    {name: 'ÆË¼Òºº»¯Æ½Ì¨',
+    {name: 'æ‰‘å®¶æ±‰åŒ–å¹³å°',
         url:/^http:\/\/www\.pujiahh\.com\/library/i,
         siteExample:'http://www.pujiahh.com/library/',
         nextLink:'//div[@class="pagination"]/ul/li[@class="next-posts"]/a',
@@ -1756,7 +1757,7 @@ var SITEINFO=[
         }
     },
     // === mm ===
-    {name: 'ShowÃÃ×Ó',
+    {name: 'Showå¦¹å­',
         url:/^http:\/\/www\.showmeizi\.com\/\w+\/\d+/i,
         siteExample:'http://www.showmeizi.com/',
         nextLink:'auto;',
@@ -1764,7 +1765,7 @@ var SITEINFO=[
             pageElement:'//div[@class="post image"]/div[@class="main-body"]',
         }
     },
-    {name: 'BeautylegÍÈÄ£Ğ´ÕæÍ¼Æ¬Íø',
+    {name: 'Beautylegè…¿æ¨¡å†™çœŸå›¾ç‰‡ç½‘',
         url:/^http:\/\/www\.beautylegmm\.com\/\w+\/beautyleg-\d+.html/i,
         siteExample:'http://www.beautylegmm.com/x/beautyleg-x.html',
         nextLink:'auto;',
@@ -1772,7 +1773,7 @@ var SITEINFO=[
             pageElement:'id("contents_post")/div[@class="post"]',
         }
     },
-    {name: 'RosiÃÀÅ®Í¼',
+    {name: 'Rosiç¾å¥³å›¾',
         url:/^http:\/\/www\.rosiyy\.com\/.*.html/i,
         siteExample:'http://www.rosiyy.com/x/x.html',
         nextLink:'auto;',
@@ -1780,123 +1781,129 @@ var SITEINFO=[
             pageElement:'//div[@class="clearfix"]/div[@class="grid_10"]/div[@class="post postimg"]/p/a',
         }
     },
-    {name: '7160ÃÀÅ®Í¼Æ¬',
+    {name: '7160ç¾å¥³å›¾ç‰‡',
         url: '^http://www\\.7160\\.com/*/*/',
-        nextLink: '//a[text()="ÏÂÒ»Ò³"]',
+        nextLink: '//a[text()="ä¸‹ä¸€é¡µ"]',
         pageElement: 'id("arc")/div/div/div/a/img',
         exampleUrl: 'http://www.7160.com/meinv/11988/',
     },
-    {name: 'ÆßÀöÀöÍ¼¿â|7lili.com',
+    {name: 'ä¸ƒä¸½ä¸½å›¾åº“|7lili.com',
         url: '^http://www\\.7lili\\.com/.+/.+/.+/.+\\.html',
-        nextLink: '//a[text()="ÏÂÒ»Ò³"]',
+        nextLink: '//a[text()="ä¸‹ä¸€é¡µ"]',
         pageElement: '//div/div/div/a/img',
         exampleUrl: 'http://www.7lili.com/p/xinggan/201403/30333.html',
     },
-    {name: '¼«Æ·ÃÃÃÃ°É',
+    {name: 'æå“å¦¹å¦¹å§',
         url: '^http://www\\.jpmm8\\.com/html/*/',
-        nextLink: '//a[text()="ÏÂÒ»Ò³"]',
+        nextLink: '//a[text()="ä¸‹ä¸€é¡µ"]',
         pageElement: '//div/div/div/a/img',
         exampleUrl: 'http://www.jpmm8.com/html/wlmm/12163.html',
     },
-    {name: 'Ã÷ĞÇÍø',
+    {name: 'æ˜æ˜Ÿç½‘',
         url: '^http://tuku\\.mingxing\\.com/*',
-        nextLink: '//a[@title="ÏÂÒ»Ò³"]',
+        nextLink: '//a[@title="ä¸‹ä¸€é¡µ"]',
         pageElement: '//div/div/div/div/p/a/img',
         exampleUrl: 'http://tuku.mingxing.com/xiezhen/30820/1.html',
     },
-    {name: 'kdsÄ£ÌØ´ó±¾Óª',
+    {name: 'kdsæ¨¡ç‰¹å¤§æœ¬è¥',
         url: '^http://model\\.kdslife\\.com/show/photo/*',
-        nextLink: '//a[contains(text(), "ÏÂÒ»ÕÅ")]',
+        nextLink: '//a[contains(text(), "ä¸‹ä¸€å¼ ")]',
         pageElement: 'id("mainPic")',
         exampleUrl: 'http://model.kdslife.com/show/photo/20256.html',
     },
     	{
-		name: '[LEGBABY] ÃÀÍÈÇÌÍÎË¿ÍàÄÛÄ£¿­Öñ²¨°ÔÈËÌåÒÕÊõÕÕ NO.016(µÚ1Ò³)',
+		name: '[LEGBABY] ç¾è…¿ç¿˜è‡€ä¸è¢œå«©æ¨¡å‡¯ç«¹æ³¢éœ¸äººä½“è‰ºæœ¯ç…§ NO.016(ç¬¬1é¡µ)',
 		url: '^http:\\/\\/www\\.aitaotu\\.com\\/guonei\\/\\d+\\.html',
 		nextLink: 'id("nl")/a',
 		pageElement: '//div/div/div/div/p[@align="center"]/a',
 		exampleUrl: 'http://www.aitaotu.com/guonei/24869.html',
 	},
 	{
-		name: '¶Ì·¢ÃÀÅ®Éú»îÕÕ¿­ÖñÎÆÉíÌËÉ³·¢ÉÏºÚË¿ÓÕ»ó(2/45)_ÃÀÅ®86',
+		name: 'çŸ­å‘ç¾å¥³ç”Ÿæ´»ç…§å‡¯ç«¹çº¹èº«è¶Ÿæ²™å‘ä¸Šé»‘ä¸è¯±æƒ‘(2/45)_ç¾å¥³86',
 		url: '^http://www\\.17786\\.com\\/\\d+_\\d+\\.html',
 		nextLink: '//div/div/div/a[@class="next-page-a"]',
 		pageElement: '//div[@class="falls-detail"]/div[@class="content"]/div[@class="img_box"]/a/img[@class="IMG_show"]',
 		exampleUrl: 'http://www.17786.com/8104_2.html',
 	},
 	{
-		name: 'Áõ·É¶ùFaye- [XIURENĞãÈËÍø] 2016.04.21 ËÕÃ·µºÂÃÅÄ×îºóÒ»Ì×-ÃÀÅ®Í¼Æ¬_Õ¬ÄĞÅ®Éñ',
+		name: 'åˆ˜é£å„¿Faye- [XIURENç§€äººç½‘] 2016.04.21 è‹æ¢…å²›æ—…æ‹æœ€åä¸€å¥—-ç¾å¥³å›¾ç‰‡_å®…ç”·å¥³ç¥',
 		url: '^http://www\\.zngirls\\.com\\/.\\/\\d+\\/',
-		nextLink: 'id("pages")/a[text()="ÏÂÒ»Ò³"]',
+		nextLink: 'id("pages")/a[text()="ä¸‹ä¸€é¡µ"]',
 		pageElement: 'id("hgallery")/img',
 		exampleUrl: 'http://www.zngirls.com/g/17951/',
 	},
 	{
-		name: 'Áõ·É¶ùFaye- [XIURENĞãÈËÍø] 2016.04.21 ËÕÃ·µºÂÃÅÄ×îºóÒ»Ì×-ÃÀÅ®Í¼Æ¬_Õ¬ÄĞÅ®Éñ',
+		name: 'åˆ˜é£å„¿Faye- [XIURENç§€äººç½‘] 2016.04.21 è‹æ¢…å²›æ—…æ‹æœ€åä¸€å¥—-ç¾å¥³å›¾ç‰‡_å®…ç”·å¥³ç¥',
 		url: '^https://www\\.nvshens\\.com\\/.\\/\\d+\\/',
-		nextLink: 'id("pages")/a[text()="ÏÂÒ»Ò³"]',
+		nextLink: 'id("pages")/a[text()="ä¸‹ä¸€é¡µ"]',
 		pageElement: 'id("hgallery")/img',
 		exampleUrl: 'http://www.nvshens.com/g/17951/',
 	},
-	{name: 'AV°Ù¿Æ',
+	{name: 'AVç™¾ç§‘',
 		url: '^http://www\\.avbaike\\.net/\\d+\\.html',
-		nextLink: 'id("content")/div[@class="article_container row  box"]/div[@class="context"]/descendant::a[text()="ÏÂÒ»Ò³"]',
+		nextLink: 'id("content")/div[@class="article_container row  box"]/div[@class="context"]/descendant::a[text()="ä¸‹ä¸€é¡µ"]',
 		pageElement: '//div[@id="post_content"]',
 		exampleUrl: 'http://www.avbaike.net/17237.html',
 	},
-	{name: '°®Ì×Í¼',
+	{name: 'çˆ±å¥—å›¾',
 		url: '^https://www\\.aitaotu\\.com/[a-z]+/\\d+(_\\d)*\\.html',
-		nextLink: '//a[text()="ÏÂÒ»Ò³"]',
+		nextLink: '//a[text()="ä¸‹ä¸€é¡µ"]',
 		pageElement: 'id("big-pic")/p/a',
 		exampleUrl: 'https://www.aitaotu.com/guonei/1081_4.html',
 	},
-	{name: '¸£Àûµµ·¬ºÅ´óÈ«',
+	{name: 'ç¦åˆ©æ¡£ç•ªå·å¤§å…¨',
 		url: '^http://www\\.bfpgf\\.com/yld/\\d+.html',
-		nextLink: '//a[text()="ÏÂÒ»Ò³"]',
+		nextLink: '//a[text()="ä¸‹ä¸€é¡µ"]',
 		pageElement: '//article[@class="article-content"]',
 		exampleUrl: 'http://www.bfpgf.com/yld/77066.html',
 	},
-	{name: 'ĞãÃÀÃ¼',
+	{name: 'ç§€ç¾çœ‰',
 		url: '^http://www\\.xiumeim\\.com/photos/.*\\.html',
-		nextLink: '//a[text()="ºóÒ³>"]',
+		nextLink: '//a[text()="åé¡µ>"]',
 		pageElement: '//div[@class="gallary_wrap"]',
 		exampleUrl: 'http://www.xiumeim.com/photos/YOUMI-189522.html',
 	},
-    {name: 'ĞãÃÀÃ¼2',
+    {name: 'ç§€ç¾çœ‰2',
 		url: /^http:\/\/www\.xiumeim\.com(\/albums\/[^\/]+\.html)?/,
-		nextLink: '//a[text()="ºóÒ³>"]',
+		nextLink: '//a[text()="åé¡µ>"]',
 		pageElement: '//div[@class="gallary_wrap"]',
 		exampleUrl: 'http://www.xiumeim.com/',
 	},
-    {name: 'ÃÀÍ¼Â¼',
+    {name: 'ç¾å›¾å½•',
 		url: '^https://www\\.meitulu\\.com/item/\\d+(_\\d+)?\\.html',
-		nextLink: '//a[text()="ÏÂÒ»Ò³"]',
+		nextLink: '//a[text()="ä¸‹ä¸€é¡µ"]',
 		pageElement: '//div[@class="content"]/center',
 		exampleUrl: 'https://www.meitulu.com/item/3225_2.html',
 	},
 	{name: 'zhaofuli',
 		url: '^http://zhaofuli\\.mobi/.*/\\d+/\\d+/\\d+\\.html',
-		nextLink: '//a[text()="ÏÂÒ»Ò³"]',
+		nextLink: '//a[text()="ä¸‹ä¸€é¡µ"]',
 		pageElement: '//article[@class="article-content"]',
 		exampleUrl: 'http://zhaofuli.mobi/luyilu/2016/0224/1990.html',
 	},
-	{name: 'ĞÔ¸ĞÓÈÎï',
+	{name: 'æ€§æ„Ÿå°¤ç‰©',
 		url: /^http:\/\/www\.xgyw\.cc\/[^\/]*\/[^\/]*\.html/,
-		nextLink: '//div[@class="page"]/a[text()="ºó"]',
+		nextLink: '//div[@class="page"]/a[text()="å"]',
 		pageElement: '//div[@class="img"]/p',
 		exampleUrl: 'http://www.xgyw.cc/Xgyw/Xgyw6874.html',
 	},
-    {name: 'ĞÔ¸ĞÓÈÎï2',
+    {name: 'æ€§æ„Ÿå°¤ç‰©2',
 		url: /^http:\/\/www\.xgyw\.cc\/[^\/]*/,
-		nextLink: '//div[@class="page"]/a[text()="ÏÂÒ³"]',
+		nextLink: '//div[@class="page"]/a[text()="ä¸‹é¡µ"]',
 		pageElement: '/html/body/div[3]/table[3]/tbody/tr/td[1]/table[3]',
 		exampleUrl: 'http://www.xgyw.cc/Xgyw',
 	},
     {name: '81mm',
 		url: '^http://www\\.81mm\\.net/\\d+\\.html',
-		nextLink: '//div[@class="content_left"]/p/a[@title="µã»÷Í¼Æ¬²é¿´ÏÂÒ»ÕÅ"]',
+		nextLink: '//div[@class="content_left"]/p/a[@title="ç‚¹å‡»å›¾ç‰‡æŸ¥çœ‹ä¸‹ä¸€å¼ "]',
 		pageElement: '//div[@class="content_left"]/p[1]',
 		exampleUrl: 'http://www.81mm.net/1120.html',
+	},
+    {name: 'avgle',
+		url: /^https:\/\/avgle\.com\/.*/,
+		nextLink: '//a[@class="prevnext"]',
+		pageElement: '//div[@id="wrapper"]/div[1]/div[@class="row"]/div[1]',
+		exampleUrl: 'https://avgle.com/search/videos?search_query=%E5%A5%B3%E6%95%99%E5%B8%AB&search_type=videos&o=tr',
 	},
     // === ehentai ====
     {name: 'ehentai',
@@ -1929,22 +1936,22 @@ var SITEINFO=[
 		pageElement: '//div[@class="gallary_wrap"]',
 		exampleUrl: 'http://www.wnacg.org/photos-view-id-2132443.html',
 	},
-    // === ±ÚÖ½¡¢ËØ²Ä¡¢icon
-    {name: '×À¿á±ÚÖ½',
+    // === å£çº¸ã€ç´ æã€icon
+    {name: 'æ¡Œé…·å£çº¸',
         url: /^http:\/\/www\.zhuoku\.com\/.*\.htm/i,
         exampleUrl: 'http://www.zhuoku.com/zhuomianbizhi/computer-kuan/20140107052306.htm',
-        nextLink: '//div[@class="turn"]/a[text()="ÏÂÒ»Ò³"]',
+        nextLink: '//div[@class="turn"]/a[text()="ä¸‹ä¸€é¡µ"]',
         autopager: {
             pageElement: 'id("liebiao")',
         }
     },
-    {name: 'Í³Ò»±ÚÖ½Õ¾',
+    {name: 'ç»Ÿä¸€å£çº¸ç«™',
         url: '^http://www\\.3987\\.com/desk/wall/*',
-        nextLink: '//a[@hidefocus="true" and @target="_self" and @title="ÏÂÒ»Ò³"]',
+        nextLink: '//a[@hidefocus="true" and @target="_self" and @title="ä¸‹ä¸€é¡µ"]',
         pageElement: 'id("Article")/div[@class="big-pic"]',
         exampleUrl: 'http://www.3987.com/desk/wall/31420.html',
     },
-    {name: 'ËØ²ÄÌìÏÂ',
+    {name: 'ç´ æå¤©ä¸‹',
         url: /^http:\/\/www\.sucaitianxia\.com\//i,
         exampleUrl: 'http://www.sucaitianxia.com/psd/Index.html',
         nextLink: 'auto;',
@@ -1952,7 +1959,7 @@ var SITEINFO=[
             pageElement: '//div[@class="home_19"]/div[@class="left"]/div[@class="mid"]',
         }
     },
-    {name: 'êÇÍ¼Íø',
+    {name: 'æ˜µå›¾ç½‘',
         url: /^http:\/\/[a-z]+\.nipic\.com\//i,
         exampleUrl: 'http://soso.nipic.com/search.aspx?t=tk&q=%B7%E2%C3%E6',
         nextLink: 'auto;',
@@ -1964,7 +1971,7 @@ var SITEINFO=[
     },
     {name: 'easyicon.net',
         url: '^http://www\\.easyicon\\.net/iconsearch/',
-        nextLink: '//div[@class="pages_all"]/a[text()="ÏÂÒ»Ò³>"]',
+        nextLink: '//div[@class="pages_all"]/a[text()="ä¸‹ä¸€é¡µ>"]',
         pageElement: 'id("result_right_layout")',
         exampleUrl: 'http://www.easyicon.net/iconsearch/feed/&color=black',
     },
@@ -1976,18 +1983,18 @@ var SITEINFO=[
     },
     {name: 'Find Icons',
         url: '^http://findicons\\.com/search/',
-        nextLink: '//div[@class="pages"]/a[contains(text(), "Next") or contains(text(), "ÏÂÒ»Ò³")]',
+        nextLink: '//div[@class="pages"]/a[contains(text(), "Next") or contains(text(), "ä¸‹ä¸€é¡µ")]',
         pageElement: 'id("search_con")/div[@class="icon_list icon_list_165"]',
         exampleUrl: 'http://findicons.com/search/earth',
     },
 
     // ========================= software ================================
-    {name: 'Ğ¡ÖÚÈí¼ş',
+    {name: 'å°ä¼—è½¯ä»¶',
         url: 'http://www\\.appinn\\.com/',
         nextLink: '//a[@class="nextpostslink"]',
         pageElement: '//div[@id="spost"]',
     },
-    {name: 'ÉÆÓÃ¼ÑÈí',
+    {name: 'å–„ç”¨ä½³è½¯',
         url: /^http:\/\/xbeta\.info\/page\//i,
         exampleUrl: 'http://xbeta.info/page/2',
         nextLink: '//div[@class="wp-pagenavi"]/a[@class="nextpostslink"]',
@@ -1996,32 +2003,32 @@ var SITEINFO=[
             replaceE: "css;#entries-in > .wp-pagenavi"
         }
     },
-    {name: 'Òì´ÎÔªÈí¼şÊÀ½ç',
+    {name: 'å¼‚æ¬¡å…ƒè½¯ä»¶ä¸–ç•Œ',
         url: /^http:\/\/www\.iplaysoft\.com\//i,
         exampleUrl: 'http://www.iplaysoft.com/tag/%E5%90%8C%E6%AD%A5',
-        nextLink: '//span[@class="pagenavi_c"]/a[text()="ÏÂÒ»Ò³"]',
+        nextLink: '//span[@class="pagenavi_c"]/a[text()="ä¸‹ä¸€é¡µ"]',
         autopager: {
             pageElement: 'id("postlist")/div[@class="entry"]',
             replaceE: '//div[@class="pagenavi"]/span[@class="pagenavi_c"]'
         }
     },
-    {name: 'PlayNext - µÍµ÷µÄÒì´ÎÔª',
+    {name: 'PlayNext - ä½è°ƒçš„å¼‚æ¬¡å…ƒ',
         url: '^http://www\\.playnext\\.cn/',
-        nextLink: '//div[@class="pagenavi"]/a[contains(text(), "ÏÂÒ»Ò³")]',
+        nextLink: '//div[@class="pagenavi"]/a[contains(text(), "ä¸‹ä¸€é¡µ")]',
         pageElement: '//div[@id="container"]/div[@class="content"]/div[@class="post-list"]',
     },
-    {name: 'iPc.me - ÓëÄã·ÖÏí»¥ÁªÍøµÄ¾«²Ê£¡',
+    {name: 'iPc.me - ä¸ä½ åˆ†äº«äº’è”ç½‘çš„ç²¾å½©ï¼',
         url: '^http://www\\.ipc\\.me/',
-        nextLink: '//div[@class="pagenavi"]/a[contains(text(), "ÏÂÒ»Ò³")]',
+        nextLink: '//div[@class="pagenavi"]/a[contains(text(), "ä¸‹ä¸€é¡µ")]',
         pageElement: 'id("posts-list")',
     },
-    {name: '¶ÀÄ¾³ÉÁÖ',
+    {name: 'ç‹¬æœ¨æˆæ—',
         url: '^http://www\\.guofs\\.com/',
         nextLink: '//a[@class="nextpostslink"]',
         pageElement: 'id("content")',
         exampleUrl: 'http://www.guofs.com/',
     },
-    {name: 'Èí¼şÌÔ',
+    {name: 'è½¯ä»¶æ·˜',
         url: '^http://www\\.65052424\\.com/',
         nextLink: '//a[@class="next"]',
         pageElement: '//div[@id="content"]',
@@ -2032,7 +2039,7 @@ var SITEINFO=[
         nextLink: '//li[@class="pager-next"]/a',
         pageElement: 'id("forum")/table|id("comments")/*[not(@class="item-list")]'
     },
-    {name: 'PortableAppC - ÓĞÖĞ¹úÌØÉ«µÄ±ãĞ¯Èí¼ş',
+    {name: 'PortableAppC - æœ‰ä¸­å›½ç‰¹è‰²çš„ä¾¿æºè½¯ä»¶',
         url: /^http:\/\/www\.portableappc\.com\//i,
         exampleUrl: 'http://www.portableappc.com/',
         nextLink: '//a[@class="nextpostslink"]',
@@ -2041,20 +2048,20 @@ var SITEINFO=[
             replaceE: '//div[@class="wp-pagenavi"]'
         }
     },
-    {name: '¾«Æ·ÂÌÉ«±ãĞ¯Èí¼ş',
+    {name: 'ç²¾å“ç»¿è‰²ä¾¿æºè½¯ä»¶',
         url: '^http://www\\.portablesoft\\.org/',
-        nextLink: '//div[@class="pagination"]/a[text()="ÏÂÒ³ ?"]',
+        nextLink: '//div[@class="pagination"]/a[text()="ä¸‹é¡µ ?"]',
         pageElement: 'id("main")/div[@class="post-entry"]'
     },
     {name: 'zd423',
         url: /^http:\/\/www\.zdfans\.com\//i,
         exampleUrl: 'http://www.zdfans.com/',
-        nextLink: '//div[@class="paging"]/a[text()="ÏÂÒ»Ò³"]',
+        nextLink: '//div[@class="paging"]/a[text()="ä¸‹ä¸€é¡µ"]',
         autopager: {
             pageElement: '//div[@class="wrapper"]/div[@class="content-wrap"]/div[@class="content column2"]/ul[@class="excerpt"]',
         }
     },
-    {name: 'Èí¼ş¸ó - Ô­´´ÂÌÉ«Èí¼ş¸üĞÂ,¾«Æ·Èí¼ş¹²Ïí',
+    {name: 'è½¯ä»¶é˜ - åŸåˆ›ç»¿è‰²è½¯ä»¶æ›´æ–°,ç²¾å“è½¯ä»¶å…±äº«',
         url: /^http:\/\/www\.lite6\.com\//i,
         exampleUrl: 'http://www.lite6.com/',
         nextLink: '//li[@class="next"]/a',
@@ -2062,13 +2069,13 @@ var SITEINFO=[
             pageElement: '//div[@class="main"]/div[@class="left"]',
         }
     },
-    {name: 'Yanu | ·ÖÏíÓÅĞã¡¢´¿¾»¡¢ÂÌÉ«¡¢ÊµÓÃµÄ¾«Æ·Èí¼ş',
+    {name: 'Yanu | åˆ†äº«ä¼˜ç§€ã€çº¯å‡€ã€ç»¿è‰²ã€å®ç”¨çš„ç²¾å“è½¯ä»¶',
         url: '^http://www\\.ccav1\\.com/*',
-        nextLink: 'id("content-list")/div[@class="pagination"]/a[text()="ÏÂÒ³"]',
+        nextLink: 'id("content-list")/div[@class="pagination"]/a[text()="ä¸‹é¡µ"]',
         pageElement: '//div[@id="content-list"]',
         exampleUrl: 'http://www.ccav1.com/',
     },
-    {name: 'ÂÌÈí¼ÒÔ°(ÂÌÉ«ÏÂÔØÕ¾)',
+    {name: 'ç»¿è½¯å®¶å›­(ç»¿è‰²ä¸‹è½½ç«™)',
         url: /^http:\/\/www\.downg\.com\/.*\.html/i,
         exampleUrl: 'http://www.downg.com/list/r_1_1.html',
         nextLink: 'auto;',
@@ -2076,7 +2083,7 @@ var SITEINFO=[
             pageElement: '//div[@class="cp top-list" or @class="cp software-list"]/div[@class="cp-main"]',
         }
     },
-    {name: 'ÂÌÉ«ÏÂÔØ°É',
+    {name: 'ç»¿è‰²ä¸‹è½½å§',
         url: /^http:\/\/www\.xiazaiba\.com\//,
         exampleUrl: 'http://www.xiazaiba.com/newsoft.html',
         nextLink: '//div[@class="page-num" or @class="ylmf-page"]/a[@class="nextprev"]',
@@ -2084,40 +2091,40 @@ var SITEINFO=[
             pageElement: 'id("j_soft_list") | //ul[@class="list-soft list-soft-title j-hover"]',
         }
     },
-    {name: 'ÏÂÔØÒøĞĞ',
+    {name: 'ä¸‹è½½é“¶è¡Œ',
         url: /^http:\/\/www\.downbank\.cn\/.*\.htm/i,
         exampleUrl: 'http://www.downbank.cn/soft/html/newlist-1.htm',
-        nextLink: '//p[@class="list_page"]/a[text()="ÏÂÒ»Ò³"] | id("NextPageText")//a[text()="ÏÂÒ»Ò³"]',
+        nextLink: '//p[@class="list_page"]/a[text()="ä¸‹ä¸€é¡µ"] | id("NextPageText")//a[text()="ä¸‹ä¸€é¡µ"]',
         autopager: {
             pageElement: '//div[@id="topiclistzone"] | id("content")/div[@class="listitem"]/div[@class="cp-main"]',
         }
     },
-    {name: 'Ğ¡Â·¹¤×÷ÊÒ',
+    {name: 'å°è·¯å·¥ä½œå®¤',
         url: /^http:\/\/www\.wzlu\.cc\/.*\.html/i,
         exampleUrl: 'http://www.wzlu.cc/soft/html/newlist-1.html',
-        nextLink: '//p[@class="list_page"]/a[text()="ÏÂÒ»Ò³"] | id("NextPageText")//a[text()="ÏÂÒ»Ò³"]',
+        nextLink: '//p[@class="list_page"]/a[text()="ä¸‹ä¸€é¡µ"] | id("NextPageText")//a[text()="ä¸‹ä¸€é¡µ"]',
         autopager: {
             pageElement: 'id("topiclistzone") | id("listbox")',
         }
     },
-    {name: 'ĞÄº£eÕ¾',
+    {name: 'å¿ƒæµ·eç«™',
         url: /^http:\/\/hrtsea\.com\//i,
         exampleUrl: 'http://hrtsea.com/',
-        nextLink: 'id("pagenavi")/span[@class="older"]/a[text()="ÏÂÒ»Ò³"]',
+        nextLink: 'id("pagenavi")/span[@class="older"]/a[text()="ä¸‹ä¸€é¡µ"]',
         autopager: {
             pageElement: 'id("main")',
         }
     },
-    {name: 'ÌìÌì×ÊÔ´Íø',
+    {name: 'å¤©å¤©èµ„æºç½‘',
         url: /^http:\/\/www\.ttrar\.com\//i,
         exampleUrl: 'http://www.ttrar.com/',
-        nextLink: '//div[@id="page"]/a[text()="..."] | //div[@class="page"]/a[text()="ÏÂÒ»Ò³"]',
+        nextLink: '//div[@id="page"]/a[text()="..."] | //div[@class="page"]/a[text()="ä¸‹ä¸€é¡µ"]',
         autopager: {
             pageElement: '//ul[@class="articlelist-ul"]',
             replaceE: "css;#page, .page"
         }
     },
-    {name: 'ÖØ¹à¿ñÈË',
+    {name: 'é‡çŒç‹‚äºº',
         url: /^http:\/\/briian\.com\//i,
         exampleUrl: 'http://briian.com/category/android/android-photos-draw',
         nextLink: 'auto;',
@@ -2125,7 +2132,7 @@ var SITEINFO=[
             pageElement: 'id("content")',
         }
     },
-    {name: 'ÌìÌìÈí¼ş',
+    {name: 'å¤©å¤©è½¯ä»¶',
         url: /^http:\/\/www\.tt7z\.com\//i,
         nextLink: 'auto;',
         autopager: {
@@ -2163,36 +2170,36 @@ var SITEINFO=[
             replaceE: 'css;.pagination'
         }
     },
-    {name: '²©¿ÍÔ°',
+    {name: 'åšå®¢å›­',
         url: '^http://www\\.cnblogs\\.com/.*$',
         nextLink: '//a[(text()="Next >")]',
         pageElement: '//div[@id="post_list"]',
         exampleUrl: 'http://www.cnblogs.com/cate/javascript/',
     },
-    {name: '¿ªÔ´ÖĞ¹ú',
+    {name: 'å¼€æºä¸­å›½',
         url: '^http://\\w+\\.oschina\\.net/',
         nextLink: '//li[@class="page next"]/a',
         pageElement: '//div[@class="code_list"]/ul | //div[@class="ProjectList"]/ul[@class="List"] | id("OSC_Content")/div[@class="SpaceList BlogList"]/ul | \
             id("OSC_Content")/div[@class="QuestionList"]/ul/li[@class="question"]',
     },
-    {name: 'CSDN²©¿Í',
+    {name: 'CSDNåšå®¢',
         url:/http:\/\/blog\.csdn\.net/i,
         siteExample:'http://blog.csdn.net/wangjieest?viewmode=list',
-        nextLink:'//div[@id="papelist"]/descendant::a[text()="ÏÂÒ»Ò³"]',
+        nextLink:'//div[@id="papelist"]/descendant::a[text()="ä¸‹ä¸€é¡µ"]',
         autopager:{
             pageElement:'//div[@id="article_list"]'
         }
     },
-    {name: 'CSDNÂÛÌ³',
+    {name: 'CSDNè®ºå›',
         url:/^http:\/\/bbs\.csdn\.net\/forums\//i,
         siteExample:'http://bbs.csdn.net/forums/Qt',
-        nextLink:'//div[@class="page_nav"]/descendant::a[text()="ÏÂÒ»Ò³"]',
+        nextLink:'//div[@class="page_nav"]/descendant::a[text()="ä¸‹ä¸€é¡µ"]',
         autopager:{
             pageElement:'//body/div/div[@class="content"]/table',
             replaceE:'//div[@class="page_nav"]',
         }
     },
-    {name: 'CSDN»°Ìâ',
+    {name: 'CSDNè¯é¢˜',
         url:/^http:\/\/bbs\.csdn\.net\/topics\//i,
         siteExample:'http://bbs.csdn.net/topics/390244325',
         nextLink:'//div[@class="control_area"]/descendant::a[@class="next"]',
@@ -2211,7 +2218,7 @@ var SITEINFO=[
             pageElement:'css;#content>p'
         }
     },
-    {name: 'Í¼ÁéÉçÇø : Í¼Êé',
+    {name: 'å›¾çµç¤¾åŒº : å›¾ä¹¦',
         url: '^http://www\\.ituring\\.com\\.cn/article/',
         nextLink: 'auto;',
         pageElement: '//div[@id="question-header"]/h1 | //div[@class="post-text"]',
@@ -2224,7 +2231,7 @@ var SITEINFO=[
     },
 
     // ========================= novel =============================
-    {name: 'ÆğµãÎÄÑ§',
+    {name: 'èµ·ç‚¹æ–‡å­¦',
         url:/^http:\/\/(www|read)\.(qidian|qdmm|qdwenxue)\.com\/BookReader\/\d+,\d+/i,
         siteExample:'http://www.qidian.com/BookReader/1545376,27301383.aspx',
         useiframe:true,
@@ -2235,18 +2242,18 @@ var SITEINFO=[
             pageElement:'//div[@id="maincontent"]/div[@class="booktitle"] | //div[@id="maincontent"]/div[@id="content"]'
         }
     },
-    {name: 'ÖğÀËĞ¡Ëµ',
+    {name: 'é€æµªå°è¯´',
         url:/^http:\/\/book\.zhulang\.com\/.+\.html/i,
         siteExample:'http://book.zhulang.com/153319/62230.html',
-        nextLink:'//div[@class="readpage_leftnfy"]/descendant::a[text()="ÏÂÒ»ÕÂ"]',
+        nextLink:'//div[@class="readpage_leftnfy"]/descendant::a[text()="ä¸‹ä¸€ç« "]',
         autopager:{
             pageElement:'//div[@class="readpage_leftntxt"]',
         }
     },
-    {name: 'ÑÌÓêºì³¾',
+    {name: 'çƒŸé›¨çº¢å°˜',
         url:/^http:\/\/www\.cc222\.com\/chapter\/.+\.html/i,
         siteExample:'http://www.cc222.com/chapter/558139.html',
-        nextLink:'//div[@id="paging"]/descendant::a[text()="ÏÂÒ»ÕÂ"]',
+        nextLink:'//div[@id="paging"]/descendant::a[text()="ä¸‹ä¸€ç« "]',
         autopager:{
             pageElement:'//div[@id="aContainer"]',
             remain:1/5,
@@ -2255,85 +2262,85 @@ var SITEINFO=[
     {name: '17k',
         url:/^http:\/\/(mm.17k|www.17k)\.com\/chapter\/.+\.html/i,
         siteExample:'http://www.17k.com/chapter/143095/3714822.html',
-        nextLink:'//div[@class="read_bottom"]/descendant::a[text()="ÏÂÒ»ÕÂ"]',
+        nextLink:'//div[@class="read_bottom"]/descendant::a[text()="ä¸‹ä¸€ç« "]',
         autopager:{
             pageElement:'//div[@class="readAreaBox"]'
         }
     },
-    {name: '×İºáÊé¿â',
+    {name: 'çºµæ¨ªä¹¦åº“',
         url:/^http:\/\/book\.zongheng\.com\/chapter\/.+\.html/i,
         siteExample:'http://book.zongheng.com/chapter/239553/4380340.html',
-        nextLink:'//div[@class="tc quickkey"]/descendant::a[text()="ÏÂÒ»ÕÂ"]',
+        nextLink:'//div[@class="tc quickkey"]/descendant::a[text()="ä¸‹ä¸€ç« "]',
         autopager:{
             pageElement:'//div[@class="readcon"]'
         }
     },
-    {name: '×İºáÅ®Éú',
+    {name: 'çºµæ¨ªå¥³ç”Ÿ',
         url:/^http:\/\/www\.mmzh\.com\/chapter\/.+\.html/i,
         siteExample:'http://www.mmzh.com/chapter/182074/3287355.html',
-        nextLink:'//div[@class="tc key"]/descendant::a[text()="ÏÂÒ»ÕÂ"]',
+        nextLink:'//div[@class="tc key"]/descendant::a[text()="ä¸‹ä¸€ç« "]',
         autopager:{
             pageElement:'//div[@class="book_con"]'
         }
     },
-    {name: 'ĞÂĞ¡Ëµ°É',
+    {name: 'æ–°å°è¯´å§',
         url:/http:\/\/book\.xxs8\.com\/.+\.html/i,
         siteExample:'http://book.xxs8.com/165779/859903.html',
-        nextLink:'//div[@class="page"]/descendant::a[text()="ÏÂÒ»Ò³"]',
+        nextLink:'//div[@class="page"]/descendant::a[text()="ä¸‹ä¸€é¡µ"]',
         autopager:{
             pageElement:'//div[@id="midbody"]',
             maxpage:10,
         }
     },
-    {name: 'ÊéÃÔÂ¥',
+    {name: 'ä¹¦è¿·æ¥¼',
         url:/http:\/\/www\.shumilou\.com\/.+\.html/i,
         siteExample:'http://www.shumilou.com/tiandilonghun/698520.html',
-        nextLink:'//div[@class="content"]/div[@id="content"]/div[@class="title"]/a[text()="ÏÂÒ»Ò³(¡ú)"]',
+        nextLink:'//div[@class="content"]/div[@id="content"]/div[@class="title"]/a[text()="ä¸‹ä¸€é¡µ(â†’)"]',
         autopager:{
             pageElement:'//div[@class="content"]/div[@id="content"]',
         }
     },
-    {name: 'Ğş»ÃĞ¡ËµÍø',
+    {name: 'ç„å¹»å°è¯´ç½‘',
         url:/^http:\/\/www\.xhxsw\.com\/books\/.+\.htm/i,
         siteExample:'http://www.xhxsw.com/books/1063/1063066/10579171.htm',
-        nextLink:'//div[@id="footlink"]/descendant::a[text()="ÏÂÒ»Ò³"]',
+        nextLink:'//div[@id="footlink"]/descendant::a[text()="ä¸‹ä¸€é¡µ"]',
         autopager:{
             pageElement:'//div[@id="content"]'
         }
     },
-    {name: 'ĞÂÀË¶ÁÊé',
+    {name: 'æ–°æµªè¯»ä¹¦',
         url:/^http:\/\/vip\.book\.sina\.com\.cn\/book\/.+\.html/i,
         siteExample:'http://vip.book.sina.com.cn/book/chapter_212356_210018.html',
-        nextLink:'//p[@class="pages"]/descendant::a[text()="ÏÂÒ»ÕÂ"]',
+        nextLink:'//p[@class="pages"]/descendant::a[text()="ä¸‹ä¸€ç« "]',
         autopager:{
             pageElement:'//div[@class="mainContent"]'
         }
     },
-    {name: 'ËÑºüÔ­´´',
+    {name: 'æœç‹åŸåˆ›',
         url:/^http:\/\/vip\.book\.sohu\.com\/content/i,
         siteExample:'http://vip.book.sohu.com/content/124852/3902398/',
-        nextLink:'//div[@class="artical_btn"]/descendant::a[text()="ÏÂÒ»ÕÂ"]',
+        nextLink:'//div[@class="artical_btn"]/descendant::a[text()="ä¸‹ä¸€ç« "]',
         autopager:{
             pageElement:'//div[@id="bgdiv"]'
         }
     },
-    {name: 'ºìĞäÌíÏã',
+    {name: 'çº¢è¢–æ·»é¦™',
         url:/^http:\/\/novel\.hongxiu\.com\/a\/.+\.shtml/i,
         siteExample:'http://novel.hongxiu.com/a/303084/3543064.shtml',
-        nextLink:'//div[@class="papgbutton"]/descendant::a[text()="ÏÂÒ»ÕÂ"]',
+        nextLink:'//div[@class="papgbutton"]/descendant::a[text()="ä¸‹ä¸€ç« "]',
         autopager:{
             pageElement:'//div[@class="wrapper_main"]'
         }
     },
-    {name: 'ÑÔÇéĞ¡Ëµ°É',
+    {name: 'è¨€æƒ…å°è¯´å§',
         url:/^http:\/\/www\.xs8\.cn\/book\/.+\.html/i,
         siteExample:'http://www.xs8.cn/book/132368/86157.html',
-        nextLink:'//div[@class="chapter_Turnpage"]/descendant::a[text()="ÏÂÒ»ÕÂ"]',
+        nextLink:'//div[@class="chapter_Turnpage"]/descendant::a[text()="ä¸‹ä¸€ç« "]',
         autopager:{
             pageElement:'//div[@class="chapter_content"]'
         }
     },
-    {name: 'À´ÊéĞ¡ËµÍø',
+    {name: 'æ¥ä¹¦å°è¯´ç½‘',
         url:/^http:\/\/www\.laishu\.com\/book\/.+\.shtml/i,
         siteExample:'http://www.laishu.com/book/8/8891/5488036.shtml',
         nextLink:'auto;',
@@ -2341,71 +2348,71 @@ var SITEINFO=[
             pageElement:'//table[@class="tabkuan"]'
         }
     },
-    {name: 'Ğ¡ËµÔÄ¶ÁÍø',
+    {name: 'å°è¯´é˜…è¯»ç½‘',
         url:/^http:\/\/www\.readnovel\.com\/novel\/.+/i,
         siteExample:'http://www.readnovel.com/novel/142947.html',
-        nextLink:'//div[@class="bottomTools1"]/descendant::a[text()="ÏÂÒ»Ò³"]',
+        nextLink:'//div[@class="bottomTools1"]/descendant::a[text()="ä¸‹ä¸€é¡µ"]',
         autopager:{
             pageElement:'//div[@class="newContentBody "]'
         }
     },
-    {name: '·ïÃùĞù',
+    {name: 'å‡¤é¸£è½©',
         url:/^http:\/\/read\.fmx\.cn\/files\/article\/html\/.+\.html/i,
         siteExample:'http://read.fmx.cn/files/article/html/5/7/0/4/8/5/70485/1339404.html',
-        nextLink:'//div[@class="newread_fy"]/descendant::a[text()="ÏÂÒ»ÕÂ>>"]',
+        nextLink:'//div[@class="newread_fy"]/descendant::a[text()="ä¸‹ä¸€ç« >>"]',
         autopager:{
             pageElement:'//div[@class="newbodybox"]'
         }
     },
-    {name: 'ºìÊíÍø',
+    {name: 'çº¢è–¯ç½‘',
         url:/http:\/\/www\.hongshu\.com\/content\/.+\.html/i,
         siteExample:'http://www.hongshu.com/content/38591/49531-1193339.html',
-        nextLink:'//div[@class="ann"]/descendant::a[text()="ÏÂÒ»Ò³"]',
+        nextLink:'//div[@class="ann"]/descendant::a[text()="ä¸‹ä¸€é¡µ"]',
         autopager:{
             pageElement:'//div[@id="readtext"]'
         }
     },
-    {name: '°ÙÊéÕ«',
+    {name: 'ç™¾ä¹¦æ–‹',
         url:/^http:\/\/baishuzhai\.com/i,
         siteExample:'http://baishuzhai.com/shancunqirenchuan/683763.html',
-        nextLink:'//div[@class="page"]/descendant::a[text()="ÏÂÒ»ÕÂ(¿ì½İ¼ü:¡ú)"]',
+        nextLink:'//div[@class="page"]/descendant::a[text()="ä¸‹ä¸€ç« (å¿«æ·é”®:â†’)"]',
         autopager:{
             useiframe:true,
             pageElement:'//div[@id="booktext"]'
         }
     },
-    {name: '°ÙÊé¿â',
+    {name: 'ç™¾ä¹¦åº“',
         url:/^http:\/\/baishuku\.com\/html\/.+\.html/i,
         siteExample:'http://baishuku.com/html/40/40514/8778339.html',
-        nextLink:'//div[@id="footlink"]/a[text()="ÏÂÒ»Ò³(¿ì½İ¼ü:¡ú)"]',
+        nextLink:'//div[@id="footlink"]/a[text()="ä¸‹ä¸€é¡µ(å¿«æ·é”®:â†’)"]',
         autopager:{
             pageElement:'//div[@id="content"]'
         }
     },
-    {name: '¶¥µãĞ¡Ëµ',
+    {name: 'é¡¶ç‚¹å°è¯´',
         url: '^http://www\\.23us\\.com/html/.+\\.html',
         siteExample: 'http://www.23us.com/html/26/26627/16952316.html',
-        nextLink: ' //dd[@id="footlink"]/descendant::a[text()="ÏÂÒ»Ò³"]',
+        nextLink: ' //dd[@id="footlink"]/descendant::a[text()="ä¸‹ä¸€é¡µ"]',
         pageElement: 'id("amain")/dl/dd/h1 | id("contents")'
     },
-    {name: '¿ìÑÛÎÄÑ§Íø',
+    {name: 'å¿«çœ¼æ–‡å­¦ç½‘',
         url:/^http:\/\/www\.kywxw\.com\/.+\.html/i,
         siteExample:'http://www.kywxw.com/0/12/3792643.html',
-        nextLink:'//div[@id="thumb"]/descendant::a[text()="ÏÂÒ»ÕÂ"]',
+        nextLink:'//div[@id="thumb"]/descendant::a[text()="ä¸‹ä¸€ç« "]',
         autopager:{
             useiframe:true,
             pageElement:'//div[@id="content"]'
         }
     },
-    {name: '¾Í°®ÎÄÑ§',
+    {name: 'å°±çˆ±æ–‡å­¦',
         url:/^http:\/\/www\.92wx\.org\/html\/.+\.html/i,
         siteExample:'http://www.92wx.org/html/0/807/220709.html',
-        nextLink:'//div[@id="page_bar"]/descendant::a[text()="ÏÂÒ»ÕÂ"]',
+        nextLink:'//div[@id="page_bar"]/descendant::a[text()="ä¸‹ä¸€ç« "]',
         autopager:{
             pageElement:'//div[@id="chapter_content"]'
         }
     },
-    {name: 'Ç×Ç×Ğ¡ËµÍø',
+    {name: 'äº²äº²å°è¯´ç½‘',
         url:/^http:\/\/www\.77shu\.com\/view\/.+\.html/i,
         siteExample:'http://www.77shu.com/view/0/20/2062418.html',
         nextLink:'auto;',
@@ -2414,73 +2421,73 @@ var SITEINFO=[
             pageElement:'//div[@id="chapter_content"] | //div[@id="content"]'
         }
     },
-    {name: 'ÆßÎ¶ÊéÎİ',
+    {name: 'ä¸ƒå‘³ä¹¦å±‹',
         url:/^http:\/\/www\.7wsw\.net\/html\/.+\.html/i,
         siteExample:'http://www.7wsw.net/html/shifangtianshi/719412.html',
-        nextLink:'//div[@id="chapter_pager"]/descendant::a[text()="ÏÂÒ»ÕÂ"]',
+        nextLink:'//div[@id="chapter_pager"]/descendant::a[text()="ä¸‹ä¸€ç« "]',
         autopager:{
             pageElement:'//div[@class="book_middle_article"]'
         }
     },
-    {name: 'ÌìÌìÖĞÎÄ',
+    {name: 'å¤©å¤©ä¸­æ–‡',
         url:/^http:\/\/www\.360118\.com\/html\/.+\.html/i,
         siteExample:'http://www.360118.com/html/21/21951/5416831.html',
-        nextLink:'//div[@id="FootLink"]/descendant::a[text()="ÏÂÒ»Ò³£¨¿ì½İ¼ü¡ú£©"]',
+        nextLink:'//div[@id="FootLink"]/descendant::a[text()="ä¸‹ä¸€é¡µï¼ˆå¿«æ·é”®â†’ï¼‰"]',
         autopager:{
             pageElement:'//div[@id="content"]'
         }
     },
-    {name: 'ÑÔÇéºó»¨Ô°',
+    {name: 'è¨€æƒ…åèŠ±å›­',
         url:/^http:\/\/www\.yqhhy\.org\/novel\/.+\.html/i,
         siteExample:'http://www.yqhhy.org/novel/0/761/38769.html',
-        nextLink:'//div[@id="link"]/descendant::a[text()="ÏÂÒ»Ò³"]',
+        nextLink:'//div[@id="link"]/descendant::a[text()="ä¸‹ä¸€é¡µ"]',
         autopager:{
             pageElement:'//div[@id="content"]'
         }
     },
-    {name: 'Æ½ÄÏÎÄÑ§',
+    {name: 'å¹³å—æ–‡å­¦',
         url:/^http:\/\/www\.pnxs\.com\/book\/.+\.html/i,
         siteExample:'http://www.pnxs.com/book/zhongshengyantaizidan/2164438.html',
-        nextLink:'//div[@class="book_middle_text_next"]/descendant::a[text()="ÏÂÒ»ÕÂ"]',
+        nextLink:'//div[@class="book_middle_text_next"]/descendant::a[text()="ä¸‹ä¸€ç« "]',
         autopager:{
             useiframe:true,
             pageElement:'//div[@class="book_middle_text"]'
         }
     },
-    {name: 'Ò»Á÷Ğ¡Ëµ',
+    {name: 'ä¸€æµå°è¯´',
         url:/^http:\/\/www\.1lxs\.com\/novel\/.+\.html/i,
         siteExample:'http://www.1lxs.com/novel/80341/9055036.html',
-        nextLink:'//div[@id="chapter_nav"]/descendant::a[text()="ÏÂÒ»ÕÂ"]',
+        nextLink:'//div[@id="chapter_nav"]/descendant::a[text()="ä¸‹ä¸€ç« "]',
         autopager:{
             useiframe:true,
             pageElement:'//div[@id="content"]'
         }
     },
-    {name: 'Ò»Ò»Ğ¡Ëµ',
+    {name: 'ä¸€ä¸€å°è¯´',
         url:/^http:\/\/www\.11xs\.com\/.+\.htm/i,
         siteExample:'http://www.11xs.com/xs/213/119908.htm',
-        nextLink:'//div[@id="LinkMenu"]/descendant::a[text()="ÏÂÒ»Ò³"]',
+        nextLink:'//div[@id="LinkMenu"]/descendant::a[text()="ä¸‹ä¸€é¡µ"]',
         autopager:{
             pageElement:'//div[@id="Content"]'
         }
     },
-    {name: 'Áù¾ÅÖĞÎÄ',
+    {name: 'å…­ä¹ä¸­æ–‡',
         url:/^http:\/\/www\.69zw\.com\/xiaoshuo\/.+\.html/i,
         siteExample:'http://www.69zw.com/xiaoshuo/21/21943/4461482.html',
-        nextLink:'//div[@class="chapter_Turnpage"]/descendant::a[text()="ÏÂÒ»ÕÂ"]',
+        nextLink:'//div[@class="chapter_Turnpage"]/descendant::a[text()="ä¸‹ä¸€ç« "]',
         autopager:{
             pageElement:'//div[@class="novel_content"]'
         }
     },
-    {name: '»ªÏÄÊé¿â',
+    {name: 'åå¤ä¹¦åº“',
         url:/^http:\/\/www\.hxsk\.net\/files\/article\/html\/.+\.html/i,
         siteExample:'http://www.hxsk.net/files/article/html/67/67509/12704488.html',
-        nextLink:'//td[@class="link_14"]/descendant::a[text()="ÏÂÒ»Ò³"]',
+        nextLink:'//td[@class="link_14"]/descendant::a[text()="ä¸‹ä¸€é¡µ"]',
         autopager:{
             pageElement:'//table[@class="border_l_r"]'
         }
     },
-    {name: 'ÊéÂ·/3K',
+    {name: 'ä¹¦è·¯/3K',
         url:/^http:\/\/www\.(shuluxs|kkkxs)\.com\/files\/article\/html\/.+\.html/i,
         siteExample:'http://www.shuluxs.com/files/article/html/22/22306/8727879.html',
         nextLink:'auto;',
@@ -2488,7 +2495,7 @@ var SITEINFO=[
             pageElement:'//div[@id="content"]'
         }
     },
-    {name: 'ÊéÉ½Â·',
+    {name: 'ä¹¦å±±è·¯',
         url:/^http:\/\/www\.shu36\.com\/book\/.+\.html/i,
         siteExample:'http://www.shu36.com/book/0/1/3.html',
         nextLink:'auto;',
@@ -2496,187 +2503,187 @@ var SITEINFO=[
             pageElement:'//div[@id="content"]'
         }
     },
-    {name: 'ÂäÇï',
+    {name: 'è½ç§‹',
         url:/^http:\/\/www\.luoqiu\.com\/html\/.+\.html/i,
         siteExample:'http://www.luoqiu.com/html/18/18505/1385765.html',
-        nextLink:'//div[@id="bgdiv"]/descendant::a[text()="ÏÂÒ»Ò³"]',
+        nextLink:'//div[@id="bgdiv"]/descendant::a[text()="ä¸‹ä¸€é¡µ"]',
         autopager:{
             pageElement:'//table[@class="border_l_r"]',
         }
     },
-    {name: '¾ı×ÓÍø',
+    {name: 'å›å­ç½‘',
         url:/^http:\/\/www\.junziwang\.com\/.+\.html/i,
         siteExample:'http://www.junziwang.com/0/155/25137.html',
-        nextLink:'//div[@id="footlink"]/descendant::a[text()="ÏÂÒ»Ò³"]',
+        nextLink:'//div[@id="footlink"]/descendant::a[text()="ä¸‹ä¸€é¡µ"]',
         autopager:{
             pageElement:'//div[@id="content"]'
         }
     },
-    {name: '¹şÂŞĞ¡ËµÍø',
+    {name: 'å“ˆç½—å°è¯´ç½‘',
         url:/^http:\/\/www\.hellodba\.net\/files\/article\/html\/.+\.html/i,
         siteExample:'http://www.hellodba.net/files/article/html/0/46/21565.html',
-        nextLink:'//div[@class="papgbutton"]/descendant::a[text()="ÏÂÒ»ÕÂ"]',
+        nextLink:'//div[@class="papgbutton"]/descendant::a[text()="ä¸‹ä¸€ç« "]',
         autopager:{
             pageElement:'//div[@id="htmlContent"]'
         }
     },
-    {name: '°ÙÊéÂ¥',
+    {name: 'ç™¾ä¹¦æ¥¼',
         url:/^http:\/\/baishulou\.com\/read\/.+\.html/i,
         siteExample:'http://baishulou.com/read/10/10647/2536085.html',
-        nextLink:'//a[text()="ÏÂÒ»Ò³(¿ì½İ¼ü:¡ú)"][@href]',
+        nextLink:'//a[text()="ä¸‹ä¸€é¡µ(å¿«æ·é”®:â†’)"][@href]',
         autopager:{
             pageElement:'//div[@id="content"]'
         }
     },
-    {name: 'ÍòÊéÂ¥',
+    {name: 'ä¸‡ä¹¦æ¥¼',
         url:/^http:\/\/www\.wanshulou\.com\/xiaoshuo\/.+\.shtml/i,
         siteExample:'http://www.wanshulou.com/xiaoshuo/29/29091/2062593.shtml',
-        nextLink:'//div[@id="LinkMenu"]/descendant::a[text()="ÏÂÒ»ÕÂ"]',
+        nextLink:'//div[@id="LinkMenu"]/descendant::a[text()="ä¸‹ä¸€ç« "]',
         autopager:{
             pageElement:'//div[@id="BookText"]'
         }
     },
-    {name: 'Íò¾íÊéÎİ',
+    {name: 'ä¸‡å·ä¹¦å±‹',
         url:/^http:\/\/www\.wjsw\.com\/html\/.+\.shtml/i,
         siteExample:'http://www.wjsw.com/html/35/35404/2887335.shtml',
-        nextLink:'//div[@id="bookreadbottom"]/descendant::a[text()="ÏÂÒ»ÕÂ"]',
+        nextLink:'//div[@id="bookreadbottom"]/descendant::a[text()="ä¸‹ä¸€ç« "]',
         autopager:{
             pageElement:'//div[@id="maincontent"]'
         }
     },
-    {name: 'ÊéÊéÍø',
+    {name: 'ä¹¦ä¹¦ç½‘',
         url:/^http:\/\/www\.shushuw\.cn\/shu\/.+\.html/i,
         siteExample:'http://www.shushuw.cn/shu/28560/4509794.html',
-        nextLink:'//div[@align="center"]/a[text()="ÏÂÒ³"][@href]',
+        nextLink:'//div[@align="center"]/a[text()="ä¸‹é¡µ"][@href]',
         autopager:{
             pageElement:'//div[@class="cendiv"]'
         }
     },
-    {name: '·ÉÂ¬Ğ¡Ëµ',
+    {name: 'é£å¢å°è¯´',
         url:/^http:\/\/b\.faloo\.com\/p\/.+\.html/i,
         siteExample:'http://b.faloo.com/p/247559/1.html',
-        nextLink:'//div[@id="pager"]/descendant::a[text()="ÏÂÒ»Ò³"]',
+        nextLink:'//div[@id="pager"]/descendant::a[text()="ä¸‹ä¸€é¡µ"]',
         autopager:{
             pageElement:'//div[@class="main0"]'
         }
     },
-    {name: 'ÇàµÛÎÄÑ§Íø',
+    {name: 'é’å¸æ–‡å­¦ç½‘',
         url:/^http:\/\/www\.qingdi\.com\/files\/article\/html\/.+\.html/i,
         siteExample:'http://www.qingdi.com/files/article/html/0/27/13314.html',
-        nextLink:'//div[@class="readerFooterPage"]/descendant::a[text()="ÏÂÒ»Ò³"]',
+        nextLink:'//div[@class="readerFooterPage"]/descendant::a[text()="ä¸‹ä¸€é¡µ"]',
         autopager:{
             useiframe:true,
             pageElement:'//div[@class="readerTitle"]'
         }
     },
-    {name: '±ÊÏÂÎÄÑ§',
+    {name: 'ç¬”ä¸‹æ–‡å­¦',
         url:/^http:\/\/www\.bxwx\.org\/b\/.+\.html/i,
         siteExample:'http://www.bxwx.org/b/56/56907/9020932.html',
-        nextLink:'//div[@id="footlink"]/descendant::a[text()="ÏÂÒ»Ò³[¡ú]"]',
+        nextLink:'//div[@id="footlink"]/descendant::a[text()="ä¸‹ä¸€é¡µ[â†’]"]',
         autopager:{
             useiframe:true,
             pageElement:'//div[@id="content"]'
         }
     },
-    {name: '±ÊÈ¤¸ó',
+    {name: 'ç¬”è¶£é˜',
         url:/^http:\/\/www\.biquge\.com\/.+\.html/i,
         siteExample:'http://www.biquge.com/0_67/471472.html',
-        nextLink:'//div[@class="bottem2"]/descendant::a[text()="ÏÂÒ»ÕÂ"]',
+        nextLink:'//div[@class="bottem2"]/descendant::a[text()="ä¸‹ä¸€ç« "]',
         autopager:{
             pageElement:'//div[@id="content"]'
         }
     },
-    {name: 'Ğ¡Ëµ¿ÍÕ»',
+    {name: 'å°è¯´å®¢æ ˆ',
         url:/^http:\/\/www\.xskz\.com\/xiaoshuo\/.+\.shtml/i,
         siteExample:'http://www.xskz.com/xiaoshuo/29/29091/2062593.shtml',
-        nextLink:'//div[@id="LinkMenu"]/descendant::a[text()="ÏÂÒ»ÕÂ"]',
+        nextLink:'//div[@id="LinkMenu"]/descendant::a[text()="ä¸‹ä¸€ç« "]',
         autopager:{
             pageElement:'//div[@id="BookText"]'
         }
     },
-    {name: '´äÎ¢¾Ó',
+    {name: 'ç¿ å¾®å±…',
         url:/^http:\/\/www\.cuiweiju\.com\/html\/.+\.html/i,
         siteExample:'http://www.cuiweiju.com/html/124/124362/6468025.html',
-        nextLink:'//p[@class="cz_bar"]/descendant::a[text()="ÏÂÒ»ÕÂ ¡·"]',
+        nextLink:'//p[@class="cz_bar"]/descendant::a[text()="ä¸‹ä¸€ç«  ã€‹"]',
         autopager:{
             pageElement:'//div[@class="book_wrap"]'
         }
     },
-    {name: 'ÔÚÏßÊé°É',
+    {name: 'åœ¨çº¿ä¹¦å§',
         url:/^http:\/\/www\.bookba\.net\/Html\/Book\/.+\.html/i,
         siteExample:'http://www.bookba.net/Html/Book/15/15995/2030251.html',
-        nextLink:'//td[@id="thumb"]/descendant::a[text()="ÏÂÒ»ÕÂ"]',
+        nextLink:'//td[@id="thumb"]/descendant::a[text()="ä¸‹ä¸€ç« "]',
         autopager:{
             useiframe:true,
             pageElement:'//div[@id="content"]'
         }
     },
-    {name: 'ÎÄÑ§ÃÔ',
+    {name: 'æ–‡å­¦è¿·',
         url:/^http:\/\/www\.wenxuemi\.net\/files\/article\/html\/.+\.html/i,
         siteExample:'http://www.wenxuemi.net/files/article/html/10/10884/4852125.html',
-        nextLink:'//div[@id="footlink"]/descendant::a[text()="ÏÂÒ»Ò³"]',
+        nextLink:'//div[@id="footlink"]/descendant::a[text()="ä¸‹ä¸€é¡µ"]',
         autopager:{
             pageElement:'//div[@id="content"]'
         }
     },
-    {name: '°®ÉĞÎÄÑ§Íø',
+    {name: 'çˆ±å°šæ–‡å­¦ç½‘',
         url:/^http:\/\/www\.kenshu\.cc\/files\/article\/html\/.+\.html/i,
         siteExample:'http://www.kenshu.cc/files/article/html/5/5379/6389640.html',
-        nextLink:'//dd[@id="footlink"]/descendant::a[text()="ÏÂÒ»Ò³"]',
+        nextLink:'//dd[@id="footlink"]/descendant::a[text()="ä¸‹ä¸€é¡µ"]',
         autopager:{
             pageElement:'//div[@class="bdsub"]'
         }
     },
-    {name: 'EÆ·ÖĞÎÄÍø',
+    {name: 'Eå“ä¸­æ–‡ç½‘',
         url:/^http:\/\/www\.epzw\.com\/files\/article\/html\/.+\.html/i,
         siteExample:'http://www.epzw.com/files/article/html/50/50244/3271485.html',
-        nextLink:'//div[@id="link"]/descendant::a[text()="ÏÂÒ»Ò³"]',
+        nextLink:'//div[@id="link"]/descendant::a[text()="ä¸‹ä¸€é¡µ"]',
         autopager:{
             pageElement:'//div[@id="content"]'
         }
     },
-    {name: '´ó¼Ò¶ÁÊéÔº',
+    {name: 'å¤§å®¶è¯»ä¹¦é™¢',
         url:/^http:\/\/www\.dajiadu\.net\/files\/article\/html\/.+\.html/i,
         siteExample:'http://www.dajiadu.net/files/article/html/14/14436/3337407.html',
-        nextLink:'//div[@id="footlink"]/descendant::a[text()="ÏÂÒ»Ò³"]',
+        nextLink:'//div[@id="footlink"]/descendant::a[text()="ä¸‹ä¸€é¡µ"]',
         autopager:{
             pageElement:'//div[@id="center"]'
         }
     },
-    {name: '±±¾©°®Êé',
+    {name: 'åŒ—äº¬çˆ±ä¹¦',
         url:/^http:\/\/www\.bj-ibook\.cn\/book\/.+\.htm/i,
         siteExample:'http://www.bj-ibook.cn/book/17/t10409k/12.htm',
-        nextLink:'//div[@class="zhtop"]/a[text()="ÏÂÒ»Ò³£¨¿ì½İ¼ü¡ú£©"][@href]',
+        nextLink:'//div[@class="zhtop"]/a[text()="ä¸‹ä¸€é¡µï¼ˆå¿«æ·é”®â†’ï¼‰"][@href]',
         autopager:{
             useiframe:true,
             pageElement:'//div[@id="bmsy_content"]'
         }
     },
-    {name: 'Ğ¡Ëµ570',
+    {name: 'å°è¯´570',
         url:/^http:\/\/www\.xiaoshuo570\.com/i,
         siteExample:'http://www.xiaoshuo570.com/11/11844/2678383.html',
-        nextLink:'//div[@id="thumb"]/a[text()="ÏÂÒ»Ò³"][@href]',
+        nextLink:'//div[@id="thumb"]/a[text()="ä¸‹ä¸€é¡µ"][@href]',
         autopager:{
             useiframe:true,
             pageElement:'//div[@class="fonts_big"]',
         }
     },
-    {name: '¿´Êé',
+    {name: 'çœ‹ä¹¦',
         url:/^http:\/\/www\.kanshu\.com\/files\/article\/html\/.+\.html/i,
         siteExample:'http://www.kanshu.com/files/article/html/30997/935806.html',
-        nextLink:'//div[@class="yd_linebot"]/descendant::a[text()="ÏÂÒ»ÕÂ"]',
+        nextLink:'//div[@class="yd_linebot"]/descendant::a[text()="ä¸‹ä¸€ç« "]',
         autopager:{
             pageElement:'//table[@class="yd_table"]'
         }
     },
-    {name: 'È«±¾Ğ¡ËµÍø',
+    {name: 'å…¨æœ¬å°è¯´ç½‘',
         url:/^http:\/\/www\.quanben\.com\/xiaoshuo\/.+\.html/i,
         siteExample:'http://www.quanben.com/xiaoshuo/10/10412/2095098.html',
         autopager:{
             pageElement:'//div[@id="content"]'
         }
     },
-    {name: '½ú½­Ô­´´',
+    {name: 'æ™‹æ±ŸåŸåˆ›',
         url:/^http:\/\/www\.jjwxc\.net\/onebook\.php\?novelid=/i,
         siteExample:'http://www.jjwxc.net/onebook.php?novelid=862877&chapterid=6',
         nextLink: {
@@ -2687,7 +2694,7 @@ var SITEINFO=[
             pageElement:'//div[@class="noveltext"]',
         }
     },
-    {name: 'ÆæÊéÎİ',
+    {name: 'å¥‡ä¹¦å±‹',
         url:/^http:\/\/www\.qishuwu\.com\/.+/i,
         siteExample:'http://www.qishuwu.com/a_zhijian/314815/',
         nextLink:'auto;',
@@ -2695,7 +2702,7 @@ var SITEINFO=[
             pageElement:'//div[@id="bgdiv"]'
         }
     },
-    {name: 'lu5Ğ¡ËµÍø',
+    {name: 'lu5å°è¯´ç½‘',
         url:/^http:\/\/www\.lu5\.com\/.+\.html/i,
         siteExample:'http://www.lu5.com/b/5/5442/9575830.html',
         nextLink:'auto;',
@@ -2703,15 +2710,15 @@ var SITEINFO=[
             pageElement:'//div[@id="content"]'
         }
     },
-    {name: '·É¿â',
+    {name: 'é£åº“',
         url:/^http:\/\/www\.feiku\.com\/\/html\/book\/.+\.shtm/i,
         siteExample:'http://www.feiku.com//html/book/130/164016/4891625.shtm',
-        nextLink:'//div[@class="prenext"]/descendant::a[text()="ÏÂÒ»Ò³¡ú"]',
+        nextLink:'//div[@class="prenext"]/descendant::a[text()="ä¸‹ä¸€é¡µâ†’"]',
         autopager:{
             pageElement:'//div[@id="chcontent"]'
         }
     },
-    {name: '»ÃÏÀĞ¡ËµÍø',
+    {name: 'å¹»ä¾ å°è¯´ç½‘',
         url:/http:\/\/www\.huanxia\.com\/book\w+\.html/i,
         siteExample:'http://www.huanxia.com/book548761_6041285.html',
         nextLink:'//a[@href][@id="htmlxiazhang"]',
@@ -2720,19 +2727,19 @@ var SITEINFO=[
             HT_insert:['//div[@id="htmlContent"]',2],
         }
     },
-    {name: 'äìÏæÊéÔº',
+    {name: 'æ½‡æ¹˜ä¹¦é™¢',
         url:/^http:\/\/www\.xxsy\.net\/books\/.*\.html/i,
         siteExample:'http://www.xxsy.net/books/485034/5259176.html',
-        nextLink:'//div[@id="detailsubsbox"]/span/a[@href][@title="ÔÄ¶ÁÏÂÒ»ÕÂ½Ú"]',
+        nextLink:'//div[@id="detailsubsbox"]/span/a[@href][@title="é˜…è¯»ä¸‹ä¸€ç« èŠ‚"]',
         autopager:{
             pageElement:'//div[@id="detail_title"] | //div[@id="zjcontentdiv"]',
             HT_insert:['//div[@id="zjcontentdiv"]',2],
         }
     },
-    {name: 'Êéº£',
+    {name: 'ä¹¦æµ·',
         url:/^http:\/\/www\.shuhai\.com\/read\/.+\.html/i,
         siteExample:'http://www.shuhai.com/read/4014/371553.html',
-        nextLink:'//div[@class="page_operate font_blue"]/descendant::a[text()="ÏÂÒ»ÕÂ"]',
+        nextLink:'//div[@class="page_operate font_blue"]/descendant::a[text()="ä¸‹ä¸€ç« "]',
         autopager:{
             pageElement:'//div[@id="txt"]'
         }
@@ -2740,39 +2747,39 @@ var SITEINFO=[
     {name: 'yi-see',
         url:/^http:\/\/www\.yi-see\.com/i,
         siteExample:'http://www.yi-see.com/read_266768_15501.html',
-        nextLink:'//div[@class="B2"]/descendant::a[text()="ÏÂÒ»½Ú"]',
+        nextLink:'//div[@class="B2"]/descendant::a[text()="ä¸‹ä¸€èŠ‚"]',
         autopager:{
             pageElement:'//table[@width="900px"][@align="CENTER"]',
         }
     },
-    {name: 'ÌìÏÂÊéÃË',
+    {name: 'å¤©ä¸‹ä¹¦ç›Ÿ',
         url:/^http:\/\/www\.fbook\.net\/book\/.+\.htm/i,
         siteExample:'http://www.fbook.net/book/35793/2656834.htm',
-        nextLink:'//div[@id="pages"]/descendant::a[text()="ÏÂÒ»ÕÂ"]',
+        nextLink:'//div[@id="pages"]/descendant::a[text()="ä¸‹ä¸€ç« "]',
         autopager:{
             useiframe:true,
             pageElement:'//div[@id="bookbody"]'
         }
     },
-    {name: 'Í¿Ñ»Ğ¡ËµÍø',
+    {name: 'æ¶‚é¸¦å°è¯´ç½‘',
         url:/^http:\/\/www\.tooya\.net\/.+\.html/i,
         siteExample:'http://www.tooya.net/tooya/2/2094/820902.html',
-        nextLink:'//div[@class="novel_bottom"]/descendant::a[text()="ÏÂÒ»ÕÂ"]',
+        nextLink:'//div[@class="novel_bottom"]/descendant::a[text()="ä¸‹ä¸€ç« "]',
         autopager:{
             pageElement:'//div[@id="content"]'
         }
     },
-    {name: '°ÙÏşÉú/¹ÈÁ£',
+    {name: 'ç™¾æ™“ç”Ÿ/è°·ç²’',
         url:/^http:\/\/www\.(bxs|guli)\.cc\/.+/i,
         siteExample:'http://www.bxs.cc/26758/7708992.html',
         enable:true,
-        nextLink:'//div[@id="papgbutton"]/descendant::a[text()="ÏÂÒ»ÕÂ"]',
+        nextLink:'//div[@id="papgbutton"]/descendant::a[text()="ä¸‹ä¸€ç« "]',
         autopager:{
             pageElement:'//div[@id="main"]/h1 | //div[@id="readbox"]/div[@id="content"] | //div[@id="readbox"]/div[@id="papgbutton"]',
                             HT_insert:['//div[@id="weekhot"]',1],
         }
     },
-    {name: '°¾Ò¹¿´Êé',
+    {name: 'ç†¬å¤œçœ‹ä¹¦',
         url:/^http:\/\/www\.aoye\.cc\/.+\.html/i,
         siteExample:'http://www.aoye.cc/843/5.html',
         nextLink:'//div[@id="pagebottom"]/descendant::a[@id="nextpage"]',
@@ -2780,16 +2787,16 @@ var SITEINFO=[
             pageElement:'//pre[@id="content"]'
         }
     },
-    {name: 'Ëş¶ÁÎÄÑ§',
+    {name: 'å¡”è¯»æ–‡å­¦',
         url:/^http:\/\/www\.tadu\.com\/book\/\d+\/\d+/i,
         siteExample:'http://www.tadu.com/book',
-        nextLink:'//div[@class="container_center"]/div[@class="left"]/div[@class="jump"]/a[@href][text()="ÏÂÒ»ÕÂ>>"]',
+        nextLink:'//div[@class="container_center"]/div[@class="left"]/div[@class="jump"]/a[@href][text()="ä¸‹ä¸€ç« >>"]',
         autopager:{
             useiframe:true,
             pageElement:'//div[@class="container_center"]/div[@class="left"]/div[@class="content"][@id="partContent"]',
         }
     },
-    {name: 'ÎŞ´íĞ¡ËµÍø',
+    {name: 'æ— é”™å°è¯´ç½‘',
         url:/^http:\/\/www\.wcxiaoshuo\.com\/wcxs\-\d+\-\d+/i,
         siteExample:'http://www.wcxiaoshuo.com/wcxs-*-*/',
         nextLink:'auto;',
@@ -2797,50 +2804,50 @@ var SITEINFO=[
             pageElement:'//div[@class="wrapper_main"][@id="jsreadbox"]/h1 | //div[@class="wrapper_main"][@id="jsreadbox"]/div[@id="htmlContent"][@class="contentbox"]',
         }
     },
-    {name: 'È¼ÎÄ',
+    {name: 'ç‡ƒæ–‡',
         url:/^http:\/\/www\.ranwen\.cc\/.+\.html/i,
         siteExample:'http://www.ranwen.cc/A/9/9818/3505060.html',
-        nextLink:'//div[@class="pageTools"]/descendant::a[text()="ÏÂÒ»ÕÂ"]',
+        nextLink:'//div[@class="pageTools"]/descendant::a[text()="ä¸‹ä¸€ç« "]',
         autopager:{
             pageElement:'//div[@id="oldtext"]'
         }
     },
-    {name: 'ÊéºÓ',
+    {name: 'ä¹¦æ²³',
         url:/^http:\/\/www\.shuhe\.cc\/.+/i,
         siteExample:'http://www.shuhe.cc/30976/4401025/',
-        nextLink:'//div[@class="bottem"]/descendant::a[text()="ÏÂÒ»ÕÂ"]',
+        nextLink:'//div[@class="bottem"]/descendant::a[text()="ä¸‹ä¸€ç« "]',
         autopager:{
             pageElement:'//div[@id="TXT"]'
         }
     },
-    {name: '89ÎÄÑ§',
+    {name: '89æ–‡å­¦',
         url:/^http:\/\/89wx\.com\/.+\.htm/i,
         siteExample:'http://89wx.com/html/book/70/70732/6641331.htm',
-        nextLink:'//dd[@id="footlink"]/descendant::a[text()="ÏÂÒ»Ò³"]',
+        nextLink:'//dd[@id="footlink"]/descendant::a[text()="ä¸‹ä¸€é¡µ"]',
         autopager:{
             pageElement:'//dd[@id="contents"]'
         }
     },
-    {name: '¼«ËÙĞ¡ËµÍø',
+    {name: 'æé€Ÿå°è¯´ç½‘',
         url:/^http:\/\/www\.186s\.cn\/files\/article\/html\/.+\.html/i,
         siteExample:'http://www.186s.cn/files/article/html/0/304/4528937.html',
-        nextLink:'//div[@id="footlink"]/descendant::a[text()="ÏÂÒ»Ò³"]',
+        nextLink:'//div[@id="footlink"]/descendant::a[text()="ä¸‹ä¸€é¡µ"]',
         autopager:{
             pageElement:'//div[@id="content"]'
         }
     },
-    {name: 'ÊÖ´ò8',
+    {name: 'æ‰‹æ‰“8',
         url:/^http:\/\/shouda8\.com\/.+\.html/i,
         siteExample:'http://shouda8.com/zhangyuxingchen/85649.html',
-        nextLink:'//div[@id="papgbutton"]/descendant::a[text()="ÏÂÒ»ÕÂ£¨¿ì½İ¼ü ¡ú£©"]',
+        nextLink:'//div[@id="papgbutton"]/descendant::a[text()="ä¸‹ä¸€ç« ï¼ˆå¿«æ·é”® â†’ï¼‰"]',
         autopager:{
             pageElement:'//div[@id="content"]'
         }
     },
-    {name: 'ÉÁÎÄÊé¿â',
+    {name: 'é—ªæ–‡ä¹¦åº“',
         url:/^http:\/\/read\.shanwen\.com\/.+\.html/i,
         siteExample:'http://read.shanwen.com/14/14616/1011063.html',
-        nextLink:'//td[@class="tb0"]/descendant::a[text()="ÏÂÒ»Ò³"]',
+        nextLink:'//td[@class="tb0"]/descendant::a[text()="ä¸‹ä¸€é¡µ"]',
         autopager:{
             pageElement:'//div[@id="content"]'
         }
@@ -2848,54 +2855,54 @@ var SITEINFO=[
     {name: 'PaiTxt',
         url:/^http:\/\/paitxt\.com\/.+\.html/i,
         siteExample:'http://paitxt.com/24/24596/4507312.html',
-        nextLink:'//div[@class="book_middle_text_next"]/descendant::a[text()="ÏÂÒ»ÕÂ(¿ì½İ¼ü:¡ú)"]',
+        nextLink:'//div[@class="book_middle_text_next"]/descendant::a[text()="ä¸‹ä¸€ç« (å¿«æ·é”®:â†’)"]',
         autopager:{
             pageElement:'//div[@id="booktext"]'
         }
     },
-    {name: 'ºÃÊéÂ¥',
+    {name: 'å¥½ä¹¦æ¥¼',
         url:/^http:\/\/www\.haoshulou\.com\/.+\.html/i,
         siteExample:'http://www.haoshulou.com/Hao/6/60238.html',
-        nextLink:'//div[@class="movenext"]/descendant::a[text()="ÏÂÒ»ÕÂ"]',
+        nextLink:'//div[@class="movenext"]/descendant::a[text()="ä¸‹ä¸€ç« "]',
         autopager:{
             pageElement:'//div[@id="booktext"]'
         }
     },
-    {name: 'BookLink.Me:×îÓĞ°®µÄĞ¡ËµËÑË÷ÒıÇæ',
+    {name: 'BookLink.Me:æœ€æœ‰çˆ±çš„å°è¯´æœç´¢å¼•æ“',
         url: '^http://booklink\\.me/',
-        nextLink: '//a[text()="ÏÂÒ»Ò³"] | //a[font[text()="ÏÂÒ»Ò³"]]',
+        nextLink: '//a[text()="ä¸‹ä¸€é¡µ"] | //a[font[text()="ä¸‹ä¸€é¡µ"]]',
         pageElement: '//table[@width="100%"][@cellspacing="0"][@cellpadding="2"]',
         scroll_only: true
     },
 
     // =============================== manhua ========================
-    {name: 'Ìì¼«¶¯ÂşÆµµÀĞÂÎÅ',
+    {name: 'å¤©æåŠ¨æ¼«é¢‘é“æ–°é—»',
         url:/http:\/\/comic\.yesky\.com\/\d+\/.+\.shtml/i,
         siteExample:'http://comic.yesky.com/249/11335749_5.shtml',
-        nextLink:'//div[@id="numpage"]/descendant::a[text()="ÏÂÒ»Ò³"]',
+        nextLink:'//div[@id="numpage"]/descendant::a[text()="ä¸‹ä¸€é¡µ"]',
         autopager:{
             pageElement:'//div[@class="article"]',
             remain:1.4,
             replaceE:'//div[@id="numpage"]',
         }
     },
-    {name: '±©×ßÂş»­',
+    {name: 'æš´èµ°æ¼«ç”»',
         url: /^http:\/\/(baozou|baozoumanhua)\.com\//i,
-        nextLink: '//div[@class="pagebar"]/a[text()="ÏÂÒ»Ò³" or @class="next"] | //a[@class="next" and (text()="ÏÂÒ»Ò³")]',
+        nextLink: '//div[@class="pagebar"]/a[text()="ä¸‹ä¸€é¡µ" or @class="next"] | //a[@class="next" and (text()="ä¸‹ä¸€é¡µ")]',
         autopager: {
             pageElement: '//div[@class="main cf"]/div[@class="content-block cf"]/div[1]',
         }
     },
-    {name: '¶¯ÂşÖ®¼ÒÂş»­Íø',
+    {name: 'åŠ¨æ¼«ä¹‹å®¶æ¼«ç”»ç½‘',
         url: "^http://(www|manhua)\\.dmzj\\.com/.+/.+shtml|^http://manhua\\.178\\.com/.+/.+shtml",
         siteExample:'http://manhua.178.com/lansechumoshi/15794.shtml',
-        nextLink:'//div[@class="pages2"]/descendant::a[text()="ÏÂÒ»Ò³"]',
+        nextLink:'//div[@class="pages2"]/descendant::a[text()="ä¸‹ä¸€é¡µ"]',
         autopager:{
             pageElement:'//div[@class="inner_img"]',
             useiframe:true,
         }
     },
-    {name: '°®Âş»­',
+    {name: 'çˆ±æ¼«ç”»',
         url:/^http:\/\/www\.imanhua\.com\/comic\/.+/i,
         siteExample:'http://www.imanhua.com/comic/55/list_39448.html',
         useiframe:true,
@@ -2924,7 +2931,7 @@ var SITEINFO=[
             pageElement:'//img[@id="comic"]',
         }
     },
-    {name: 'CCÂş»­Íø',
+    {name: 'CCæ¼«ç”»ç½‘',
         url: "^http://www\\.tuku\\.cc/comic/\\d+/\\d+/",
         siteExample:'http://www.tuku.cc/comic/6123/1/',
         nextLink:'auto;',
@@ -2933,7 +2940,7 @@ var SITEINFO=[
             useiframe:true,
         }
     },
-    {name: 'ĞÂ¶¯Âş',
+    {name: 'æ–°åŠ¨æ¼«',
         url:/http:\/\/www\.xindm\.cn\/mh\/.+/i,
         siteExample:'http://www.xindm.cn/mh/shishangzuiqiangdizi/58784.html?p=2',
         preLink:{
@@ -2959,7 +2966,7 @@ var SITEINFO=[
             useiframe:true,
         }
     },
-    {name: '¿´Âş»­',
+    {name: 'çœ‹æ¼«ç”»',
         url:/^http:\/\/www\.kkkmh\.com\/manhua\/\d+\/\d+\/\d+\.html/i,
         siteExample:'http://www.kkkmh.com/manhua/0710/1011/34412.html?p=2',
         nextLink: {
@@ -2991,8 +2998,8 @@ var SITEINFO=[
             }
         }
     },
-    // ÒÑÊ§Ğ§
-    // {name: 'SFÔÚÏßÂş»­',
+    // å·²å¤±æ•ˆ
+    // {name: 'SFåœ¨çº¿æ¼«ç”»',
     //     url:/http:\/\/comic\.sfacg\.com\/HTML\/.+/i,
     //     siteExample:'http://comic.sfacg.com/HTML/ZXCHZ/001/#p=2',
     //     preLink:{
@@ -3019,7 +3026,7 @@ var SITEINFO=[
     //         replaceE: 'id("Pages")'
     //     }
     // },
-    {name: 'ÈÈÑªÂş»­',
+    {name: 'çƒ­è¡€æ¼«ç”»',
         url: /^http:\/\/www\.rexuedongman\.com\/comic\//i,
         siteExample: 'http://www.rexuedongman.com/comic/2957/36463/index.html?p=2',
         nextLink: {
@@ -3040,7 +3047,7 @@ var SITEINFO=[
             pageElement: '//img[@id="mangaFile"]',
         }
     },
-    {name: '»ùµÂÂş»­Íø',
+    {name: 'åŸºå¾·æ¼«ç”»ç½‘',
         url: /^http:\/\/www\.jide123\.net\/manhua\/.*\.html/i,
         exampleUrl: 'http://www.jide123.net/manhua/3670/272725.html?p=2',
         nextLink: {
@@ -3061,7 +3068,7 @@ var SITEINFO=[
             useiframe: true,
         }
     },
-    {name: '5652ÔÚÏßÂş»­',
+    {name: '5652åœ¨çº¿æ¼«ç”»',
         url: /^http:\/\/mh\.5652\.com\/mh\/.*\.shtml/i,
         exampleUrl: 'http://mh.5652.com/mh/20130124/5484/125907.shtml?p=2',
         nextLink: {
@@ -3082,14 +3089,14 @@ var SITEINFO=[
             useiframe: true,
         }
     },
-    {name: 'º¹º¹Âş»­',
+    {name: 'æ±—æ±—æ¼«ç”»',
         url: /^http:\/\/\w+\.(?:vs20|3gmanhua|hhcomic)\.(?:com|net)\/\w+\/\w+\.htm/i,
         siteExample: 'http://page.vs20.com/1815454/115321.htm?v=2*s=6',
         nextLink: function(doc, win, cplink) {
-            // hrefInc µÄ·½Ê½²»ĞĞÒòÎªÕâ¸öµØÖ·×îºó»¹ÓĞ¶îÍâµÄ *s=6
+            // hrefInc çš„æ–¹å¼ä¸è¡Œå› ä¸ºè¿™ä¸ªåœ°å€æœ€åè¿˜æœ‰é¢å¤–çš„ *s=6
             var m = cplink.match(/\?v=(\d+)/);
             if (!m) {
-                // µÚÒ»Ò³ÕâÖÖÇé¿ö http://page.vs20.com/1815454/115321.htm?s=6
+                // ç¬¬ä¸€é¡µè¿™ç§æƒ…å†µ http://page.vs20.com/1815454/115321.htm?s=6
                 return cplink.replace('?s=', '?v=2*s=');
             } else {
                 var current = Number(m[1]),
@@ -3107,7 +3114,7 @@ var SITEINFO=[
             pageElement: '//img[@id="ComicPic"]',
         }
     },
-    {name: '99Âş»­old',
+    {name: '99æ¼«ç”»old',
         url: /^http:\/\/(cococomic|dm.99manga|99manga|99comic|www.99comic|www.hhcomic)\.(com|cc)\/.+\.htm/i,
         siteExample: 'http://99manga.com/page/168/6481.htm?v=3*s=9',
         nextLink: {
@@ -3127,7 +3134,7 @@ var SITEINFO=[
             pageElement: '//img[@id="ComicPic"]',
         }
     },
-    {name: '99Âş»­new',
+    {name: '99æ¼«ç”»new',
         url: /^http:\/\/(1mh|99mh|mh.99770|www.jmydm)\.(com|cc)\/.+/i,
         siteExample: 'http://99mh.com/comic/8436/117728/?p=1&s=0',
         nextLink: {
@@ -3140,7 +3147,7 @@ var SITEINFO=[
             pageElement: '//div[@id="iBody"]',
         }
     },
-    {name: '¶¯ÂşFans',
+    {name: 'åŠ¨æ¼«Fans',
         url: /http:\/\/www\.dm123\.cn\/bbs\/(thread\.php\?fid=|read\.php\?tid=)/i,
         siteExample: 'http://www.dm123.cn/bbs/read.php?tid=593645',
         nextLink: 'auto;',
@@ -3148,7 +3155,7 @@ var SITEINFO=[
                 pageElement: '//tbody[@id="threadlist"]|//div[@id="pw_content"]',
         }
     },
-    {name: 'KuKu¶¯Âş',
+    {name: 'KuKuåŠ¨æ¼«',
         url:/http:\/\/comic\.kukudm\.com\/comiclist\/\d+\/\d+.*\.htm/i,
         siteExample:'http://comic.kukudm.com/comiclist/4/17099/3.htm',
         useiframe:true,
@@ -3158,7 +3165,7 @@ var SITEINFO=[
             pageElement:'//body/table[2]'
         }
     },
-    {name: '52pkÂş»­',
+    {name: '52pkæ¼«ç”»',
         url:/http:\/\/(op|sishen|narutocn)\.52pk\.com\/manhua\/\d+\/\d+/i,
         siteExample:'http://op.52pk.com/manhua/2010/921364.html',
         nextLink:'//li[@id="page__next"]/a[1]',
@@ -3167,7 +3174,7 @@ var SITEINFO=[
             pageElement:'//div[@id="pictureContent"]'
         }
     },
-    {name: 'ÓĞÑıÆøÂş»­',
+    {name: 'æœ‰å¦–æ°”æ¼«ç”»',
         url:/http:\/\/www\.u17\.com\/comic_show\/.+/i,
         siteExample:'http://www.u17.com/comic_show/c28540_m0.html',
         autopager:{
@@ -3175,7 +3182,7 @@ var SITEINFO=[
             useiframe:true,
         }
     },
-    {name: '¶¯ÂşÎİ',
+    {name: 'åŠ¨æ¼«å±‹',
         url:/http:\/\/(www|tel)\.dm5\.com\/.+/i,
         nextLink:'//span[@id="s_next"]/a[1]',
         autopager:{
@@ -3183,7 +3190,7 @@ var SITEINFO=[
             useiframe:true,
         }
     },
-    {name: 'ÌìÊ¹Âş»­Íø,TSDMÂş»­×é',
+    {name: 'å¤©ä½¿æ¼«ç”»ç½‘,TSDMæ¼«ç”»ç»„',
         url:/^http:\/\/mh\.tsdm\.net\/comic\/.+/i,
         siteExample:'http://mh.tsdm.net/comic/4697/68059.html',
         useiframe:true,
@@ -3212,7 +3219,7 @@ var SITEINFO=[
             pageElement:'//img[@id="qTcms_pic"]',
         }
     },
-    {name: 'Âş»­ÆµµÀ_ÓÎÏÀÍø',
+    {name: 'æ¼«ç”»é¢‘é“_æ¸¸ä¾ ç½‘',
         url: /^http:\/\/manhua\.ali213\.net\/comic\/.*\.html/i,
         exampleUrl: 'http://manhua.ali213.net/comic/5257/141336.html',
         nextLink: 'auto;',
@@ -3222,7 +3229,7 @@ var SITEINFO=[
             replaceE: "//div[@class='enjoy_center_bottom_page']//*[@class='li_middle' or @class='previouspage' or @class='nextpage']"
         }
     },
-    {name: '»ğÓ°ÈÌÕßÖĞÎÄÍø',
+    {name: 'ç«å½±å¿è€…ä¸­æ–‡ç½‘',
         url:/http:\/\/www\.narutom\.com\/comic\/.+/i,
         siteExample:'http://www.narutom.com/comic/11624.html?p=3',
         preLink:{
@@ -3248,21 +3255,21 @@ var SITEINFO=[
             useiframe:true,
         }
     },
-    {name: 'ËÀÉñÖĞÎÄÍø',
+    {name: 'æ­»ç¥ä¸­æ–‡ç½‘',
         url:/http:\/\/(?:\w+\.)?bleachcn\.net\/manhua\/.+/i,
         siteExample:'http://naruto.bleachcn.net/manhua/6759.html',
-        nextLink:'//div[@id="comic_pages"]/a[text()="ÏÂÒ»Ò³"][@href]',
+        nextLink:'//div[@id="comic_pages"]/a[text()="ä¸‹ä¸€é¡µ"][@href]',
         autopager:{
             pageElement:'//div[@id="comic_endtext"]',
         }
     },
-    {name: 'iiiklÂÛÌ³',
+    {name: 'iiiklè®ºå›',
         url: '^http://bbs\\.iiikl\\.net/forum\\.php\\?forum_id=.*',
         nextLink: '//a[@class="next"]',
         pageElement: '//tr[@class="topic_list_row"]',
         exampleUrl: 'http://bbs.iiikl.net/forum.php?forum_id=82&class_id=0&page=2'
     },
-    {name: 'sosgÂÛÌ³Ìû×Ó',
+    {name: 'sosgè®ºå›å¸–å­',
         url:/http:\/\/www\.sosg\.net\/read/i,
         siteExample:'http://www.sosg.net/read.php?tid=424833',
         nextLink:'//td[@align="left"]/b/following-sibling::a[@href]',
@@ -3270,7 +3277,7 @@ var SITEINFO=[
             pageElement:'//div[@id="b5"]/form/a/table[1]',
         }
     },
-    {name: '³Î¿ÕÌù×ÓÄÚÈİ',
+    {name: 'æ¾„ç©ºè´´å­å†…å®¹',
         url:/http:\/\/bbs\.sumisora\.org\/read\.php\?tid=/i,
         siteExample:'http://bbs.sumisora.org/read.php?tid=11015694',
         nextLink:'auto;',
@@ -3278,7 +3285,7 @@ var SITEINFO=[
             pageElement:'css;.t.t2',
         }
     },
-    {name: '9gal²ÔÑ©ÂÛÌ³',
+    {name: '9galè‹é›ªè®ºå›',
         url:/http:\/\/bbs\.(9gal|9baka)\.com\/read\.php\?tid=/i,
         siteExample:'http://bbs.9gal.com/read.php?tid=299016',
         nextLink:'auto;',
@@ -3287,7 +3294,7 @@ var SITEINFO=[
             replaceE:'//ul[@class="pages"]',
         },
     },
-    {name: 'ºÍĞ°Éç|ÄãµÄACGÉú»î ÎÄ²»ÔÚ³¤.ÄÚº­ÔòÃ÷ Í¼²»ÔÚÉ«.ÒâÒùÔòÁé',
+    {name: 'å’Œé‚ªç¤¾|ä½ çš„ACGç”Ÿæ´» æ–‡ä¸åœ¨é•¿.å†…æ¶µåˆ™æ˜ å›¾ä¸åœ¨è‰².æ„æ·«åˆ™çµ',
         url: /^http:\/\/www\.hexieshe\.com\//i,
         exampleUrl: 'http://www.hexieshe.com/',
         nextLink: '//div[@class="pagebar"]/a[text()="Next"]',
@@ -3335,24 +3342,24 @@ var SITEINFO=[
             pageElement: 'id("innerContent")',
         }
     },
-    {name: '1024ÉçÇø',
+    {name: '1024ç¤¾åŒº',
         url: '^http://(www\\.)?t66y\\.com/|^http://cl\\.man\\.lv/',
         nextLink: '//div[@class="pages"]/b/following-sibling::a[1]',
         pageElement: 'id("ajaxtable") | id("main")',
         exampleUrl: 'http://t66y.com/thread0806.php?fid=15',
     },
-    {name: 'DLsite —ÊË÷½Y¹û',
+    {name: 'DLsite æ¤œç´¢çµæœ',
         url: /^http:\/\/(?:[^.]+\.)?dlsite\.com\//i,
         exampleUrl: 'http://www.dlsite.com/home/fsr/=/language/jp/keyword/kon/age_category%5B0%5D/general/per_page/30/show_type/n/page/2',
-        nextLink: '//td[@class="page_no"]/ul/li/a[text()="´Î¤Ø" or text()="Next"]',
+        nextLink: '//td[@class="page_no"]/ul/li/a[text()="æ¬¡ã¸" or text()="Next"]',
         autopager: {
             pageElement: 'id("search_result_list")',
         }
     },
-    {name: 'Gyutto.com£ü¤Î—ÊË÷½Y¹û',
+    {name: 'Gyutto.comï½œã®æ¤œç´¢çµæœ',
         url: /^http:\/\/gyutto\.com\/search\/search_list\.php/i,
         exampleUrl: 'http://gyutto.com/search/search_list.php?_adult_check=yes&action=perPage&search_keyword=lol&search_type=&mode=search&perPage=30&pageID=2&ref_path=%2Fsearch%2Fsearch_list.php',
-        nextLink: '//a[text()="´Î¤Î30¼ş¤Ø"]',
+        nextLink: '//a[text()="æ¬¡ã®30ä»¶ã¸"]',
         autopager: {
             pageElement: 'id("struct_2ColRightIn")/div[@class="unit_ItemList"]/div[contains(@class, "parts_ItemBox")]',
             relatedObj: true
@@ -3372,19 +3379,19 @@ var SITEINFO=[
         pageElement: '//table[@class="tlist"]',
         exampleUrl: 'http://www.nyaa.se/',
     },
-    {name: '¼«Ó°¶¯Âş',
+    {name: 'æå½±åŠ¨æ¼«',
         url: 'http://bt.ktxp.com/.+[0-9]+-*',
         nextLink: '//span[@class="current"]/following-sibling::a[1]',
         pageElement: '//div[@class="item-box round-corner" and div/@class="title"]',
     },
     {name: 'BTDigg Search',
         url: '^https?://btdigg.org/search*',
-        nextLink: '//a[contains(text(),"¡ú")]',
+        nextLink: '//a[contains(text(),"â†’")]',
         pageElement: '//body/div/div/center',
     },
 
 
-    // ==================== ¹úÍâÕ¾µã ===================
+    // ==================== å›½å¤–ç«™ç‚¹ ===================
     {name: 'AnandTech',
         url: '^http://anandtech\\.com/',
         nextLink: '//div[@class="pagination"]/ul/li[@class="arrow"]/a[text()="?"]',
@@ -3427,27 +3434,27 @@ var SITEINFO=[
         }
     },
 
-    //-================ ÊÖ»úÍøÕ¾ ========================
-    {name: 'ÊÖ»ú°Ù¶È°Ù¿Æ',
+    //-================ æ‰‹æœºç½‘ç«™ ========================
+    {name: 'æ‰‹æœºç™¾åº¦ç™¾ç§‘',
         url: /^http:\/\/wapbaike\.baidu\.com\//i,
         exampleUrl: 'http://wapbaike.baidu.com/goodlist?uid=F381CCCD6FD2F58151EFFB4A63BFA4FF&ssid=0&pu=sz%401321_1004&bd_page_type=1&from=844b&st=4&step=2&net=1&bk_fr=bk_more_glist',
-        nextLink: '//div[@class="pages"]/a[text()="ÏÂÒ»Ò³"] | //div[@class="page"]/p[@class="next"]/a[text()="ÏÂÒ³"] | //table[@class="table next"]//a[text()="ÏÂÒ³"] | //a[@class="m-rm-5" and text()="ÓàÏÂÈ«ÎÄ"]',
+        nextLink: '//div[@class="pages"]/a[text()="ä¸‹ä¸€é¡µ"] | //div[@class="page"]/p[@class="next"]/a[text()="ä¸‹é¡µ"] | //table[@class="table next"]//a[text()="ä¸‹é¡µ"] | //a[@class="m-rm-5" and text()="ä½™ä¸‹å…¨æ–‡"]',
         autopager: {
             pageElement: '//div[@class="bd"] | //div[@class="list"] | id("lemma-content")',
             separatorReal: false,
             replaceE: 'css;.page > .p-num'
         }
     },
-    {name: 'ÊÖ»ú¶¹°ê',
+    {name: 'æ‰‹æœºè±†ç“£',
         url: /^http:\/\/m\.douban\.com\/.*/i,
         exampleUrl: 'http://m.douban.com/book/subject/1088065/reviews?session=c0ea1419',
-        nextLink: '//div[@class="pg" or @class="paginator"]/a[text()="ÏÂÒ»Ò³"]',
+        nextLink: '//div[@class="pg" or @class="paginator"]/a[text()="ä¸‹ä¸€é¡µ"]',
         autopager: {
             pageElement: 'id("bd")/div[@class="itm"] | //div[@class="bd"]/div[@class="list"]',
             separatorReal: false
         }
     },
-    {name: 'ÊÖ»úĞÂÀËĞÂÎÅ',
+    {name: 'æ‰‹æœºæ–°æµªæ–°é—»',
         url: /^http:\/\/[a-z]+\.sina\.cn\/\?sa=/i,
         exampleUrl: 'http://news.sina.cn/?sa=t124d10608655v71&pos=108&vt=4&clicktime=1386267238910&userid=user138626723891024077253801575993',
         nextLink: 'id("j_loadingBtn")',
@@ -3456,30 +3463,30 @@ var SITEINFO=[
             relatedObj: true
         }
     },
-    {name: 'ÊÖ»úÍøÒ×Íø',
+    {name: 'æ‰‹æœºç½‘æ˜“ç½‘',
         url: '^http://3g\\.163\\.com/[a-z]+/.*\\.html',
         exampleUrl: 'http://3g.163.com/news/13/0914/04/98N4CSHI0001124J.html',
-        nextLink: ['//a[text()="ÓàÏÂÈ«ÎÄ"]', '//a[text()="ÏÂÒ³"]'],
+        nextLink: ['//a[text()="ä½™ä¸‹å…¨æ–‡"]', '//a[text()="ä¸‹é¡µ"]'],
         autopager: {
             pageElement: '//div[@class="content"]',
             // separator: false,
-            replaceE: '//div[@class="reset marTop10 cBlue"][child::a[text()="ÏÂÒ³"]] | //div[child::form[@class="reset"]]',
+            replaceE: '//div[@class="reset marTop10 cBlue"][child::a[text()="ä¸‹é¡µ"]] | //div[child::form[@class="reset"]]',
             relatedObj: true,
         }
     },
-    {name: 'ÊÖ»ú·ï»ËÍø',
+    {name: 'æ‰‹æœºå‡¤å‡°ç½‘',
         url: '^http://3g\\.ifeng\\.com/[a-z]+/',
         exampleUrl: 'http://3g.163.com/news/13/0914/04/98N4CSHI0001124J.html',
-        nextLink: ['//a[text()="ÓàÏÂÈ«ÎÄ"]', '//a[text()="ÏÂÒ»Ò³"]'],
+        nextLink: ['//a[text()="ä½™ä¸‹å…¨æ–‡"]', '//a[text()="ä¸‹ä¸€é¡µ"]'],
         autopager: {
             pageElement: '//div[@class="zwword"]',
             // separator: false,
             relatedObj: true,
         }
     },
-    {name: 'ÊÖ»ú»·ÇòÍø',
+    {name: 'æ‰‹æœºç¯çƒç½‘',
         url: '^http://wap\\.huanqiu\\.com/',
-        nextLink: ['//a[text()="ÓàÏÂÈ«ÎÄ"]', '//a[text()="ÏÂÒ»Ò³"]'],
+        nextLink: ['//a[text()="ä½™ä¸‹å…¨æ–‡"]', '//a[text()="ä¸‹ä¸€é¡µ"]'],
         autopager: {
             pageElement: '//div[@class="newscont"]',
             // separator: false,
@@ -3487,7 +3494,7 @@ var SITEINFO=[
             relatedObj: true,
         }
     },
-    {name: 'cnBeta.COM - ÒÆ¶¯°æ',
+    {name: 'cnBeta.COM - ç§»åŠ¨ç‰ˆ',
         url: /^http:\/\/m\.cnbeta\.com\//i,
         exampleUrl: 'http://m.cnbeta.com/',
         nextLink: 'id("yw0")/a[@class="page-next"]',
@@ -3495,15 +3502,15 @@ var SITEINFO=[
             pageElement: '//div/div/div[@class="list"]',
         }
     },
-    {name: 'ÊÖ»ú°æM.BookLink.Me',
+    {name: 'æ‰‹æœºç‰ˆM.BookLink.Me',
         url: /^http:\/\/m\.booklink\.me\//i,
         exampleUrl: 'http://m.booklink.me/charpter.php?site_id=2&book_id=69507',
-        nextLink: '//div[@class="sec nav"]/form/a[text()="ÏÂÒ»Ò³"]',
+        nextLink: '//div[@class="sec nav"]/form/a[text()="ä¸‹ä¸€é¡µ"]',
         autopager: {
             pageElement: 'id("m_main")/ul[@class="list sec"]',
         }
     },
-    {name: '¿ªÔ´ÖĞ¹ú(OSChina.NET)',
+    {name: 'å¼€æºä¸­å›½(OSChina.NET)',
         url: /^http:\/\/m\.oschina\.net\//i,
         exampleUrl: 'http://m.oschina.net/',
         nextLink: 'auto;',
@@ -3512,16 +3519,16 @@ var SITEINFO=[
             useiframe: true
         }
     },
-    {name: '²©¿ÍÔ°²©¿ÍÊÖ»ú°æ',
+    {name: 'åšå®¢å›­åšå®¢æ‰‹æœºç‰ˆ',
         url: /^http:\/\/m\.cnblogs\.com\/blog\//i,
         exampleUrl: 'http://m.cnblogs.com/blog/',
-        nextLink: '//a[text()="ÏÂÒ»Ò³"]',
+        nextLink: '//a[text()="ä¸‹ä¸€é¡µ"]',
         autopager: {
             pageElement: '//div[@class="list_item"]',
         }
     },
 
-    // ============== google ÆäËü======================
+    // ============== google å…¶å®ƒ======================
     {name: "Google Bookmarks",
         "url": "^https?://www\\.google\\.(?:[^.]{2,3}\\.)?[^./]{2,3}/bookmarks/",
         "nextLink": "//div[contains(concat(\" \", @class, \" \"), \" kd-buttonbar \")]//tr/td[last()-1 or last]/a[img[contains(@src,\"right.png\")]]",
@@ -3632,7 +3639,7 @@ var SITEINFO=[
     },
     {
         "url": "^http://www\\.google(?:\\.[^./]{2,3}){1,2}/m\\?.",
-        "nextLink": "//*[starts-with(text(), \"Next page\") or starts-with(text(), \"´Î¤Î¥Ú©`¥¸\")]",
+        "nextLink": "//*[starts-with(text(), \"Next page\") or starts-with(text(), \"æ¬¡ã®ãƒšãƒ¼ã‚¸\")]",
         "pageElement": "id(\"universal\")/div[not(@*)]",
         "insertBefore": "id(\"universal\")/*[@class][last()]"
     },
@@ -3653,7 +3660,7 @@ var SITEINFO=[
         "nextLink": "//a[@hotkey=\"l\"]|//div[contains(concat(\" \",@class,\" \"),\" pagination \")]/a",
         "pageElement": "//div[@class=\"news\"]/div[contains(@class, \"alert\")]"
     },
-    {name: "github ËÑË÷",
+    {name: "github æœç´¢",
         url: "^https?://github\\.com/search",
         nextLink: "//div[@class='pagination']/a[@rel='next']",
         autopager: {
@@ -3667,7 +3674,7 @@ var SITEINFO=[
         "nextLink": "//div[contains(concat(\" \", @class, \" \"), \" pagination \")]/a[contains(text(),\"Older\")]",
         "pageElement": "//div[contains(concat(\" \", @class, \" \"), \" gist-item \")]"
     },
-        // ÓĞµãĞ¡ÎÊÌâ£¬ĞèÒªË¢ĞÂÏÂ²ÅÓĞÓÃ
+        // æœ‰ç‚¹å°é—®é¢˜ï¼Œéœ€è¦åˆ·æ–°ä¸‹æ‰æœ‰ç”¨
     {
         "url": "^https?://github\\.com/(?:changelog|[^/]+/[^/]+/commits)",
         "nextLink": "//a[contains(text(), \"Older\")]",
@@ -3694,8 +3701,8 @@ var SITEINFO=[
         "pageElement": "id(\"posts\")/div[contains(concat(\" \",@class,\" \"),\" list \")]/ul/li"
     },
 
-    // ========= ºÜÉÙÓÃµÄ ================
-    {name: 'bookcool-Ğ¡ËµºÏ¼¯',
+    // ========= å¾ˆå°‘ç”¨çš„ ================
+    {name: 'bookcool-å°è¯´åˆé›†',
         url: '^http://www\\.bookcool\\.com/.*\\.htm',
         nextLink: '//div[@id="object1"]/descendant::a[last()][@href]',
         pageElement: '//div[@align="center"]/table[@width !="100%"]',
@@ -3709,9 +3716,9 @@ var SITEINFO=[
     },
 ];
 
-//Í³Åä¹æÔò..ÓÃÀ´ÃğµôÒ»Ğ©DZ.»òÕßphpwindÂÛÌ³ÏµÍ³..´Ë×é¹æÔò..ÓÅÏÈ¼¶×Ô¶¯½µÎª×îµÍ..
+//ç»Ÿé…è§„åˆ™..ç”¨æ¥ç­æ‰ä¸€äº›DZ.æˆ–è€…phpwindè®ºå›ç³»ç»Ÿ..æ­¤ç»„è§„åˆ™..ä¼˜å…ˆçº§è‡ªåŠ¨é™ä¸ºæœ€ä½..
 var SITEINFO_TP=[
-    {name: 'Discuz ÂÛÌ³ - ËÑË÷',
+    {name: 'Discuz è®ºå› - æœç´¢',
         url: '^https?://bbs\\.[a-z]+\\.cn/search\\.php\\?mod=forum',
         preLink: '//div[@class="pages" or @class="pg"]/descendant::a[@class="prev"][@href]',
         nextLink: '//div[@class="pages" or @class="pg"]/descendant::a[@class="next" or @class="nxt"][@href]',
@@ -3720,7 +3727,7 @@ var SITEINFO_TP=[
             replaceE: '//div[@class="pg"][child::a[@class="nxt"]]'
         }
     },
-    {name: "Discuz ÂÛÌ³ - µ¼¶Á",
+    {name: "Discuz è®ºå› - å¯¼è¯»",
         url: /^https?:\/\/(?:bbs|u)\.[^\/]+\/(?:forum\.php\?mod=guide|home\.php\?mod=space)/i,
         preLink: '//div[@class="pages" or @class="pg"]/descendant::a[@class="prev"][@href]',
         nextLink: '//div[@class="pages" or @class="pg"]/descendant::a[@class="next" or @class="nxt"][@href]',
@@ -3729,7 +3736,7 @@ var SITEINFO_TP=[
             replaceE: '//div[@class="pg"][child::a[@class="nxt"]]'
         }
     },
-    {name: 'DiscuzÂÛÌ³ÁĞ±í',
+    {name: 'Discuzè®ºå›åˆ—è¡¨',
         url:/^https?:\/\/(?:www\.[^\/]+\/|[^\/]+\/(?:bbs\/)?)(?:2b\/)?(?:(?:forum)|(?:showforum)|(?:viewforum)|(?:forumdisplay))+/i,
         preLink:'//div[@class="pages" or @class="pg"]/descendant::a[@class="prev"][@href]',
         nextLink:'//div[@class="pages" or @class="pg"]/descendant::a[@class="next" or @class="nxt"][@href] | //div[@class="p_bar"]/a[@class="p_curpage"]/following-sibling::a[@class="p_num"]',
@@ -3739,7 +3746,7 @@ var SITEINFO_TP=[
             lazyImgSrc: 'file|pagespeed_lsc_url'
         }
     },
-    {name: 'DiscuzÂÛÌ³Ìû×Ó',
+    {name: 'Discuzè®ºå›å¸–å­',
         url:/https?:\/\/(?:www\.[^\/]+\/|[^\/]+\/(?:bbs\/)?)(?:2b\/)?(?:(?:thread)|(?:viewthread)|(?:showtopic)|(?:viewtopic))+/i,
         preLink:'//div[@class="pages" or @class="pg"]/descendant::a[@class="prev"][@href]',
         nextLink:'//div[@class="pages" or @class="pg"]/descendant::a[@class="next" or @class="nxt"][@href] | //div[@class="p_bar"]/descendant::a[text()="??"]',
@@ -3749,21 +3756,21 @@ var SITEINFO_TP=[
             lazyImgSrc: 'zoomfile',
             stylish: '.mbbs_code{font-family:Monaco,Consolas,"Lucida Console","Courier New",serif;font-size:12px;line-height:1.8em;list-style-type:decimal-leading-zero;padding-left:10px;background:none repeat scroll 0 0 #f7f7f7;color:#666;border:1px solid #ccc;overflow:hidden;padding:10px 0 5px 10px}',
             filter: function(pages){
-                // »Ø¸´ºó²åÈëµ½×îºóÒ»Ò³
+                // å›å¤åæ’å…¥åˆ°æœ€åä¸€é¡µ
                 var replays = document.querySelectorAll("#postlistreply");
                 if(replays.length > 1){
                     var first = replays[0];
                     first.parentNode.removeChild(first);
                 }
 
-                // ÔÚ¿¨·¹ÂÛÌ³Èç¹û²»´æÔÚ£¬»áÌáÊ¾£¬ËùÒÔÄ¬ÈÏ½ûÓÃ
+                // åœ¨å¡é¥­è®ºå›å¦‚æœä¸å­˜åœ¨ï¼Œä¼šæç¤ºï¼Œæ‰€ä»¥é»˜è®¤ç¦ç”¨
                 // var SyntaxHighlighter = unsafeWindow.SyntaxHighlighter;
                 // if (SyntaxHighlighter && SyntaxHighlighter.highlight) {
                 //     SyntaxHighlighter.highlight();
                 // }
             },
             documentFilter: function(doc) {
-                // ¿¨·¹ÂÛÌ³µÄÏÂÒ»Ò³´úÂëÇøÓò¿ÉÄÜÎŞ·¨×ÅÉ«£¬ËùÒÔÊÖ¶¯ĞŞ¸Ä²¢Ìí¼ÓÑùÊ½
+                // å¡é¥­è®ºå›çš„ä¸‹ä¸€é¡µä»£ç åŒºåŸŸå¯èƒ½æ— æ³•ç€è‰²ï¼Œæ‰€ä»¥æ‰‹åŠ¨ä¿®æ”¹å¹¶æ·»åŠ æ ·å¼
                 var pres = doc.querySelectorAll('pre[class^="brush:"]');
                 [].forEach.call(pres, function(pre){
                     pre.classList.add('mbbs_code');
@@ -3771,7 +3778,7 @@ var SITEINFO_TP=[
             }
         }
     },
-    {name: 'phpWindÂÛÌ³ÁĞ±í',
+    {name: 'phpWindè®ºå›åˆ—è¡¨',
         url:/^https?:\/\/(?:www\.[^\/]+\/|[^\/]+\/(?:bbs\/)?)?thread/i,
         preLink:'//div[starts-with(@class,"pages")]/b[1]/preceding-sibling::a[1][not(@class)][@href] | //div[starts-with(@class,"pages")]/ul[1]/li[b]/preceding-sibling::li/a[1][not(@class)][@href]',
         nextLink:'//div[starts-with(@class,"pages")]/b[1]/following-sibling::a[1][not(@class)] | //div[starts-with(@class,"pages")]/ul[1]/li[b]/following-sibling::li/a[1][not(@class)]',
@@ -3779,7 +3786,7 @@ var SITEINFO_TP=[
             pageElement:'//div[@class="t z"] | //div[@class="z"] | //div[@id="ajaxtable"]',
         }
     },
-    {name: 'phpWindÂÛÌ³Ìû×Ó',
+    {name: 'phpWindè®ºå›å¸–å­',
         url:/^https?:\/\/(?:www\.[^\/]+\/|[^\/]+\/(?:bbs\/)?)?read/i,
         preLink:'//div[starts-with(@class,"pages")]/b[1]/preceding-sibling::a[1][not(@class)][@href] | //div[starts-with(@class,"pages")]/ul[1]/li[b]/preceding-sibling::li/a[1][not(@class)][@href]',
         nextLink:'//div[starts-with(@class,"pages")]/b[1]/following-sibling::a[1][not(@class)] | //div[starts-with(@class,"pages")]/ul[1]/li[b]/following-sibling::li/a[1][not(@class)]',
@@ -3787,7 +3794,7 @@ var SITEINFO_TP=[
             pageElement:'//div[@class="t5"] | //div[@class="read_t"] | //div[@id="pw_content"]',
         }
     },
-    {name: 'phpBBÁĞ±í',
+    {name: 'phpBBåˆ—è¡¨',
         url:/^https?:\/\/[^\/]+(\/[a-z,0-9]+)?\/viewforum/i,
         siteExample:'http://www.firefox.net.cn/forum/viewforum.php?f=4',
         nextLink:'auto;',
@@ -3797,7 +3804,7 @@ var SITEINFO_TP=[
             remain:1/3,
         }
     },
-    {name: 'phpBBÌû×Ó',
+    {name: 'phpBBå¸–å­',
         url:/^https?:\/\/[^\/]+(\/[a-z,0-9]+)?\/viewtopic/i,
         siteExample:'http://www.firefox.net.cn/forum/viewtopic.php?t=34339',
         nextLink:'auto;',
@@ -3818,37 +3825,37 @@ var SITEINFO_TP=[
     },
 ];
 
-//¼æÈİ oautopagerµÄ¹æÔò·ÅÔÚÕâÀï,´Ë¹æÔò×é..ÓÅÏÈ¼¶×îµÍ(±ÈÍ³Åä¹æÔò»¹µÍ)..
-//ËùÒÔËµ¾¡Á¿²»Òª·Å¹æÔòÔÚÕâ¸ö×éÀïÃæ.
+//å…¼å®¹ oautopagerçš„è§„åˆ™æ”¾åœ¨è¿™é‡Œ,æ­¤è§„åˆ™ç»„..ä¼˜å…ˆçº§æœ€ä½(æ¯”ç»Ÿé…è§„åˆ™è¿˜ä½)..
+//æ‰€ä»¥è¯´å°½é‡ä¸è¦æ”¾è§„åˆ™åœ¨è¿™ä¸ªç»„é‡Œé¢.
 var SITEINFO_comp=[
-    {name: 'discuzÂÛÌ³Í¨ÓÃËÑË÷',
+    {name: 'discuzè®ºå›é€šç”¨æœç´¢',
         url: '^http://[^/]+/f/(?:discuz|search)',
         nextLink: 'auto;',
         pageElement: 'id("result-items")',
     },
-    {name: 'View forum - Í¨ÓÃ',
+    {name: 'View forum - é€šç”¨',
         url: '^https?://.+?/viewforum\\.php\\?',
         nextLink: '//span[@class="gensmall"]/b/b/following-sibling::a[1] | (//table/tbody/tr/td[@class="nav"])[last()]/b[last()]/following-sibling::a[1]  | //div[@class="pagination"]/span/strong/following-sibling::a[1] | //a[text()="Next"]',
         pageElement: '//ul[contains(concat(" ",@class," ")," topics ")]|//form[table/@class="forumline"]',
     },
-    {name: 'wiki Í¨ÓÃ',
+    {name: 'wiki é€šç”¨',
         url: '.\\?(?:.+&)?search=',
         nextLink: '//a[@class="mw-nextlink"]',
         pageElement: '//ul[@class="mw-search-results"]',
     },
-    {name: 'Í¨ÓÃ Forum ¹æÔò1',
+    {name: 'é€šç”¨ Forum è§„åˆ™1',
         url: '^https?://.*((showthread\\.php\\?)|(forum|thread))',
         nextLink: '//a[@rel="next"]',
         pageElement: '//div[@id="posts"]|//ol[@id="posts"]/li',
         separatorReal: false
     },
-    {name: 'Í¨ÓÃ Forum ¹æÔò2',
+    {name: 'é€šç”¨ Forum è§„åˆ™2',
         url: '^https?://[^?#]+?/showthread\\.php\\?',
         nextLink: '//tr[@valign="top"]//div[@class="pagenav"]//a[contains(text(), ">")]',
         pageElement: '(//div[@class="pagenav"])[1]|//div[@id="posts"]/node()',
         separatorReal: false
     },
-    {name: 'Í¨ÓÃ Forum ¹æÔò3',
+    {name: 'é€šç”¨ Forum è§„åˆ™3',
         url: '^https?://.*((forumdisplay\\.php\\?)|forum)',
         nextLink: '//a[@rel="next" or (text()=">")]',
         pageElement: '//tbody[starts-with(@id,"threadbits_forum_")]/tr[td[contains(@id,"td_threadtitle")] and not(td/div/text()[contains(.,"Sticky:")])]|//ol[@id="threads" and @class="threads"]/li',
@@ -3862,7 +3869,7 @@ var SITEINFO_comp=[
     },
 ];
 
-//·ÖÒ³µ¼º½µÄ6¸öÍ¼±ê:
+//åˆ†é¡µå¯¼èˆªçš„6ä¸ªå›¾æ ‡:
 var sep_icons={
     top:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ  bWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdp  bj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6  eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEz  NDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJo  dHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlw  dGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAv  IiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RS  ZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpD  cmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlE  PSJ4bXAuaWlkOjM3NkQ2MTFFOTUyNjExREZBNkRGOEVGQ0JDNkM0RDU3IiB4bXBNTTpEb2N1bWVu  dElEPSJ4bXAuZGlkOjM3NkQ2MTFGOTUyNjExREZBNkRGOEVGQ0JDNkM0RDU3Ij4gPHhtcE1NOkRl  cml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6Mzc2RDYxMUM5NTI2MTFERkE2REY4  RUZDQkM2QzRENTciIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6Mzc2RDYxMUQ5NTI2MTFERkE2  REY4RUZDQkM2QzRENTciLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1l  dGE+IDw/eHBhY2tldCBlbmQ9InIiPz7bso/VAAACxElEQVR42rSUS0iUURTH//d+j9EppSRtCjEi  w0EhjR6kIyUpWilFpbUTei1auMoellAQZFSbVrkQilplhZC9IKyNQg8CXVQKZigaOgojNdg3j++7  nTtjAzPqTI50Zu7ce+ec87vnnPtgQghIcZ3VxiGwGksRhomemwGHHKqRPwl6+ujFJXHvPLwWCUyN  VT7qvZ4UtK7oQtQ8CizLUlt4fr4U6ctmExPyZ478LelcMMNIa3vL2nkrR7KnvEaR/auuZ2akeHMt  f0SGsSvFSuk5rWOzs2RvXm6+zRJBDAx+8fUNfHjZfSNwMJ4fj6ekk9KU49hYuaXAZfs4/BzvhztR  6Nxmy85aXyl1SYFdjVrViuWrmqtLj9h7R18jKPwImD6CP0V5cY09fdnKZmmzKDA55Kqqrb2u4oR9  yNOHXz4PVEWDbtPhNSfR7+lGze46u6bp7dL2n8BkmMY4umrLj6XNCA8mfn4PQ3UdNgJzGzA28xnT  1giqdh4I2UqfuGAyYGTYUbH90JrMDAcbmuqFwlWCaiGoxQwomoCmc3z1vEV6RgrbUVTmkD7Sd+GI  GVo25Ra7tjp3af3ud1C5Dk3VQ9FazI+gYkAlqKqzUP/J3Yn8vAI9N8dZIn2jUJG3olE7nJ214cGp  /U2pMnVTmLCsIN4M3UMAXrj9g1B0AUXloAixb90Z0gtYpoBh+PD4xf2ZqemJ+p5bgSdRF4SMG0bd  31Ivt50MzxUYV463pchF3L/HaE5QjVNj4JzuocJw++5Vw/SLlFmEXTKojwbTgS+LqbfgZGmKAAzL  S+Xg4ARTCc5VFhpLKEXIFn1B5E5OG+PUy4wkDCGorDHj8R+lBGAGI+iN2t3QIowlfO3ig+kjb1v4  9aI2u1lBv0Xj+GA1nlKel+q8BnANdBrCdZVNBiwXSRY8eam1PjNBxlMLZpvo2UxWOP6T/BFgAOBe  8h+hfm64AAAAAElFTkSuQmCC',
     bottom:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ  bWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdp  bj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6  eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEz  NDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJo  dHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlw  dGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAv  IiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RS  ZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpD  cmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlE  PSJ4bXAuaWlkOjg2RjU3NUQzOTUyNjExREY4M0U4RDZGQThBMjcwMEIzIiB4bXBNTTpEb2N1bWVu  dElEPSJ4bXAuZGlkOjg2RjU3NUQ0OTUyNjExREY4M0U4RDZGQThBMjcwMEIzIj4gPHhtcE1NOkRl  cml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6ODZGNTc1RDE5NTI2MTFERjgzRThE  NkZBOEEyNzAwQjMiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6ODZGNTc1RDI5NTI2MTFERjgz  RThENkZBOEEyNzAwQjMiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1l  dGE+IDw/eHBhY2tldCBlbmQ9InIiPz6bp+ZPAAAC0UlEQVR42rRVXUhUQRT+5t67uzdZwwX/0FKS  CCMiwcwi6QfpwcAgKHvzpR6EoKeQpIcIJCOCIB8SooIgKK2gssBwQ0PXsB8s8KdSIhFzXbHS2vbe  ufdOM3fd1mx3zRUPezgzzDnfnP3mm7mEMYaVMAkrZEq8hZ0nHQEe0hepD3RfpJlLAhagtcfPgBBA  sGWZzHbT4JEC2e4NON1UnbHkjoURiaDdf8kGpCELOncaMkF0FceKG5PnmPBVxSlBkom9iehemEN2  gYEt7/CEasLCiQKpihuLqSkhMLMAQ+ecCl5NMQ9vkqZm82glVkVZrSMy7uC5uyMT2UlCnFvV0CxY  Fps7PN6t5IZMHLB4MpER4uph86jr5GFP1wUKZd7GjelpWSWH9lenqKpL8KoyDmbolt25afBoEnic  uTBMand89uh1VeboYn71YcOvscmRxliquDf13V/i9T06sWtH+aqu8VuwJO2P3ITMUuUMPiagBoX3  w02oDje2rq3AE9/t0Fhg5LLAiM0xQ93w6JBv4H2/XpxZaXcrOBZRMVVIzAld1zmwDsPSUZi5Ha+G  Oum74Z5uUZvo8MQ/PPiir2NiZjrENnr2gnJQkxIOqkLTdA5MYVoGCtKLEJieYO2997+Imr9kE0cV  szyxvO35g9k0KQ+5KZtgaZgD1W0+s1avQwrx4K73hp0rav6VmxB9xKM2TKle1fqsJVjoKYObc6tr  YdBUlwcFni1oab8WNAytSuRGb1QUJ5GO22Z+fq339rQGS/MP2LdNIU4UrdmHx13NwW8/pupFTlJv  BbeGsclP294OvawoXV/pkoiC1/3d2ujEx6di7X+fzc/ccxaoREiN9A32Ijsn/Dq+GfCJmkruNAbe  OPf8MHD0LPNqqurivEbiFyav5shmOd7709TckBeTCsJvQ0vf+aS+GIeLTiXmeGFC8p+mqMz8V+6c  y1oWGoE/MvwtwABuklC1izbNcAAAAABJRU5ErkJggg==',
@@ -3872,87 +3879,87 @@ var sep_icons={
     pre_gray:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ  bWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdp  bj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6  eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEz  NDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJo  dHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlw  dGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAv  IiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RS  ZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpD  cmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlE  PSJ4bXAuaWlkOjc0MTI5MDY4OTUyMjExREZCODVDREYyM0U0QjMzQkQzIiB4bXBNTTpEb2N1bWVu  dElEPSJ4bXAuZGlkOjc0MTI5MDY5OTUyMjExREZCODVDREYyM0U0QjMzQkQzIj4gPHhtcE1NOkRl  cml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6NzQxMjkwNjY5NTIyMTFERkI4NUNE  RjIzRTRCMzNCRDMiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6NzQxMjkwNjc5NTIyMTFERkI4  NUNERjIzRTRCMzNCRDMiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1l  dGE+IDw/eHBhY2tldCBlbmQ9InIiPz5D2F5XAAACZklEQVR42tSVz6sSURTH7x0VJxX8CampSQtF  /AESConiQkhdlKKCLdr0YxW0iDaBSBLZok3tol27/oC3TcS14EpEBV24UOO5EETLn9M5g4KoPXu9  XHTgMNc7537me7/3zEg5jiOnCIacKISbQSAQuKjuI6VULhAInhSLxdWlFKMlv8mXer3+qU6nu79c  Ll/9KyvuKZXKN9FoVBqJRBRyufyZz+eLXxXslkqlXxOJhKTZbBJIBsY6mUz23uFw3P5bsEEoFH4D  kHQwGJBer0e63S7p9/tMKpW6pVarv5hMphsSiYRi8eZ6EDybzTYpg5/FeDyuYBiGtNttIhKJCBwc  aTQaZLFYMHDPZjQaP8P8NY1Gw0wmEw7nD4LH4zGmQCwWn4GnN7VaLVOv13kgqCfQFZhctVolcJg0  HA7ftdlsH2BHfJfg/YNglUqF+ekOhNPpFNVqNYKKEYpX6AhcTFerFSmXy4zL5RJ4PJ4Hbrf7La4H  xfQgGNa8sNvtD0OhkBiVYquhWoRCcvP5nEMoJu6uVCrRYDAoNZvNj6xW62MUcPAFMRgM79LpNIsF  Xq+XBxQKBYQjlIIifgzKaSwWw+0z8HCaTCbVw+HwtcViOW+1Wmd74E6nw2azWX4MgJ+5XI5F30At  nU6n/IM220VgPp//AfNYI4Yag0KheA639sHoxmYAqjiEohXo7RrKHx5CcQ6CrVQqzNFvxW6su2D7  tFfrllrtttalX+kNFPt47SlBv7Hfd9vrjxVvB8uyZOu7jX5cDez3+3mPMUejEard281R8E7h90wm  c/3IRs4vtPG/+2s6GfiXAAMAq3cXTADTBMIAAAAASUVORK5CYII=',
 };
 
-//Ğü¸¡´°µÄ×´Ì¬ÑÕÉ«.
+//æ‚¬æµ®çª—çš„çŠ¶æ€é¢œè‰².
 var FWKG_color={
-    loading:'#8B00E8',    // ¶ÁÈ¡ÖĞ×´Ì¬
-    prefetcher:'#5564AF', // Ô¤¶Á×´Ì¬
-    autopager:'#038B00',  // ·­Ò³×´Ì¬
-    Apause:'#B7B700',     // ·­Ò³×´Ì¬(ÔİÍ£).
-    Astop:'#A00000',      // ·­Ò³×´Ì¬(Í£Ö¹)(·­Ò³Íê³É,»òÕß±»Òì³£Í£Ö¹.)(ÎŞ·¨ÔÙ¿ªÆô)
-    dot:'#00FF05',        // ¶ÁÈ¡Íêºó,»áÏÔÊ¾Ò»¸öĞ¡µã,ÄÇÃ´Ğ¡µãµÄÑÕÉ«.
+    loading:'#8B00E8',    // è¯»å–ä¸­çŠ¶æ€
+    prefetcher:'#5564AF', // é¢„è¯»çŠ¶æ€
+    autopager:'#038B00',  // ç¿»é¡µçŠ¶æ€
+    Apause:'#B7B700',     // ç¿»é¡µçŠ¶æ€(æš‚åœ).
+    Astop:'#A00000',      // ç¿»é¡µçŠ¶æ€(åœæ­¢)(ç¿»é¡µå®Œæˆ,æˆ–è€…è¢«å¼‚å¸¸åœæ­¢.)(æ— æ³•å†å¼€å¯)
+    dot:'#00FF05',        // è¯»å–å®Œå,ä¼šæ˜¾ç¤ºä¸€ä¸ªå°ç‚¹,é‚£ä¹ˆå°ç‚¹çš„é¢œè‰².
 };
 
-//µ±Ã»ÓĞÕÒµ½¹æÔòµÄÊ±ºò,½øÈë×Ô¶¯ËÑË÷Ä£Ê½.
-//ÔÚÃ»ÓĞ¸ß¼¶¹æÔòµÄÍøÕ¾ÉÏ.µÄÒ»Ğ©ÉèÖÃ..
+//å½“æ²¡æœ‰æ‰¾åˆ°è§„åˆ™çš„æ—¶å€™,è¿›å…¥è‡ªåŠ¨æœç´¢æ¨¡å¼.
+//åœ¨æ²¡æœ‰é«˜çº§è§„åˆ™çš„ç½‘ç«™ä¸Š.çš„ä¸€äº›è®¾ç½®..
 var autoMatch={
-    keyMatch:true,              //ÊÇ·ñÆôÓÃ¹Ø¼ü×ÖÆ¥Åä
-        cases:false,            //¹Ø¼ü×ÖÇø·Ö´óĞ¡Ğ´....
-        digitalCheck:true,      //¶ÔÊı×ÖÁ¬½Ó½øĞĞ¼ì²â,´ÓÖĞÕÒ³öÏÂÒ»Ò³µÄÁ´½Ó
-        pfwordl:{               //¹Ø¼ü×ÖÇ°ÃæµÄ×Ö·ûÏŞ¶¨.
-            previous:{          //ÉÏÒ»Ò³¹Ø¼ü×ÖÇ°ÃæµÄ×Ö·û,ÀıÈç "ÉÏÒ»Ò³" ÒªÆ¥Åä "[ÉÏÒ»Ò³" ,ÄÇÃ´prefixÒªµÄÉèÖÃÒª²»Ğ¡ÓÚ1,²¢ÇÒcharacterÒª°üº¬×Ö·û "["
+    keyMatch:true,              //æ˜¯å¦å¯ç”¨å…³é”®å­—åŒ¹é…
+        cases:false,            //å…³é”®å­—åŒºåˆ†å¤§å°å†™....
+        digitalCheck:true,      //å¯¹æ•°å­—è¿æ¥è¿›è¡Œæ£€æµ‹,ä»ä¸­æ‰¾å‡ºä¸‹ä¸€é¡µçš„é“¾æ¥
+        pfwordl:{               //å…³é”®å­—å‰é¢çš„å­—ç¬¦é™å®š.
+            previous:{          //ä¸Šä¸€é¡µå…³é”®å­—å‰é¢çš„å­—ç¬¦,ä¾‹å¦‚ "ä¸Šä¸€é¡µ" è¦åŒ¹é… "[ä¸Šä¸€é¡µ" ,é‚£ä¹ˆprefixè¦çš„è®¾ç½®è¦ä¸å°äº1,å¹¶ä¸”characterè¦åŒ…å«å­—ç¬¦ "["
                 enable:true,
                 maxPrefix:3,
-                character:[' ','¡¡','[','£Û','<','£¼','?','?','<<','¡º','¡¸','¡¾','(','¡û']
+                character:[' ','ã€€','[','ï¼»','<','ï¼œ','?','?','<<','ã€','ã€Œ','ã€','(','â†']
             },
-            next:{//ÏÂÒ»Ò³¹Ø¼ü×ÖÇ°ÃæµÄ×Ö·û
+            next:{//ä¸‹ä¸€é¡µå…³é”®å­—å‰é¢çš„å­—ç¬¦
                 enable:true,
                 maxPrefix:2,
-                character:[' ','¡¡','[','£Û','¡º','¡¸','¡¾','(']
+                character:[' ','ã€€','[','ï¼»','ã€','ã€Œ','ã€','(']
             }
         },
-        sfwordl:{               //¹Ø¼ü×ÖºóÃæµÄ×Ö·ûÏŞ¶¨.
-            previous:{          //ÉÏÒ»Ò³¹Ø¼ü×ÖºóÃæµÄ×Ö·û
+        sfwordl:{               //å…³é”®å­—åé¢çš„å­—ç¬¦é™å®š.
+            previous:{          //ä¸Šä¸€é¡µå…³é”®å­—åé¢çš„å­—ç¬¦
                 enable:true,
                 maxSubfix:2,
-                character:[' ','¡¡',']','£İ','¡»','¡¹','¡¿',')']
+                character:[' ','ã€€',']','ï¼½','ã€','ã€','ã€‘',')']
             },
-            next:{              //ÏÂÒ»Ò³¹Ø¼ü×ÖºóÃæµÄ×Ö·û
+            next:{              //ä¸‹ä¸€é¡µå…³é”®å­—åé¢çš„å­—ç¬¦
                 enable:true,
                 maxSubfix:3,
-                character:[' ','¡¡',']','£İ','>','©ƒ','?','?','>>','¡»','¡¹','¡¿',')','¡ú']
+                character:[' ','ã€€',']','ï¼½','>','ï¹¥','?','?','>>','ã€','ã€','ã€‘',')','â†’']
             }
         },
-    useiframe: GM_getValue('SITEINFO_D.useiframe') || false,            //(Ô¤¶Á)ÊÇ·ñÊ¹ÓÃiframe..
-    viewcontent: false,          //²é¿´Ô¤¶ÁµÄÄÚÈİ,ÏÔÊ¾ÔÚÒ³ÃæµÄ×îÏÂ·½.
-    FA: {                       //Ç¿ÖÆÆ´½Ó Ñ¡Ïî ¹¦ÄÜÉèÖÃ.
-        enable:false,           //Ä¬ÈÏÆôÓÃ Ç¿ÖÆÆ´½Ó
-        manualA:false,          //ÊÖ¶¯·­Ò³.
-        useiframe:false,        //(·­Ò³)ÊÇ·ñÊ¹ÓÃiframe..
-            iloaded:false,      //(Ö»ÔÚoperaÓĞĞ§)Èç¹ûÊ¹ÓÃiframe·­Ò³..ÊÇ·ñÔÚiframeÍêÈ«loadºó²Ù×÷..·ñÔòÔÚDOMÍê³Éºó²Ù×÷
-            itimeout:0,         //µ±Ê¹ÓÃiframe·­Ò³Ê±ÔÚÍê³Éºó¼ÌĞøµÈ´ı¶àÉÙºÁÃëºó,ÔÚ²Ù×÷..
-        remain:1,               //Ê£ÓàÒ³ÃæµÄ¸ß¶È..ÊÇÏÔÊ¾¸ß¶ÈµÄ remain ±¶¿ªÊ¼·­Ò³..
-        maxpage:99,             //×î¶à·­¶àÉÙÒ³..
-        ipages:[false,2],       //Á¢¼´·­Ò³,µÚÒ»ÏîÊÇ¿ØÖÆÊÇ·ñÔÚjs¼ÓÔØµÄÊ±ºòÁ¢¼´·­µÚ¶şÏî(±ØĞëĞ¡ÓÚmaxpage)µÄÒ³Êı,±ÈÈç[true,3].¾ÍÊÇËµJS¼ÓÔØºó.Á¢¼´·­3Ò³.
-        separator:true,         //ÏÔÊ¾·­Ò³µ¼º½..(ÍÆ¼öÏÔÊ¾.)..
+    useiframe: GM_getValue('SITEINFO_D.useiframe') || false,            //(é¢„è¯»)æ˜¯å¦ä½¿ç”¨iframe..
+    viewcontent: false,          //æŸ¥çœ‹é¢„è¯»çš„å†…å®¹,æ˜¾ç¤ºåœ¨é¡µé¢çš„æœ€ä¸‹æ–¹.
+    FA: {                       //å¼ºåˆ¶æ‹¼æ¥ é€‰é¡¹ åŠŸèƒ½è®¾ç½®.
+        enable:false,           //é»˜è®¤å¯ç”¨ å¼ºåˆ¶æ‹¼æ¥
+        manualA:false,          //æ‰‹åŠ¨ç¿»é¡µ.
+        useiframe:false,        //(ç¿»é¡µ)æ˜¯å¦ä½¿ç”¨iframe..
+            iloaded:false,      //(åªåœ¨operaæœ‰æ•ˆ)å¦‚æœä½¿ç”¨iframeç¿»é¡µ..æ˜¯å¦åœ¨iframeå®Œå…¨loadåæ“ä½œ..å¦åˆ™åœ¨DOMå®Œæˆåæ“ä½œ
+            itimeout:0,         //å½“ä½¿ç”¨iframeç¿»é¡µæ—¶åœ¨å®Œæˆåç»§ç»­ç­‰å¾…å¤šå°‘æ¯«ç§’å,åœ¨æ“ä½œ..
+        remain:1,               //å‰©ä½™é¡µé¢çš„é«˜åº¦..æ˜¯æ˜¾ç¤ºé«˜åº¦çš„ remain å€å¼€å§‹ç¿»é¡µ..
+        maxpage:99,             //æœ€å¤šç¿»å¤šå°‘é¡µ..
+        ipages:[false,2],       //ç«‹å³ç¿»é¡µ,ç¬¬ä¸€é¡¹æ˜¯æ§åˆ¶æ˜¯å¦åœ¨jsåŠ è½½çš„æ—¶å€™ç«‹å³ç¿»ç¬¬äºŒé¡¹(å¿…é¡»å°äºmaxpage)çš„é¡µæ•°,æ¯”å¦‚[true,3].å°±æ˜¯è¯´JSåŠ è½½å.ç«‹å³ç¿»3é¡µ.
+        separator:true,         //æ˜¾ç¤ºç¿»é¡µå¯¼èˆª..(æ¨èæ˜¾ç¤º.)..
     }
 };
 
-//ÉÏÒ»Ò³¹Ø¼ü×Ö
+//ä¸Šä¸€é¡µå…³é”®å­—
 var prePageKey=[
-    'ÉÏÒ»Ò³', 'ÉÏÒ»í“', 'ÉÏ1Ò³', 'ÉÏ1í“', 'ÉÏÒ³', 'ÉÏí“',
-    '·­ÉÏí“', '·­ÉÏÒ³',
-    'ÉÏÒ»ÕÅ', 'ÉÏÒ»ˆ', 'ÉÏÒ»·ù', 'ÉÏÒ»ÕÂ', 'ÉÏÒ»½Ú', 'ÉÏÒ»¹', 'ÉÏÒ»Æª',
-    'Ç°Ò»Ò³', 'Ç°Ò»í“',
-    'ºóÍË', 'ááÍË', 'ÉÏÆª',
-    'previous', 'previous Page', 'Ç°¤Ø', 'Ç°¤Î¥Ú©`¥¸'
+    'ä¸Šä¸€é¡µ', 'ä¸Šä¸€é ', 'ä¸Š1é¡µ', 'ä¸Š1é ', 'ä¸Šé¡µ', 'ä¸Šé ',
+    'ç¿»ä¸Šé ', 'ç¿»ä¸Šé¡µ',
+    'ä¸Šä¸€å¼ ', 'ä¸Šä¸€å¼µ', 'ä¸Šä¸€å¹…', 'ä¸Šä¸€ç« ', 'ä¸Šä¸€èŠ‚', 'ä¸Šä¸€ç¯€', 'ä¸Šä¸€ç¯‡',
+    'å‰ä¸€é¡µ', 'å‰ä¸€é ',
+    'åé€€', 'å¾Œé€€', 'ä¸Šç¯‡',
+    'previous', 'previous Page', 'å‰ã¸', 'å‰ã®ãƒšãƒ¼ã‚¸'
 ];
 
-//ÏÂÒ»Ò³¹Ø¼ü×Ö
+//ä¸‹ä¸€é¡µå…³é”®å­—
 var nextPageKey=[
-    'ÏÂÒ»Ò³', 'ÏÂÒ»í“', 'ÏÂ1Ò³', 'ÏÂ1í“', 'ÏÂÒ³', 'ÏÂí“',
-    '·­Ò³', '·­í“', '·­ÏÂí“', '·­ÏÂÒ³',
-    'ÏÂÒ»ÕÅ', 'ÏÂÒ»ˆ', 'ÏÂÒ»·ù', 'ÏÂÒ»ÕÂ', 'ÏÂÒ»½Ú', 'ÏÂÒ»¹', 'ÏÂÒ»Æª',
-    'ºóÒ»Ò³', 'ááÒ»í“',
-    'Ç°½ø', 'ÏÂÆª', 'ºóÒ³', 'Íùºó',
-    'Next', 'Next Page', '´Î¤Ø', '´Î¤Î¥Ú©`¥¸'
+    'ä¸‹ä¸€é¡µ', 'ä¸‹ä¸€é ', 'ä¸‹1é¡µ', 'ä¸‹1é ', 'ä¸‹é¡µ', 'ä¸‹é ',
+    'ç¿»é¡µ', 'ç¿»é ', 'ç¿»ä¸‹é ', 'ç¿»ä¸‹é¡µ',
+    'ä¸‹ä¸€å¼ ', 'ä¸‹ä¸€å¼µ', 'ä¸‹ä¸€å¹…', 'ä¸‹ä¸€ç« ', 'ä¸‹ä¸€èŠ‚', 'ä¸‹ä¸€ç¯€', 'ä¸‹ä¸€ç¯‡',
+    'åä¸€é¡µ', 'å¾Œä¸€é ',
+    'å‰è¿›', 'ä¸‹ç¯‡', 'åé¡µ', 'å¾€å',
+    'Next', 'Next Page', 'æ¬¡ã¸', 'æ¬¡ã®ãƒšãƒ¼ã‚¸'
 ];
 
-// ³öÔÚ×Ô¶¯·­Ò³ĞÅÏ¢¸½¼ÓÏÔÊ¾ÕæÊµÏà¶ÔÒ³ÃæĞÅÏ¢£¬Ò»°ãÄÜÖÇÄÜÊ¶±ğ³öÀ´¡£Èç¹û»¹ÓĞÕ¾µã²»ÄÜÊ¶±ğ£¬¿ÉÒÔ°ÑµØÖ·µÄÌØÕ÷×Ö·û´®¼Óµ½ÏÂÃæ
-// ×îºÃ²»ÒªÂÒ¼Ó£¬Ò»Ğ©²»¹æÂÉµÄÕ¾µãÏÔÊ¾³öÀ´µÄÊı×ÖÒ²Ã»ÓĞÒâÒå
+// å‡ºåœ¨è‡ªåŠ¨ç¿»é¡µä¿¡æ¯é™„åŠ æ˜¾ç¤ºçœŸå®ç›¸å¯¹é¡µé¢ä¿¡æ¯ï¼Œä¸€èˆ¬èƒ½æ™ºèƒ½è¯†åˆ«å‡ºæ¥ã€‚å¦‚æœè¿˜æœ‰ç«™ç‚¹ä¸èƒ½è¯†åˆ«ï¼Œå¯ä»¥æŠŠåœ°å€çš„ç‰¹å¾å­—ç¬¦ä¸²åŠ åˆ°ä¸‹é¢
+// æœ€å¥½ä¸è¦ä¹±åŠ ï¼Œä¸€äº›ä¸è§„å¾‹çš„ç«™ç‚¹æ˜¾ç¤ºå‡ºæ¥çš„æ•°å­—ä¹Ÿæ²¡æœ‰æ„ä¹‰
 var REALPAGE_SITE_PATTERN = ['search?', 'search_', 'forum', 'thread'];
 
 
-//------------------------ÏÂÃæµÄ²»Òª¹ÜËû-----------------
+//------------------------ä¸‹é¢çš„ä¸è¦ç®¡ä»–-----------------
 ///////////////////////////////////////////////////////////////////
 
 
@@ -3976,7 +3983,7 @@ var setup = function(){
         #sp-prefs-setup li { margin:0;padding:6px 0;vertical-align:middle;background:#eee;border:0 }\
         #sp-prefs-setup button { width:150px;margin:0 10px;text-align:center;}\
         #sp-prefs-setup textarea { width:98%; height:60px; margin:3px 0; }\
-        #sp-prefs-setup b { font-weight: bold; font-family: "Î¢ÈíÑÅºÚ", sans-serif; }\
+        #sp-prefs-setup b { font-weight: bold; font-family: "å¾®è½¯é›…é»‘", sans-serif; }\
         #sp-prefs-setup button:disabled { color: graytext; }\
     ');
 
@@ -3984,26 +3991,27 @@ var setup = function(){
     div.id = 'sp-prefs-setup';
     d.body.appendChild(div);
     div.innerHTML = '\
-        <div>Super_preloaderPlus_one_NewÉèÖÃ</div>\
+        <div>Super_preloaderPlus_one_Newè®¾ç½®</div>\
             <ul>\
-                <li>µ±Ç°°æ±¾Îª <b>' + scriptInfo.version + ' </b>£¬ÉÏ´Î¸üĞÂÊ±¼äÎª <b>'+ scriptInfo.updateTime + '</b>\
-                    <a id="sp-prefs-homepageURL" target="_blank" href="' + scriptInfo.homepageURL + '"/>½Å±¾Ö÷Ò³</a>\
+                <li>å½“å‰ç‰ˆæœ¬ä¸º <b>' + scriptInfo.version + ' </b>ï¼Œä¸Šæ¬¡æ›´æ–°æ—¶é—´ä¸º <b>'+ scriptInfo.updateTime + '</b>\
+                    <a id="sp-prefs-homepageURL" target="_blank" href="' + scriptInfo.homepageURL + '"/>è„šæœ¬ä¸»é¡µ</a>\
                 </li>\
-                <li><input type="checkbox" id="sp-prefs-debug" /> µ÷ÊÔÄ£Ê½</li>\
-                <li><input type="checkbox" id="sp-prefs-dblclick_pause" /> Êó±êË«»÷ÔİÍ£·­Ò³£¨Ä¬ÈÏÎª Ctrl + ³¤°´×ó¼ü£©</li>\
-                <li><input type="checkbox" id="sp-prefs-enableHistory" /> Ìí¼ÓÏÂÒ»Ò³µ½ÀúÊ·¼ÇÂ¼</li>\
-                <li title="ÏÂÒ»Ò³µÄÁ´½ÓÉèÖÃ³ÉÔÚĞÂ±êÇ©Ò³´ò¿ª"><input type="checkbox" id="sp-prefs-forceTargetWindow" /> ĞÂ±êÇ©´ò¿ªÁ´½Ó</li>\
-                <li><input type="checkbox" id="sp-prefs-SITEINFO_D-useiframe" /> ÔÚÔ¤¶ÁÄ£Ê½ÏÂ£¬Ä¬ÈÏÆôÓÃ iframe ·½Ê½</li>\
-                <li><input type="checkbox" id="sp-prefs-SITEINFO_D-a_enable" /> Ä¬ÈÏÆôÓÃ×Ô¶¯·­Ò³ </li>\
-                <li><input type="checkbox" id="sp-prefs-SITEINFO_D-a_force_enable" /> ×Ô¶¯·­Ò³Ä¬ÈÏÆôÓÃÇ¿ÖÆÆ´½Ó</li>\
-                <li>×Ô¶¨ÒåÅÅ³ıÁĞ±í£º\
-                    <div><textarea id="sp-prefs-excludes" placeholder="×Ô¶¨ÒåÅÅ³ıÁĞ±í£¬Ö§³ÖÍ¨Åä·û¡£\nÀıÈç£ºhttp://*.douban.com/*"></textarea></div>\
+                <li>ä¸å®šæœŸæ›´æ–°è§„åˆ™ï¼Œè¯·åˆ°<a id="sp-prefs-homepageURL" target="_blank" href="' + scriptInfo.homepageURL+'/feedback' + '"/> è„šæœ¬ä¸»é¡µ </a>åé¦ˆ</li>\
+                <li><input type="checkbox" id="sp-prefs-debug" /> è°ƒè¯•æ¨¡å¼</li>\
+                <li><input type="checkbox" id="sp-prefs-dblclick_pause" /> é¼ æ ‡åŒå‡»æš‚åœç¿»é¡µï¼ˆé»˜è®¤ä¸º Ctrl + é•¿æŒ‰å·¦é”®ï¼‰</li>\
+                <li><input type="checkbox" id="sp-prefs-enableHistory" /> æ·»åŠ ä¸‹ä¸€é¡µåˆ°å†å²è®°å½•</li>\
+                <li title="ä¸‹ä¸€é¡µçš„é“¾æ¥è®¾ç½®æˆåœ¨æ–°æ ‡ç­¾é¡µæ‰“å¼€"><input type="checkbox" id="sp-prefs-forceTargetWindow" /> æ–°æ ‡ç­¾æ‰“å¼€é“¾æ¥</li>\
+                <li><input type="checkbox" id="sp-prefs-SITEINFO_D-useiframe" /> åœ¨é¢„è¯»æ¨¡å¼ä¸‹ï¼Œé»˜è®¤å¯ç”¨ iframe æ–¹å¼</li>\
+                <li><input type="checkbox" id="sp-prefs-SITEINFO_D-a_enable" /> é»˜è®¤å¯ç”¨è‡ªåŠ¨ç¿»é¡µ </li>\
+                <li><input type="checkbox" id="sp-prefs-SITEINFO_D-a_force_enable" /> è‡ªåŠ¨ç¿»é¡µé»˜è®¤å¯ç”¨å¼ºåˆ¶æ‹¼æ¥</li>\
+                <li>è‡ªå®šä¹‰æ’é™¤åˆ—è¡¨ï¼š\
+                    <div><textarea id="sp-prefs-excludes" placeholder="è‡ªå®šä¹‰æ’é™¤åˆ—è¡¨ï¼Œæ”¯æŒé€šé…ç¬¦ã€‚\nä¾‹å¦‚ï¼šhttp://*.douban.com/*"></textarea></div>\
                 </li>\
-                <li>×Ô¶¨ÒåÕ¾µã¹æÔò£º\
-                    <div><textarea id="sp-prefs-custom_siteinfo" placeholder="×Ô¶¨ÒåÕ¾µã¹æÔò"></textarea></div>\
+                <li>è‡ªå®šä¹‰ç«™ç‚¹è§„åˆ™ï¼š\
+                    <div><textarea id="sp-prefs-custom_siteinfo" placeholder="è‡ªå®šä¹‰ç«™ç‚¹è§„åˆ™"></textarea></div>\
                 </li>\
             </ul>\
-        <div><button id="sp-prefs-ok">È·¶¨</button><button id="sp-prefs-cancel">È¡Ïû</button></div>';
+        <div><button id="sp-prefs-ok">ç¡®å®š</button><button id="sp-prefs-cancel">å–æ¶ˆ</button></div>';
     div = null;
 
     var close = function() {
@@ -4053,12 +4061,12 @@ function checkUpdate(button) {
         return;
     }
 
-    button.innerHTML = 'ÕıÔÚ¸üĞÂÖĞ...';
+    button.innerHTML = 'æ­£åœ¨æ›´æ–°ä¸­...';
     button.disabled = 'disabled';
 
     var reset = function() {
     	isUpdating = false;
-    	button.innerHTML = 'ÂíÉÏ¸üĞÂ';
+    	button.innerHTML = 'é©¬ä¸Šæ›´æ–°';
     	button.disabled = '';
     };
 
@@ -4072,11 +4080,11 @@ function checkUpdate(button) {
             if (latestVersion) {
                 latestVersion = latestVersion[1];
             } else {
-                alert('½âÎö°æ±¾ºÅ´íÎó');
+                alert('è§£æç‰ˆæœ¬å·é”™è¯¯');
                 return;
             }
 
-            //¶Ô±È°æ±¾ºÅ
+            //å¯¹æ¯”ç‰ˆæœ¬å·
             var needUpdate;
             var latestVersions = latestVersion.split('.');
             var lVLength = latestVersions.length;
@@ -4096,7 +4104,7 @@ function checkUpdate(button) {
             }
 
             if (needUpdate) {
-                alert('±¾½Å±¾´Ó°æ±¾ ' + scriptInfo.version + '  ¸üĞÂµ½ÁË°æ±¾ ' + latestVersion + '.\nÇëµã»÷½Å±¾Ö÷Ò³½øĞĞ°²×°');
+                alert('æœ¬è„šæœ¬ä»ç‰ˆæœ¬ ' + scriptInfo.version + '  æ›´æ–°åˆ°äº†ç‰ˆæœ¬ ' + latestVersion + '.\nè¯·ç‚¹å‡»è„šæœ¬ä¸»é¡µè¿›è¡Œå®‰è£…');
                 document.getElementById("sp-prefs-homepageURL").boxShadow = '0 0 2px 2px #FF5555';
             }
 
@@ -4111,14 +4119,14 @@ function checkUpdate(button) {
 //----------------------------------
 // main.js
 
-//------------------------ÏÂÃæµÄ²»Òª¹ÜËû-----------------
+//------------------------ä¸‹é¢çš„ä¸è¦ç®¡ä»–-----------------
 ///////////////////////////////////////////////////////////////////
 
 var xbug = prefs.debug || GM_getValue("debug") || false;
 var C = console;
 var debug = xbug ? console.log.bind(console) : function() {};
 
-// ±äÁ¿
+// å˜é‡
 var isHashchangeSite = false,
     hashchangeTimer = 0;
 
@@ -4130,15 +4138,15 @@ var SP = {
 
         this.loadSetting();
 
-        GM_registerMenuCommand('Super_preloaderPlus_one_New ÉèÖÃ', setup);
+        GM_registerMenuCommand('Super_preloaderPlus_one_New è®¾ç½®', setup);
 
-        // ²éÕÒÊÇ·ñÊÇÒ³Ãæ²»Ë¢ĞÂµÄÕ¾µã
+        // æŸ¥æ‰¾æ˜¯å¦æ˜¯é¡µé¢ä¸åˆ·æ–°çš„ç«™ç‚¹
         var locationHref = location.href;
         var hashSite = _.find(HashchangeSites, function(x){ return toRE(x.url).test(locationHref); });
         if (hashSite) {
             isHashchangeSite = true;
             hashchangeTimer = hashSite.timer;
-            debug('µ±Ç°ÊÇÒ³Ãæ²»Ë¢ĞÂµÄÕ¾µã', hashSite);
+            debug('å½“å‰æ˜¯é¡µé¢ä¸åˆ·æ–°çš„ç«™ç‚¹', hashSite);
             setTimeout(function() {
                 init(window, document);
             }, hashchangeTimer);
@@ -4146,7 +4154,7 @@ var SP = {
             init(window, document);
         }
 
-        // ·Ö±æÂÊ ¸ß¶È > ¿í¶È µÄÊÇÊÖ»ú
+        // åˆ†è¾¨ç‡ é«˜åº¦ > å®½åº¦ çš„æ˜¯æ‰‹æœº
         if(window.screen.height > window.screen.width){
             GM_addStyle('div.sp-separator { min-width:auto !important; }');
         }
@@ -4172,8 +4180,8 @@ var SP = {
             try {
                 infos = new Function('', 'return ' + prefs.custom_siteinfo)();
             }catch(e) {
-                console.error('×Ô¶¨ÒåÕ¾µã¹æÔò´íÎó', prefs.custom_siteinfo);
-                // alert('×Ô¶¨ÒåÕ¾µã¹æÔò´íÎó');
+                console.error('è‡ªå®šä¹‰ç«™ç‚¹è§„åˆ™é”™è¯¯', prefs.custom_siteinfo);
+                // alert('è‡ªå®šä¹‰ç«™ç‚¹è§„åˆ™é”™è¯¯');
             }
 
             if (_.isArray(infos)) {
@@ -4191,18 +4199,18 @@ var SP = {
 function init(window, document) {
     var startTime = new Date();
 
-    var nullFn = function() {}; //¿Õº¯Êı.
-    var url = document.location.href.replace(/#.*$/, ''); //url È¥µôhash
-    var cplink = url;  // ·­ÉÏÀ´µÄ×î½üµÄÒ³ÃæµÄurl;
-    var domain = document.domain; //È¡µÃÓòÃû.
-    var domain_port = url.match(/https?:\/\/([^\/]+)/)[1]; //¶Ë¿ÚºÍÓòÃû,ÓÃÀ´ÑéÖ¤ÊÇ·ñ¿çÓò.
+    var nullFn = function() {}; //ç©ºå‡½æ•°.
+    var url = document.location.href.replace(/#.*$/, ''); //url å»æ‰hash
+    var cplink = url;  // ç¿»ä¸Šæ¥çš„æœ€è¿‘çš„é¡µé¢çš„url;
+    var domain = document.domain; //å–å¾—åŸŸå.
+    var domain_port = url.match(/https?:\/\/([^\/]+)/)[1]; //ç«¯å£å’ŒåŸŸå,ç”¨æ¥éªŒè¯æ˜¯å¦è·¨åŸŸ.
 
-    // ĞÂ¼ÓµÄ£¬ÒÔÊ¾Çø±ğ
-    var remove = [];  // ĞèÒªÒÆ³ıµÄÊÂ¼ş
+    // æ–°åŠ çš„ï¼Œä»¥ç¤ºåŒºåˆ«
+    var remove = [];  // éœ€è¦ç§»é™¤çš„äº‹ä»¶
 
     debug('----------------------------------------------------');
 
-    //Ğü¸¡´°
+    //æ‚¬æµ®çª—
     var floatWO = {
         updateColor: nullFn,
         loadedIcon: nullFn,
@@ -4388,61 +4396,61 @@ function init(window, document) {
             <div id="sp-fw-content" style="display:none;">\
                 <div id="sp-fw-main">\
                     <div id="sp-fw-main-head">\
-                        <input type="checkbox" title="Ê¹ÓÃ·­Ò³Ä£Ê½,·ñÔòÊ¹ÓÃÔ¤¶ÁÄ£Ê½" id="sp-fw-a_enable" name="sp-fw-a_enable"/>Ê¹ÓÃ·­Ò³Ä£Ê½\
+                        <input type="checkbox" title="ä½¿ç”¨ç¿»é¡µæ¨¡å¼,å¦åˆ™ä½¿ç”¨é¢„è¯»æ¨¡å¼" id="sp-fw-a_enable" name="sp-fw-a_enable"/>ä½¿ç”¨ç¿»é¡µæ¨¡å¼\
                         <span id="sp-fw-span-info">Super_preloader</span>\
                     </div>\
                     <fieldset>\
-                        <legend title="Ô¤¶ÁÄ£Ê½µÄÏà¹ØÉèÖÃ" >Ô¤¶ÁÉèÖÃ</legend>\
+                        <legend title="é¢„è¯»æ¨¡å¼çš„ç›¸å…³è®¾ç½®" >é¢„è¯»è®¾ç½®</legend>\
                         <ul>\
                             <li>\
-                                <input type="checkbox" title="Ê¹ÓÃiframeÔ¤ÏÈÔØÈëºÃÏÂÒ»Ò³µ½»º´æ,·ñÔòÊ¹ÓÃxhrÇëÇóÏÂÒ»Ò³Ô´Âë,È¡³öËùÓĞµÄÍ¼Æ¬½øĞĞÔ¤¶Á" id="sp-fw-useiframe" name="sp-fw-useiframe"/>Ê¹ÓÃiframe·½Ê½\
+                                <input type="checkbox" title="ä½¿ç”¨iframeé¢„å…ˆè½½å…¥å¥½ä¸‹ä¸€é¡µåˆ°ç¼“å­˜,å¦åˆ™ä½¿ç”¨xhrè¯·æ±‚ä¸‹ä¸€é¡µæºç ,å–å‡ºæ‰€æœ‰çš„å›¾ç‰‡è¿›è¡Œé¢„è¯»" id="sp-fw-useiframe" name="sp-fw-useiframe"/>ä½¿ç”¨iframeæ–¹å¼\
                             </li>\
                             <li>\
-                                <input type="checkbox" title="²é¿´Ô¤¶ÁµÄÄÚÈİ,½«ÆäÏÔÊ¾ÔÚÒ³ÃæµÄµ×²¿,¿´¿´Ô¤¶ÁÁËĞ©Ê²Ã´." id="sp-fw-viewcontent" name="sp-fw-viewcontent"/>²é¿´Ô¤¶ÁµÄÄÚÈİ\
+                                <input type="checkbox" title="æŸ¥çœ‹é¢„è¯»çš„å†…å®¹,å°†å…¶æ˜¾ç¤ºåœ¨é¡µé¢çš„åº•éƒ¨,çœ‹çœ‹é¢„è¯»äº†äº›ä»€ä¹ˆ." id="sp-fw-viewcontent" name="sp-fw-viewcontent"/>æŸ¥çœ‹é¢„è¯»çš„å†…å®¹\
                             </li>\
                         </ul>\
                     </fieldset>\
                     <fieldset id="sp-fw-autopager-field" style="display:block;">\
-                        <legend title="×Ô¶¯·­Ò³Ä£Ê½µÄÏà¹ØÉèÖÃ">·­Ò³ÉèÖÃ</legend>\
+                        <legend title="è‡ªåŠ¨ç¿»é¡µæ¨¡å¼çš„ç›¸å…³è®¾ç½®">ç¿»é¡µè®¾ç½®</legend>\
                         <ul>\
                             <li>\
-                                <input type="checkbox" title="Ê¹ÓÃiframe·½Ê½½øĞĞ·­Ò³,·ñÔòÊ¹ÓÃxhr·½Ê½·­Ò³,¿ÉÒÔ½â¾öÄ³Ğ©ÍøÒ³xhr·½Ê½ÎŞ·¨·­Ò³µÄÎÊÌâ,Èç¹ûxhr·­Ò³Õı³£µÄ»°,¾Í²»Òª¹´ÕâÏî°É." id="sp-fw-a_useiframe" name="sp-fw-a_useiframe"/>Ê¹ÓÃiframe·½Ê½</input>\
-                                <input type="checkbox" title="Ã¿¸öÏÂÒ»Ò³¶¼ÓÃĞÂµÄiframe£¬¿ÉÒÔ½â¾öÏÂÒ»Ò³Í¼Æ¬»ò°´Å¥µã»÷µÄÎÊÌâ" id="sp-fw-a_newIframe" name="sp-fw-a_newIframe">ĞÂiframe</input>\
+                                <input type="checkbox" title="ä½¿ç”¨iframeæ–¹å¼è¿›è¡Œç¿»é¡µ,å¦åˆ™ä½¿ç”¨xhræ–¹å¼ç¿»é¡µ,å¯ä»¥è§£å†³æŸäº›ç½‘é¡µxhræ–¹å¼æ— æ³•ç¿»é¡µçš„é—®é¢˜,å¦‚æœxhrç¿»é¡µæ­£å¸¸çš„è¯,å°±ä¸è¦å‹¾è¿™é¡¹å§." id="sp-fw-a_useiframe" name="sp-fw-a_useiframe"/>ä½¿ç”¨iframeæ–¹å¼</input>\
+                                <input type="checkbox" title="æ¯ä¸ªä¸‹ä¸€é¡µéƒ½ç”¨æ–°çš„iframeï¼Œå¯ä»¥è§£å†³ä¸‹ä¸€é¡µå›¾ç‰‡æˆ–æŒ‰é’®ç‚¹å‡»çš„é—®é¢˜" id="sp-fw-a_newIframe" name="sp-fw-a_newIframe">æ–°iframe</input>\
                                 <ul id="sp-fw-a_useiframe-extend">\
                                     <li>\
-                                        <input type="checkbox" title="µÈ´ıiframeÍêÈ«ÔØÈëºó(·¢ÉúloadÊÂ¼ş),½«ÄÚÈİÈ¡³ö,·ñÔòÔÚDOMÍê³Éºó,¾ÍÖ±½ÓÈ¡³öÀ´..(¹´ÉÏºó,»á±È½ÏÂı,µ«ÊÇ¿ÉÄÜ»á½â¾öÒ»Ğ©ÎÊÌâ.)" id="sp-fw-a_iloaded" name="sp-fw-a_iloaded" />µÈ´ıiframeÍêÈ«ÔØÈë\
+                                        <input type="checkbox" title="ç­‰å¾…iframeå®Œå…¨è½½å…¥å(å‘ç”Ÿloadäº‹ä»¶),å°†å†…å®¹å–å‡º,å¦åˆ™åœ¨DOMå®Œæˆå,å°±ç›´æ¥å–å‡ºæ¥..(å‹¾ä¸Šå,ä¼šæ¯”è¾ƒæ…¢,ä½†æ˜¯å¯èƒ½ä¼šè§£å†³ä¸€äº›é—®é¢˜.)" id="sp-fw-a_iloaded" name="sp-fw-a_iloaded" />ç­‰å¾…iframeå®Œå…¨è½½å…¥\
                                     </li>\
                                     <li>\
-                                        <input type="number"  min="0" title="ÔÚ¿ÉÒÔ´ÓiframeÈ¡Êı¾İµÄÊ±ºò,¼ÌĞøµÈ´ıÉè¶¨µÄºÁÃë²Å¿ªÊ¼È¡³öÊı¾İ(´ËÏîÎªÌØÊâÍøÒ³×¼±¸,Èç¹ûÕı³£,ÇëÉèÖÃÎª0)" id="sp-fw-a_itimeout" name="sp-fw-a_itimeout"/>msÑÓÊ±È¡³ö\
+                                        <input type="number"  min="0" title="åœ¨å¯ä»¥ä»iframeå–æ•°æ®çš„æ—¶å€™,ç»§ç»­ç­‰å¾…è®¾å®šçš„æ¯«ç§’æ‰å¼€å§‹å–å‡ºæ•°æ®(æ­¤é¡¹ä¸ºç‰¹æ®Šç½‘é¡µå‡†å¤‡,å¦‚æœæ­£å¸¸,è¯·è®¾ç½®ä¸º0)" id="sp-fw-a_itimeout" name="sp-fw-a_itimeout"/>mså»¶æ—¶å–å‡º\
                                     </li>\
                                 </ul>\
                             </li>\
                             <li>\
-                                <input type="checkbox" id="sp-fw-a_manualA" name="sp-fw-a_manualA" title="²»»á×Ô¶¯Æ´½ÓÉÏÀ´,»á³öÏÖÒ»¸öÀàËÆ·­Ò³µ¼º½µÄµÄÍ¼ĞÎ,µã»÷·­Ò³(ÔÚÂÛÌ³µÄÌû×ÓÄÚÈİÒ³Ãæ,¿ÉÒÔ¿¼ÂÇ¹´Ñ¡´ËÏî,´Ó¶ø²»Ó°ÏìÄãµÄ»ØÌû)"/>ÊÖ¶¯Ä£Ê½\
+                                <input type="checkbox" id="sp-fw-a_manualA" name="sp-fw-a_manualA" title="ä¸ä¼šè‡ªåŠ¨æ‹¼æ¥ä¸Šæ¥,ä¼šå‡ºç°ä¸€ä¸ªç±»ä¼¼ç¿»é¡µå¯¼èˆªçš„çš„å›¾å½¢,ç‚¹å‡»ç¿»é¡µ(åœ¨è®ºå›çš„å¸–å­å†…å®¹é¡µé¢,å¯ä»¥è€ƒè™‘å‹¾é€‰æ­¤é¡¹,ä»è€Œä¸å½±å“ä½ çš„å›å¸–)"/>æ‰‹åŠ¨æ¨¡å¼\
                             </li>\
                             <li>\
-                                 Ê£Óà<input type="number" min="0" id="sp-fw-a_remain" name="sp-fw-a_remain" title="µ±Ê£ÓàµÄÒ³ÃæµÄ¸ß¶ÈÊÇä¯ÀÀÆ÷¿É¼û´°¿Ú¸ß¶ÈµÄ¼¸±¶¿ªÊ¼·­Ò³"/>±¶Ò³Ãæ¸ß¶È´¥·¢\
+                                 å‰©ä½™<input type="number" min="0" id="sp-fw-a_remain" name="sp-fw-a_remain" title="å½“å‰©ä½™çš„é¡µé¢çš„é«˜åº¦æ˜¯æµè§ˆå™¨å¯è§çª—å£é«˜åº¦çš„å‡ å€å¼€å§‹ç¿»é¡µ"/>å€é¡µé¢é«˜åº¦è§¦å‘\
                             </li>\
                             <li>\
-                                 ×î¶à·­<input type="number" min="0" id="sp-fw-a_maxpage" name="sp-fw-a_maxpage" title="×î¶à·­Ò³ÊıÁ¿,µ±´ïµ½Õâ¸ö·­Ò³ÊıÁ¿µÄÊ±ºò,×Ô¶¯·­Ò³Í£Ö¹." />Ò³\
+                                 æœ€å¤šç¿»<input type="number" min="0" id="sp-fw-a_maxpage" name="sp-fw-a_maxpage" title="æœ€å¤šç¿»é¡µæ•°é‡,å½“è¾¾åˆ°è¿™ä¸ªç¿»é¡µæ•°é‡çš„æ—¶å€™,è‡ªåŠ¨ç¿»é¡µåœæ­¢." />é¡µ\
                             </li>\
                             <li>\
-                                <input type="checkbox" id="sp-fw-a_separator" name="sp-fw-a_separator" title="·Ö¸îÒ³ÃæÖ÷ÒªÄÚÈİµÄµ¼º½Ìõ,¿ÉÒÔ½øĞĞÒ³ÃæÖ÷ÒªÄÚÈİÖ®¼äµÄ¿ìËÙÌø×ª¶¨Î»µÈ."/>ÏÔÊ¾·­Ò³µ¼º½\
+                                <input type="checkbox" id="sp-fw-a_separator" name="sp-fw-a_separator" title="åˆ†å‰²é¡µé¢ä¸»è¦å†…å®¹çš„å¯¼èˆªæ¡,å¯ä»¥è¿›è¡Œé¡µé¢ä¸»è¦å†…å®¹ä¹‹é—´çš„å¿«é€Ÿè·³è½¬å®šä½ç­‰."/>æ˜¾ç¤ºç¿»é¡µå¯¼èˆª\
                             </li>\
                             <li>\
-                                <input type="checkbox" title="½«ÏÂÒ»Ò³µÄbody²¿·ÖÄÚÈİÕû¸öÆ´½ÓÉÏÀ´.(µ±Ğè·­Ò³µÄÍøÕ¾Ã»ÓĞ¸ß¼¶¹æÔòÊ±,¸ÃÏîÇ¿ÖÆ¹´Ñ¡,ÎŞ·¨È¡Ïû.)" id="sp-fw-a_force" name="sp-fw-a_force"/>Ç¿ÖÆÆ´½Ó\
+                                <input type="checkbox" title="å°†ä¸‹ä¸€é¡µçš„bodyéƒ¨åˆ†å†…å®¹æ•´ä¸ªæ‹¼æ¥ä¸Šæ¥.(å½“éœ€ç¿»é¡µçš„ç½‘ç«™æ²¡æœ‰é«˜çº§è§„åˆ™æ—¶,è¯¥é¡¹å¼ºåˆ¶å‹¾é€‰,æ— æ³•å–æ¶ˆ.)" id="sp-fw-a_force" name="sp-fw-a_force"/>å¼ºåˆ¶æ‹¼æ¥\
                             </li>\
                             <li>\
-                                <input type="checkbox" id="sp-fw-a_ipages_0" name="sp-fw-a_ipages_0" title="ÔÚJS¼ÓÔØºó,Á¢¼´Á¬Ğø·­ºóÃæÉè¶¨µÄÒ³Êı"/>ÆôÓÃ \
-                                Á¢¼´·­<input type="number" min="1" id="sp-fw-a_ipages_1" name="sp-fw-a_ipages_1" title="Á¬Ğø·­Ò³µÄÊıÁ¿" />Ò³\
-                                <input type="button" value="¿ªÊ¼" title="ÏÖÔÚÁ¢¼´¿ªÊ¼Á¬Ğø·­Ò³" id="sp-fw-a_starti" />\
+                                <input type="checkbox" id="sp-fw-a_ipages_0" name="sp-fw-a_ipages_0" title="åœ¨JSåŠ è½½å,ç«‹å³è¿ç»­ç¿»åé¢è®¾å®šçš„é¡µæ•°"/>å¯ç”¨ \
+                                ç«‹å³ç¿»<input type="number" min="1" id="sp-fw-a_ipages_1" name="sp-fw-a_ipages_1" title="è¿ç»­ç¿»é¡µçš„æ•°é‡" />é¡µ\
+                                <input type="button" value="å¼€å§‹" title="ç°åœ¨ç«‹å³å¼€å§‹è¿ç»­ç¿»é¡µ" id="sp-fw-a_starti" />\
                             </li>\
                         </ul>\
                     </fieldset>\
                     <div id="sp-fw-foot">\
-                     <input type="checkbox" id="sp-fw-enable" title="×Ü¿ª¹Ø,ÆôÓÃjs,·ñÔò½ûÓÃ." name="sp-fw-enable"/>ÆôÓÃ\
-                     <span id="sp-fw-setup" class="sp-fw-spanbutton" title="´ò¿ªÉèÖÃ´°¿Ú">ÉèÖÃ</span>\
-                     <span id="sp-fw-savebutton" class="sp-fw-spanbutton" title="±£´æÉèÖÃ">±£´æ</span>\
+                     <input type="checkbox" id="sp-fw-enable" title="æ€»å¼€å…³,å¯ç”¨js,å¦åˆ™ç¦ç”¨." name="sp-fw-enable"/>å¯ç”¨\
+                     <span id="sp-fw-setup" class="sp-fw-spanbutton" title="æ‰“å¼€è®¾ç½®çª—å£">è®¾ç½®</span>\
+                     <span id="sp-fw-savebutton" class="sp-fw-spanbutton" title="ä¿å­˜è®¾ç½®">ä¿å­˜</span>\
                     </div>\
                 </div>\
             </div>\
@@ -4453,8 +4461,8 @@ function init(window, document) {
             return document.getElementById(id);
         }
 
-        var rect = $('sp-fw-rect'); //Ğü¸¡´°µÄĞ¡Õı·½ĞÎ,ÓÃÑÕÉ«ÃèÊöµ±Ç°µÄ×´Ì¬.
-        var spanel = $('sp-fw-content'); //ÉèÖÃÃæ°å.
+        var rect = $('sp-fw-rect'); //æ‚¬æµ®çª—çš„å°æ­£æ–¹å½¢,ç”¨é¢œè‰²æè¿°å½“å‰çš„çŠ¶æ€.
+        var spanel = $('sp-fw-content'); //è®¾ç½®é¢æ¿.
 
         var spanelc = {
             show: function() {
@@ -4465,7 +4473,7 @@ function init(window, document) {
             },
         };
         var rectt1, rectt2;
-        //ÉèÖÃÃæ°åÏÔÒş
+        //è®¾ç½®é¢æ¿æ˜¾éš
         rect.addEventListener('mouseover', function(e) {
             rectt1 = setTimeout(spanelc.show, 100);
         }, false);
@@ -4482,20 +4490,20 @@ function init(window, document) {
             rectt2 = setTimeout(spanelc.hide, 288);
         }, false);
 
-        var dot = $('sp-fw-dot'); //ÔØÈëÍê³Éºó,ÏÔÊ¾µÄĞ¡µã
+        var dot = $('sp-fw-dot'); //è½½å…¥å®Œæˆå,æ˜¾ç¤ºçš„å°ç‚¹
         dot.style.backgroundColor = FWKG_color.dot;
 
-        var cur_mode = $('sp-fw-cur-mode'); //µ±ÔØÈë×´Ì¬Ê±,ÓÃÀ´ÃèÊöµ±Ç°ÊÇ·­Ò³Ä£Ê½,»¹ÊÇÔ¤¶ÁÄ£Ê½.
+        var cur_mode = $('sp-fw-cur-mode'); //å½“è½½å…¥çŠ¶æ€æ—¶,ç”¨æ¥æè¿°å½“å‰æ˜¯ç¿»é¡µæ¨¡å¼,è¿˜æ˜¯é¢„è¯»æ¨¡å¼.
         cur_mode.style.backgroundColor = SSS.a_enable ? FWKG_color.autopager : FWKG_color.prefetcher;
 
-        var a_enable = $('sp-fw-a_enable'); //ÆôÓÃ·­Ò³Ä£Ê½
-        var autopager_field = $('sp-fw-autopager-field'); //·­Ò³ÉèÖÃÇøÓò
+        var a_enable = $('sp-fw-a_enable'); //å¯ç”¨ç¿»é¡µæ¨¡å¼
+        var autopager_field = $('sp-fw-autopager-field'); //ç¿»é¡µè®¾ç½®åŒºåŸŸ
 
-        //Ô¤¶ÁÉèÖÃ
+        //é¢„è¯»è®¾ç½®
         var useiframe = $('sp-fw-useiframe');
         var viewcontent = $('sp-fw-viewcontent');
 
-        //·­Ò³ÉèÖÃ
+        //ç¿»é¡µè®¾ç½®
         var a_useiframe = $('sp-fw-a_useiframe');
         var a_iloaded = $('sp-fw-a_iloaded');
         var a_itimeout = $('sp-fw-a_itimeout');
@@ -4507,13 +4515,13 @@ function init(window, document) {
         var a_ipages_1 = $('sp-fw-a_ipages_1');
         var a_force = $('sp-fw-a_force');
 
-        // newIframe ÊäÈë¿òµÄµã»÷
+        // newIframe è¾“å…¥æ¡†çš„ç‚¹å‡»
         var a_newIframe = $('sp-fw-a_newIframe');
         a_newIframe.addEventListener('click', function(){
             a_useiframe.checked = a_newIframe.checked;
         }, false);
 
-        var a_starti = $('sp-fw-a_starti'); //¿ªÊ¼Á¢¼´·­Ò³
+        var a_starti = $('sp-fw-a_starti'); //å¼€å§‹ç«‹å³ç¿»é¡µ
         a_starti.addEventListener('click', function() {
             if (this.disabled) return;
             var value = Number(a_ipages_1.value);
@@ -4524,11 +4532,11 @@ function init(window, document) {
             autoPO.startipages(value);
         }, false);
 
-        //×Ü¿ª¹Ø
+        //æ€»å¼€å…³
         var enable = $('sp-fw-enable');
         $('sp-fw-setup').addEventListener('click', setup, false);
 
-        // ±£´æÉèÖÃ°´Å¥.
+        // ä¿å­˜è®¾ç½®æŒ‰é’®.
         var savebutton = $('sp-fw-savebutton');
         savebutton.addEventListener('click', function(e) {
             var value = {
@@ -4562,7 +4570,7 @@ function init(window, document) {
             SSS.savedValue[SSS.sedValueIndex] = value;
             //alert(xToString(SSS.savedValue));
             saveValue('spfwset', xToString(SSS.savedValue));
-            if ((e.shiftKey ? !prefs.FW_RAS : prefs.FW_RAS)) { //°´×¡shift¼ü,Ö´ĞĞ·´Ïò²Ù×÷.
+            if ((e.shiftKey ? !prefs.FW_RAS : prefs.FW_RAS)) { //æŒ‰ä½shifté”®,æ‰§è¡Œåå‘æ“ä½œ.
                 setTimeout(function(){
                     location.reload();
                 }, 1);
@@ -4577,8 +4585,8 @@ function init(window, document) {
             }
         }
 
-        //ÔØÈë·­Ò³ÉèÖÃ.
-        if (SSS.a_enable === undefined) { //Î´¶¨Òå·­Ò³¹¦ÄÜ.
+        //è½½å…¥ç¿»é¡µè®¾ç½®.
+        if (SSS.a_enable === undefined) { //æœªå®šä¹‰ç¿»é¡µåŠŸèƒ½.
             a_enable.disabled = true;
             autopager_field.style.display = 'none';
         } else {
@@ -4596,28 +4604,28 @@ function init(window, document) {
             ll(a_ipages_1, SSS.a_ipages[1]);
         }
 
-        if (!SSS.a_enable) { //µ±Ç°²»ÊÇ·­Ò³Ä£Ê½,½ûÓÃÁ¢¼´·­Ò³°´Å¥.
+        if (!SSS.a_enable) { //å½“å‰ä¸æ˜¯ç¿»é¡µæ¨¡å¼,ç¦ç”¨ç«‹å³ç¿»é¡µæŒ‰é’®.
             a_starti.disabled = true;
         }
 
-        if (!SSS.hasRule) { //Èç¹ûÃ»ÓĞ¸ß¼¶¹æÔò,ÄÇÃ´´ËÏî²»ÔÊĞí²Ù×÷.
+        if (!SSS.hasRule) { //å¦‚æœæ²¡æœ‰é«˜çº§è§„åˆ™,é‚£ä¹ˆæ­¤é¡¹ä¸å…è®¸æ“ä½œ.
             a_force.disabled = true;
         }
 
-        //ÔØÈëÔ¤¶ÁÉèÖÃ.
+        //è½½å…¥é¢„è¯»è®¾ç½®.
         ll(useiframe, SSS.useiframe);
         ll(viewcontent, SSS.viewcontent);
 
-        //×Ü¿ª¹Ø
+        //æ€»å¼€å…³
         ll(enable, SSS.enable);
 
         var FWKG_state = {
-            loading: '¶ÁÈ¡ÖĞ×´Ì¬',
-            prefetcher: 'Ô¤¶Á×´Ì¬',
-            autopager: '·­Ò³×´Ì¬',
-            Apause: '·­Ò³×´Ì¬(ÔİÍ£)',
-            Astop: '·­Ò³×´Ì¬(Í£Ö¹)(·­Ò³Íê³É,»òÕß±»Òì³£Í£Ö¹)(ÎŞ·¨ÔÙ¿ªÆô)',
-            dot: '¶ÁÈ¡Íêºó',
+            loading: 'è¯»å–ä¸­çŠ¶æ€',
+            prefetcher: 'é¢„è¯»çŠ¶æ€',
+            autopager: 'ç¿»é¡µçŠ¶æ€',
+            Apause: 'ç¿»é¡µçŠ¶æ€(æš‚åœ)',
+            Astop: 'ç¿»é¡µçŠ¶æ€(åœæ­¢)(ç¿»é¡µå®Œæˆ,æˆ–è€…è¢«å¼‚å¸¸åœæ­¢)(æ— æ³•å†å¼€å¯)',
+            dot: 'è¯»å–å®Œå',
         };
 
         floatWO = {
@@ -4638,7 +4646,7 @@ function init(window, document) {
         var horiz = parseInt(prefs.FW_offset[1], 10);
         var FW_position = prefs.FW_position;
 
-        // ·ÇoperaÓÃfixed¶¨Î».
+        // éoperaç”¨fixedå®šä½.
         div.style.position = 'fixed';
         switch (FW_position) {
             case 1:
@@ -4670,10 +4678,10 @@ function init(window, document) {
             sp_transition.TweenF = TweenF;
         }
         var frameSpeed = 1000 / prefs.s_FPS;
-        var t = 0; //´ÎÊı,¿ªÊ¼
-        var b = start; //¿ªÊ¼
-        var c = end - start; //½áÊø
-        var d = Math.ceil(prefs.s_duration / frameSpeed); //´ÎÊı,½áÊø
+        var t = 0; //æ¬¡æ•°,å¼€å§‹
+        var b = start; //å¼€å§‹
+        var c = end - start; //ç»“æŸ
+        var d = Math.ceil(prefs.s_duration / frameSpeed); //æ¬¡æ•°,ç»“æŸ
 
         var x = window.scrollX;
 
@@ -4762,10 +4770,10 @@ function init(window, document) {
 
     function autopager(SSS, floatWO) {
         //return;
-        //¸üĞÂĞü¸¡´°µÄÑÕÉ«.
+        //æ›´æ–°æ‚¬æµ®çª—çš„é¢œè‰².
         floatWO.updateColor('autopager');
 
-        //»ñÈ¡²åÈëÎ»ÖÃ½Úµã.
+        //è·å–æ’å…¥ä½ç½®èŠ‚ç‚¹.
         var insertPoint;
         var pageElement;
         var insertMode;
@@ -4781,9 +4789,9 @@ function init(window, document) {
         }
 
         if (insertPoint) {
-            debug('ÑéÖ¤ÊÇ·ñÄÜÕÒµ½²åÈëÎ»ÖÃ½Úµã:³É¹¦,', insertPoint);
+            debug('éªŒè¯æ˜¯å¦èƒ½æ‰¾åˆ°æ’å…¥ä½ç½®èŠ‚ç‚¹:æˆåŠŸ,', insertPoint);
         } else {
-            C.error('ÑéÖ¤ÊÇ·ñÄÜÕÒµ½²åÈëÎ»ÖÃ½Úµã:Ê§°Ü', (SSS.a_HT_insert ? SSS.a_HT_insert[0] : ''), 'JSÖ´ĞĞÖÕÖ¹');
+            C.error('éªŒè¯æ˜¯å¦èƒ½æ‰¾åˆ°æ’å…¥ä½ç½®èŠ‚ç‚¹:å¤±è´¥', (SSS.a_HT_insert ? SSS.a_HT_insert[0] : ''), 'JSæ‰§è¡Œç»ˆæ­¢');
             floatWO.updateColor('Astop');
             return;
         }
@@ -4792,14 +4800,14 @@ function init(window, document) {
             pageElement = getAllElements(SSS.a_pageElement);
         }
         if (pageElement.length > 0) {
-            debug('ÑéÖ¤ÊÇ·ñÄÜÕÒµ½Ö÷ÒªÔªËØ:³É¹¦,', pageElement);
+            debug('éªŒè¯æ˜¯å¦èƒ½æ‰¾åˆ°ä¸»è¦å…ƒç´ :æˆåŠŸ,', pageElement);
         } else {
-            C.error('ÑéÖ¤ÊÇ·ñÄÜÕÒµ½Ö÷ÒªÔªËØ:Ê§°Ü,', SSS.a_pageElement, 'JSÖ´ĞĞÖÕÖ¹');
+            C.error('éªŒè¯æ˜¯å¦èƒ½æ‰¾åˆ°ä¸»è¦å…ƒç´ :å¤±è´¥,', SSS.a_pageElement, 'JSæ‰§è¡Œç»ˆæ­¢');
             floatWO.updateColor('Astop');
             return;
         }
 
-        if (SSS.a_stylish) {  // ²åÈë×Ô¶¨ÒåÑùÊ½
+        if (SSS.a_stylish) {  // æ’å…¥è‡ªå®šä¹‰æ ·å¼
             GM_addStyle(SSS.a_stylish, 'Super_preloader-style');
         }
 
@@ -4826,7 +4834,7 @@ function init(window, document) {
             doc = win = createDocumentByString(str);
 
             if (!doc) {
-                C.error('ÎÄµµ¶ÔÏó´´½¨Ê§°Ü');
+                C.error('æ–‡æ¡£å¯¹è±¡åˆ›å»ºå¤±è´¥');
                 removeL();
                 return;
             }
@@ -4838,7 +4846,7 @@ function init(window, document) {
         }
 
         function removeL(isRemoveAddPage) {
-            debug('ÒÆ³ı¸÷ÖÖÊÂ¼ş¼àÌı');
+            debug('ç§»é™¤å„ç§äº‹ä»¶ç›‘å¬');
             floatWO.updateColor('Astop');
             var _remove = remove;
             for (var i = 0, ii = _remove.length; i < ii; i++) {
@@ -4862,7 +4870,7 @@ function init(window, document) {
                     range.deleteContents();
                     range.detach();
 
-                    if (insertMode == 2) {  // »¹ĞèÒª¶îÍâÒÆ³ı£¿
+                    if (insertMode == 2) {  // è¿˜éœ€è¦é¢å¤–ç§»é™¤ï¼Ÿ
                         insertPoint.removeChild(insertBefore);
                     }
                 }
@@ -4874,11 +4882,11 @@ function init(window, document) {
         if (isHashchangeSite && !hashchangeAdded) {
             window.addEventListener("hashchange", onhashChange, false);
             hashchangeAdded = true;
-            debug('³É¹¦Ìí¼Ó hashchange ÊÂ¼ş');
+            debug('æˆåŠŸæ·»åŠ  hashchange äº‹ä»¶');
         }
 
         function onhashChange(event) {
-            debug("´¥·¢ Hashchang ÊÂ¼ş");
+            debug("è§¦å‘ Hashchang äº‹ä»¶");
             removeL(true);
 
             setTimeout(function(){
@@ -4960,7 +4968,7 @@ function init(window, document) {
             floatWO.updateColor('loading');
             floatWO.CmodeIcon('show');
 
-            debug('»ñÈ¡ÏÂÒ»Ò³' + (SSS.a_useiframe ? '(iframe·½Ê½)': ''), nextlink);
+            debug('è·å–ä¸‹ä¸€é¡µ' + (SSS.a_useiframe ? '(iframeæ–¹å¼)': ''), nextlink);
             if (SSS.a_useiframe) {
                 iframeRquest(nextlink);
             } else {
@@ -5048,14 +5056,14 @@ function init(window, document) {
 
                 var div = $C('div', { id: 'sp-sp-manualdiv' });
                 manualDiv = div;
-                var span = $C('span', { class: 'sp-sp-md-span' }, 'ÏÂ');
+                var span = $C('span', { class: 'sp-sp-md-span' }, 'ä¸‹');
                 div.appendChild(span);
 
                 var input = $C('input', {
                     type: 'number',
                     value: 1,
                     min: 1,
-                    title: 'ÊäÈëÄãÏëÒªÆ´½ÓµÄÒ³Êı(±ØĞë>=1),È»ºó°´»Ø³µ.',
+                    title: 'è¾“å…¥ä½ æƒ³è¦æ‹¼æ¥çš„é¡µæ•°(å¿…é¡»>=1),ç„¶åæŒ‰å›è½¦.',
                     id: 'sp-sp-md-number'
                 });
 
@@ -5079,12 +5087,12 @@ function init(window, document) {
                 };
                 input.addEventListener('keyup', function(e) {
                     //alert(e.keyCode);
-                    if (e.keyCode == 13) { //»Ø³µ
+                    if (e.keyCode == 13) { //å›è½¦
                         spage();
                     }
                 }, false);
                 div.appendChild(input);
-                div.appendChild($C('span', { className: 'sp-sp-md-span' }, 'Ò³'));
+                div.appendChild($C('span', { className: 'sp-sp-md-span' }, 'é¡µ'));
                 div.appendChild($C('img', {id: 'sp-sp-md-imgnext', src: _sep_icons.next}));
                 div.appendChild($C('span', { id: 'sp-sp-md-someinfo' }, prefs.someValue));
                 document.body.appendChild(div);
@@ -5099,9 +5107,9 @@ function init(window, document) {
 
         function beforeInsertIntoDoc() {
             working = true;
-            if (SSS.a_manualA && !ipagesmode) { //ÏÔÊ¾ÊÖ¶¯·­Ò³´¥·¢Ìõ.
+            if (SSS.a_manualA && !ipagesmode) { //æ˜¾ç¤ºæ‰‹åŠ¨ç¿»é¡µè§¦å‘æ¡.
                 manualAdiv();
-            } else { //Ö±½ÓÆ´½Ó.
+            } else { //ç›´æ¥æ‹¼æ¥.
                 insertedIntoDoc();
             }
         }
@@ -5177,7 +5185,7 @@ function init(window, document) {
                 div.id = 'sp-separator-' + curNumber;
                 div.addEventListener('click', sepHandler, false);
 
-                var pageStr = 'µÚ <span style="color:red!important;">' + curNumber + '</span> Ò³' +
+                var pageStr = 'ç¬¬ <span style="color:red!important;">' + curNumber + '</span> é¡µ' +
                         ( SSS.a_separatorReal ? getRalativePageStr(lastUrl, currentUrl, nextUrl) : '');
                 div.appendChild($C('a', {
                     class: 'sp-sp-nextlink',
@@ -5188,20 +5196,20 @@ function init(window, document) {
                 div.appendChild($C('img', {
                     src: _sep_icons.top,
                     class: 'sp-sp-gotop',
-                    alt: 'È¥µ½¶¥²¿',
-                    title: 'È¥µ½¶¥²¿'
+                    alt: 'å»åˆ°é¡¶éƒ¨',
+                    title: 'å»åˆ°é¡¶éƒ¨'
                 }));
 
                 div.appendChild($C('img', {
                     src: curNumber == sNumber ? _sep_icons.pre_gray : _sep_icons.pre,
                     class: 'sp-sp-gopre',
-                    title: 'ÉÏ¹öÒ»Ò³'
+                    title: 'ä¸Šæ»šä¸€é¡µ'
                 }));
 
                 var i_next = $C('img', {
                     src: _sep_icons.next_gray,
                     class: 'sp-sp-gonext',
-                    title: 'ÏÂ¹öÒ»Ò³'
+                    title: 'ä¸‹æ»šä¸€é¡µ'
                 });
 
                 if (goNextImg.length == 2) {
@@ -5213,8 +5221,8 @@ function init(window, document) {
                 div.appendChild($C('img', {
                     src: _sep_icons.bottom,
                     class: 'sp-sp-gobottom',
-                    alt: 'È¥µ½µ×²¿',
-                    title: 'È¥µ½µ×²¿'
+                    alt: 'å»åˆ°åº•éƒ¨',
+                    title: 'å»åˆ°åº•éƒ¨'
                 }));
 
                 div.appendChild($C('span', { class: 'sp-span-someinfo' }, prefs.someValue));
@@ -5243,7 +5251,7 @@ function init(window, document) {
                 try{
                     SSS.a_documentFilter(doc, nextlink);
                 }catch(e){
-                    C.error("Ö´ĞĞ documentFilter ´íÎó", e, SSS.a_documentFilter.toString());
+                    C.error("æ‰§è¡Œ documentFilter é”™è¯¯", e, SSS.a_documentFilter.toString());
                 }
             }
 
@@ -5255,12 +5263,12 @@ function init(window, document) {
             var pageElements = getAllElements(SSS.a_pageElement, false, doc, win);
             var ii = pageElements.length;
             if (ii <= 0) {
-                debug('»ñÈ¡ÏÂÒ»Ò³µÄÖ÷ÒªÄÚÈİÊ§°Ü', SSS.a_pageElement);
+                debug('è·å–ä¸‹ä¸€é¡µçš„ä¸»è¦å†…å®¹å¤±è´¥', SSS.a_pageElement);
                 removeL();
                 return;
             }
 
-            // ÌáÇ°²éÕÒÏÂÒ»Ò³Á´½Ó£¬ºóÃæÔÙ¸³Öµ
+            // æå‰æŸ¥æ‰¾ä¸‹ä¸€é¡µé“¾æ¥ï¼Œåé¢å†èµ‹å€¼
             var lastUrl = cplink;
             cplink = nextlink;
             var nl = getElement(SSS.nextLink, false, doc, win);
@@ -5283,7 +5291,7 @@ function init(window, document) {
                 fragment.appendChild(pe_x);
             }
 
-            if (SSS.filter && typeof(SSS.filter) == 'string') { //¹¦ÄÜÎ´ÍêÉÆ.
+            if (SSS.filter && typeof(SSS.filter) == 'string') { //åŠŸèƒ½æœªå®Œå–„.
                 //alert(SSS.filter);
                 var nodes = [];
                 try {
@@ -5303,15 +5311,15 @@ function init(window, document) {
 
             var imgs;
             if (!window.opera && SSS.a_useiframe && !SSS.a_iloaded) {
-                imgs = getAllElements('css;img[src]', fragment); //ÊÕ¼¯ËùÓĞÍ¼Æ¬
+                imgs = getAllElements('css;img[src]', fragment); //æ”¶é›†æ‰€æœ‰å›¾ç‰‡
             }
 
-            // ´¦ÀíÏÂÒ»Ò³ÄÚÈİ²¿·ÖÁ´½ÓÊÇ·ñĞÂ±êÇ©Ò³´ò¿ª
+            // å¤„ç†ä¸‹ä¸€é¡µå†…å®¹éƒ¨åˆ†é“¾æ¥æ˜¯å¦æ–°æ ‡ç­¾é¡µæ‰“å¼€
             if (prefs.forceTargetWindow) {
                 var arr = Array.prototype.slice.call(fragment.querySelectorAll('a[href]:not([href^="mailto:"]):not([href^="javascript:"]):not([href^="#"])'));
                 arr.forEach(function (elem){
                     elem.setAttribute('target', '_blank');
-                    if (elem.getAttribute('onclick') == 'atarget(this)') {  // ¿¨·¹ÂÛÌ³µÄ¿ØÖÆÊÇ·ñÔÚĞÂ±êÇ©Ò³´ò¿ª
+                    if (elem.getAttribute('onclick') == 'atarget(this)') {  // å¡é¥­è®ºå›çš„æ§åˆ¶æ˜¯å¦åœ¨æ–°æ ‡ç­¾é¡µæ‰“å¼€
                         elem.removeAttribute('onclick');
                     }
                 });
@@ -5342,13 +5350,13 @@ function init(window, document) {
             if (SSS.filter && typeof(SSS.filter) == 'function') {
                 try{
                     SSS.filter(pageElements);
-                    debug("Ö´ĞĞ filter(pages) ³É¹¦");
+                    debug("æ‰§è¡Œ filter(pages) æˆåŠŸ");
                 }catch(e){
-                    C.error("Ö´ĞĞ filter(pages) ´íÎó", e, SSS.filter.toString());
+                    C.error("æ‰§è¡Œ filter(pages) é”™è¯¯", e, SSS.filter.toString());
                 }
             }
 
-            if (imgs) { //·Çopera,ÔÚiframeDOMÈ¡³öÊı¾İÊ±ĞèÒªÖØÔØÍ¼Æ¬.
+            if (imgs) { //éopera,åœ¨iframeDOMå–å‡ºæ•°æ®æ—¶éœ€è¦é‡è½½å›¾ç‰‡.
                 setTimeout(function() {
                     var _imgs = imgs;
                     var i, ii, img;
@@ -5368,7 +5376,7 @@ function init(window, document) {
                     var newE = getAllElements(SSS.a_replaceE, false, doc, win);
                     var newE_lt = newE.length;
                     //alert(newE_lt);
-                    if (newE_lt == oldE_lt) {  // Ìæ»»
+                    if (newE_lt == oldE_lt) {  // æ›¿æ¢
                         var oldE_x, newE_x;
                         for (i = 0; i < newE_lt; i++) {
                             oldE_x = oldE[i];
@@ -5402,8 +5410,8 @@ function init(window, document) {
             }
 
             if (paged >= SSS.a_maxpage) {
-                debug('µ½´ïËùÉè¶¨µÄ×î´ó·­Ò³Êı', SSS.a_maxpage);
-                notice('<b>×´Ì¬</b>:' + 'µ½´ïËùÉè¶¨µÄ×î´ó·­Ò³Êı:<b style="color:red">' + SSS.a_maxpage + '</b>');
+                debug('åˆ°è¾¾æ‰€è®¾å®šçš„æœ€å¤§ç¿»é¡µæ•°', SSS.a_maxpage);
+                notice('<b>çŠ¶æ€</b>:' + 'åˆ°è¾¾æ‰€è®¾å®šçš„æœ€å¤§ç¿»é¡µæ•°:<b style="color:red">' + SSS.a_maxpage + '</b>');
                 removeL();
                 return;
             }
@@ -5411,10 +5419,10 @@ function init(window, document) {
                 setTimeout(fn, 199);
             };
             if (nextlink) {
-                // debug('ÕÒµ½ÏÂÒ»Ò³Á´½Ó:', nextlink);
+                // debug('æ‰¾åˆ°ä¸‹ä¸€é¡µé“¾æ¥:', nextlink);
                 doc = win = null;
                 if (ipagesmode) {
-                    if (SSS.a_useiframe) { //ÑÓÊ±µã,firefox,Ì«¼±»á¿¨-_-!
+                    if (SSS.a_useiframe) { //å»¶æ—¶ç‚¹,firefox,å¤ªæ€¥ä¼šå¡-_-!
                         delayiframe(doRequest);
                     } else {
                         doRequest();
@@ -5428,13 +5436,13 @@ function init(window, document) {
                     }
                 }
             } else {
-                debug('Ã»ÓĞÕÒµ½ÏÂÒ»Ò³Á´½Ó', SSS.nextLink);
+                debug('æ²¡æœ‰æ‰¾åˆ°ä¸‹ä¸€é¡µé“¾æ¥', SSS.nextLink);
                 removeL();
                 return;
             }
         }
 
-        //·µ»Ø,Ê£Óà¸ß¶ÈÊÇ×Ü¸ß¶ÈµÄ±ÈÖµ.
+        //è¿”å›,å‰©ä½™é«˜åº¦æ˜¯æ€»é«˜åº¦çš„æ¯”å€¼.
         var relatedObj_0, relatedObj_1;
         if (SSS.a_relatedObj) {
             if (_.isArray(SSS.a_relatedObj)) {
@@ -5451,7 +5459,7 @@ function init(window, document) {
             var WI = window.innerHeight;
             var obj = getLastElement(relatedObj_0);
             var scrollH = (obj && obj.nodeType == 1) ? (obj.getBoundingClientRect()[relatedObj_1] + scrolly) : Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
-            return (scrollH - scrolly - WI) / WI; //Ê£Óà¸ß¶ÈÓÚÒ³Ãæ×Ü¸ß¶ÈµÄ±ÈÀı.
+            return (scrollH - scrolly - WI) / WI; //å‰©ä½™é«˜åº¦äºé¡µé¢æ€»é«˜åº¦çš„æ¯”ä¾‹.
         }
 
         var pause = false;
@@ -5467,11 +5475,11 @@ function init(window, document) {
                 if (prefs.stop_ipage) ipagesmode = false;
                 if (pause) {
                     floatWO.updateColor('Apause');
-                    notice('<b>×´Ì¬</b>:' + '×Ô¶¯·­Ò³<span style="color:red!important;"><b>ÔİÍ£</b></span>.');
+                    notice('<b>çŠ¶æ€</b>:' + 'è‡ªåŠ¨ç¿»é¡µ<span style="color:red!important;"><b>æš‚åœ</b></span>.');
                 } else {
                     floatWO.updateColor('autopager');
                     floatWO.CmodeIcon('hide');
-                    notice('<b>×´Ì¬</b>:' + '×Ô¶¯·­Ò³<span style="color:red!important;"><b>ÆôÓÃ</b></span>.');
+                    notice('<b>çŠ¶æ€</b>:' + 'è‡ªåŠ¨ç¿»é¡µ<span style="color:red!important;"><b>å¯ç”¨</b></span>.');
                 }
                 scroll();
             };
@@ -5502,9 +5510,9 @@ function init(window, document) {
 
         function scroll() {
             if (!pause && !working && (getRemain() <= SSS.a_remain || ipagesmode)) {
-                if (doc) { //ÓĞµÄ»°,¾Í²åÈëµ½ÎÄµµ.
+                if (doc) { //æœ‰çš„è¯,å°±æ’å…¥åˆ°æ–‡æ¡£.
                     beforeInsertIntoDoc();
-                } else { //·ñÔò¾ÍÇëÇóÎÄµµ.
+                } else { //å¦åˆ™å°±è¯·æ±‚æ–‡æ¡£.
                     scrollDo();
                 }
             }
@@ -5525,7 +5533,7 @@ function init(window, document) {
                 if (value > 0) {
                     ipagesmode = true;
                     ipagesnumber = value + paged;
-                    notice('<b>×´Ì¬</b>:' + 'µ±Ç°ÒÑ·­Ò³ÊıÁ¿:<b>' + paged + '</b>,' + 'Á¬Ğø·­Ò³µ½µÚ<b style="color:red!important;">' + ipagesnumber + '</b>Ò³.');
+                    notice('<b>çŠ¶æ€</b>:' + 'å½“å‰å·²ç¿»é¡µæ•°é‡:<b>' + paged + '</b>,' + 'è¿ç»­ç¿»é¡µåˆ°ç¬¬<b style="color:red!important;">' + ipagesnumber + '</b>é¡µ.');
                     if (SSS.a_manualA) insertedIntoDoc();
                     scroll();
                 }
@@ -5549,7 +5557,7 @@ function init(window, document) {
                 background-color:#F5F5F5!important;\
                 float:none!important;\
             ';
-            div.title = 'Ô¤¶ÁµÄÄÚÈİ';
+            div.title = 'é¢„è¯»çš„å†…å®¹';
             div2.style.cssText = '\
                 text-align:left!important;\
                 color:red!important;\
@@ -5602,7 +5610,7 @@ function init(window, document) {
             }, false);
             if (SSS.viewcontent) {
                 var container = cContainer();
-                container.div2.innerHTML = 'iframeÈ«Ô¤¶Á: ' + '<br />' + 'Ô¤¶ÁÍøÖ·: ' + '<b>' + nextlink + '</b>';
+                container.div2.innerHTML = 'iframeå…¨é¢„è¯»: ' + '<br />' + 'é¢„è¯»ç½‘å€: ' + '<b>' + nextlink + '</b>';
                 iframe.height = '300px';
                 container.div.appendChild(iframe);
             } else {
@@ -5617,7 +5625,7 @@ function init(window, document) {
                     var str = req.responseText;
                     var doc = createDocumentByString(str);
                     if (!doc) {
-                        C.error('ÎÄµµ¶ÔÏó´´½¨Ê§°Ü!');
+                        C.error('æ–‡æ¡£å¯¹è±¡åˆ›å»ºå¤±è´¥!');
                         return;
                     }
 
@@ -5647,7 +5655,7 @@ function init(window, document) {
                         var containter = cContainer();
                         var div = containter.div;
                         i = iarray.length;
-                        containter.div2.innerHTML = 'Ô¤¶ÁÈ¡Í¼Æ¬ÕÅÊı: ' + '<b>' + i + '</b>' + '<br />' + 'Ô¤¶ÁÍøÖ·: ' + '<b>' + nextlink + '</b>';
+                        containter.div2.innerHTML = 'é¢„è¯»å–å›¾ç‰‡å¼ æ•°: ' + '<b>' + i + '</b>' + '<br />' + 'é¢„è¯»ç½‘å€: ' + '<b>' + nextlink + '</b>';
                         for (i -= 1; i >= 0; i--) {
                             div.appendChild(iarray[i]);
                         }
@@ -5661,29 +5669,29 @@ function init(window, document) {
     }
 
 
-    //Ö´ĞĞ¿ªÊ¼..///////////////////
+    //æ‰§è¡Œå¼€å§‹..///////////////////
 
-    // ·ÖÎöºÚÃûµ¥
+    // åˆ†æé»‘åå•
     var blackList_re = new RegExp(blackList.map(wildcardToRegExpStr).join("|"));
     if(blackList_re.test(url)){
-        debug('Æ¥ÅäºÚÃûµ¥£¬jsÖ´ĞĞÖÕÖ¹');
+        debug('åŒ¹é…é»‘åå•ï¼Œjsæ‰§è¡Œç»ˆæ­¢');
         return;
     }
 
-    //ÊÇ·ñÔÚframeÉÏ¼ÓÔØ..
+    //æ˜¯å¦åœ¨frameä¸ŠåŠ è½½..
     if (prefs.DisableI && window.self != window.parent) {
         var isReturn = !_.find(DIExclude, function(x){ return x[1] && x[2].test(url); });
         if (isReturn) {
-            debug('urlÎª:', url, 'µÄÒ³ÃæÎª·Ç¶¥²ã´°¿Ú,JSÖ´ĞĞÖÕÖ¹.');
+            debug('urlä¸º:', url, 'çš„é¡µé¢ä¸ºéé¡¶å±‚çª—å£,JSæ‰§è¡Œç»ˆæ­¢.');
             return;
         }
     }
-    debug('urlÎª:', url, 'JS¼ÓÔØ³É¹¦');
+    debug('urlä¸º:', url, 'JSåŠ è½½æˆåŠŸ');
 
-    //µÚÒ»½×¶Î..·ÖÎö¸ß¼¶Ä£Ê½..
+    //ç¬¬ä¸€é˜¶æ®µ..åˆ†æé«˜çº§æ¨¡å¼..
     SITEINFO = SITEINFO.concat(SITEINFO_TP, SITEINFO_comp);
 
-    //ÖØÒªµÄ±äÁ¿Á½Ã¶.
+    //é‡è¦çš„å˜é‡ä¸¤æš.
     var nextlink;
     var prelink;
     //===============
@@ -5697,27 +5705,27 @@ function init(window, document) {
         var Rurl;
         var ii = SITEINFO.length;
 
-        debug('¸ß¼¶¹æÔòÊıÁ¿:', ii);
+        debug('é«˜çº§è§„åˆ™æ•°é‡:', ii);
 
         for (var i = 0; i < ii; i++) {
             SII = SITEINFO[i];
             Rurl = toRE(SII.url);
             if (Rurl.test(url)) {
-                debug('ÕÒµ½Æ¥Åäµ±Ç°Õ¾µãµÄ¹æÔò:', SII, 'ÊÇµÚ', i + 1, '¹æÔò');
+                debug('æ‰¾åˆ°åŒ¹é…å½“å‰ç«™ç‚¹çš„è§„åˆ™:', SII, 'æ˜¯ç¬¬', i + 1, 'è§„åˆ™');
 
-                // ÔËĞĞ¹æÔòµÄ startFilter
+                // è¿è¡Œè§„åˆ™çš„ startFilter
                 if (SII.autopager && SII.autopager.startFilter) {
                     SII.autopager.startFilter(window, document);
-                    debug('³É¹¦ÔËĞĞ startFilter');
+                    debug('æˆåŠŸè¿è¡Œ startFilter');
                 }
 
                 nextlink = getElement(SII.nextLink || 'auto;');
                 if (!nextlink) {
-                    debug('ÎŞ·¨ÕÒµ½ÏÂÒ»Ò³Á´½Ó,Ìø¹ı¹æÔò:', SII, '¼ÌĞø²éÕÒÆäËû¹æÔò');
+                    debug('æ— æ³•æ‰¾åˆ°ä¸‹ä¸€é¡µé“¾æ¥,è·³è¿‡è§„åˆ™:', SII, 'ç»§ç»­æŸ¥æ‰¾å…¶ä»–è§„åˆ™');
                     continue;
                 }
 
-                if (SII.preLink && SII.preLink != 'auto;') { //Èç¹ûÉè¶¨ÁË¾ßÌåµÄpreLink
+                if (SII.preLink && SII.preLink != 'auto;') { //å¦‚æœè®¾å®šäº†å…·ä½“çš„preLink
                     prelink = getElement(SII.preLink);
                 } else {
                     if(prefs.autoGetPreLink){
@@ -5733,13 +5741,13 @@ function init(window, document) {
                 SSS.viewcontent = SII.viewcontent;
                 SSS.enable = (SII.enable === undefined) ? SITEINFO_D.enable : SII.enable;
                 SSS.useiframe = (SII.useiframe === undefined) ? SITEINFO_D.useiframe : SII.useiframe;
-                if (SII.pageElement) { //Èç¹ûÊÇOautopagerµÄ¹æÔò..
+                if (SII.pageElement) { //å¦‚æœæ˜¯Oautopagerçš„è§„åˆ™..
                     if (!(SII.autopager instanceof Object)) SII.autopager = {};
                     SII.autopager.pageElement = SII.pageElement;
                     if (SII.insertBefore) SII.autopager.HT_insert = [SII.insertBefore, 1];
                 }
 
-                //×Ô¶¯·­Ò³ÉèÖÃ.
+                //è‡ªåŠ¨ç¿»é¡µè®¾ç½®.
                 SIIA = SII.autopager;
                 if (SIIA) {
                     SSS.a_pageElement = SIIA.pageElement;
@@ -5761,16 +5769,16 @@ function init(window, document) {
                     SSS.a_ipages = (SIIA.ipages === undefined) ? SIIAD.ipages : SIIA.ipages;
 
                     // new
-                    SSS.filter = SII.filter || SIIA.filter;  // ĞÂÔöÁËº¯ÊıµÄĞÎÊ½£¬Ô­À´µÄ¹¦ÄÜÊÇÒÆ³ı pageElement
+                    SSS.filter = SII.filter || SIIA.filter;  // æ–°å¢äº†å‡½æ•°çš„å½¢å¼ï¼ŒåŸæ¥çš„åŠŸèƒ½æ˜¯ç§»é™¤ pageElement
                     SSS.a_documentFilter = SII.documentFilter || SIIA.documentFilter;
                     SSS.a_stylish = SII.stylish || SIIA.stylish;
                     SSS.lazyImgSrc = SIIA.lazyImgSrc;
                 }
 
-                // ¼ìÑéÊÇ·ñ´æÔÚÄÚÈİ
+                // æ£€éªŒæ˜¯å¦å­˜åœ¨å†…å®¹
                 var pageElement = getElement(SSS.a_pageElement);
                 if (!pageElement) {
-                    debug('ÎŞ·¨ÕÒµ½ÄÚÈİ,Ìø¹ı¹æÔò:', SII, '¼ÌĞø²éÕÒÆäËû¹æÔò');
+                    debug('æ— æ³•æ‰¾åˆ°å†…å®¹,è·³è¿‡è§„åˆ™:', SII, 'ç»§ç»­æŸ¥æ‰¾å…¶ä»–è§„åˆ™');
                     continue;
                 }
 
@@ -5779,14 +5787,14 @@ function init(window, document) {
         }
 
         if (!SSS.hasRule) {
-            debug('Î´ÕÒµ½ºÏÊÊµÄ¸ß¼¶¹æÔò,¿ªÊ¼×Ô¶¯Æ¥Åä.');
-            //×Ô¶¯ËÑË÷.
+            debug('æœªæ‰¾åˆ°åˆé€‚çš„é«˜çº§è§„åˆ™,å¼€å§‹è‡ªåŠ¨åŒ¹é….');
+            //è‡ªåŠ¨æœç´¢.
             if (!autoMatch.keyMatch) {
-                debug('×Ô¶¯Æ¥Åä¹¦ÄÜ±»½ûÓÃÁË.');
+                debug('è‡ªåŠ¨åŒ¹é…åŠŸèƒ½è¢«ç¦ç”¨äº†.');
             } else {
                 nextlink = autoGetLink();
                 //alert(nextlink);
-                if (nextlink) { //Ç¿ÖÆÄ£Ê½.
+                if (nextlink) { //å¼ºåˆ¶æ¨¡å¼.
                     var FA = autoMatch.FA;
                     SSS.Rurl = window.localStorage ? ('am:' + (url.match(/^https?:\/\/[^:]*\//i) || [])[0]) : 'am:automatch';
                     //alert(SSS.Rurl);
@@ -5796,8 +5804,8 @@ function init(window, document) {
                     SSS.useiframe = autoMatch.useiframe;
                     SSS.a_force = true;
                     SSS.a_manualA = FA.manualA;
-                    // SSS.a_enable = FA.enable || false; //²»ÄÜÊ¹a_enableµÄÖµ==undefined...
-                    SSS.a_enable = FA.enable || SITEINFO_D.autopager.force_enable; //²»ÄÜÊ¹a_enableµÄÖµ==undefined...
+                    // SSS.a_enable = FA.enable || false; //ä¸èƒ½ä½¿a_enableçš„å€¼==undefined...
+                    SSS.a_enable = FA.enable || SITEINFO_D.autopager.force_enable; //ä¸èƒ½ä½¿a_enableçš„å€¼==undefined...
                     SSS.a_useiframe = FA.useiframe;
                     SSS.a_iloaded = FA.iloaded;
                     SSS.a_itimeout = FA.itimeout;
@@ -5809,23 +5817,23 @@ function init(window, document) {
             }
         }
 
-        // Èç¹û¹æÔòÃ» lazyImgSrc£¬ÉèÖÃÄ¬ÈÏÖµ
+        // å¦‚æœè§„åˆ™æ²¡ lazyImgSrcï¼Œè®¾ç½®é»˜è®¤å€¼
         if (!SSS.lazyImgSrc) {
             SSS.lazyImgSrc = prefs.lazyImgSrc;
         }
 
-        debug('ËÑË÷¸ß¼¶¹æÔòºÍ×Ô¶¯Æ¥Åä¹ı³Ì×ÜºÄÊ±:', new Date() - startTime, 'ºÁÃë');
+        debug('æœç´¢é«˜çº§è§„åˆ™å’Œè‡ªåŠ¨åŒ¹é…è¿‡ç¨‹æ€»è€—æ—¶:', new Date() - startTime, 'æ¯«ç§’');
     };
 
     findCurSiteInfo();
 
-    //ÉÏÏÂÒ³¶¼Ã»ÓĞÕÒµ½°¡
+    //ä¸Šä¸‹é¡µéƒ½æ²¡æœ‰æ‰¾åˆ°å•Š
     if (!nextlink && !prelink) {
-        debug('Î´ÕÒµ½Ïà¹ØÁ´½Ó, JSÖ´ĞĞÍ£Ö¹. ¹²ºÄÊ±' + (new Date() - startTime) + 'ºÁÃë');
+        debug('æœªæ‰¾åˆ°ç›¸å…³é“¾æ¥, JSæ‰§è¡Œåœæ­¢. å…±è€—æ—¶' + (new Date() - startTime) + 'æ¯«ç§’');
         return;
     } else {
-        debug('ÉÏÒ»Ò³Á´½Ó:', prelink);
-        debug('ÏÂÒ»Ò³Á´½Ó:', nextlink);
+        debug('ä¸Šä¸€é¡µé“¾æ¥:', prelink);
+        debug('ä¸‹ä¸€é¡µé“¾æ¥:', nextlink);
         nextlink = nextlink ? (nextlink.href || nextlink) : undefined;
         prelink = prelink ? (prelink.href || prelink) : undefined;
     }
@@ -5841,7 +5849,7 @@ function init(window, document) {
     };
 
     if (prefs.arrowKeyPage) {
-        debug('Ìí¼Ó¼üÅÌ×óÓÒ·½Ïò¼ü·­Ò³¼àÌı.');
+        debug('æ·»åŠ é”®ç›˜å·¦å³æ–¹å‘é”®ç¿»é¡µç›‘å¬.');
         document.addEventListener('keyup', function(e) {
             var tarNN = e.target.nodeName;
             if (tarNN != 'BODY' && tarNN != 'HTML') return;
@@ -5858,33 +5866,33 @@ function init(window, document) {
         }, false);
     }
 
-    // ¼àÌıÏÂÒ»Ò³ÊÂ¼ş.
-    debug('Ìí¼ÓÊó±êÊÖÊÆ·­Ò³¼àÌı.');
+    // ç›‘å¬ä¸‹ä¸€é¡µäº‹ä»¶.
+    debug('æ·»åŠ é¼ æ ‡æ‰‹åŠ¿ç¿»é¡µç›‘å¬.');
     document.addEventListener('superPreloader.go', function() {
         superPreloader.go();
     }, false);
 
-    // ¼àÌıÏÂÒ»Ò³ÊÂ¼ş.
+    // ç›‘å¬ä¸‹ä¸€é¡µäº‹ä»¶.
     document.addEventListener('superPreloader.back', function() {
         superPreloader.back();
     }, false);
 
-    // Ã»ÕÒµ½ÏÂÒ»Ò³µÄÁ´½Ó
+    // æ²¡æ‰¾åˆ°ä¸‹ä¸€é¡µçš„é“¾æ¥
     if (!nextlink) {
-        debug('ÏÂÒ»Ò³Á´½Ó²»´æÔÚ,JSÎŞ·¨¼ÌĞø.');
-        debug('È«²¿¹ı³ÌºÄÊ±:', new Date() - startTime, 'ºÁÃë');
+        debug('ä¸‹ä¸€é¡µé“¾æ¥ä¸å­˜åœ¨,JSæ— æ³•ç»§ç»­.');
+        debug('å…¨éƒ¨è¿‡ç¨‹è€—æ—¶:', new Date() - startTime, 'æ¯«ç§’');
         return;
     }
 
-    // ÔØÈëÉèÖÃ..
+    // è½½å…¥è®¾ç½®..
     var loadLocalSetting = function() {
-        debug('¼ÓÔØÉèÖÃ');
+        debug('åŠ è½½è®¾ç½®');
         var savedValue = getValue('spfwset');
         if (savedValue) {
             try {
                 savedValue = eval(savedValue);
             } catch (e) {
-                saveValue('spfwset', ''); //ÓĞÎÊÌâµÄÉèÖÃ,±»ÊÖ¶¯ĞŞ¸Ä¹ı?,Çå³ıµô,²»È»ÏÂ´Î»¹ÊÇÒª³ö´í.
+                saveValue('spfwset', ''); //æœ‰é—®é¢˜çš„è®¾ç½®,è¢«æ‰‹åŠ¨ä¿®æ”¹è¿‡?,æ¸…é™¤æ‰,ä¸ç„¶ä¸‹æ¬¡è¿˜æ˜¯è¦å‡ºé”™.
             }
         }
         if (savedValue) {
@@ -5894,7 +5902,7 @@ function init(window, document) {
                 if (savedValue_x.Rurl == SSS.Rurl) {
                     for (var ix in savedValue_x) {
                         if (savedValue_x.hasOwnProperty(ix)) {
-                            SSS[ix] = savedValue_x[ix]; //¼ÓÔØ¼üÖµ.
+                            SSS[ix] = savedValue_x[ix]; //åŠ è½½é”®å€¼.
                         }
                     }
                     break;
@@ -5921,23 +5929,23 @@ function init(window, document) {
     }
 
     if (prefs.floatWindow) {
-        debug('´´½¨Ğü¸¡´°');
+        debug('åˆ›å»ºæ‚¬æµ®çª—');
         floatWindow(SSS);
     }
 
     if (!SSS.enable) {
-        debug('±¾¹æÔò±»¹Ø±Õ,½Å±¾Ö´ĞĞÍ£Ö¹');
-        debug('È«²¿¹ı³ÌºÄÊ±:', new Date() - startTime, 'ºÁÃë');
+        debug('æœ¬è§„åˆ™è¢«å…³é—­,è„šæœ¬æ‰§è¡Œåœæ­¢');
+        debug('å…¨éƒ¨è¿‡ç¨‹è€—æ—¶:', new Date() - startTime, 'æ¯«ç§’');
         return;
     }
-    debug('È«²¿¹ı³ÌºÄÊ±:', new Date() - startTime, 'ºÁÃë');
+    debug('å…¨éƒ¨è¿‡ç¨‹è€—æ—¶:', new Date() - startTime, 'æ¯«ç§’');
 
-    // Ô¤¶Á»òÕß·­Ò³.
+    // é¢„è¯»æˆ–è€…ç¿»é¡µ.
     if (SSS.a_enable) {
-        debug('³õÊ¼»¯,·­Ò³Ä£Ê½.');
+        debug('åˆå§‹åŒ–,ç¿»é¡µæ¨¡å¼.');
         autopager(SSS, floatWO);
     } else {
-        debug('³õÊ¼»¯,Ô¤¶ÁÄ£Ê½.');
+        debug('åˆå§‹åŒ–,é¢„è¯»æ¨¡å¼.');
         prefetcher(SSS, floatWO);
     }
 
@@ -5953,7 +5961,7 @@ function init(window, document) {
         doc = doc || document;
         win = win || window;
 
-        if (doc == document) { //µ±Ç°ÎÄµµ,Ö»¼ì²éÒ»´Î.
+        if (doc == document) { //å½“å‰æ–‡æ¡£,åªæ£€æŸ¥ä¸€æ¬¡.
             //alert(nextlink);
             if (docChecked) return nextlink;
             docChecked = true;
@@ -5973,7 +5981,7 @@ function init(window, document) {
         var curLHref = cplink;
         var _nextlink;
         var _prelink;
-        if (!autoGetLink.checked) { //µÚÒ»´Î¼ì²é
+        if (!autoGetLink.checked) { //ç¬¬ä¸€æ¬¡æ£€æŸ¥
             _nextlink = nextlink;
             _prelink = prelink;
         } else {
@@ -5990,37 +5998,37 @@ function init(window, document) {
         var aimgs, j, jj, aimg_x, xbreak, k, keytext;
 
         function finalCheck(a, type) {
-            var ahref = a.getAttribute('href'); //ÔÚchromeÉÏµ±ÊÇ·Çµ±Ç°Ò³ÃæÎÄµµ¶ÔÏóµÄÊ±ºòÖ±½ÓÓÃa.href·ÃÎÊ,²»·µ»Øhref
+            var ahref = a.getAttribute('href'); //åœ¨chromeä¸Šå½“æ˜¯éå½“å‰é¡µé¢æ–‡æ¡£å¯¹è±¡çš„æ—¶å€™ç›´æ¥ç”¨a.hrefè®¿é—®,ä¸è¿”å›href
             if (ahref == '#') {
                 return null;
             }
-            ahref = _getFullHref(ahref); //´ÓÏà¶ÔÂ·¾¶»ñÈ¡ÍêÈ«µÄhref;
+            ahref = _getFullHref(ahref); //ä»ç›¸å¯¹è·¯å¾„è·å–å®Œå…¨çš„href;
 
-            //3¸öÌõ¼ş:httpĞ­ÒéÁ´½Ó,·ÇÌøµ½µ±Ç°Ò³ÃæµÄÁ´½Ó,·Ç¿çÓò
+            //3ä¸ªæ¡ä»¶:httpåè®®é“¾æ¥,éè·³åˆ°å½“å‰é¡µé¢çš„é“¾æ¥,éè·¨åŸŸ
             if (/^https?:/i.test(ahref) && ahref.replace(/#.*$/, '') != curLHref && ahref.match(/https?:\/\/([^\/]+)/)[1] == _domain_port) {
                 if (xbug) {
-                    debug((type == 'pre' ? 'ÉÏÒ»Ò³' : 'ÏÂÒ»Ò³') + 'Æ¥Åäµ½µÄ¹Ø¼ü×ÖÎª:', atext);
+                    debug((type == 'pre' ? 'ä¸Šä¸€é¡µ' : 'ä¸‹ä¸€é¡µ') + 'åŒ¹é…åˆ°çš„å…³é”®å­—ä¸º:', atext);
                 }
-                return a; //·µ»Ø¶ÔÏóA
+                return a; //è¿”å›å¯¹è±¡A
                 //return ahref;
             }
         }
 
         if (xbug) {
-            debug('È«ÎÄµµÁ´½ÓÊıÁ¿:', alllinksl);
+            debug('å…¨æ–‡æ¡£é“¾æ¥æ•°é‡:', alllinksl);
         }
 
         for (i = 0; i < alllinksl; i++) {
             if (_nextlink && _prelink) break;
             a = alllinks[i];
-            if (!a) continue; //undefinedÌø¹ı
-            //links¼¯ºÏ·µ»ØµÄ±¾À´¾ÍÊÇ°üº¬hrefµÄaÔªËØ..ËùÒÔ²»ÓÃ¼ì²â
+            if (!a) continue; //undefinedè·³è¿‡
+            //linksé›†åˆè¿”å›çš„æœ¬æ¥å°±æ˜¯åŒ…å«hrefçš„aå…ƒç´ ..æ‰€ä»¥ä¸ç”¨æ£€æµ‹
             //if(!a.hasAttribute("href"))continue;
             atext = a.textContent;
             if (atext) {
                 if (DCEnable) {
                     numtext = atext.match(DCRE);
-                    if (numtext) { //ÊÇ²»ÊÇ´¿Êı×Ö
+                    if (numtext) { //æ˜¯ä¸æ˜¯çº¯æ•°å­—
                         //debug(numtext);
                         numtext = numtext[1];
                         //alert(numtext);
@@ -6145,9 +6153,9 @@ function init(window, document) {
             }
         }
 
-        debug('ËÑË÷Á´½ÓÊıÁ¿:', i, 'ºÄÊ±:', new Date() - startTime, 'ºÁÃë');
+        debug('æœç´¢é“¾æ¥æ•°é‡:', i, 'è€—æ—¶:', new Date() - startTime, 'æ¯«ç§’');
 
-        if (!autoGetLink.checked) { //Ö»ÔÚµÚÒ»´Î¼ì²âµÄÊ±ºò,Å×³öÉÏÒ»Ò³Á´½Ó.
+        if (!autoGetLink.checked) { //åªåœ¨ç¬¬ä¸€æ¬¡æ£€æµ‹çš„æ—¶å€™,æŠ›å‡ºä¸Šä¸€é¡µé“¾æ¥.
             prelink = _prelink;
             autoGetLink.checked = true;
         }
@@ -6204,12 +6212,12 @@ function init(window, document) {
             return pageKey;
         }
 
-        //×ª³ÉÕıÔò.
+        //è½¬æˆæ­£åˆ™.
         prePageKey = modifyPageKey('previous', prePageKey, prePageKey.length);
         nextPageKey = modifyPageKey('next', nextPageKey, nextPageKey.length);
     }
 
-    // µØÖ·À¸µİÔö´¦Àíº¯Êı.
+    // åœ°å€æ é€’å¢å¤„ç†å‡½æ•°.
     function hrefInc(obj, doc, win) {
         var _cplink = cplink;
 
@@ -6291,7 +6299,7 @@ function init(window, document) {
         }
     }
 
-    // »ñÈ¡µ¥¸öÔªËØ,»ìºÏ
+    // è·å–å•ä¸ªå…ƒç´ ,æ··åˆ
     function getElement(selector, contextNode, doc, win) {
         var ret;
         if (!selector) return ret;
@@ -6326,7 +6334,7 @@ function init(window, document) {
 
 // ====================  libs  ==============================
 
-// ×ÔÔì¼ò»¯°æ underscroe ¿â£¬½ö ECMAScript 5
+// è‡ªé€ ç®€åŒ–ç‰ˆ underscroe åº“ï¼Œä»… ECMAScript 5
 var _ = (function(){
 
     var nativeIsArray = Array.isArray;
@@ -6364,7 +6372,7 @@ var _ = (function(){
 })();
 
 /* jshint ignore:start */
-//¶¯»­¿â
+//åŠ¨ç”»åº“
 var Tween = {
     Linear: function(t, b, c, d) {
         return c * t / d + b;
@@ -6578,7 +6586,7 @@ function gmCompatible() {
     };
     GM_registerMenuCommand = function() {};
 
-    // chrome Ô­ÉúÖ§³Ö
+    // chrome åŸç”Ÿæ”¯æŒ
     if (typeof GM_xmlhttpRequest == 'undefined') {
         GM_xmlhttpRequest = function(opt) {
             var req = new XMLHttpRequest();
@@ -6599,7 +6607,7 @@ function gmCompatible() {
     }
 }
 
-// By lastDream2013 ÂÔ¼ÓĞŞ¸Ä£¬Ô­°æÖ»ÄÜÓÃÓÚ Firefox
+// By lastDream2013 ç•¥åŠ ä¿®æ”¹ï¼ŒåŸç‰ˆåªèƒ½ç”¨äº Firefox
 function getRalativePageStr(lastUrl, currentUrl, nextUrl) {
     function getDigital(str) {
         var num = str.replace(/^p/i, '');
@@ -6615,7 +6623,7 @@ function getRalativePageStr(lastUrl, currentUrl, nextUrl) {
             urlarray = url.split(/-|\.|\&|\/|=|#|\?/),
             url_info,
             lasturl_info;
-        // Ò»Ğ© url_info Îª p1,p2,p3 Ö®ÀàµÄ
+        // ä¸€äº› url_info ä¸º p1,p2,p3 ä¹‹ç±»çš„
         var handleInfo = function(s) {
             if (s) {
                 return s.replace(/^p/, '');
@@ -6636,37 +6644,37 @@ function getRalativePageStr(lastUrl, currentUrl, nextUrl) {
 
     var ralativeOff;
 
-    //ÂÛÌ³ºÍËÑË÷ÒıÇæÍøÒ³ÏÔÊ¾Êµ¼ÊÒ³ÃæĞÅÏ¢
+    //è®ºå›å’Œæœç´¢å¼•æ“ç½‘é¡µæ˜¾ç¤ºå®é™…é¡µé¢ä¿¡æ¯
     var ralativePageNumarray = [];
     if (nextUrl) {
         ralativePageNumarray = getRalativePageNumArray(currentUrl, nextUrl);
     } else {
         ralativePageNumarray = getRalativePageNumArray(lastUrl, currentUrl);
-        ralativeOff = ralativePageNumarray[1] - ralativePageNumarray[0]; //ÓÃµÄÉÏÒ»Ò³µÄÏà¶ÔĞÅÏ¢±È½ÏµÄ£¬Òª²¹³ä²îÖµ¡­¡­
+        ralativeOff = ralativePageNumarray[1] - ralativePageNumarray[0]; //ç”¨çš„ä¸Šä¸€é¡µçš„ç›¸å¯¹ä¿¡æ¯æ¯”è¾ƒçš„ï¼Œè¦è¡¥å……å·®å€¼â€¦â€¦
         ralativePageNumarray[1] = ralativePageNumarray[1] + ralativeOff;
         ralativePageNumarray[0] = ralativePageNumarray[0] + ralativeOff;
     }
 
-    // console.log('[»ñÈ¡Êµ¼ÊÒ³Êı] ', 'Òª±È½ÏµÄ3¸öÒ³Êı£º',arguments, '£¬µÃµ½µÄ²îÖµ:', ralativePageNumarray);
+    // console.log('[è·å–å®é™…é¡µæ•°] ', 'è¦æ¯”è¾ƒçš„3ä¸ªé¡µæ•°ï¼š',arguments, 'ï¼Œå¾—åˆ°çš„å·®å€¼:', ralativePageNumarray);
     if (isNaN(ralativePageNumarray[0]) || isNaN(ralativePageNumarray[1])) {
         return '';
     }
 
     var realPageSiteMatch = false;
     ralativeOff = ralativePageNumarray[1] - ralativePageNumarray[0];
-    //ÉÏÒ»Ò³ÓëÏÂÒ»Ò³²îÖµÎª1£¬²¢×î´óÊıÖµ²»³¬¹ı10000(Ò»°ãÂÛÌ³Ò²²»»á³¬¹ıÕâÃ´¶àÒ³¡­¡­)
+    //ä¸Šä¸€é¡µä¸ä¸‹ä¸€é¡µå·®å€¼ä¸º1ï¼Œå¹¶æœ€å¤§æ•°å€¼ä¸è¶…è¿‡10000(ä¸€èˆ¬è®ºå›ä¹Ÿä¸ä¼šè¶…è¿‡è¿™ä¹ˆå¤šé¡µâ€¦â€¦)
     if (ralativeOff === 1 && ralativePageNumarray[1] < 10000) {
         realPageSiteMatch = true;
     }
 
-    //ÉÏÒ»Ò³ÓëÏÂÒ»Ò³²îÖµ²»Îª1£¬µ«ÉÏÒ»Ò³ÓëÏÂÒ»Ò³²îÖµÄÜ±»ÉÏÒ»Ò³ÓëÏÂÒ»ÃæËùÕû³ıµÄ£¬ÓĞ¹æÂÉµÄÒ³Ãæ
+    //ä¸Šä¸€é¡µä¸ä¸‹ä¸€é¡µå·®å€¼ä¸ä¸º1ï¼Œä½†ä¸Šä¸€é¡µä¸ä¸‹ä¸€é¡µå·®å€¼èƒ½è¢«ä¸Šä¸€é¡µä¸ä¸‹ä¸€é¢æ‰€æ•´é™¤çš„ï¼Œæœ‰è§„å¾‹çš„é¡µé¢
     if (!realPageSiteMatch && ralativeOff !== 1) {
         if ((ralativePageNumarray[1] % ralativeOff) === 0 && (ralativePageNumarray[0] % ralativeOff) === 0) {
             realPageSiteMatch = true;
         }
     }
 
-    if (!realPageSiteMatch) { //²»Âú×ãÒÔÉÏÌõ¼ş£¬ÔÙ¸ù¾İµØÖ·ÌØÕ÷À´Æ¥Åä
+    if (!realPageSiteMatch) { //ä¸æ»¡è¶³ä»¥ä¸Šæ¡ä»¶ï¼Œå†æ ¹æ®åœ°å€ç‰¹å¾æ¥åŒ¹é…
         var sitePattern;
         for (var i = 0, length = REALPAGE_SITE_PATTERN.length; i < length; i++) {
             sitePattern = REALPAGE_SITE_PATTERN[i];
@@ -6678,13 +6686,13 @@ function getRalativePageStr(lastUrl, currentUrl, nextUrl) {
     }
 
     var ralativePageStr;
-    if (realPageSiteMatch) { //Èç¹ûÆ¥Åä¾ÍÏÔÊ¾Êµ¼ÊÍøÒ³ĞÅÏ¢
-        if (ralativePageNumarray[1] - ralativePageNumarray[0] > 1) { //Ò»°ãÊÇËÑË÷ÒıÇæµÄµÚxx - xxÏî¡­¡­
-            ralativePageStr = ' [ Êµ¼Ê£ºµÚ <font color="red">' + ralativePageNumarray[0] + ' - ' + ralativePageNumarray[1] + '</font> Ïî ]';
-        } else if ((ralativePageNumarray[1] - ralativePageNumarray[0]) === 1) { //Ò»°ãµÄ·­Ò³Êı£¬²îÖµÓ¦¸ÃÊÇ1
-            ralativePageStr = ' [ Êµ¼Ê£ºµÚ <font color="red">' + ralativePageNumarray[0] + '</font> Ò³ ]';
-        } else if ((ralativePageNumarray[0] === 0 && ralativePageNumarray[1]) === 0) { //ÕÒ²»µ½µÄ»°¡­¡­
-            ralativePageStr = ' [ <font color="red">Êµ¼ÊÍøÒ³½áÊø</font> ]';
+    if (realPageSiteMatch) { //å¦‚æœåŒ¹é…å°±æ˜¾ç¤ºå®é™…ç½‘é¡µä¿¡æ¯
+        if (ralativePageNumarray[1] - ralativePageNumarray[0] > 1) { //ä¸€èˆ¬æ˜¯æœç´¢å¼•æ“çš„ç¬¬xx - xxé¡¹â€¦â€¦
+            ralativePageStr = ' [ å®é™…ï¼šç¬¬ <font color="red">' + ralativePageNumarray[0] + ' - ' + ralativePageNumarray[1] + '</font> é¡¹ ]';
+        } else if ((ralativePageNumarray[1] - ralativePageNumarray[0]) === 1) { //ä¸€èˆ¬çš„ç¿»é¡µæ•°ï¼Œå·®å€¼åº”è¯¥æ˜¯1
+            ralativePageStr = ' [ å®é™…ï¼šç¬¬ <font color="red">' + ralativePageNumarray[0] + '</font> é¡µ ]';
+        } else if ((ralativePageNumarray[0] === 0 && ralativePageNumarray[1]) === 0) { //æ‰¾ä¸åˆ°çš„è¯â€¦â€¦
+            ralativePageStr = ' [ <font color="red">å®é™…ç½‘é¡µç»“æŸ</font> ]';
         }
     } else {
         ralativePageStr = '';
@@ -6706,7 +6714,7 @@ function handleLazyImgSrc(rule, doc) {
     });
 }
 
-function removeScripts(node) {  // ÒÆ³ıÔªËØµÄ script
+function removeScripts(node) {  // ç§»é™¤å…ƒç´ çš„ script
     var scripts = getAllElements('css;script', node);
     var scripts_x;
     for (i = scripts.length - 1; i >= 0; i--) {
@@ -6774,31 +6782,31 @@ function $C(type, atArr, inner, action, listen) {
     return e;
 }
 
-// css »ñÈ¡µ¥¸öÔªËØ
+// css è·å–å•ä¸ªå…ƒç´ 
 function getElementByCSS(css, contextNode) {
     return (contextNode || document).querySelector(css);
 }
 
-// css »ñÈ¡ËùÓĞÔªËØ
+// css è·å–æ‰€æœ‰å…ƒç´ 
 function getAllElementsByCSS(css, contextNode) {
     return (contextNode || document).querySelectorAll(css);
 }
 
-// xpath »ñÈ¡µ¥¸öÔªËØ
+// xpath è·å–å•ä¸ªå…ƒç´ 
 function getElementByXpath(xpath, contextNode, doc) {
     doc = doc || document;
     contextNode = contextNode || doc;
     return doc.evaluate(xpath, contextNode, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
 }
 
-// xpath »ñÈ¡¶à¸öÔªËØ.
+// xpath è·å–å¤šä¸ªå…ƒç´ .
 function getAllElementsByXpath(xpath, contextNode, doc) {
     doc = doc || document;
     contextNode = contextNode || doc;
     return doc.evaluate(xpath, contextNode, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
 }
 
-// »ñÈ¡¶à¸öÔªËØ
+// è·å–å¤šä¸ªå…ƒç´ 
 function getAllElements(selector, contextNode, doc, win) {
     var ret = [];
     if (!selector) return ret;
@@ -6815,13 +6823,13 @@ function getAllElements(selector, contextNode, doc, win) {
     } else {
         Eles = selector(doc, win);
         if (!Eles) return ret;
-        if (Eles.nodeType) { //µ¥¸öÔªËØ.
+        if (Eles.nodeType) { //å•ä¸ªå…ƒç´ .
             ret[0] = Eles;
             return ret;
         }
     }
 
-    function unique(array) { //Êı×éÈ¥ÖØ²¢ÇÒ±£³ÖÊı×éË³Ğò.
+    function unique(array) { //æ•°ç»„å»é‡å¹¶ä¸”ä¿æŒæ•°ç»„é¡ºåº.
         var i, ca, ca2, j;
         for (i = 0; i < array.length; i++) {
             ca = array[i];
@@ -6840,14 +6848,14 @@ function getAllElements(selector, contextNode, doc, win) {
         var ret = [];
         var i, ii;
         var x_x;
-        if (x.pop) { //ÆÕÍ¨µÄ array
+        if (x.pop) { //æ™®é€šçš„ array
             for (i = 0, ii = x.length; i < ii; i++) {
                 x_x = x[i];
                 if (x_x) {
-                    if (x_x.nodeType) { //ÆÕÍ¨ÀàĞÍ,Ö±½Ó·Å½øÈ¥.
+                    if (x_x.nodeType) { //æ™®é€šç±»å‹,ç›´æ¥æ”¾è¿›å».
                         ret.push(x_x);
                     } else {
-                        ret = ret.concat(makeArray(x_x)); //Ç¶Ì×µÄ.
+                        ret = ret.concat(makeArray(x_x)); //åµŒå¥—çš„.
                     }
                 }
             }
@@ -6881,7 +6889,7 @@ function getAllElements(selector, contextNode, doc, win) {
     return makeArray(Eles);
 }
 
-// »ñÈ¡×îºóÒ»¸öÔªËØ.
+// è·å–æœ€åä¸€ä¸ªå…ƒç´ .
 function getLastElement(selector, contextNode, doc, win) {
     var eles = getAllElements(selector, contextNode, doc, win);
     var l = eles.length;
@@ -6899,9 +6907,9 @@ function getValue(key) {
     return value ? decodeURIComponent(value) : undefined;
 }
 
-function createDocumentByString(str) {  // string×ªÎªDOM
+function createDocumentByString(str) {  // stringè½¬ä¸ºDOM
     if (!str) {
-        C.error('Ã»ÓĞÕÒµ½Òª×ª³ÉDOMµÄ×Ö·û´®');
+        C.error('æ²¡æœ‰æ‰¾åˆ°è¦è½¬æˆDOMçš„å­—ç¬¦ä¸²');
         return;
     }
     if (document.documentElement.nodeName != 'HTML') {
@@ -6910,7 +6918,7 @@ function createDocumentByString(str) {  // string×ªÎªDOM
 
     var doc;
     try {
-        // firefox and chrome 30+£¬Opera 12 »á±¨´í
+        // firefox and chrome 30+ï¼ŒOpera 12 ä¼šæŠ¥é”™
         doc = new DOMParser().parseFromString(str, 'text/html');
     } catch (ex) {}
 
@@ -6943,7 +6951,7 @@ function createDocumentByString(str) {  // string×ªÎªDOM
     var child;
     var body = doc.body;
     var bchilds = body.childNodes;
-    for (var i = bchilds.length - 1; i >= 0; i--) { //ÒÆ³ıheadµÄ×ÓÔªËØ
+    for (var i = bchilds.length - 1; i >= 0; i--) { //ç§»é™¤headçš„å­å…ƒç´ 
         child = bchilds[i];
         if (headChildNames[child.nodeName]) body.removeChild(child);
     }
@@ -6953,11 +6961,11 @@ function createDocumentByString(str) {  // string×ªÎªDOM
     return doc;
 }
 
-// ´ÓÏà¶ÔÂ·¾¶µÄa.href»ñÈ¡ÍêÈ«µÄhrefÖµ.
+// ä»ç›¸å¯¹è·¯å¾„çš„a.hrefè·å–å®Œå…¨çš„hrefå€¼.
 function getFullHref(href) {
     if (typeof href != 'string') href = href.getAttribute('href');
     //alert(href);
-    //if(href.search(/^https?:/)==0)return href;//http´òÍ·,²»Ò»¶¨¾ÍÊÇÍêÕûµÄhref;
+    //if(href.search(/^https?:/)==0)return href;//httpæ‰“å¤´,ä¸ä¸€å®šå°±æ˜¯å®Œæ•´çš„href;
     var a = getFullHref.a;
     if (!a) {
         getFullHref.a = a = document.createElement('a');
@@ -6967,7 +6975,7 @@ function getFullHref(href) {
     return a.href;
 }
 
-// ÈÎºÎ×ª³É×Ö·û´®£¬´æ´¢£¬ĞŞ¸Ä¹ı
+// ä»»ä½•è½¬æˆå­—ç¬¦ä¸²ï¼Œå­˜å‚¨ï¼Œä¿®æ”¹è¿‡
 function xToString(x) {
     function toStr(x) {
         switch (typeof x) {
@@ -6981,7 +6989,7 @@ function xToString(x) {
                 return ('"' +
                     (x.replace(/(?:\r\n|\n|\r|\t|\\|")/g, function(a) {
                         var ret;
-                        switch (a) { //×ª³É×ÖÃæÁ¿
+                        switch (a) { //è½¬æˆå­—é¢é‡
                             case '\r\n':
                                 ret = '\\r\\n';
                                 break;
@@ -7009,7 +7017,7 @@ function xToString(x) {
                 var fnStr = Str(x);
                 return fnStr.indexOf('native code') == -1 ? fnStr : 'function(){}';
             case 'object':
-                //×¢,objectµÄ³ıÁËµ¥´¿{},ÆäËûµÄ¶ÔÏóµÄÊôĞÔ»áÔì³É¶ªÊ§..
+                //æ³¨,objectçš„é™¤äº†å•çº¯{},å…¶ä»–çš„å¯¹è±¡çš„å±æ€§ä¼šé€ æˆä¸¢å¤±..
                 if (x === null) {
                     return Str(x);
                 }
@@ -7018,7 +7026,7 @@ function xToString(x) {
                         var i;
                         var rStr = '';
                         for (i in x) {
-                            if (!x.hasOwnProperty(i)) { //È¥µôÔ­ĞÍÁ´ÉÏµÄÊôĞÔ.
+                            if (!x.hasOwnProperty(i)) { //å»æ‰åŸå‹é“¾ä¸Šçš„å±æ€§.
                                 continue;
                             }
                             rStr += toStr(i) + ':' + toStr(x[i]) + ',';
@@ -7028,7 +7036,7 @@ function xToString(x) {
                         var i;
                         var rStr = '';
                         for (i in x) {
-                            if (!x.hasOwnProperty(i)) { //È¥µôÔ­ĞÍÁ´ÉÏµÄÊôĞÔ.
+                            if (!x.hasOwnProperty(i)) { //å»æ‰åŸå‹é“¾ä¸Šçš„å±æ€§.
                                 continue;
                             }
                             rStr += toStr(x[i]) + ',';
@@ -7043,7 +7051,7 @@ function xToString(x) {
                     case "Boolean":
                         return Str(x);
                     default:
-                        //alert(x.constructor);//Â©ÁËÊ²Ã´ÀàĞÍÃ´?
+                        //alert(x.constructor);//æ¼äº†ä»€ä¹ˆç±»å‹ä¹ˆ?
                         break;
                 }
             default:
