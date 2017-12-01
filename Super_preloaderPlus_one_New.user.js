@@ -6,9 +6,9 @@
 // @description  Preload and Autopagerize, Forked from https://greasyfork.org/scripts/293-super-preloaderplus-one with additional rule
 // @description:zh-cn  预读+翻页..全加速你的浏览体验... 修改自https://greasyfork.org/scripts/293-super-preloaderplus-one with additional rule
 // @author       Mach6(原作者 ywzhaiqi && NLF)
-// @version      6.5.10
+// @version      6.5.11
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
-
+// @icon         https://raw.githubusercontent.com/machsix/personal-scripts/master/books019-512.png
 // @grant        GM_addStyle
 // @grant        GM_getValue
 // @grant        GM_setValue
@@ -44,8 +44,8 @@
 
 // 主要用于 chrome 原生下检查更新，也可用于手动检查更新
 var scriptInfo = {
-    version: '6.5.10',
-    updateTime: '2017/10/22',
+    version: '6.5.11',
+    updateTime: '2017/12/1',
     homepageURL: 'https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new',
     downloadUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.user.js',
     metaUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.meta.js',
@@ -201,7 +201,7 @@ var SITEINFO=[
                 relatedObj: ['css;div#navcnt','bottom'],                                                         //以这个元素当做最底的元素,计算页面总高度的计算.(可选)
             replaceE: '//div[@id="navcnt"]',                 //需要替换的部分 xpat h或 CSS选择器 一般是页面的本来的翻页导航(可选);
             //replaceE:'css;div#navcnt',
-            ipages: [false,30],                               //立即翻页,第一项是控制是否在js加载的时候立即翻第二项(必须小于maxpage)的页数,比如[true,3].就是说JS加载后.立即翻3页.(可选)
+            ipages: [false,2],                               //立即翻页,第一项是控制是否在js加载的时候立即翻第二项(必须小于maxpage)的页数,比如[true,3].就是说JS加载后.立即翻3页.(可选)
             separator: true,                                 //是否显示翻页导航(可选)
                 separatorReal: true,
             maxpage: 66,                                     //最多翻页数量(可选)
@@ -378,31 +378,31 @@ var SITEINFO=[
 
     // =============== baidu 其它 ===========
     {name: '百度贴吧列表',
-        url: /^http:\/\/tieba\.baidu\.(cn|com)\/f/i,
-        nextLink: '//div[@class="pager clearfix"]/descendant::a[@class="next"]',
-        preLink: '//div[@class="pager clearfix"]/descendant::a[@class="pre"]',
+        url: /^https:\/\/tieba\.baidu\.com\/f/i,
+        nextLink: '//a[@class="next pagination-item "]',
+        preLink: '//a[@class="pre pagination-item "]',
         autopager: {
             enable: false,
-            pageElement: '//ul[@id="thread_list"]/li',
-            replaceE: 'css;#frs_list_pager',
+            pageElement: '//ul[@id="thread_list"]',
+            replaceE: '//div[@id="frs_list_pager"]',
             useiframe: true,
                 // newIframe: true,
-                iloaded: true,
+                iloaded: false,
             // lazyImgSrc: "bpic",
         }
     },
     {name: '百度贴吧帖子',
-        url:/^http:\/\/tieba\.baidu\.com\/p/i,
-        siteExample:'http://tieba.baidu.com/p/918674650',
-        nextLink:'//ul[@class="l_posts_num"]/descendant::a[text()="下一页"]',
-        preLink:'//ul[@class="l_posts_num"]/descendant::a[text()="上一页"]',
+        url:/^https?:\/\/tieba\.baidu\.com\/p/i,
+        siteExample:'https://tieba.baidu.com/p/918674650',
+        nextLink:'(//ul[@class="l_posts_num"])[2]/li/a[text()="下一页"]',
+        preLink:'(//ul[@class="l_posts_num"])[2]/li/a[text()="上一页"]',
         autopager:{
-            enable: false,
+            enable: true,
             pageElement: "id('j_p_postlist')",  // "css;.l_post"
             replaceE: "css;.l_posts_num > .l_pager",
             useiframe: true,
                 // newIframe: true,
-                iloaded: true
+                iloaded: false
             // filter: function(pages){
             //     var pb = unsafeWindow.pb;
             //     pb.ForumListV3.initial();
@@ -1101,14 +1101,36 @@ var SITEINFO=[
             pageElement: '//div[@id="resultsdiv"]/div[@class="subitem"]',
         }
     },
-    {name: "YYeTs 人人影视",
-        url: "^http://www\\.yyets\\.com/",
-        nextLink: "//div[starts-with(@class, 'pages')]/descendant::a[text()='下一页'] | //div[@class='pages']//a[@class='cur']/following-sibling::a",
+    {name: "影视列表页|ZiMuZu.tv,字幕组网站",
+        url: "^http://www\\.zimuzu\\.tv/eresourcelist",
+        nextLink: "//div[starts-with(@class, 'pages')]/descendant::a[text()='下一页'] | //div[@class='pages']//a[@class='cur']/following-sibling::a[1]",
         autopager: {
-            pageElement: "//div[@class='box_1 topicList'] | //div[@class='box_4 res_listview' or @class='box_4 bg_eb'] | //ul[@class='u_d_list']/li | //ul[@class='allsearch dashed boxPadd6' or @class='dashed bbs_info_list']",
-            replaceE: '//div[@class="pages" or @class="pages clearfix"]',
-            separatorReal: false
+            pageElement: "//div[@class='resource-showlist has-point']",
         }
+    },
+    {name: '豆瓣people',
+        url: '^https?://.*\\.douban\\.com/people/',
+        nextLink: '//div[@class="paginator"]/span[@class="next"]/a[contains(text(),"后页>")]',
+        autopager: {
+            pageElement: '//ul[@class="interest-list"]'
+        }
+    },
+    {name: '多看阅读',
+        url: 'http://www.duokan.com/',
+        pageElement: 'css;ul.u-list, ul.j-list'
+    },
+    {name: 'kindle114',
+        url: /http:\/\/www\.kindle114\.com\/thread-.*?\.html/i,
+        autopager: {
+            pageElement: 'css;#postlist',
+            filter: 'css;#sidebar',
+        }
+    },
+    {name: '传送门 -- 微信公众账号和文章的导航及推荐',
+        url: 'http://chuansong\\.me/account/',
+        nextLink: 'auto;',
+        pageElement: 'css;.pagedlist_item',
+        ntimeout: 1*1000,
     },
     {name: 'TTmeiju.Com 您的高清美剧片源下载中心',
         url: /^http:\/\/www\.ttmeiju\.com\//i,
@@ -1811,29 +1833,15 @@ var SITEINFO=[
         pageElement: 'id("mainPic")',
         exampleUrl: 'http://model.kdslife.com/show/photo/20256.html',
     },
-    	{
-		name: '[LEGBABY] 美腿翘臀丝袜嫩模凯竹波霸人体艺术照 NO.016(第1页)',
-		url: '^http:\\/\\/www\\.aitaotu\\.com\\/guonei\\/\\d+\\.html',
-		nextLink: 'id("nl")/a',
-		pageElement: '//div/div/div/div/p[@align="center"]/a',
-		exampleUrl: 'http://www.aitaotu.com/guonei/24869.html',
-	},
 	{
-		name: '短发美女生活照凯竹纹身趟沙发上黑丝诱惑(2/45)_美女86',
+		name: '美女86',
 		url: '^http://www\\.17786\\.com\\/\\d+_\\d+\\.html',
 		nextLink: '//div/div/div/a[@class="next-page-a"]',
 		pageElement: '//div[@class="falls-detail"]/div[@class="content"]/div[@class="img_box"]/a/img[@class="IMG_show"]',
 		exampleUrl: 'http://www.17786.com/8104_2.html',
 	},
 	{
-		name: '刘飞儿Faye- [XIUREN秀人网] 2016.04.21 苏梅岛旅拍最后一套-美女图片_宅男女神',
-		url: '^http://www\\.zngirls\\.com\\/.\\/\\d+\\/',
-		nextLink: 'id("pages")/a[text()="下一页"]',
-		pageElement: 'id("hgallery")/img',
-		exampleUrl: 'http://www.zngirls.com/g/17951/',
-	},
-	{
-		name: '刘飞儿Faye- [XIUREN秀人网] 2016.04.21 苏梅岛旅拍最后一套-美女图片_宅男女神',
+		name: '宅男女神',
 		url: '^https://www\\.nvshens\\.com\\/.\\/\\d+\\/',
 		nextLink: 'id("pages")/a[text()="下一页"]',
 		pageElement: 'id("hgallery")/img',
@@ -1875,11 +1883,17 @@ var SITEINFO=[
 		pageElement: '//div[@class="content"]/center',
 		exampleUrl: 'https://www.meitulu.com/item/3225_2.html',
 	},
-	{name: 'zhaofuli',
-		url: '^http://zhaofuli\\.mobi/.*/\\d+/\\d+/\\d+\\.html',
-		nextLink: '//a[text()="下一页"]',
+	{name: 'zhaifuli',
+		url: '^http://zhaifuli\\.info/.*/\\d+.html',
+		nextLink: '//li[@class="next-page"]/a',
 		pageElement: '//article[@class="article-content"]',
 		exampleUrl: 'http://zhaofuli.mobi/luyilu/2016/0224/1990.html',
+	},
+    {name: 'yxpjw',
+		url: /^http:\/\/(\w*\.)?yxpjw\.club(.*)?\.html/,
+		nextLink: '//li[@class="next-page"]/a',
+		pageElement: '//article[@class="article-content"]',
+		exampleUrl: 'http://yxpjw.club/luyilu/2017/1130/4269.html',
 	},
 	{name: '性感尤物',
 		url: /^http:\/\/www\.xgyw\.cc\/[^\/]*\/[^\/]*\.html/,
@@ -1887,10 +1901,11 @@ var SITEINFO=[
 		pageElement: '//div[@class="img"]/p',
 		exampleUrl: 'http://www.xgyw.cc/Xgyw/Xgyw6874.html',
 	},
+    
     {name: '性感尤物2',
 		url: /^http:\/\/www\.xgyw\.cc\/[^\/]*/,
 		nextLink: '//div[@class="page"]/a[text()="下页"]',
-		pageElement: '/html/body/div[3]/table[3]/tbody/tr/td[1]/table[3]',
+		pageElement: '//tr[./td[@class="td6"]]',
 		exampleUrl: 'http://www.xgyw.cc/Xgyw',
 	},
     {name: '81mm',
@@ -3996,7 +4011,8 @@ var setup = function(){
                 <li>当前版本为 <b>' + scriptInfo.version + ' </b>，上次更新时间为 <b>'+ scriptInfo.updateTime + '</b>\
                     <a id="sp-prefs-homepageURL" target="_blank" href="' + scriptInfo.homepageURL + '"/>脚本主页</a>\
                 </li>\
-                <li>不定期更新规则，请到<a id="sp-prefs-homepageURL" target="_blank" href="' + scriptInfo.homepageURL+'/feedback' + '"/> 脚本主页 </a>反馈</li>\
+                <li>不定期更新规则，请到<a id="sp-prefs-homepageURL" target="_blank" href="' + scriptInfo.homepageURL+'/feedback' + '"/> 脚本主页 </a>反馈，作者不会进行规则以外的修正</li>\
+                <li>原作者:<a href="http://userscripts-mirror.org/users/202260/scripts">NFL</a>, <a href="https://github.com/ywzhaiqi">ywzhaiqi</a></li>\
                 <li><input type="checkbox" id="sp-prefs-debug" /> 调试模式</li>\
                 <li><input type="checkbox" id="sp-prefs-dblclick_pause" /> 鼠标双击暂停翻页（默认为 Ctrl + 长按左键）</li>\
                 <li><input type="checkbox" id="sp-prefs-enableHistory" /> 添加下一页到历史记录</li>\
