@@ -6,7 +6,8 @@
 // @description  Preload and Autopagerize, Forked from https://greasyfork.org/scripts/293-super-preloaderplus-one with additional rule
 // @description:zh-cn  预读+翻页..全加速你的浏览体验... 修改自https://greasyfork.org/scripts/293-super-preloaderplus-one with additional rule
 // @author       Mach6(原作者 ywzhaiqi && NLF)
-// @version      6.5.11
+// @version      6.5.12
+// @license      GNU GPL v3
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
 // @icon         https://raw.githubusercontent.com/machsix/personal-scripts/master/books019-512.png
 // @grant        GM_addStyle
@@ -44,8 +45,8 @@
 
 // 主要用于 chrome 原生下检查更新，也可用于手动检查更新
 var scriptInfo = {
-    version: '6.5.11',
-    updateTime: '2017/12/1',
+    version: '6.5.12',
+    updateTime: '2017/12/7',
     homepageURL: 'https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new',
     downloadUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.user.js',
     metaUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.meta.js',
@@ -1908,24 +1909,37 @@ var SITEINFO=[
 	},
     {
         name: '福利档番号大全',
-		url: /^https?:\/\/www\.bfpgf\.com\/[^\/]+\/\d+.html/i,
-		nextLink: '//a[text()="下一页"]',
+		url: /^https?:\/\/www\.bfpgf\.com\/.*\/\d+.html/i,
+		nextLink: '//a[@class="nextpostslink"]',
         autopager:{
-            enable:true ,                                                                                               //启用(自动翻页)(可选)
+            enable:true ,         //启用(自动翻页)(可选)
 	     	pageElement: '//article[@class="article-content"]',
-            ipages: [true,30],                               //立即翻页,第一项是控制是否在js加载的时候立即翻第二项(必须小于maxpage)的页数,比如[true,3].就是说JS加载后.立即翻3页.(可选)
-            replaceE: 'css;.post-copyright',
+            ipages: [true,5],                               //立即翻页,第一项是控制是否在js加载的时候立即翻第二项(必须小于maxpage)的页数,比如[true,3].就是说JS加载后.立即翻3页.(可选)
+          //  replaceE: 'css;.post-copyright',
 		},
 		exampleUrl: 'http://www.bfpgf.com/yld/77066.html',
 	},
+    {
+        name: 'tuigirl8.net',
+        url: /^http:\/\/tuigirl8\.net\/.*\.html/i,
+        nextLink: '//a[text()="下一页"]',
+        autopager:{
+            enable:true ,         //启用(自动翻页)(可选)
+	     	pageElement: '//div[@class="img"]',
+            ipages: [true,30],                               //立即翻页,第一项是控制是否在js加载的时候立即翻第二项(必须小于maxpage)的页数,比如[true,3].就是说JS加载后.立即翻3页.(可选)
+          //  replaceE: 'css;.post-copyright',
+		},
+    },
     {
         name: 'zhaifuli,bfpgf,tangniaobingyinshi列表',
 		url: /^https?:\/\/(www\.)?(?:zhaifuli|bfpgf|tangniaobingyinshi|yxpjw)\.(info|com|club)\/[^\/]*\/?/i,
 		nextLink: '//li[@class="next-page"]/a',
         autopager:{
+            useiframe: true,
             enable:true ,                                                                                               //启用(自动翻页)(可选)
-		    pageElement: '//article[@class="excerpt excerpt-one"]',
+		    pageElement: '//div[@class="content"]',
             ipages: [true,3],                               //立即翻页,第一项是控制是否在js加载的时候立即翻第二项(必须小于maxpage)的页数,比如[true,3].就是说JS加载后.立即翻3页.(可选)
+            replaceE: '//h3[@class="title"]',
 		},
 		exampleUrl: 'http://zhaifuli.info/youguowang/',
 	},
@@ -2003,13 +2017,18 @@ var SITEINFO=[
 		exampleUrl: 'https://e-hentai.org/?page=2',
 	},
     {name: 'wacg',
-		url: '^http://www\\.wnacg\\.org/photos-view-id.*\\.html',
-		nextLink: '//div/div/div/a[@class="btntuzao"]',
-		pageElement: '//img[@id="picarea" and @class="photo"]',
+		url: '^https?://www\\.wnacg\\.org/photos-view-id.*\\.html',
+		nextLink: '//a[text()="下一頁"]',
+        autopager:{
+            enable:true ,
+            useiframe:false,                                                                                        //是否使用iframe翻页(可选)
+            pageElement: '//img[@id="picarea"]',
+            ipages: [true,30],                               //立即翻页,第一项是控制是否在js加载的时候立即翻第二项(必须小于maxpage)的页数,比如[true,3].就是说JS加载后.立即翻3页.(可选)
+		},
 		exampleUrl: 'http://www.wnacg.org/photos-index-aid-42394.html',
 	},
     {name: 'wacglist',
-		url: '^http://www\\.wnacg\\.org/photos-index.*\\.html',
+		url: '^https?://www\\.wnacg\\.org',
 		nextLink: '//span[@class="next"]/a',
 		pageElement: '//div[@class="gallary_wrap"]',
 		exampleUrl: 'http://www.wnacg.org/photos-view-id-2132443.html',
