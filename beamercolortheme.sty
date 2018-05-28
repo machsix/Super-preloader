@@ -1,0 +1,43 @@
+\mode<presentation>
+
+\definecolor{i6colorscheme1}{HTML}{000000}  %  e.g. for headline background
+\definecolor{i6colorscheme2}{HTML}{FFFFFF}  %  e.g. title in headline
+\definecolor{i6colorscheme3}{HTML}{FFFFFF}  %  e.g. for poster background
+\definecolor{i6colorscheme4}{HTML}{F0F0F0}  %  e.g. for block background
+\definecolor{i6colorscheme5}{HTML}{B1946C}  %  e.g. title in headline, separation lines
+%% old gold: CFB53B E0D5C5
+\definecolor{i6colorscheme6}{HTML}{D5973D}  %  e.g. for alert
+
+\setbeamertemplate{itemize items}[triangle]
+
+\setbeamercolor{structure}{fg=i6colorscheme6}
+% Need to figure out which part of this structure regulates the color of the ticks
+% \setbeamercolor{structure}{fg=white}
+
+\setbeamercolor{block title}{use=structure,fg=i6colorscheme5,bg=i6colorscheme1}
+\setbeamercolor{block title alerted}{use=structure,fg=i6colorscheme6,bg=i6colorscheme1}
+\setbeamercolor{block title example}{use=structure,fg=i6colorscheme6,bg=i6colorscheme1}
+
+\setbeamercolor{block body}{parent=normal text,use=block title,bg=i6colorscheme4}
+\setbeamercolor{block body alerted}{parent=normal text,use=block title alerted,bg=i6colorscheme4}
+
+\setbeamercolor{block body example}{parent=normal text,use=block title example,bg=i6colorscheme4}
+\setbeamercolor*{palette primary}{use=structure,fg=black,bg=i6colorscheme5}
+\setbeamercolor*{palette secondary}{use=structure,fg=white,bg=i6colorscheme1!50!i6colorscheme5}
+\setbeamercolor*{palette tertiary}{use=structure,fg=white,bg=i6colorscheme1}
+\setbeamercolor*{palette quaternary}{fg=white,bg=i6colorscheme3}
+
+\setbeamercolor*{sidebar}{bg=white,fg=i6colorscheme5}
+
+\setbeamercolor*{palette sidebar primary}{fg=white,bg=white}
+\setbeamercolor*{palette sidebar secondary}{fg=white,bg=white}
+\setbeamercolor*{palette sidebar tertiary}{fg=white,bg=white}
+\setbeamercolor*{palette sidebar quaternary}{fg=white,bg=white}
+
+\setbeamercolor*{titlelike}{bg=i6colorscheme1,fg=i6colorscheme5}
+
+\setbeamercolor*{separation line}{bg=i6colorscheme5}
+\setbeamercolor*{fine separation line}{bg=i6colorscheme5}
+
+\mode
+<all>

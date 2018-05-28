@@ -1,12 +1,13 @@
 #!/usr/bin/env python
-import  urllib2
+import  urllib
+import urllib.request.Request
 from lxml import etree
 import re,os,time,random
 from BeautifulSoup import BeautifulSoup as bs
 
 def loadPage(pagesitem):
-    req = urllib2.Request(pagesitem, headers=header)
-    html = urllib2.urlopen(req)
+    req = urllib.request.Request(pagesitem, headers=header)
+    html = urllib.urlopen(req)
     htmldata = html.read()
     htmlpath = etree.HTML(htmldata)
     girlpages_name = htmlpath.xpath('//div[@class="content"]/a/@title')
@@ -22,7 +23,7 @@ def loadPage(pagesitem):
 def savePictures(downpage,girlpages_name):
     girlpages_name = girlpages_name.replace(" ","")
     if os.path.isdir(girlpages_name):
-       print girlpages_name.encode("utf-8")+" exists\n"
+       print (girlpages_name.encode("utf-8")+" exists\n")
        return 0
     else:
        os.mkdir(girlpages_name)
@@ -37,8 +38,8 @@ def savePictures(downpage,girlpages_name):
             , "Connection": "keep-alive"
             , "Referer": downpage
             }
-    req = urllib2.Request(downpage, headers=header)
-    html = urllib2.urlopen(req)
+    req = urllib.request.Request(downpage, headers=header)
+    html = urllib.urlopen(req)
     htmldata = html.read()
     htmlpath = etree.HTML(htmldata)
 
@@ -47,8 +48,8 @@ def savePictures(downpage,girlpages_name):
     for sp in span:
 	    link = sp.find('a')['href']
 	    name = link.split('/')[-1]
-	    req = urllib2.Request(link, headers=headers_down)
-	    urlhtml = urllib2.urlopen(req)
+	    req = urllib.request.Request(link, headers=headers_down)
+	    urlhtml = urllib.urlopen(req)
 	    respHtml = urlhtml.read()
             binfile = open('%s/%s' % (girlpages_name,name) , "wb")
 	    binfile.write(respHtml);
@@ -62,8 +63,8 @@ header = {
         , "Connection": "keep-alive"
         }
 rootpage = "http://www.xiuren.org/category/TuiGirl.html"
-req = urllib2.Request(rootpage, headers=header)
-html = urllib2.urlopen(req)
+req = urllib.request.Request(rootpage, headers=header)
+html = urllib.urlopen(req)
 htmldata = html.read()
 htmlpath = etree.HTML(htmldata)
 soup = bs(htmldata)
