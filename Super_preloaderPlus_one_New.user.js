@@ -17,6 +17,7 @@
 // @grant        GM_registerMenuCommand
 
 // @include      http*
+// @exclude      http*://*.pixiv.net/*
 // @exclude      http*://mail.google.com/*
 // @exclude      http*://maps.google*
 // @exclude      http*://www.google.com/reader*
