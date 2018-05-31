@@ -10,11 +10,11 @@ import requests
         
 def loadCategory(catpage,catname,header,update=0):
     req = requests.get(catpage, headers=header)
-    htmldata = req.content.decode('gb2312')
+    htmldata = req.content.decode('gb18030')
     htmlpath = lxml.html.fromstring(htmldata)
 
     # htmlpath = etree.HTML(htmldata,parser=etree.HTMLParser(encoding='utf-8'))
-    # htmlpath = etree.HTML(htmldata,parser=etree.HTMLParser(encoding='gb2312'))
+    # htmlpath = etree.HTML(htmldata,parser=etree.HTMLParser(encoding='gb18030'))
     pages  = htmlpath.xpath('//div[@class="page"]/a/@href')
     #word = htmlpath.xpath('//div[@class="page"]/a/text()')
     if not pages:
@@ -59,7 +59,7 @@ def loadCategory(catpage,catname,header,update=0):
 
 def loadOnePage(onepage,header,catname,fid,update):
     req = requests.get(onepage, headers=header)
-    htmldata = req.content.decode('gb2312')
+    htmldata = req.content.decode('gb18030')
     htmlpath = lxml.html.fromstring(htmldata)
 
 
@@ -84,7 +84,7 @@ def loadOnePage(onepage,header,catname,fid,update):
 def loadAlbumPage(albumpage,header,catname,fid):
     try:
         req = requests.get(albumpage, headers=header)
-        htmldata = req.content.decode('gb2312')
+        htmldata = req.content.decode('gb18030')
     except:
         print("Album Page: "+albumpage+" error")
         fid.write("Album Page: "+albumpage+" error")
@@ -167,7 +167,7 @@ def savePictures(downpage,albumname,count,fid):
             }
     try:
         req = requests.get(downpage, headers=header)
-        htmldata = req.content.decode('gb2312')
+        htmldata = req.content.decode('gb18030')
     except:
         print("Page link: "+downpage+" error")
         fid.write("Page link: "+downpage+" error")
@@ -206,9 +206,9 @@ def Imgsearch(keyword,nthread=5):
     #keyword = "刘钰儿"
     #
     url = 'http://www.xgyw.cc/plus/search/index.asp'
-    payload = {'button': '搜索'.encode(encoding='gb2312'), 'keyword': keyword.encode(encoding='gb2312')}
+    payload = {'button': '搜索'.encode(encoding='gb18030'), 'keyword': keyword.encode(encoding='gb18030')}
     req = requests.post(url, data=payload)
-    htmlpath = lxml.html.fromstring(req.content.decode('gb2312'))
+    htmlpath = lxml.html.fromstring(req.content.decode('gb18030'))
     linklist=htmlpath.xpath('//div[@class="title1"]/a/@href')
     links = [urllib.parse.urljoin('http://www.xgyw.cc',i) for i in linklist]
     
