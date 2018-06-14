@@ -9,7 +9,7 @@ import os
 import re
 from datetime import datetime
 
-lastupdate = datetime(2018, 5, 8)
+lastupdate = datetime(2018, 5, 28)
 
 os.chdir('E:\\Git\\personal-scripts\\Super_preloader')
 header = {
@@ -98,5 +98,5 @@ with open('wedata.json', 'w',encoding='utf-8') as f:
             
  
 
-with open('myrule.json', 'r',encoding='utf-8') as f:  
-    w = json.load(f)
+#with open('myrule.json', 'r',encoding='utf-8') as f:  
+ #   w = json.load(f)

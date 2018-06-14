@@ -9,7 +9,7 @@ from collections import OrderedDict
 import requests
 
         
-def loadCategory(catpage,catname,header,update=0):
+def loadCategory(catpage,catname,header,update=0,filtlist=None):
     req = requests.get(catpage, headers=header)
     htmldata = req.content.decode('gb18030')
     htmlpath = lxml.html.fromstring(htmldata)
@@ -47,7 +47,7 @@ def loadCategory(catpage,catname,header,update=0):
         else:
             onepage = linktemp + str(i)+'.html'
         print(onepage)
-        status = loadOnePage(onepage,header,catname,fid,update)
+        status = loadOnePage(onepage,header,catname,fid,update,filtlist)
         if (update == 1 and status == "fupdate"):
             print('Finish updating '+catname)
             fid.write('Finish updating '+catname)
@@ -58,7 +58,7 @@ def loadCategory(catpage,catname,header,update=0):
     fid.close()
     return
 
-def loadOnePage(onepage,header,catname,fid,update):
+def loadOnePage(onepage,header,catname,fid,update,filtlist=None):
     req = requests.get(onepage, headers=header)
     htmldata = req.content.decode('gb18030')
     htmlpath = lxml.html.fromstring(htmldata)
@@ -69,7 +69,7 @@ def loadOnePage(onepage,header,catname,fid,update):
     
     #girlpages_name  = htmlpath.xpath('//div[@class="biank1"]/a/text()')
     for i,albumpage in enumerate(link):
-        status = loadAlbumPage(albumpage,header,catname,fid)
+        status = loadAlbumPage(albumpage,header,catname,fid,filtlist=filtlist)
         if (update == 1 ):
             if (status == 'exist'):
                 status = "fupdate"
@@ -82,7 +82,7 @@ def loadOnePage(onepage,header,catname,fid,update):
     return status
 
 
-def loadAlbumPage(albumpage,header,catname,fid,force=False):
+def loadAlbumPage(albumpage,header,catname,fid,force=False,filtlist=None):
     try:
         req = requests.get(albumpage, headers=header)
         htmldata = req.content.decode('gb18030')
@@ -114,7 +114,13 @@ def loadAlbumPage(albumpage,header,catname,fid,force=False):
             print('%s fail'%(albumpage,))
             fid.write('%s fail'%(albumpage,))
             return 'error'
-        
+    
+    if filtlist:
+        for i in filtlist:
+            if i in albumname0:
+                print ('%s skips\n'%(albumname0,))
+                return 'skip'
+            
     albumname = os.path.join(catname,albumname0)
 
     if not force:
@@ -168,7 +174,7 @@ class MyThread2(threading.Thread):
         , "Accept":"*/*"
         }
     def run(self):
-        status = loadAlbumPage(self.albumpage,self.header,self.keyword,self.fid,self.force)
+        loadAlbumPage(self.albumpage,self.header,self.keyword,self.fid,self.force)
         
 
 def savePictures(downpage,albumname,count,fid):
@@ -235,12 +241,12 @@ def savePictures(downpage,albumname,count,fid):
 def Imgsearch(keyword,nthread=5,update=1):
     #keyword = "刘钰儿"
     #
-    url = 'http://www.xgyw.cc/plus/search/index.asp'
+    url = 'https://www.xgyw.cc/plus/search/index.asp'
     payload = {'button': '搜索'.encode(encoding='gb2312'), 'keyword': keyword.encode(encoding='gb2312')}
     req = requests.post(url, data=payload)
     htmlpath = lxml.html.fromstring(req.content.decode('gb18030'))
     linklist=htmlpath.xpath('//div[@class="title1"]/a/@href')
-    links = [urllib.parse.urljoin('http://www.xgyw.cc',i) for i in linklist]
+    links = [urllib.parse.urljoin('https://www.xgyw.cc',i) for i in linklist]
     
     fid = open(keyword+'.txt','w')
     if not os.path.isdir(keyword):
@@ -254,6 +260,7 @@ def Imgsearch(keyword,nthread=5,update=1):
     
     
     # serial
+    status='None'
     if nthread == 1:
         for albumpage in links:
             header = {
@@ -264,7 +271,10 @@ def Imgsearch(keyword,nthread=5,update=1):
         , "Cookie": "__cfduid=dcd0a88f7c23d722a2efd367ab67846be1527481957; bdshare_firstime=1527482436711; ASPSESSIONIDSAQSQABC=PHNPGDJBOIDNFCENODMALDHO"
         , "Accept":"*/*"
         }
-            status = loadAlbumPage(albumpage,header,keyword,fid)
+            if (update == 0):
+                status = loadAlbumPage(albumpage,header,keyword,fid,force=True)
+            else:
+                status = loadAlbumPage(albumpage,header,keyword,fid)
             if (update == 1 ):
                 if (status == 'exist'):
                     status = "fupdate"
@@ -295,19 +305,36 @@ def Imgsearch(keyword,nthread=5,update=1):
     
 
 class MyThread(threading.Thread):
-    def __init__(self, catpage,name,header,update):
+    def __init__(self, catpage,name,header,update,filtlist):
         threading.Thread.__init__(self)
         self.catpage = catpage
         self.name = name
         self.header = header
         self.update = update
+        self.filtlist
 
     def run(self):
-        loadCategory(self.catpage,self.name,self.header,self.update)
+        loadCategory(self.catpage,self.name,self.header,self.update,self.filtlist)
 
 if ( __name__ == '__main__' ):
     Imgsearch('尤妮丝',1)
     Imgsearch('土肥圆',1)
-    Imgsearch('刘钰儿',1)
+    Imgsearch('黄乐然',1)
+    Imgsearch('筱慧',1)
+    Imgsearch('乔依琳',1)
+    Imgsearch('菲菲',1)
+    Imgsearch('刘钰儿',1,update=1)
+    Imgsearch('夏雪爱',1)
+    Imgsearch('阿乖',1)
+    Imgsearch('诗盈',1)
+    Imgsearch('金baby',1)
+    Imgsearch('夏笑笑',1)
+    Imgsearch('蜜蕊',1)
+    Imgsearch('纳砂',1)   
+    Imgsearch('许文婷',1)   
+    Imgsearch('绮里嘉',1)
+    Imgsearch('luvian',1)
+
+    
 
     
