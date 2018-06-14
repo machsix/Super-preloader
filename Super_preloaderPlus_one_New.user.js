@@ -6,7 +6,7 @@
 // @description  Preload and Autopagerize
 // @description:zh-cn  预读+翻页..全加速你的浏览体验
 // @author       Mach6(原作者 ywzhaiqi && NLF)
-// @version      6.5.21
+// @version      6.5.23
 // @license      GNU GPL v3
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
 // @icon         https://raw.githubusercontent.com/machsix/personal-scripts/master/Super_preloader/icon.png
@@ -17,7 +17,6 @@
 // @grant        GM_registerMenuCommand
 
 // @include      http*
-// @exclude      http*://*.pixiv.net/*
 // @exclude      http*://mail.google.com/*
 // @exclude      http*://maps.google*
 // @exclude      http*://www.google.com/reader*
@@ -46,9 +45,9 @@
 
 // 主要用于 chrome 原生下检查更新，也可用于手动检查更新
 var scriptInfo = {
-    version: '6.5.21',
-    updateTime: '2018/5/28',
-    changelog: 'search.smzdm.com; v2ex; NSFW',
+    version: '6.5.23',
+    updateTime: '2018/6/14',
+    changelog: '煎蛋, Bing, General Rule, Wedata',
     homepageURL: 'https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new',
     downloadUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.user.js',
     metaUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.meta.js',
@@ -93,7 +92,7 @@ var prefs={
     pauseA: true,            // 快速停止自动翻页(当前模式为翻页模式的时候生效.);
         Pbutton: [2, 0, 0],     // 需要按住的键.....0: 不按住任何键;1: shift鍵;2: ctrl鍵; 3: alt鍵;(同时按3个键.就填 1 2 3)(一个都不按.就填 0 0 0)
         mouseA: true,           // 按住鼠标左键..否则.双击;
-            Atimeout: 200,      // 按住左键时..延时.多少生效..(单位:毫秒);
+        Atimeout: 200,      // 按住左键时..延时.多少生效..(单位:毫秒);
         stop_ipage: true,       // 如果在连续翻页过程中暂停.重新启用后.不在继续..连续翻页..
 
     Aplus: true,             // 自动翻页模式的时候..提前预读好一页..就是翻完第1页,立马预读第2页,翻完第2页,立马预读第3页..(大幅加快翻页快感-_-!!)(建议开启)..
@@ -304,11 +303,11 @@ var SITEINFO=[
         }
     },
     {name: 'Bing网页搜索',
-        url:/bing\.com\/search\?q=/i,
+        url: '^https?://(?:www|cnweb)\.bing\.com/(?:[^/]+/)*?(?:results\.aspx|search)',
         siteExample:'bing.com/search?q=',
-        nextLink:'//nav[@aria-label="navigation"]/descendant::a[last()][@class="sb_pagN"]',
+        nextLink:"//a[contains(@class,\"sb_pagN\")]",
         autopager:{
-            pageElement: '//ol[@id="b_results"]/li[@class="b_algo"]',
+            pageElement: 'id("b_results")/li[@class="b_algo"]|id("results")',
             replaceE: '//nav[@aria-label="navigation"]'
         }
     },
@@ -453,6 +452,25 @@ var SITEINFO=[
         prevLink: '//link[@rel="prev"]',
         autopager: {
             pageElement: '//div[@class="cell item"]',
+        }
+    },
+    {name: '好人卡',
+        url: /^https?:\/\/www.haorenka\.net/i,
+        exampleUrl: 'https://www.haorenka.net/page/3',
+        nextLink: '//a[@class="prev page-numbers"]/@href',
+        prevLink: '//a[@class="next page-numbers"]/@href',
+        autopager: {
+            pageElement: '//article[contains(@id, "post-")]',
+            useiframe: true,
+        }
+    },
+    {name: '小众软件',
+        url: /^https?:\/\/www.appinn\.com/i,
+        exampleUrl: 'https://www.appinn.com/',
+        nextLink: '//a[@class="nextpostslink"]',
+        prevLink: '//a[@class="previouspostslink"]',
+        autopager: {
+            pageElement: '//div[contains(@id, "post-")]',
         }
     },
     {name: 'v2ex-go',
@@ -1596,12 +1614,13 @@ var SITEINFO=[
         }
     },
     {name: '煎蛋首页',
-        url:/http:\/\/jandan\.net\/(?:page)?/i,
+        url:/https?:\/\/jandan\.net\/(?:page)?/i,
         siteExample:'http://jandan.net/',
         useiframe:true,
-        nextLink:'//div[@class="wp-pagenavi"]/child::a[text()=">"] | //p[@class="cp-pagenavi"]/a[text()="?"]',
+        prevLink:'//a[contains(text(),"上一页")]',
+        nextLink:'//a[contains(text(),"下一页")]',
         autopager:{
-           pageElement:'//div[@id="content"] | id("comments")'
+           pageElement:'//div[@class="post f list-post"] | //ol[@class="commentlist"]',
         }
     },
     {name: '蜂鸟网',
@@ -1946,7 +1965,11 @@ var SITEINFO=[
         name: '爱套图',
 		url: '^https://www\\.aitaotu\\.com/[a-z]+/\\d+(_\\d)*\\.html',
 		nextLink: '//a[text()="下一页"]',
-		pageElement: 'id("big-pic")/p/a',
+        autopager:{
+            enable:true ,
+	     	pageElement: 'id("big-pic")/p/a',
+                    ipages: [true,30],
+        },
 		exampleUrl: 'https://www.aitaotu.com/guonei/1081_4.html',
 	},
 	{
@@ -2061,11 +2084,20 @@ var SITEINFO=[
 		exampleUrl: 'https://www.yunu8.com/web/295.html',
 	},
 	{
+        name: 'ppzix',
+		url: /^https?:\/\/www\.ppzix\.com/i,
+		nextLink: '(//div[@class="neiye_page"]/span|//div[@class="neiye_page"]/strong)/following-sibling::a',
+        autopager:{
+            pageElement: '(//div[@class="nr_cons"]/p|//ul[@class="tpboxul"]/li)',                                          //主体内容 xpath 或 CSS选择器 或函数返回值(~~必须~~)
+            ipages: [true,30],                               //立即翻页,第一项是控制是否在js加载的时候立即翻第二项(必须小于maxpage)的页数,比如[true,3].就是说JS加载后.立即翻3页.(可选)
+		},
+		exampleUrl: 'http://www.ppzix.com/tyjr/1556_5.html',
+	},
+    {
         name: '性感尤物',
-		url: /^http:\/\/www\.xgyw\.cc\/[^\/]*\/[^\/]*\.html/,
+		url: /^https?:\/\/www\.xgyw\.cc\/[^\/]*\/[^\/]*\.html/,
 		nextLink: '//div[@class="page"]/a[text()="后"]',
         autopager:{
-            enable:true ,                                                                                               //启用(自动翻页)(可选)
             pageElement: '//div[@class="img"]/p',                                          //主体内容 xpath 或 CSS选择器 或函数返回值(~~必须~~)
             ipages: [true,30],                               //立即翻页,第一项是控制是否在js加载的时候立即翻第二项(必须小于maxpage)的页数,比如[true,3].就是说JS加载后.立即翻3页.(可选)
 		},
@@ -2073,7 +2105,7 @@ var SITEINFO=[
 	},
     {
         name: '性感尤物2',
-		url: /^http:\/\/www\.xgyw\.cc\/[^\/]*/,
+		url: /^https?:\/\/www\.xgyw\.cc\/[^\/]*/,
 		nextLink: '//div[@class="page"]/a[text()="下页"]',
         autopager:{
             enable:true ,                                                                                               //启用(自动翻页)(可选)
@@ -3989,6 +4021,127 @@ var SITEINFO=[
     },
     // ===== obtained from http://wedata.net/databases/AutoPagerize =========
     // most sites are in japanese
+    // update at: June 14, 2018
+    {name: 'Playstation Store',
+        url: '^https://store\.playstation\.com/[^/]+/grid/',
+        nextLink: '//a[contains(concat(" ",@class," ")," paginator-control__next ")]',
+        siteExample: 'https://store.playstation.com/ja-jp/grid/PN.CH.JP-PN.CH.MIXED.JP-PS4GAMEADD/1',
+        pageElement: '//div[@class="grid-cell-container"]/div[@id]',
+        created_by: 't_f_m',
+        resource_url: 'http://wedata.net/items/81756',
+    },
+    {name: 'アキバ総研 画像',
+        url: '^https://akiba-souken\.com/article/\d+/picture/',
+        nextLink: '//div[@class="next"]/a',
+        siteExample: 'https://akiba-souken.com/article/34552/picture/763514/;https://akiba-souken.com/article/19903/picture/642729/',
+        pageElement: '//div[contains(concat(" ",@class," ")," largeImgBox ") or @class="textBox"]',
+        created_by: 't_f_m',
+        resource_url: 'http://wedata.net/items/81755',
+    },
+    {name: 'pixiv series',
+        url: '^https://www\.pixiv\.net/user/\d+/series/',
+        nextLink: '//a[@rel="next"]',
+        siteExample: 'https://www.pixiv.net/user/10232794/series/12174',
+        pageElement: '//div[@class="works"]/*',
+        created_by: 't_f_m',
+        resource_url: 'http://wedata.net/items/81754',
+    },
+    {name: 'ニコニコニュース 個別記事',
+        url: '^https?://news\.nicovideo\.jp/watch/',
+        nextLink: '//a[@rel="next"]',
+        siteExample: 'http://news.nicovideo.jp/watch/nw3519966',
+        pageElement: '//nav[@class="pagination"][1]/preceding-sibling::*',
+        created_by: 't_f_m',
+        resource_url: 'http://wedata.net/items/81744',
+    },
+    {name: 'Kambikuttan',
+        url: '^https?://kambikuttan\.net/*/*',
+        nextLink: '//div[@class="page-nav"]/span[2]/following::a[1]',
+        siteExample: 'http://kambikuttan.net/chilanthivala-part-23/',
+        pageElement: '//article/div/div/p',
+        created_by: 'MrMallu',
+        resource_url: 'http://wedata.net/items/81427',
+    },
+    {name: 'rarbg',
+        url: '^https?://(proxy)?rarbg(mirror|proxy|to|2018)?\.(to|net|org)/',
+        nextLink: '//a[@title="next page"]',
+        siteExample: 'https://rarbg.to/torrents.php?category=movies',
+        pageElement: '//table[@class="lista2t"]/tbody/tr[td/@class="lista"]',
+        created_by: 'C2f56gyhtu75347u8i9i7uit4d4g58',
+        resource_url: 'http://wedata.net/items/77608',
+    },
+    {name: 'Screen Rant',
+        url: '^https?://screenrant\.com/.+',
+        nextLink: '//*[@rel="next"]',
+        siteExample: 'http://screenrant.com/most-powerful-dc-comic-superheroes http://screenrant.com/fantastic-four-movie-rights-fox-marvel-studios-2015/2/ https://screenrant.com/movies-didnt-know-had-post-credits-scenes/4/?view=lista',
+        pageElement: '//div[@itemprop="articleBody"]/div[@class="wp-pagenavi"]/preceding-sibling::*[not(self::h3)]|//div[@class="art-body-content"]/div[@class="w-sharing sharing-bottom"]/preceding-sibling::*[not(@class="next-btn icon i-arrow-2")]',
+        created_by: 'Tanookirby',
+        resource_url: 'http://wedata.net/items/77441',
+    },
+    {name: '麻雀ウォッチ　ネマタの戦術本レビュー',
+        url: '^https?://mj-news\.net/column/nemata-review/',
+        nextLink: '//li[@class="left"]/a[contains(text(),//meta[@name="keywords"]/@content)]',
+        siteExample: 'https://mj-news.net/column/nemata-review/20180611102181',
+        pageElement: '//div[@class="entry entry-content"]/h3[1]/preceding-sibling::*',
+        created_by: 'jigendaddy_be',
+        resource_url: 'http://wedata.net/items/77310',
+    },
+    {name: 'PMC Brands',
+        url: '^https?://.*(?:bgr|bollywoodlife|deadline)\.com/',
+        nextLink: '//a[@class="next page-numbers"]|//div[@class="alignright"]/a',
+        siteExample: 'http://bgr.com/;https://www.deadline.com/;https://deadline.com/v/awards/page/2;http://www.bollywoodlife.com/',
+        pageElement: '//div[starts-with(@class,"row content-section")][div//article]|//*[contains(@id,"content")]//*[(contains(@id,"post-") and not(//div[@class="hl-post"])) or self::div[@class="hl-post"]/div[contains(@id,"post-")]]',
+        created_by: 'Tanookirby',
+        resource_url: 'http://wedata.net/items/74923',
+    },
+    {name: 'Cheat Sheet',
+        url: '^https?://(www\.)?cheatsheet\.com/',
+        nextLink: '//link[@rel="next"][//span/@class="next-btn__counter"]',
+        siteExample: 'https://www.cheatsheet.com/entertainment/scarlett-johansson-pushes-her-limits-with-4-non-human-roles.html/;https://www.cheatsheet.com/entertainment/5-new-shows-fox-will-try.html/?ref=YF;https://www.cheatsheet.com/category/business-news/page/2/',
+        pageElement: '//div[@class="main__content"]/section|//ul/li[@class="media-list__item"][.//a]',
+        created_by: 'Tanookirby',
+        resource_url: 'http://wedata.net/items/74735',
+    },
+    {name: 'Cinemablend.com',
+        url: '^https?://(www\.)?cinemablend\.com/',
+        nextLink: '//a[@class="next" or @rel="next"]',
+        siteExample: 'https://www.cinemablend.com/new/Top-25-Muppet-Characters-Ranked-28058.html;https://www.cinemablend.com/news/1523429/upcoming-pixar-movies-heres-whats-coming-in-the-next-few-years?story_page=2;https://www.cinemablend.com/news.php?cid=27;https://www.cinemablend.com/reviews/;https://www.cinemablend.com/news/2313241/the-8-funniest-moments-in-black-panther?story_page=1;https://www.cinemablend.com/television/2425292/who-is-the-flashs-thomas-our-5-best-theories?story_page=1',
+        pageElement: '//div[@class="partial content_story_pages_html "]/node()|(id("slot_left slot_center")|id("slot_left")/div[starts-with(@class,"partial content_story_cb_related ") or @class="partial snippet "])/div[starts-with(normalize-space(@class),"story_item item") or @class="partial content_story_pages_text " or @class="partial content_story_pages_image "]|//div[@class="partial content_story_cb_related topics" or @class="partial content_story_cb_related reviews"]/*',
+        created_by: 'Tanookirby',
+        resource_url: 'http://wedata.net/items/74662',
+    },
+    {name: 'Togetter 個別記事',
+        url: '^https?://togetter\.com/li/',
+        nextLink: '//link[@rel="next"]',
+        siteExample: 'https://togetter.com/li/351535;https://togetter.com/li/1060348?page=38',
+        pageElement: '//div[@class="tweet_box"]/div',
+        created_by: 't_f_m',
+        resource_url: 'http://wedata.net/items/62666',
+    },
+    {name: 'pixivrank.net',
+        url: '^http://pixivrank\.net/',
+        nextLink: '//b/following-sibling::a[1]',
+        siteExample: 'http://pixivrank.net/ht/tag2/p1.html http://pixivrank.net/taglist1_1.html',
+        pageElement: '//img[not(@alt)]/ancestor::table[1][not(@class="main_table")]//tr[./td]|//div[@class="tag_box"]',
+        created_by: 'gorou',
+        resource_url: 'http://wedata.net/items/32021',
+    },
+    {name: 'ダイヤモンド・オンライン',
+        url: '^https?://diamond\.jp/articles/',
+        nextLink: '//li[@class="next"]/a|//div[@class="next_p" or @class="next-p"]/a|//span[@class="next_p-top"]/a',
+        siteExample: 'http://diamond.jp/articles/-/4654;http://diamond.jp/articles/-/9425;http://diamond.jp/articles/-/56364;http://diamond.jp/articles/-/61133;http://diamond.jp/articles/-/61359;http://diamond.jp/articles/-/61436;http://diamond.jp/articles/-/27195;http://diamond.jp/articles/-/61318;http://diamond.jp/articles/-/59516;http://diamond.jp/articles/-/28112;http://diamond.jp/articles/-/79610;http://diamond.jp/articles/amp/4654',
+        pageElement: '//div[@class="article-body cf"]/*|//div[@id="mp-ie" or @id="multipage-top"][./preceding-sibling::p]/preceding-sibling::*[not(contains(@class,"smartparts-info") or @class="contents-info clearfix")]',
+        created_by: 'hidebu',
+        resource_url: 'http://wedata.net/items/31984',
+    },
+    {name: '[pixiv] ランキング',
+        url: '^https?://www\.pixiv\.net/ranking_log\.php',
+        nextLink: '//div[contains(concat(" ", @class, " "), " calendar-selector ")]//li[a[contains(concat(" ", @class, " "), " active ")]]/preceding::li[position()=1 and ancestor::div[contains(concat(" ", @class, " "), " calendar-selector ")]]/a',
+        siteExample: 'http://www.pixiv.net/ranking_log.php',
+        pageElement: '//table[contains(concat(" ", @class, " "), " calender_ranking ")]/..',
+        created_by: 'deraw',
+        resource_url: 'http://wedata.net/items/26720',
+    },
     // update at: May 28, 2018
     {name: 'ツイキャス',
         url: '^https://twitcasting\.tv/',
@@ -5614,14 +5767,12 @@ var prePageKey=[
 
 //下一页关键字
 var nextPageKey=[
-    '下一页', '下一頁', '下1页', '下1頁', '下页', '下頁',
-    '翻页', '翻頁', '翻下頁', '翻下页',
-    '下一张', '下一張', '下一幅', '下一章', '下一节', '下一節', '下一篇',
-    '后一页', '後一頁',
-    '前进', '下篇', '后页', '往后',
-    'Next', 'Next Page', '次へ', '次のページ'
+'下一页', '下一頁', '下1页', '下1頁', '下页', '下頁','翻页', '翻頁', '翻下頁', '翻下页','下一张', '下一張', '下一幅', '下一章', '下一节', '下一節', '下一篇','前进', '下篇', '后页', '往后','Next', 'Next Page','次へ', '次のページ',
+'下一页 →', '下一頁 →', '下1页 →', '下1頁 →', '下页 →', '下頁 →','翻页 →', '翻頁 →', '翻下頁 →', '翻下页 →','下一张 →', '下一張 →', '下一幅 →', '下一章 →', '下一节 →', '下一節 →', '下一篇 →','前进 →', '下篇 →', '后页 →', '往后 →','Next →', 'Next Page →','次へ →', '次のページ →',
+'下一页 »', '下一頁 »', '下1页 »', '下1頁 »', '下页 »', '下頁 »','翻页 »', '翻頁 »', '翻下頁 »', '翻下页 »','下一张 »', '下一張 »', '下一幅 »', '下一章 »', '下一节 »', '下一節 »', '下一篇 »','前进 »', '下篇 »', '后页 »', '往后 »','Next »', 'Next Page »','次へ »', '次のページ »','后一页', '後一頁',
+'下一页 ›', '下一頁 ›', '下1页 ›', '下1頁 ›', '下页 ›', '下頁 ›','翻页 ›', '翻頁 ›', '翻下頁 ›', '翻下页 ›','下一张 ›', '下一張 ›', '下一幅 ›', '下一章 ›', '下一节 ›', '下一節 ›', '下一篇 ›','前进 ›', '下篇 ›', '后页 ›', '往后 ›','Next ›', 'Next Page ›','次へ ›', '次のページ ›', '»'
 ];
-
+// THX to https://greasyfork.org/en/forum/discussion/39361/x
 // 出在自动翻页信息附加显示真实相对页面信息，一般能智能识别出来。如果还有站点不能识别，可以把地址的特征字符串加到下面
 // 最好不要乱加，一些不规律的站点显示出来的数字也没有意义
 var REALPAGE_SITE_PATTERN = ['search?', 'search_', 'forum', 'thread'];
@@ -6648,6 +6799,7 @@ function init(window, document) {
                     overrideMimeType: 'text/html; charset=' + document.characterSet,
                     onload: XHRLoaded
                 });
+                debug('读取完成');
             }
         }
 
