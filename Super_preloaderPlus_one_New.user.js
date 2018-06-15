@@ -47,7 +47,7 @@
 var scriptInfo = {
     version: '6.5.24',
     updateTime: '2018/6/14',
-    changelog: '小众软件, English translation',
+    changelog: '小众软件, English translation, xkcd, jandan',
     homepageURL: 'https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new',
     downloadUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.user.js',
     metaUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.meta.js',
@@ -4019,6 +4019,31 @@ var SITEINFO=[
             pageElement: '//ul[@class="list"]',
           //  useiframe: true
         }
+    },
+    // ==== English websites ====================
+    {name: "reddit",
+        url: "^https?://([^.]+\.)?reddit\.com/",
+        nextLink: '//a[contains(@rel,"next")]',
+        autopager: {
+            pageElement: 'id("siteTable")/*[not(@class="nav-buttons")]',
+          //  useiframe: true
+        }
+    },
+    {name: "xkcd",
+        url: "^https?://(?:www\.)?xkcd\.com",
+        nextLink: function(doc, win, cplink) {
+            // hrefInc 的方式不行因为这个地址最后还有额外的 *s=6
+            var m = cplink.match(/\d+/);
+            if (!m) {
+                // 第一页这种情况 http://page.vs20.com/1815454/115321.htm?s=6
+                return cplink+'/2/';
+            } else {
+                var url = doc.querySelector('a[rel=next]').getAttribute('href');
+                url = 'https://www.xkcd.com/'+url;
+                return url;
+            }
+        },
+        pageElement: 'id("middleContainer")',
     },
     // ===== obtained from http://wedata.net/databases/AutoPagerize =========
     // most sites are in japanese
