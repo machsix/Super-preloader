@@ -9,7 +9,7 @@ import os
 import re
 from datetime import datetime
 
-lastupdate = datetime(2018, 5, 28)
+lastupdate = datetime(2018, 6, 14)
 
 os.chdir('E:\\Git\\personal-scripts\\Super_preloader')
 header = {

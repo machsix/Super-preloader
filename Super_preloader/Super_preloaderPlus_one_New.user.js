@@ -6,7 +6,7 @@
 // @description  Preload and Autopager
 // @description:zh-cn  预读+翻页..全加速你的浏览体验
 // @author       Mach6(原作者 ywzhaiqi && NLF)
-// @version      6.5.25
+// @version      6.5.26
 // @license      GNU GPL v3
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
 // @icon         https://raw.githubusercontent.com/machsix/personal-scripts/master/Super_preloader/icon.png
@@ -15,7 +15,6 @@
 // @grant        GM_setValue
 // @grant        GM_xmlhttpRequest
 // @grant        GM_registerMenuCommand
-
 // @include      http*
 // @exclude      http*://mail.google.com/*
 // @exclude      http*://maps.google*
@@ -45,9 +44,9 @@
 
 // 主要用于 chrome 原生下检查更新，也可用于手动检查更新
 var scriptInfo = {
-    version: '6.5.25',
-    updateTime: '2018/6/28',
-    changelog: 'cleanup',
+    version: '6.5.26',
+    updateTime: '2018/7/2',
+    changelog: 'cleanup rules; NSFW',
     homepageURL: 'https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new',
     downloadUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.user.js',
     metaUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.meta.js',
@@ -86,22 +85,22 @@ gmCompatible();
 /////////////////////设置(请注意开关的缩进关系..子开关一般在父开关为true的时候才会生效.)//////////////////////
 var prefs={
     floatWindow: true,       // 显示悬浮窗
-        FW_position: 2,         // 1:出现在左上角;2:出现在右上角;3：出现在右下角;4：出现在左下角;
-        FW_offset: [20, 38],    // 偏离版边的垂直和水平方向的数值..(单位:像素)
-        FW_RAS: true,           // 点击悬浮窗上的保存按钮..立即刷新页面;
+    FW_position: 2,         // 1:出现在左上角;2:出现在右上角;3：出现在右下角;4：出现在左下角;
+    FW_offset: [20, 38],    // 偏离版边的垂直和水平方向的数值..(单位:像素)
+    FW_RAS: true,           // 点击悬浮窗上的保存按钮..立即刷新页面;
     pauseA: true,            // 快速停止自动翻页(当前模式为翻页模式的时候生效.);
-        Pbutton: [2, 0, 0],     // 需要按住的键.....0: 不按住任何键;1: shift鍵;2: ctrl鍵; 3: alt鍵;(同时按3个键.就填 1 2 3)(一个都不按.就填 0 0 0)
-        mouseA: true,           // 按住鼠标左键..否则.双击;
-        Atimeout: 200,      // 按住左键时..延时.多少生效..(单位:毫秒);
-        stop_ipage: true,       // 如果在连续翻页过程中暂停.重新启用后.不在继续..连续翻页..
+    Pbutton: [2, 0, 0],     // 需要按住的键.....0: 不按住任何键;1: shift鍵;2: ctrl鍵; 3: alt鍵;(同时按3个键.就填 1 2 3)(一个都不按.就填 0 0 0)
+    mouseA: true,           // 按住鼠标左键..否则.双击;
+    Atimeout: 200,      // 按住左键时..延时.多少生效..(单位:毫秒);
+    stop_ipage: true,       // 如果在连续翻页过程中暂停.重新启用后.不在继续..连续翻页..
 
     Aplus: true,             // 自动翻页模式的时候..提前预读好一页..就是翻完第1页,立马预读第2页,翻完第2页,立马预读第3页..(大幅加快翻页快感-_-!!)(建议开启)..
     sepP: true,              // 翻页模式下.分隔符.在使用上滚一页或下滚一页的时候是否保持相对位置..
     sepT: true,              // 翻页模式下.分隔符.在使用上滚一页或下滚一页的时候使用动画过渡..
-        s_method: 3,            // 动画方式 0-10 一种11种动画效果..自己试试吧
-        s_ease: 2,              // 淡入淡出效果 0：淡入 1：淡出 2：淡入淡出
-        s_FPS: 60,              // 帧速.(单位:帧/秒)
-        s_duration: 333,        // 动画持续时长.(单位:毫秒);
+    s_method: 3,            // 动画方式 0-10 一种11种动画效果..自己试试吧
+    s_ease: 2,              // 淡入淡出效果 0：淡入 1：淡出 2：淡入淡出
+    s_FPS: 60,              // 帧速.(单位:帧/秒)
+    s_duration: 333,        // 动画持续时长.(单位:毫秒);
     someValue: '',           // 显示在翻页导航最右边的一个小句子..-_-!!..Powered by Super_preloader 隐藏了
     DisableI: true,          // 只在顶层窗口加载JS..提升性能..如果开启了这项,那么DIExclude数组有效,里面的网页即使不在顶层窗口也会加载....
     arrowKeyPage: true,      // 允许使用 左右方向键 翻页..
@@ -159,14 +158,14 @@ var SITEINFO_D={
         force_enable: GM_getValue('SITEINFO_D.autopager.force_enable') || false,  //默认启用强制拼接
         manualA: false,         // 手动翻页.
         useiframe: false,       // (翻页)是否使用iframe..
-            iloaded: false,     // 是否在iframe完全load后操作..否则在DOM完成后操作
-            itimeout: 0,        // 延时多少毫秒后,在操作..
-            newIframe: false,
+        iloaded: false,     // 是否在iframe完全load后操作..否则在DOM完成后操作
+        itimeout: 0,        // 延时多少毫秒后,在操作..
+        newIframe: false,
         remain: 1,              // 剩余页面的高度..是显示高度的 remain 倍开始翻页..
         maxpage: 99,            // 最多翻多少页..
         ipages: [false, 2],     // 立即翻页,第一项是控制是否在js加载的时候立即翻第二项(必须小于maxpage)的页数,比如[true,3].就是说JS加载后.立即翻3页.
         separator: true,        // 显示翻页导航..(推荐显示.)
-            separatorReal: true,  // 显示真实的页数
+        separatorReal: true,  // 显示真实的页数
     }
 };
 
@@ -179,8 +178,8 @@ var SITEINFO=[
         enable:true,                                                                                                                                            //启用.(总开关)(可选)
         useiframe:false,                                                                                                                                        //是否用iframe预读...(可选)
         viewcontent:false,
-
-        nextLink: 'id("pnnext") | id("navbar navcnt nav")//td[span]/following-sibling::td[1]/a | id("nn")/parent::a',                                                                                                                           //查看预读的内容,显示在页面的最下方.(可选)
+        nextLink: 'id("pnnext") | id("navbar navcnt nav")//td[span]/following-sibling::td[1]/a | id("nn")/parent::a',
+                                                                                                                           //查看预读的内容,显示在页面的最下方.(可选)
         // nextLink:'auto;',
         //nextLink:'//table[@id="nav"]/descendant::a[last()][parent::td[@class="b"]]',              //下一页链接 xpath 或者 CSS选择器 或者 函数返回值(此函数必须使用第一个传入的参数作为document对象) (~~必选~~)
         //nextLink:'css;table#nav>tbody>tr>td.b:last-child>a',
@@ -193,20 +192,20 @@ var SITEINFO=[
         autopager:{
             enable:true ,                                                                                               //启用(自动翻页)(可选)
             useiframe:false,                                                                                        //是否使用iframe翻页(可选)
-                iloaded:false,                                                                                      //是否在iframe完全load之后操作..否则在DOM完成后操作.
-                itimeout:0,                                                                                             //延时多少毫秒后,在操作..
-                newIframe: false,  // 下一页使用新的 iframe，能解决按钮无法点击的问题
+            iloaded:false,                                                                                      //是否在iframe完全load之后操作..否则在DOM完成后操作.
+            itimeout:0,                                                                                             //延时多少毫秒后,在操作..
+            newIframe: false,  // 下一页使用新的 iframe，能解决按钮无法点击的问题
             pageElement: '//div[@id="ires"]',                                          //主体内容 xpath 或 CSS选择器 或函数返回值(~~必须~~)
             // pageElement:'css;div#ires',
             //pageElement:function(doc,win){return doc.getElementById('ires')},
             //filter:'//li[@class="g"]',                                                                        //(此项功能未完成)xpath 或 CSS选择器从匹配到的节点里面过滤掉符合的节点.
             remain: 1/3,                                                                                                 //剩余页面的高度..是显示高度的 remain 倍开始翻页(可选)
-                relatedObj: ['css;div#navcnt','bottom'],                                                         //以这个元素当做最底的元素,计算页面总高度的计算.(可选)
+            relatedObj: ['css;div#navcnt','bottom'],                                                         //以这个元素当做最底的元素,计算页面总高度的计算.(可选)
             replaceE: '//div[@id="navcnt"]',                 //需要替换的部分 xpat h或 CSS选择器 一般是页面的本来的翻页导航(可选);
             //replaceE:'css;div#navcnt',
             ipages: [false,2],                               //立即翻页,第一项是控制是否在js加载的时候立即翻第二项(必须小于maxpage)的页数,比如[true,3].就是说JS加载后.立即翻3页.(可选)
             separator: true,                                 //是否显示翻页导航(可选)
-                separatorReal: true,
+            separatorReal: true,
             maxpage: 66,                                     //最多翻页数量(可选)
             manualA: false,                                  //是否使用手动翻页.
             HT_insert: ['//div[@id="res"]',2],               //插入方式此项为一个数组: [节点xpath或CSS选择器,插入方式(1：插入到给定节点之前;2：附加到给定节点的里面;)](可选);
@@ -214,7 +213,7 @@ var SITEINFO=[
             lazyImgSrc: 'imgsrc',
             // 新增的自定义样式。下面这个是调整 Google 下一页可能出现的图片排列问题。
             stylish: 'hr.rgsep{display:none;}' +
-                '.rg_meta{display:none}.bili{display:inline-block;margin:0 6px 6px 0;overflow:hidden;position:relative;vertical-align:top}._HG{margin-bottom:2px;margin-right:2px}',
+            '.rg_meta{display:none}.bili{display:inline-block;margin:0 6px 6px 0;overflow:hidden;position:relative;vertical-align:top}._HG{margin-bottom:2px;margin-right:2px}',
             documentFilter: function(doc){
                 // 修正下一页的图片
                 var x = doc.evaluate('//script/text()[contains(self::text(), "data:image/")]', doc, null, 9, null).singleNodeValue;
@@ -239,13 +238,13 @@ var SITEINFO=[
                 var script = doc.createElement('script');
                 script.type = 'text/javascript';
                 script.textContent = '\
-                    Object.defineProperty(window, "rwt", {\
-                        configurable: false,\
-                        enumerable: true,\
-                        get: function () {\
-                            return function() {};\
-                        },\
-                    });\
+                Object.defineProperty(window, "rwt", {\
+                    configurable: false,\
+                    enumerable: true,\
+                    get: function () {\
+                        return function() {};\
+                    },\
+                });\
                 ';
                 doc.documentElement.appendChild(script);
                 doc.documentElement.removeChild(script);
@@ -312,65 +311,24 @@ var SITEINFO=[
             replaceE: '//nav[@aria-label="navigation"]'
         }
     },
-    {name: '有道网页搜索',
-        url: /http:\/\/www\.youdao\.com\/search\?/i,
-        siteExample: 'http://www.youdao.com/search?',
-        nextLink: '//div[@class="c-pages"]/a[text()="下一页"]',
-        autopager: {
-            pageElement: '//ol[@id="results"]',
-            replaceE: 'id("resc")/div[@class="c-pages"]'
-        }
-    },
-    {name: 'SoSo网页搜索',
-        url:/http:\/\/www\.soso\.com\/q/i,
-        siteExample:'http://www.soso.com/q',
-        nextLink:'//div[@class="pg"]/descendant::a[last()][@class="next"]',
-        autopager:{
-            // useiframe:true,
-            pageElement:'//div[@id="result"]/ol/li',
-            replaceE: 'id("pager")'
-        }
-    },
-    {name: 'Disconnect Search',
-        url: /^https?:\/\/search\.disconnect\.me\//i,
-        nextLink: 'auto;',
-        autopager: {
-            pageElement: 'id("results")',
-            replaceE: '//div[@class="pagination"]',
-        }
-    },
     {name: 'AOL 搜索',
-        url: '^http://(www\\.)aolsearch.com/search\\?.+?[?&]q=',
-        siteExample: 'http://www.aolsearch.com/search?q=test',
-        nextLink: '//a[span[@class="nextRes"][text()="Next"]]',
+        url: /^https?:\/\/(www\.)?aolsearch.com\/search\?q=/i,
+        siteExample: 'https://www.aolsearch.com/search?q=test',
+        nextLink: '//div[@class="compPagination"]/a[@class="next"]',
         autopager: {
-            pageElement: '//*[@id="c"]/div'
+            pageElement: '//ol[contains(@class,"searchCenterMiddle")]'
         }
     },
-    {name: '谷搜客',
-       url: /^https?:\/\/gusouk\.com\/search/i,
-       siteExample: 'http://gusouk.com/search?q=firefox',
-       nextLink: 'auto;',
-       autopager: {
-           pageElement: '//div[@class="search_result"]'
-       }
+    {name: 'Yahoo.com Search',
+        url: '^https?://(.+\.)?(news\.)?(search|chiebukuro)?\.yahoo\.co(m|\.jp)/(yhs/)?search',
+        nextLink: '//div[contains(@class,"Pagination")]/a[contains(@class,"next")]|//a[contains(span[2],">")]|//li[@class="nex"]/a',
+        autopager:{
+            pageElement: 'id("web resultsWrapper")/ol|//div[@class="searchCenterMiddle"]/div|id("WS2m NSm")/*|//ol[@class="cl"]/*|//div[contains(concat(" ", normalize-space(@class), " "), " cmm ") and @data-pos]',
+            stylish: ' @-moz-document domain("yahoo.com") {     img.s-img {         display: inline-block !important;     };     .layoutleft a{padding:0;} ; }',
+        },
+        created_by: 'tokumeisan',
+        resource_url: 'http://wedata.net/items/62707',
     },
-    {name: 'tmd123搜索',  // www.tmd123.com
-       url: /^https?:\/\/54\.64\.24\.234\/search/i,
-       siteExample: 'http://54.64.24.234/search/?q=firefox',
-       nextLink: 'auto;',
-       autopager: {
-           pageElement: '//div[@class="search_result"]'
-       }
-    },
-    {name: "Google custom",
-        url: /^https?:\/\/74\.125\.128\.147\/custom/i,
-        nextLink: 'id("pnnext") | id("navbar navcnt nav")//td[span]/following-sibling::td[1]/a | id("nn")/parent::a',
-        autopager: {
-            pageElement: '//div[@id="res"]',
-        }
-    },
-
     // ====== 目前 Super_preloaderPlus_one 还有问题的 ========
     {name: '水木社区',
         url: '^http://www\\.newsmth\\.net/nForum',
@@ -439,20 +397,20 @@ var SITEINFO=[
         exampleUrl: 'http://hi.baidu.com/gelida',
     },
     {name: '百度文库搜索',
-        url: /^http:\/\/wenku\.baidu\.com\/search\?/i,
+        url: /^https?:\/\/wenku\.baidu\.com\/search\?/i,
         exampleUrl: 'http://wenku.baidu.com/search?word=firefox&lm=0&od=0&fr=top_home',
         nextLink: '//div[@class="page-content"]/a[@class="next"]',
         autopager: {
-            pageElement: '//div[@class="search-result"]',
+            pageElement: '//div[@class="search-result"]/dl',
         }
     },
-    {name: 'v2ex',
-        url: /^https?:\/\/www.v2ex\.com\/recent/i,
-        exampleUrl: 'https://www.v2ex.com/recent?p=3',
-        nextLink: '//link[@rel="next"]',
-        prevLink: '//link[@rel="prev"]',
+    {name: '小众软件',
+        url: /^https?:\/\/www.appinn\.com/i,
+        exampleUrl: 'https://www.appinn.com/',
+        nextLink: '//a[@class="nextpostslink"]',
+        prevLink: '//a[@class="previouspostslink"]',
         autopager: {
-            pageElement: '//div[@class="cell item"]',
+            pageElement: '//div[@id="spost"]/div',
         }
     },
     {name: '好人卡',
@@ -465,22 +423,13 @@ var SITEINFO=[
             useiframe: true,
         }
     },
-    {name: '小众软件',
-        url: /^https?:\/\/www.appinn\.com/i,
-        exampleUrl: 'https://www.appinn.com/',
-        nextLink: '//a[@class="nextpostslink"]',
-        prevLink: '//a[@class="previouspostslink"]',
-        autopager: {
-            pageElement: '//div[@id="spost"]/div',
-        }
-    },
-    {name: 'v2ex-go',
-        url: /^https?:\/\/www.v2ex\.com\/go/i,
-        exampleUrl: 'https://www.v2ex.com/go/ios',
+    {name: 'v2ex',
+        url: /^https?:\/\/www.v2ex\.com\/(recent|go)/i,
+        exampleUrl: 'https://www.v2ex.com/recent?p=3',
         nextLink: '//link[@rel="next"]',
         prevLink: '//link[@rel="prev"]',
         autopager: {
-            pageElement: '//div[contains(@class, "cell from")]',
+            pageElement: '//div[@class="cell item"]|//div[contains(@class, "cell from")]',
         }
     },
     {name: 'smzdm-search',
@@ -491,6 +440,12 @@ var SITEINFO=[
         autopager: {
             pageElement: '//li[@class="feed-row-wide"]',
         }
+    },
+    {name: 'smzdm-comment',
+        url: /^https?:\/\/post\.smzdm\.com\/p\/\d+/i,
+        exampleUrl: 'https://post.smzdm.com/p/559992/',
+        nextLink: '//ul[@class="pagination"]/li[@class="pagedown"]/a',
+        pageElement: '(//ul[@class="comment_listBox"])[1]',
     },
     // ================ news、Reading ===========================
     {name: '新浪新闻',
@@ -503,44 +458,26 @@ var SITEINFO=[
         }
     },
     {name: '搜狐新闻',
-        url: /^http:\/\/news\.sohu\.com\/.*\.shtml/i,
+        // not work
+        url: /^https?:\/\/news\.sohu\.com\/.*\.shtml/i,
         exampleUrl: 'http://news.sohu.com/20120901/n352071543.shtml',
-        nextLink: 'auto;',
+        nextLink: '//a[text()="下一页"]',
         autopager: {
+            useiframe: true,
             pageElement: 'id("contentText")',
         }
     },
     {name: '新华网新闻页面',
-        url:/http:\/\/news\.xinhuanet\.com\/.+\/\d+-/i,
-        siteExample:'http://news.xinhuanet.com/politics/2010-07/19/c_12347755.htm',
-        nextLink:'//div[@id="div_currpage"]/a[text()="下一页"]',
+        url: /https?:\/\/www\.xinhuanet\.com\/(\w+\/)?\d{4}-\d{2}\/\d{2}\/.+\.html?/i,
+        siteExample:'http://www.xinhuanet.com/2018-04/07/c_1122646152.htm',
+        nextLink: 'auto;',
         autopager:{
             remain:2,
-            pageElement:'//table[@id="myTable"] | id("content")'
-        }
-    },
-    {name: '腾讯网-大成网,新闻',
-        url: /^http:\/\/[a-z]+\.qq\.com\/.*\.htm/i,
-        exampleUrl: 'http://cd.qq.com/a/20131119/002713.htm',
-        nextLink: 'id("ArtPLink")/ul/li/a[text()="下一页"]',
-        autopager: {
-            pageElement: 'id("Cnt-Main-Article-QQ")',
-            relatedObj: true,
-            replaceE: "css;#ArtPLink"
-        }
-    },
-    {name: '大成社区',
-        url: /^http:\/\/[a-z]+\.qq\.com\/(?:forum\.php|.*\.htm)/i,
-        exampleUrl: 'http://mycd.qq.com/forum.php?mod=forumdisplay&fid=1001037360&page=',
-        nextLink: '//div[@class="pgb"]/a[@class="nxt"]',
-        autopager: {
-            pageElement: 'id("threadlisttableid") | id("postlist") | id("threadlist")/table',
-            replaceE: 'css;.page_box .pgb',
-            lazyImgSrc: 'zoomfile'
+            pageElement:'//div[@id="p-detail"]/p'
         }
     },
     {name: '中国新闻网',
-        url:/http:\/\/www\.chinanews\.com\/[a-z]+\/.+\.shtml/i,
+        url:/https?:\/\/www\.chinanews\.com\/[a-z]+\/.+\.shtml/i,
         siteExample:'http://www.chinanews.com/英文/年/日期/编号.shtml',
         nextLink: '//div[@id="function_code_page"]/a[text()="下一页"]',
         autopager:{
@@ -551,16 +488,16 @@ var SITEINFO=[
         }
     },
     {name: '人民网新闻',
-        url: /^http:\/\/[a-z]+\.people\.com\.cn\/.*\.html/i,
-        exampleUrl: 'http://ent.people.com.cn/n/2013/0823/c1012-22672732-2.html',
+        url: /^https?:\/\/[a-z]+\.people\.com\.cn\/.*\.html/i,
+        exampleUrl: 'http://cpc.people.com.cn/xuexi/n/2015/0527/c387492-27065648-25.html',
         nextLink: 'auto;',
         autopager: {
-            pageElement: '//div[@class="text_img"] | //div[@id="p_content"]',
+            pageElement: '//div[@class="text_img"] | //div[@id="p_content"]|//dl[@class="clearfix"]',
             relatedObj: true
         }
     },
     {name: '中关村在线新闻页面',
-        url:/http:\/\/(?:[^\.]+\.)?zol\.com\.cn\/\d+\/\d+/i,
+        url:/https?:\/\/(?:[^\.]+\.)?zol\.com\.cn\/\d+\/\d+/i,
         siteExample:'http://lcd.zol.com.cn/187/1875145.html',
         nextLink: '//div[@class="page"]/a[text()="下一页"]',
         autopager:{
@@ -580,7 +517,7 @@ var SITEINFO=[
         }
     },
     {name: 'Solidot: 奇客的资讯，重要的东西',
-        url: /^http:\/\/www\.solidot\.org\//i,
+        url: /^https?:\/\/www\.solidot\.org\//i,
         exampleUrl: 'http://www.solidot.org/?issue=20131205',
         nextLink: 'id("center")/div[@class="page"]/a[last()]',
         autopager: {
@@ -588,6 +525,7 @@ var SITEINFO=[
             separatorReal: false
         }
     },
+    // Fix till here
     {name: 'IT 之家',
         url: /^http:\/\/\w+\.ithome\.com\//i,
         nextLink: 'id("Pager")/div[@class="pagenew"]/a[text()=">"]',
@@ -1137,28 +1075,22 @@ var SITEINFO=[
             replaceE: 'id("main")/div[@class="pager"]'
         }
     },
-    {name: '射手网',
-        url: /^http:\/\/(?:www\.)?shooter\.cn\/search\//i,
-        exampleUrl: 'http://www.shooter.cn/search/Elysium/',
+    {name: '伪射手网',
+        url: /^https?:\/\/(?:www\.)?assrt\.net\/sub\/\?searchword/i,
+        exampleUrl: 'http://assrt.net/sub/?searchword=fight+club',
         preLink:{
-            startAfter:'?page=',
+            startAfter:'&page=',
             inc:-1,
             min:1,
         },
         nextLink:{
-            startAfter:'?page=',
-            mFails:[/^http:\/\/(?:www\.)?shooter\.cn\/search\/[^\/]+/i,'?page=1'],
+            startAfter:'&page=',
+            mFails:[/^https?:\/\/(?:www\.)?assrt\.net\/sub\/\?searchword=[^\/]+/i,'&page=1'],
+            //mFails: if we don't get a match of startAfter in url, use the combination of mFails
             inc:1,
         },
         autopager: {
             pageElement: '//div[@id="resultsdiv"]/div[@class="subitem"]',
-        }
-    },
-    {name: "影视列表页|ZiMuZu.tv,字幕组网站",
-        url: "^http://www\\.zimuzu\\.tv/eresourcelist",
-        nextLink: "//div[starts-with(@class, 'pages')]/descendant::a[text()='下一页'] | //div[@class='pages']//a[@class='cur']/following-sibling::a[1]",
-        autopager: {
-            pageElement: "//div[@class='resource-showlist has-point']",
         }
     },
     {name: '豆瓣people',
@@ -1879,14 +1811,6 @@ var SITEINFO=[
         }
     },
     // === mm ===
-    {name: 'Show妹子',
-        url:/^http:\/\/www\.showmeizi\.com\/\w+\/\d+/i,
-        siteExample:'http://www.showmeizi.com/',
-        nextLink:'auto;',
-        autopager:{
-            pageElement:'//div[@class="post image"]/div[@class="main-body"]',
-        }
-    },
     {name: 'Beautyleg腿模写真图片网',
         url:/^http:\/\/www\.beautylegmm\.com\/\w+\/beautyleg-\d+.html/i,
         siteExample:'http://www.beautylegmm.com/x/beautyleg-x.html',
@@ -1895,13 +1819,226 @@ var SITEINFO=[
             pageElement:'id("contents_post")/div[@class="post"]',
         }
     },
-    {name: 'Rosi美女图',
-        url:/^http:\/\/www\.rosiyy\.com\/.*.html/i,
-        siteExample:'http://www.rosiyy.com/x/x.html',
-        nextLink:'auto;',
+    {name: 'sasaone.com',
+        url: /^https?:\/\/(\w*\.)?sasaone\.com\/\w+\/\d+\/\d+(_\d+)?\.html/i,
+        nextLink: function(doc, win, cplink) {
+            var m = cplink.match(/\d+_(\d+)\.html/);
+            if (!m) {
+                return cplink.replace(".html","_2.html");
+            } else {
+                var current = Number(m[1]);
+                var next = current + 1;
+                var url = cplink.replace(m[1]+'.html', next+'.html');
+                return url;
+            }
+        },
         autopager:{
-            pageElement:'//div[@class="clearfix"]/div[@class="grid_10"]/div[@class="post postimg"]/p/a',
-        }
+            enable:true,
+            pageElement: '//div[@id="disappear"]',
+            ipages: [true,30],
+        },
+    },
+    {name: 'sasaone.com',
+        url: /^https?:\/\/(\w*\.)?sasaone\.com\/\w+(\/list.*\.html|\/index.*\.html)?/i,
+        nextLink: '//a[text()="下一页"]',
+        autopager:{
+            enable:true,
+            pageElement: '//ul[@id="need"]/li',
+        },
+    },
+    {name: '24fa',
+        url: /^https?:\/\/(\w*\.)?24fa\.top\/.*\.html/,
+        nextLink: 'auto;',
+        autopager:{
+            enable:true ,
+            pageElement: '//div[@id="content"]',
+            ipages: [true,30],
+        },
+        exampleUrl: 'https://www.24fa.top/MeiNv/2017-10/50531p4.html',
+    },
+    {name: '美女86',
+        url: '^http://www\\.17786\\.com\\/\\d+_\\d+\\.html',
+        nextLink: '(//div/div/div/a[@class="next-page-a"])[last()]',
+        autopager:{
+            pageElement: '//div[@class="img_box"]',
+            ipages: [true,30],
+        },
+        exampleUrl: 'http://www.17786.com/8104_2.html',
+    },
+     {name: '宅男女神',
+        url: '^https?://www\\.nvshens\\.com\\/.\\/\\d+\\/',
+        nextLink: '//div[@id="pages"]/span/following::a[not(@class) and not(@id)]',
+        exampleUrl: 'http://www.nvshens.com/g/17951/',
+        autopager:{
+            enable:true,
+            pageElement: '//ul[@id="hgallery"]',
+            ipages: [true,30],
+        },
+    },
+    {name: '爱套图',
+        url: '^https://www\\.aitaotu\\.com/[a-z]+/\\d+(_\\d)*\\.html',
+        nextLink: '//a[text()="上一页"]',
+        prevLink: '//a[text()="下一页"]',
+        autopager:{
+            enable:true ,
+            pageElement: 'id("big-pic")/p/a',
+            ipages: [true,30],
+        },
+        exampleUrl: 'https://www.aitaotu.com/guonei/1081_4.html',
+    },
+    {name: '秀美眉',
+        url: '^https?://www\\.(xiumeim|xmeim)\\.com/photos/.*\\.html',
+        nextLink: '//a[@id="nextPageHref"]',
+        autopager:{
+            enable:true ,
+            pageElement: '//div[@class="gallary_item"]',
+            ipages: [true,30],
+        },
+        exampleUrl: 'http://www.xiumeim.com/photos/YOUMI-189522.html',
+    },
+    {name: '秀美眉2',
+        url: /^https?:\/\/www\.(xiumeim|xmeim)\.com(\/albums\/[^\/]+\.html)?/,
+        nextLink: '//a[text()="后页>"]',
+        autopager:{
+            enable:true,
+            pageElement: '//div[@class="gallary_wrap"]',
+            ipages: [true,2],
+        },
+        exampleUrl: 'http://www.xiumeim.com/',
+    },
+    {name: '美图录',
+        url: '^https?://www\\.meitulu\\.com/item/\\d+(_\\d+)?\\.html',
+        nextLink: '//a[text()="下一页"]',
+        autopager:{
+            ipages: [true,30],
+            pageElement: '//div[@class="content"]/center',
+        },
+        exampleUrl: 'https://www.meitulu.com/item/3225_2.html',
+    },
+    {name: 'meituri',
+        url: '^https?://www\\.meituri\\.com',
+        nextLink: '//a[text()="下一页"]',
+        autopager:{
+            pageElement: '//div[@class="content"]',
+            ipages: [true,30],
+        },
+        exampleUrl: 'https://www.meitulu.com/item/3225_2.html',
+    },
+    {name: 'mimifuli',
+        url: /^https?:\/\/(www\.)?(mimifuli|bbt01|yxpjw|yxpjwnet|tangniaobingyinshi)\.(info|club|net|com)/i,
+        nextLink: '//li[@class="next-page"]/a | //div[@class="article-paging"]/span/following-sibling::a[1]',
+        autopager:{
+            enable:true,
+            pageElement: '//article[@class="article-content"]|//article[@class="excerpt excerpt-one"]',
+            ipages: [true,30],
+            replaceE: '//blockquote',
+        },
+        exampleUrl: 'http://zhaofuli.mobi/luyilu/2016/0224/1990.html',
+    },
+    {name: '192tt-gallery',
+        url: /^https?:\/\/www\.192tt\.com\/\w+\/\w+\/[a-zA-Z]+\d+\.html?/i,
+        preLink:{
+            startAfter:'_',
+            inc:-1,
+            min:1,
+        },
+        nextLink:{
+            startAfter:'_',
+            mFails:[/^https?:\/\/www\.192tt\.com\/\w+\/\w+\/[^\/]+(?=\.html)/,'_1\.html'],
+            inc:1,
+        },
+        autopager:{
+            enable:true ,
+            pageElement: '//div[@class="picsbox picsboxcenter"]/center',
+            ipages: [true,30],
+        },
+    },
+    {name: '192tt',
+        url: /^https?:\/\/www\.192tt\.com/i,
+        nextLink: '//div[@class="page"]/a[@class="next"]',
+        pageElement: '//ul[@class="clearfix"]',
+        exampleUrl:'https://www.192tt.com/gq/',
+    },
+    {name: '凹凸吧,欲女8',
+        url: /^https?:\/\/(www\.)?(tuao8|tuitu8)\.(com|top)\/(?:post)?/,
+        nextLink: '//li[@class="next-page"]/a | //span[text()="›"]/parent::a',
+        autopager:{
+            enable:true ,
+            pageElement: '//div[@class="entry"]/p|//article[contains(@class,"post-box")]',
+            ipages: [true,30],
+        },
+        exampleUrl: 'https://www.tuao8.com/post/95.html?pagenum=7;https://www.yunu8.com/web/295.html',
+    },
+    {name: '17see',
+        url: /^https?:\/\/www\.17see\.net/i,
+        nextLink: 'auto;',
+        autopager:{
+            enable:true ,
+            pageElement: '//div[@id="ad_content_main"]/following-sibling::img|//div[@id="ad_content_main"]/following-sibling::p/img|//div[@class="m-list-main"]/ul[not(//div[@id="ad_content_main"]/following-sibling::img)]',
+            ipages: [true,30],
+        },
+        exampleUrl: 'https://www.17see.net/qingchun/5542_44.html',
+    },
+    {name: '悠悠美图',
+        url: /^https?:\/\/www\.youyourentiyishu\.com/i,
+        nextLink: function(doc, win, cplink) {
+            var m = cplink.match(/\d+-(\d+)\.html/);
+            if (!m) {
+                return cplink.replace(".html","-2.html");
+            } else {
+                var current = Number(m[1]);
+                var next = current + 1;
+                var url = cplink.replace(m[1]+'.html', next+'.html');
+                var url2 = doc.querySelector('a.next').getAttribute("href");
+                if (url != url2)
+                    return false;
+                else
+                    return url;
+            }
+        },
+        autopager:{
+            enable:true ,
+            pageElement: '//div[@class="showimg"]/a',
+            ipages: [true,30],
+        },
+        exampleUrl: 'http://www.youyourentiyishu.com/rentiyishuzhaopian/20180506225810.html',
+    },
+    {name: 'ppzix',
+        url: /^https?:\/\/www\.ppzix\.com/i,
+        nextLink: '(//div[@class="neiye_page"]/span|//div[@class="neiye_page"]/strong)/following-sibling::a',
+        autopager:{
+            pageElement: '//div[@class="nr_cons"]/a|//ul[@class="tpboxul"]/li',
+            ipages: [true,30],
+        },
+        exampleUrl: 'http://www.ppzix.com/tyjr/1915.html',
+    },
+    {name: '性感尤物',
+        url: /^https?:\/\/www\.xgyw\.cc\/[^\/]*\/[^\/]*\.html/,
+        nextLink: '//div[@class="page"]/a[text()="后"]',
+        autopager:{
+            pageElement: '//div[@class="img"]/p',
+            ipages: [true,30],
+        },
+        exampleUrl: 'http://www.xgyw.cc/Xgyw/Xgyw6874.html',
+    },
+    {name: 'sytaotu',
+        url: /^https?:\/\/www\.sytaotu\.com/,
+        nextLink: 'auto;',
+        autopager:{
+            pageElement: '//div[@id="picg"]',                                          //主体内容 xpath 或 CSS选择器 或函数返回值(~~必须~~)
+            ipages: [true,30],                               //立即翻页,第一项是控制是否在js加载的时候立即翻第二项(必须小于maxpage)的页数,比如[true,3].就是说JS加载后.立即翻3页.(可选)
+        },
+        exampleUrl: 'http://www.sytaotu.com/seying/meinvmote/20200608/85252.html',
+    },
+    {name: '性感尤物2',
+        url: /^https?:\/\/www\.xgyw\.cc\/[^\/]*/,
+        nextLink: '//div[@class="page"]/a[text()="下页"]',
+        autopager:{
+            enable:true ,                                                                                               //启用(自动翻页)(可选)
+            pageElement: '//tr[./td[@class="td6"]]',
+            ipages: [true,10],                               //立即翻页,第一项是控制是否在js加载的时候立即翻第二项(必须小于maxpage)的页数,比如[true,3].就是说JS加载后.立即翻3页.(可选)
+        },
+        exampleUrl: 'http://www.xgyw.cc/Xgyw',
     },
     {name: '7160美女图片',
         url: '^http://www\\.7160\\.com/*/*/',
@@ -1915,75 +2052,12 @@ var SITEINFO=[
         pageElement: '//div/div/div/a/img',
         exampleUrl: 'http://www.7lili.com/p/xinggan/201403/30333.html',
     },
-    {name: '极品妹妹吧',
-        url: '^http://www\\.jpmm8\\.com/html/*/',
-        nextLink: '//a[text()="下一页"]',
-        pageElement: '//div/div/div/a/img',
-        exampleUrl: 'http://www.jpmm8.com/html/wlmm/12163.html',
-    },
     {name: '明星网',
-        url: '^http://tuku\\.mingxing\\.com/*',
-        nextLink: '//a[@title="下一页"]',
-        pageElement: '//div/div/div/div/p/a/img',
-        exampleUrl: 'http://tuku.mingxing.com/xiezhen/30820/1.html',
+        url: /^https?:\/\/www\.mingxing\.com/,
+        nextLink: '(//a[@title="下一页"])[last()]',
+        pageElement: '//ul[@class="pbl "]',
+        exampleUrl: 'http://www.mingxing.com/tuku/index.html',
     },
-    {name: 'kds模特大本营',
-        url: '^http://model\\.kdslife\\.com/show/photo/*',
-        nextLink: '//a[contains(text(), "下一张")]',
-        pageElement: 'id("mainPic")',
-        exampleUrl: 'http://model.kdslife.com/show/photo/20256.html',
-    },
-    // === ehentai ====
-    {name: 'ehentai',
-		url: /^https:\/\/e[-x]hentai\.org\/s\/.*\/.*/,
-		nextLink: '//a[@id="next"]',
-        autopager:{
-            enable:true ,                                                                                               //启用(自动翻页)(可选)
-		    pageElement: '//div[@id="i3"]',
-            ipages: [true,30],                               //立即翻页,第一项是控制是否在js加载的时候立即翻第二项(必须小于maxpage)的页数,比如[true,3].就是说JS加载后.立即翻3页.(可选)
-		},
-		exampleUrl: 'https://e-hentai.org/s/f61cb59d07/1099124-3',
-	},
-    {name: 'ehentai gallary',
-        url: /^https:\/\/e[x-]hentai\.org\/g\/[^\/]*\/[^\/]*(\/\?p=\d)?/,
-		nextLink: '//table[@class="ptt"]/tbody/tr/td[last()]/a',
-		pageElement: '//div[@id="gdt"]',
-		exampleUrl: 'https://e-hentai.org/g/1109427/b827f866e1/?p=3',
-	},
-    {name: 'ehentai gallary front',
-        url: /https:\/\/e[x-]hentai\.org(\/\?[fp].*)?/,
-		nextLink: '//table[@class="ptt"]/tbody/tr/td[last()]/a',
-		pageElement: '//div[@class="itg"]',
-		exampleUrl: 'https://e-hentai.org/?page=2',
-	},
-    {name: '177pic',
-		url: /^https?:\/\/(www\.)?177pic\.info\/html\/.*\.html/,
-		nextLink: '//a[text()="下一页"]',
-        autopager:{
-            enable:true ,
-            useiframe:false,                                                                                        //是否使用iframe翻页(可选)
-            pageElement: '//div[@class="entry-content"]',
-            ipages: [true,30],                               //立即翻页,第一项是控制是否在js加载的时候立即翻第二项(必须小于maxpage)的页数,比如[true,3].就是说JS加载后.立即翻3页.(可选)
-		},
-		exampleUrl: 'http://www.177pic.info/html/2017/06/1409443.html',
-	},
-    {name: 'wacg',
-		url: '^https?://(www\\.)?wnacg\\.org/photos-view-id.*\\.html',
-		nextLink: '//a[text()="下一頁"]',
-        autopager:{
-            enable:true ,
-            useiframe:false,                                                                                        //是否使用iframe翻页(可选)
-            pageElement: '//img[@id="picarea"]',
-            ipages: [true,30],                               //立即翻页,第一项是控制是否在js加载的时候立即翻第二项(必须小于maxpage)的页数,比如[true,3].就是说JS加载后.立即翻3页.(可选)
-		},
-		exampleUrl: 'http://www.wnacg.org/photos-index-aid-42394.html',
-	},
-    {name: 'wacglist',
-		url: '^https?://(www\\.)?wnacg\\.org',
-		nextLink: '//span[@class="next"]/a',
-		pageElement: '//div[@class="gallary_wrap"]',
-		exampleUrl: 'http://www.wnacg.org/photos-view-id-2132443.html',
-	},
     // === 壁纸、素材、icon
     {name: '桌酷壁纸',
         url: /^http:\/\/www\.zhuoku\.com\/.*\.htm/i,
@@ -2037,11 +2111,6 @@ var SITEINFO=[
     },
 
     // ========================= software ================================
-    {name: '小众软件',
-        url: 'http://www\\.appinn\\.com/',
-        nextLink: '//a[@class="nextpostslink"]',
-        pageElement: '//div[@id="spost"]',
-    },
     {name: '善用佳软',
         url: /^http:\/\/xbeta\.info\/page\//i,
         exampleUrl: 'http://xbeta.info/page/2',
@@ -2196,27 +2265,19 @@ var SITEINFO=[
 
     // ========================= dev =================================
     {name: 'User Scripts',
-        url: /^https?:\/\/userscripts\.org/i,
+        url: /^https?:\/\/userscripts-mirror\.org/i,
         nextLink: 'auto;',
         autopager: {
             pageElement: 'id("review-list") | //tr[starts-with(@id, "scripts-")] | //tr[starts-with(@id, "posts-")]',
             replaceE: '//div[@class="pagination"]'
         }
     },
-    {name: 'User scripts on Greasy Fork',
-        url: /^https:\/\/greasyfork\.org/i,
-        nextLink: '//a[@rel="next"]',
-        autopager: {
-            pageElement: 'id("browse-script-list") | id("Content")/ul',
-        }
-    },
-    {name: 'User Styles',
-        url: /^https?:\/\/(?:forum\.)?userstyles\.org\//i,
-        nextLink: ['//a[@class="Next" and text()="?"]', 'auto;'],
-        autopager: {
-            pageElement: '//article[starts-with(@class,"style-brief")] | id("Content")/ul[@class="DataList Discussions"]',
-            replaceE: 'css;.pagination'
-        }
+    {name: 'UserStyles, GreasyFork',
+        url: '^https?://(forum\.userstyles|greasyfork)\.org',
+        nextLink: '//a[@rel="next" or div/@id="right-arrow"] | id("PagerMore")/a',
+        siteExample: 'https://forum.userstyles.org;https://forum.userstyles.org/discussion/40694/;https://forum.userstyles.org/search?Page=p3&Search=xml;https://greasyfork.org/scripts?page=2;https://greasyfork.org/forum/categories/script-discussions/p2;https://greasyfork.org/forum/dashboard/log/edits;https://greasyfork.org/forum/profile/comments/1/JasonBarnabe',
+        pageElement: '//div[@class="styles boxes"] | id("browse-script-list")/li | id("Content")//ul[contains(@class,"DataList")]/li | id("Log") | //div[@class="styles"]/div[@class="style_card overrideHref"] | id("search-results")/li | id("main-article")/article',
+        resource_url: 'http://wedata.net/items/74978',
     },
     {name: '博客园',
         url: '^http://www\\.cnblogs\\.com/.*$',
@@ -2228,7 +2289,7 @@ var SITEINFO=[
         url: '^http://\\w+\\.oschina\\.net/',
         nextLink: '//li[@class="page next"]/a',
         pageElement: '//div[@class="code_list"]/ul | //div[@class="ProjectList"]/ul[@class="List"] | id("OSC_Content")/div[@class="SpaceList BlogList"]/ul | \
-            id("OSC_Content")/div[@class="QuestionList"]/ul/li[@class="question"]',
+        id("OSC_Content")/div[@class="QuestionList"]/ul/li[@class="question"]',
     },
     {name: 'CSDN博客',
         url:/http:\/\/blog\.csdn\.net/i,
@@ -2735,8 +2796,8 @@ var SITEINFO=[
         url:/^http:\/\/www\.jjwxc\.net\/onebook\.php\?novelid=/i,
         siteExample:'http://www.jjwxc.net/onebook.php?novelid=862877&chapterid=6',
         nextLink: {
-                startAfter:'&chapterid=',
-                inc:1,
+            startAfter:'&chapterid=',
+            inc:1,
         },
         autopager:{
             pageElement:'//div[@class="noveltext"]',
@@ -2824,7 +2885,7 @@ var SITEINFO=[
         nextLink:'//div[@id="papgbutton"]/descendant::a[text()="下一章"]',
         autopager:{
             pageElement:'//div[@id="main"]/h1 | //div[@id="readbox"]/div[@id="content"] | //div[@id="readbox"]/div[@id="papgbutton"]',
-                            HT_insert:['//div[@id="weekhot"]',1],
+            HT_insert:['//div[@id="weekhot"]',1],
         }
     },
     {name: '熬夜看书',
@@ -2925,11 +2986,11 @@ var SITEINFO=[
 
     // =============================== manhua ========================
     {name: '天极动漫频道新闻',
-        url:/http:\/\/comic\.yesky\.com\/\d+\/.+\.shtml/i,
+        url:/https?:\/\/comic\.yesky\.com\/\d+\/.+\.shtml/i,
         siteExample:'http://comic.yesky.com/249/11335749_5.shtml',
-        nextLink:'//div[@id="numpage"]/descendant::a[text()="下一页"]',
+        nextLink:'auto;',
         autopager:{
-            pageElement:'//div[@class="article"]',
+            pageElement:'//div[@class="article"]/p[1]',
             remain:1.4,
             replaceE:'//div[@id="numpage"]',
         }
@@ -2942,17 +3003,21 @@ var SITEINFO=[
         }
     },
     {name: '动漫之家漫画网',
-        url: "^http://(www|manhua)\\.dmzj\\.com/.+/.+shtml|^http://manhua\\.178\\.com/.+/.+shtml",
-        siteExample:'http://manhua.178.com/lansechumoshi/15794.shtml',
-        nextLink:'//div[@class="pages2"]/descendant::a[text()="下一页"]',
+        url: /^https?:\/\/(www|manhua)\.(dmzj|178)\.com\/\w+\/\d+\.shtml/,
+        siteExample:'https://manhua.dmzj.com/yuanlian/36944.shtml#@page=1',
+        nextLink: {
+            startAfter: '#@page=',
+            mFails: [/^https?:\/\/(?:www|manhua)\.(?:dmzj|178)\.com\/\w+\/\d+\.shtml/, '#@page=1'],
+            inc: 1,
+        },
         autopager:{
-            pageElement:'//div[@class="inner_img"]',
             useiframe:true,
-        }
+            pageElement:'//div[@id="center_box"]/img',
+        },
     },
     {name: "看漫画",
-      url: /^https?:\/\/www\.manhuagui\.com\/comic\/.+/i,
-      nextLink: {
+        url: /^https?:\/\/www\.manhuagui\.com\/comic\/.+/i,
+        nextLink: {
             startAfter: '#p=',
             mFails: [/^https?:\/\/www\.manhuagui\.com\/comic\/.+/i, '#p=1'],
             inc: 1,
@@ -2964,13 +3029,13 @@ var SITEINFO=[
                     if (select.selectedIndex == s2osl - 1) return true;
                 }
             },
-      },
-      autopager: {
+        },
+        autopager: {
             useiframe: true,
-           // newIframe: true,
+            // newIframe: true,
             pageElement: '//img[@id="mangaFile"]',
-      },
-      exampleUrl: "https://www.manhuagui.com/comic/17332/372862.html"
+        },
+        exampleUrl: "https://www.manhuagui.com/comic/17332/372862.html"
     },
     {name: '爱漫画',
         url: /^http:\/\/www\.iimanhua\.com\/comic\/.+/i,
@@ -3011,32 +3076,32 @@ var SITEINFO=[
         }
     },
     //已失效
-//     {name: '新动漫',
-//         url:/http:\/\/www\.xindm\.cn\/mh\/.+/i,
-//         siteExample:'http://www.xindm.cn/mh/shishangzuiqiangdizi/58784.html?p=2',
-//         preLink:{
-//             startAfter:'?p=',
-//             inc:-1,
-//             min:1,
-//         },
-//         nextLink:{
-//             startAfter:'?p=',
-//             mFails:[/http:\/\/www\.xindm\.cn\/mh\/.+\.html/i,'?p=1'],
-//             inc:1,
-//             isLast:function(doc,win,lhref){
-//                 var topSelect=doc.getElementById('topSelect');
-//                 if(topSelect){
-//                     var s2os=topSelect.options;
-//                     var s2osl=s2os.length;
-//                     if(topSelect.selectedIndex==s2osl-1)return true;
-//                 }
-//             },
-//         },
-//         autopager:{
-//             pageElement:'//div[@class="photo"]',
-//             useiframe:true,
-//         }
-//     },
+    //     {name: '新动漫',
+    //         url:/http:\/\/www\.xindm\.cn\/mh\/.+/i,
+    //         siteExample:'http://www.xindm.cn/mh/shishangzuiqiangdizi/58784.html?p=2',
+    //         preLink:{
+    //             startAfter:'?p=',
+    //             inc:-1,
+    //             min:1,
+    //         },
+    //         nextLink:{
+    //             startAfter:'?p=',
+    //             mFails:[/http:\/\/www\.xindm\.cn\/mh\/.+\.html/i,'?p=1'],
+    //             inc:1,
+    //             isLast:function(doc,win,lhref){
+    //                 var topSelect=doc.getElementById('topSelect');
+    //                 if(topSelect){
+    //                     var s2os=topSelect.options;
+    //                     var s2osl=s2os.length;
+    //                     if(topSelect.selectedIndex==s2osl-1)return true;
+    //                 }
+    //             },
+    //         },
+    //         autopager:{
+    //             pageElement:'//div[@class="photo"]',
+    //             useiframe:true,
+    //         }
+    //     },
     {name: '看漫画',
         url:/^http:\/\/www\.kkkmh\.com\/manhua\/\d+\/\d+\/\d+\.html/i,
         siteExample:'http://www.kkkmh.com/manhua/0710/1011/34412.html?p=2',
@@ -3161,29 +3226,29 @@ var SITEINFO=[
         }
     },
     {name: '汗汗漫画',
-        url: /^https?:\/\/\w+\.(?:vs20|3gmanhua|hhcomic|hhmmoo|hhimm)\.(?:com|net)\/\w+\/\w+\.htm/i,
-        siteExample: 'http://page.vs20.com/1815454/115321.htm?v=2*s=6',
+        url: /^https?:\/\/\w+\.(?:vs20|3gmanhua|hhcomic|hhmmoo|hhimm)\.(?:com|net)\/\w+\/\d+\.html/i,
+        siteExample: 'http://www.hhmmoo.com/page315224/1.html?s=1； http://www.hhmmoo.com/page315224/4.html?s=1&d=0',
         nextLink: function(doc, win, cplink) {
-            // hrefInc 的方式不行因为这个地址最后还有额外的 *s=6
-            var m = cplink.match(/\/(\d+)(\.html\?s=.*)/);
-            debug(m[2],m[1]);
-            if (!m) {
-                // 第一页这种情况 http://page.vs20.com/1815454/115321.htm?s=6
-                return cplink.replace(m[0], '/2' + m[1]);
+            var m = cplink.match(/(.*)(\d+)(\.html\?s=\d+)(&d=\d+)?/);
+            if (!m[4]) {
+                return m[1]+'2.html?s=1&d=0';
             } else {
-                var current = Number(m[1]),
-                    next = current + 1;
-
-                //var select = doc.querySelector('#all select');
-                //if (!select) return;
-                var max = select.options.length;
-                if (next > max) return;
-                return cplink.replace(m[0], '/' + next + m[1]);
+                var current = Number(m[2]);
+                var next = current + 1;
+                var xpath = '//div[@class="cH1"]/b';
+                var maxpage = doc.evaluate(xpath, doc, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.firstChild.textContent;
+                maxpage = maxpage.match(/\d+/g);
+                if (maxpage){
+                    maxpage = Number(maxpage[1]);
+                    if (next > maxpage)
+                        return false;
+                }
+                return m[1]+next+m[3]+m[4];
             }
         },
         autopager: {
             useiframe: true,
-            pageElement: '//img[@id="ComicPic"] | //img[@id="img1021',
+            pageElement: '//div[@id="iBody"]',
         }
     },
     {name: '99漫画old',
@@ -3801,268 +3866,90 @@ var SITEINFO=[
         exampleUrl: 'http://g.e-hentai.org/s/2221a78fe2/592744-3',
         useiframe: true
     },
-    // ==== NSFW ====
-    {   name: 'porn-image-xxx.com',
-		url: /^https?:\/\/(\w*\.)?porn-image-xxx\.com\/image\/\.*/,
-		nextLink: 'auto;',
-        autopager:{
-            enable:true,
-		    pageElement: '//div[@id="display_image_detail"]',
-            ipages: [true,30],
-		},
-		exampleUrl: 'https://zh.porn-image-xxx.com/image/g-cup-beauty-big-breasts-image-intertwined-konno-anzu-minami-and-shore-sayaka/page/1/',
-	},
-    {   name: 'sasaone.com',
-		url: /^https?:\/\/(\w*\.)?sasaone\.com\/\w+\/\d+\/\d+(_\d+)?\.html/i,
-        nextLink: function(doc, win, cplink) {
-                var m = cplink.match(/\d+_(\d+)\.html/);
-                if (!m) {
-                    return cplink.replace(".html","_2.html");
-                } else {
-                   var current = Number(m[1]);
-                   var next = current + 1;
-                   var url = cplink.replace(m[1]+'.html', next+'.html');
-                   //var url2 = doc.valuate('//a[text()="下一页"]', document, null, XPathResult.ANY_TYPE, null).iterateNext().href;
-                 //   debug(url);
-                   // debug(url2);
-                   //if (url != url2)
-                     //  return false;
-                   //else
-                       return url;
-                }
-            },
-        autopager:{
-            enable:true,
-		    pageElement: '//div[@id="disappear"]',
-            ipages: [true,30],
-		},
-	},
-    {   name: 'sasaone.com',
-		url: /^https?:\/\/(\w*\.)?sasaone\.com\/\w+(\/list.*\.html|\/index.*\.html)?/i,
-        nextLink: '//a[text()="下一页"]',
-        autopager:{
-            enable:true,
-		    pageElement: '//ul[@id="need"]/li',
-		},
-	},
-    {   name: '24fa',
-		url: /^https?:\/\/(\w*\.)?24fa\.top\/.*\.html/,
-		nextLink: 'auto;',
-        autopager:{
-            enable:true ,
-		    pageElement: '//div[@id="content"]',
-            ipages: [true,30],
-		},
-		exampleUrl: 'https://www.24fa.top/MeiNv/2017-10/50531p4.html',
-	},
-	{
-		name: '美女86',
-		url: '^http://www\\.17786\\.com\\/\\d+_\\d+\\.html',
-		nextLink: '//div/div/div/a[@class="next-page-a"]',
-		pageElement: '//div[@class="falls-detail"]/div[@class="content"]/div[@class="img_box"]/a/img[@class="IMG_show"]',
-		exampleUrl: 'http://www.17786.com/8104_2.html',
-	},
-	{
-		name: '宅男女神',
-		url: '^https?://www\\.nvshens\\.com\\/.\\/\\d+\\/',
-		nextLink: '//div[@id="pages"]/span/following::a[not(@class) and not(@id)]',
-		exampleUrl: 'http://www.nvshens.com/g/17951/',
+    // === hentai image ====
+    {name: 'ehentai',
+        url: /^https:\/\/e[-x]hentai\.org\/s\/.*\/.*/,
+        nextLink: '//a[@id="next"]',
         autopager:{
             enable:true ,                                                                                               //启用(自动翻页)(可选)
-		    pageElement: '//ul[@id="hgallery"]',
+            pageElement: '//div[@id="i3"]',
             ipages: [true,30],                               //立即翻页,第一项是控制是否在js加载的时候立即翻第二项(必须小于maxpage)的页数,比如[true,3].就是说JS加载后.立即翻3页.(可选)
-		},
-	},
-	{
-        name: 'AV百科',
-		url: '^http://www\\.avbaike\\.net/\\d+\\.html',
-		nextLink: 'id("content")/div[@class="article_container row  box"]/div[@class="context"]/descendant::a[text()="下一页"]',
-        autopager:{
-            enable:true ,                                                                                               //启用(自动翻页)(可选)
-		    pageElement: '//div[@id="post_content"]',
-            ipages: [true,30],                               //立即翻页,第一项是控制是否在js加载的时候立即翻第二项(必须小于maxpage)的页数,比如[true,3].就是说JS加载后.立即翻3页.(可选)
-		},
-		exampleUrl: 'http://www.avbaike.net/17237.html',
-	},
-	{
-        name: '爱套图',
-		url: '^https://www\\.aitaotu\\.com/[a-z]+/\\d+(_\\d)*\\.html',
-		nextLink: '//a[text()="下一页"]',
-        autopager:{
-            enable:true ,
-	     	pageElement: 'id("big-pic")/p/a',
-            ipages: [true,30],
         },
-		exampleUrl: 'https://www.aitaotu.com/guonei/1081_4.html',
-	},
-	{
-        name: '秀美眉',
-		url: '^https?://www\\.(xiumeim|xmeim)\\.com/photos/.*\\.html',
-		nextLink: '//a[@id="nextPageHref"]',
-        autopager:{
-            enable:true ,
-		    pageElement: '//div[@class="gallary_item"]',
-            ipages: [true,30],
-		},
-		exampleUrl: 'http://www.xiumeim.com/photos/YOUMI-189522.html',
-	},
-    {
-        name: '秀美眉2',
-		url: /^https?:\/\/www\.(xiumeim|xmeim)\.com(\/albums\/[^\/]+\.html)?/,
-		nextLink: '//a[text()="后页>"]',
-        autopager:{
-            enable:true ,                                                                                               //启用(自动翻页)(可选)
-		    pageElement: '//div[@class="gallary_wrap"]',
-            ipages: [true,2],                               //立即翻页,第一项是控制是否在js加载的时候立即翻第二项(必须小于maxpage)的页数,比如[true,3].就是说JS加载后.立即翻3页.(可选)
-		},
-		exampleUrl: 'http://www.xiumeim.com/',
-	},
-    {
-        name: '美图录',
-		url: '^https?://www\\.meitulu\\.com/item/\\d+(_\\d+)?\\.html',
-		nextLink: '//a[text()="下一页"]',
-		pageElement: '//div[@class="content"]/center',
-		exampleUrl: 'https://www.meitulu.com/item/3225_2.html',
-	},
-    {
-        name: 'meituri',
-		url: '^https?://www\\.meituri\\.com',
-		nextLink: '//a[text()="下一页"]',
-        autopager:{
-		    pageElement: '//div[@class="content"]',
-            ipages: [true,30],
-        },
-		exampleUrl: 'https://www.meitulu.com/item/3225_2.html',
-	},
-	{
-        name: 'mimifuli',
-		url: /^https?:\/\/(www\.)?(mimifuli|bbt01|yxpjw|yxpjwnet)\.(info|club|net|com)/i,
-		nextLink: '//li[@class="next-page"]/a | //div[@class="article-paging"]/span/following-sibling::a[1]',
-        autopager:{
-            enable:true ,                                                                                               //启用(自动翻页)(可选)
-		    pageElement: '//article[@class="article-content"]|//article[@class="excerpt excerpt-one"]',
-            ipages: [true,30],                               //立即翻页,第一项是控制是否在js加载的时候立即翻第二项(必须小于maxpage)的页数,比如[true,3].就是说JS加载后.立即翻3页.(可选)
-            replaceE: '//blockquote',
-		},
-		exampleUrl: 'http://zhaofuli.mobi/luyilu/2016/0224/1990.html',
-	},
-    {
-        name: 'tuigirl8.net',
-        url: /^http:\/\/tuigirl8\.net\/.*\.html/i,
-        nextLink: '//a[text()="下一页"]',
-        autopager:{
-            enable:true ,         //启用(自动翻页)(可选)
-	     	pageElement: '//div[@class="img"]',
-            ipages: [true,30],                               //立即翻页,第一项是控制是否在js加载的时候立即翻第二项(必须小于maxpage)的页数,比如[true,3].就是说JS加载后.立即翻3页.(可选)
-          //  replaceE: 'css;.post-copyright',
-		},
+        exampleUrl: 'https://e-hentai.org/s/f61cb59d07/1099124-3',
     },
-    {
-        name: '凹凸吧,欲女8',
-		url: /^https?:\/\/(www\.)?(tuao8|tuitu8)\.(com|top)\/(?:post)?/,
-		nextLink: '//li[@class="next-page"]/a | //span[text()="›"]/parent::a',
+    {name: 'ehentai gallary',
+        url: /^https:\/\/e[x-]hentai\.org\/g\/[^\/]*\/[^\/]*(\/\?p=\d)?/,
+        nextLink: '//table[@class="ptt"]/tbody/tr/td[last()]/a',
+        pageElement: '//div[@id="gdt"]',
+        exampleUrl: 'https://e-hentai.org/g/1109427/b827f866e1/?p=3',
+    },
+    {name: 'ehentai gallary front',
+        url: /https:\/\/e[x-]hentai\.org(\/\?[fp].*)?/,
+        nextLink: '//table[@class="ptt"]/tbody/tr/td[last()]/a',
+        pageElement: '//div[@id="gdt"]',
+        exampleUrl: 'https://e-hentai.org/g/1109427/b827f866e1/?p=3',
+    },
+    {name: 'nhentai',
+        url: /^https:\/\/nhentai\.net/,
+        nextLink: '//section[@class="pagination"]/a[@class="next"]',
+        pageElement: '//div[@class="container index-container"]|//section[@id="image-container"]',
+        exampleUrl: 'https://nhentai.net/tag/akigami-satoru/',
+    },
+    {name: '177pic',
+        url: /^https?:\/\/(www\.)?177pic\.info\/html\/.*\.html/,
+        nextLink: '//a[text()="下一页"]',
         autopager:{
             enable:true ,
-            pageElement: '//div[@class="entry"]/p|//article[contains(@class,"post-box")]',
+            useiframe:false,
+            pageElement: '//div[@class="entry-content"]',
             ipages: [true,30],
-		},
-		exampleUrl: 'https://www.tuao8.com/post/95.html?pagenum=7;https://www.yunu8.com/web/295.html',
-	},
-    {
-        name: '17see',
-		url: /^https?:\/\/www\.17see\.net/i,
+        },
+        exampleUrl: 'http://www.177pic.info/html/2017/06/1409443.html',
+    },
+    {name: 'wnacg',
+        url: '^https?://(www\\.)?wnacg\\.org/photos-view-id.*\\.html',
+        nextLink: '//a[text()="下一頁"]',
+        autopager:{
+            enable:true ,
+            useiframe:false,                                                                                        //是否使用iframe翻页(可选)
+            pageElement: '//img[@id="picarea"]',
+            ipages: [true,30],                               //立即翻页,第一项是控制是否在js加载的时候立即翻第二项(必须小于maxpage)的页数,比如[true,3].就是说JS加载后.立即翻3页.(可选)
+        },
+        exampleUrl: 'http://www.wnacg.org/photos-index-aid-42394.html',
+    },
+    {name: 'wnacglist',
+        url: '^https?://(www\\.)?wnacg\\.org',
+        nextLink: '//span[@class="next"]/a',
+        pageElement: '//div[@class="gallary_wrap"]',
+        exampleUrl: 'http://www.wnacg.org/photos-view-id-2132443.html',
+    },
+    // ==== NSFW ====
+    {name: 'porn-image-xxx.com',
+        url: /^https?:\/\/(\w*\.)?porn-image-xxx\.com\/image\/\.*/,
         nextLink: 'auto;',
         autopager:{
-            enable:true ,
-            pageElement: '//div[@id="ad_content_main"]/following-sibling::img|//div[@id="ad_content_main"]/following-sibling::p/img|//div[@class="m-list-main"]/ul[not(//div[@id="ad_content_main"]/following-sibling::img)]',
+            enable:true,
+            pageElement: '//div[@id="display_image_detail"]',
             ipages: [true,30],
-		},
-		exampleUrl: 'https://www.17see.net/qingchun/5542_44.html',
-	},
-    {
-        name: '悠悠美图',
-		url: /^https?:\/\/www\.youyourentiyishu\.com/i,
-        nextLink: function(doc, win, cplink) {
-                var m = cplink.match(/\d+-(\d+)\.html/);
-                if (!m) {
-                    return cplink.replace(".html","-2.html");
-                } else {
-                   var current = Number(m[1]);
-                   var next = current + 1;
-                   var url = cplink.replace(m[1]+'.html', next+'.html');
-                   var url2 = doc.querySelector('a.next').getAttribute("href");
-                   if (url != url2)
-                       return false;
-                   else
-                       return url;
-                }
-            },
+        },
+        exampleUrl: 'https://zh.porn-image-xxx.com/image/g-cup-beauty-big-breasts-image-intertwined-konno-anzu-minami-and-shore-sayaka/page/1/',
+    },
+    {name: 'AV百科',
+        url: '^http://www\\.avbaike\\.net/\\d+\\.html',
+        nextLink: 'id("content")/div[@class="article_container row  box"]/div[@class="context"]/descendant::a[text()="下一页"]',
         autopager:{
-            enable:true ,
-            pageElement: '//div[@class="showimg"]/a',
+            enable:true,
+            pageElement: '//div[@id="post_content"]',
             ipages: [true,30],
-		},
-		exampleUrl: 'http://www.youyourentiyishu.com/rentiyishuzhaopian/20180506225810.html',
-	},
-	{
-        name: 'ppzix',
-		url: /^https?:\/\/www\.ppzix\.com/i,
-		nextLink: '(//div[@class="neiye_page"]/span|//div[@class="neiye_page"]/strong)/following-sibling::a',
-        autopager:{
-            pageElement: '(//div[@class="nr_cons"]/p|//ul[@class="tpboxul"]/li)',
-            ipages: [true,30],
-		},
-		exampleUrl: 'http://www.ppzix.com/tyjr/1556_5.html',
-	},
-    {
-        name: '性感尤物',
-		url: /^https?:\/\/www\.xgyw\.cc\/[^\/]*\/[^\/]*\.html/,
-		nextLink: '//div[@class="page"]/a[text()="后"]',
-        autopager:{
-            pageElement: '//div[@class="img"]/p',                                          //主体内容 xpath 或 CSS选择器 或函数返回值(~~必须~~)
-            ipages: [true,30],                               //立即翻页,第一项是控制是否在js加载的时候立即翻第二项(必须小于maxpage)的页数,比如[true,3].就是说JS加载后.立即翻3页.(可选)
-		},
-		exampleUrl: 'http://www.xgyw.cc/Xgyw/Xgyw6874.html',
-	},
-    {
-        name: '性感尤物2',
-		url: /^https?:\/\/www\.xgyw\.cc\/[^\/]*/,
-		nextLink: '//div[@class="page"]/a[text()="下页"]',
-        autopager:{
-            enable:true ,                                                                                               //启用(自动翻页)(可选)
-		    pageElement: '//tr[./td[@class="td6"]]',
-            ipages: [true,10],                               //立即翻页,第一项是控制是否在js加载的时候立即翻第二项(必须小于maxpage)的页数,比如[true,3].就是说JS加载后.立即翻3页.(可选)
-		},
-		exampleUrl: 'http://www.xgyw.cc/Xgyw',
-	},
-  // {
-    //    name: '美图赚赚不要撸',
-      //  url: /^https?:\/\/www\.tangniaobingyinshi\.com/i,
-      //  nextLink: '//li[@class="next-page"]/a',
-      //  autopager:{
-       //     enable:true ,                                                                                               //启用(自动翻页)(可选)
-       //     pageElement: '//article[@class="excerpt excerpt-one"]',
-         //   replaceE: '//div[@classgination pagination-multi"]/ul',                 //需要替换的部分 xpat h或 CSS选择器 一般是页面的本来的翻页导航(可选);
-	//	},
-    //},
-    {
-        name: '81mm',
-		url: '^http://www\\.81mm\\.net/\\d+\\.html',
-		nextLink: '//div[@class="content_left"]/p/a[@title="点击图片查看下一张"]',
-        autopager:{
-            enable:true ,                                                                                               //启用(自动翻页)(可选)
-	    	pageElement: '//div[@class="content_left"]/p[1]',
-            ipages: [true,30],                               //立即翻页,第一项是控制是否在js加载的时候立即翻第二项(必须小于maxpage)的页数,比如[true,3].就是说JS加载后.立即翻3页.(可选)
-		},
-		exampleUrl: 'http://www.81mm.net/1120.html',
-	},
-    {
-        name: 'avgle',
-		url: /^https:\/\/avgle\.com\/.*/,
-		nextLink: '//a[@class="prevnext"]',
-		pageElement: '//div[@id="wrapper"]/div[1]/div[@class="row"]/div[1]',
-		exampleUrl: 'https://avgle.com/search/videos?search_query=%E5%A5%B3%E6%95%99%E5%B8%AB&search_type=videos&o=tr',
-	},
+        },
+        exampleUrl: 'http://www.avbaike.net/17237.html',
+    },
+    {name: 'avgle',
+        url: /^https:\/\/avgle\.com\/.*/,
+        nextLink: '//a[@class="prevnext"]',
+        pageElement: '//div[@id="wrapper"]/div[1]/div[@class="row"]/div[1]',
+        exampleUrl: 'https://avgle.com/search/videos?search_query=%E5%A5%B3%E6%95%99%E5%B8%AB&search_type=videos&o=tr',
+    },
     {name: "pornhub",
         url: "^https://[^.]+\.pornhub\.com/",
         nextLink: "//li[contains(concat(' ', @class, ' '), ' page_next ')]/a",
@@ -4090,27 +3977,18 @@ var SITEINFO=[
     {name: "chaturbate",
         url: "^https?://([^.]+\.)?chaturbate\.com/",
         nextLink: 'auto;',
-        autopager: {
-            pageElement: '//ul[@class="list"]',
-          //  useiframe: true
-        }
+        pageElement: '//ul[@class="list"]',
     },
     // ==== English websites ====================
     {name: "reddit",
         url: "^https?://([^.]+\.)?reddit\.com/",
         nextLink: '//a[contains(@rel,"next")]',
-        autopager: {
-            pageElement: 'id("siteTable")/*[not(@class="nav-buttons")]',
-          //  useiframe: true
-        }
+        pageElement: 'id("siteTable")/*[not(@class="nav-buttons")]',
     },
     {name: "models",
         url: "^https?://([^.]+\.)?models\.com/models/",
         nextLink: '(//ul[@id="tabnavB"]/li)[last()]/a',
-        autopager: {
-            pageElement: '//div[@class="work-div"]',
-          //  useiframe: true
-        }
+        pageElement: '//div[@class="work-div"]',
     },
     {name: "xkcd",
         url: "^https?://(?:www\.)?xkcd\.com",
@@ -4128,7 +4006,117 @@ var SITEINFO=[
     },
     // ===== obtained from http://wedata.net/databases/AutoPagerize =========
     // most sites are in japanese
-    // update at: June 14, 2018
+    // update at: June 29, 2018
+    {name: 'textream search',
+        url: '^https://textream\.yahoo\.co\.jp/search\?',
+        nextLink: '(//span[contains(@class,"btnNext")])[1]/a',
+        siteExample: '',
+        pageElement: 'id("trdlst")',
+        created_by: 'ysakot',
+        resource_url: 'http://wedata.net/items/81760',
+    },
+    {name: 'SEIYUドットコム',
+        url: '^https?://www\.the-seiyu\.com/',
+        nextLink: '//a[text()="次へ"]',
+        siteExample: 'https://www.the-seiyu.com/front/app/catalog/list/init?searchWord=%E3%81%8A%E9%85%92&searchMethod=0&searchContextPath=%2Ffront&selectSlot=2203_2018%2F06%2F25_A_14%3A00_16%3A00_09%3A00_400_400&selectSlot2=0_400_400_5%2C000_0_0&wrt=y&mode=image&pageSize=49&currentPage=3&alignmentSequence=4&resultMessage=',
+        pageElement: '//div[@id="searchList"]',
+        created_by: 'acchan658',
+        resource_url: 'http://wedata.net/items/81759',
+    },
+    {name: '毎日エロ漫画',
+        url: '^https?://eromanga-everyday\.com',
+        nextLink: '//div[@class="pagenavi"]/ul/li/a[contains(@class, "next")]',
+        siteExample: 'http://eromanga-everyday.com/page/2/',
+        pageElement: '//div[@class="main_col"]/div[@class="post"]',
+        created_by: 'natuha03@hatena',
+        resource_url: 'http://wedata.net/items/81758',
+    },
+    {name: 'Stencyl Forums',
+        url: '^https?://community\.stencyl\.com/.',
+        nextLink: '(//div[@class="pagelinks floatleft"]|//div[@class="pagesection"]/span)/strong/following-sibling::a[1]',
+        siteExample: 'http://community.stencyl.com/index.php/board,2.0.html http://community.stencyl.com/index.php/topic,49229.0.html http://community.stencyl.com/index.php?action=profile;area=showposts;u=146900',
+        pageElement: '//table[@class="table_grid"]/tbody/tr|id("quickModForm")/*|id("admin_content")/div[@class="topic"]',
+        created_by: 'Tanookirby',
+        resource_url: 'http://wedata.net/items/81757',
+    },
+    {name: 'E! Online News',
+        url: '^https://(www\.)?eonline\.com/news',
+        nextLink: '//a[@rel="next"]',
+        siteExample: 'https://www.eonline.com/news/;https://www.eonline.com/news/page/2',
+        autopager:{
+            pageElement: '//div[@class="category-landing__content-items"]/a',
+            stylish: '@-moz-document domain("www.eonline.com") { #newsLanding{height: auto !important;};   .two-column{position: static !important;};   #HFooter{display:none;}; }',
+        },
+        created_by: 'Tanookirby',
+        resource_url: 'http://wedata.net/items/77018',
+    },
+    {name: 'DMM オンラインゲーム コミュニティ',
+        url: '^http://www\.dmm\.co(?:m|\.jp)/netgame/community/-/topic/',
+        nextLink: '//ul[@class="area-pager"]/li[span]/following-sibling::li/a',
+        siteExample: 'http://www.dmm.com/netgame/community/-/topic/detail/=/cid=/tid=16660/',
+        pageElement: '//div[contains(@class,"ntg-comment-list")]/ul/li',
+        created_by: 't_f_m',
+        resource_url: 'http://wedata.net/items/76461',
+    },
+    {name: 'Variety',
+        url: '^https?://variety(latino)?\.com',
+        nextLink: '//section[@class="l-river"]/footer/a[@class="c-more"]|//a[@class="c-arrows__next"]|//div[@class="pagination more-news"]/a|//li[@class="next"]/a|//a[@class="next page-numbers"]',
+        siteExample: 'http://variety.com http://variety.com/v/tv/ http://varietylatino.com/',
+        autopager:{
+            pageElement: '//div[@class="l-river__content"]/ul[@class="l-list"]/li[article/figure]|//div[@class="col1"]/section[starts-with(@class,"module-blogroll")]',
+            stylish: '@-moz-document domain("variety.com") { img.lazy { display: inline-block !important; }; .c-card__image a{padding:0;} }',
+        },
+        created_by: 'Tanookirby',
+        resource_url: 'http://wedata.net/items/76290',
+    },
+    {name: 'GoComics',
+        url: '^https?://(www\.)?gocomics\.com/',
+        nextLink: '//div[@class="gc-calendar-nav__next"]/a[last()-1][not(contains(@class,"disabled"))]|//span[contains(@class,"current")]/following-sibling::a[@rel="next"][1]',
+        siteExample: 'http://www.gocomics.com/jumpstart/2010/01/01 http://www.gocomics.com/news/all http://www.gocomics.com/mycomics/1616440/edit',
+        pageElement: '//div[@class="item-comic-vertical-wrapper" or @class="comic__wrapper" or contains(@class," gc-deck--has-ads gc-deck gc-deck--third") and //header/@class="gc-page-header  bg-news"]|//a[@class="gc-card-item"][not(id("js-item-start")/div)]|//div[@class="row content-section js-available-features"]/*',
+        created_by: 'Tanookirby',
+        resource_url: 'http://wedata.net/items/74786',
+    },
+    {name: 'Game*Spark',
+        url: '^https://(?:www\.)?gamespark\.jp/(?:article|category)/',
+        nextLink: 'id("nextPageButton")//li[@class="next"]/a|//li[@class="item paging-next"]/a',
+        siteExample: 'https://www.gamespark.jp/article/2016/06/01/66232.html https://www.gamespark.jp/article/?page=1;https://www.gamespark.jp/category/console/latest/?page=1;https://www.gamespark.jp/article/2014/03/13/47007/comment.html;https://www.gamespark.jp/article/2017/09/15/75817.html',
+        pageElement: 'id("articlePaging")/preceding-sibling::node()[not(@id="nextPageButton")]|//ul[@class="newsItem" or @class="comment-list"]/li[not(id("articleItem"))]|//div[@class="news-list"]/*',
+        created_by: 'myseni',
+        resource_url: 'http://wedata.net/items/70183',
+    },
+    {name: 'ドラゴンクエストX 提案広場 提案一覧',
+        url: '^http://hiroba\.dqx\.jp/sc/forum/pretop/',
+        nextLink: '//a[@class="pagerNext"]',
+        siteExample: 'http://hiroba.dqx.jp/sc/forum/pretop/',
+        pageElement: '//div[@class="fm2roundbox--user__inner"]',
+        created_by: 'haoyayoi@hatena',
+        resource_url: 'http://wedata.net/items/70108',
+    },
+    {name: 'ナタリー 特集記事 ',
+        url: '^https://natalie\.mu/(?:(?:(?:com|mus)ic|eiga|o(?:yatsu|warai)|stage)/)?pp/[^/]',
+        nextLink: '//li[contains(concat(" ",@class," ")," sp-tab-next ")]/a',
+        siteExample: 'http://natalie.mu/comic/pp/allyouneediskill;http://natalie.mu/comic/pp/akosan/page/4;http://natalie.mu/eiga/pp/drive_ninnin;http://natalie.mu/comic/pp/otoyomegatari02;http://natalie.mu/stage/pp/namuhamudahamu;http://natalie.mu/comic/pp/kudennoise_kanojyo;http://natalie.mu/comic/pp/beautyandbeast01/page/2;http://natalie.mu/comic/pp/rakuen02/page/8',
+        pageElement: 'id("sp-left")/div[starts-with(@class,"sp-navigation")]/following-sibling::div[following-sibling::div[@class="sp-link-next" or @class="sp-navigation" or (contains(@class,"sp-footer-navigation") and not(//div/@class="sp-link-next"))]]|//div[contains(concat(" ",@class," ")," PP_main ")]/*[not(contains(concat(" ",@class," ")," PP_pager "))]',
+        created_by: 't_f_m',
+        resource_url: 'http://wedata.net/items/33439',
+    },
+    {name: 'ナタリー - 画像 ニュース 統合',
+        url: '^https?://natalie\.mu/(?:(?:(?:com|mus)ic|eiga|o(?:yatsu|warai)|stage)/)?(?:news|gallery/news/\d+)/\d',
+        nextLink: '//div[@class="NA_galleryNav"]/ul/li[last()]/a|//div[contains(concat(" ",@class," ")," NA_articleFigure ")]/figure/a|//a[@class="NA_more"]',
+        siteExample: 'https://natalie.mu/music/gallery/news/19812/28317;https://natalie.mu/comic/gallery/news/18577/26375;http://natalie.mu/comic/news/18577;http://natalie.mu/music/news/120722;http://natalie.mu/eiga/news/156194;http://natalie.mu/stage/news/212854;https://natalie.mu/eiga/news/288207',
+        pageElement: '//div[@class="NA_galleryBody" or @class = "NA_articleBanner" or @class="NA_articleFigure" or @class="NA_articleBody" or @class = "NA_articleSup"]',
+        created_by: 'inucara',
+        resource_url: 'http://wedata.net/items/29498',
+    },
+    {name: 'drawr新着|スレッド',
+        url: '^http://drawr\.net/(new|thread)\.php',
+        nextLink: '//p[@class="left-food-link"]/a[contains(.,"Older")]',
+        siteExample: 'http://drawr.net/new.php http://drawr.net/thread.php?page=1',
+        pageElement: '//div[@class="mgnTop10"]/div',
+        created_by: 'fuba',
+        resource_url: 'http://wedata.net/items/2713',
+    },
     {name: 'Playstation Store',
         url: '^https://store\.playstation\.com/[^/]+/grid/',
         nextLink: '//a[contains(concat(" ",@class," ")," paginator-control__next ")]',
@@ -4146,7 +4134,7 @@ var SITEINFO=[
         resource_url: 'http://wedata.net/items/81755',
     },
     {name: 'pixiv series',
-        url: '^https://www\.pixiv\.net/user/\d+/series/',
+        url: /^https?:\/\/www\.pixiv\.net\/user\/\d+\/series/i,
         nextLink: '//a[@rel="next"]',
         siteExample: 'https://www.pixiv.net/user/10232794/series/12174',
         pageElement: '//div[@class="works"]/*',
@@ -4390,14 +4378,6 @@ var SITEINFO=[
         },
         created_by: 'terepandasan',
         resource_url: 'http://wedata.net/items/74812',
-    },
-    {name: 'GoComics',
-        url: '^https?://(www\.)?gocomics\.com/',
-        nextLink: '//div[@class="gc-calendar-nav__next"]/a[last()-1][not(contains(@class,"disabled"))]|//a[@rel="next"][1]',
-        siteExample: 'http://www.gocomics.com/jumpstart/2010/01/01 http://www.gocomics.com/news/all http://www.gocomics.com/mycomics/1616440/edit',
-        pageElement: '//div[@class="item-comic-vertical-wrapper" or @class="comic__wrapper" or contains(@class," gc-deck--has-ads gc-deck gc-deck--third") and //header/@class="gc-page-header  bg-news"]|//a[@class="gc-card-item"][not(id("js-item-start")/div)]|//div[@class="row content-section js-available-features"]/*',
-        created_by: 'Tanookirby',
-        resource_url: 'http://wedata.net/items/74786',
     },
     {name: 'IMDB search',
         url: '^https://(www\.)?imdb\.com/search/',
@@ -4817,7 +4797,7 @@ var SITEINFO=[
         pageElement: '//table[@class="screenshots"]',
     },
     {name: 'Wisdom NEC',
-        url: '^https?://wisdom\.nec\.com/ja/[^/]+/\d{8}',
+        url: /^https?:\/\/wisdom\.nec\.com\/ja\/\w+\/\d+/i,
         siteExample: 'https://wisdom.nec.com/ja/local/2017042701/index.html',
         nextLink: '//li[@class="linkNext"]/a',
         pageElement: 'id("main")/article/section',
@@ -6027,9 +6007,9 @@ function checkUpdate(button) {
     button.disabled = 'disabled';
 
     var reset = function() {
-    	isUpdating = false;
-    	button.innerHTML = '马上更新';
-    	button.disabled = '';
+      isUpdating = false;
+      button.innerHTML = '马上更新';
+      button.disabled = '';
     };
 
     GM_xmlhttpRequest({
@@ -6074,7 +6054,7 @@ function checkUpdate(button) {
         }
     });
 
-	setTimeout(reset, 30 * 1000);
+  setTimeout(reset, 30 * 1000);
 }
 
 
@@ -6958,7 +6938,7 @@ function init(window, document) {
             }
         }
 
-        function iframeRquest(link) {
+        function iframeRequest(link) {
             messageR = false;
             if (SSS.a_newIframe || !iframe) {
                 var i = document.createElement('iframe');
@@ -7009,7 +6989,7 @@ function init(window, document) {
 
             debug('获取下一页' + (SSS.a_useiframe ? '(iframe方式)': ''), nextlink);
             if (SSS.a_useiframe) {
-                iframeRquest(nextlink);
+                iframeRequest(nextlink);
             } else {
                 GM_xmlhttpRequest({
                     method: "GET",
