@@ -1,0 +1,16 @@
+! Title: Personal filters
+! Expires: 4 days
+! Description: Filters by machsix
+! Homepage: https://github.com/machsix/personal-scripts
+! Licence: https://github.com/machsix/personal-scripts/master/LICENSE
+! 
+
+www.qyule.tv##.container-item.container > .ads
+www.qyule.tv##.ads
+||xgyw.cc/UploadFile/ad*.jpg
+||xgyw.cc/UploadFile/ad*.png
+||baiduyoukualiyun.com
+wx4.sinaimg.cn/large/00762c7cly1fr630f6e28g30qo028arn.gif
+hdchina.org###top_show
+www.pornhub.com##.sectionWrapper:nth-child(3)
+https://ee.e7006.com/cpc/*
