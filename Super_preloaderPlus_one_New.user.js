@@ -6,9 +6,12 @@
 // @description  Preload and Autopager
 // @description:zh-cn  预读+翻页..全加速你的浏览体验
 // @author       Mach6(原作者 ywzhaiqi && NLF)
-// @version      6.5.3
+// @version      6.5.30
 // @license      GNU GPL v3
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
+// @updateURL    https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.user.js
+// @downloadURL  https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.user.js
+// @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
 // @icon         https://raw.githubusercontent.com/machsix/personal-scripts/master/Super_preloader/icon.png
 // @grant        GM_addStyle
 // @grant        GM_getValue
