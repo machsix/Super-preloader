@@ -55,6 +55,7 @@ For website with X-Header, you should follow issue 8 in the last section
 
 
 #Changelog
+- July 15th 2018: 修正许多漫画网站
 - 5月10日，2018： 修补虎扑、pixiv、哈姆雷特、NSFW rules. 合并部分[日文规则](http://wedata.net/databases/AutoPagerize)
 - 12月7日：修正wnacg
 - 12月1日：修正百度贴吧规则，帖子默认自动翻页，帖子列表请手动打开(修改385行为true);添加部分新图库

@@ -47,7 +47,7 @@
 
 // 主要用于 chrome 原生下检查更新，也可用于手动检查更新
 var scriptInfo = {
-    version: '6.5.3',
+    version: '6.5.30',
     updateTime: '2018/7/15',
     changelog: 'Rules for comics',
     homepageURL: 'https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new',
