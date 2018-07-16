@@ -2,15 +2,15 @@
 // ==UserScript==
 // @name         Super_preloaderPlus_one_New
 // @name:zh-CN   Super_preloaderPlus_one_改
+// @name:zh-TW   Super_preloaderPlus_one_改
 // @namespace    https://github.com/machsix
 // @description  Preload and Autopager
 // @description:zh-cn  预读+翻页..全加速你的浏览体验
+// @description:zh-TW  预读+翻页..全加速你的浏览体验
 // @author       Mach6(原作者 ywzhaiqi && NLF)
-// @version      6.5.30
+// @version      6.5.31
 // @license      GNU GPL v3
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
-// @updateURL    https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.user.js
-// @downloadURL  https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.user.js
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
 // @icon         https://raw.githubusercontent.com/machsix/personal-scripts/master/Super_preloader/icon.png
 // @grant        GM_addStyle
@@ -47,7 +47,7 @@
 
 // 主要用于 chrome 原生下检查更新，也可用于手动检查更新
 var scriptInfo = {
-    version: '6.5.30',
+    version: '6.5.31',
     updateTime: '2018/7/15',
     changelog: 'Rules for comics',
     homepageURL: 'https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new',
@@ -63,10 +63,30 @@ if (window.name === 'mynovelreader-iframe') {
     return;
 }
 
-// 如果是取出下一页使用的iframe window
-if (window.name === 'superpreloader-iframe') { // 搜狗,iframe里面怎么不加载js啊?
-    // 去掉了原版的另一种方法，因为新版本 chrome 已经支持。旧版本 chrome iframe里面 无法访问window.parent,返回undefined
+// Website which has script to change window name
+var ChangeIframeSites = [
+    { url: /^https?:\/\/www\.930mh\.com/i, },
+    ];
+var ChangeIframeSite = ChangeIframeSites.find(function(x){ return toRE(x.url).test(window.location.href); });
 
+function CheckIframe(x){
+    if (x){
+        try {
+            return window.self !== window.top;
+        } catch (e) {
+            return true;
+        }
+    }else{
+        if (window.name === 'superpreloader-iframe')
+            return true;
+        else
+            return false;
+    }
+}
+
+// 如果是取出下一页使用的iframe window
+if (CheckIframe(ChangeIframeSite)) { // 搜狗,iframe里面怎么不加载js啊?
+    // 去掉了原版的另一种方法，因为新版本 chrome 已经支持。旧版本 chrome iframe里面 无法访问window.parent,返回undefined
     var domloaded = function (){  // 滚动到底部,针对,某些使用滚动事件加载图片的网站.
         window.scroll(window.scrollX, 99999);
         window.parent.postMessage('superpreloader-iframe:DOMLoaded', '*');
@@ -3285,9 +3305,9 @@ var SITEINFO=[
             ipages: [true,20],
         }
     },
-    {name: '火影忍者中文网',
-        url:/http:\/\/www\.narutom\.com\/comic\/.+/i,
-        siteExample:'http://www.narutom.com/comic/11624.html?p=3',
+    {name: '930mh',
+        url:/https?:\/\/www\.930mh\.com\/manhua\/.+/i,
+        siteExample:'http://www.930mh.com/manhua/13355/500671.html?p=2',
         preLink:{
             startAfter:'?p=',
             inc:-1,
@@ -3295,20 +3315,20 @@ var SITEINFO=[
         },
         nextLink:{
             startAfter:'?p=',
-            mFails:[/http:\/\/www\.narutom\.com\/comic\/.+\.html/i,'?p=1'],
+            mFails:[/https?:\/\/www\.930mh\.com\/manhua\/.+\.html/i,'?p=1'],
             inc:1,
             isLast:function(doc,win,lhref){
-                var topSelect=doc.getElementById('topSelect');
-                if(topSelect){
-                    var s2os=topSelect.options;
-                    var s2osl=s2os.length;
-                    if(topSelect.selectedIndex==s2osl-1)return true;
+                var index = doc.getElementById('images').children[1].innerText;
+                var nums = index.match(/\d+/g);
+                if(Number(nums[0]) >= Number(nums[1])){
+                    return true;
                 }
             },
         },
         autopager:{
-            pageElement:'//img[@id="showImg"]',
+            pageElement:'//div[@id="images"]/img',
             useiframe:true,
+            ipages: [true,20],
         }
     },
     {name: '死神中文网',
