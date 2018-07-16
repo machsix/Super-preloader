@@ -6,7 +6,7 @@
 // @description  Preload and Autopager
 // @description:zh-cn  预读+翻页..全加速你的浏览体验
 // @author       Mach6(原作者 ywzhaiqi && NLF)
-// @version      6.5.26
+// @version      6.5.3
 // @license      GNU GPL v3
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
 // @icon         https://raw.githubusercontent.com/machsix/personal-scripts/master/Super_preloader/icon.png
@@ -44,15 +44,15 @@
 
 // 主要用于 chrome 原生下检查更新，也可用于手动检查更新
 var scriptInfo = {
-    version: '6.5.26',
-    updateTime: '2018/7/2',
-    changelog: 'cleanup rules; NSFW',
+    version: '6.5.3',
+    updateTime: '2018/7/15',
+    changelog: 'Rules for comics',
     homepageURL: 'https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new',
     downloadUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.user.js',
     metaUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.meta.js',
 };
 
-
+GM_setValue('version',scriptInfo.version);
 //----------------------------------
 // rule.js
 
@@ -307,8 +307,19 @@ var SITEINFO=[
         siteExample:'bing.com/search?q=',
         nextLink:"//a[contains(@class,\"sb_pagN\")]",
         autopager:{
-            pageElement: 'id("b_results")/li[@class="b_algo"]|id("results")',
-            replaceE: '//nav[@aria-label="navigation"]'
+            pageElement: 'id("b_results")/li[@class="b_algo"]',
+            replaceE: '//nav[@role="navigation"]',
+            HT_insert: ['id("b_results")/li[@class="b_pag"]',1],
+            startFilter: function(win, doc) {// 移动相关搜索到第一页
+                var brs = doc.evaluate('id("b_results")/li[@class="b_ans"]').iterateNext();
+                debug(brs);
+                ins = doc.getElementsByClassName('b_algo');
+                ins = ins[ins.length-1];
+                debug(ins);
+                if (brs && ins) {
+                    ins.appendChild(brs);
+                }
+            }
         }
     },
     {name: 'AOL 搜索',
@@ -416,11 +427,10 @@ var SITEINFO=[
     {name: '好人卡',
         url: /^https?:\/\/www.haorenka\.net/i,
         exampleUrl: 'https://www.haorenka.net/page/3',
-        nextLink: '//a[@class="prev page-numbers"]/@href',
-        prevLink: '//a[@class="next page-numbers"]/@href',
+        prevLink: '//a[@class="prev page-numbers"]',
+        nextLink: '//a[@class="next page-numbers"]',
         autopager: {
-            pageElement: '//article[contains(@id, "post-")]',
-            useiframe: true,
+            pageElement: '//div[contains(@class, "block5_widget_content block5_list loop-rows posts-loop-rows")]',
         }
     },
     {name: 'v2ex',
@@ -1194,12 +1204,12 @@ var SITEINFO=[
             pageElement: '//table[@class="torrents"]',
         }
     },
-    {name: '- HDWinG 高清影音人士的分享乐园',
-        url: /^https?:\/\/hdwing\.com\/browse\.php/i,
-        exampleUrl: 'http://hdwing.com/browse.php',
-        nextLink: '//b[contains(text(), "下页")]/parent::a',
+    {name: '- hdchina 高清影音人士的分享乐园',
+        url: /^https?:\/\/hdchina\.org/i,
+        exampleUrl: 'http://hdchina.org',
+        nextLink: '//b[contains(text(), "下一页")]/parent::a',
         autopager: {
-            pageElement: '//table[@class="torrents_list"]',
+            pageElement: '//table[@class="torrent_list"]',
         }
     },
     {name: 'TTG',
@@ -1991,7 +2001,7 @@ var SITEINFO=[
                 var url = cplink.replace(m[1]+'.html', next+'.html');
                 var url2 = doc.querySelector('a.next').getAttribute("href");
                 if (url != url2)
-                    return false;
+                    return undefined;
                 else
                     return url;
             }
@@ -2995,76 +3005,48 @@ var SITEINFO=[
             replaceE:'//div[@id="numpage"]',
         }
     },
-    {name: '暴走漫画',
-        url: /^http:\/\/(baozou|baozoumanhua)\.com\//i,
-        nextLink: '//div[@class="pagebar"]/a[text()="下一页" or @class="next"] | //a[@class="next" and (text()="下一页")]',
-        autopager: {
-            pageElement: '//div[@class="main cf"]/div[@class="content-block cf"]/div[1]',
-        }
-    },
     {name: '动漫之家漫画网',
         url: /^https?:\/\/(www|manhua)\.(dmzj|178)\.com\/\w+\/\d+\.shtml/,
         siteExample:'https://manhua.dmzj.com/yuanlian/36944.shtml#@page=1',
-        nextLink: {
-            startAfter: '#@page=',
-            mFails: [/^https?:\/\/(?:www|manhua)\.(?:dmzj|178)\.com\/\w+\/\d+\.shtml/, '#@page=1'],
-            inc: 1,
+        nextLink: function(doc, win, cplink) {
+            var current = Number(getElementByXpath('//*[@id="page_select"]/option[@selected][1]',doc).text.match(/(\d+)/)[1]);
+            var xpath_last = '//*[@id="page_select"]/option[last()]';
+            var end_num = Number(getElementByXpath(xpath_last,doc).text.match(/(\d+)/)[1]);
+            var next = current +1;
+            if (next > end_num )
+                return undefined;
+            else
+                return cplink.replace(/\.shtml(?:#@page=\d+)?/, '.shtml#@page='+next);
         },
         autopager:{
             useiframe:true,
+            reload: true, // do not create new iframe but reload
+            ipages: [true,20],
             pageElement:'//div[@id="center_box"]/img',
         },
     },
     {name: "看漫画",
         url: /^https?:\/\/www\.manhuagui\.com\/comic\/.+/i,
-        nextLink: {
-            startAfter: '#p=',
-            mFails: [/^https?:\/\/www\.manhuagui\.com\/comic\/.+/i, '#p=1'],
-            inc: 1,
-            isLast: function(doc, win, lhref) {
-                var select = doc.getElementById('pageSelect');
-                if (select) {
-                    var s2os = select.options;
-                    var s2osl = s2os.length;
-                    if (select.selectedIndex == s2osl - 1) return true;
-                }
-            },
+        // this is a set which uses hash to change page
+        // we need to manually add hash
+        nextLink: function(doc, win, cplink) {
+            var current = Number(getElementByXpath('//*[@id="page"]',doc).innerHTML);
+            var xpath_last = '//div[@id="pagination"]/a[contains(@href,"javascript") and not(@class)][last()]';
+            var end_num = Number(getElementByXpath(xpath_last,doc).text);
+            var next = current +1;
+            if (next > end_num )
+                return undefined;
+            else
+                return cplink.replace(/\.html(?:#p=\d+)?/, '.html#p='+next);
         },
         autopager: {
             useiframe: true,
-            // newIframe: true,
-            pageElement: '//img[@id="mangaFile"]',
+            newIframe: false,
+            reload: true, // do not create new iframe but reload
+            pageElement: '//div[@class="clearfix"]',
+            ipages: [true,20],
         },
         exampleUrl: "https://www.manhuagui.com/comic/17332/372862.html"
-    },
-    {name: '爱漫画',
-        url: /^http:\/\/www\.iimanhua\.com\/comic\/.+/i,
-        siteExample:'http://www.iimanhua.com/comic/55/list_39448.html',
-        useiframe:true,
-        preLink:{
-            startAfter:'?p=',
-            inc:-1,
-            min:1,
-        },
-        nextLink:{
-            startAfter:'?p=',
-            mFails:[/^http:\/\/www\.iimanhua\.com\/comic\/.+\.html/i,'?p=1'],
-            inc:1,
-            isLast:function(doc,win,lhref){
-                var pageSelect=doc.getElementById('pageSelect');
-                if(pageSelect){
-                    var s2os=pageSelect.options;
-                    var s2osl=s2os.length;
-                    //alert(s2.selectedIndex);
-                    if(pageSelect.selectedIndex==s2osl-1)return true;
-                }
-            },
-        },
-        autopager:{
-            useiframe:true,
-            remain:1/2,
-            pageElement:'//img[@id="comic"]',
-        }
     },
     {name: 'CC漫画网',
         url: "^http://www\\.tuku\\.cc/comic/\\d+/\\d+/",
@@ -3076,6 +3058,35 @@ var SITEINFO=[
         }
     },
     //已失效
+    //     {name: '爱漫画',
+    //         url: /^http:\/\/www\.iimanhua\.com\/comic\/.+/i,
+    //         siteExample:'http://www.iimanhua.com/comic/55/list_39448.html',
+    //         useiframe:true,
+    //         preLink:{
+    //             startAfter:'?p=',
+    //             inc:-1,
+    //             min:1,
+    //         },
+    //         nextLink:{
+    //             startAfter:'?p=',
+    //             mFails:[/^http:\/\/www\.iimanhua\.com\/comic\/.+\.html/i,'?p=1'],
+    //             inc:1,
+    //             isLast:function(doc,win,lhref){
+    //                 var pageSelect=doc.getElementById('pageSelect');
+    //                 if(pageSelect){
+    //                     var s2os=pageSelect.options;
+    //                     var s2osl=s2os.length;
+    //                     //alert(s2.selectedIndex);
+    //                     if(pageSelect.selectedIndex==s2osl-1)return true;
+    //                 }
+    //             },
+    //         },
+    //         autopager:{
+    //             useiframe:true,
+    //             remain:1/2,
+    //             pageElement:'//img[@id="comic"]',
+    //         }
+    //     },
     //     {name: '新动漫',
     //         url:/http:\/\/www\.xindm\.cn\/mh\/.+/i,
     //         siteExample:'http://www.xindm.cn/mh/shishangzuiqiangdizi/58784.html?p=2',
@@ -3102,66 +3113,35 @@ var SITEINFO=[
     //             useiframe:true,
     //         }
     //     },
-    {name: '看漫画',
-        url:/^http:\/\/www\.kkkmh\.com\/manhua\/\d+\/\d+\/\d+\.html/i,
-        siteExample:'http://www.kkkmh.com/manhua/0710/1011/34412.html?p=2',
-        nextLink: {
-            startAfter: '?p=',
-            mFails: [/^http:\/\/www\.kkkmh\.com\/manhua\/\d+\/\d+\/\d+\.html/i, '?p=1'],
-            inc: 1,
-            isLast: function(doc, gm_win, lhref) {
-                var pic_num = gm_win.pic.length;
-                var url_info = lhref.split("?p=");
-                var current_page = Number(url_info[1]);
-                if (current_page >= pic_num) {
-                    return true;
+    {name: 'SF在线漫画',
+        // only work in chrome
+        url:/https?:\/\/manhua\.sfacg\.com\/mh\/.+/i,
+        siteExample:'https://manhua.sfacg.com/mh/YULINGSHI/20087/#p=2',
+        preLink:{
+            startAfter:'#p=',
+            inc:-1,
+            min:1,
+        },
+        nextLink:{
+            startAfter:'#p=',
+            mFails:[/https?:\/\/manhua\.sfacg\.com\/mh\/.+/i,'#p=1'],
+            inc:1,
+            isLast:function(doc,win,lhref){
+                var pageSel=doc.getElementById('pageSel');
+                if(pageSel){
+                    var s2os=pageSel.options;
+                    var s2osl=s2os.length;
+                    if(pageSel.selectedIndex==s2osl-1)return true;
                 }
             },
         },
-        autopager: {
-            pageElement: 'css;img#pic-show-area',
-            remain: 1 / 3,
-            documentFilter: function(doc, lhref) {
-                var current_pic_server = unsafeWindow.current_pic_server,
-                    hex2bin = unsafeWindow.hex2bin,
-                    pic = unsafeWindow.pic;
-
-                var url_info = lhref.split("?p=");
-                var current_page = Number(url_info[1]);
-                if (isNaN(current_page)) return;
-                var imgSrc = current_pic_server + hex2bin(pic[current_page - 1]);
-                doc.getElementById("pic-show-area").setAttribute('src', imgSrc);
-            }
+        autopager:{
+            pageElement:'//img[@id="curPic"]',
+            useiframe:true,
+            reload: true,
+            replaceE: 'id("Pages")'
         }
     },
-    // 已失效
-    // {name: 'SF在线漫画',
-    //     url:/http:\/\/comic\.sfacg\.com\/HTML\/.+/i,
-    //     siteExample:'http://comic.sfacg.com/HTML/ZXCHZ/001/#p=2',
-    //     preLink:{
-    //         startAfter:'#p=',
-    //         inc:-1,
-    //         min:1,
-    //     },
-    //     nextLink:{
-    //         startAfter:'#p=',
-    //         mFails:[/http:\/\/comic\.sfacg\.com\/HTML\/.+\//i,'#p=1'],
-    //         inc:1,
-    //         isLast:function(doc,win,lhref){
-    //             var pageSel=doc.getElementById('pageSel');
-    //             if(pageSel){
-    //                 var s2os=pageSel.options;
-    //                 var s2osl=s2os.length;
-    //                 if(pageSel.selectedIndex==s2osl-1)return true;
-    //             }
-    //         },
-    //     },
-    //     autopager:{
-    //         pageElement:'//img[@id="curPic"]',
-    //         useiframe:true,
-    //         replaceE: 'id("Pages")'
-    //     }
-    // },
     {name: '哦漫画',
         url: /^http:\/\/www\.omanhua\.com\/comic\//i,
         siteExample: 'http://www.omanhua.com/comic/2957/36463/index.html?p=2',
@@ -3183,121 +3163,58 @@ var SITEINFO=[
             pageElement: '//img[@id="mangaFile"]',
         }
     },
-    {name: '基德漫画网',
-        url: /^http:\/\/www\.jide123\.net\/manhua\/.*\.html/i,
-        exampleUrl: 'http://www.jide123.net/manhua/3670/272725.html?p=2',
-        nextLink: {
-            startAfter: '?p=',
-            mFails: [/^http:\/\/www\.jide123\.net\/manhua\/.*\.html/i, '?p=1'],
-            inc: 1,
-            isLast: function(doc, win, lhref) {
-                var select = doc.getElementById('qTcms_select_i');
-                if (select) {
-                    var s2os = select.options;
-                    var s2osl = s2os.length;
-                    if (select.selectedIndex == s2osl - 1) return true;
-                }
-            },
-        },
-        autopager: {
-            pageElement: 'id("qTcms_pic")',
-            useiframe: true,
-        }
-    },
-    {name: '5652在线漫画',
-        url: /^http:\/\/mh\.5652\.com\/mh\/.*\.shtml/i,
-        exampleUrl: 'http://mh.5652.com/mh/20130124/5484/125907.shtml?p=2',
-        nextLink: {
-            startAfter: '?p=',
-            mFails: [/^http:\/\/mh\.5652\.com\/mh\/.*\.shtml/i, '?p=1'],
-            inc: 1,
-            isLast: function(doc, win, lhref) {
-                var select = doc.querySelector('.Directory_bar select');
-                if (select) {
-                    var s2os = select.options;
-                    var s2osl = s2os.length;
-                    if (select.selectedIndex == s2osl - 1) return true;
-                }
-            },
-        },
-        autopager: {
-            pageElement: 'id("show_img")',
-            useiframe: true,
-        }
-    },
     {name: '汗汗漫画',
-        url: /^https?:\/\/\w+\.(?:vs20|3gmanhua|hhcomic|hhmmoo|hhimm)\.(?:com|net)\/\w+\/\d+\.html/i,
+        url: /^https?:\/\/\w+\.(?:vs20|3gmanhua|hhcomic|huhudm|hhmmoo|hhimm)\.(?:com|net)\/\w+\/\d+\.html/i,
         siteExample: 'http://www.hhmmoo.com/page315224/1.html?s=1； http://www.hhmmoo.com/page315224/4.html?s=1&d=0',
         nextLink: function(doc, win, cplink) {
-            var m = cplink.match(/(.*)(\d+)(\.html\?s=\d+)(&d=\d+)?/);
-            if (!m[4]) {
-                return m[1]+'2.html?s=1&d=0';
-            } else {
-                var current = Number(m[2]);
-                var next = current + 1;
-                var xpath = '//div[@class="cH1"]/b';
-                var maxpage = doc.evaluate(xpath, doc, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.firstChild.textContent;
-                maxpage = maxpage.match(/\d+/g);
-                if (maxpage){
-                    maxpage = Number(maxpage[1]);
-                    if (next > maxpage)
-                        return false;
-                }
-                return m[1]+next+m[3]+m[4];
+            // created based on http://www.hhmmoo.com/script/view.js
+            var m = cplink.match(/(.*\d+\/)(\d+)(\.html\?s=\d+)((?:\?|&)d=.*)?/)
+            var url_head = m[1];
+            var current = Number(m[2]);
+            var dID = m[4];
+            if (!dID) dID = '&d=0';
+            var next = current + 1;
+            var xpath = '//div[@class="cH1"]/b[1]';
+            var maxpage = document.getElementById("hdPageCount");
+            if (maxpage)
+                maxpage = Number(maxpage.value);
+            else{
+                maxpage = document.getElementById("spPageCount");
+                if (maxpage)
+                    maxpage = Number(maxpage.innerText);
+                else
+                    return undefined;
             }
+            if (next == maxpage)
+                return undefined;
+            else
+                return m[1]+next+m[3]+dID;
         },
         autopager: {
             useiframe: true,
             pageElement: '//div[@id="iBody"]',
+            ipages: [true,20],
         }
     },
-    {name: '99漫画old',
-        url: /^http:\/\/(cococomic|dm.99manga|99manga|99comic|www.99comic|www.hhcomic)\.(com|cc)\/.+\.htm/i,
-        siteExample: 'http://99manga.com/page/168/6481.htm?v=3*s=9',
+    {name: '99漫画',
+        url: /^https?:\/\/(cococomic|dm.99manga|99manga|99comic|www.99comic|www.hhcomic)\.(com|cc)/i,
+        siteExample: 'http://dm.99manga.com/comic/35416/316645/?p=2&s=0',
         nextLink: {
-            startAfter: '?v=',
+            startAfter: '?p=',
             inc: 1,
+            mFails: [/^https?:\/\/(?:cococomic|dm.99manga|99manga|99comic|www.99comic|www.hhcomic)\.(?:com|cc)\/.+/i,'?p=1&s=0'],
             isLast: function(doc, win, lhref) {
-                var select = doc.querySelector('#all select');
-                if (select) {
-                    var s2os = select.options;
-                    var s2osl = s2os.length;
-                    if (select.selectedIndex == s2osl - 1) return true;
-                }
+                var maxpage = Number(doc.getElementById("spPageCount").innerText);
+                var current = Number(doc.getElementById("spPageIndex").innerText);
+                debug(current,maxpage);
+                if (current == maxpage)  return true;
             },
         },
         autopager: {
             useiframe: true,
-            pageElement: '//img[@id="ComicPic"]',
+            pageElement: '//*[@id="iBody"]',
         }
     },
-    {name: '99漫画new',
-        url: /^http:\/\/(1mh|99mh|mh.99770|www.jmydm)\.(com|cc)\/.+/i,
-        siteExample: 'http://99mh.com/comic/8436/117728/?p=1&s=0',
-        nextLink: {
-            startAfter: '?p=',
-            inc: 1,
-        },
-        autopager: {
-            useiframe: true,
-            maxpage: 20,
-            pageElement: '//div[@id="iBody"]',
-        }
-    },
-//     {name: 'http://www.930mh.com',
-//         url: /^https?:\/\/.*\.930mh\.com\/manhua.*/i,
-//         siteExample: 'http://www.930mh.com/manhua/4584/279859.html?p=3',
-//         nextLink: {
-//             startAfter: '?p=',
-//             inc: 1,
-//         },
-//         autopager: {
-//             useiframe: true,
-//           //  iloaded:false,                                                                                      //是否在iframe完全load之后操作..否则在DOM完成后操作.
-//             maxpage: 5,
-//             pageElement: '//div[@id="images"]',
-//         }
-//     },
     {name: '动漫Fans',
         url: /http:\/\/www\.dm123\.cn\/bbs\/(thread\.php\?fid=|read\.php\?tid=)/i,
         siteExample: 'http://www.dm123.cn/bbs/read.php?tid=593645',
@@ -3325,20 +3242,13 @@ var SITEINFO=[
             pageElement:'//div[@id="pictureContent"]'
         }
     },
-    {name: '有妖气漫画',
-        url:/http:\/\/www\.u17\.com\/comic_show\/.+/i,
-        siteExample:'http://www.u17.com/comic_show/c28540_m0.html',
-        autopager:{
-            pageElement:'//div[@class="mg_auto"]',
-            useiframe:true,
-        }
-    },
     {name: '动漫屋',
         url:/https?:\/\/(www|tel)\.dm5\.com\/.+/i,
         nextLink:'(//span[@class="current"])[1]/following-sibling::a[1]',
         autopager:{
             pageElement:'//img[@id="cp_image"]',
             useiframe:true,
+            remain: 1/2,
         }
     },
     {name: '天使漫画网,TSDM漫画组',
@@ -3369,16 +3279,7 @@ var SITEINFO=[
             useiframe:true,
             remain:1/2,
             pageElement:'//img[@id="qTcms_pic"]',
-        }
-    },
-    {name: '漫画频道_游侠网',
-        url: /^http:\/\/manhua\.ali213\.net\/comic\/.*\.html/i,
-        exampleUrl: 'http://manhua.ali213.net/comic/5257/141336.html',
-        nextLink: 'auto;',
-        autopager: {
-            pageElement: '//div[@class="enjoy_hostcon"]',
-            useiframe: true,
-            replaceE: "//div[@class='enjoy_center_bottom_page']//*[@class='li_middle' or @class='previouspage' or @class='nextpage']"
+            ipages: [true,20],
         }
     },
     {name: '火影忍者中文网',
@@ -3933,6 +3834,19 @@ var SITEINFO=[
             ipages: [true,30],
         },
         exampleUrl: 'https://zh.porn-image-xxx.com/image/g-cup-beauty-big-breasts-image-intertwined-konno-anzu-minami-and-shore-sayaka/page/1/',
+    },
+    {name: 'namethatpornstar',
+        url: /^https?:\/\/namethatpornstar.com/i,
+        siteExample: 'http://namethatpornstar.com/all-requests.php?page=2',
+        nextLink: {
+            startAfter: '?page=',
+            inc: 1,
+            mFails:[/^https?:\/\/namethatpornstar.com\/.*\.php/i,'?page=1'],
+        },
+        autopager: {
+            useiframe: true,
+            pageElement: '//*[@id="newcontainer"]',
+        }
     },
     {name: 'AV百科',
         url: '^http://www\\.avbaike\\.net/\\d+\\.html',
@@ -5857,7 +5771,7 @@ var nextPageKey=[
 '下一页', '下一頁', '下1页', '下1頁', '下页', '下頁','翻页', '翻頁', '翻下頁', '翻下页','下一张', '下一張', '下一幅', '下一章', '下一节', '下一節', '下一篇','前进', '下篇', '后页', '往后','Next', 'Next Page','次へ', '次のページ',
 '下一页 →', '下一頁 →', '下1页 →', '下1頁 →', '下页 →', '下頁 →','翻页 →', '翻頁 →', '翻下頁 →', '翻下页 →','下一张 →', '下一張 →', '下一幅 →', '下一章 →', '下一节 →', '下一節 →', '下一篇 →','前进 →', '下篇 →', '后页 →', '往后 →','Next →', 'Next Page →','次へ →', '次のページ →',
 '下一页 »', '下一頁 »', '下1页 »', '下1頁 »', '下页 »', '下頁 »','翻页 »', '翻頁 »', '翻下頁 »', '翻下页 »','下一张 »', '下一張 »', '下一幅 »', '下一章 »', '下一节 »', '下一節 »', '下一篇 »','前进 »', '下篇 »', '后页 »', '往后 »','Next »', 'Next Page »','次へ »', '次のページ »','后一页', '後一頁',
-'下一页 ›', '下一頁 ›', '下1页 ›', '下1頁 ›', '下页 ›', '下頁 ›','翻页 ›', '翻頁 ›', '翻下頁 ›', '翻下页 ›','下一张 ›', '下一張 ›', '下一幅 ›', '下一章 ›', '下一节 ›', '下一節 ›', '下一篇 ›','前进 ›', '下篇 ›', '后页 ›', '往后 ›','Next ›', 'Next Page ›','次へ ›', '次のページ ›', '»'
+'下一页 ›', '下一頁 ›', '下1页 ›', '下1頁 ›', '下页 ›', '下頁 ›','翻页 ›', '翻頁 ›', '翻下頁 ›', '翻下页 ›','下一张 ›', '下一張 ›', '下一幅 ›', '下一章 ›', '下一节 ›', '下一節 ›', '下一篇 ›','前进 ›', '下篇 ›', '后页 ›', '往后 ›','Next ›', 'Next >', 'Next Page ›','次へ ›', '次のページ ›', '»'
 ];
 // THX to https://greasyfork.org/en/forum/discussion/39361/x
 // 出在自动翻页信息附加显示真实相对页面信息，一般能智能识别出来。如果还有站点不能识别，可以把地址的特征字符串加到下面
@@ -6977,6 +6891,8 @@ function init(window, document) {
             } else {
                 iframe.src = link;
                 iframe.contentDocument.location.replace(link);
+                if (SSS.a_reload)
+                    iframe.contentWindow.location.reload();
             }
         }
 
@@ -6991,12 +6907,32 @@ function init(window, document) {
             if (SSS.a_useiframe) {
                 iframeRequest(nextlink);
             } else {
-                GM_xmlhttpRequest({
-                    method: "GET",
-                    url: nextlink,
-                    overrideMimeType: 'text/html; charset=' + document.characterSet,
-                    onload: XHRLoaded
-                });
+                if (typeof(SSS.a_header) == 'string') {
+                    GM_xmlhttpRequest({
+                        method: "GET",
+                        url: nextlink,
+                        overrideMimeType: 'text/html; charset=' + document.characterSet,
+                        onload: XHRLoaded,
+                        header: SSS.a_header,
+                    });
+                } else  {
+                    if (SSS.a_header) {
+                        GM_xmlhttpRequest({
+                            method: "GET",
+                            url: nextlink,
+                            overrideMimeType: 'text/html; charset=' + document.characterSet,
+                            onload: XHRLoaded,
+                            header: cplink,
+                        });
+                    } else {
+                        GM_xmlhttpRequest({
+                        method: "GET",
+                        url: nextlink,
+                        overrideMimeType: 'text/html; charset=' + document.characterSet,
+                        onload: XHRLoaded,
+                       });
+                    }
+                }
                 debug('读取完成');
             }
         }
@@ -7128,8 +7064,10 @@ function init(window, document) {
         function beforeInsertIntoDoc() {
             working = true;
             if (SSS.a_manualA && !ipagesmode) { //显示手动翻页触发条.
+                debug('手动拼接');
                 manualAdiv();
             } else { //直接拼接.
+                debug('直接拼接');
                 insertedIntoDoc();
             }
         }
@@ -7271,7 +7209,10 @@ function init(window, document) {
         var paged = 0;
 
         function insertedIntoDoc() {
-            if (!doc) return;
+            if (!doc) {
+                debug('没有找到doc');
+                return;
+            }
 
             if(SSS.a_documentFilter){
                 try{
@@ -7292,6 +7233,8 @@ function init(window, document) {
                 debug('获取下一页的主要内容失败', SSS.a_pageElement);
                 removeL();
                 return;
+            } else {
+                debug('获取下一页的主要内容成功');
             }
 
             // 提前查找下一页链接，后面再赋值
@@ -7541,6 +7484,9 @@ function init(window, document) {
                 } else { //否则就请求文档.
                     scrollDo();
                 }
+            } else {
+                debug('Scroll fails');
+                debug('Likely caused by firefox');
             }
         }
 
@@ -7772,6 +7718,7 @@ function init(window, document) {
                     SII.autopager.pageElement = SII.pageElement;
                     if (SII.insertBefore) SII.autopager.HT_insert = [SII.insertBefore, 1];
                 }
+                SSS.a_header = (SII.header === undefined) ? false : SII.header;
 
                 //自动翻页设置.
                 SIIA = SII.autopager;
@@ -7799,6 +7746,8 @@ function init(window, document) {
                     SSS.a_documentFilter = SII.documentFilter || SIIA.documentFilter;
                     SSS.a_stylish = SII.stylish || SIIA.stylish;
                     SSS.lazyImgSrc = SIIA.lazyImgSrc;
+                    SSS.a_header = (SIIA.header === undefined) ? SSS.a_header : SIIA.header; // custom header for XHRLoaded
+                    SSS.a_reload = (SIIA.reload === undefined) ? false : SIIA.reload; // force reload iframe
                 }
 
                 // 检验是否存在内容
