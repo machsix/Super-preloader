@@ -46,7 +46,8 @@ if (isURL("zhidao.baidu.com/question")) {
 }
 
 if (isURL("www.acfun.cn")) {
-    //acfun
+    //acfun 
+    //author: https://github.com/machsix/personal-scripts
     var acfun_main = /^https?:\/\/www.acfun.cn\/?$/;
     var acfun_member = /^https?:\/\/www.acfun.cn\/member(?:\/#.*)?/;
     var islogin = function (doc){
@@ -61,30 +62,32 @@ if (isURL("www.acfun.cn")) {
                 var i = document.createElement('iframe');
                 i.name = 'autologin-iframe';
                 i.width = '100%';
-                i.height = '600';
-                //         i.frameBorder = "0";
-                //         i.style.cssText = '\
-                //             margin:0!important;\
-                //             padding:0!important;\
-                //             visibility:hidden!important;\
-                //         ';
+                i.height = '0';
+                i.frameBorder = "0";
+                i.style.cssText = '\
+                    margin:0!important;\
+                    padding:0!important;\
+                    visibility:hidden!important;\
+                ';
                 i.src = 'http://www.acfun.cn/member/';
                 document.body.appendChild(i);
             }
         }, false);
     } else if (acfun_member.test(window.location.href)) {
-        // alert('进入至尊区域');
-        window.addEventListener('load', function(){
+        console.log('进入acfun会员');
+        setTimeout(function(){
             var ischecked = function (doc){
-                return doc.evaluate('//*[@id="btn-sign-user"]/@data-checked', 
+                return doc.evaluate('//*[@id="btn-sign-user"]/text()', 
                 doc, null, XPathResult.FIRST_ORDERED_NODE_TYPE,
-                null).singleNodeValue.nodeValue == "1";
+                null).singleNodeValue.data == "已签到";
             };
             if (!ischecked(document)){
-                console.log('in');
                 document.getElementById("btn-sign-user").click();
+                console.log('Acfun 签到完成');
+            }else {
+                console.log('Acfun 已签到');
             }
-        },false);
+        },3000);
     }
     return;
 }
