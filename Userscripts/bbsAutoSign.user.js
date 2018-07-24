@@ -46,12 +46,12 @@ if (isURL("zhidao.baidu.com/question")) {
 }
 
 if (isURL("www.acfun.cn")) {
-    //acfun 
+    //acfun
     //author: https://github.com/machsix/personal-scripts
     var acfun_main = /^https?:\/\/www.acfun.cn\/?$/;
     var acfun_member = /^https?:\/\/www.acfun.cn\/member(?:\/#.*)?/;
     var islogin = function (doc){
-        return doc.querySelector('.user-message-count').className.indexOf('hidden') == -1;
+        return JSON.parse(localStorage.user).name != "游客";
     };
     if (acfun_main.test(window.location.href)){
         console.log("成功进入acfun世界");

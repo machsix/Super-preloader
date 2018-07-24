@@ -1,5 +1,12 @@
 # -*- coding: utf-8 -*-
 """
+Created on Tue Dec 26 17:26:07 2017
+
+@author: Han
+"""
+
+# -*- coding: utf-8 -*-
+"""
 Created on Thu Nov 30 23:36:36 2017
 
 """
@@ -39,7 +46,10 @@ def open_page(page,header,pagenumber):
                          index = postid_list.index(postid)
                          if postid_name[index] == postname:
                              print("%d exist "%(postid,))
-                             return False
+                             if postid < 4100:
+                                return False
+                             else:
+                                continue
                     #         continue
                     #         return False
                     
@@ -49,13 +59,13 @@ def open_page(page,header,pagenumber):
                     ws.cell(row=postlen,column=1,value=postid)
                     for ii in range(2,6):
                         ws.cell(row=postlen,column=ii,value=baidu_link[ii-2])
-                    if imgaelink:
-                        imgaelink = imgaelink.img['src']
-                        figreq = urllib.request.Request(imgaelink)
-                        fightml = urllib.request.urlopen(figreq).read()
-                        binfile = open('%s/%d.jpg' % ('Cover',postid ) , "wb")
-                        binfile.write(fightml);
-                        binfile.close();
+                #    if imgaelink:
+                #        imgaelink = imgaelink.img['src']
+                #        figreq = urllib.request.Request(imgaelink)
+                #        fightml = urllib.request.urlopen(figreq).read()
+                #        binfile = open('%s/%d.jpg' % ('Cover',postid ) , "wb")
+                #        binfile.write(fightml);
+                #        binfile.close();
     
                     try:
                         pass
@@ -83,7 +93,7 @@ def open_page(page,header,pagenumber):
 
 
 def get_baidu_link(page):
-    #page = 'https://adb123.com/2790.html'
+    #page = 'https://fulifb.com/2790.html'
     number = page.split('/')[-1]
     number = number[:-5]
     req = urllib.request.Request(page, headers=header)
@@ -106,12 +116,14 @@ def get_baidu_link(page):
     return False
 
 if ( __name__ == '__main__' ):
-   # os.chdir('/mnt/blockstorage/Downloads/adb123')
+    cwd = os.getcwd()
+    print(cwd)
+    os.chdir('/root/tools/adb123')
     header = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36"
         , "Connection": "keep-alive"
         }
-    homepage = 'https://adb123.com/'
+    homepage = 'https://fulifb.com/'
     if not os.path.isdir('Cover'):
         os.mkdir('Cover')
 
@@ -129,8 +141,6 @@ if ( __name__ == '__main__' ):
         postlen = 0
 
 
-
-    
     page = homepage
     pagenumber = 1
     while True:
@@ -154,3 +164,4 @@ if ( __name__ == '__main__' ):
             d=ws2.cell(row=newrow, column=k+1,value=data.value)
         
     wb2.save('list.xlsx')   
+    os.chdir(cwd)
