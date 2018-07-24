@@ -24,6 +24,12 @@ data = htmldata.decode('utf-8')
 dedata = json.loads(data)
 
 
+with open('siteinfo.json','r',encoding='utf-8') as f:
+    localdata = json.load(f)
+with open('siteinfo.json','w',encoding='utf-8') as f:
+    json.dump(localdata,f,ensure_ascii=False,indent=2)
+
+
 
 mydata = []
 for i in dedata:
