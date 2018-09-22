@@ -536,19 +536,19 @@ class MyThread(threading.Thread):
 if (__name__ == '__main__'):
     girl_name = [
         '尤妮丝', '土肥圆', '黄乐然', '筱慧', '乔依琳', '菲菲', '刘钰儿', '夏雪爱', '阿乖', '诗盈',
-        '金baby', '蜜蕊', '纳砂', '许文婷', '绮里嘉', '颜颜', '曾水', '廿十', '金梓馨', '思淇', '妲己'
+        '金baby', '蜜蕊', '纳砂', '许文婷', '绮里嘉', '颜颜', '曾水', '廿十', '金梓馨', '思淇', '妲己',
+	'考拉', '卓娅祺', '孙梦瑶', '缇娜美', '芝芝', '奶昔','木木', 'lunana'
     ]
     root_dir = '/mnt/HD/HD_a2/Image'
-    root_dir = os.getcwd()
+   # root_dir = os.getcwd()
     os.chdir(root_dir)
-    # for name in girl_name:
-    # Imgsearch(name, root_dir, 'girl', nthread=1, update=True)
+    for name in girl_name:
+        Imgsearch(name, root_dir, 'girl', nthread=1, update=True)
     keywords = [
         '空姐',
-        '全裸',
         '半裸',
         '皮衣',
     ]
-    for keyword in keywords:
-        Imgsearch(keyword, root_dir, 'keyword',
-            nthread=1,update=False, filtlist=girl_name)
+ #   for keyword in keywords:
+  #      Imgsearch(keyword, root_dir, 'keyword',
+   #         nthread=1,update=True, filtlist=girl_name)
