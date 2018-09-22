@@ -9,7 +9,7 @@ import os
 import re
 from datetime import datetime
 
-lastupdate = datetime(2018, 6, 14)
+lastupdate = datetime(2018, 6, 29)
 
 os.chdir('E:\\Git\\personal-scripts\\Super_preloader')
 header = {
@@ -83,23 +83,24 @@ for i in dedata:
 with open('wedata.json', 'w',encoding='utf-8') as f:  
     f.write("    // update at: %s\n"%(datetime.now().strftime("%B %d, %Y")),)
     for w in mydata:
-        f.write("    {name: '%s',\n"%(w['name'],))
-        f.write("        url: '%s',\n"%(w['url'],))
-        f.write("        nextLink: '%s',\n"%(w['nextLink'],))
+        f.write("        {\n")
+        f.write("            name: '%s',\n"%(w['name'],))
+        f.write("            url: '%s',\n"%(w['url'],))
+        f.write("            nextLink: '%s',\n"%(w['nextLink'],))
 
 
         if 'siteExample' in w.keys():
-            f.write("        siteExample: '%s',\n"%(w['siteExample'],))   
+            f.write("            siteExample: '%s',\n"%(w['siteExample'],))   
         if 'stylish' in w.keys():    
-            f.write("        autopager:{\n")
-            f.write("            pageElement: '%s',\n"%(w['pageElement'],))
-            f.write("            stylish: '%s',\n"%(w['stylish'],))
+            f.write("            autopager:{\n")
+            f.write("                pageElement: '%s',\n"%(w['pageElement'],))
+            f.write("                stylish: '%s',\n"%(w['stylish'],))
             f.write("        },\n")       
         else:
-            f.write("        pageElement: '%s',\n"%(w['pageElement'],))
-        f.write("        created_by: '%s',\n"%(w['created_by'],))
-        f.write("        resource_url: '%s',\n"%(w['resource_url'],))
-        f.write("    },\n")
+            f.write("            pageElement: '%s',\n"%(w['pageElement'],))
+        f.write("            created_by: '%s',\n"%(w['created_by'],))
+        f.write("            resource_url: '%s',\n"%(w['resource_url'],))
+        f.write("        },\n")
             
             
  

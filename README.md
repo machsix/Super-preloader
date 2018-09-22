@@ -1,0 +1,733 @@
+
+![icon!](https://github.com/machsix/personal-scripts/raw/master/Super_preloader/icon2.png)
+# Introduction
+A gm script for auto loading paginated web pages. It will join pages together based on the rules.
+
+The script is forked from https://greasyfork.org/en/scripts/10433-super-preloaderplus-one.
+Thanks for the original author [swdyh](https://github.com/swdyh) && [ywzhaiqi](https://github.com/ywzhaiqi/userscript/tree/master/scripts/Super_preloaderPlus) && NLF
+swdyh is still actively improving [rules](http://wedata.net/databases/AutoPagerize/items) and developping the extension version,[AutoPagerize](https://addons.mozilla.org/en-US/firefox/addon/autopagerize/). 
+
+This userscript exists because someone needs to maintain the rules for Chinese and English users since swdyh's rules are mainly for Japanese websites. Don't be afraid of the fact that most feedbacks are in Chinese. I would like to add rules for English users if I could. Feel free to leave feedback.
+
+Please leave feedback at [Greasefork page](https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new)
+
+# License
+gpl-3.0
+
+# Support sites:
+ - Google搜索
+ - 百度搜索
+ - 百度搜索-手机
+ - 百度搜索 - baidulocal
+ - 360搜索
+ - 搜狗搜索
+ - Bing网页搜索
+ - AOL 搜索
+ - Yahoo.com Search
+ - 水木社区
+ - 百度贴吧帖子
+ - 百度吧内搜索
+ - 百度新闻搜索
+ - 百度知道
+ - 百度空间
+ - 百度文库搜索
+ - 小众软件
+ - 好人卡
+ - v2ex
+ - smzdm-search
+ - smzdm-comment
+ - 新浪新闻
+ - 搜狐新闻
+ - 新华网新闻页面
+ - 中国新闻网
+ - 人民网新闻
+ - 中关村在线新闻页面
+ - FT中文网
+ - Solidot: 奇客的资讯，重要的东西
+ - IT 之家
+ - 虎嗅网
+ - 36氪
+ - 爱范儿 · Beats of Bits - 发现创新价值的科技媒体
+ - 创业帮
+ - 萝卜网
+ - 爱活网 Evolife.cn_科技进化生活
+ - 凤凰网 - 凤凰汽车
+ - 凤凰网 - 新闻、财经
+ - 和讯财经微博
+ - 和讯博客
+ - 汽车之家
+ - 汽车之家论坛帖子和列表
+ - 爱卡汽车
+ - 爱卡汽车论坛帖子
+ - 新闻 - 加拿大华人网
+ - 美国中文网
+ - 火星网－中国领先的数字艺术门户
+ - 铁血网
+ - 看天下
+ - 参政消息
+ - 中国网山东频道
+ - 凯迪社区
+ - 木木文摘
+ - TouringCarTimes
+ - tomshardware
+ - 优酷视频
+ - 搜库-专找视频
+ - 爱奇艺
+ - 搜狐视频 搜索
+ - 搜狐视频
+ - imdb
+ - 亚马逊
+ - Amazon.com
+ - 易迅网
+ - 前程无忧 - 搜索
+ - 抢了个便宜 | 高性价比正品低价商品推荐网
+ - 秒便宜论坛
+ - 露天拍賣
+ - Yahoo!奇摩拍賣
+ - 杀价帮3C导购网—真实 客观 独立 自由
+ - 机锋网
+ - 豆瓣-书影音评论
+ - 我的小组话题 - 豆瓣
+ - 豆瓣全站
+ - 知乎收藏夹
+ - 译言网 | 译文库和原文库
+ - 译言精选
+ -  译言小组
+ - 主题站 | 果壳网 
+ - 大众点评网
+ - 我们一起成长 | 幸福进化俱乐部共同成长博客圈
+ - VeryCD搜索页面
+ - VeryCD分类资源页
+ - SimpleCD | 让被墙变得简单
+ - 电驴站 爱磁力 iCiLi - 电驴下载站
+ - 伪射手网
+ - 豆瓣people
+ - 多看阅读
+ - kindle114
+ - 传送门 -- 微信公众账号和文章的导航及推荐
+ - TTmeiju.Com 您的高清美剧片源下载中心
+ - 电影天堂
+ - 最新电影 | 龙部落
+ - 高清连续剧 | 一起下载吧
+ - Go下载
+ - 720P电影下载1080P电影下载bt蓝光电影下载BT原盘电影下载：BT之家老牌电影下载网站，百万用户选择了这里
+ - 很BT电影联盟
+ - 光华，cmct，chd，皇后，hd86，khdbits，hdsky，hdvnbits，hd-sportbits，tccf，皇后mv，mt，hd4fans，hdhc，发烧友，tlfbits，joyhd，蚂蚁pt，清影pt，北邮人，u2
+ - 葡萄 :: 种子
+ - - hdchina 高清影音人士的分享乐园
+ - TTG
+ - https://exoticaz.to/torrents
+ - 麦田
+ - 乐乎网-有乐乎！
+ - HDRoad - 资源区
+ - 种子列表-北京交通大学知行PT
+ - 紫荆站 | ZiJingBT v2 | 种子页
+ - idope.se
+ - 天涯论坛_帖子列表
+ - 天涯论坛帖子
+ - mozest社区
+ - Firefox中文社区 - 列表
+ - Firefox中文社区 - 帖子
+ - Mozilla Addons - 用户信息
+ - Mozilla Addons
+ - 搜索 | Mozilla 技术支持
+ - 傲游浏览器-插件中心
+ - 小米手机官方论坛
+ - 棋友家园
+ - Discuz X2.5修复
+ - 威锋论坛搜索
+ - Discuz 页面跳转修复
+ - vBulletin论坛 加加/看雪/XDA
+ - xda-developers
+ - 玩机圈
+ - 极限社区
+ - 天坛
+ - 铁血社区
+ - 铁血网
+ - 霏凡论坛 - 帖子列表
+ - 虎扑篮球论坛
+ - 虎扑篮球论坛
+ - 人大经济论坛
+ - 九尾网
+ - 17173.com中国游戏第一门户站
+ - 游侠网
+ - 游民星空
+ - 3DMGAME
+ - 猴岛论坛
+ - 巴哈姆特
+ - 178 魔兽世界、178动漫频道
+ - 阡陌居
+ - 煎蛋首页
+ - 蜂鸟网
+ - 55188论坛
+ - pcdvd论坛
+ - pcdvd论坛_thread_list
+ - PCHOME 社区
+ - pconline
+ - Chiphell
+ - 糗事百科
+ - 抽屉新热榜
+ - 猫扑大杂烩帖子
+ - 猫扑数码、猫扑汽车等
+ - 色影无忌帖子
+ - 19楼帖子
+ - blogspot
+ - 北海365网
+ - gelbooru safebooru etc
+ - 耳机大家坛 全球最大中文耳机论坛
+ - 艾泽拉斯国家地理论坛
+ - Final Fantasy Shrine Forums
+ - 天猫魔盒论坛
+ - Mobile01
+ - 昆侖 - 资源/连载
+ - Flickr photos
+ - 照片处理网
+ - 扑家汉化平台
+ - deviantART Gallery
+ - Beautyleg腿模写真图片网
+ - sasaone.com
+ - sasaone.com
+ - 24fa
+ - 美女86
+ - 宅男女神
+ - 爱套图
+ - 秀美眉
+ - 秀美眉2
+ - 美图录
+ - meituri
+ - mimifuli
+ - 192tt-gallery
+ - 192tt
+ - 凹凸吧欲女8
+ - 17see
+ - 悠悠美图
+ - ppzix
+ - 性感尤物
+ - sytaotu
+ - 性感尤物2
+ - 7160美女图片
+ - 七丽丽图库|7lili.com
+ - 明星网
+ - 桌酷壁纸
+ - 统一壁纸站
+ - 素材天下
+ - 昵图网
+ - easyicon.net
+ - iconarchive
+ - Find Icons
+ - 善用佳软
+ - 异次元软件世界
+ - PlayNext - 低调的异次元
+ - iPc.me - 与你分享互联网的精彩！
+ - 独木成林
+ - 软件淘
+ - portableapps
+ - PortableAppC - 有中国特色的便携软件
+ - 精品绿色便携软件
+ - zd423
+ - 软件阁 - 原创绿色软件更新精品软件共享
+ - Yanu | 分享优秀、纯净、绿色、实用的精品软件
+ - 绿软家园(绿色下载站)
+ - 绿色下载吧
+ - 下载银行
+ - 小路工作室
+ - 心海e站
+ - 天天资源网
+ - 重灌狂人
+ - 天天软件
+ - Sublime text - Packages
+ - User Scripts
+ - UserStyles GreasyFork
+ - 博客园
+ - 开源中国
+ - CSDN博客
+ - CSDN论坛
+ - CSDN话题
+ - 51CTO
+ - 图灵社区 : 图书
+ - Stack Overflow Super User Server Fault Stack Apps
+ - 起点文学
+ - 逐浪小说
+ - 烟雨红尘
+ - 17k
+ - 纵横书库
+ - 纵横女生
+ - 新小说吧
+ - 书迷楼
+ - 玄幻小说网
+ - 新浪读书
+ - 搜狐原创
+ - 红袖添香
+ - 言情小说吧
+ - 来书小说网
+ - 小说阅读网
+ - 凤鸣轩
+ - 红薯网
+ - 百书斋
+ - 百书库
+ - 顶点小说
+ - 快眼文学网
+ - 就爱文学
+ - 亲亲小说网
+ - 七味书屋
+ - 天天中文
+ - 言情后花园
+ - 平南文学
+ - 一流小说
+ - 一一小说
+ - 六九中文
+ - 华夏书库
+ - 书路/3K
+ - 书山路
+ - 落秋
+ - 君子网
+ - 哈罗小说网
+ - 百书楼
+ - 万书楼
+ - 万卷书屋
+ - 书书网
+ - 飞卢小说
+ - 青帝文学网
+ - 笔下文学
+ - 笔趣阁
+ - 小说客栈
+ - 翠微居
+ - 在线书吧
+ - 文学迷
+ - 爱尚文学网
+ - E品中文网
+ - 大家读书院
+ - 北京爱书
+ - 小说570
+ - 看书
+ - 全本小说网
+ - 晋江原创
+ - 奇书屋
+ - lu5小说网
+ - 飞库
+ - 幻侠小说网
+ - 潇湘书院
+ - 书海
+ - yi-see
+ - 天下书盟
+ - 涂鸦小说网
+ - 百晓生/谷粒
+ - 熬夜看书
+ - 塔读文学
+ - 无错小说网
+ - 燃文
+ - 书河
+ - 89文学
+ - 极速小说网
+ - 手打8
+ - 闪文书库
+ - PaiTxt
+ - 好书楼
+ - BookLink.Me:最有爱的小说搜索引擎
+ - 天极动漫频道新闻
+ - 动漫之家漫画网
+ - 看漫画
+ - CC漫画网
+ - SF在线漫画
+ - 哦漫画
+ - 汗汗漫画
+ - 99漫画
+ - 动漫Fans
+ - KuKu动漫
+ - 52pk漫画
+ - 动漫屋
+ - 天使漫画网TSDM漫画组
+ - 930mh
+ - 死神中文网
+ - iiikl论坛
+ - sosg论坛帖子
+ - 澄空贴子内容
+ - 9gal苍雪论坛
+ - 和邪社|你的ACG生活 文不在长.内涵则明 图不在色.意淫则灵
+ - haruhichan
+ - exhentai
+ - exhentai gallery
+ - exhentai frontpage
+ - Hentai Manga|Read free hentai xxx manga online
+ - 1024社区
+ - DLsite 検索結果
+ - Gyutto.com｜の検索結果
+ - JAVLibrary
+ - DesignCrowd
+ - Nyaa
+ - 动漫花园
+ - ACGNX
+ - BTDigg Search
+ - btbit.cc
+ - btso.pw
+ - AnandTech
+ - Android Police - Android News Apps Games Phones Tablets
+ - Anonymous speaks: the inside story of the HBGary hack | Ars Technica
+ - techPowerUp
+ - Digital Photography Review
+ - Digital Photography Review 2
+ - 手机百度百科
+ - 手机豆瓣
+ - 手机新浪新闻
+ - 手机网易网
+ - 手机凤凰网
+ - 手机环球网
+ - cnBeta.COM - 移动版
+ - 手机版M.BookLink.Me
+ - 开源中国(OSChina.NET)
+ - 博客园博客手机版
+ - Google Bookmarks
+ - Google Code List
+ - google_hosting
+ - google_codesearch
+ - google_groupsearch
+ - Google Scholar
+ - google_news
+ - google_history
+ - google_logos
+ - google_books
+ - google_app
+ - google_movie
+ - google_chrome
+ - googlebooks/chrome
+ - desktop\\.google
+ - sketchup
+ - google_cpanel
+ - google_forum
+ - google_product
+ - google_review
+ - google_cse
+ - google_lab_follow
+ - googlelabs
+ - github mix
+ - github 搜索
+ - github-gist
+ - github_changelog
+ - github_watchers
+ - github_following
+ - github_learn
+ - github_blog
+ - bookcool-小说合集
+ - Hachiya Makoto
+ - ehentai
+ - ehentai gallary
+ - e-hentaidb
+ - ehentai gallary front
+ - nhentai
+ - 177pic
+ - DL.Getchu.com
+ - wnacg
+ - wnacglist
+ - porn-image-xxx.com
+ - namethatpornstar-mobile
+ - namethatpornstar
+ - AV百科
+ - avgle
+ - PornHub.com
+ - llss
+ - YouAV
+ - Creema
+ - qyule
+ - chaturbate
+ - reddit
+ - Gamefaqs
+ - Screen Rant
+ - rarbg
+ - models
+ - ghacks
+ - xkcd
+ - Zophars Domain Music
+ - Headline Planet
+ - Amazon Web Services ブログ
+ - 西野亮廣ブログ　個別エントリ
+ - アクシアブログ
+ - ママスタBBS 投稿順
+ - 麻雀ウォッチ page-numbers
+ - @DIME Index
+ - @DIME
+ - novel days
+ -  FFXIV lodestone - News|Topics
+ - 麻雀ウォッチ　4コマ漫画「女流雀士の○○」目次
+ - 日刊SPA 画像
+ - Gaudio+PCオーディオfan
+ - d-smart
+ - Docker ドキュメント日本語化プロジェクト (Sphinx)
+ - testpage eustia
+ - RENOTE
+ - ニコニコチャンネル アニメポータル 検索
+ - MY FUTURE CAMPUS
+ - imidas
+ - 株ドラゴン　ランキング
+ - 株ドラゴン　ミニチャート
+ - ホトカミ
+ - 女体のしんぴ
+ - Duga
+ - Costsukuri
+ - http://old.yourexotic.com
+ - rbb トゥデイ
+ - M&A ONLINE
+ - 節約プリンスためるくん | マイナビニュース
+ - NAVERまとめ
+ - 日経 xTECH
+ - cosplayjav.pl
+ - Ecosia.org Search
+ - Stuttgarter-Zeitung.de Gallery
+ - 野食ハンマープライス
+ - DL BOOKS
+ - タグマ！
+ - mercari
+ - fc2 contents market
+ - 会社四季報オンライン
+ - 日経ウーマンオンライン
+ - ハーバービジネスオンライン
+ - CG WORLD
+ - 現代ビジネス
+ - てきとーな日記(uaa)
+ - 麻雀ウォッチ　ネマタの戦術本レビュー
+ - Süddeutsche.de Bildergalerie
+ - kab dragon rising chart
+ - ナショナルジオグラフィック 日経BP
+ - afpbb 写真特集
+ - dot asahi
+ - Number Web - ナンバー
+ - GoComics
+ - ログミー[o_O]
+ - Box Office Mojo
+ - 小説家になろう　各作品の感想ページ
+ - ドラゴンクエストX 提案広場 提案一覧
+ - 日刊SPA 記事
+ - スニーカー文庫Web
+ - ナタリー - 画像 ニュース 統合
+ - Gガイド.テレビ王国　検索結果
+ - Gガイド.テレビ王国
+ - ニコニコ大百科 掲示板
+ - NBonline (日経ビジネス オンライン)
+ - textream search
+ - SEIYUドットコム
+ - 毎日エロ漫画
+ - Stencyl Forums
+ - E! Online News
+ - DMM オンラインゲーム コミュニティ
+ - Variety
+ - GoComics
+ - Game*Spark
+ - ドラゴンクエストX 提案広場 提案一覧
+ - ナタリー 特集記事 
+ - ナタリー - 画像 ニュース 統合
+ - drawr新着|スレッド
+ - Playstation Store
+ - アキバ総研 画像
+ - pixiv series
+ - ニコニコニュース 個別記事
+ - Kambikuttan
+ - rarbg
+ - Screen Rant
+ - 麻雀ウォッチ　ネマタの戦術本レビュー
+ - PMC Brands
+ - Cheat Sheet
+ - Cinemablend.com
+ - Togetter 個別記事
+ - pixivrank.net
+ - ダイヤモンド・オンライン
+ - [pixiv] ランキング
+ - ツイキャス
+ - forumhouse.ru
+ - Amazon Smile
+ - Wine Application Database
+ - FFXIV lodestone - Ranking
+ - JavArchive.com
+ - 51JAV.ORG
+ - ニコニコニュース 個別記事
+ - JavStore
+ - Pornenergy.net
+ - スポーツナビ 写真・動画・コラム一覧
+ - 節約プリンスためるくん | マイナビニュース
+ - jser.info/
+ - SexyVideos
+ - マイナビウーマン
+ - スポーツナビ　コラム本文
+ - TOCANA
+ - IMDB search
+ - IMDB coming soon
+ - Cinemablend.com
+ - ソフトバンク ビジネス+IT
+ - NAVER
+ - hermitage akihabara
+ - Ars Technica
+ - S-KOREA
+ - SexyVideos
+ - 7mm.tv
+ - Porn77.Info
+ - HPJAV
+ - YouFlix
+ - hentai-comic.com
+ - NAVERまとめ
+ - Guru99
+ - books and apps
+ - まんがタイムWeb　芳文社　｜　新刊予定　｜　年別発売予定コミックス
+ - まんがタイムきらら - 既刊ラインナップ - まんがタイムきららWeb
+ - ゲームかなー　個別エントリ
+ - ゲームかなー
+ - BuddyTV
+ - Mental Floss
+ - Life Death Prizes
+ - みんなのPython Webアプリ編
+ - twilog ユーザー一覧
+ - メンヘラ.jp
+ - GreenSnap（グリーンスナップ）
+ - GitHub releases next pages.
+ - THE ZERO/ONE
+ - Bells of Hermitage～エルミタージュの鐘～
+ - Atom.io Package Search
+ - エンタメステーション
+ - Deskgram
+ - HicceArs
+ - Standard News
+ - ミッドナイトノベルズ 検索
+ - ノクターンノベルズ ムーンライトノベルズ 検索
+ - ニュートピ！
+ - PLOS One scientific journal
+ - Inkbunny
+ - MdN Design Interactive 特集記事
+ - voicehentai(nhentai)
+ - AKIBAS GATE
+ - ジャンププラス 特集
+ - TOEI Animation Europe
+ - Pen Online
+ - Funimation
+ - ボードゲームリサイクルCUBE　ブログ
+ - カナウ
+ - Danbooru posts
+ - ORICON NEWS フォトギャラリー（画像まとめ）
+ - Danbooru
+ - HawtCelebs
+ - 不可解・不思議体験まとめサイト【エニグマ】
+ - Aging Style
+ - zerochan.net
+ - eorzeacollection
+ - 漫画家 山田玲司 公式サイト
+ - Mirsoft.info
+ - Fundusze Europejskie - search engine
+ - white BBS
+ - 小説家になろう old format for web archive ( ~ 2017/08/21)
+ - nudecollect
+ - Daily Haha
+ - ahri8
+ - Planetemu.net
+ - Wisdom NEC
+ - ペイント漫画保管庫
+ - ルビンの壺が割れた
+ - 株センサー
+ - 同人誌まとめ
+ - nyaa.si
+ - miyearnZZ Labo
+ - Tsundora.com
+ - diamondblog
+ - 楽天ソーシャル ニュース
+ - あみあみ [キャラクター＆ホビー通販]
+ - Re:CREATORS NAKED
+ - LAURIER PRESS
+ - 朝日新聞&
+ - タグマ！
+ - とらのあな通信販売
+ - fastcut records
+ - bugs.freepascal.org
+ - アトラス公式サイト
+ - masaladesi.com/search.php
+ - imgsrc2
+ - 独習 Scalaz | learning Scalaz
+ - 朝日新聞デジタル 記事画像
+ - ２じげんけんさく
+ - 中原淳のグローバル人材育成を科学する
+ - エッチテレビ
+ - javmin.com
+ - Nathan Johnson
+ - PC Gamer
+ - WEB asta
+ - FirstShowing.net
+ - レポート | ニッセイ基礎研究所
+ - MinecraftSix
+ - 胎界主 スクロール版
+ - 〇〇を応援・支持するHP
+ - PornFromCZ.com
+ - javpink
+ - 楽天R-DATATOOL 顧客一覧
+ - RaCoupon
+ - The Opera blog
+ - extrafabulouscomics
+ - JustJAVHD.com
+ - マイナビウーマン
+ - クロワッサン倶楽部
+ - TechFrag
+ - UPI
+ - bootsnipp
+ - Milovana.com showtease
+ - スポーツナビ　コラム本文・コラム一覧
+ - pururin.us
+ - 青空文庫 公開中 作家リスト
+ - forum - forumdisplay.php
+ - 楽天市場ショップ検索
+ - 楽天市場　検索結果
+ - 楽天ウェブ検索（20130514頃～）
+ - サッカーキング　一覧
+ - 新着エントリー - はてなブックマーク
+ - AFP BBNEWS
+ - 英辞郎 on the WEB：アルク
+ - ORICON ランキング
+ - Style Cruise
+ - Arcadia SS投稿掲示板
+ - SitePoint Marketplace
+ - 明和水産
+ - xvideos.com
+ - IMDb - All Photos | Video Gallery
+ - 結婚式場探しウエディングパーク
+ - ナタリー - 画像 ニュース 統合
+ - Mobile01 (all)
+ - ばらサロン
+ - ITpro
+ - Seesaa ブログ (トップページ)
+ - AMO
+ - アメブロ
+ - 北欧女子オーサ オフィシャルブログ
+ - ドラぷらショッピング
+ - Youtubeアニメ無料動画+
+ - yazawa
+ - MAXBET
+ - 雀ゴロKの麻雀日記 個別記事
+ - bnrq
+ - shopbot.com.au
+ - ハーバービジネスオンライン
+ - 书迷楼
+ - InfoQ
+ - AVA NEWS
+ - LightInTheBox
+ - 将棋ペンクラブログ
+ - クリップアートファクトリー
+ - Coordisnap
+ - 楽天woman ニュース
+ - WISDOM - ヒトをつなぐ。ビジネスがつながる。
+ - CareerPark![キャリアパーク]|みんなのノウハウが集まる場
+ - Moebooru:Danbooru clones
+ - @IT EE Times Japan Business Media 誠 ITmedia EDN Japan
+ - ウレぴあ総研
+ - ビジネスジャーナル
+ - ニジエ
+ - 高校野球ドットコム
+ - はちま起稿 - 記事
+ - 神戸新聞 連載・特集
+ - HONDA MotoGP 2011 Analysis
+ - 時事ドットコム 写真特集 d4
+ - Infotop
+ - Engadget
+ - Socialite Life
+ - eMAG.pl
+ - Dreamstime
+ - uploader
+ - 秀丸エディタの強調表示定義ファイルライブラリ 
+ - MOTOR DAYS
+ - goo ニュース
+ - webCG Impressions Essays
+ - 革新的発明と製品情報
+ - SANSPO.COM
+ - Yahoo! ショッピング
+ - Flickr - Tags
