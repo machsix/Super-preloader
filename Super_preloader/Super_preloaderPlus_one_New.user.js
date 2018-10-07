@@ -7,12 +7,12 @@
 // @description:zh-cn  预读+翻页..全加速你的浏览体验
 // @description:zh-TW  预读+翻页..全加速你的浏览体验
 // @author       Mach6(原作者 ywzhaiqi && NLF)
-// @version      6.5.47
+// @version      6.5.50
 // @license      GNU GPL v3
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
-// @icon         https://cdn.rawgit.com/machsix/personal-scripts/21a9697a/Super_preloader/icon.png
-// @require      https://cdn.rawgit.com/machsix/personal-scripts/21a9697a/Super_preloader/gm4-polyfill.js
+// @icon         https://cdn.rawgit.com/machsix/personal-scripts/master/Super_preloader/icon.png
+// @require      https://cdn.rawgit.com/machsix/personal-scripts/master/Super_preloader/gm4-polyfill.js
 // @grant        GM.getValue
 // @grant        GM_getValue
 // @grant        GM.setValue
@@ -51,9 +51,9 @@
 (function () {
 
     var scriptInfo = {
-        version: '6.5.47',
-        updateTime: '2018/9/22 EST',
-        changelog: 'fix for Violentmoneky',
+        version: '6.5.50',
+        updateTime: '2018/10/6 EST',
+        changelog: 'Rewrite many parts for Greasemonkey 4',
         homepageURL: 'https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new',
         downloadUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.user.js',
         metaUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.meta.js',
@@ -194,7 +194,7 @@
 
         // 新增或修改的
         forceTargetWindow: true, // 下一页的链接设置成在新标签页打开
-        debug: true,
+        debug: false,
         enableHistory: false, // 把下一页链接添加到历史记录
         autoGetPreLink: false, // 一开始不自动查找上一页链接，改为调用时再查找
         excludes: '',
@@ -2064,6 +2064,9 @@
                 useiframe: true,
                 pageElement: '//div[@role="main"]/div[contains(@class,"photo-list")]',
                 lazyImgSrc: 'data-lazyload-src|data-ks-lazyload',
+                iloaded: true, 
+                newIframe: true,
+                itimeout: 1000,
             }
             //  insertBefore: "//div[@class=\"Pages\"]"
         },
