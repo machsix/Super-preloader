@@ -12,7 +12,7 @@
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
 // @icon         https://cdn.rawgit.com/machsix/personal-scripts/master/Super_preloader/icon.png
-// @require      https://cdn.rawgit.com/machsix/personal-scripts/master/Super_preloader/gm4-polyfill.js
+// @require      https://greasyfork.org/scripts/372965-gm4-polyfill-mach6/code/gm4-polyfill-mach6.js?version=634680
 // @grant        GM.getValue
 // @grant        GM_getValue
 // @grant        GM.setValue
