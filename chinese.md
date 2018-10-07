@@ -1,14 +1,19 @@
 ![icon!](https://github.com/machsix/personal-scripts/raw/master/Super_preloader/icon2.png)
 #介绍
-自动翻页脚本，由[ywzhaiqi && NLF原作](https://greasyfork.org/en/scripts/10433-super-preloaderplus-one)修改规则而来。鉴于脚本本身已经完善，我仅添加新的站点规则，如遇你所需要的站点未包含在其中，请在issue区报告。 [ywzhaiqi 原始脚本最后一次更新于 Sep 7th 2017](https://github.com/ywzhaiqi/userscript/tree/master/scripts/Super_preloaderPlus)
+自动翻页脚本，由[ywzhaiqi && NLF原作](https://github.com/ywzhaiqi/userscript/tree/master/scripts/Super_preloaderPlus)修改规则而来。鉴于脚本本身已经完善，我仅添加新的站点规则，如遇你所需要的站点未包含在其中，请在issue区报告。 [ywzhaiqi 原始脚本最后一次更新于 Sep 7th 2017](https://github.com/ywzhaiqi/userscript/tree/master/scripts/Super_preloaderPlus)
 **向原作者[swdyh](https://github.com/swdyh) && ywzhaiqi && NLF 致敬**
 **纪念伟大的Greasemonkey,期待猴子的重生**
 
 #!报bug不提供网址的一律不理，伸手党自重!
 
+#以下站点永远不会得到支持
+- 京东
+
 # 如果你想要申请规则，请按如下格式feedback
 ``` markdown
-标题: [NSFW]规则www.example.com
+标题: 
+  非成人内容:  规则www.example.com
+  成人内容:    [NSFW]规则www.example.com
 内容:
   网址: www.example.com/a.html
   NSFW: yes or no
@@ -35,6 +40,17 @@
 6. 如何强制开启中文界面（在你浏览器语言为英语的情况下）？全局设定中勾选ChineseUI
 7. Firefox禁止iframe内嵌套相同网址，造成部分使用锚点翻页的网站在Firefox种无法自翻
 8. 部分网站response内有个'x-frame-options'的header，你需要安装插件[ModHeader for Firefox](https://addons.mozilla.org/en-US/firefox/addon/modheader-firefox/?src=search) 或者 [Ignore X-Frame headers for Chrome](https://chrome.google.com/webstore/detail/ignore-x-frame-headers/gleekbfjekiniecknbkamfmkohkpodhe?hl=en-US) 来修改header。对于前者，你需要手动添加规则 response header -> Name:X-Frame-Options Value:\[空白\] 
+
+#浏览器兼容性
+|JS manager          | Chrome   | Firefox (>57) | Firefox (<57) |
+|--------------------|----------|---------------|---------------|
+|Tampermonkey        |   ✓      | ✓             | NA            |
+|Violentmonkey       |   ✓      | ✓             | No tested     |
+|Greasemonkey 4      |   NA     | ✓             | NA            |
+|Greasemonkey 3      |   NA     | NA            | ✓  (test with WaterFox 56.2.3)|
+|--------------------|----------|---------------|---------------|
+Support for Greasemonkey 3/Tampermonkey  is achieved by [https://greasemonkey.github.io/gm4-polyfill/gm4-polyfill.js](https://greasemonkey.github.io/gm4-polyfill/gm4-polyfill.js) 
+
 
 #动漫网站兼容性
 |Website             | Chrome   | Firefox   |

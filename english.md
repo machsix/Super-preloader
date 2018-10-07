@@ -3,7 +3,7 @@
 A gm script for auto loading paginated web pages. It will join pages together based on the rules.
 
 The script is forked from https://greasyfork.org/en/scripts/10433-super-preloaderplus-one.
-Thanks for the original author [swdyh](https://github.com/swdyh) && ywzhaiqi && NLF
+Thanks for the original author [swdyh](https://github.com/swdyh) && [ywzhaiqi](https://github.com/ywzhaiqi/userscript/tree/master/scripts/Super_preloaderPlus) && [NLF](http://userscripts-mirror.org/scripts/show/84937)
 swdyh is still actively improving [rules](http://wedata.net/databases/AutoPagerize/items) and developping the extension version,[AutoPagerize](https://addons.mozilla.org/en-US/firefox/addon/autopagerize/). 
 
 This userscript exists because someone needs to maintain the rules for Chinese and English users since swdyh's rules are mainly for Japanese websites. Don't be afraid of the fact that most feedbacks are in Chinese. I would like to add rules for English users if I could. Feel free to leave feedback.
@@ -28,14 +28,24 @@ Content:
 ![xkcd](https://github.com/machsix/personal-scripts/raw/master/Super_preloader/ex2.PNG)
 
 #Compatability Issue
-1. The script is created for Firefox 57+/Chrome with Tampermonkey. Firefox(<56)+Greasemonkey should also work
-2. Due to the design of Firefox, iframe with same baseURL but different anchor is not loaded. Details can be found at [https://stackoverflow.com/questions/22126190/why-iframe-is-not-loaded-for-same-url-as-page](https://stackoverflow.com/questions/22126190/why-iframe-is-not-loaded-for-same-url-as-page). This makes the script not work for some website (mainly manga website)
-3. Some websites like Google send the response with header 'x-frame-options', which blocks the creation of iframe. You can use header modifier like [ModHeader for Firefox](https://addons.mozilla.org/en-US/firefox/addon/modheader-firefox/?src=search) or [Ignore X-Frame headers for Chrome](https://chrome.google.com/webstore/detail/ignore-x-frame-headers/gleekbfjekiniecknbkamfmkohkpodhe?hl=en-US) to remove the header and make the script work for this website. Luckily, there aren't many websites like this.
-4. The script doesn't support pixiv.net. For those who use Firefox, you can install [weautopagerize](https://github.com/wantora/weautopagerize) and add the following line to the exclude URL in order to use them together
+1. Due to the design of Firefox, iframe with same baseURL but different anchor is not loaded. Details can be found at [https://stackoverflow.com/questions/22126190/why-iframe-is-not-loaded-for-same-url-as-page](https://stackoverflow.com/questions/22126190/why-iframe-is-not-loaded-for-same-url-as-page). This makes the script not work for some website (mainly manga website)
+2. Some websites like Google send the response with header 'x-frame-options', which blocks the creation of iframe. You can use header modifier like [ModHeader for Firefox](https://addons.mozilla.org/en-US/firefox/addon/modheader-firefox/?src=search) or [Ignore X-Frame headers for Chrome](https://chrome.google.com/webstore/detail/ignore-x-frame-headers/gleekbfjekiniecknbkamfmkohkpodhe?hl=en-US) to remove the header and make the script work for this website. Luckily, there aren't many websites like this.
+3. The script doesn't support pixiv.net. For those who use Firefox, you can install [weautopagerize](https://github.com/wantora/weautopagerize) and add the following line to the exclude URL in order to use them together
 
 > /^https?://((?:\w+.)(?!pixiv))?\w+.(com|cn|ja|jp|net|ru|co|io|cc|me|tw|org|edu|tv|co)(.\w+)?/.*$/
 
-#Comparability to some manga websites
+#Compatibility with different brownser
+|JS manager          | Chrome   | Firefox (>57) | Firefox (<57) |
+|--------------------|----------|---------------|---------------|
+|Tampermonkey        |   ✓      | ✓             | NA            |
+|Violentmonkey       |   ✓      | ✓             | No tested     |
+|Greasemonkey 4      |   NA     | ✓             | NA            |
+|Greasemonkey 3      |   NA     | NA            | ✓  (test with WaterFox 56.2.3)|
+|--------------------|----------|---------------|---------------|
+Support for Greasemonkey 3/Tampermonkey  is achieved by [https://greasemonkey.github.io/gm4-polyfill/gm4-polyfill.js](https://greasemonkey.github.io/gm4-polyfill/gm4-polyfill.js) 
+
+
+#Compatibility to some manga websites
 
 |Website             | Chrome   | Firefox   |
 |--------------------|----------|-----------|
