@@ -11,7 +11,8 @@
 // @license      GNU GPL v3
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
-// @icon         https://raw.githubusercontent.com/machsix/personal-scripts/master/Super_preloader/icon.png
+// @icon         https://cdn.rawgit.com/machsix/personal-scripts/21a9697a/Super_preloader/icon.png
+// @require      https://cdn.rawgit.com/machsix/personal-scripts/21a9697a/Super_preloader/gm4-polyfill.js
 // @grant        GM.getValue
 // @grant        GM_getValue
 // @grant        GM.setValue
@@ -193,7 +194,7 @@
 
         // 新增或修改的
         forceTargetWindow: true, // 下一页的链接设置成在新标签页打开
-        debug: false,
+        debug: true,
         enableHistory: false, // 把下一页链接添加到历史记录
         autoGetPreLink: false, // 一开始不自动查找上一页链接，改为调用时再查找
         excludes: '',
@@ -7240,7 +7241,7 @@
                 character: [' ', '　', ']', '］', '>', '﹥', '?', '?', '>>', '』', '」', '】', ')', '→']
             }
         },
-        useiframe: false, //(预读)是否使用iframe..  SITEINFO_D.useiframe || false
+        useiframe: SITEINFO_D.useiframe || false, //(预读)是否使用iframe..
         viewcontent: false, //查看预读的内容,显示在页面的最下方.
         FA: { //强制拼接 选项 功能设置.
             enable: false, //默认启用 强制拼接
@@ -7291,7 +7292,6 @@
             prefs = JSON.parse(values[0]);
             SITEINFO_D = JSON.parse(values[1]);
             autoMatch = JSON.parse(values[2]);
-            autoMatch.useiframe = SITEINFO_D.useiframe || false;
 
             var xbug = prefs.debug || false;
             debug = xbug ? console.log.bind(console) : function () {};
@@ -7343,7 +7343,7 @@
                                    <li>现维护者: <a href="https://greasyfork.org/en/users/32861-mach6">Mach6</a>\
                                    原作者: <a href="http://userscripts-mirror.org/users/202260/scripts">NFL</a>, <a href="https://github.com/ywzhaiqi">ywzhaiqi</a></li>\
                                    <li><input type="checkbox" id="sp-prefs-debug" /> 调试模式</li>\
-                                   <li title="勾掉开启英文界面"><input type="checkbox" id="sp-prefs-ChineseUI" /> 中文界面</li>\
+                                   <li title="勾掉开启英文界面"><input type="checkbox" id="sp-prefs-ChineseUI" /> 中文界面 (刷新页面后生效)</li>\
                                    <li><input type="checkbox" id="sp-prefs-dblclick_pause" /> 鼠标双击暂停翻页（默认为 Ctrl + 长按左键）</li>\
                                    <li><input type="checkbox" id="sp-prefs-enableHistory" /> 添加下一页到历史记录</li>\
                                    <li title="下一页的链接设置成在新标签页打开"><input type="checkbox" id="sp-prefs-forceTargetWindow" /> 新标签打开链接</li>\
@@ -7370,7 +7370,7 @@
                                    <li>Current maintainer: <a href="https://greasyfork.org/en/users/32861-mach6">Mach6</a>\
                                    Original author: <a href="http://userscripts-mirror.org/users/202260/scripts">NFL</a>, <a href="https://github.com/ywzhaiqi">ywzhaiqi</a></li>\
                                    <li><input type="checkbox" id="sp-prefs-debug" /> Debug mode</li>\
-                                   <li tile="English/Chinese UI"><input type="checkbox" id="sp-prefs-ChineseUI" /> Chinese UI</li>\
+                                   <li tile="English/Chinese UI"><input type="checkbox" id="sp-prefs-ChineseUI" /> Chinese UI (Take effect after refresh)</li>\
                                    <li><input type="checkbox" id="sp-prefs-dblclick_pause" /> Double click to stop preload (Default: Ctrl + Long Left)</li>\
                                    <li><input type="checkbox" id="sp-prefs-enableHistory" /> Add next page to history</li>\
                                    <li title="Open next link in new tab"><input type="checkbox" id="sp-prefs-forceTargetWindow" /> Open next link in new tab</li>\
@@ -7397,20 +7397,28 @@
                 };
 
                 on($('ok'), 'click', function () {
+                    prefs.ChineseUI = !!$('ChineseUI').checked;
+                   // document.getElementById('sp-fw-container').innerHTML = floatWindowUI();
+                    prefs.custom_siteinfo = $('custom_siteinfo').value;
+                    prefs.debug = xbug = !!$('debug').checked;
+                    prefs.dblclick_pause = !!$('dblclick_pause').checked;
+                    prefs.enableHistory = !!$('enableHistory').checked;
+                    prefs.excludes = $('excludes').value;
+                    prefs.forceTargetWindow = !!$('forceTargetWindow').checked;
+
+                    SITEINFO_D.useiframe = !!$('SITEINFO_D-useiframe').checked;
+                    SITEINFO_D.autopager.enable = !!$('SITEINFO_D-a_enable').checked;
+                    SITEINFO_D.autopager.force_enable = !!$('SITEINFO_D-a_force_enable').checked;
+
+                    autoMatch.useiframe = SITEINFO_D.useiframe;
+
                     Promise.all([
-                        GM.setValue('enableHistory', prefs.enableHistory = !!$('enableHistory').checked),
-                        GM.setValue('forceTargetWindow', prefs.forceTargetWindow = !!$('forceTargetWindow').checked),
-                        GM.setValue('SITEINFO_D.useiframe', SITEINFO_D.useiframe = !!$('SITEINFO_D-useiframe').checked),
-                        GM.setValue('SITEINFO_D.autopager.enable', SITEINFO_D.autopager.enable = !!$('SITEINFO_D-a_enable').checked),
-                        GM.setValue('SITEINFO_D.autopager.force_enable', SITEINFO_D.autopager.force_enable = !!$('SITEINFO_D-a_force_enable').checked),
-                        GM.setValue('debug', xbug = !!$('debug').checked),
-                        GM.setValue('ChineseUI', prefs.ChineseUI = !!$('ChineseUI').checked),
-                        GM.setValue('dblclick_pause', $('dblclick_pause').checked),
-                        GM.setValue('excludes', prefs.excludes = $('excludes').value),
-                        GM.setValue('custom_siteinfo', prefs.custom_siteinfo = $('custom_siteinfo').value)
-                    ]).then(function (value) {
-                        debug = xbug ? console.log.bind(console) : function () {},
-                            SP.loadSetting();
+                        GM.setValue('prefs', JSON.stringify(prefs)),
+                        GM.setValue('SITEINFO_D', JSON.stringify(SITEINFO_D)),
+                        GM.setValue('autoMatch', JSON.stringify(autoMatch)),
+                    ]).then(function (values) {
+                        debug = xbug ? console.log.bind(console) : function () {};
+                        SP.loadSetting();
                         close();
                     })
                 });
@@ -7439,7 +7447,7 @@
 
                     this.loadSetting();
 
-                    if (userLang.indexOf('zh') !== -1) {
+                    if ((userLang.indexOf('zh') !== -1) || prefs.ChineseUI) {
                         GM.registerMenuCommand('Super_preloaderPlus_one_New 设置', setup);
                     } else {
                         GM.registerMenuCommand('Super_preloaderPlus_one_New', setup);
@@ -7505,6 +7513,143 @@
 
             SP.init();
 
+            function floatWindowUI(SSS){
+                let innerHTML = '';
+                if ((userLang.indexOf('zh') !== -1) || prefs.ChineseUI) {
+                    innerHTML = '\
+                            <div id="sp-fw-rect" style="background-color:#000;">\
+                                <div id="sp-fw-dot" style="display:none;"></div>\
+                                <div id="sp-fw-cur-mode" style="display:none;"></div>\
+                            </div>\
+                            <div id="sp-fw-content" style="display:none;">\
+                                <div id="sp-fw-main">\
+                                    <div id="sp-fw-main-head">\
+                                        <input type="checkbox" title="使用翻页模式,否则使用预读模式" id="sp-fw-a_enable" name="sp-fw-a_enable"/>使用翻页模式\
+                                        <span id="sp-fw-span-info">Super_preloader</span>\
+                                    </div>\
+                                    <fieldset>\
+                                        <legend title="预读模式的相关设置" >预读设置</legend>\
+                                        <ul>\
+                                            <li>\
+                                                <input type="checkbox" title="使用iframe预先载入好下一页到缓存,否则使用xhr请求下一页源码,取出所有的图片进行预读" id="sp-fw-useiframe" name="sp-fw-useiframe"/>使用iframe方式\
+                                            </li>\
+                                            <li>\
+                                                <input type="checkbox" title="查看预读的内容,将其显示在页面的底部,看看预读了些什么." id="sp-fw-viewcontent" name="sp-fw-viewcontent"/>查看预读的内容\
+                                            </li>\
+                                        </ul>\
+                                    </fieldset>\
+                                    <fieldset id="sp-fw-autopager-field" style="display:block;">\
+                                        <legend title="自动翻页模式的相关设置">翻页设置</legend>\
+                                        <ul>\
+                                            <li>\
+                                                <input type="checkbox" title="使用iframe方式进行翻页,否则使用xhr方式翻页,可以解决某些网页xhr方式无法翻页的问题,如果xhr翻页正常的话,就不要勾这项吧." id="sp-fw-a_useiframe" name="sp-fw-a_useiframe"/>使用iframe方式</input>\
+                                                <input type="checkbox" title="每个下一页都用新的iframe，可以解决下一页图片或按钮点击的问题" id="sp-fw-a_newIframe" name="sp-fw-a_newIframe">新iframe</input>\
+                                                <ul id="sp-fw-a_useiframe-extend">\
+                                                    <li>\
+                                                        <input type="checkbox" title="等待iframe完全载入后(发生load事件),将内容取出,否则在DOM完成后,就直接取出来..(勾上后,会比较慢,但是可能会解决一些问题.)" id="sp-fw-a_iloaded" name="sp-fw-a_iloaded" />等待iframe完全载入\
+                                                    </li>\
+                                                    <li>\
+                                                        <input type="number"  min="0" title="在可以从iframe取数据的时候,继续等待设定的毫秒才开始取出数据(此项为特殊网页准备,如果正常,请设置为0)" id="sp-fw-a_itimeout" name="sp-fw-a_itimeout"/>ms延时取出\
+                                                    </li>\
+                                                </ul>\
+                                            </li>\
+                                            <li>\
+                                                <input type="checkbox" id="sp-fw-a_manualA" name="sp-fw-a_manualA" title="不会自动拼接上来,会出现一个类似翻页导航的的图形,点击翻页(在论坛的帖子内容页面,可以考虑勾选此项,从而不影响你的回帖)"/>手动模式\
+                                            </li>\
+                                            <li>\
+                                                 剩余<input type="number" min="0" id="sp-fw-a_remain" name="sp-fw-a_remain" title="当剩余的页面的高度是浏览器可见窗口高度的几倍开始翻页"/>倍页面高度触发\
+                                            </li>\
+                                            <li>\
+                                                 最多翻<input type="number" min="0" id="sp-fw-a_maxpage" name="sp-fw-a_maxpage" title="最多翻页数量,当达到这个翻页数量的时候,自动翻页停止." />页\
+                                            </li>\
+                                            <li>\
+                                                <input type="checkbox" id="sp-fw-a_separator" name="sp-fw-a_separator" title="分割页面主要内容的导航条,可以进行页面主要内容之间的快速跳转定位等."/>显示翻页导航\
+                                            </li>\
+                                            <li>\
+                                                <input type="checkbox" title="将下一页的body部分内容整个拼接上来.(当需翻页的网站没有高级规则时,该项强制勾选,无法取消.)" id="sp-fw-a_force" name="sp-fw-a_force"/>强制拼接\
+                                            </li>\
+                                            <li>\
+                                                <input type="checkbox" id="sp-fw-a_ipages_0" name="sp-fw-a_ipages_0" title="在JS加载后,立即连续翻后面设定的页数"/>启用 \
+                                                立即翻<input type="number" min="1" id="sp-fw-a_ipages_1" name="sp-fw-a_ipages_1" title="连续翻页的数量" />页\
+                                                <input type="button" value="开始" title="现在立即开始连续翻页" id="sp-fw-a_starti" />\
+                                            </li>\
+                                        </ul>\
+                                    </fieldset>\
+                                    <div id="sp-fw-foot">\
+                                     <input type="checkbox" id="sp-fw-enable" title="总开关,启用js,否则禁用." name="sp-fw-enable"/>启用\
+                                     <span id="sp-fw-setup" class="sp-fw-spanbutton" title="打开设置窗口">设置</span>\
+                                     <span id="sp-fw-savebutton" class="sp-fw-spanbutton" title="保存设置">保存</span>\
+                                    </div>\
+                                </div>\
+                            </div>';
+                } else {
+                    innerHTML = '\
+                            <div id="sp-fw-rect" style="background-color:#000;">\
+                                <div id="sp-fw-dot" style="display:none;"></div>\
+                                <div id="sp-fw-cur-mode" style="display:none;"></div>\
+                            </div>\
+                            <div id="sp-fw-content" style="display:none;">\
+                                <div id="sp-fw-main">\
+                                    <div id="sp-fw-main-head">\
+                                        <input type="checkbox" title="Enable Autopager, otherwise only preload" id="sp-fw-a_enable" name="sp-fw-a_enable"/>Enable autopager\
+                                        <span id="sp-fw-span-info">Super_preloader</span>\
+                                    </div>\
+                                    <fieldset>\
+                                        <legend title="Preloader helps accelerating loading" >Preloader Settings</legend>\
+                                        <ul>\
+                                            <li>\
+                                                <input type="checkbox" title="Use iframe to load next page into cache, otherwise use XHR to get the content. Do not use this if everthing is normal." id="sp-fw-useiframe" name="sp-fw-useiframe"/>Use iframe\
+                                                <input type="checkbox" title="Check preload contents." id="sp-fw-viewcontent" name="sp-fw-viewcontent"/>Show preloaded content\
+                                            </li>\
+                                        </ul>\
+                                    </fieldset>\
+                                    <fieldset id="sp-fw-autopager-field" style="display:block;">\
+                                        <legend title="Autopager frees you from clicking next page">Autopager Settings</legend>\
+                                        <ul>\
+                                            <li>\
+                                                <input type="checkbox" title="Use iframe to load next page into cache, otherwise use XHR to get the content. Do not use this if everthing is normal" id="sp-fw-a_useiframe" name="sp-fw-a_useiframe"/>Use iframe</input>\
+                                                <input type="checkbox" title="Use a new iframe for the next page. It may solve problems with figures" id="sp-fw-a_newIframe" name="sp-fw-a_newIframe">Use new iframe</input>\
+                                                <ul id="sp-fw-a_useiframe-extend">\
+                                                    <li>\
+                                                        <input type="checkbox" title="Append the content untill iframe is fully loaded" id="sp-fw-a_iloaded" name="sp-fw-a_iloaded" />Wait iframe to be fully loaded\
+                                                    </li>\
+                                                    <li>\
+                                                        <input type="number"  min="0" title="Wait for X ms untill the content is appended to the current page. (Default: 0)" id="sp-fw-a_itimeout" name="sp-fw-a_itimeout"/> ms delay\
+                                                    </li>\
+                                                </ul>\
+                                            </li>\
+                                            <li>\
+                                                <input type="checkbox" id="sp-fw-a_manualA" name="sp-fw-a_manualA" title="The next page won\'t be appended to the current page and you need to click a button"/>Manual mode\
+                                            </li>\
+                                            <li>\
+                                                 Trick autopager until the height is <input type="number" min="0" id="sp-fw-a_remain" name="sp-fw-a_remain" />x page height\
+                                            </li>\
+                                            <li>\
+                                                 Turn at most <input type="number" min="0" id="sp-fw-a_maxpage" name="sp-fw-a_maxpage" /> pages\
+                                            </li>\
+                                            <li>\
+                                                <input type="checkbox" id="sp-fw-a_separator" name="sp-fw-a_separator" title="Show the page navigation bar"/>Navigation bar\
+                                            </li>\
+                                            <li>\
+                                                <input type="checkbox" title="Append the whole next page to current page (When there is not rule for the website, this is the only method)" id="sp-fw-a_force" name="sp-fw-a_force"/>Force to join page\
+                                            </li>\
+                                            <li>\
+                                                <input type="checkbox" id="sp-fw-a_ipages_0" name="sp-fw-a_ipages_0" title="Turn X pages instantly once the script is loaded. This is good for some gallery."/>Turn <input type="number" min="1" id="sp-fw-a_ipages_1" name="sp-fw-a_ipages_1" title="number of pages" /> pages instantly\
+                                                <input type="button" value="Start!" title="Start" id="sp-fw-a_starti" />\
+                                            </li>\
+                                        </ul>\
+                                    </fieldset>\
+                                    <div id="sp-fw-foot">\
+                                     <input type="checkbox" id="sp-fw-enable" title="Enable for thie website" name="sp-fw-enable"/>Enable\
+                                     <span id="sp-fw-setup" class="sp-fw-spanbutton" title="Global Settings">Global Settings</span>\
+                                     <span id="sp-fw-savebutton" class="sp-fw-spanbutton" title="Save settings">Save</span>\
+                                    </div>\
+                                </div>\
+                            </div>';
+                }
+                return innerHTML;
+            }
+
             function init(window, document) {
                 var startTime = new Date();
 
@@ -7526,309 +7671,178 @@
                     CmodeIcon: nullFn,
                 };
 
-                function floatWindow() {
+                function floatWindow(SSS) {
                     GM.addStyle('\
-            #sp-fw-container {\
-                z-index:999999!important;\
-                text-align:left!important;\
-            }\
-            #sp-fw-container * {\
-                font-size:13px!important;\
-                color:black!important;\
-                float:none!important;\
-            }\
-            #sp-fw-main-head{\
-                position:relative!important;\
-                top:0!important;\
-                left:0!important;\
-            }\
-            #sp-fw-span-info{\
-                position:absolute!important;\
-                right:1px!important;\
-                top:0!important;\
-                font-size:10px!important;\
-                line-height:10px!important;\
-                background:none!important;\
-                font-style:italic!important;\
-                color:#5a5a5a!important;\
-                text-shadow:white 0px 1px 1px!important;\
-            }\
-            #sp-fw-container input {\
-                vertical-align:middle!important;\
-                display:inline-block!important;\
-                outline:none!important;\
-                height: auto !important;\
-                padding: 0px !important;\
-                margin-bottom: 0px !important;\
-            }\
-            #sp-fw-container input[type="number"] {\
-                width:50px!important;\
-                text-align:left!important;\
-            }\
-            #sp-fw-container input[type="checkbox"] {\
-                border:1px solid #B4B4B4!important;\
-                padding:1px!important;\
-                margin:3px!important;\
-                width:13px!important;\
-                height:13px!important;\
-                background:none!important;\
-                cursor:pointer!important;\
-                visibility: visible !important;\
-                position: static !important;\
-            }\
-            #sp-fw-container input[type="button"] {\
-                border:1px solid #ccc!important;\
-                cursor:pointer!important;\
-                background:none!important;\
-                width:auto!important;\
-                height:auto!important;\
-            }\
-            #sp-fw-container li {\
-                list-style:none!important;\
-                margin:3px 0!important;\
-                border:none!important;\
-                float:none!important;\
-            }\
-            #sp-fw-container fieldset {\
-                border:2px groove #ccc!important;\
-                -moz-border-radius:3px!important;\
-                border-radius:3px!important;\
-                padding:4px 9px 6px 9px!important;\
-                margin:2px!important;\
-                display:block!important;\
-                width:auto!important;\
-                height:auto!important;\
-            }\
-            #sp-fw-container legend {\
-                line-height: 20px !important;\
-                margin-bottom: 0px !important;\
-            }\
-            #sp-fw-container fieldset>ul {\
-                padding:0!important;\
-                margin:0!important;\
-            }\
-            #sp-fw-container ul#sp-fw-a_useiframe-extend{\
-                padding-left:40px!important;\
-            }\
-            #sp-fw-rect {\
-                position:relative!important;\
-                top:0!important;\
-                left:0!important;\
-                float:right!important;\
-                height:10px!important;\
-                width:10px!important;\
-                padding:0!important;\
-                margin:0!important;\
-                -moz-border-radius:3px!important;\
-                border-radius:3px!important;\
-                border:1px solid white!important;\
-                -webkit-box-shadow:inset 0 5px 0 rgba(255,255,255,0.3), 0 0 3px rgba(0,0,0,0.8)!important;\
-                -moz-box-shadow:inset 0 5px 0 rgba(255,255,255,0.3), 0 0 3px rgba(0,0,0,0.8)!important;\
-                box-shadow:inset 0 5px 0 rgba(255,255,255,0.3), 0 0 3px rgba(0,0,0,0.8)!important;\
-                opacity:0.8!important;\
-            }\
-            #sp-fw-dot,\
-            #sp-fw-cur-mode {\
-                position:absolute!important;\
-                z-index:9999!important;\
-                width:5px!important;\
-                height:5px!important;\
-                padding:0!important;\
-                -moz-border-radius:3px!important;\
-                border-radius:3px!important;\
-                border:1px solid white!important;\
-                opacity:1!important;\
-                -webkit-box-shadow:inset 0 -2px 1px rgba(0,0,0,0.3),inset 0 2px 1px rgba(255,255,255,0.3), 0px 1px 2px rgba(0,0,0,0.9)!important;\
-                -moz-box-shadow:inset 0 -2px 1px rgba(0,0,0,0.3),inset 0 2px 1px rgba(255,255,255,0.3), 0px 1px 2px rgba(0,0,0,0.9)!important;\
-                box-shadow:inset 0 -2px 1px rgba(0,0,0,0.3),inset 0 2px 1px rgba(255,255,255,0.3), 0px 1px 2px rgba(0,0,0,0.9)!important;\
-            }\
-            #sp-fw-dot{\
-                right:-3px!important;\
-                top:-3px!important;\
-            }\
-            #sp-fw-cur-mode{\
-                left:-3px!important;\
-                top:-3px!important;\
-                width:6px!important;\
-                height:6px!important;\
-            }\
-            #sp-fw-content{\
-                padding:0!important;\
-                margin:5px 5px 0 0!important;\
-                -moz-border-radius:3px!important;\
-                border-radius:3px!important;\
-                border:1px solid #A0A0A0!important;\
-                -webkit-box-shadow:-2px 2px 5px rgba(0,0,0,0.3)!important;\
-                -moz-box-shadow:-2px 2px 5px rgba(0,0,0,0.3)!important;\
-                box-shadow:-2px 2px 5px rgba(0,0,0,0.3)!important;\
-            }\
-            #sp-fw-main {\
-                padding:5px!important;\
-                border:1px solid white!important;\
-                -moz-border-radius:3px!important;\
-                border-radius:3px!important;\
-                background-color:#F2F2F7!important;\
-                background: -moz-linear-gradient(top, #FCFCFC, #F2F2F7 100%)!important;\
-                background: -webkit-gradient(linear, 0 0, 0 100%, from(#FCFCFC), to(#F2F2F7))!important;\
-            }\
-            #sp-fw-foot{\
-             position:relative!important;\
-             left:0!important;\
-             right:0!important;\
-             min-height:20px!important;\
-            }\
-            #sp-fw-savebutton{\
-                position:absolute!important;\
-                top:0!important;\
-                right:2px!important;\
-            }\
-            #sp-fw-container .sp-fw-spanbutton{\
-                border:1px solid #ccc!important;\
-                -moz-border-radius:3px!important;\
-                border-radius:3px!important;\
-                padding:2px 3px!important;\
-                cursor:pointer!important;\
-                background-color:#F9F9F9!important;\
-                -webkit-box-shadow:inset 0 10px 5px white!important;\
-                -moz-box-shadow:inset 0 10px 5px white!important;\
-                box-shadow:inset 0 10px 5px white!important;\
-            }\
-        ');
+                         #sp-fw-container {\
+                             z-index:999999!important;\
+                             text-align:left!important;\
+                         }\
+                         #sp-fw-container * {\
+                             font-size:13px!important;\
+                             color:black!important;\
+                             float:none!important;\
+                         }\
+                         #sp-fw-main-head{\
+                             position:relative!important;\
+                             top:0!important;\
+                             left:0!important;\
+                         }\
+                         #sp-fw-span-info{\
+                             position:absolute!important;\
+                             right:1px!important;\
+                             top:0!important;\
+                             font-size:10px!important;\
+                             line-height:10px!important;\
+                             background:none!important;\
+                             font-style:italic!important;\
+                             color:#5a5a5a!important;\
+                             text-shadow:white 0px 1px 1px!important;\
+                         }\
+                         #sp-fw-container input {\
+                             vertical-align:middle!important;\
+                             display:inline-block!important;\
+                             outline:none!important;\
+                             height: auto !important;\
+                             padding: 0px !important;\
+                             margin-bottom: 0px !important;\
+                         }\
+                         #sp-fw-container input[type="number"] {\
+                             width:50px!important;\
+                             text-align:left!important;\
+                         }\
+                         #sp-fw-container input[type="checkbox"] {\
+                             border:1px solid #B4B4B4!important;\
+                             padding:1px!important;\
+                             margin:3px!important;\
+                             width:13px!important;\
+                             height:13px!important;\
+                             background:none!important;\
+                             cursor:pointer!important;\
+                             visibility: visible !important;\
+                             position: static !important;\
+                         }\
+                         #sp-fw-container input[type="button"] {\
+                             border:1px solid #ccc!important;\
+                             cursor:pointer!important;\
+                             background:none!important;\
+                             width:auto!important;\
+                             height:auto!important;\
+                         }\
+                         #sp-fw-container li {\
+                             list-style:none!important;\
+                             margin:3px 0!important;\
+                             border:none!important;\
+                             float:none!important;\
+                         }\
+                         #sp-fw-container fieldset {\
+                             border:2px groove #ccc!important;\
+                             -moz-border-radius:3px!important;\
+                             border-radius:3px!important;\
+                             padding:4px 9px 6px 9px!important;\
+                             margin:2px!important;\
+                             display:block!important;\
+                             width:auto!important;\
+                             height:auto!important;\
+                         }\
+                         #sp-fw-container legend {\
+                             line-height: 20px !important;\
+                             margin-bottom: 0px !important;\
+                         }\
+                         #sp-fw-container fieldset>ul {\
+                             padding:0!important;\
+                             margin:0!important;\
+                         }\
+                         #sp-fw-container ul#sp-fw-a_useiframe-extend{\
+                             padding-left:40px!important;\
+                         }\
+                         #sp-fw-rect {\
+                             position:relative!important;\
+                             top:0!important;\
+                             left:0!important;\
+                             float:right!important;\
+                             height:10px!important;\
+                             width:10px!important;\
+                             padding:0!important;\
+                             margin:0!important;\
+                             -moz-border-radius:3px!important;\
+                             border-radius:3px!important;\
+                             border:1px solid white!important;\
+                             -webkit-box-shadow:inset 0 5px 0 rgba(255,255,255,0.3), 0 0 3px rgba(0,0,0,0.8)!important;\
+                             -moz-box-shadow:inset 0 5px 0 rgba(255,255,255,0.3), 0 0 3px rgba(0,0,0,0.8)!important;\
+                             box-shadow:inset 0 5px 0 rgba(255,255,255,0.3), 0 0 3px rgba(0,0,0,0.8)!important;\
+                             opacity:0.8!important;\
+                         }\
+                         #sp-fw-dot,\
+                         #sp-fw-cur-mode {\
+                             position:absolute!important;\
+                             z-index:9999!important;\
+                             width:5px!important;\
+                             height:5px!important;\
+                             padding:0!important;\
+                             -moz-border-radius:3px!important;\
+                             border-radius:3px!important;\
+                             border:1px solid white!important;\
+                             opacity:1!important;\
+                             -webkit-box-shadow:inset 0 -2px 1px rgba(0,0,0,0.3),inset 0 2px 1px rgba(255,255,255,0.3), 0px 1px 2px rgba(0,0,0,0.9)!important;\
+                             -moz-box-shadow:inset 0 -2px 1px rgba(0,0,0,0.3),inset 0 2px 1px rgba(255,255,255,0.3), 0px 1px 2px rgba(0,0,0,0.9)!important;\
+                             box-shadow:inset 0 -2px 1px rgba(0,0,0,0.3),inset 0 2px 1px rgba(255,255,255,0.3), 0px 1px 2px rgba(0,0,0,0.9)!important;\
+                         }\
+                         #sp-fw-dot{\
+                             right:-3px!important;\
+                             top:-3px!important;\
+                         }\
+                         #sp-fw-cur-mode{\
+                             left:-3px!important;\
+                             top:-3px!important;\
+                             width:6px!important;\
+                             height:6px!important;\
+                         }\
+                         #sp-fw-content{\
+                             padding:0!important;\
+                             margin:5px 5px 0 0!important;\
+                             -moz-border-radius:3px!important;\
+                             border-radius:3px!important;\
+                             border:1px solid #A0A0A0!important;\
+                             -webkit-box-shadow:-2px 2px 5px rgba(0,0,0,0.3)!important;\
+                             -moz-box-shadow:-2px 2px 5px rgba(0,0,0,0.3)!important;\
+                             box-shadow:-2px 2px 5px rgba(0,0,0,0.3)!important;\
+                         }\
+                         #sp-fw-main {\
+                             padding:5px!important;\
+                             border:1px solid white!important;\
+                             -moz-border-radius:3px!important;\
+                             border-radius:3px!important;\
+                             background-color:#F2F2F7!important;\
+                             background: -moz-linear-gradient(top, #FCFCFC, #F2F2F7 100%)!important;\
+                             background: -webkit-gradient(linear, 0 0, 0 100%, from(#FCFCFC), to(#F2F2F7))!important;\
+                         }\
+                         #sp-fw-foot{\
+                          position:relative!important;\
+                          left:0!important;\
+                          right:0!important;\
+                          min-height:20px!important;\
+                         }\
+                         #sp-fw-savebutton{\
+                             position:absolute!important;\
+                             top:0!important;\
+                             right:2px!important;\
+                         }\
+                         #sp-fw-container .sp-fw-spanbutton{\
+                             border:1px solid #ccc!important;\
+                             -moz-border-radius:3px!important;\
+                             border-radius:3px!important;\
+                             padding:2px 3px!important;\
+                             cursor:pointer!important;\
+                             background-color:#F9F9F9!important;\
+                             -webkit-box-shadow:inset 0 10px 5px white!important;\
+                             -moz-box-shadow:inset 0 10px 5px white!important;\
+                             box-shadow:inset 0 10px 5px white!important;\
+                         }\
+                     ');
 
                     var div = document.createElement('div');
                     div.id = 'sp-fw-container';
-                    if ((userLang.indexOf('zh') !== -1) || prefs.ChineseUI) {
-                        div.innerHTML = '\
-                <div id="sp-fw-rect" style="background-color:#000;">\
-                    <div id="sp-fw-dot" style="display:none;"></div>\
-                    <div id="sp-fw-cur-mode" style="display:none;"></div>\
-                </div>\
-                <div id="sp-fw-content" style="display:none;">\
-                    <div id="sp-fw-main">\
-                        <div id="sp-fw-main-head">\
-                            <input type="checkbox" title="使用翻页模式,否则使用预读模式" id="sp-fw-a_enable" name="sp-fw-a_enable"/>使用翻页模式\
-                            <span id="sp-fw-span-info">Super_preloader</span>\
-                        </div>\
-                        <fieldset>\
-                            <legend title="预读模式的相关设置" >预读设置</legend>\
-                            <ul>\
-                                <li>\
-                                    <input type="checkbox" title="使用iframe预先载入好下一页到缓存,否则使用xhr请求下一页源码,取出所有的图片进行预读" id="sp-fw-useiframe" name="sp-fw-useiframe"/>使用iframe方式\
-                                </li>\
-                                <li>\
-                                    <input type="checkbox" title="查看预读的内容,将其显示在页面的底部,看看预读了些什么." id="sp-fw-viewcontent" name="sp-fw-viewcontent"/>查看预读的内容\
-                                </li>\
-                            </ul>\
-                        </fieldset>\
-                        <fieldset id="sp-fw-autopager-field" style="display:block;">\
-                            <legend title="自动翻页模式的相关设置">翻页设置</legend>\
-                            <ul>\
-                                <li>\
-                                    <input type="checkbox" title="使用iframe方式进行翻页,否则使用xhr方式翻页,可以解决某些网页xhr方式无法翻页的问题,如果xhr翻页正常的话,就不要勾这项吧." id="sp-fw-a_useiframe" name="sp-fw-a_useiframe"/>使用iframe方式</input>\
-                                    <input type="checkbox" title="每个下一页都用新的iframe，可以解决下一页图片或按钮点击的问题" id="sp-fw-a_newIframe" name="sp-fw-a_newIframe">新iframe</input>\
-                                    <ul id="sp-fw-a_useiframe-extend">\
-                                        <li>\
-                                            <input type="checkbox" title="等待iframe完全载入后(发生load事件),将内容取出,否则在DOM完成后,就直接取出来..(勾上后,会比较慢,但是可能会解决一些问题.)" id="sp-fw-a_iloaded" name="sp-fw-a_iloaded" />等待iframe完全载入\
-                                        </li>\
-                                        <li>\
-                                            <input type="number"  min="0" title="在可以从iframe取数据的时候,继续等待设定的毫秒才开始取出数据(此项为特殊网页准备,如果正常,请设置为0)" id="sp-fw-a_itimeout" name="sp-fw-a_itimeout"/>ms延时取出\
-                                        </li>\
-                                    </ul>\
-                                </li>\
-                                <li>\
-                                    <input type="checkbox" id="sp-fw-a_manualA" name="sp-fw-a_manualA" title="不会自动拼接上来,会出现一个类似翻页导航的的图形,点击翻页(在论坛的帖子内容页面,可以考虑勾选此项,从而不影响你的回帖)"/>手动模式\
-                                </li>\
-                                <li>\
-                                     剩余<input type="number" min="0" id="sp-fw-a_remain" name="sp-fw-a_remain" title="当剩余的页面的高度是浏览器可见窗口高度的几倍开始翻页"/>倍页面高度触发\
-                                </li>\
-                                <li>\
-                                     最多翻<input type="number" min="0" id="sp-fw-a_maxpage" name="sp-fw-a_maxpage" title="最多翻页数量,当达到这个翻页数量的时候,自动翻页停止." />页\
-                                </li>\
-                                <li>\
-                                    <input type="checkbox" id="sp-fw-a_separator" name="sp-fw-a_separator" title="分割页面主要内容的导航条,可以进行页面主要内容之间的快速跳转定位等."/>显示翻页导航\
-                                </li>\
-                                <li>\
-                                    <input type="checkbox" title="将下一页的body部分内容整个拼接上来.(当需翻页的网站没有高级规则时,该项强制勾选,无法取消.)" id="sp-fw-a_force" name="sp-fw-a_force"/>强制拼接\
-                                </li>\
-                                <li>\
-                                    <input type="checkbox" id="sp-fw-a_ipages_0" name="sp-fw-a_ipages_0" title="在JS加载后,立即连续翻后面设定的页数"/>启用 \
-                                    立即翻<input type="number" min="1" id="sp-fw-a_ipages_1" name="sp-fw-a_ipages_1" title="连续翻页的数量" />页\
-                                    <input type="button" value="开始" title="现在立即开始连续翻页" id="sp-fw-a_starti" />\
-                                </li>\
-                            </ul>\
-                        </fieldset>\
-                        <div id="sp-fw-foot">\
-                         <input type="checkbox" id="sp-fw-enable" title="总开关,启用js,否则禁用." name="sp-fw-enable"/>启用\
-                         <span id="sp-fw-setup" class="sp-fw-spanbutton" title="打开设置窗口">设置</span>\
-                         <span id="sp-fw-savebutton" class="sp-fw-spanbutton" title="保存设置">保存</span>\
-                        </div>\
-                    </div>\
-                </div>';
-                    } else {
-                        div.innerHTML = '\
-                <div id="sp-fw-rect" style="background-color:#000;">\
-                    <div id="sp-fw-dot" style="display:none;"></div>\
-                    <div id="sp-fw-cur-mode" style="display:none;"></div>\
-                </div>\
-                <div id="sp-fw-content" style="display:none;">\
-                    <div id="sp-fw-main">\
-                        <div id="sp-fw-main-head">\
-                            <input type="checkbox" title="Enable Autopager, otherwise only preload" id="sp-fw-a_enable" name="sp-fw-a_enable"/>Enable autopager\
-                            <span id="sp-fw-span-info">Super_preloader</span>\
-                        </div>\
-                        <fieldset>\
-                            <legend title="Preloader helps accelerating loading" >Preloader Settings</legend>\
-                            <ul>\
-                                <li>\
-                                    <input type="checkbox" title="Use iframe to load next page into cache, otherwise use XHR to get the content. Do not use this if everthing is normal." id="sp-fw-useiframe" name="sp-fw-useiframe"/>Use iframe\
-                                    <input type="checkbox" title="Check preload contents." id="sp-fw-viewcontent" name="sp-fw-viewcontent"/>Show preloaded content\
-                                </li>\
-                            </ul>\
-                        </fieldset>\
-                        <fieldset id="sp-fw-autopager-field" style="display:block;">\
-                            <legend title="Autopager frees you from clicking next page">Autopager Settings</legend>\
-                            <ul>\
-                                <li>\
-                                    <input type="checkbox" title="Use iframe to load next page into cache, otherwise use XHR to get the content. Do not use this if everthing is normal" id="sp-fw-a_useiframe" name="sp-fw-a_useiframe"/>Use iframe</input>\
-                                    <input type="checkbox" title="Use a new iframe for the next page. It may solve problems with figures" id="sp-fw-a_newIframe" name="sp-fw-a_newIframe">Use new iframe</input>\
-                                    <ul id="sp-fw-a_useiframe-extend">\
-                                        <li>\
-                                            <input type="checkbox" title="Append the content untill iframe is fully loaded" id="sp-fw-a_iloaded" name="sp-fw-a_iloaded" />Wait iframe to be fully loaded\
-                                        </li>\
-                                        <li>\
-                                            <input type="number"  min="0" title="Wait for X ms untill the content is appended to the current page. (Default: 0)" id="sp-fw-a_itimeout" name="sp-fw-a_itimeout"/> ms delay\
-                                        </li>\
-                                    </ul>\
-                                </li>\
-                                <li>\
-                                    <input type="checkbox" id="sp-fw-a_manualA" name="sp-fw-a_manualA" title="The next page won\'t be appended to the current page and you need to click a button"/>Manual mode\
-                                </li>\
-                                <li>\
-                                     Trick autopager until the height is <input type="number" min="0" id="sp-fw-a_remain" name="sp-fw-a_remain" />x page height\
-                                </li>\
-                                <li>\
-                                     Turn at most <input type="number" min="0" id="sp-fw-a_maxpage" name="sp-fw-a_maxpage" /> pages\
-                                </li>\
-                                <li>\
-                                    <input type="checkbox" id="sp-fw-a_separator" name="sp-fw-a_separator" title="Show the page navigation bar"/>Navigation bar\
-                                </li>\
-                                <li>\
-                                    <input type="checkbox" title="Append the whole next page to current page (When there is not rule for the website, this is the only method)" id="sp-fw-a_force" name="sp-fw-a_force"/>Force to join page\
-                                </li>\
-                                <li>\
-                                    <input type="checkbox" id="sp-fw-a_ipages_0" name="sp-fw-a_ipages_0" title="Turn X pages instantly once the script is loaded. This is good for some gallery."/>Turn <input type="number" min="1" id="sp-fw-a_ipages_1" name="sp-fw-a_ipages_1" title="number of pages" /> pages instantly\
-                                    <input type="button" value="Start!" title="Start" id="sp-fw-a_starti" />\
-                                </li>\
-                            </ul>\
-                        </fieldset>\
-                        <div id="sp-fw-foot">\
-                         <input type="checkbox" id="sp-fw-enable" title="Enable for thie website" name="sp-fw-enable"/>Enable\
-                         <span id="sp-fw-setup" class="sp-fw-spanbutton" title="Global Settings">Global Settings</span>\
-                         <span id="sp-fw-savebutton" class="sp-fw-spanbutton" title="Save settings">Save</span>\
-                        </div>\
-                    </div>\
-                </div>';
-                    }
+                    div.innerHTML = floatWindowUI();
                     document.body.appendChild(div);
 
                     function $(id) {
