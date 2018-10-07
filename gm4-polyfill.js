@@ -37,8 +37,8 @@ if (typeof GM_addStyle == 'undefined') {
             head = document.documentElement;
         }
         let style = document.createElement('style');
-        if (id) {
-            style.setAttribute(id, setAttribute);
+        if (aId) {
+            style.setAttribute(id, aId);
         }
         style.setAttribute('type', 'text/css');
         style.textContent = aCss;
