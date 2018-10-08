@@ -7,12 +7,12 @@
 // @description:zh-cn  预读+翻页..全加速你的浏览体验
 // @description:zh-TW  预读+翻页..全加速你的浏览体验
 // @author       Mach6(原作者 ywzhaiqi && NLF)
-// @version      6.5.51
+// @version      6.5.52
 // @license      GNU GPL v3
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
 // @icon         https://cdn.rawgit.com/machsix/personal-scripts/master/Super_preloader/icon.png
-// @require      https://greasyfork.org/scripts/372965-gm4-polyfill-mach6/code/gm4-polyfill-mach6.js?version=634985
+// @require https://greasyfork.org/scripts/372965-gm4-polyfill-mach6/code/gm4-polyfill-mach6.js?version=635207
 // @grant        GM.getValue
 // @grant        GM_getValue
 // @grant        GM.setValue
@@ -51,9 +51,9 @@
 (function () {
 
     var scriptInfo = {
-        version: '6.5.51',
-        updateTime: '2018/10/7 EST',
-        changelog: 'Continue fixing for Greasemonkey 4, qiushibaike, haha.mx',
+        version: '6.5.52',
+        updateTime: '2018/10/8 EST',
+        changelog: 'Continue fixing for Greasemonkey 4, replace ES6 arrow function by old-style',
         homepageURL: 'https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new',
         downloadUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.user.js',
         metaUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.meta.js',
