@@ -7,7 +7,7 @@
 // @description:zh-cn  预读+翻页..全加速你的浏览体验
 // @description:zh-TW  预读+翻页..全加速你的浏览体验
 // @author       Mach6(原作者 ywzhaiqi && NLF)
-// @version      6.5.50
+// @version      6.5.51
 // @license      GNU GPL v3
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
@@ -51,9 +51,9 @@
 (function () {
 
     var scriptInfo = {
-        version: '6.5.50',
-        updateTime: '2018/10/6 EST',
-        changelog: 'Rewrite many parts for Greasemonkey 4',
+        version: '6.5.51',
+        updateTime: '2018/10/7 EST',
+        changelog: 'Continue fixing for Greasemonkey 4, qiushibaike, haha.mx',
         homepageURL: 'https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new',
         downloadUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.user.js',
         metaUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.meta.js',
@@ -348,8 +348,8 @@
                     var ins = doc.getElementById('ires');
                     var bres = doc.getElementById('bres');
                     var brs = doc.getElementById('brs');
-                    var imagexbox = getElementByXpath('//*[@id="imagebox_bigimages"]//parent::div', doc, doc);
-                    var rso = doc.getElementById('rso');
+                    //var imagexbox = getElementByXpath('//*[@id="imagebox_bigimages"]//parent::div', doc, doc);
+                    //var rso = doc.getElementById('rso');
                     if (ins) {
                         if (bres) {
                            ins.appendChild(bres);
@@ -358,9 +358,9 @@
                            ins.appendChild(brs);
                         }
                     }
-                    if (rso && imagexbox) {
-                        rso.appendChild(imagexbox);
-                    }
+                    //if (rso && imagexbox) {
+                        //rso.appendChild(imagexbox);
+                    //}
                 }
             }
         },
@@ -1903,17 +1903,27 @@
             url: /^https?:\/\/www\.chiphell\.com\/(?!forum)/i,
             nextLink: 'auto;',
             autopager: {
-                pageElement: 'id("ct")/div[@class="mn"]/div[@class="bm"]/div[@class="bm_c xld"] | id("article_content")/../..',
+                pageElement: 'id("ct")/div[@class="mn"]/div[@id="threadlist"] | id("article_content")/../..',
                 replaceE: '//div[@class="pg"]',
             }
         },
         {
             name: '糗事百科',
             url: '^https?://www\\.qiushibaike\\.com/',
-            nextLink: '//a[@class="next" and @title="下一页"]',
+            nextLink: '//span[contains(text(),"下一页")]//parent::a',
             autopager: {
-                pageElement: '//div[@class="main"]/div[contains(@class, "content-block")]/div[@class="col1"]',
-                stylish: '.sp-separator { width: 620px !important; }'
+                useiframe: true,
+                pageElement: 'id("content-left")/div[contains(@class,"article")]',
+              //  stylish: '.sp-separator { width: 620px !important; }'
+            }
+        },
+        {
+            name: 'haha.mx',
+            url: '^https?://www\\.haha\\.mx/',
+            nextLink: 'auto;',
+            autopager: {
+                useiframe: true,
+                pageElement: '//div[@class="joke-list"]',
             }
         },
         {
@@ -4491,10 +4501,7 @@
             name: "chaturbate",
             url: "^https?://([^.]+\.)?chaturbate\.com/",
             nextLink: 'auto;',
-            autopager: {
-                useiframe: false,
-                pageElement: '//div[@class="c-1 endless_page_template"]',
-            },
+            pageElement: '//div[@class="c-1 endless_page_template"]',
         },
         // ==== English websites ====================
 //         {
@@ -8064,7 +8071,7 @@
                     }
                     return innerHTML;
                 }
-
+            
                 function sp_transition(start, end) {
                     var TweenF = sp_transition.TweenF;
                     if (!TweenF) {
