@@ -127,7 +127,7 @@ Object.entries({
     if (old && (typeof GM[newKey] == 'undefined')) {
         if (oldKey === 'GM_addStyle') {
             GM[newKey] = function(...args) {
-                return old.apply(this, args);
+                return old(args);
             };
         }
         else {
