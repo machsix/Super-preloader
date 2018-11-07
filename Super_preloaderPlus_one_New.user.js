@@ -583,7 +583,7 @@
             nextLink: '//li/a[text()="下一页"]',
             prevLink: '//li/a[text()="上一页"]',
             autopager: {
-                pageElement: '//li[@class="feed-row-wide"] ',
+                pageElement: '//li[@class="feed-row-wide "]',
             }
         },
         {
