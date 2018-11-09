@@ -587,6 +587,26 @@
             }
         },
         {
+            name: 'smzdm-fenlei',
+            url: /^https?:\/\/www\.smzdm\.com\/fenlei\//i,
+            exampleUrl: 'https://www.smzdm.com/fenlei/shuiguo/',
+            nextLink: '//li/a[text()="下一页"]',
+            prevLink: '//li/a[text()="上一页"]',
+            autopager: {
+                pageElement: '//li[@class="feed-row-wide"]',
+            }
+        },
+        {
+            name: 'smzdm-tag',
+            url: /^https?:\/\/www\.smzdm\.com\/tag\//i,
+            exampleUrl: 'https://www.smzdm.com/tag/%E5%8D%8A%E4%BB%B7%E7%89%B9%E6%83%A0/youhui/',
+            nextLink: '//li/a[text()="下一页"]',
+            prevLink: '//li/a[text()="上一页"]',
+            autopager: {
+                pageElement: '//div[@class="list \list_preferential "]',
+            }
+        },
+        {
             name: 'smzdm-comment',
             url: /^https?:\/\/post\.smzdm\.com\/p\/\d+/i,
             exampleUrl: 'https://post.smzdm.com/p/559992/',
