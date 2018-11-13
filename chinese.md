@@ -1,15 +1,22 @@
 ![icon!](https://github.com/machsix/personal-scripts/raw/master/Super_preloader/icon2.png)
 #介绍
-自动翻页脚本，由[ywzhaiqi && NLF原作](https://github.com/ywzhaiqi/userscript/tree/master/scripts/Super_preloaderPlus)修改规则而来。鉴于脚本本身已经完善，我仅添加新的站点规则，如遇你所需要的站点未包含在其中，请在issue区报告。 [ywzhaiqi 原始脚本最后一次更新于 Sep 7th 2017](https://github.com/ywzhaiqi/userscript/tree/master/scripts/Super_preloaderPlus)
+自动翻页脚本，由[ywzhaiqi && NLF原作](https://github.com/ywzhaiqi/userscript/tree/master/scripts/Super_preloaderPlus)修改规则而来。我的维护主要包括以下几方面
+1. 添加、更新站点规则
+2. 适配Greasemonkey4的新异步编程API(欢迎其他脚本作者使用库函数实现Greasemonkey4的兼容[https://greasyfork.org/zh-CN/scripts/373124-gm4-polyfill-mach6-legacy](https://greasyfork.org/zh-CN/scripts/373124-gm4-polyfill-mach6-legacy)
+3. 添加针对部分使用lazyload的网站的支持
+
+[ywzhaiqi 原始脚本最后一次更新于 Sep 7th 2017](https://github.com/ywzhaiqi/userscript/tree/master/scripts/Super_preloaderPlus). Greasefork上其他所谓的Super_preloaderPlus基本是ywzhaiqi原脚本的拷贝
+
 **向原作者[swdyh](https://github.com/swdyh) && ywzhaiqi && NLF 致敬**
 **纪念伟大的Greasemonkey,期待猴子的重生**
 
-#!报bug不提供网址的一律不理，伸手党自重!
+#关于反馈
+如遇你所需要的站点未包含在其中，请在issue区报告。 
+##报bug不提供网址的一律不理，比如像下面这位：
+https://greasyfork.org/en/forum/discussion/43712/x
+希望各位反馈时能选择**好评**。我利用业余时间学习js、无偿维护这个脚本已经很辛苦了，而且基本做到了有问必答定期更新。并且也没有在这个脚本里植入任何营销脚本，更不用说“求捐助了”。同时也希望各位自己写了规则的能够到我的github提交pull request [https://github.com/machsix/personal-scripts/tree/master/Super_preloader](https://github.com/machsix/personal-scripts/tree/master/Super_preloader)
 
-#以下站点永远不会得到支持
-- 京东
-
-# 如果你想要申请规则，请按如下格式feedback
+**反馈请按如下规则提交feedback**
 ``` markdown
 标题: 
   非成人内容:  规则www.example.com
@@ -25,6 +32,11 @@
 **NSFW=Not Safe For Work. 申请成人网站规则的，务必在帖子标题附上\[NSFW\]**
 **如果你不按照格式feedback，请不要期待我会给你解决**
 
+#以下站点永远不会得到支持
+- 京东
+
+
+
 #例子
 1. Baidu:
 ![Baidu](https://github.com/machsix/personal-scripts/raw/master/Super_preloader/ex4.PNG)
@@ -33,7 +45,7 @@
 
 #兼容性说明
 1. 本脚本在Firefox 57+/Chrome Tampermonkey 下测试通过
-2. Greasemonkey 3 for Firefox < 55 理论上可以提供支持
+2. Greasemonkey 3 for Firefox < 57 理论上可以提供支持
 3. Violentmonkey 经测试对于百度贴吧支持不良，主要表现为加载速度缓慢, 其余网站暂时正常
 4. 部分规则来自 http://wedata.net/databases/AutoPagerize
 5. 如何对特定网站开启自动翻页？ 鼠标悬停于悬浮窗上，勾选翻页模式，点击保存
@@ -45,7 +57,7 @@
 |JS manager          | Chrome   | Firefox (>57) | Firefox (<57) |
 |--------------------|----------|---------------|---------------|
 |Tampermonkey        |   ✓      | ✓             | NA            |
-|Violentmonkey       |   ✓      | ✓             | No tested     |
+|Violentmonkey       |   ✓      | ✓             | Not test     |
 |Greasemonkey 4      |   NA     | ✓             | NA            |
 |Greasemonkey 3      |   NA     | NA            | ✓  (test with WaterFox 56.2.3)|
 |--------------------|----------|---------------|---------------|
@@ -70,7 +82,8 @@ For website with X-Header, you should follow issue 8 in the last section
 
 
 
-#Changelog
+#重大change
+- Oct 10th 2018: 基本完成了对gm4的适配
 - July 15th 2018: 修正许多漫画网站
 - 5月10日，2018： 修补虎扑、pixiv、哈姆雷特、NSFW rules. 合并部分[日文规则](http://wedata.net/databases/AutoPagerize)
 - 12月7日：修正wnacg
