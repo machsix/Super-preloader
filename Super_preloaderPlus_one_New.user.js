@@ -7,7 +7,7 @@
 // @description:zh-cn  预读+翻页..全加速你的浏览体验
 // @description:zh-TW  预读+翻页..全加速你的浏览体验
 // @author       Mach6(原作者 ywzhaiqi && NLF)
-// @version      6.5.54
+// @version      6.5.55
 // @license      GNU GPL v3
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
@@ -50,38 +50,38 @@
 // ==/UserScript==
 (function () {
   var scriptInfo = {
-    version: '6.5.54',
-    updateTime: '2018/10/14 EST',
-    changelog: 'Continue fixing for Greasemonkey 4, remove the need of let/Object.entries',
+    version: '6.5.55',
+    updateTime: '2018/11/13 EST',
+    changelog: '52pojie, Fix syntax',
     homepageURL: 'https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new',
     downloadUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.user.js',
     metaUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.meta.js'
-  }
+  };
 
-  GM.setValue('version', scriptInfo.version)
+  GM.setValue('version', scriptInfo.version);
   // ----------------------------------
   // rule.js
 
   if (window.name === 'mynovelreader-iframe') {
-    return
+    return;
   }
 
   // Website which has script to change window name
   var ChangeIframeSites = [
     /^https?:\/\/www\.930mh\.com/i
-  ]
+  ];
 
   function CheckIframe () {
     for (var i = 0; i < ChangeIframeSites.length; i++) {
       if (toRE(ChangeIframeSites[i]).test(window.location.href)) {
         try {
-          return window.self !== window.top
+          return window.self !== window.top;
         } catch (e) {
-          return true
+          return true;
         }
       }
     }
-    if (window.name === 'superpreloader-iframe') { return true } else { return false }
+    if (window.name === 'superpreloader-iframe') { return true; } else { return false; }
   }
 
   // Website which uses lazyload feature [url, xpath, timeout]
@@ -98,70 +98,70 @@
         if (mutation.addedNodes) {
           for (var i = 0; i < mutation.addedNodes.length; i++) {
             if (mutation.addedNodes[i].className.indexOf('photo-view') != -1) {
-              ncheck = ncheck + 1
-              break
+              ncheck = ncheck + 1;
+              break;
             }
           }
-          window.scroll(window.scrollX, 99999)
+          window.scroll(window.scrollX, 99999);
         }
       }
-      return ncheck
+      return ncheck;
     },
     node_check_time: 2
-  } ]
+  } ];
 
   // 如果是取出下一页使用的iframe window
   if (CheckIframe()) { // 搜狗,iframe里面怎么不加载js啊?
     // 去掉了原版的另一种方法，因为新版本 chrome 已经支持。旧版本 chrome iframe里面 无法访问window.parent,返回undefined
     var domloaded = function () { // 滚动到底部,针对,某些使用滚动事件加载图片的网站.
-      var targetNode
-      var LLS
+      var targetNode;
+      var LLS;
       for (var i = 0; i < LazyLoadSites.length; i++) {
         if (toRE(LazyLoadSites[i].url).test(window.location.href)) {
           // Select the node that will be observed for mutations
-          targetNode = getElementByXpath(LazyLoadSites[i].target, document, document)
-          LLS = LazyLoadSites[i]
-          break
+          targetNode = getElementByXpath(LazyLoadSites[i].target, document, document);
+          LLS = LazyLoadSites[i];
+          break;
         }
       }
 
       if (targetNode) {
-        var num_node_check = 0
+        var num_node_check = 0;
         // Callback function to execute when mutations are observed
         var callback = function (mutationsList, observer) {
           // console.log("First callback");
           for (var mutation of mutationsList) {
-            num_node_check = LLS.mutationParser(mutation, num_node_check)
+            num_node_check = LLS.mutationParser(mutation, num_node_check);
             //  console.log(num_node_check);
             if (num_node_check == LLS.node_check_time) {
               //    console.log("finish");
-              observer.disconnect()
-              window.parent.postMessage('superpreloader-iframe:DOMLoaded', '*')
+              observer.disconnect();
+              window.parent.postMessage('superpreloader-iframe:DOMLoaded', '*');
             }
           }
-        }
-        var observer_lazyload = new MutationObserver(callback)
+        };
+        var observer_lazyload = new MutationObserver(callback);
         // Start observing the target node for configured mutations
         observer_lazyload.observe(targetNode, {
           childList: true
-        })
-        window.scroll(window.scrollX, 99999)
+        });
+        window.scroll(window.scrollX, 99999);
       } else {
-        window.scroll(window.scrollX, 99999)
-        window.parent.postMessage('superpreloader-iframe:DOMLoaded', '*')
+        window.scroll(window.scrollX, 99999);
+        window.parent.postMessage('superpreloader-iframe:DOMLoaded', '*');
       }
-    }
+    };
     if (window.opera) {
-      document.addEventListener('DOMContentLoaded', domloaded, false)
+      document.addEventListener('DOMContentLoaded', domloaded, false);
     } else {
-      domloaded()
+      domloaded();
     }
 
-    return
+    return;
   }
 
   /// //////////////////设置(请注意开关的缩进关系..子开关一般在父开关为true的时候才会生效.)//////////////////////
-  var userLang = navigator.language || navigator.userLanguage
+  var userLang = navigator.language || navigator.userLanguage;
   // (Default settings)
   var prefs = {
     floatWindow: true, // 显示悬浮窗
@@ -196,7 +196,7 @@
     lazyImgSrc: 'zoomfile|file|original|load-src|_src|imgsrc|real_src|src2|data-lazyload-src|data-ks-lazyload|data-lazyload|data-src|data-original|data-thumb|data-imageurl|data-defer-src|data-placeholder',
     ChineseUI: false,
     dblclick_pause: false
-  }
+  };
 
   /// ///////////////////////---------------规则-------////////////////
   // 高级规则的一些默认设置..如果你不知道是什么..请务必不要修改(删除)它.此修改会影响到所有高级规则...
@@ -221,7 +221,7 @@
       reload: false, // 强制重载iframe
       sandbox: false // Iframe sandbox 选项
     }
-  }
+  };
 
   // 在以下网站上允许在非顶层窗口上加载JS..比如猫扑之类的框架集网页.
   var DIExclude = [
@@ -231,7 +231,7 @@
     // 像 http://so.baiduyun.me/ 内嵌的百度、Google 框架
     ['百度网盘搜索引擎-百度', true, /^https?:\/\/www\.baidu\.com\/baidu/i],
     ['百度网盘搜索引擎-Google', true, /^https?:\/\/74\.125\.128\.147\/custom/i]
-  ]
+  ];
 
   // 页面不刷新的站点
   var HashchangeSites = [{
@@ -249,7 +249,7 @@
     url: /^https?:\/\/www\.newsmth\.net/,
     timer: 1000
   }
-  ]
+  ];
 
   /// ///////////////////////---------------规则-------////////////////
   // 翻页所要的站点信息.
@@ -305,10 +305,10 @@
                     '.rg_meta{display:none}.bili{display:inline-block;margin:0 6px 6px 0;overflow:hidden;position:relative;vertical-align:top}._HG{margin-bottom:2px;margin-right:2px}',
         documentFilter: function (doc) {
           // 修正下一页的图片
-          var x = doc.evaluate('//script/text()[contains(self::text(), "setImagesSrc")]', doc, null, 9, null).singleNodeValue
+          var x = doc.evaluate('//script/text()[contains(self::text(), "setImagesSrc")]', doc, null, 9, null).singleNodeValue;
           if (x) {
             try {
-              new Function('document', 'window', 'google', x.nodeValue)(doc, unsafeWindow, unsafeWindow.google)
+              new Function('document', 'window', 'google', x.nodeValue)(doc, unsafeWindow, unsafeWindow.google);
             } catch (e) {}
           }
 
@@ -324,8 +324,8 @@
         },
         startFilter: function (win, doc) { // 只作用一次
           // 移除 Google 重定向
-          var script = doc.createElement('script')
-          script.type = 'text/javascript'
+          var script = doc.createElement('script');
+          script.type = 'text/javascript';
           script.textContent = '\
                 Object.defineProperty(window, "rwt", {\
                     configurable: false,\
@@ -334,22 +334,22 @@
                         return function() {};\
                     },\
                 });\
-                '
-          doc.documentElement.appendChild(script)
-          doc.documentElement.removeChild(script)
+                ';
+          doc.documentElement.appendChild(script);
+          doc.documentElement.removeChild(script);
 
           // 移动相关搜索到第一页
-          var ins = doc.getElementById('ires')
-          var bres = doc.getElementById('bres')
-          var brs = doc.getElementById('brs')
+          var ins = doc.getElementById('ires');
+          var bres = doc.getElementById('bres');
+          var brs = doc.getElementById('brs');
           // var imagexbox = getElementByXpath('//*[@id="imagebox_bigimages"]//parent::div', doc, doc);
           // var rso = doc.getElementById('rso');
           if (ins) {
             if (bres) {
-              ins.appendChild(bres)
+              ins.appendChild(bres);
             }
             if (brs) {
-              ins.appendChild(brs)
+              ins.appendChild(brs);
             }
           }
           // if (rso && imagexbox) {
@@ -374,7 +374,7 @@
         startFilter: function (win) {
           // 设置百度搜索类型为 s?wd=
           try {
-            win.document.cookie = 'ISSW=1'
+            win.document.cookie = 'ISSW=1';
           } catch (ex) {}
         }
       }
@@ -427,13 +427,13 @@
         replaceE: '//nav[@role="navigation"]',
         HT_insert: ['id("b_results")/li[@class="b_pag"]', 1],
         startFilter: function (win, doc) { // 移动相关搜索到第一页
-          var brs = doc.evaluate('id("b_results")/li[@class="b_ans"]').iterateNext()
-          debug(brs)
-          var ins = doc.getElementsByClassName('b_algo')
-          ins = ins[ins.length - 1]
-          debug(ins)
+          var brs = doc.evaluate('id("b_results")/li[@class="b_ans"]').iterateNext();
+          debug(brs);
+          var ins = doc.getElementsByClassName('b_algo');
+          ins = ins[ins.length - 1];
+          debug(ins);
           if (brs && ins) {
-            ins.appendChild(brs)
+            ins.appendChild(brs);
           }
         }
       }
@@ -587,7 +587,7 @@
       nextLink: '//li/a[text()="下一页"]',
       prevLink: '//li/a[text()="上一页"]',
       autopager: {
-          pageElement: '//li[@class="feed-row-wide"]',
+        pageElement: '//li[@class="feed-row-wide"]',
       }
     },
     {
@@ -597,7 +597,7 @@
       nextLink: '//li/a[text()="下一页"]',
       prevLink: '//li/a[text()="上一页"]',
       autopager: {
-          pageElement: '//div[contains(@class,"list list_preferential")]',
+        pageElement: '//div[contains(@class,"list list_preferential")]',
       }
     },
     {
@@ -787,9 +787,9 @@
       url: /^https?:\/\/\w+\.blog\.hexun\.com\//i,
       exampleUrl: 'http://23802543.blog.hexun.com/',
       nextLink: function (doc) {
-        var url = doc.querySelector('.PageSkip_1 a[title="下一页"]').getAttribute('href')
-        url = url.replace(/(\/p\d+\/).*/, '$1default.html')
-        return url
+        var url = doc.querySelector('.PageSkip_1 a[title="下一页"]').getAttribute('href');
+        url = url.replace(/(\/p\d+\/).*/, '$1default.html');
+        return url;
       },
       autopager: {
         pageElement: 'id("DefaultContainer1_ArticleList_Panel1")'
@@ -1496,9 +1496,9 @@
         mFails: [/^https?:\/\/idope\.se\/torrent-list\/.+/i, '/?p=1'],
         inc: 1,
         isLast: function (doc, win, lhref) {
-          var pageSel = doc.getElementById('next')
+          var pageSel = doc.getElementById('next');
           if (!pageSel) {
-            return true
+            return true;
           }
         }
       },
@@ -1524,10 +1524,10 @@
         pageElement: '//div[@class="atl-main"]',
         lazyImgSrc: 'original',
         filter: function (pages) {
-          var see_only_uname = unsafeWindow.see_only_uname
-          var setOnlyUser = unsafeWindow.setOnlyUser
+          var see_only_uname = unsafeWindow.see_only_uname;
+          var setOnlyUser = unsafeWindow.setOnlyUser;
           if (see_only_uname) {
-            setOnlyUser(see_only_uname)
+            setOnlyUser(see_only_uname);
           }
         }
       }
@@ -1552,8 +1552,8 @@
         documentFilter: function (doc) {
           // 头像载入出错的修正
           [].forEach.call(doc.querySelectorAll('img.J_avatar'), function (img) {
-            img.setAttribute('onerror', 'this.src="http://www.firefox.net.cn/res/images/face/face_small.jpg";')
-          })
+            img.setAttribute('onerror', 'this.src="http://www.firefox.net.cn/res/images/face/face_small.jpg";');
+          });
         }
       }
     },
@@ -1611,9 +1611,9 @@
         pageElement: "id('postlist') | id('threadlist')",
         replaceE: '//div[@class="pg"][child::a[@class="nxt"]]',
         documentFilter: function (doc) {
-          var firstDiv = doc.querySelector("div[id^='post_']")
+          var firstDiv = doc.querySelector("div[id^='post_']");
           if (firstDiv) {
-            firstDiv.parentNode.removeChild(firstDiv)
+            firstDiv.parentNode.removeChild(firstDiv);
           }
         }
       }
@@ -1948,13 +1948,13 @@
         pageElement: '//div[@id="content-list"]',
         lazyImgSrc: 'original',
         filter: function (pages) {
-          var chouti = unsafeWindow.chouti
-          var NS_links_comment_top = unsafeWindow.NS_links_comment_top
-          chouti.vote()
-          chouti.addCollect()
-          chouti.shareweibo()
-          chouti.playVido()
-          NS_links_comment_top.init()
+          var chouti = unsafeWindow.chouti;
+          var NS_links_comment_top = unsafeWindow.NS_links_comment_top;
+          chouti.vote();
+          chouti.addCollect();
+          chouti.shareweibo();
+          chouti.playVido();
+          NS_links_comment_top.init();
         }
       }
     },
@@ -2157,14 +2157,14 @@
       name: 'sasaone.com',
       url: /^https?:\/\/(\w*\.)?sasaone\.com\/\w+\/\d+\/\d+(_\d+)?\.html/i,
       nextLink: function (doc, win, cplink) {
-        var m = cplink.match(/\d+_(\d+)\.html/)
+        var m = cplink.match(/\d+_(\d+)\.html/);
         if (!m) {
-          return cplink.replace('.html', '_2.html')
+          return cplink.replace('.html', '_2.html');
         } else {
-          var current = Number(m[1])
-          var next = current + 1
-          var url = cplink.replace(m[1] + '.html', next + '.html')
-          return url
+          var current = Number(m[1]);
+          var next = current + 1;
+          var url = cplink.replace(m[1] + '.html', next + '.html');
+          return url;
         }
       },
       autopager: {
@@ -2332,15 +2332,15 @@
       name: '悠悠美图',
       url: /^https?:\/\/www\.youyourentiyishu\.com/i,
       nextLink: function (doc, win, cplink) {
-        var m = cplink.match(/\d+-(\d+)\.html/)
+        var m = cplink.match(/\d+-(\d+)\.html/);
         if (!m) {
-          return cplink.replace('.html', '-2.html')
+          return cplink.replace('.html', '-2.html');
         } else {
-          var current = Number(m[1])
-          var next = current + 1
-          var url = cplink.replace(m[1] + '.html', next + '.html')
-          var url2 = doc.querySelector('a.next').getAttribute('href')
-          if (url != url2) { return undefined } else { return url }
+          var current = Number(m[1]);
+          var next = current + 1;
+          var url = cplink.replace(m[1] + '.html', next + '.html');
+          var url2 = doc.querySelector('a.next').getAttribute('href');
+          if (url != url2) { return undefined; } else { return url; }
         }
       },
       autopager: {
@@ -3471,11 +3471,11 @@
       url: /^https?:\/\/(www|manhua)\.(dmzj|178)\.com\/\w+\/\d+\.shtml/,
       siteExample: 'https://manhua.dmzj.com/yuanlian/36944.shtml#@page=1',
       nextLink: function (doc, win, cplink) {
-        var current = Number(getElementByXpath('//*[@id="page_select"]/option[@selected][1]', doc).text.match(/(\d+)/)[1])
-        var xpath_last = '//*[@id="page_select"]/option[last()]'
-        var end_num = Number(getElementByXpath(xpath_last, doc).text.match(/(\d+)/)[1])
-        var next = current + 1
-        if (next > end_num) { return undefined } else { return cplink.replace(/\.shtml(?:#@page=\d+)?/, '.shtml#@page=' + next) }
+        var current = Number(getElementByXpath('//*[@id="page_select"]/option[@selected][1]', doc).text.match(/(\d+)/)[1]);
+        var xpath_last = '//*[@id="page_select"]/option[last()]';
+        var end_num = Number(getElementByXpath(xpath_last, doc).text.match(/(\d+)/)[1]);
+        var next = current + 1;
+        if (next > end_num) { return undefined; } else { return cplink.replace(/\.shtml(?:#@page=\d+)?/, '.shtml#@page=' + next); }
       },
       autopager: {
         useiframe: true,
@@ -3490,11 +3490,11 @@
       // this is a set which uses hash to change page
       // we need to manually add hash
       nextLink: function (doc, win, cplink) {
-        var current = Number(getElementByXpath('//*[@id="page"]', doc).innerHTML)
-        var xpath_last = '//div[@id="pagination"]/a[contains(@href,"javascript") and not(@class)][last()]'
-        var end_num = Number(getElementByXpath(xpath_last, doc).text)
-        var next = current + 1
-        if (next > end_num) { return undefined } else { return cplink.replace(/\.html(?:#p=\d+)?/, '.html#p=' + next) }
+        var current = Number(getElementByXpath('//*[@id="page"]', doc).innerHTML);
+        var xpath_last = '//div[@id="pagination"]/a[contains(@href,"javascript") and not(@class)][last()]';
+        var end_num = Number(getElementByXpath(xpath_last, doc).text);
+        var next = current + 1;
+        if (next > end_num) { return undefined; } else { return cplink.replace(/\.html(?:#p=\d+)?/, '.html#p=' + next); }
       },
       autopager: {
         useiframe: true,
@@ -3585,11 +3585,11 @@
         mFails: [/^https?:\/\/manhua\.sfacg\.com\/mh\/.+/i, '#p=1'],
         inc: 1,
         isLast: function (doc, win, lhref) {
-          var pageSel = doc.getElementById('pageSel')
+          var pageSel = doc.getElementById('pageSel');
           if (pageSel) {
-            var s2os = pageSel.options
-            var s2osl = s2os.length
-            if (pageSel.selectedIndex == s2osl - 1) return true
+            var s2os = pageSel.options;
+            var s2osl = s2os.length;
+            if (pageSel.selectedIndex == s2osl - 1) return true;
           }
         }
       },
@@ -3610,11 +3610,11 @@
         mFails: [/^http:\/\/www\.omanhua\.com\/comic\/.+/i, '?p=1'],
         inc: 1,
         isLast: function (doc, win, lhref) {
-          var select = doc.getElementById('pageSelect')
+          var select = doc.getElementById('pageSelect');
           if (select) {
-            var s2os = select.options
-            var s2osl = s2os.length
-            if (select.selectedIndex == s2osl - 1) return true
+            var s2os = select.options;
+            var s2osl = s2os.length;
+            if (select.selectedIndex == s2osl - 1) return true;
           }
         }
       },
@@ -3629,19 +3629,19 @@
       siteExample: 'http://www.hhmmoo.com/page315224/1.html?s=1； http://www.hhmmoo.com/page315224/4.html?s=1&d=0',
       nextLink: function (doc, win, cplink) {
         // created based on http://www.hhmmoo.com/script/view.js
-        var m = cplink.match(/(.*\d+\/)(\d+)(\.html\?s=\d+)((?:\?|&)d=.*)?/)
-        var url_head = m[1]
-        var current = Number(m[2])
-        var dID = m[4]
-        if (!dID) dID = '&d=0'
-        var next = current + 1
-        var xpath = '//div[@class="cH1"]/b[1]'
-        var maxpage = document.getElementById('hdPageCount')
-        if (maxpage) { maxpage = Number(maxpage.value) } else {
-          maxpage = document.getElementById('spPageCount')
-          if (maxpage) { maxpage = Number(maxpage.innerText) } else { return undefined }
+        var m = cplink.match(/(.*\d+\/)(\d+)(\.html\?s=\d+)((?:\?|&)d=.*)?/);
+        var url_head = m[1];
+        var current = Number(m[2]);
+        var dID = m[4];
+        if (!dID) dID = '&d=0';
+        var next = current + 1;
+        var xpath = '//div[@class="cH1"]/b[1]';
+        var maxpage = document.getElementById('hdPageCount');
+        if (maxpage) { maxpage = Number(maxpage.value); } else {
+          maxpage = document.getElementById('spPageCount');
+          if (maxpage) { maxpage = Number(maxpage.innerText); } else { return undefined; }
         }
-        if (next == maxpage) { return undefined } else { return m[1] + next + m[3] + dID }
+        if (next == maxpage) { return undefined; } else { return m[1] + next + m[3] + dID; }
       },
       autopager: {
         useiframe: true,
@@ -3658,10 +3658,10 @@
         inc: 1,
         mFails: [/^https?:\/\/(?:cococomic|dm.99manga|99manga|99comic|www.99comic|www.hhcomic)\.(?:com|cc)\/.+/i, '?p=1&s=0'],
         isLast: function (doc, win, lhref) {
-          var maxpage = Number(doc.getElementById('spPageCount').innerText)
-          var current = Number(doc.getElementById('spPageIndex').innerText)
-          debug(current, maxpage)
-          if (current == maxpage) return true
+          var maxpage = Number(doc.getElementById('spPageCount').innerText);
+          var current = Number(doc.getElementById('spPageIndex').innerText);
+          debug(current, maxpage);
+          if (current == maxpage) return true;
         }
       },
       autopager: {
@@ -3724,13 +3724,13 @@
         mFails: [/^http:\/\/mh\.tsdm\.net\/comic\/.+\.html/i, '?p=1'],
         inc: 1,
         isLast: function (doc, win, lhref) {
-          console.log(lhref)
-          var pageSelect = doc.getElementById('qTcms_select_i')
+          // console.log(lhref)
+          var pageSelect = doc.getElementById('qTcms_select_i');
           if (pageSelect) {
-            var s2os = pageSelect.options
-            var s2osl = s2os.length
+            var s2os = pageSelect.options;
+            var s2osl = s2os.length;
             // alert(s2.selectedIndex);
-            if (pageSelect.selectedIndex == s2osl - 1) return true
+            if (pageSelect.selectedIndex == s2osl - 1) return true;
           }
         }
       },
@@ -3755,10 +3755,10 @@
         mFails: [/^https?:\/\/www\.930mh\.com\/manhua\/.+\.html/i, '?p=1'],
         inc: 1,
         isLast: function (doc, win, lhref) {
-          var index = doc.getElementById('images').children[1].innerText
-          var nums = index.match(/\d+/g)
+          var index = doc.getElementById('images').children[1].innerText;
+          var nums = index.match(/\d+/g);
           if (Number(nums[0]) >= Number(nums[1])) {
-            return true
+            return true;
           }
         }
       },
@@ -4550,13 +4550,13 @@
       name: 'xkcd',
       url: '^https?://(?:www\.)?xkcd\.com',
       nextLink: function (doc, win, cplink) {
-        var m = cplink.match(/\d+/)
+        var m = cplink.match(/\d+/);
         if (!m) {
-          return cplink + '/2/'
+          return cplink + '/2/';
         } else {
-          var url = doc.querySelector('a[rel=next]').getAttribute('href')
-          url = 'https://www.xkcd.com/' + url
-          return url
+          var url = doc.querySelector('a[rel=next]').getAttribute('href');
+          url = 'https://www.xkcd.com/' + url;
+          return url;
         }
       },
       pageElement: 'id("middleContainer")'
@@ -7020,7 +7020,7 @@
         stylish: '@-moz-document domain("www.flickr.com") {  .autopagerize_page_separator{clear:both;}  }'
       }
     }
-  ]
+  ];
 
   // End of rule
 
@@ -7052,7 +7052,7 @@
       preLink: '//div[@class="pages" or @class="pg"]/descendant::a[@class="prev"][@href]',
       nextLink: '//div[@class="pages" or @class="pg"]/descendant::a[@class="next" or @class="nxt"][@href] | //div[@class="p_bar"]/a[@class="p_curpage"]/following-sibling::a[@class="p_num"]',
       autopager: {
-        pageElement: '//form[@method="post"][@name] | //div[@id="postlist"]',
+        pageElement: '//form[@method="post"][@name] | //div[@id="postlist"] | //div[@id="threadlist"]',
         replaceE: '//div[@class="pages" or @class="pg"][child::a[@class="next" or @class="nxt"][@href]]',
         lazyImgSrc: 'file|pagespeed_lsc_url'
       }
@@ -7069,10 +7069,10 @@
         stylish: '.mbbs_code{font-family:Monaco,Consolas,"Lucida Console","Courier New",serif;font-size:12px;line-height:1.8em;list-style-type:decimal-leading-zero;padding-left:10px;background:none repeat scroll 0 0 #f7f7f7;color:#666;border:1px solid #ccc;overflow:hidden;padding:10px 0 5px 10px}',
         filter: function (pages) {
           // 回复后插入到最后一页
-          var replays = document.querySelectorAll('#postlistreply')
+          var replays = document.querySelectorAll('#postlistreply');
           if (replays.length > 1) {
-            var first = replays[0]
-            first.parentNode.removeChild(first)
+            var first = replays[0];
+            first.parentNode.removeChild(first);
           }
 
           // 在卡饭论坛如果不存在，会提示，所以默认禁用
@@ -7085,8 +7085,8 @@
           // 卡饭论坛的下一页代码区域可能无法着色，所以手动修改并添加样式
           var pres = doc.querySelectorAll('pre[class^="brush:"]');
           [].forEach.call(pres, function (pre) {
-            pre.classList.add('mbbs_code')
-          })
+            pre.classList.add('mbbs_code');
+          });
         }
       }
     },
@@ -7140,7 +7140,7 @@
         replaceE: 'id("page-body")/ul[@class="linklist"]'
       }
     }
-  ]
+  ];
 
   // 兼容 oautopager的规则放在这里,此规则组..优先级最低(比统配规则还低)..
   // 所以说尽量不要放规则在这个组里面.
@@ -7198,7 +7198,7 @@
       pageElement: '//form[@name="delatc"]',
       exampleUrl: 'http://www.yydzh.com/read.php?tid=1584013'
     }
-  ]
+  ];
 
   // 分页导航的6个图标:
   var sep_icons = {
@@ -7208,7 +7208,7 @@
     next: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ  bWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdp  bj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6  eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEz  NDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJo  dHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlw  dGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAv  IiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RS  ZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpD  cmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlE  PSJ4bXAuaWlkOkY3M0ZDRTgzOTBFMjExREZCNjlFQUY1QUIyNjQ1NzE3IiB4bXBNTTpEb2N1bWVu  dElEPSJ4bXAuZGlkOkY3M0ZDRTg0OTBFMjExREZCNjlFQUY1QUIyNjQ1NzE3Ij4gPHhtcE1NOkRl  cml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RjczRkNFODE5MEUyMTFERkI2OUVB  RjVBQjI2NDU3MTciIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RjczRkNFODI5MEUyMTFERkI2  OUVBRjVBQjI2NDU3MTciLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1l  dGE+IDw/eHBhY2tldCBlbmQ9InIiPz6Q0swTAAAC50lEQVR42tRVXUhUQRQ+M/dnd0sN/1gtAimW  LXsoiAixFyGIHnqNioioh36ghyh6sCAijAgiIoLowSRMBG1b1n5s0XxRtiyRlIpQ1M1sKxV1XffH  e2emM+u6qG11EXzoXM6de2fOfPeb8x3OJUIIWAmjsEKmzj+UndeWrv0kAgoJWTglT0cW0vqB96L5  144bxu/Ac5sWWeHpQxfT0xq1QbY9D1SqgUJVHHWovHfE+U/GU5Mc1uQoi1cFgYbua8mPErxK8reC  Q8sGm+qACtdh6zmejnLEEGlXCC4TTAiGSeiYEVm+eGMRDhxBpes2DVQbFWQuihtsdu4gFiopY1WM  T0tgEKqmCFUnVEuCCypTwgWXdwTnloH96CylIsdtcUUloNspqDpFdAoaXhKQcYZBAqhK4ql4sVT9  tHjhINzZsN3uPnngjDMnJ18jinAQEFy3KXIQzBBE023ImOEbJ5L51eM1dooVwpgB971V8YyMgy/M  5wMfYlcantaNJ8yI8H+7LXzDVRSrSlAFiKJRITVk3ERQA9r6auF10AfRRBjqW+7Ghsf6KzMCm9yU  Q3Xf5+8PWtpfzVSsPyayVq8CioSRFGiaTpAruplMBc7CZmcZtL57kvgY7KzFvbcyAquKKoLeJPil  zq439e97etiOwv1coURWnqAE0ZOgBkjw0qJy6O17awR6/YHiQXZq7ZCRWTyptOpUIBQQtN9nnH3Z  +swfGhoVW3L3yBQTygmeykj6JmQaGh3hzYH6oBY196VE/2NV8FQj4IkoxIY64ISnyfNJjeVyd94u  MBkDw5yFjQXbQMwq4G17OGlSVoHxESt1LBaMIxODxtFGX91AsV7K12W5oTjbBQWOEvC0Vs+Yprkb  Y74ut212RcLRC43Nj0Ku3HLuLtgJnpaaaCw+fRDXui21zb+YdyoyXtrc/vgcdg3bRHjsMurZZLkf  L7XQXgahdOrhevnoFxeWxxTKcNNKEyL/3a9pxYB/CTAALMFZuEnI1jsAAAAASUVORK5CYII=',
     next_gray: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ  bWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdp  bj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6  eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEz  NDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJo  dHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlw  dGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAv  IiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RS  ZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpD  cmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlE  PSJ4bXAuaWlkOjg1RDA5RjFGOTUyMjExREZCMkM4QUZEOEY4Qzg2MDREIiB4bXBNTTpEb2N1bWVu  dElEPSJ4bXAuZGlkOjg1RDA5RjIwOTUyMjExREZCMkM4QUZEOEY4Qzg2MDREIj4gPHhtcE1NOkRl  cml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6ODVEMDlGMUQ5NTIyMTFERkIyQzhB  RkQ4RjhDODYwNEQiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6ODVEMDlGMUU5NTIyMTFERkIy  QzhBRkQ4RjhDODYwNEQiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1l  dGE+IDw/eHBhY2tldCBlbmQ9InIiPz62tt8rAAACiUlEQVR42tRVS6tSURTe5/hWFAderhoIKqmI  U2eCBg2a9AOaBQ4iZxE0yCCcNYkGDYWaNEh8ICQpoYg4CJQIFA0chKGpBb7A9+Oc1jp4LnK12+GC  gxYs1j7stb79rcfeh2JZlpxCaHIiEfMLj8dzee836NlVwRRF/QKj57+LxeIh8BE5CwQChC+VRCIh  arWaiEQiTsViMQkGg+f/ZDyfz4lcLj9wiEajF2uz2UwUCgWRyWTE5/MJr/FqteIY8gqporI7SxaL  xfWbt1wuL4ClUimWgAMGYdbrNecjZJKOTgWCYzzUkYV60mh53/2MhAJ/At1iLLIDXWCTsGkATGGz  aJomDMOQ7XbLAcP+YufP62HzRqPRa5PJZPf7/edarVYC6SvwAADGOrAARmHTABgwWQqBQ6GQHA/f  bDYkHA4vjjJuNBofO51OKB6P96FJbDabZVOpFA2BLDBFxlhr7gBknM/nSalUIrPZjEQikXm73X56  FBhPBXnTbDbfFgqFqdfrZVUqFZc+KjIHthRfCmyow+EguVxuWavV3kHsq6PAyKher+PyWblcfl+p  VLZut5tBUMwdU0ZQJIDW6XSSarW6/gwyGAwe9vv94xcEa6bRaIhSqaRhrB4B0A24aXdcLhcFKXM1  RVA8AJn2ej0mnU7/gNm/u2v6X6cCJ4Hazeu81Wo9SCaT3yATxm63c+njHFssFo4x7I3A9xboRMgc  s3v2J6R3PxaLfdfr9YzRaCQGg4HodDqSSCSmwP42+LSv+2x+mUwmTwCoa7PZGFAEnU2n03uw91XQ  s3mFJMfjsTOTyTyGtWw4HD4H+0Hwe3xZrFbr/ueLbrd7Exo4hvVLIY8Q9d/9mk4G/EeAAQCBEkva  rHrRPgAAAABJRU5ErkJggg==',
     pre_gray: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ  bWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdp  bj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6  eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEz  NDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJo  dHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlw  dGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAv  IiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RS  ZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpD  cmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlE  PSJ4bXAuaWlkOjc0MTI5MDY4OTUyMjExREZCODVDREYyM0U0QjMzQkQzIiB4bXBNTTpEb2N1bWVu  dElEPSJ4bXAuZGlkOjc0MTI5MDY5OTUyMjExREZCODVDREYyM0U0QjMzQkQzIj4gPHhtcE1NOkRl  cml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6NzQxMjkwNjY5NTIyMTFERkI4NUNE  RjIzRTRCMzNCRDMiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6NzQxMjkwNjc5NTIyMTFERkI4  NUNERjIzRTRCMzNCRDMiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1l  dGE+IDw/eHBhY2tldCBlbmQ9InIiPz5D2F5XAAACZklEQVR42tSVz6sSURTH7x0VJxX8CampSQtF  /AESConiQkhdlKKCLdr0YxW0iDaBSBLZok3tol27/oC3TcS14EpEBV24UOO5EETLn9M5g4KoPXu9  XHTgMNc7537me7/3zEg5jiOnCIacKISbQSAQuKjuI6VULhAInhSLxdWlFKMlv8mXer3+qU6nu79c  Ll/9KyvuKZXKN9FoVBqJRBRyufyZz+eLXxXslkqlXxOJhKTZbBJIBsY6mUz23uFw3P5bsEEoFH4D  kHQwGJBer0e63S7p9/tMKpW6pVarv5hMphsSiYRi8eZ6EDybzTYpg5/FeDyuYBiGtNttIhKJCBwc  aTQaZLFYMHDPZjQaP8P8NY1Gw0wmEw7nD4LH4zGmQCwWn4GnN7VaLVOv13kgqCfQFZhctVolcJg0  HA7ftdlsH2BHfJfg/YNglUqF+ekOhNPpFNVqNYKKEYpX6AhcTFerFSmXy4zL5RJ4PJ4Hbrf7La4H  xfQgGNa8sNvtD0OhkBiVYquhWoRCcvP5nEMoJu6uVCrRYDAoNZvNj6xW62MUcPAFMRgM79LpNIsF  Xq+XBxQKBYQjlIIifgzKaSwWw+0z8HCaTCbVw+HwtcViOW+1Wmd74E6nw2azWX4MgJ+5XI5F30At  nU6n/IM220VgPp//AfNYI4Yag0KheA639sHoxmYAqjiEohXo7RrKHx5CcQ6CrVQqzNFvxW6su2D7  tFfrllrtttalX+kNFPt47SlBv7Hfd9vrjxVvB8uyZOu7jX5cDez3+3mPMUejEard281R8E7h90wm  c/3IRs4vtPG/+2s6GfiXAAMAq3cXTADTBMIAAAAASUVORK5CYII='
-  }
+  };
 
   // 悬浮窗的状态颜色.
   var FWKG_color = {
@@ -7218,7 +7218,7 @@
     Apause: '#B7B700', // 翻页状态(暂停).
     Astop: '#A00000', // 翻页状态(停止)(翻页完成,或者被异常停止.)(无法再开启)
     dot: '#00FF05' // 读取完后,会显示一个小点,那么小点的颜色.
-  }
+  };
 
   // 当没有找到规则的时候,进入自动搜索模式.
   // 在没有高级规则的网站上.的一些设置..
@@ -7264,7 +7264,7 @@
       ipages: [false, 2], // 立即翻页,第一项是控制是否在js加载的时候立即翻第二项(必须小于maxpage)的页数,比如[true,3].就是说JS加载后.立即翻3页.
       separator: true // 显示翻页导航..(推荐显示.)..
     }
-  }
+  };
 
   // 上一页关键字
   var prePageKey = [
@@ -7274,7 +7274,7 @@
     '前一页', '前一頁',
     '后退', '後退', '上篇',
     'previous', 'previous Page', '前へ', '前のページ'
-  ]
+  ];
 
   // 下一页关键字
   var nextPageKey = [
@@ -7283,11 +7283,11 @@
     '下一页 »', '下一頁 »', '下1页 »', '下1頁 »', '下页 »', '下頁 »', '翻页 »', '翻頁 »', '翻下頁 »', '翻下页 »', '下一张 »', '下一張 »', '下一幅 »', '下一章 »', '下一节 »', '下一節 »', '下一篇 »', '前进 »', '下篇 »', '后页 »', '往后 »', 'Next »', 'Next Page »', '次へ »', '次のページ »', '后一页', '後一頁',
     '下一页 ›', '下一頁 ›', '下1页 ›', '下1頁 ›', '下页 ›', '下頁 ›', '翻页 ›', '翻頁 ›', '翻下頁 ›', '翻下页 ›', '下一张 ›', '下一張 ›', '下一幅 ›', '下一章 ›', '下一节 ›', '下一節 ›', '下一篇 ›', '前进 ›', '下篇 ›', '后页 ›', '往后 ›', 'Next ›', 'Next >', 'Next Page ›', '次へ ›', '次のページ ›',
     '»', '→', 'Next >'
-  ]
+  ];
   // THX to https://greasyfork.org/en/forum/discussion/39361/x
   // 出在自动翻页信息附加显示真实相对页面信息，一般能智能识别出来。如果还有站点不能识别，可以把地址的特征字符串加到下面
   // 最好不要乱加，一些不规律的站点显示出来的数字也没有意义
-  var REALPAGE_SITE_PATTERN = ['search?', 'search_', 'forum', 'thread']
+  var REALPAGE_SITE_PATTERN = ['search?', 'search_', 'forum', 'thread'];
 
   // ------------------------下面的不要管他-----------------
   /// ////////////////////////////////////////////////////////////////
@@ -7298,30 +7298,30 @@
   ]).then(
     function (values) {
       // retrieve settings
-      prefs = JSON.parse(values[0])
-      SITEINFO_D = JSON.parse(values[1])
-      autoMatch = JSON.parse(values[2])
+      prefs = JSON.parse(values[0]);
+      SITEINFO_D = JSON.parse(values[1]);
+      autoMatch = JSON.parse(values[2]);
 
-      var xbug = prefs.debug || false
-      debug = xbug ? console.log.bind(console) : function () {}
+      var xbug = prefs.debug || false;
+      debug = xbug ? console.log.bind(console) : function () {};
       // 黑名单,网站正则..
       var blackList = [
         // 例子
         // 'http://*.douban.com/*',
-      ]
+      ];
       blackList = blackList.concat(prefs.excludes.split(/[\n\r]+/).map(function (line) {
-        return line.trim()
-      }))
+        return line.trim();
+      }));
       var setup = function () {
-        var d = document
+        var d = document;
         var on = function (node, e, f) {
-          node.addEventListener(e, f, false)
-        }
+          node.addEventListener(e, f, false);
+        };
 
         var $ = function (s) {
-          return d.getElementById('sp-prefs-' + s)
-        }
-        if ($('setup')) return
+          return d.getElementById('sp-prefs-' + s);
+        };
+        if ($('setup')) return;
 
         var styleNode = GM.addStyle('\
                       #sp-prefs-setup { position:fixed;z-index:2147483647;top:30px;right:60px;padding:20px 30px;background:#eee;width:500px;border:1px solid black; }\
@@ -7335,11 +7335,11 @@
                       #sp-prefs-setup textarea { width:98%; height:60px; margin:3px 0; }\
                       #sp-prefs-setup b { font-weight: bold; font-family: "微软雅黑", sans-serif; }\
                       #sp-prefs-setup button:disabled { color: graytext; }\
-                  ')
+                  ');
 
-        var div = d.createElement('div')
-        div.id = 'sp-prefs-setup'
-        d.body.appendChild(div)
+        var div = d.createElement('div');
+        div.id = 'sp-prefs-setup';
+        d.body.appendChild(div);
         if ((userLang.indexOf('zh') !== -1) || prefs.ChineseUI) {
           div.innerHTML = '\
                            <div>Super_preloaderPlus_one_New设置</div>\
@@ -7366,7 +7366,7 @@
                                        <div><textarea id="sp-prefs-custom_siteinfo" placeholder="自定义站点规则"></textarea></div>\
                                    </li>\
                                </ul>\
-                           <div><button id="sp-prefs-ok">确定</button><button id="sp-prefs-cancel">取消</button></div>'
+                           <div><button id="sp-prefs-ok">确定</button><button id="sp-prefs-cancel">取消</button></div>';
         } else {
           div.innerHTML = '\
                            <div>Super_preloaderPlus_one_New Settings</div>\
@@ -7393,153 +7393,153 @@
                                        <div><textarea id="sp-prefs-custom_siteinfo" placeholder="Custom rules"></textarea></div>\
                                    </lhttps://greasyfork.org/en/scripts/33522-super-preloaderplus-one-newi>\
                                </ul>\
-                           <div><button id="sp-prefs-ok">OK</button><button id="sp-prefs-cancel">Cancel</button></div>'
+                           <div><button id="sp-prefs-ok">OK</button><button id="sp-prefs-cancel">Cancel</button></div>';
         }
-        div = null
+        div = null;
 
         var close = function () {
           if (styleNode) {
-            styleNode.parentNode.removeChild(styleNode)
+            styleNode.parentNode.removeChild(styleNode);
           }
-          var div = $('setup')
-          div.parentNode.removeChild(div)
-        }
+          var div = $('setup');
+          div.parentNode.removeChild(div);
+        };
 
         on($('ok'), 'click', function () {
-          prefs.ChineseUI = !!$('ChineseUI').checked
+          prefs.ChineseUI = !!$('ChineseUI').checked;
           // document.getElementById('sp-fw-container').innerHTML = floatWindowUI();
-          prefs.custom_siteinfo = $('custom_siteinfo').value
-          prefs.debug = xbug = !!$('debug').checked
-          prefs.dblclick_pause = !!$('dblclick_pause').checked
-          prefs.enableHistory = !!$('enableHistory').checked
-          prefs.excludes = $('excludes').value
-          prefs.forceTargetWindow = !!$('forceTargetWindow').checked
+          prefs.custom_siteinfo = $('custom_siteinfo').value;
+          prefs.debug = xbug = !!$('debug').checked;
+          prefs.dblclick_pause = !!$('dblclick_pause').checked;
+          prefs.enableHistory = !!$('enableHistory').checked;
+          prefs.excludes = $('excludes').value;
+          prefs.forceTargetWindow = !!$('forceTargetWindow').checked;
 
-          SITEINFO_D.useiframe = !!$('SITEINFO_D-useiframe').checked
-          SITEINFO_D.autopager.enable = !!$('SITEINFO_D-a_enable').checked
-          SITEINFO_D.autopager.force_enable = !!$('SITEINFO_D-a_force_enable').checked
+          SITEINFO_D.useiframe = !!$('SITEINFO_D-useiframe').checked;
+          SITEINFO_D.autopager.enable = !!$('SITEINFO_D-a_enable').checked;
+          SITEINFO_D.autopager.force_enable = !!$('SITEINFO_D-a_force_enable').checked;
 
-          autoMatch.useiframe = SITEINFO_D.useiframe
+          autoMatch.useiframe = SITEINFO_D.useiframe;
 
           Promise.all([
             GM.setValue('prefs', JSON.stringify(prefs)),
             GM.setValue('SITEINFO_D', JSON.stringify(SITEINFO_D)),
             GM.setValue('autoMatch', JSON.stringify(autoMatch))
           ]).then(function (values) {
-            debug = xbug ? console.log.bind(console) : function () {}
-            SP.loadSetting()
-            close()
-          })
-        })
+            debug = xbug ? console.log.bind(console) : function () {};
+            SP.loadSetting();
+            close();
+          });
+        });
 
-        on($('cancel'), 'click', close)
+        on($('cancel'), 'click', close);
 
-        $('debug').checked = xbug
-        $('ChineseUI').checked = prefs.ChineseUI
-        $('enableHistory').checked = prefs.enableHistory
-        $('forceTargetWindow').checked = prefs.forceTargetWindow
-        $('dblclick_pause').checked = prefs.dblclick_pause
-        $('SITEINFO_D-useiframe').checked = SITEINFO_D.useiframe
-        $('SITEINFO_D-a_enable').checked = SITEINFO_D.autopager.enable
-        $('SITEINFO_D-a_force_enable').checked = SITEINFO_D.autopager.force_enable
-        $('excludes').value = prefs.excludes
-        $('custom_siteinfo').value = prefs.custom_siteinfo
-      }
+        $('debug').checked = xbug;
+        $('ChineseUI').checked = prefs.ChineseUI;
+        $('enableHistory').checked = prefs.enableHistory;
+        $('forceTargetWindow').checked = prefs.forceTargetWindow;
+        $('dblclick_pause').checked = prefs.dblclick_pause;
+        $('SITEINFO_D-useiframe').checked = SITEINFO_D.useiframe;
+        $('SITEINFO_D-a_enable').checked = SITEINFO_D.autopager.enable;
+        $('SITEINFO_D-a_force_enable').checked = SITEINFO_D.autopager.force_enable;
+        $('excludes').value = prefs.excludes;
+        $('custom_siteinfo').value = prefs.custom_siteinfo;
+      };
 
       // main functions
       var SP = {
         init: function () {
           if (document.body.getAttribute('name') === 'MyNovelReader') {
-            return
+            return;
           }
 
-          this.loadSetting()
+          this.loadSetting();
 
           if ((userLang.indexOf('zh') !== -1) || prefs.ChineseUI) {
-            GM.registerMenuCommand('Super_preloaderPlus_one_New 设置', setup)
+            GM.registerMenuCommand('Super_preloaderPlus_one_New 设置', setup);
           } else {
-            GM.registerMenuCommand('Super_preloaderPlus_one_New', setup)
+            GM.registerMenuCommand('Super_preloaderPlus_one_New', setup);
           }
 
           // 查找是否是页面不刷新的站点
-          var locationHref = location.href
+          var locationHref = location.href;
           var hashSite = _.find(HashchangeSites, function (x) {
-            return toRE(x.url).test(locationHref)
-          })
+            return toRE(x.url).test(locationHref);
+          });
           if (hashSite) {
-            isHashchangeSite = true
-            hashchangeTimer = hashSite.timer
-            debug('当前是页面不刷新的站点', hashSite)
+            isHashchangeSite = true;
+            hashchangeTimer = hashSite.timer;
+            debug('当前是页面不刷新的站点', hashSite);
             setTimeout(function () {
-              init(window, document)
-            }, hashchangeTimer)
+              init(window, document);
+            }, hashchangeTimer);
           } else {
-            init(window, document)
+            init(window, document);
           }
 
           // 分辨率 高度 > 宽度 的是手机
           if (window.screen.height > window.screen.width) {
-            GM.addStyle('div.sp-separator { min-width:auto !important; }')
+            GM.addStyle('div.sp-separator { min-width:auto !important; }');
           }
         },
         loadSetting: function () {
-          var a_enable = SITEINFO_D.autopager.enable
+          var a_enable = SITEINFO_D.autopager.enable;
           if (a_enable !== undefined) {
-            SITEINFO_D.autopager.enable = a_enable
+            SITEINFO_D.autopager.enable = a_enable;
           }
 
           var loadDblclickPause = function (reload) {
-            var dblclickPause = prefs.dblclick_pause
+            var dblclickPause = prefs.dblclick_pause;
             if (dblclickPause) {
-              prefs.mouseA = false
-              prefs.Pbutton = [0, 0, 0]
+              prefs.mouseA = false;
+              prefs.Pbutton = [0, 0, 0];
             }
 
-            if (reload) location.reload()
-          }
+            if (reload) location.reload();
+          };
 
           var loadCustomSiteInfo = function () {
-            var infos
+            var infos;
             try {
-              infos = new Function('', 'return ' + prefs.custom_siteinfo)()
+              infos = new Function('', 'return ' + prefs.custom_siteinfo)();
             } catch (e) {
-              console.error('自定义站点规则错误', prefs.custom_siteinfo)
+              console.error('自定义站点规则错误', prefs.custom_siteinfo);
               // alert('自定义站点规则错误');
             }
 
             if (_.isArray(infos)) {
-              SITEINFO = infos.concat(SITEINFO)
+              SITEINFO = infos.concat(SITEINFO);
             }
-          }
+          };
 
-          loadDblclickPause()
+          loadDblclickPause();
 
-          loadCustomSiteInfo()
+          loadCustomSiteInfo();
         }
-      }
+      };
 
-      SP.init()
+      SP.init();
 
       function init (window, document) {
-        var startTime = new Date()
+        var startTime = new Date();
 
-        var nullFn = function () {} // 空函数.
-        var url = document.location.href.replace(/#.*$/, '') // url 去掉hash
-        var cplink = url // 翻上来的最近的页面的url;
-        var domain = document.domain // 取得域名.
-        var domain_port = url.match(/https?:\/\/([^\/]+)/)[1] // 端口和域名,用来验证是否跨域.
+        var nullFn = function () {}; // 空函数.
+        var url = document.location.href.replace(/#.*$/, ''); // url 去掉hash
+        var cplink = url; // 翻上来的最近的页面的url;
+        var domain = document.domain; // 取得域名.
+        var domain_port = url.match(/https?:\/\/([^\/]+)/)[1]; // 端口和域名,用来验证是否跨域.
 
         // 新加的，以示区别
-        var remove = [] // 需要移除的事件
+        var remove = []; // 需要移除的事件
 
-        debug('----------------------------------------------------')
+        debug('----------------------------------------------------');
 
         // 悬浮窗
         var floatWO = {
           updateColor: nullFn,
           loadedIcon: nullFn,
           CmodeIcon: nullFn
-        }
+        };
 
         function floatWindow (SSS) {
           GM.addStyle('\
@@ -7708,174 +7708,174 @@
                              -moz-box-shadow:inset 0 10px 5px white!important;\
                              box-shadow:inset 0 10px 5px white!important;\
                          }\
-                     ')
+                     ');
 
-          var div = document.createElement('div')
-          div.id = 'sp-fw-container'
-          div.innerHTML = floatWindowUI()
-          document.body.appendChild(div)
+          var div = document.createElement('div');
+          div.id = 'sp-fw-container';
+          div.innerHTML = floatWindowUI();
+          document.body.appendChild(div);
 
           function $ (id) {
-            return document.getElementById(id)
+            return document.getElementById(id);
           }
 
-          var rect = $('sp-fw-rect') // 悬浮窗的小正方形,用颜色描述当前的状态.
-          var spanel = $('sp-fw-content') // 设置面板.
+          var rect = $('sp-fw-rect'); // 悬浮窗的小正方形,用颜色描述当前的状态.
+          var spanel = $('sp-fw-content'); // 设置面板.
 
           var spanelc = {
             show: function () {
-              spanel.style.display = 'block'
+              spanel.style.display = 'block';
             },
             hide: function () {
-              spanel.style.display = 'none'
+              spanel.style.display = 'none';
             }
-          }
-          var rectt1, rectt2
+          };
+          var rectt1, rectt2;
           // 设置面板显隐
           rect.addEventListener('mouseover', function (e) {
-            rectt1 = setTimeout(spanelc.show, 100)
-          }, false)
+            rectt1 = setTimeout(spanelc.show, 100);
+          }, false);
           rect.addEventListener('mouseout', function (e) {
-            clearTimeout(rectt1)
-          }, false)
+            clearTimeout(rectt1);
+          }, false);
 
           div.addEventListener('mouseover', function (e) {
-            clearTimeout(rectt2)
-          }, false)
+            clearTimeout(rectt2);
+          }, false);
 
           div.addEventListener('mouseout', function (e) {
-            if (e.relatedTarget && e.relatedTarget.disabled) return // for firefox and chrome
-            rectt2 = setTimeout(spanelc.hide, 288)
-          }, false)
+            if (e.relatedTarget && e.relatedTarget.disabled) return; // for firefox and chrome
+            rectt2 = setTimeout(spanelc.hide, 288);
+          }, false);
 
-          var dot = $('sp-fw-dot') // 载入完成后,显示的小点
-          dot.style.backgroundColor = FWKG_color.dot
+          var dot = $('sp-fw-dot'); // 载入完成后,显示的小点
+          dot.style.backgroundColor = FWKG_color.dot;
 
-          var cur_mode = $('sp-fw-cur-mode') // 当载入状态时,用来描述当前是翻页模式,还是预读模式.
-          cur_mode.style.backgroundColor = SSS.a_enable ? FWKG_color.autopager : FWKG_color.prefetcher
+          var cur_mode = $('sp-fw-cur-mode'); // 当载入状态时,用来描述当前是翻页模式,还是预读模式.
+          cur_mode.style.backgroundColor = SSS.a_enable ? FWKG_color.autopager : FWKG_color.prefetcher;
 
-          var a_enable = $('sp-fw-a_enable') // 启用翻页模式
-          var autopager_field = $('sp-fw-autopager-field') // 翻页设置区域
+          var a_enable = $('sp-fw-a_enable'); // 启用翻页模式
+          var autopager_field = $('sp-fw-autopager-field'); // 翻页设置区域
 
           // 预读设置
-          var useiframe = $('sp-fw-useiframe')
-          var viewcontent = $('sp-fw-viewcontent')
+          var useiframe = $('sp-fw-useiframe');
+          var viewcontent = $('sp-fw-viewcontent');
 
           // 翻页设置
-          var a_useiframe = $('sp-fw-a_useiframe')
-          var a_iloaded = $('sp-fw-a_iloaded')
-          var a_itimeout = $('sp-fw-a_itimeout')
-          var a_manualA = $('sp-fw-a_manualA')
-          var a_remain = $('sp-fw-a_remain')
-          var a_maxpage = $('sp-fw-a_maxpage')
-          var a_separator = $('sp-fw-a_separator')
-          var a_ipages_0 = $('sp-fw-a_ipages_0')
-          var a_ipages_1 = $('sp-fw-a_ipages_1')
-          var a_force = $('sp-fw-a_force')
+          var a_useiframe = $('sp-fw-a_useiframe');
+          var a_iloaded = $('sp-fw-a_iloaded');
+          var a_itimeout = $('sp-fw-a_itimeout');
+          var a_manualA = $('sp-fw-a_manualA');
+          var a_remain = $('sp-fw-a_remain');
+          var a_maxpage = $('sp-fw-a_maxpage');
+          var a_separator = $('sp-fw-a_separator');
+          var a_ipages_0 = $('sp-fw-a_ipages_0');
+          var a_ipages_1 = $('sp-fw-a_ipages_1');
+          var a_force = $('sp-fw-a_force');
 
           // newIframe 输入框的点击
-          var a_newIframe = $('sp-fw-a_newIframe')
+          var a_newIframe = $('sp-fw-a_newIframe');
           a_newIframe.addEventListener('click', function () {
-            a_useiframe.checked = a_newIframe.checked
-          }, false)
+            a_useiframe.checked = a_newIframe.checked;
+          }, false);
 
-          var a_starti = $('sp-fw-a_starti') // 开始立即翻页
+          var a_starti = $('sp-fw-a_starti'); // 开始立即翻页
           a_starti.addEventListener('click', function () {
-            if (this.disabled) return
-            var value = Number(a_ipages_1.value)
+            if (this.disabled) return;
+            var value = Number(a_ipages_1.value);
             if (isNaN(value) || value <= 0) {
-              value = SSS.a_ipages[1]
-              a_ipages_1.value = value
+              value = SSS.a_ipages[1];
+              a_ipages_1.value = value;
             }
-            autoPO.startipages(value)
-          }, false)
+            autoPO.startipages(value);
+          }, false);
 
           // 总开关
-          var enable = $('sp-fw-enable')
-          $('sp-fw-setup').addEventListener('click', setup, false)
+          var enable = $('sp-fw-enable');
+          $('sp-fw-setup').addEventListener('click', setup, false);
 
           // 保存设置按钮.
-          var savebutton = $('sp-fw-savebutton')
+          var savebutton = $('sp-fw-savebutton');
           savebutton.addEventListener('click', function (e) {
             var value = {
               Rurl: SSS.Rurl,
               useiframe: gl(useiframe),
               viewcontent: gl(viewcontent),
               enable: gl(enable)
-            }
+            };
 
             function gl (obj) {
-              return (obj.type == 'checkbox' ? obj.checked : obj.value)
+              return (obj.type == 'checkbox' ? obj.checked : obj.value);
             }
             if (SSS.a_enable !== undefined) {
-              value.a_enable = gl(a_enable)
-              value.a_useiframe = gl(a_useiframe)
-              value.a_newIframe = gl(a_newIframe)
-              value.a_iloaded = gl(a_iloaded)
-              value.a_manualA = gl(a_manualA)
-              value.a_force = gl(a_force)
-              var t_a_itimeout = Number(gl(a_itimeout))
-              value.a_itimeout = isNaN(t_a_itimeout) ? SSS.a_itimeout : (t_a_itimeout >= 0 ? t_a_itimeout : 0)
-              var t_a_remain = Number(gl(a_remain))
-              value.a_remain = isNaN(t_a_remain) ? SSS.a_remain : Number(t_a_remain.toFixed(2))
-              var t_a_maxpage = Number(gl(a_maxpage))
-              value.a_maxpage = isNaN(t_a_maxpage) ? SSS.a_maxpage : (t_a_maxpage >= 1 ? t_a_maxpage : 1)
-              var t_a_ipages_1 = Number(gl(a_ipages_1))
-              value.a_ipages = [gl(a_ipages_0), (isNaN(t_a_ipages_1) ? SSS.a_ipages[1] : (t_a_ipages_1 >= 1 ? t_a_ipages_1 : 1))]
-              value.a_separator = gl(a_separator)
+              value.a_enable = gl(a_enable);
+              value.a_useiframe = gl(a_useiframe);
+              value.a_newIframe = gl(a_newIframe);
+              value.a_iloaded = gl(a_iloaded);
+              value.a_manualA = gl(a_manualA);
+              value.a_force = gl(a_force);
+              var t_a_itimeout = Number(gl(a_itimeout));
+              value.a_itimeout = isNaN(t_a_itimeout) ? SSS.a_itimeout : (t_a_itimeout >= 0 ? t_a_itimeout : 0);
+              var t_a_remain = Number(gl(a_remain));
+              value.a_remain = isNaN(t_a_remain) ? SSS.a_remain : Number(t_a_remain.toFixed(2));
+              var t_a_maxpage = Number(gl(a_maxpage));
+              value.a_maxpage = isNaN(t_a_maxpage) ? SSS.a_maxpage : (t_a_maxpage >= 1 ? t_a_maxpage : 1);
+              var t_a_ipages_1 = Number(gl(a_ipages_1));
+              value.a_ipages = [gl(a_ipages_0), (isNaN(t_a_ipages_1) ? SSS.a_ipages[1] : (t_a_ipages_1 >= 1 ? t_a_ipages_1 : 1))];
+              value.a_separator = gl(a_separator);
             }
             // alert(xToString(value));
-            SSS.savedValue[SSS.sedValueIndex] = value
+            SSS.savedValue[SSS.sedValueIndex] = value;
             // alert(xToString(SSS.savedValue));
-            saveValue('spfwset', xToString(SSS.savedValue))
+            saveValue('spfwset', xToString(SSS.savedValue));
             if ((e.shiftKey ? !prefs.FW_RAS : prefs.FW_RAS)) { // 按住shift键,执行反向操作.
               setTimeout(function () {
-                location.reload()
-              }, 1)
+                location.reload();
+              }, 1);
             }
-          }, false)
+          }, false);
 
           function ll (obj, value) {
             if (obj.type == 'checkbox') {
-              obj.checked = value
+              obj.checked = value;
             } else {
-              obj.value = value
+              obj.value = value;
             }
           }
 
           // 载入翻页设置.
           if (SSS.a_enable === undefined) { // 未定义翻页功能.
-            a_enable.disabled = true
-            autopager_field.style.display = 'none'
+            a_enable.disabled = true;
+            autopager_field.style.display = 'none';
           } else {
-            ll(a_enable, SSS.a_enable)
-            ll(a_useiframe, SSS.a_useiframe)
-            ll(a_newIframe, SSS.a_newIframe)
-            ll(a_iloaded, SSS.a_iloaded)
-            ll(a_itimeout, SSS.a_itimeout)
-            ll(a_manualA, SSS.a_manualA)
-            ll(a_force, SSS.a_force)
-            ll(a_remain, SSS.a_remain)
-            ll(a_maxpage, SSS.a_maxpage)
-            ll(a_separator, SSS.a_separator)
-            ll(a_ipages_0, SSS.a_ipages[0])
-            ll(a_ipages_1, SSS.a_ipages[1])
+            ll(a_enable, SSS.a_enable);
+            ll(a_useiframe, SSS.a_useiframe);
+            ll(a_newIframe, SSS.a_newIframe);
+            ll(a_iloaded, SSS.a_iloaded);
+            ll(a_itimeout, SSS.a_itimeout);
+            ll(a_manualA, SSS.a_manualA);
+            ll(a_force, SSS.a_force);
+            ll(a_remain, SSS.a_remain);
+            ll(a_maxpage, SSS.a_maxpage);
+            ll(a_separator, SSS.a_separator);
+            ll(a_ipages_0, SSS.a_ipages[0]);
+            ll(a_ipages_1, SSS.a_ipages[1]);
           }
 
           if (!SSS.a_enable) { // 当前不是翻页模式,禁用立即翻页按钮.
-            a_starti.disabled = true
+            a_starti.disabled = true;
           }
 
           if (!SSS.hasRule) { // 如果没有高级规则,那么此项不允许操作.
-            a_force.disabled = true
+            a_force.disabled = true;
           }
 
           // 载入预读设置.
-          ll(useiframe, SSS.useiframe)
-          ll(viewcontent, SSS.viewcontent)
+          ll(useiframe, SSS.useiframe);
+          ll(viewcontent, SSS.viewcontent);
 
           // 总开关
-          ll(enable, SSS.enable)
+          ll(enable, SSS.enable);
 
           var FWKG_state = {
             loading: '读取中状态',
@@ -7884,51 +7884,51 @@
             Apause: '翻页状态(暂停)',
             Astop: '翻页状态(停止)(翻页完成,或者被异常停止)(无法再开启)',
             dot: '读取完后'
-          }
+          };
 
           floatWO = {
             updateColor: function (state) {
-              rect.style.backgroundColor = FWKG_color[state]
-              rect.setAttribute('title', FWKG_state[state])
+              rect.style.backgroundColor = FWKG_color[state];
+              rect.setAttribute('title', FWKG_state[state]);
             },
             loadedIcon: function (command) {
-              dot.style.display = command == 'show' ? 'block' : 'none'
+              dot.style.display = command == 'show' ? 'block' : 'none';
             },
             CmodeIcon: function (command) {
-              cur_mode.style.display = command == 'show' ? 'block' : 'none'
+              cur_mode.style.display = command == 'show' ? 'block' : 'none';
             }
-          }
+          };
 
-          var vertical = parseInt(prefs.FW_offset[0], 10)
-          var horiz = parseInt(prefs.FW_offset[1], 10)
-          var FW_position = prefs.FW_position
+          var vertical = parseInt(prefs.FW_offset[0], 10);
+          var horiz = parseInt(prefs.FW_offset[1], 10);
+          var FW_position = prefs.FW_position;
 
           // 非opera用fixed定位.
-          div.style.position = 'fixed'
+          div.style.position = 'fixed';
           switch (FW_position) {
             case 1:
-              div.style.top = vertical + 'px'
-              div.style.left = horiz + 'px'
-              break
+              div.style.top = vertical + 'px';
+              div.style.left = horiz + 'px';
+              break;
             case 2:
-              div.style.top = vertical + 'px'
-              div.style.right = horiz + 'px'
-              break
+              div.style.top = vertical + 'px';
+              div.style.right = horiz + 'px';
+              break;
             case 3:
-              div.style.bottom = vertical + 'px'
-              div.style.right = horiz + 'px'
-              break
+              div.style.bottom = vertical + 'px';
+              div.style.right = horiz + 'px';
+              break;
             case 4:
-              div.style.bottom = vertical + 'px'
-              div.style.left = horiz + 'px'
-              break
+              div.style.bottom = vertical + 'px';
+              div.style.left = horiz + 'px';
+              break;
             default:
-              break
+              break;
           }
         }
 
         function floatWindowUI () {
-          var innerHTML = ''
+          var innerHTML = '';
           if ((userLang.indexOf('zh') !== -1) || prefs.ChineseUI) {
             innerHTML = '\
                                 <div id="sp-fw-rect" style="background-color:#000;">\
@@ -7995,7 +7995,7 @@
                                          <span id="sp-fw-savebutton" class="sp-fw-spanbutton" title="保存设置">保存</span>\
                                         </div>\
                                     </div>\
-                                </div>'
+                                </div>';
           } else {
             innerHTML = '\
                                 <div id="sp-fw-rect" style="background-color:#000;">\
@@ -8059,320 +8059,320 @@
                                          <span id="sp-fw-savebutton" class="sp-fw-spanbutton" title="Save settings">Save</span>\
                                         </div>\
                                     </div>\
-                                </div>'
+                                </div>';
           }
-          return innerHTML
+          return innerHTML;
         }
 
         function sp_transition (start, end) {
-          var TweenF = sp_transition.TweenF
+          var TweenF = sp_transition.TweenF;
           if (!TweenF) {
-            TweenF = Tween[TweenM[prefs.s_method]]
-            TweenF = TweenF[TweenEase[prefs.s_ease]] || TweenF
-            sp_transition.TweenF = TweenF
+            TweenF = Tween[TweenM[prefs.s_method]];
+            TweenF = TweenF[TweenEase[prefs.s_ease]] || TweenF;
+            sp_transition.TweenF = TweenF;
           }
-          var frameSpeed = 1000 / prefs.s_FPS
-          var t = 0 // 次数,开始
-          var b = start // 开始
-          var c = end - start // 结束
-          var d = Math.ceil(prefs.s_duration / frameSpeed) // 次数,结束
+          var frameSpeed = 1000 / prefs.s_FPS;
+          var t = 0; // 次数,开始
+          var b = start; // 开始
+          var c = end - start; // 结束
+          var d = Math.ceil(prefs.s_duration / frameSpeed); // 次数,结束
 
-          var x = window.scrollX
+          var x = window.scrollX;
 
           function transition () {
-            var y = Math.ceil(TweenF(t, b, c, d))
+            var y = Math.ceil(TweenF(t, b, c, d));
             // alert(y);
-            window.scroll(x, y)
+            window.scroll(x, y);
             if (t < d) {
-              t++
-              setTimeout(transition, frameSpeed)
+              t++;
+              setTimeout(transition, frameSpeed);
             }
           }
-          transition()
+          transition();
         }
 
         function sepHandler (e) {
-          e.stopPropagation()
-          var div = this
+          e.stopPropagation();
+          var div = this;
           // alert(div);
-          var target = e.target
+          var target = e.target;
           // alert(target);
 
           function getRelativeDiv (which) {
-            var id = div.id
+            var id = div.id;
             id = id.replace(/(sp-separator-)(.+)/, function (a, b, c) {
-              return b + String((Number(c) + (which == 'pre' ? -1 : 1)))
-            })
+              return b + String((Number(c) + (which == 'pre' ? -1 : 1)));
+            });
             // alert(id);
-            return (id ? document.getElementById(id) : null)
+            return (id ? document.getElementById(id) : null);
           }
 
           function scrollIt (a, b) {
             // a=a!==undefined? a : window.scrollY;
             if (prefs.sepT) {
-              sp_transition(a, b)
+              sp_transition(a, b);
             } else {
-              window.scroll(window.scrollX, b)
+              window.scroll(window.scrollX, b);
             }
           }
 
-          var o_scrollY, divS
+          var o_scrollY, divS;
 
           switch (target.className) {
             case 'sp-sp-gotop':
-              scrollIt(window.scrollY, 0)
-              break
+              scrollIt(window.scrollY, 0);
+              break;
             case 'sp-sp-gopre':
-              var prediv = getRelativeDiv('pre')
-              if (!prediv) return
-              o_scrollY = window.scrollY
-              var preDS = prediv.getBoundingClientRect().top
+              var prediv = getRelativeDiv('pre');
+              if (!prediv) return;
+              o_scrollY = window.scrollY;
+              var preDS = prediv.getBoundingClientRect().top;
               if (prefs.sepP) {
-                divS = div.getBoundingClientRect().top
-                preDS = o_scrollY - (divS - preDS)
+                divS = div.getBoundingClientRect().top;
+                preDS = o_scrollY - (divS - preDS);
               } else {
-                preDS += o_scrollY - 6
+                preDS += o_scrollY - 6;
               }
-              scrollIt(o_scrollY, preDS)
-              break
+              scrollIt(o_scrollY, preDS);
+              break;
             case 'sp-sp-gonext':
-              var nextdiv = getRelativeDiv('next')
-              if (!nextdiv) return
-              o_scrollY = window.scrollY
-              var nextDS = nextdiv.getBoundingClientRect().top
+              var nextdiv = getRelativeDiv('next');
+              if (!nextdiv) return;
+              o_scrollY = window.scrollY;
+              var nextDS = nextdiv.getBoundingClientRect().top;
               if (prefs.sepP) {
-                divS = div.getBoundingClientRect().top
-                nextDS = o_scrollY + (-divS + nextDS)
+                divS = div.getBoundingClientRect().top;
+                nextDS = o_scrollY + (-divS + nextDS);
               } else {
-                nextDS += o_scrollY - 6
+                nextDS += o_scrollY - 6;
               }
-              scrollIt(o_scrollY, nextDS)
-              break
+              scrollIt(o_scrollY, nextDS);
+              break;
             case 'sp-sp-gobottom':
-              scrollIt(window.scrollY, Math.max(document.documentElement.scrollHeight, document.body.scrollHeight))
-              break
+              scrollIt(window.scrollY, Math.max(document.documentElement.scrollHeight, document.body.scrollHeight));
+              break;
             default:
-              break
+              break;
           }
         }
 
         // autopager
         var autoPO = {
           startipages: nullFn
-        }
-        var hashchangeAdded = false
+        };
+        var hashchangeAdded = false;
 
         function autopager (SSS, floatWO) {
           // return;
           // 更新悬浮窗的颜色.
-          floatWO.updateColor('autopager')
+          floatWO.updateColor('autopager');
 
           // 获取插入位置节点.
-          var insertPoint
-          var pageElement
-          var insertMode
+          var insertPoint;
+          var pageElement;
+          var insertMode;
           if (SSS.a_HT_insert) {
-            insertPoint = getElement(SSS.a_HT_insert[0])
-            insertMode = SSS.a_HT_insert[1]
+            insertPoint = getElement(SSS.a_HT_insert[0]);
+            insertMode = SSS.a_HT_insert[1];
           } else {
-            pageElement = getAllElements(SSS.a_pageElement)
+            pageElement = getAllElements(SSS.a_pageElement);
             if (pageElement.length > 0) {
-              var pELast = pageElement[pageElement.length - 1]
-              insertPoint = pELast.nextSibling ? pELast.nextSibling : pELast.parentNode.appendChild(document.createTextNode(' '))
+              var pELast = pageElement[pageElement.length - 1];
+              insertPoint = pELast.nextSibling ? pELast.nextSibling : pELast.parentNode.appendChild(document.createTextNode(' '));
             }
           }
 
           if (insertPoint) {
-            debug('验证是否能找到插入位置节点:成功,', insertPoint)
+            debug('验证是否能找到插入位置节点:成功,', insertPoint);
           } else {
-            C.error('验证是否能找到插入位置节点:失败', (SSS.a_HT_insert ? SSS.a_HT_insert[0] : ''), 'JS执行终止')
-            floatWO.updateColor('Astop')
-            return
+            C.error('验证是否能找到插入位置节点:失败', (SSS.a_HT_insert ? SSS.a_HT_insert[0] : ''), 'JS执行终止');
+            floatWO.updateColor('Astop');
+            return;
           }
           if (window.navigator.language != 'en') {
-            debug(window.navigator.language)
+            debug(window.navigator.language);
           }
 
           if (pageElement === undefined) {
-            pageElement = getAllElements(SSS.a_pageElement)
+            pageElement = getAllElements(SSS.a_pageElement);
           }
           if (pageElement.length > 0) {
-            debug('验证是否能找到主要元素:成功,', pageElement)
+            debug('验证是否能找到主要元素:成功,', pageElement);
           } else {
-            C.error('验证是否能找到主要元素:失败,', SSS.a_pageElement, 'JS执行终止')
-            floatWO.updateColor('Astop')
-            return
+            C.error('验证是否能找到主要元素:失败,', SSS.a_pageElement, 'JS执行终止');
+            floatWO.updateColor('Astop');
+            return;
           }
 
           if (SSS.a_stylish) { // 插入自定义样式
-            GM.addStyle(SSS.a_stylish, 'Super_preloader-style')
+            GM.addStyle(SSS.a_stylish, 'Super_preloader-style');
           }
 
-          var insertPointP
+          var insertPointP;
           if (insertMode != 2) {
-            insertPointP = insertPoint.parentNode
+            insertPointP = insertPoint.parentNode;
           }
 
-          var addIntoDoc
+          var addIntoDoc;
           if (insertMode == 2) {
             addIntoDoc = function (obj) {
-              return insertPoint.appendChild(obj)
-            }
+              return insertPoint.appendChild(obj);
+            };
           } else {
             addIntoDoc = function (obj) {
-              return insertPointP.insertBefore(obj, insertPoint)
-            }
+              return insertPointP.insertBefore(obj, insertPoint);
+            };
           }
 
-          var doc, win
+          var doc, win;
 
           function XHRLoaded (req) {
-            var str = req.responseText
-            doc = win = createDocumentByString(str)
+            var str = req.responseText;
+            doc = win = createDocumentByString(str);
 
             if (!doc) {
-              C.error('文档对象创建失败')
-              removeL()
-              return
+              C.error('文档对象创建失败');
+              removeL();
+              return;
             }
-            floatWO.updateColor('autopager')
-            floatWO.CmodeIcon('hide')
-            floatWO.loadedIcon('show')
-            working = false
-            scroll()
+            floatWO.updateColor('autopager');
+            floatWO.CmodeIcon('hide');
+            floatWO.loadedIcon('show');
+            working = false;
+            scroll();
           }
 
           function removeL (isRemoveAddPage) {
-            debug('移除各种事件监听')
-            floatWO.updateColor('Astop')
-            var _remove = remove
+            debug('移除各种事件监听');
+            floatWO.updateColor('Astop');
+            var _remove = remove;
             for (var i = 0, ii = _remove.length; i < ii; i++) {
-              _remove[i]()
+              _remove[i]();
             }
 
             if (isRemoveAddPage) {
-              var separator = document.querySelector('.sp-separator')
+              var separator = document.querySelector('.sp-separator');
               if (separator) {
-                var insertBefore = insertPoint
+                var insertBefore = insertPoint;
                 if (insertMode == 2) {
-                  var l = insertPoint.children.length
+                  var l = insertPoint.children.length;
                   if (l > 0) {
-                    insertBefore = insertPoint.children[l - 1]
+                    insertBefore = insertPoint.children[l - 1];
                   }
                 }
 
-                var range = document.createRange()
-                range.setStartBefore(separator)
-                range.setEndBefore(insertBefore)
-                range.deleteContents()
-                range.detach()
+                var range = document.createRange();
+                range.setStartBefore(separator);
+                range.setEndBefore(insertBefore);
+                range.deleteContents();
+                range.detach();
 
                 if (insertMode == 2) { // 还需要额外移除？
-                  insertPoint.removeChild(insertBefore)
+                  insertPoint.removeChild(insertBefore);
                 }
               }
-              var style = document.getElementById('Super_preloader-style')
-              if (style) { style.parentNode.removeChild(style) }
+              var style = document.getElementById('Super_preloader-style');
+              if (style) { style.parentNode.removeChild(style); }
             }
           }
           if (isHashchangeSite && !hashchangeAdded) {
-            window.addEventListener('hashchange', onhashChange, false)
-            hashchangeAdded = true
-            debug('成功添加 hashchange 事件')
+            window.addEventListener('hashchange', onhashChange, false);
+            hashchangeAdded = true;
+            debug('成功添加 hashchange 事件');
           }
 
           function onhashChange (event) {
-            debug('触发 Hashchang 事件')
-            removeL(true)
+            debug('触发 Hashchang 事件');
+            removeL(true);
 
             setTimeout(function () {
-              nextlink = getElement(SSS.nextLink || 'auto;')
-              nextlink = getFullHref(nextlink)
+              nextlink = getElement(SSS.nextLink || 'auto;');
+              nextlink = getFullHref(nextlink);
               // preLink = getElement(SSS.preLink || 'auto;');
-              autopager(SSS, floatWO)
-            }, hashchangeTimer)
+              autopager(SSS, floatWO);
+            }, hashchangeTimer);
           }
 
-          var iframe
-          var messageR
+          var iframe;
+          var messageR;
 
           function iframeLoaded () {
-            var iframe = this
+            var iframe = this;
             // alert(this.contentDocument.body)
-            var body = iframe.contentDocument.body
+            var body = iframe.contentDocument.body;
             if (body && body.firstChild) {
               setTimeout(function () {
-                doc = iframe.contentDocument
-                removeScripts(doc)
-                win = iframe.contentWindow || doc
-                floatWO.updateColor('autopager')
-                floatWO.CmodeIcon('hide')
-                floatWO.loadedIcon('show')
-                working = false
+                doc = iframe.contentDocument;
+                removeScripts(doc);
+                win = iframe.contentWindow || doc;
+                floatWO.updateColor('autopager');
+                floatWO.CmodeIcon('hide');
+                floatWO.loadedIcon('show');
+                working = false;
 
-                scroll()
-              }, SSS.a_itimeout)
+                scroll();
+              }, SSS.a_itimeout);
             }
           }
 
           function iframeRequest (link) {
-            messageR = false
+            messageR = false;
             if (SSS.a_newIframe || !iframe) {
-              var i = document.createElement('iframe')
-              iframe = i
-              i.name = 'superpreloader-iframe'
-              i.width = '100%'
-              i.height = '0'
-              i.frameBorder = '0'
+              var i = document.createElement('iframe');
+              iframe = i;
+              i.name = 'superpreloader-iframe';
+              i.width = '100%';
+              i.height = '0';
+              i.frameBorder = '0';
               i.style.cssText = '\
                     margin:0!important;\
                     padding:0!important;\
                     visibility:hidden!important;\
-                '
+                ';
               if (SSS.a_sandbox != false) {
-                i.sandbox = SSS.a_sandbox
+                i.sandbox = SSS.a_sandbox;
               }
-              i.src = link
+              i.src = link;
               if (SSS.a_iloaded) {
-                i.addEventListener('load', iframeLoaded, false)
+                i.addEventListener('load', iframeLoaded, false);
                 remove.push(function () {
-                  i.removeEventListener('load', iframeLoaded, false)
-                })
+                  i.removeEventListener('load', iframeLoaded, false);
+                });
               } else {
                 var messagehandler = function (e) {
                   if (!messageR && e.data == 'superpreloader-iframe:DOMLoaded') {
-                    messageR = true
-                    iframeLoaded.call(i)
+                    messageR = true;
+                    iframeLoaded.call(i);
                     if (SSS.a_newIframe) {
-                      window.removeEventListener('message', messagehandler, false)
+                      window.removeEventListener('message', messagehandler, false);
                     }
                   }
-                }
-                window.addEventListener('message', messagehandler, false)
+                };
+                window.addEventListener('message', messagehandler, false);
                 remove.push(function () {
-                  window.removeEventListener('message', messagehandler, false)
-                })
+                  window.removeEventListener('message', messagehandler, false);
+                });
               }
-              document.body.appendChild(i)
+              document.body.appendChild(i);
             } else {
-              iframe.src = link
-              iframe.contentDocument.location.replace(link)
+              iframe.src = link;
+              iframe.contentDocument.location.replace(link);
               if (SSS.a_reload) {
-                iframe.contentWindow.location.reload()
+                iframe.contentWindow.location.reload();
               }
             }
           }
 
-          var working
+          var working;
 
           function doRequest () {
-            working = true
-            floatWO.updateColor('loading')
-            floatWO.CmodeIcon('show')
+            working = true;
+            floatWO.updateColor('loading');
+            floatWO.CmodeIcon('show');
 
-            debug('获取下一页' + (SSS.a_useiframe ? '(iframe方式)' : ''), nextlink)
+            debug('获取下一页' + (SSS.a_useiframe ? '(iframe方式)' : ''), nextlink);
             if (SSS.a_useiframe) {
-              iframeRequest(nextlink)
+              iframeRequest(nextlink);
             } else {
               if (typeof (SSS.a_header) === 'string') {
                 GM.xmlHttpRequest({
@@ -8381,7 +8381,7 @@
                   overrideMimeType: 'text/html; charset=' + document.characterSet,
                   onload: XHRLoaded,
                   header: SSS.a_header
-                })
+                });
               } else {
                 if (SSS.a_header) {
                   GM.xmlHttpRequest({
@@ -8390,33 +8390,33 @@
                     overrideMimeType: 'text/html; charset=' + document.characterSet,
                     onload: XHRLoaded,
                     header: cplink
-                  })
+                  });
                 } else {
                   GM.xmlHttpRequest({
                     method: 'GET',
                     url: nextlink,
                     overrideMimeType: 'text/html; charset=' + document.characterSet,
                     onload: XHRLoaded
-                  })
+                  });
                 }
               }
-              debug('读取完成')
+              debug('读取完成');
             }
           }
 
-          var ipagesmode = SSS.a_ipages[0]
-          var ipagesnumber = SSS.a_ipages[1]
-          var scrollDo = nullFn
-          var afterInsertDo = nullFn
+          var ipagesmode = SSS.a_ipages[0];
+          var ipagesnumber = SSS.a_ipages[1];
+          var scrollDo = nullFn;
+          var afterInsertDo = nullFn;
           if (prefs.Aplus) {
-            afterInsertDo = doRequest
-            doRequest()
+            afterInsertDo = doRequest;
+            doRequest();
           } else {
-            scrollDo = doRequest
-            if (ipagesmode) doRequest()
+            scrollDo = doRequest;
+            if (ipagesmode) doRequest();
           }
 
-          var manualDiv
+          var manualDiv;
 
           function manualAdiv () {
             if (!manualDiv) {
@@ -8475,20 +8475,20 @@
                         z-index:-1!important;\
                         background:none!important;\
                     }\
-                ')
+                ');
 
               var div = $C('div', {
                 id: 'sp-sp-manualdiv'
-              })
-              manualDiv = div
-              var nextStr = 'Next'
+              });
+              manualDiv = div;
+              var nextStr = 'Next';
               if ((userLang.indexOf('zh') !== -1) || prefs.ChineseUI) {
-                nextStr = '下'
+                nextStr = '下';
               }
               var span = $C('span', {
                 class: 'sp-sp-md-span'
-              }, nextStr)
-              div.appendChild(span)
+              }, nextStr);
+              div.appendChild(span);
 
               var input = $C('input', {
                 type: 'number',
@@ -8496,78 +8496,78 @@
                 min: 1,
                 title: '输入你想要拼接的页数(必须>=1),然后按回车.',
                 id: 'sp-sp-md-number'
-              })
+              });
 
               var getInputValue = function () {
-                var value = Number(input.value)
+                var value = Number(input.value);
                 if (isNaN(value) || value < 1) {
-                  value = 1
-                  input.value = 1
+                  value = 1;
+                  input.value = 1;
                 }
-                return value
-              }
+                return value;
+              };
 
               var spage = function () {
                 if (doc) {
-                  var value = getInputValue()
+                  var value = getInputValue();
                   // alert(value);
-                  ipagesmode = true
-                  ipagesnumber = value + paged
-                  insertedIntoDoc()
+                  ipagesmode = true;
+                  ipagesnumber = value + paged;
+                  insertedIntoDoc();
                 }
-              }
+              };
               input.addEventListener('keyup', function (e) {
                 // alert(e.keyCode);
                 if (e.keyCode == 13) { // 回车
-                  spage()
+                  spage();
                 }
-              }, false)
-              div.appendChild(input)
+              }, false);
+              div.appendChild(input);
               if ((userLang.indexOf('zh') !== -1) || prefs.ChineseUI) {
                 div.appendChild($C('span', {
                   className: 'sp-sp-md-span'
-                }, '页'))
+                }, '页'));
               } else {
                 div.appendChild($C('span', {
                   className: 'sp-sp-md-span'
-                }, 'page'))
+                }, 'page'));
               }
               div.appendChild($C('img', {
                 id: 'sp-sp-md-imgnext',
                 src: _sep_icons.next
-              }))
+              }));
               div.appendChild($C('span', {
                 id: 'sp-sp-md-someinfo'
-              }, prefs.someValue))
-              document.body.appendChild(div)
+              }, prefs.someValue));
+              document.body.appendChild(div);
               div.addEventListener('click', function (e) {
-                if (e.target.id == 'sp-sp-md-number') return
-                spage()
-              }, false)
+                if (e.target.id == 'sp-sp-md-number') return;
+                spage();
+              }, false);
             }
-            addIntoDoc(manualDiv)
-            manualDiv.style.display = 'block'
+            addIntoDoc(manualDiv);
+            manualDiv.style.display = 'block';
           }
 
           function beforeInsertIntoDoc () {
-            working = true
+            working = true;
             if (SSS.a_manualA && !ipagesmode) { // 显示手动翻页触发条.
-              debug('手动拼接')
-              manualAdiv()
+              debug('手动拼接');
+              manualAdiv();
             } else { // 直接拼接.
-              debug('直接拼接')
-              insertedIntoDoc()
+              debug('直接拼接');
+              insertedIntoDoc();
             }
           }
 
-          var sepStyle
-          var goNextImg = [false]
-          var sNumber = prefs.sepStartN
-          var _sep_icons = sep_icons
-          var curNumber = sNumber
+          var sepStyle;
+          var goNextImg = [false];
+          var sNumber = prefs.sepStartN;
+          var _sep_icons = sep_icons;
+          var curNumber = sNumber;
 
           function createSep (lastUrl, currentUrl, nextUrl) {
-            var div = document.createElement('div')
+            var div = document.createElement('div');
             if (SSS.a_separator) {
               if (!sepStyle) {
                 sepStyle = GM.addStyle('\
@@ -8623,62 +8623,62 @@
                             z-index:-1!important;\
                             background:none!important;\
                         }\
-                    ')
+                    ');
               }
 
-              div.className = 'sp-separator'
-              div.id = 'sp-separator-' + curNumber
-              div.addEventListener('click', sepHandler, false)
-              var pageStr = ''
+              div.className = 'sp-separator';
+              div.id = 'sp-separator-' + curNumber;
+              div.addEventListener('click', sepHandler, false);
+              var pageStr = '';
               if ((userLang.indexOf('zh') !== -1) || prefs.ChineseUI) {
                 pageStr = '第 <span style="color:red!important;">' + curNumber + '</span> 页' +
-                                    (SSS.a_separatorReal ? getRalativePageStr(lastUrl, currentUrl, nextUrl) : '')
+                                    (SSS.a_separatorReal ? getRalativePageStr(lastUrl, currentUrl, nextUrl) : '');
               } else {
                 pageStr = 'Page <span style="color:red!important;">' + curNumber + '</span>' +
-                                    (SSS.a_separatorReal ? getRalativePageStr(lastUrl, currentUrl, nextUrl) : '')
+                                    (SSS.a_separatorReal ? getRalativePageStr(lastUrl, currentUrl, nextUrl) : '');
               }
               div.appendChild($C('a', {
                 class: 'sp-sp-nextlink',
                 href: currentUrl,
                 title: currentUrl
-              }, pageStr))
+              }, pageStr));
 
               div.appendChild($C('img', {
                 src: _sep_icons.top,
                 class: 'sp-sp-gotop',
                 alt: '去到顶部',
                 title: '去到顶部'
-              }))
+              }));
 
               div.appendChild($C('img', {
                 src: curNumber == sNumber ? _sep_icons.pre_gray : _sep_icons.pre,
                 class: 'sp-sp-gopre',
                 title: '上滚一页'
-              }))
+              }));
 
               var i_next = $C('img', {
                 src: _sep_icons.next_gray,
                 class: 'sp-sp-gonext',
                 title: '下滚一页'
-              })
+              });
 
               if (goNextImg.length == 2) {
-                goNextImg.shift()
+                goNextImg.shift();
               }
-              goNextImg.push(i_next)
-              div.appendChild(i_next)
+              goNextImg.push(i_next);
+              div.appendChild(i_next);
 
               div.appendChild($C('img', {
                 src: _sep_icons.bottom,
                 class: 'sp-sp-gobottom',
                 alt: '去到底部',
                 title: '去到底部'
-              }))
+              }));
 
               div.appendChild($C('span', {
                 class: 'sp-span-someinfo'
-              }, prefs.someValue))
-              curNumber += 1
+              }, prefs.someValue));
+              curNumber += 1;
             } else {
               div.style.cssText = '\
                     height:0!important;\
@@ -8689,286 +8689,286 @@
                     clear:both!important;\
                     display:block!important;\
                     visibility:hidden!important;\
-                '
+                ';
             }
-            return div
+            return div;
           }
 
-          var paged = 0
+          var paged = 0;
 
           function insertedIntoDoc () {
             if (!doc) {
-              debug('没有找到doc')
-              return
+              debug('没有找到doc');
+              return;
             }
 
             if (SSS.a_documentFilter) {
               try {
-                SSS.a_documentFilter(doc, nextlink)
+                SSS.a_documentFilter(doc, nextlink);
               } catch (e) {
-                C.error('执行 documentFilter 错误', e, SSS.a_documentFilter.toString())
+                C.error('执行 documentFilter 错误', e, SSS.a_documentFilter.toString());
               }
             }
 
-            var docTitle = getElementByCSS('title', doc).textContent
+            var docTitle = getElementByCSS('title', doc).textContent;
 
-            removeScripts(doc)
+            removeScripts(doc);
 
-            var fragment = document.createDocumentFragment()
-            var pageElements = getAllElements(SSS.a_pageElement, false, doc, win)
-            var ii = pageElements.length
+            var fragment = document.createDocumentFragment();
+            var pageElements = getAllElements(SSS.a_pageElement, false, doc, win);
+            var ii = pageElements.length;
             if (ii <= 0) {
-              debug('获取下一页的主要内容失败', SSS.a_pageElement)
-              removeL()
-              return
+              debug('获取下一页的主要内容失败', SSS.a_pageElement);
+              removeL();
+              return;
             } else {
-              debug('获取下一页的主要内容成功')
+              debug('获取下一页的主要内容成功');
             }
 
             // 提前查找下一页链接，后面再赋值
-            var lastUrl = cplink
-            cplink = nextlink
-            var nl = getElement(SSS.nextLink, false, doc, win)
+            var lastUrl = cplink;
+            cplink = nextlink;
+            var nl = getElement(SSS.nextLink, false, doc, win);
             if (nl) {
-              nl = getFullHref(nl)
+              nl = getFullHref(nl);
               if (nl == nextlink) {
-                nextlink = null
+                nextlink = null;
               } else {
-                nextlink = nl
+                nextlink = nl;
               }
             } else {
-              nextlink = null
+              nextlink = null;
             }
 
-            var i, pe_x, pe_x_nn
+            var i, pe_x, pe_x_nn;
             for (i = 0; i < ii; i++) {
-              pe_x = pageElements[i]
-              pe_x_nn = pe_x.nodeName
-              if (pe_x_nn == 'BODY' || pe_x_nn == 'HTML' || pe_x_nn == 'SCRIPT') continue
-              fragment.appendChild(pe_x)
+              pe_x = pageElements[i];
+              pe_x_nn = pe_x.nodeName;
+              if (pe_x_nn == 'BODY' || pe_x_nn == 'HTML' || pe_x_nn == 'SCRIPT') continue;
+              fragment.appendChild(pe_x);
             }
 
             if (SSS.filter && typeof (SSS.filter) === 'string') { // 功能未完善.
               // alert(SSS.filter);
-              var nodes = []
+              var nodes = [];
               try {
-                nodes = getAllElements(SSS.filter, fragment)
+                nodes = getAllElements(SSS.filter, fragment);
               } catch (e) {}
-              var nodes_x
+              var nodes_x;
               for (i = nodes.length - 1; i >= 0; i--) {
-                nodes_x = nodes[i]
-                nodes_x.parentNode.removeChild(nodes_x)
+                nodes_x = nodes[i];
+                nodes_x.parentNode.removeChild(nodes_x);
               }
             }
 
             // lazyImgSrc
             if (SSS.lazyImgSrc) {
-              handleLazyImgSrc(SSS.lazyImgSrc, fragment)
+              handleLazyImgSrc(SSS.lazyImgSrc, fragment);
             }
 
-            var imgs
+            var imgs;
             if (!window.opera && SSS.a_useiframe && !SSS.a_iloaded) {
-              imgs = getAllElements('css;img[src]', fragment) // 收集所有图片
+              imgs = getAllElements('css;img[src]', fragment); // 收集所有图片
             }
 
             // 处理下一页内容部分链接是否新标签页打开
             if (prefs.forceTargetWindow) {
-              var arr = Array.prototype.slice.call(fragment.querySelectorAll('a[href]:not([href^="mailto:"]):not([href^="javascript:"]):not([href^="#"])'))
+              var arr = Array.prototype.slice.call(fragment.querySelectorAll('a[href]:not([href^="mailto:"]):not([href^="javascript:"]):not([href^="#"])'));
               arr.forEach(function (elem) {
-                elem.setAttribute('target', '_blank')
+                elem.setAttribute('target', '_blank');
                 if (elem.getAttribute('onclick') == 'atarget(this)') { // 卡饭论坛的控制是否在新标签页打开
-                  elem.removeAttribute('onclick')
+                  elem.removeAttribute('onclick');
                 }
-              })
+              });
             }
 
-            var sepdiv = createSep(lastUrl, cplink, nextlink)
+            var sepdiv = createSep(lastUrl, cplink, nextlink);
             if (pageElements[0] && pageElements[0].tagName == 'TR') {
-              var insertParent = insertPoint.parentNode
-              var colNodes = getAllElements('child::tr[1]/child::*[self::td or self::th]', insertParent)
-              var colums = 0
+              var insertParent = insertPoint.parentNode;
+              var colNodes = getAllElements('child::tr[1]/child::*[self::td or self::th]', insertParent);
+              var colums = 0;
               for (var x = 0, l = colNodes.length; x < l; x++) {
-                var col = colNodes[x].getAttribute('colspan')
-                colums += parseInt(col, 10) || 1
+                var col = colNodes[x].getAttribute('colspan');
+                colums += parseInt(col, 10) || 1;
               }
-              var td = doc.createElement('td')
-              td.appendChild(sepdiv)
-              var tr = doc.createElement('tr')
-              td.setAttribute('colspan', colums)
-              tr.appendChild(td)
-              fragment.insertBefore(tr, fragment.firstChild)
+              var td = doc.createElement('td');
+              td.appendChild(sepdiv);
+              var tr = doc.createElement('tr');
+              td.setAttribute('colspan', colums);
+              tr.appendChild(td);
+              fragment.insertBefore(tr, fragment.firstChild);
             } else {
-              fragment.insertBefore(sepdiv, fragment.firstChild)
+              fragment.insertBefore(sepdiv, fragment.firstChild);
             }
 
-            addIntoDoc(fragment)
+            addIntoDoc(fragment);
 
             // filter
             if (SSS.filter && typeof (SSS.filter) === 'function') {
               try {
-                SSS.filter(pageElements)
-                debug('执行 filter(pages) 成功')
+                SSS.filter(pageElements);
+                debug('执行 filter(pages) 成功');
               } catch (e) {
-                C.error('执行 filter(pages) 错误', e, SSS.filter.toString())
+                C.error('执行 filter(pages) 错误', e, SSS.filter.toString());
               }
             }
 
             if (imgs) { // 非opera,在iframeDOM取出数据时需要重载图片.
               setTimeout(function () {
-                var _imgs = imgs
-                var i, ii, img
+                var _imgs = imgs;
+                var i, ii, img;
                 for (i = 0, ii = _imgs.length; i < ii; i++) {
-                  img = _imgs[i]
-                  var src = img.src
-                  img.src = src
+                  img = _imgs[i];
+                  var src = img.src;
+                  img.src = src;
                 }
-              }, 99)
+              }, 99);
             }
 
             if (SSS.a_replaceE) {
-              var oldE = getAllElements(SSS.a_replaceE)
-              var oldE_lt = oldE.length
+              var oldE = getAllElements(SSS.a_replaceE);
+              var oldE_lt = oldE.length;
               // alert(oldE_lt);
               if (oldE_lt > 0) {
-                var newE = getAllElements(SSS.a_replaceE, false, doc, win)
-                var newE_lt = newE.length
+                var newE = getAllElements(SSS.a_replaceE, false, doc, win);
+                var newE_lt = newE.length;
                 // alert(newE_lt);
                 if (newE_lt == oldE_lt) { // 替换
-                  var oldE_x, newE_x
+                  var oldE_x, newE_x;
                   for (i = 0; i < newE_lt; i++) {
-                    oldE_x = oldE[i]
-                    newE_x = newE[i]
-                    newE_x = doc.importNode(newE_x, true)
-                    oldE_x.parentNode.replaceChild(newE_x, oldE_x)
+                    oldE_x = oldE[i];
+                    newE_x = newE[i];
+                    newE_x = doc.importNode(newE_x, true);
+                    oldE_x.parentNode.replaceChild(newE_x, oldE_x);
                   }
                 }
               }
             }
 
-            paged += 1
+            paged += 1;
             if (ipagesmode && paged >= ipagesnumber) {
-              ipagesmode = false
+              ipagesmode = false;
             }
-            floatWO.loadedIcon('hide')
+            floatWO.loadedIcon('hide');
             if (manualDiv) {
-              manualDiv.style.display = 'none'
+              manualDiv.style.display = 'none';
             }
-            if (goNextImg[0]) goNextImg[0].src = _sep_icons.next
+            if (goNextImg[0]) goNextImg[0].src = _sep_icons.next;
 
-            var ev = document.createEvent('Event')
-            ev.initEvent('Super_preloaderPageLoaded', true, false)
-            document.dispatchEvent(ev)
+            var ev = document.createEvent('Event');
+            ev.initEvent('Super_preloaderPageLoaded', true, false);
+            document.dispatchEvent(ev);
 
             if (prefs.enableHistory) {
               try {
-                window.history.pushState(null, docTitle, cplink)
+                window.history.pushState(null, docTitle, cplink);
               } catch (e) {}
             }
 
             if (paged >= SSS.a_maxpage) {
-              debug('到达所设定的最大翻页数', SSS.a_maxpage)
-              notice('<b>状态</b>:' + '到达所设定的最大翻页数:<b style="color:red">' + SSS.a_maxpage + '</b>')
-              removeL()
-              return
+              debug('到达所设定的最大翻页数', SSS.a_maxpage);
+              notice('<b>状态</b>:' + '到达所设定的最大翻页数:<b style="color:red">' + SSS.a_maxpage + '</b>');
+              removeL();
+              return;
             }
             var delayiframe = function (fn) {
-              setTimeout(fn, 199)
-            }
+              setTimeout(fn, 199);
+            };
             if (nextlink) {
               // debug('找到下一页链接:', nextlink);
-              doc = win = null
+              doc = win = null;
               if (ipagesmode) {
                 if (SSS.a_useiframe) { // 延时点,firefox,太急会卡-_-!
-                  delayiframe(doRequest)
+                  delayiframe(doRequest);
                 } else {
-                  doRequest()
+                  doRequest();
                 }
               } else {
-                working = false
+                working = false;
                 if (SSS.a_useiframe) {
-                  delayiframe(afterInsertDo)
+                  delayiframe(afterInsertDo);
                 } else {
-                  afterInsertDo()
+                  afterInsertDo();
                 }
               }
             } else {
-              debug('没有找到下一页链接', SSS.nextLink)
-              removeL()
+              debug('没有找到下一页链接', SSS.nextLink);
+              removeL();
             }
           }
 
           // 返回,剩余高度是总高度的比值.
-          var relatedObj_0, relatedObj_1
+          var relatedObj_0, relatedObj_1;
           if (SSS.a_relatedObj) {
             if (_.isArray(SSS.a_relatedObj)) {
-              relatedObj_0 = SSS.a_relatedObj[0]
-              relatedObj_1 = SSS.a_relatedObj[1]
+              relatedObj_0 = SSS.a_relatedObj[0];
+              relatedObj_1 = SSS.a_relatedObj[1];
             } else {
-              relatedObj_0 = SSS.a_pageElement
-              relatedObj_1 = 'bottom'
+              relatedObj_0 = SSS.a_pageElement;
+              relatedObj_1 = 'bottom';
             }
           }
 
           function getRemain () {
-            var scrolly = window.scrollY
-            var WI = window.innerHeight
-            var obj = getLastElement(relatedObj_0)
-            var scrollH = (obj && obj.nodeType == 1) ? (obj.getBoundingClientRect()[relatedObj_1] + scrolly) : Math.max(document.documentElement.scrollHeight, document.body.scrollHeight)
-            return (scrollH - scrolly - WI) / WI // 剩余高度于页面总高度的比例.
+            var scrolly = window.scrollY;
+            var WI = window.innerHeight;
+            var obj = getLastElement(relatedObj_0);
+            var scrollH = (obj && obj.nodeType == 1) ? (obj.getBoundingClientRect()[relatedObj_1] + scrolly) : Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+            return (scrollH - scrolly - WI) / WI; // 剩余高度于页面总高度的比例.
           }
 
-          var pause = false
+          var pause = false;
           if (prefs.pauseA) {
-            var Sbutton = ['target', 'shiftKey', 'ctrlKey', 'altKey']
-            var ltype = prefs.mouseA ? 'mousedown' : 'dblclick'
-            var button_1 = Sbutton[prefs.Pbutton[0]]
-            var button_2 = Sbutton[prefs.Pbutton[1]]
-            var button_3 = Sbutton[prefs.Pbutton[2]]
+            var Sbutton = ['target', 'shiftKey', 'ctrlKey', 'altKey'];
+            var ltype = prefs.mouseA ? 'mousedown' : 'dblclick';
+            var button_1 = Sbutton[prefs.Pbutton[0]];
+            var button_2 = Sbutton[prefs.Pbutton[1]];
+            var button_3 = Sbutton[prefs.Pbutton[2]];
 
             var pauseIt = function () {
-              pause = !pause
-              if (prefs.stop_ipage) ipagesmode = false
+              pause = !pause;
+              if (prefs.stop_ipage) ipagesmode = false;
               if (pause) {
-                floatWO.updateColor('Apause')
-                notice('<b>状态</b>:' + '自动翻页<span style="color:red!important;"><b>暂停</b></span>.')
+                floatWO.updateColor('Apause');
+                notice('<b>状态</b>:' + '自动翻页<span style="color:red!important;"><b>暂停</b></span>.');
               } else {
-                floatWO.updateColor('autopager')
-                floatWO.CmodeIcon('hide')
-                notice('<b>状态</b>:' + '自动翻页<span style="color:red!important;"><b>启用</b></span>.')
+                floatWO.updateColor('autopager');
+                floatWO.CmodeIcon('hide');
+                notice('<b>状态</b>:' + '自动翻页<span style="color:red!important;"><b>启用</b></span>.');
               }
-              scroll()
-            }
-            var Sctimeout
+              scroll();
+            };
+            var Sctimeout;
 
             var clearPause = function () {
-              clearTimeout(Sctimeout)
-              document.removeEventListener('mouseup', arguments.callee, false)
-            }
+              clearTimeout(Sctimeout);
+              document.removeEventListener('mouseup', arguments.callee, false);
+            };
 
             var pausehandler = function (e) {
               if (!SSS.a_manualA || ipagesmode || pause) {
                 if (e[button_1] && e[button_2] && e[button_3]) {
                   if (e.type == 'mousedown') {
-                    document.addEventListener('mouseup', clearPause, false)
-                    Sctimeout = setTimeout(pauseIt, prefs.Atimeout)
+                    document.addEventListener('mouseup', clearPause, false);
+                    Sctimeout = setTimeout(pauseIt, prefs.Atimeout);
                   } else {
-                    pauseIt()
+                    pauseIt();
                   }
                 }
               }
-            }
-            document.addEventListener(ltype, pausehandler, false)
+            };
+            document.addEventListener(ltype, pausehandler, false);
             remove.push(function () {
-              document.removeEventListener(ltype, pausehandler, false)
-            })
+              document.removeEventListener(ltype, pausehandler, false);
+            });
           }
 
           function scroll () {
             if (!pause && !working && (getRemain() <= SSS.a_remain || ipagesmode)) {
               if (doc) { // 有的话,就插入到文档.
-                beforeInsertIntoDoc()
+                beforeInsertIntoDoc();
               } else { // 否则就请求文档.
-                scrollDo()
+                scrollDo();
               }
             } else {
               // debug('Scroll fails');
@@ -8976,36 +8976,36 @@
             }
           }
 
-          var timeout
+          var timeout;
 
           function timeoutfn () {
-            clearTimeout(timeout)
-            timeout = setTimeout(scroll, 100)
+            clearTimeout(timeout);
+            timeout = setTimeout(scroll, 100);
           }
-          window.addEventListener('scroll', timeoutfn, false)
+          window.addEventListener('scroll', timeoutfn, false);
           remove.push(function () {
-            window.removeEventListener('scroll', timeoutfn, false)
-          })
+            window.removeEventListener('scroll', timeoutfn, false);
+          });
 
           autoPO = {
             startipages: function (value) {
               if (value > 0) {
-                ipagesmode = true
-                ipagesnumber = value + paged
-                notice('<b>状态</b>:' + '当前已翻页数量:<b>' + paged + '</b>,' + '连续翻页到第<b style="color:red!important;">' + ipagesnumber + '</b>页.')
-                if (SSS.a_manualA) insertedIntoDoc()
-                scroll()
+                ipagesmode = true;
+                ipagesnumber = value + paged;
+                notice('<b>状态</b>:' + '当前已翻页数量:<b>' + paged + '</b>,' + '连续翻页到第<b style="color:red!important;">' + ipagesnumber + '</b>页.');
+                if (SSS.a_manualA) insertedIntoDoc();
+                scroll();
               }
             }
-          }
+          };
         }
 
         // prefetcher
         function prefetcher (SSS, floatWO) {
           function cContainer () {
-            var div = document.createElement('div')
-            var div2 = div.cloneNode(false)
-            var hr = document.createElement('hr')
+            var div = document.createElement('div');
+            var div2 = div.cloneNode(false);
+            var hr = document.createElement('hr');
             div.style.cssText = '\
                 margin:3px!important;\
                 padding:5px!important;\
@@ -9015,8 +9015,8 @@
                 border-top:1px solid #E30005!important;\
                 background-color:#F5F5F5!important;\
                 float:none!important;\
-            '
-            div.title = '预读的内容'
+            ';
+            div.title = '预读的内容';
             div2.style.cssText = '\
                 text-align:left!important;\
                 color:red!important;\
@@ -9024,56 +9024,56 @@
                 display:block!important;\
                 float:none!important;\
                 position:static!important;\
-            '
+            ';
             hr.style.cssText = '\
                 display:block!important;\
                 border:1px inset #000!important;\
-            '
-            div.appendChild(div2)
-            div.appendChild(hr)
-            document.body.appendChild(div)
+            ';
+            div.appendChild(div2);
+            div.appendChild(hr);
+            document.body.appendChild(div);
             return {
               div: div,
               div2: div2
-            }
+            };
           }
 
-          floatWO.updateColor('prefetcher')
+          floatWO.updateColor('prefetcher');
 
-          floatWO.updateColor('loading')
-          floatWO.CmodeIcon('show')
+          floatWO.updateColor('loading');
+          floatWO.CmodeIcon('show');
 
           if (SSS.useiframe) {
-            var iframe = document.createElement('iframe')
-            iframe.name = 'superpreloader-iframe'
-            iframe.src = nextlink
-            iframe.width = '100%'
-            iframe.height = '0'
-            iframe.frameBorder = '0'
+            var iframe = document.createElement('iframe');
+            iframe.name = 'superpreloader-iframe';
+            iframe.src = nextlink;
+            iframe.width = '100%';
+            iframe.height = '0';
+            iframe.frameBorder = '0';
             iframe.style.cssText = '\
                 margin:0!important;\
                 padding:0!important;\
-            '
+            ';
             iframe.addEventListener('load', function () {
-              var body = this.contentDocument.body
+              var body = this.contentDocument.body;
               if (body && body.firstChild) {
-                floatWO.updateColor('prefetcher')
-                floatWO.CmodeIcon('hide')
-                floatWO.loadedIcon('show')
-                this.removeEventListener('load', arguments.callee, false)
+                floatWO.updateColor('prefetcher');
+                floatWO.CmodeIcon('hide');
+                floatWO.loadedIcon('show');
+                this.removeEventListener('load', arguments.callee, false);
 
                 if (SSS.lazyImgSrc) {
-                  handleLazyImgSrc(SSS.lazyImgSrc, body)
+                  handleLazyImgSrc(SSS.lazyImgSrc, body);
                 }
               }
-            }, false)
+            }, false);
             if (SSS.viewcontent) {
-              var container = cContainer()
-              container.div2.innerHTML = 'iframe全预读: ' + '<br />' + '预读网址: ' + '<b>' + nextlink + '</b>'
-              iframe.height = '300px'
-              container.div.appendChild(iframe)
+              var container = cContainer();
+              container.div2.innerHTML = 'iframe全预读: ' + '<br />' + '预读网址: ' + '<b>' + nextlink + '</b>';
+              iframe.height = '300px';
+              container.div.appendChild(iframe);
             } else {
-              document.body.appendChild(iframe)
+              document.body.appendChild(iframe);
             }
           } else {
             GM.xmlHttpRequest({
@@ -9081,584 +9081,585 @@
               url: nextlink,
               overrideMimeType: 'text/html; charset=' + document.characterSet,
               onload: function (req) {
-                var str = req.responseText
-                var doc = createDocumentByString(str)
+                var str = req.responseText;
+                var doc = createDocumentByString(str);
                 if (!doc) {
-                  C.error('文档对象创建失败!')
-                  return
+                  C.error('文档对象创建失败!');
+                  return;
                 }
 
                 if (SSS.lazyImgSrc) {
-                  handleLazyImgSrc(SSS.lazyImgSrc, doc)
+                  handleLazyImgSrc(SSS.lazyImgSrc, doc);
                 }
 
-                var images = doc.images
-                var isl = images.length
-                var img
-                var iarray = []
-                var i
-                var existSRC = {}
-                var isrc
+                var images = doc.images;
+                var isl = images.length;
+                var img;
+                var iarray = [];
+                var i;
+                var existSRC = {};
+                var isrc;
                 for (i = isl - 1; i >= 0; i--) {
-                  isrc = images[i].getAttribute('src')
+                  isrc = images[i].getAttribute('src');
                   if (!isrc || existSRC[isrc]) {
-                    continue
+                    continue;
                   } else {
-                    existSRC[isrc] = true
+                    existSRC[isrc] = true;
                   }
-                  img = document.createElement('img')
-                  img.src = isrc
-                  iarray.push(img)
+                  img = document.createElement('img');
+                  img.src = isrc;
+                  iarray.push(img);
                 }
                 if (SSS.viewcontent) {
-                  var containter = cContainer()
-                  var div = containter.div
-                  i = iarray.length
-                  containter.div2.innerHTML = '预读取图片张数: ' + '<b>' + i + '</b>' + '<br />' + '预读网址: ' + '<b>' + nextlink + '</b>'
+                  var containter = cContainer();
+                  var div = containter.div;
+                  i = iarray.length;
+                  containter.div2.innerHTML = '预读取图片张数: ' + '<b>' + i + '</b>' + '<br />' + '预读网址: ' + '<b>' + nextlink + '</b>';
                   for (i -= 1; i >= 0; i--) {
-                    div.appendChild(iarray[i])
+                    div.appendChild(iarray[i]);
                   }
                 }
-                floatWO.updateColor('prefetcher')
-                floatWO.loadedIcon('show')
-                floatWO.CmodeIcon('hide')
+                floatWO.updateColor('prefetcher');
+                floatWO.loadedIcon('show');
+                floatWO.CmodeIcon('hide');
               }
-            })
+            });
           }
         }
 
         // 执行开始..///////////////////
 
         // 分析黑名单
-        var blackList_re = new RegExp(blackList.map(wildcardToRegExpStr).join('|'))
+        var blackList_re = new RegExp(blackList.map(wildcardToRegExpStr).join('|'));
         if (blackList_re.test(url)) {
-          debug('匹配黑名单，js执行终止')
-          return
+          debug('匹配黑名单，js执行终止');
+          return;
         }
 
         // 是否在frame上加载..
         if (prefs.DisableI && window.self != window.parent) {
           var isReturn = !_.find(DIExclude, function (x) {
-            return x[1] && x[2].test(url)
-          })
+            return x[1] && x[2].test(url);
+          });
           if (isReturn) {
-            debug('url为:', url, '的页面为非顶层窗口,JS执行终止.')
-            return
+            debug('url为:', url, '的页面为非顶层窗口,JS执行终止.');
+            return;
           }
         }
-        debug('url为:', url, 'JS加载成功')
+        debug('url为:', url, 'JS加载成功');
 
         // 第一阶段..分析高级模式..
-        SITEINFO = SITEINFO.concat(SITEINFO_TP, SITEINFO_comp)
+        SITEINFO = SITEINFO.concat(SITEINFO_TP, SITEINFO_comp);
 
         // 重要的变量两枚.
-        var nextlink
-        var prelink
+        var nextlink;
+        var prelink;
         //= ==============
 
-        var SSS = {}
+        var SSS = {};
 
         var findCurSiteInfo = function () {
-          var SII
-          var SIIA
-          var SIIAD = SITEINFO_D.autopager
-          var Rurl
-          var ii = SITEINFO.length
+          var SII;
+          var SIIA;
+          var SIIAD = SITEINFO_D.autopager;
+          var Rurl;
+          var ii = SITEINFO.length;
 
-          debug('高级规则数量:', ii)
+          debug('高级规则数量:', ii);
 
           for (var i = 0; i < ii; i++) {
-            SII = SITEINFO[i]
-            Rurl = toRE(SII.url)
+            SII = SITEINFO[i];
+            Rurl = toRE(SII.url);
             if (Rurl.test(url)) {
-              debug('找到匹配当前站点的规则:', SII, '是第', i + 1, '规则')
+              debug('找到匹配当前站点的规则:', SII, '是第', i + 1, '规则');
 
               // 运行规则的 startFilter
               if (SII.autopager && SII.autopager.startFilter) {
-                SII.autopager.startFilter(window, document)
-                debug('成功运行 startFilter')
+                SII.autopager.startFilter(window, document);
+                debug('成功运行 startFilter');
               }
 
-              nextlink = getElement(SII.nextLink || 'auto;')
+              nextlink = getElement(SII.nextLink || 'auto;');
               if (!nextlink) {
-                debug('无法找到下一页链接,跳过规则:', SII, '继续查找其他规则')
-                continue
+                debug('无法找到下一页链接,跳过规则:', SII, '继续查找其他规则');
+                continue;
               }
 
               if (SII.preLink && SII.preLink != 'auto;') { // 如果设定了具体的preLink
-                prelink = getElement(SII.preLink)
+                prelink = getElement(SII.preLink);
               } else {
                 if (prefs.autoGetPreLink) {
-                  getElement('auto;')
+                  getElement('auto;');
                 }
               }
 
               // alert(prelink);
-              SSS.hasRule = true
-              SSS.Rurl = String(Rurl)
+              SSS.hasRule = true;
+              SSS.Rurl = String(Rurl);
               // alert(SSS.Rurl);
-              SSS.nextLink = SII.nextLink || 'auto;'
-              SSS.viewcontent = SII.viewcontent
-              SSS.enable = (SII.enable === undefined) ? SITEINFO_D.enable : SII.enable
-              SSS.useiframe = (SII.useiframe === undefined) ? SITEINFO_D.useiframe : SII.useiframe
+              SSS.nextLink = SII.nextLink || 'auto;';
+              SSS.viewcontent = SII.viewcontent;
+              SSS.enable = (SII.enable === undefined) ? SITEINFO_D.enable : SII.enable;
+              SSS.useiframe = (SII.useiframe === undefined) ? SITEINFO_D.useiframe : SII.useiframe;
               if (SII.pageElement) { // 如果是Oautopager的规则..
-                if (!(SII.autopager instanceof Object)) SII.autopager = {}
-                SII.autopager.pageElement = SII.pageElement
-                if (SII.insertBefore) SII.autopager.HT_insert = [SII.insertBefore, 1]
+                if (!(SII.autopager instanceof Object)) SII.autopager = {};
+                SII.autopager.pageElement = SII.pageElement;
+                if (SII.insertBefore) SII.autopager.HT_insert = [SII.insertBefore, 1];
               }
-              SSS.a_header = (SII.header === undefined) ? false : SII.header
+              SSS.a_header = (SII.header === undefined) ? false : SII.header;
 
               // 自动翻页设置.
-              SIIA = SII.autopager
+              SIIA = SII.autopager;
               if (SIIA) {
-                SSS.a_pageElement = SIIA.pageElement
-                if (!SSS.a_pageElement) break
-                SSS.a_manualA = (SIIA.manualA === undefined) ? SIIAD.manualA : SIIA.manualA
-                SSS.a_enable = (SIIA.enable === undefined) ? SIIAD.enable : SIIA.enable
-                SSS.a_useiframe = (SIIA.useiframe === undefined) ? SIIAD.useiframe : SIIA.useiframe
-                SSS.a_newIframe = (SIIA.newIframe === undefined) ? SIIAD.newIframe : SIIA.newIframe
-                SSS.a_iloaded = (SIIA.iloaded === undefined) ? SIIAD.iloaded : SIIA.iloaded
-                SSS.a_itimeout = (SIIA.itimeout === undefined) ? SIIAD.itimeout : SIIA.itimeout
+                SSS.a_pageElement = SIIA.pageElement;
+                if (!SSS.a_pageElement) break;
+                SSS.a_manualA = (SIIA.manualA === undefined) ? SIIAD.manualA : SIIA.manualA;
+                SSS.a_enable = (SIIA.enable === undefined) ? SIIAD.enable : SIIA.enable;
+                SSS.a_useiframe = (SIIA.useiframe === undefined) ? SIIAD.useiframe : SIIA.useiframe;
+                SSS.a_newIframe = (SIIA.newIframe === undefined) ? SIIAD.newIframe : SIIA.newIframe;
+                SSS.a_iloaded = (SIIA.iloaded === undefined) ? SIIAD.iloaded : SIIA.iloaded;
+                SSS.a_itimeout = (SIIA.itimeout === undefined) ? SIIAD.itimeout : SIIA.itimeout;
                 // alert(SSS.a_itimeout);
-                SSS.a_remain = (SIIA.remain === undefined) ? SIIAD.remain : SIIA.remain
-                SSS.a_maxpage = (SIIA.maxpage === undefined) ? SIIAD.maxpage : SIIA.maxpage
-                SSS.a_separator = (SIIA.separator === undefined) ? SIIAD.separator : SIIA.separator
-                SSS.a_separatorReal = (SIIA.separatorReal === undefined) ? SIIAD.separatorReal : SIIA.separatorReal
-                SSS.a_replaceE = SIIA.replaceE
-                SSS.a_HT_insert = SIIA.HT_insert
-                SSS.a_relatedObj = SIIA.relatedObj
-                SSS.a_ipages = (SIIA.ipages === undefined) ? SIIAD.ipages : SIIA.ipages
+                SSS.a_remain = (SIIA.remain === undefined) ? SIIAD.remain : SIIA.remain;
+                SSS.a_maxpage = (SIIA.maxpage === undefined) ? SIIAD.maxpage : SIIA.maxpage;
+                SSS.a_separator = (SIIA.separator === undefined) ? SIIAD.separator : SIIA.separator;
+                SSS.a_separatorReal = (SIIA.separatorReal === undefined) ? SIIAD.separatorReal : SIIA.separatorReal;
+                SSS.a_replaceE = SIIA.replaceE;
+                SSS.a_HT_insert = SIIA.HT_insert;
+                SSS.a_relatedObj = SIIA.relatedObj;
+                SSS.a_ipages = (SIIA.ipages === undefined) ? SIIAD.ipages : SIIA.ipages;
 
                 // new
-                SSS.filter = SII.filter || SIIA.filter // 新增了函数的形式，原来的功能是移除 pageElement
-                SSS.a_documentFilter = SII.documentFilter || SIIA.documentFilter
-                SSS.a_stylish = SII.stylish || SIIA.stylish
-                SSS.lazyImgSrc = SIIA.lazyImgSrc
-                SSS.a_header = (SIIA.header === undefined) ? SSS.a_header : SIIA.header // custom header for XHRLoaded
-                SSS.a_reload = (SIIA.reload === undefined) ? SIIAD.reload : SIIA.reload // force reload iframe
-                SSS.a_sandbox = (SIIA.sandbox === undefined) ? SIIAD.sandbox : SIIA.sandbox
+                SSS.filter = SII.filter || SIIA.filter; // 新增了函数的形式，原来的功能是移除 pageElement
+                SSS.a_documentFilter = SII.documentFilter || SIIA.documentFilter;
+                SSS.a_stylish = SII.stylish || SIIA.stylish;
+                SSS.lazyImgSrc = SIIA.lazyImgSrc;
+                SSS.a_header = (SIIA.header === undefined) ? SSS.a_header : SIIA.header; // custom header for XHRLoaded
+                SSS.a_reload = (SIIA.reload === undefined) ? SIIAD.reload : SIIA.reload; // force reload iframe
+                SSS.a_sandbox = (SIIA.sandbox === undefined) ? SIIAD.sandbox : SIIA.sandbox;
               }
 
               // 检验是否存在内容
-              var pageElement = getElement(SSS.a_pageElement)
+              var pageElement = getElement(SSS.a_pageElement);
               if (!pageElement) {
-                debug('无法找到内容,跳过规则:', SII, '继续查找其他规则')
-                continue
+                debug('无法找到内容,跳过规则:', SII, '继续查找其他规则');
+                continue;
               }
 
-              break
+              break;
             }
           }
 
           if (!SSS.hasRule) {
-            debug('未找到合适的高级规则,开始自动匹配.')
+            debug('未找到合适的高级规则,开始自动匹配.');
             // 自动搜索.
             if (!autoMatch.keyMatch) {
-              debug('自动匹配功能被禁用了.')
+              debug('自动匹配功能被禁用了.');
             } else {
-              nextlink = autoGetLink()
+              nextlink = autoGetLink();
               // alert(nextlink);
               if (nextlink) { // 强制模式.
-                var FA = autoMatch.FA
-                SSS.Rurl = window.localStorage ? ('am:' + (url.match(/^https?:\/\/[^:]*\//i) || [])[0]) : 'am:automatch'
+                var FA = autoMatch.FA;
+                SSS.Rurl = window.localStorage ? ('am:' + (url.match(/^https?:\/\/[^:]*\//i) || [])[0]) : 'am:automatch';
                 // alert(SSS.Rurl);
-                SSS.enable = true
-                SSS.nextLink = 'auto;'
-                SSS.viewcontent = autoMatch.viewcontent
-                SSS.useiframe = autoMatch.useiframe
-                SSS.a_force = true
-                SSS.a_manualA = FA.manualA
+                SSS.enable = true;
+                SSS.nextLink = 'auto;';
+                SSS.viewcontent = autoMatch.viewcontent;
+                SSS.useiframe = autoMatch.useiframe;
+                SSS.a_force = true;
+                SSS.a_manualA = FA.manualA;
                 // SSS.a_enable = FA.enable || false; //不能使a_enable的值==undefined...
-                SSS.a_enable = FA.enable || SITEINFO_D.autopager.force_enable // 不能使a_enable的值==undefined...
-                SSS.a_useiframe = FA.useiframe
-                SSS.a_iloaded = FA.iloaded
-                SSS.a_itimeout = FA.itimeout
-                SSS.a_remain = FA.remain
-                SSS.a_maxpage = FA.maxpage
-                SSS.a_separator = FA.separator
-                SSS.a_ipages = FA.ipages
+                SSS.a_enable = FA.enable || SITEINFO_D.autopager.force_enable; // 不能使a_enable的值==undefined...
+                SSS.a_useiframe = FA.useiframe;
+                SSS.a_iloaded = FA.iloaded;
+                SSS.a_itimeout = FA.itimeout;
+                SSS.a_remain = FA.remain;
+                SSS.a_maxpage = FA.maxpage;
+                SSS.a_separator = FA.separator;
+                SSS.a_ipages = FA.ipages;
               }
             }
           }
 
           // 如果规则没 lazyImgSrc，设置默认值
           if (!SSS.lazyImgSrc) {
-            SSS.lazyImgSrc = prefs.lazyImgSrc
+            SSS.lazyImgSrc = prefs.lazyImgSrc;
           }
 
-          debug('搜索高级规则和自动匹配过程总耗时:', new Date() - startTime, '毫秒')
-        }
+          debug('搜索高级规则和自动匹配过程总耗时:', new Date() - startTime, '毫秒');
+        };
 
-        findCurSiteInfo()
+        findCurSiteInfo();
 
         // 上下页都没有找到啊
         if (!nextlink && !prelink) {
-          debug('未找到相关链接, JS执行停止. 共耗时' + (new Date() - startTime) + '毫秒')
-          return
+          debug('未找到相关链接, JS执行停止. 共耗时' + (new Date() - startTime) + '毫秒');
+          return;
         } else {
-          debug('上一页链接:', prelink)
-          debug('下一页链接:', nextlink)
-          nextlink = nextlink ? (nextlink.href || nextlink) : undefined
-          prelink = prelink ? (prelink.href || prelink) : undefined
+          debug('上一页链接:', prelink);
+          debug('下一页链接:', nextlink);
+          nextlink = nextlink ? (nextlink.href || nextlink) : undefined;
+          prelink = prelink ? (prelink.href || prelink) : undefined;
         }
 
         var superPreloader = {
           go: function () {
-            if (nextlink) window.location.href = nextlink
+            if (nextlink) window.location.href = nextlink;
           },
           back: function () {
-            if (!prelink) getElement('auto;')
-            if (prelink) window.location.href = prelink
+            if (!prelink) getElement('auto;');
+            if (prelink) window.location.href = prelink;
           }
-        }
+        };
 
         if (prefs.arrowKeyPage) {
-          debug('添加键盘左右方向键翻页监听.')
+          debug('添加键盘左右方向键翻页监听.');
           document.addEventListener('keyup', function (e) {
-            var tarNN = e.target.nodeName
-            if (tarNN != 'BODY' && tarNN != 'HTML') return
+            var tarNN = e.target.nodeName;
+            if (tarNN != 'BODY' && tarNN != 'HTML') return;
             switch (e.keyCode) {
               case 37:
-                superPreloader.back()
-                break
+                superPreloader.back();
+                break;
               case 39:
-                superPreloader.go()
-                break
+                superPreloader.go();
+                break;
               default:
-                break
+                break;
             }
-          }, false)
+          }, false);
         }
 
         // 监听下一页事件.
-        debug('添加鼠标手势翻页监听.')
+        debug('添加鼠标手势翻页监听.');
         document.addEventListener('superPreloader.go', function () {
-          superPreloader.go()
-        }, false)
+          superPreloader.go();
+        }, false);
 
         // 监听下一页事件.
         document.addEventListener('superPreloader.back', function () {
-          superPreloader.back()
-        }, false)
+          superPreloader.back();
+        }, false);
 
         // 没找到下一页的链接
         if (!nextlink) {
-          debug('下一页链接不存在,JS无法继续.')
-          debug('全部过程耗时:', new Date() - startTime, '毫秒')
-          return
+          debug('下一页链接不存在,JS无法继续.');
+          debug('全部过程耗时:', new Date() - startTime, '毫秒');
+          return;
         }
 
         // 载入设置..
         var loadLocalSetting = function () {
-          debug('加载设置')
-          var savedValue = getValue('spfwset')
+          debug('加载设置');
+          var savedValue = getValue('spfwset');
           if (savedValue) {
             try {
-              savedValue = eval(savedValue)
+              savedValue = eval(savedValue);
             } catch (e) {
-              saveValue('spfwset', '') // 有问题的设置,被手动修改过?,清除掉,不然下次还是要出错.
+              saveValue('spfwset', ''); // 有问题的设置,被手动修改过?,清除掉,不然下次还是要出错.
             }
           }
           if (savedValue) {
-            SSS.savedValue = savedValue
+            SSS.savedValue = savedValue;
+            var i, ii;
             for (i = 0, ii = savedValue.length; i < ii; i++) {
-              savedValue_x = savedValue[i]
+              var savedValue_x = savedValue[i];
               if (savedValue_x.Rurl == SSS.Rurl) {
                 for (var ix in savedValue_x) {
                   if (savedValue_x.hasOwnProperty(ix)) {
-                    SSS[ix] = savedValue_x[ix] // 加载键值.
+                    SSS[ix] = savedValue_x[ix]; // 加载键值.
                   }
                 }
-                break
+                break;
               }
             }
             // alert(i);
-            SSS.sedValueIndex = i
+            SSS.sedValueIndex = i;
           } else {
-            SSS.savedValue = []
-            SSS.sedValueIndex = 0
+            SSS.savedValue = [];
+            SSS.sedValueIndex = 0;
           }
-        }
+        };
 
-        loadLocalSetting()
+        loadLocalSetting();
 
         if (!SSS.hasRule) {
-          SSS.a_force = true
+          SSS.a_force = true;
         }
 
         if (SSS.a_force) {
-          SSS.a_pageElement = '//body/*'
-          SSS.a_HT_insert = undefined
-          SSS.a_relatedObj = undefined
+          SSS.a_pageElement = '//body/*';
+          SSS.a_HT_insert = undefined;
+          SSS.a_relatedObj = undefined;
         }
 
         if (prefs.floatWindow) {
-          debug('创建悬浮窗')
-          floatWindow(SSS)
+          debug('创建悬浮窗');
+          floatWindow(SSS);
         }
 
         if (!SSS.enable) {
-          debug('本规则被关闭,脚本执行停止')
-          debug('全部过程耗时:', new Date() - startTime, '毫秒')
-          return
+          debug('本规则被关闭,脚本执行停止');
+          debug('全部过程耗时:', new Date() - startTime, '毫秒');
+          return;
         }
-        debug('全部过程耗时:', new Date() - startTime, '毫秒')
+        debug('全部过程耗时:', new Date() - startTime, '毫秒');
 
         // 预读或者翻页.
         if (SSS.a_enable) {
-          debug('初始化,翻页模式.')
-          autopager(SSS, floatWO)
+          debug('初始化,翻页模式.');
+          autopager(SSS, floatWO);
         } else {
-          debug('初始化,预读模式.')
-          prefetcher(SSS, floatWO)
+          debug('初始化,预读模式.');
+          prefetcher(SSS, floatWO);
         }
 
-        var docChecked
+        var docChecked;
 
         // 获取单个元素,混合
         function getElement (selector, contextNode, doc, win) {
-          var _cplink = cplink
-          var ret
-          if (!selector) return ret
-          doc = doc || document
-          win = win || window
-          contextNode = contextNode || doc
-          var type = typeof selector
+          var _cplink = cplink;
+          var ret;
+          if (!selector) return ret;
+          doc = doc || document;
+          win = win || window;
+          contextNode = contextNode || doc;
+          var type = typeof selector;
           if (type == 'string') {
             if (selector.search(/^css;/i) === 0) {
-              ret = getElementByCSS(selector.slice(4), contextNode)
+              ret = getElementByCSS(selector.slice(4), contextNode);
             } else if (selector.toLowerCase() == 'auto;') {
-              ret = autoGetLink(doc, win)
+              ret = autoGetLink(doc, win);
             } else {
-              ret = getElementByXpath(selector, contextNode, doc)
+              ret = getElementByXpath(selector, contextNode, doc);
             }
           } else if (type == 'function') {
-            ret = selector(doc, win, _cplink)
+            ret = selector(doc, win, _cplink);
           } else if (selector instanceof Array) {
             for (var i = 0, l = selector.length; i < l; i++) {
-              ret = getElement(selector[i], contextNode, doc, win)
+              ret = getElement(selector[i], contextNode, doc, win);
               if (ret) {
-                break
+                break;
               }
             }
           } else {
-            ret = hrefInc(selector, doc, win, _cplink)
+            ret = hrefInc(selector, doc, win, _cplink);
           }
-          return ret
+          return ret;
         }
 
         function autoGetLink (doc, win) {
-          if (!autoMatch.keyMatch) return
+          if (!autoMatch.keyMatch) return;
           if (!parseKWRE.done) {
-            parseKWRE()
-            parseKWRE.done = true
+            parseKWRE();
+            parseKWRE.done = true;
           }
 
-          var startTime = new Date()
-          doc = doc || document
-          win = win || window
+          var startTime = new Date();
+          doc = doc || document;
+          win = win || window;
 
           if (doc == document) { // 当前文档,只检查一次.
             // alert(nextlink);
-            if (docChecked) return nextlink
-            docChecked = true
+            if (docChecked) return nextlink;
+            docChecked = true;
           }
 
-          var _prePageKey = prePageKey
-          var _nextPageKey = nextPageKey
-          var _nPKL = nextPageKey.length
-          var _pPKL = prePageKey.length
-          var _getFullHref = getFullHref
-          var _getAllElementsByXpath = getAllElementsByXpath
-          var _Number = Number
-          var _domain_port = domain_port
-          var alllinks = doc.links
-          var alllinksl = alllinks.length
+          var _prePageKey = prePageKey;
+          var _nextPageKey = nextPageKey;
+          var _nPKL = nextPageKey.length;
+          var _pPKL = prePageKey.length;
+          var _getFullHref = getFullHref;
+          var _getAllElementsByXpath = getAllElementsByXpath;
+          var _Number = Number;
+          var _domain_port = domain_port;
+          var alllinks = doc.links;
+          var alllinksl = alllinks.length;
 
-          var curLHref = cplink
-          var _nextlink
-          var _prelink
+          var curLHref = cplink;
+          var _nextlink;
+          var _prelink;
           if (!autoGetLink.checked) { // 第一次检查
-            _nextlink = nextlink
-            _prelink = prelink
+            _nextlink = nextlink;
+            _prelink = prelink;
           } else {
-            _prelink = true
+            _prelink = true;
           }
 
-          var DCEnable = autoMatch.digitalCheck
-          var DCRE = /^\s*\D{0,1}(\d+)\D{0,1}\s*$/
+          var DCEnable = autoMatch.digitalCheck;
+          var DCRE = /^\s*\D{0,1}(\d+)\D{0,1}\s*$/;
 
-          var i, a, ahref, atext, numtext
-          var aP; var initSD; var searchD = 1
+          var i, a, ahref, atext, numtext;
+          var aP; var initSD; var searchD = 1;
 
-          var preS1; var preS2; var searchedD; var pSNText; var preSS; var nodeType
-          var nextS1, nextS2, nSNText, nextSS
-          var aimgs, j, jj, aimg_x, xbreak, k, keytext
+          var preS1; var preS2; var searchedD; var pSNText; var preSS; var nodeType;
+          var nextS1, nextS2, nSNText, nextSS;
+          var aimgs, j, jj, aimg_x, xbreak, k, keytext;
 
           function finalCheck (a, type) {
-            var ahref = a.getAttribute('href') // 在chrome上当是非当前页面文档对象的时候直接用a.href访问,不返回href
+            var ahref = a.getAttribute('href'); // 在chrome上当是非当前页面文档对象的时候直接用a.href访问,不返回href
             if (ahref == '#') {
-              return null
+              return null;
             }
-            ahref = _getFullHref(ahref) // 从相对路径获取完全的href;
+            ahref = _getFullHref(ahref); // 从相对路径获取完全的href;
 
             // 3个条件:http协议链接,非跳到当前页面的链接,非跨域
             if (/^https?:/i.test(ahref) && ahref.replace(/#.*$/, '') != curLHref && ahref.match(/https?:\/\/([^\/]+)/)[1] == _domain_port) {
               if (xbug) {
-                debug((type == 'pre' ? '上一页' : '下一页') + '匹配到的关键字为:', atext)
+                debug((type == 'pre' ? '上一页' : '下一页') + '匹配到的关键字为:', atext);
               }
-              return a // 返回对象A
+              return a; // 返回对象A
               // return ahref;
             }
           }
 
           if (xbug) {
-            debug('全文档链接数量:', alllinksl)
+            debug('全文档链接数量:', alllinksl);
           }
 
           for (i = 0; i < alllinksl; i++) {
-            if (_nextlink && _prelink) break
-            a = alllinks[i]
-            if (!a) continue // undefined跳过
+            if (_nextlink && _prelink) break;
+            a = alllinks[i];
+            if (!a) continue; // undefined跳过
             // links集合返回的本来就是包含href的a元素..所以不用检测
             // if(!a.hasAttribute("href"))continue;
-            atext = a.textContent
+            atext = a.textContent;
             if (atext) {
               if (DCEnable) {
-                numtext = atext.match(DCRE)
+                numtext = atext.match(DCRE);
                 if (numtext) { // 是不是纯数字
                   // debug(numtext);
-                  numtext = numtext[1]
+                  numtext = numtext[1];
                   // alert(numtext);
-                  aP = a
-                  initSD = 0
+                  aP = a;
+                  initSD = 0;
 
                   if (!_nextlink) {
-                    preS1 = a.previousSibling
-                    preS2 = a.previousElementSibling
+                    preS1 = a.previousSibling;
+                    preS2 = a.previousElementSibling;
 
                     while (!(preS1 || preS2) && initSD < searchD) {
-                      aP = aP.parentNode
+                      aP = aP.parentNode;
                       if (aP) {
-                        preS1 = aP.previousSibling
-                        preS2 = aP.previousElementSibling
+                        preS1 = aP.previousSibling;
+                        preS2 = aP.previousElementSibling;
                       }
-                      initSD++
+                      initSD++;
                       // alert('initSD: '+initSD);
                     }
-                    searchedD = initSD > 0
+                    searchedD = initSD > 0;
 
                     if (preS1 || preS2) {
-                      pSNText = preS1 ? preS1.textContent.match(DCRE) : ''
+                      pSNText = preS1 ? preS1.textContent.match(DCRE) : '';
                       if (pSNText) {
-                        preSS = preS1
+                        preSS = preS1;
                       } else {
-                        pSNText = preS2 ? preS2.textContent.match(DCRE) : ''
-                        preSS = preS2
+                        pSNText = preS2 ? preS2.textContent.match(DCRE) : '';
+                        preSS = preS2;
                       }
                       // alert(previousS);
                       if (pSNText) {
-                        pSNText = pSNText[1]
+                        pSNText = pSNText[1];
                         // debug(pSNText)
                         // alert(pSNText)
                         if (_Number(pSNText) == _Number(numtext) - 1) {
                           // alert(searchedD);
-                          nodeType = preSS.nodeType
+                          nodeType = preSS.nodeType;
                           // alert(nodeType);
                           if (nodeType == 3 || (nodeType == 1 && (searchedD ? _getAllElementsByXpath('./descendant-or-self::a[@href]', preSS, doc).snapshotLength === 0 : (!preSS.hasAttribute('href') || _getFullHref(preSS.getAttribute('href')) == curLHref)))) {
-                            _nextlink = finalCheck(a, 'next')
+                            _nextlink = finalCheck(a, 'next');
                             // alert(_nextlink);
                           }
-                          continue
+                          continue;
                         }
                       }
                     }
                   }
 
                   if (!_prelink) {
-                    nextS1 = a.nextSibling
-                    nextS2 = a.nextElementSibling
+                    nextS1 = a.nextSibling;
+                    nextS2 = a.nextElementSibling;
 
                     while (!(nextS1 || nextS2) && initSD < searchD) {
-                      aP = aP.parentNode
+                      aP = aP.parentNode;
                       if (aP) {
-                        nextS1 = a.nextSibling
-                        nextS2 = a.nextElementSibling
+                        nextS1 = a.nextSibling;
+                        nextS2 = a.nextElementSibling;
                       }
-                      initSD++
+                      initSD++;
                       // alert('initSD: '+initSD);
                     }
-                    searchedD = initSD > 0
+                    searchedD = initSD > 0;
 
                     if (nextS1 || nextS2) {
-                      nSNText = nextS1 ? nextS1.textContent.match(DCRE) : ''
+                      nSNText = nextS1 ? nextS1.textContent.match(DCRE) : '';
                       if (nSNText) {
-                        nextSS = nextS1
+                        nextSS = nextS1;
                       } else {
-                        nSNText = nextS2 ? nextS2.textContent.match(DCRE) : ''
-                        nextSS = nextS2
+                        nSNText = nextS2 ? nextS2.textContent.match(DCRE) : '';
+                        nextSS = nextS2;
                       }
                       // alert(nextS);
                       if (nSNText) {
-                        nSNText = nSNText[1]
+                        nSNText = nSNText[1];
                         // alert(pSNText)
                         if (_Number(nSNText) == _Number(numtext) + 1) {
                           // alert(searchedD);
-                          nodeType = nextSS.nodeType
+                          nodeType = nextSS.nodeType;
                           // alert(nodeType);
                           if (nodeType == 3 || (nodeType == 1 && (searchedD ? _getAllElementsByXpath('./descendant-or-self::a[@href]', nextSS, doc).snapshotLength === 0 : (!nextSS.hasAttribute('href') || _getFullHref(nextSS.getAttribute('href')) == curLHref)))) {
-                            _prelink = finalCheck(a, 'pre')
+                            _prelink = finalCheck(a, 'pre');
                             // alert(_prelink);
                           }
                         }
                       }
                     }
                   }
-                  continue
+                  continue;
                 }
               }
             } else {
-              atext = a.title
+              atext = a.title;
             }
             if (!atext) {
-              aimgs = a.getElementsByTagName('img')
+              aimgs = a.getElementsByTagName('img');
               for (j = 0, jj = aimgs.length; j < jj; j++) {
-                aimg_x = aimgs[j]
-                atext = aimg_x.alt || aimg_x.title
-                if (atext) break
+                aimg_x = aimgs[j];
+                atext = aimg_x.alt || aimg_x.title;
+                if (atext) break;
               }
             }
-            if (!atext) continue
+            if (!atext) continue;
             if (!_nextlink) {
-              xbreak = false
+              xbreak = false;
               for (k = 0; k < _nPKL; k++) {
-                keytext = _nextPageKey[k]
-                if (!(keytext.test(atext))) continue
-                _nextlink = finalCheck(a, 'next')
-                xbreak = true
-                break
+                keytext = _nextPageKey[k];
+                if (!(keytext.test(atext))) continue;
+                _nextlink = finalCheck(a, 'next');
+                xbreak = true;
+                break;
               }
-              if (xbreak || _nextlink) continue
+              if (xbreak || _nextlink) continue;
             }
             if (!_prelink) {
               for (k = 0; k < _pPKL; k++) {
-                keytext = _prePageKey[k]
-                if (!(keytext.test(atext))) continue
-                _prelink = finalCheck(a, 'pre')
-                break
+                keytext = _prePageKey[k];
+                if (!(keytext.test(atext))) continue;
+                _prelink = finalCheck(a, 'pre');
+                break;
               }
             }
           }
 
-          debug('搜索链接数量:', i, '耗时:', new Date() - startTime, '毫秒')
+          debug('搜索链接数量:', i, '耗时:', new Date() - startTime, '毫秒');
 
           if (!autoGetLink.checked) { // 只在第一次检测的时候,抛出上一页链接.
-            prelink = _prelink
-            autoGetLink.checked = true
+            prelink = _prelink;
+            autoGetLink.checked = true;
           }
 
           // alert(_nextlink);
-          return _nextlink
+          return _nextlink;
         }
 
         function parseKWRE () {
@@ -9678,218 +9679,218 @@
                 .replace(/\(/g, '\\(')
                 .replace(/\)/g, '\\)')
                 .replace(/\|/g, '\\|')
-                .replace(/\//g, '\\/'))
+                .replace(/\//g, '\\/'));
             }
 
-            var pfwordl = autoMatch.pfwordl
+            var pfwordl = autoMatch.pfwordl;
 
-            var sfwordl = autoMatch.sfwordl
+            var sfwordl = autoMatch.sfwordl;
 
-            var RE_enable_a = pfwordl[name].enable
+            var RE_enable_a = pfwordl[name].enable;
 
-            var RE_maxPrefix = pfwordl[name].maxPrefix
+            var RE_maxPrefix = pfwordl[name].maxPrefix;
 
-            var RE_character_a = pfwordl[name].character
+            var RE_character_a = pfwordl[name].character;
 
-            var RE_enable_b = sfwordl[name].enable
+            var RE_enable_b = sfwordl[name].enable;
 
-            var RE_maxSubfix = sfwordl[name].maxSubfix
+            var RE_maxSubfix = sfwordl[name].maxSubfix;
 
-            var RE_character_b = sfwordl[name].character
+            var RE_character_b = sfwordl[name].character;
             var plwords,
               slwords,
-              rep
+              rep;
 
-            plwords = RE_maxPrefix > 0 ? ('[' + (RE_enable_a ? strMTE(RE_character_a.join('')) : '.') + ']{0,' + RE_maxPrefix + '}') : ''
-            plwords = '^\\s*' + plwords
+            plwords = RE_maxPrefix > 0 ? ('[' + (RE_enable_a ? strMTE(RE_character_a.join('')) : '.') + ']{0,' + RE_maxPrefix + '}') : '';
+            plwords = '^\\s*' + plwords;
             // alert(plwords);
-            slwords = RE_maxSubfix > 0 ? ('[' + (RE_enable_b ? strMTE(RE_character_b.join('')) : '.') + ']{0,' + RE_maxSubfix + '}') : ''
-            slwords = slwords + '\\s*$'
+            slwords = RE_maxSubfix > 0 ? ('[' + (RE_enable_b ? strMTE(RE_character_b.join('')) : '.') + ']{0,' + RE_maxSubfix + '}') : '';
+            slwords = slwords + '\\s*$';
             // alert(slwords);
-            rep = prefs.cases ? '' : 'i'
+            rep = prefs.cases ? '' : 'i';
 
             for (var i = 0; i < pageKeyLength; i++) {
-              pageKey[i] = new RegExp(plwords + strMTE(pageKey[i]) + slwords, rep)
+              pageKey[i] = new RegExp(plwords + strMTE(pageKey[i]) + slwords, rep);
               // alert(pageKey[i]);
             }
-            return pageKey
+            return pageKey;
           }
 
           // 转成正则.
-          prePageKey = modifyPageKey('previous', prePageKey, prePageKey.length)
-          nextPageKey = modifyPageKey('next', nextPageKey, nextPageKey.length)
+          prePageKey = modifyPageKey('previous', prePageKey, prePageKey.length);
+          nextPageKey = modifyPageKey('next', nextPageKey, nextPageKey.length);
         }
       }
 
       // By lastDream2013 略加修改，原版只能用于 Firefox
       function getRalativePageStr (lastUrl, currentUrl, nextUrl) {
         function getDigital (str) {
-          var num = str.replace(/^p/i, '')
-          return parseInt(num, 10)
+          var num = str.replace(/^p/i, '');
+          return parseInt(num, 10);
         }
 
         var getRalativePageNumArray = function (lasturl, url) {
           if (!lasturl || !url) {
-            return [0, 0]
+            return [0, 0];
           }
 
-          var lasturlarray = lasturl.split(/-|\.|\&|\/|=|#|\?/)
+          var lasturlarray = lasturl.split(/-|\.|\&|\/|=|#|\?/);
 
-          var urlarray = url.split(/-|\.|\&|\/|=|#|\?/)
+          var urlarray = url.split(/-|\.|\&|\/|=|#|\?/);
 
-          var url_info
+          var url_info;
 
-          var lasturl_info
+          var lasturl_info;
           // 一些 url_info 为 p1,p2,p3 之类的
           var handleInfo = function (s) {
             if (s) {
-              return s.replace(/^p/, '')
+              return s.replace(/^p/, '');
             }
-            return s
-          }
+            return s;
+          };
           while (urlarray.length !== 0) {
-            url_info = handleInfo(urlarray.pop())
-            lasturl_info = handleInfo(lasturlarray.pop())
+            url_info = handleInfo(urlarray.pop());
+            lasturl_info = handleInfo(lasturlarray.pop());
             if (url_info != lasturl_info) {
               if (/[0-9]+/.test(url_info) && (url_info == '2' || /[0-9]+/.test(lasturl_info))) {
-                return [(parseInt(lasturl_info) || 1), parseInt(url_info)]
+                return [(parseInt(lasturl_info) || 1), parseInt(url_info)];
               }
             }
           }
-          return [0, 0]
-        }
+          return [0, 0];
+        };
 
-        var ralativeOff
+        var ralativeOff;
 
         // 论坛和搜索引擎网页显示实际页面信息
-        var ralativePageNumarray = []
+        var ralativePageNumarray = [];
         if (nextUrl) {
-          ralativePageNumarray = getRalativePageNumArray(currentUrl, nextUrl)
+          ralativePageNumarray = getRalativePageNumArray(currentUrl, nextUrl);
         } else {
-          ralativePageNumarray = getRalativePageNumArray(lastUrl, currentUrl)
-          ralativeOff = ralativePageNumarray[1] - ralativePageNumarray[0] // 用的上一页的相对信息比较的，要补充差值……
-          ralativePageNumarray[1] = ralativePageNumarray[1] + ralativeOff
-          ralativePageNumarray[0] = ralativePageNumarray[0] + ralativeOff
+          ralativePageNumarray = getRalativePageNumArray(lastUrl, currentUrl);
+          ralativeOff = ralativePageNumarray[1] - ralativePageNumarray[0]; // 用的上一页的相对信息比较的，要补充差值……
+          ralativePageNumarray[1] = ralativePageNumarray[1] + ralativeOff;
+          ralativePageNumarray[0] = ralativePageNumarray[0] + ralativeOff;
         }
 
         // console.log('[获取实际页数] ', '要比较的3个页数：',arguments, '，得到的差值:', ralativePageNumarray);
         if (isNaN(ralativePageNumarray[0]) || isNaN(ralativePageNumarray[1])) {
-          return ''
+          return '';
         }
 
-        var realPageSiteMatch = false
-        ralativeOff = ralativePageNumarray[1] - ralativePageNumarray[0]
+        var realPageSiteMatch = false;
+        ralativeOff = ralativePageNumarray[1] - ralativePageNumarray[0];
         // 上一页与下一页差值为1，并最大数值不超过10000(一般论坛也不会超过这么多页……)
         if (ralativeOff === 1 && ralativePageNumarray[1] < 10000) {
-          realPageSiteMatch = true
+          realPageSiteMatch = true;
         }
 
         // 上一页与下一页差值不为1，但上一页与下一页差值能被上一页与下一面所整除的，有规律的页面
         if (!realPageSiteMatch && ralativeOff !== 1) {
           if ((ralativePageNumarray[1] % ralativeOff) === 0 && (ralativePageNumarray[0] % ralativeOff) === 0) {
-            realPageSiteMatch = true
+            realPageSiteMatch = true;
           }
         }
 
         if (!realPageSiteMatch) { // 不满足以上条件，再根据地址特征来匹配
-          var sitePattern
+          var sitePattern;
           for (var i = 0, length = REALPAGE_SITE_PATTERN.length; i < length; i++) {
-            sitePattern = REALPAGE_SITE_PATTERN[i]
+            sitePattern = REALPAGE_SITE_PATTERN[i];
             if (currentUrl.toLocaleLowerCase().indexOf(sitePattern) >= 0) {
-              realPageSiteMatch = true
-              break
+              realPageSiteMatch = true;
+              break;
             }
           }
         }
 
-        var ralativePageStr
+        var ralativePageStr;
         if (realPageSiteMatch) { // 如果匹配就显示实际网页信息
           if ((userLang.indexOf('zh') !== -1) || prefs.ChineseUI) {
             if (ralativePageNumarray[1] - ralativePageNumarray[0] > 1) { // 一般是搜索引擎的第xx - xx项……
-              ralativePageStr = ' [ 实际：第 <font color="red">' + ralativePageNumarray[0] + ' - ' + ralativePageNumarray[1] + '</font> 项 ]'
+              ralativePageStr = ' [ 实际：第 <font color="red">' + ralativePageNumarray[0] + ' - ' + ralativePageNumarray[1] + '</font> 项 ]';
             } else if ((ralativePageNumarray[1] - ralativePageNumarray[0]) === 1) { // 一般的翻页数，差值应该是1
-              ralativePageStr = ' [ 实际：第 <font color="red">' + ralativePageNumarray[0] + '</font> 页 ]'
+              ralativePageStr = ' [ 实际：第 <font color="red">' + ralativePageNumarray[0] + '</font> 页 ]';
             } else if ((ralativePageNumarray[0] === 0 && ralativePageNumarray[1]) === 0) { // 找不到的话……
-              ralativePageStr = ' [ <font color="red">实际网页结束</font> ]'
+              ralativePageStr = ' [ <font color="red">实际网页结束</font> ]';
             }
           } else {
             if (ralativePageNumarray[1] - ralativePageNumarray[0] > 1) { // 一般是搜索引擎的第xx - xx项……
-              ralativePageStr = ' [ Actual elements/pages: <font color="red">' + ralativePageNumarray[0] + ' - ' + ralativePageNumarray[1] + '</font> ]'
+              ralativePageStr = ' [ Actual elements/pages: <font color="red">' + ralativePageNumarray[0] + ' - ' + ralativePageNumarray[1] + '</font> ]';
             } else if ((ralativePageNumarray[1] - ralativePageNumarray[0]) === 1) { // 一般的翻页数，差值应该是1
-              ralativePageStr = ' [ Actual elements/pages: <font color="red">' + ralativePageNumarray[0] + '</font> ]'
+              ralativePageStr = ' [ Actual elements/pages: <font color="red">' + ralativePageNumarray[0] + '</font> ]';
             } else if ((ralativePageNumarray[0] === 0 && ralativePageNumarray[1]) === 0) { // 找不到的话……
-              ralativePageStr = ' [ <font color="red">Actual elements ends</font> ]'
+              ralativePageStr = ' [ <font color="red">Actual elements ends</font> ]';
             }
           }
         } else {
-          ralativePageStr = ''
+          ralativePageStr = '';
         }
-        return ralativePageStr || ''
+        return ralativePageStr || '';
       }
     }
-  )
+  );
 
   // ----------------------------------
 
-  var isUpdating = true
+  var isUpdating = true;
 
   function checkUpdate (button) {
     if (isUpdating) {
-      return
+      return;
     }
 
-    button.innerHTML = '正在更新中...'
-    button.disabled = 'disabled'
+    button.innerHTML = '正在更新中...';
+    button.disabled = 'disabled';
 
     var reset = function () {
-      isUpdating = false
-      button.innerHTML = '马上更新'
-      button.disabled = ''
-    }
+      isUpdating = false;
+      button.innerHTML = '马上更新';
+      button.disabled = '';
+    };
 
     GM.xmlHttpRequest({
       method: 'GET',
       url: scriptInfo.metaUrl,
       onload: function (response) {
-        var txt = response.responseText
-        var curVersion = scriptInfo.version
-        var latestVersion = txt.match(/@\s*version\s*([\d\.]+)\s*/i)
+        var txt = response.responseText;
+        var curVersion = scriptInfo.version;
+        var latestVersion = txt.match(/@\s*version\s*([\d\.]+)\s*/i);
         if (latestVersion) {
-          latestVersion = latestVersion[1]
+          latestVersion = latestVersion[1];
         } else {
-          alert('解析版本号错误')
-          return
+          alert('解析版本号错误');
+          return;
         }
 
         // 对比版本号
-        var needUpdate
-        var latestVersions = latestVersion.split('.')
-        var lVLength = latestVersions.length
-        var currentVersion = curVersion.split('.')
-        var cVLength = currentVersion.length
-        var lV_x
-        var cV_x
+        var needUpdate;
+        var latestVersions = latestVersion.split('.');
+        var lVLength = latestVersions.length;
+        var currentVersion = curVersion.split('.');
+        var cVLength = currentVersion.length;
+        var lV_x;
+        var cV_x;
         for (var i = 0; i < lVLength; i++) {
-          lV_x = Number(latestVersions[i])
-          cV_x = (i >= cVLength) ? 0 : Number(currentVersion[i])
+          lV_x = Number(latestVersions[i]);
+          cV_x = (i >= cVLength) ? 0 : Number(currentVersion[i]);
           if (lV_x > cV_x) {
-            needUpdate = true
-            break
+            needUpdate = true;
+            break;
           } else if (lV_x < cV_x) {
-            break
+            break;
           }
         }
 
         if (needUpdate) {
-          alert('本脚本从版本 ' + scriptInfo.version + '  更新到了版本 ' + latestVersion + '.\n请点击脚本主页进行安装')
-          document.getElementById('sp-prefs-homepageURL').boxShadow = '0 0 2px 2px #FF5555'
+          alert('本脚本从版本 ' + scriptInfo.version + '  更新到了版本 ' + latestVersion + '.\n请点击脚本主页进行安装');
+          document.getElementById('sp-prefs-homepageURL').boxShadow = '0 0 2px 2px #FF5555';
         }
 
-        reset()
+        reset();
       }
-    })
+    });
 
-    setTimeout(reset, 30 * 1000)
+    setTimeout(reset, 30 * 1000);
   }
 
   // ----------------------------------
@@ -9898,292 +9899,298 @@
   // ------------------------下面的不要管他-----------------
   /// ////////////////////////////////////////////////////////////////
 
-  var C = console
-  var debug = function () {}
+  var C = console;
+  var debug = function () {};
   // 变量
-  var isHashchangeSite = false
+  var isHashchangeSite = false;
 
-  var hashchangeTimer = 0
+  var hashchangeTimer = 0;
 
   // ====================  libs  ==============================
   // 地址栏递增处理函数.
   function hrefInc (obj, doc, win, cplink) {
-    var _cplink = cplink
+    var _cplink = cplink;
 
     function getHref (href) {
-      var mFails = obj.mFails
-      if (!mFails) return href
-      var str
+      var mFails = obj.mFails;
+      if (!mFails) return href;
+      var str;
       if (typeof mFails === 'string') {
-        str = mFails
+        str = mFails;
       } else {
-        var fx
-        var array = []
-        var i, ii
-        var mValue
+        var fx;
+        var array = [];
+        var i, ii;
+        var mValue;
         for (i = 0, ii = mFails.length; i < ii; i++) {
-          fx = mFails[i]
-          if (!fx) continue
+          fx = mFails[i];
+          if (!fx) continue;
           if (typeof fx === 'string') {
-            array.push(fx)
+            array.push(fx);
           } else {
-            mValue = href.match(fx)
-            if (!mValue) return href
-            array.push(mValue)
+            mValue = href.match(fx);
+            if (!mValue) return href;
+            array.push(mValue);
           }
         }
-        str = array.join('')
+        str = array.join('');
       }
-      return str
+      return str;
     }
     // alert(getHref(_cplink))
 
-    var sa = obj.startAfter
-    var saType = typeof sa
-    var index
+    var sa = obj.startAfter;
+    var saType = typeof sa;
+    var index;
 
     if (saType == 'string') {
-      index = _cplink.indexOf(sa)
+      index = _cplink.indexOf(sa);
       if (index == -1) {
-        _cplink = getHref(_cplink)
-        index = _cplink.indexOf(sa)
-        if (index == -1) return
+        _cplink = getHref(_cplink);
+        index = _cplink.indexOf(sa);
+        if (index == -1) return;
         // alert(index);
       }
     } else {
-      var tsa = _cplink.match(sa)
+      var tsa = _cplink.match(sa);
       // alert(sa);
       if (!tsa) {
-        _cplink = getHref(_cplink)
-        sa = (_cplink.match(sa) || [])[0]
-        if (!sa) return
-        index = _cplink.indexOf(sa)
-        if (index == -1) return
+        _cplink = getHref(_cplink);
+        sa = (_cplink.match(sa) || [])[0];
+        if (!sa) return;
+        index = _cplink.indexOf(sa);
+        if (index == -1) return;
       } else {
-        sa = tsa[0]
-        index = _cplink.indexOf(sa)
+        sa = tsa[0];
+        index = _cplink.indexOf(sa);
         // alert(index)
         // alert(tsa.index)
       }
     }
 
-    index += sa.length
-    var max = obj.max === undefined ? 9999 : obj.max
-    var min = obj.min === undefined ? 1 : obj.min
-    var aStr = _cplink.slice(0, index)
-    var bStr = _cplink.slice(index)
+    index += sa.length;
+    var max = obj.max === undefined ? 9999 : obj.max;
+    var min = obj.min === undefined ? 1 : obj.min;
+    var aStr = _cplink.slice(0, index);
+    var bStr = _cplink.slice(index);
     var nbStr = bStr.replace(/^(\d+)(.*)$/, function (a, b, c) {
-      b = Number(b) + obj.inc
-      if (b >= max || b < min) return a
-      return b + c
-    })
+      b = Number(b) + obj.inc;
+      if (b >= max || b < min) return a;
+      return b + c;
+    });
     // alert(aStr+nbStr);
     if (nbStr !== bStr) {
-      var ilresult
+      var ilresult;
       try {
-        ilresult = obj.isLast(doc, unsafeWindow, _cplink)
+        ilresult = obj.isLast(doc, unsafeWindow, _cplink);
       } catch (e) {}
-      if (ilresult) return
-      return aStr + nbStr
+      if (ilresult) return;
+      return aStr + nbStr;
     }
   }
 
   // 自造简化版 underscroe 库，仅 ECMAScript 5
   var _ = (function () {
-    var nativeIsArray = Array.isArray
+    var nativeIsArray = Array.isArray;
     var _ = function (obj) {
-      if (obj instanceof _) return obj
-      if (!(this instanceof _)) return new _(obj)
-      this._wrapped = obj
-    }
+      if (obj instanceof _) return obj;
+      if (!(this instanceof _)) return new _(obj);
+      this._wrapped = obj;
+    };
 
-    var toString = Object.prototype.toString
+    var toString = Object.prototype.toString;
 
     _.isArray = nativeIsArray || function (obj) {
-      return toString.call(obj) == '[object Array]'
+      return toString.call(obj) == '[object Array]';
     };
 
     ['Arguments', 'Function', 'String', 'Number', 'Date', 'RegExp'].forEach(function (name) {
       _['is' + name] = function (obj) {
-        return toString.call(obj) == '[object ' + name + ']'
-      }
-    })
+        return toString.call(obj) == '[object ' + name + ']';
+      };
+    });
 
     // Return the first value which passes a truth test. Aliased as `detect`.
     _.find = function (obj, iterator, context) {
-      var result
+      var result;
       obj.some(function (value, index, array) {
         if (iterator.call(context, value, index, array)) {
-          result = value
-          return true
+          result = value;
+          return true;
         }
-      })
-      return result
-    }
+      });
+      return result;
+    };
 
-    return _
-  })()
+    return _;
+  })();
 
   /* jshint ignore:start */
   // 动画库
   var Tween = {
     Linear: function (t, b, c, d) {
-      return c * t / d + b
+      return c * t / d + b;
     },
     Quad: {
       easeIn: function (t, b, c, d) {
-        return c * (t /= d) * t + b
+        return c * (t /= d) * t + b;
       },
       easeOut: function (t, b, c, d) {
-        return -c * (t /= d) * (t - 2) + b
+        return -c * (t /= d) * (t - 2) + b;
       },
       easeInOut: function (t, b, c, d) {
-        if ((t /= d / 2) < 1) return c / 2 * t * t + b
-        return -c / 2 * ((--t) * (t - 2) - 1) + b
+        if ((t /= d / 2) < 1) return c / 2 * t * t + b;
+        return -c / 2 * ((--t) * (t - 2) - 1) + b;
       }
     },
     Cubic: {
       easeIn: function (t, b, c, d) {
-        return c * (t /= d) * t * t + b
+        return c * (t /= d) * t * t + b;
       },
       easeOut: function (t, b, c, d) {
-        return c * ((t = t / d - 1) * t * t + 1) + b
+        return c * ((t = t / d - 1) * t * t + 1) + b;
       },
       easeInOut: function (t, b, c, d) {
-        if ((t /= d / 2) < 1) return c / 2 * t * t * t + b
-        return c / 2 * ((t -= 2) * t * t + 2) + b
+        if ((t /= d / 2) < 1) return c / 2 * t * t * t + b;
+        return c / 2 * ((t -= 2) * t * t + 2) + b;
       }
     },
     Quart: {
       easeIn: function (t, b, c, d) {
-        return c * (t /= d) * t * t * t + b
+        return c * (t /= d) * t * t * t + b;
       },
       easeOut: function (t, b, c, d) {
-        return -c * ((t = t / d - 1) * t * t * t - 1) + b
+        return -c * ((t = t / d - 1) * t * t * t - 1) + b;
       },
       easeInOut: function (t, b, c, d) {
-        if ((t /= d / 2) < 1) return c / 2 * t * t * t * t + b
-        return -c / 2 * ((t -= 2) * t * t * t - 2) + b
+        if ((t /= d / 2) < 1) return c / 2 * t * t * t * t + b;
+        return -c / 2 * ((t -= 2) * t * t * t - 2) + b;
       }
     },
     Quint: {
       easeIn: function (t, b, c, d) {
-        return c * (t /= d) * t * t * t * t + b
+        return c * (t /= d) * t * t * t * t + b;
       },
       easeOut: function (t, b, c, d) {
-        return c * ((t = t / d - 1) * t * t * t * t + 1) + b
+        return c * ((t = t / d - 1) * t * t * t * t + 1) + b;
       },
       easeInOut: function (t, b, c, d) {
-        if ((t /= d / 2) < 1) return c / 2 * t * t * t * t * t + b
-        return c / 2 * ((t -= 2) * t * t * t * t + 2) + b
+        if ((t /= d / 2) < 1) return c / 2 * t * t * t * t * t + b;
+        return c / 2 * ((t -= 2) * t * t * t * t + 2) + b;
       }
     },
     Sine: {
       easeIn: function (t, b, c, d) {
-        return -c * Math.cos(t / d * (Math.PI / 2)) + c + b
+        return -c * Math.cos(t / d * (Math.PI / 2)) + c + b;
       },
       easeOut: function (t, b, c, d) {
-        return c * Math.sin(t / d * (Math.PI / 2)) + b
+        return c * Math.sin(t / d * (Math.PI / 2)) + b;
       },
       easeInOut: function (t, b, c, d) {
-        return -c / 2 * (Math.cos(Math.PI * t / d) - 1) + b
+        return -c / 2 * (Math.cos(Math.PI * t / d) - 1) + b;
       }
     },
     Expo: {
       easeIn: function (t, b, c, d) {
-        return (t == 0) ? b : c * Math.pow(2, 10 * (t / d - 1)) + b
+        return (t == 0) ? b : c * Math.pow(2, 10 * (t / d - 1)) + b;
       },
       easeOut: function (t, b, c, d) {
-        return (t == d) ? b + c : c * (-Math.pow(2, -10 * t / d) + 1) + b
+        return (t == d) ? b + c : c * (-Math.pow(2, -10 * t / d) + 1) + b;
       },
       easeInOut: function (t, b, c, d) {
-        if (t == 0) return b
-        if (t == d) return b + c
-        if ((t /= d / 2) < 1) return c / 2 * Math.pow(2, 10 * (t - 1)) + b
-        return c / 2 * (-Math.pow(2, -10 * --t) + 2) + b
+        if (t == 0) return b;
+        if (t == d) return b + c;
+        if ((t /= d / 2) < 1) return c / 2 * Math.pow(2, 10 * (t - 1)) + b;
+        return c / 2 * (-Math.pow(2, -10 * --t) + 2) + b;
       }
     },
     Circ: {
       easeIn: function (t, b, c, d) {
-        return -c * (Math.sqrt(1 - (t /= d) * t) - 1) + b
+        return -c * (Math.sqrt(1 - (t /= d) * t) - 1) + b;
       },
       easeOut: function (t, b, c, d) {
-        return c * Math.sqrt(1 - (t = t / d - 1) * t) + b
+        return c * Math.sqrt(1 - (t = t / d - 1) * t) + b;
       },
       easeInOut: function (t, b, c, d) {
-        if ((t /= d / 2) < 1) return -c / 2 * (Math.sqrt(1 - t * t) - 1) + b
-        return c / 2 * (Math.sqrt(1 - (t -= 2) * t) + 1) + b
+        if ((t /= d / 2) < 1) return -c / 2 * (Math.sqrt(1 - t * t) - 1) + b;
+        return c / 2 * (Math.sqrt(1 - (t -= 2) * t) + 1) + b;
       }
     },
     Elastic: {
       easeIn: function (t, b, c, d, a, p) {
-        if (t == 0) return b
-        if ((t /= d) == 1) return b + c
-        if (!p) p = d * 0.3
+        if (t == 0) return b;
+        if ((t /= d) == 1) return b + c;
+        if (!p) p = d * 0.3;
         if (!a || a < Math.abs(c)) {
-          a = c
-          var s = p / 4
-        } else var s = p / (2 * Math.PI) * Math.asin(c / a)
-        return -(a * Math.pow(2, 10 * (t -= 1)) * Math.sin((t * d - s) * (2 * Math.PI) / p)) + b
+          a = c;
+          var s = p / 4;
+        } else {
+          s = p / (2 * Math.PI) * Math.asin(c / a);
+        }
+        return -(a * Math.pow(2, 10 * (t -= 1)) * Math.sin((t * d - s) * (2 * Math.PI) / p)) + b;
       },
       easeOut: function (t, b, c, d, a, p) {
-        if (t == 0) return b
-        if ((t /= d) == 1) return b + c
-        if (!p) p = d * 0.3
+        if (t == 0) return b;
+        if ((t /= d) == 1) return b + c;
+        if (!p) p = d * 0.3;
         if (!a || a < Math.abs(c)) {
-          a = c
-          var s = p / 4
-        } else var s = p / (2 * Math.PI) * Math.asin(c / a)
-        return (a * Math.pow(2, -10 * t) * Math.sin((t * d - s) * (2 * Math.PI) / p) + c + b)
+          a = c;
+          var s = p / 4;
+        } else {
+          s = p / (2 * Math.PI) * Math.asin(c / a);
+        }
+        return (a * Math.pow(2, -10 * t) * Math.sin((t * d - s) * (2 * Math.PI) / p) + c + b);
       },
       easeInOut: function (t, b, c, d, a, p) {
-        if (t == 0) return b
-        if ((t /= d / 2) == 2) return b + c
-        if (!p) p = d * (0.3 * 1.5)
+        if (t == 0) return b;
+        if ((t /= d / 2) == 2) return b + c;
+        if (!p) p = d * (0.3 * 1.5);
         if (!a || a < Math.abs(c)) {
-          a = c
-          var s = p / 4
-        } else var s = p / (2 * Math.PI) * Math.asin(c / a)
-        if (t < 1) return -0.5 * (a * Math.pow(2, 10 * (t -= 1)) * Math.sin((t * d - s) * (2 * Math.PI) / p)) + b
-        return a * Math.pow(2, -10 * (t -= 1)) * Math.sin((t * d - s) * (2 * Math.PI) / p) * 0.5 + c + b
+          a = c;
+          var s = p / 4;
+        } else {
+          s = p / (2 * Math.PI) * Math.asin(c / a);
+        }
+        if (t < 1) return -0.5 * (a * Math.pow(2, 10 * (t -= 1)) * Math.sin((t * d - s) * (2 * Math.PI) / p)) + b;
+        return a * Math.pow(2, -10 * (t -= 1)) * Math.sin((t * d - s) * (2 * Math.PI) / p) * 0.5 + c + b;
       }
     },
     Back: {
       easeIn: function (t, b, c, d, s) {
-        if (s == undefined) s = 1.70158
-        return c * (t /= d) * t * ((s + 1) * t - s) + b
+        if (s == undefined) s = 1.70158;
+        return c * (t /= d) * t * ((s + 1) * t - s) + b;
       },
       easeOut: function (t, b, c, d, s) {
-        if (s == undefined) s = 1.70158
-        return c * ((t = t / d - 1) * t * ((s + 1) * t + s) + 1) + b
+        if (s == undefined) s = 1.70158;
+        return c * ((t = t / d - 1) * t * ((s + 1) * t + s) + 1) + b;
       },
       easeInOut: function (t, b, c, d, s) {
-        if (s == undefined) s = 1.70158
-        if ((t /= d / 2) < 1) return c / 2 * (t * t * (((s *= (1.525)) + 1) * t - s)) + b
-        return c / 2 * ((t -= 2) * t * (((s *= (1.525)) + 1) * t + s) + 2) + b
+        if (s == undefined) s = 1.70158;
+        if ((t /= d / 2) < 1) return c / 2 * (t * t * (((s *= (1.525)) + 1) * t - s)) + b;
+        return c / 2 * ((t -= 2) * t * (((s *= (1.525)) + 1) * t + s) + 2) + b;
       }
     },
     Bounce: {
       easeIn: function (t, b, c, d) {
-        return c - Tween.Bounce.easeOut(d - t, 0, c, d) + b
+        return c - Tween.Bounce.easeOut(d - t, 0, c, d) + b;
       },
       easeOut: function (t, b, c, d) {
         if ((t /= d) < (1 / 2.75)) {
-          return c * (7.5625 * t * t) + b
+          return c * (7.5625 * t * t) + b;
         } else if (t < (2 / 2.75)) {
-          return c * (7.5625 * (t -= (1.5 / 2.75)) * t + 0.75) + b
+          return c * (7.5625 * (t -= (1.5 / 2.75)) * t + 0.75) + b;
         } else if (t < (2.5 / 2.75)) {
-          return c * (7.5625 * (t -= (2.25 / 2.75)) * t + 0.9375) + b
+          return c * (7.5625 * (t -= (2.25 / 2.75)) * t + 0.9375) + b;
         } else {
-          return c * (7.5625 * (t -= (2.625 / 2.75)) * t + 0.984375) + b
+          return c * (7.5625 * (t -= (2.625 / 2.75)) * t + 0.984375) + b;
         }
       },
       easeInOut: function (t, b, c, d) {
-        if (t < d / 2) return Tween.Bounce.easeIn(t * 2, 0, c, d) * 0.5 + b
-        else return Tween.Bounce.easeOut(t * 2 - d, 0, c, d) * 0.5 + c * 0.5 + b
+        if (t < d / 2) return Tween.Bounce.easeIn(t * 2, 0, c, d) * 0.5 + b;
+        else return Tween.Bounce.easeOut(t * 2 - d, 0, c, d) * 0.5 + c * 0.5 + b;
       }
     }
-  }
+  };
 
   var TweenM = [
     'Linear',
@@ -10197,47 +10204,47 @@
     'Elastic',
     'Back',
     'Bounce'
-  ]
+  ];
 
   var TweenEase = [
     'easeIn',
     'easeOut',
     'easeInOut'
-  ]
+  ];
   /* jshint ignore:end */
 
   // ====================  functions  ==============================
   function handleLazyImgSrc (rule, doc) {
-    var imgAttrs = rule.split('|')
+    var imgAttrs = rule.split('|');
     imgAttrs.forEach(function (attr) {
       attr = attr.trim();
       [].forEach.call(doc.querySelectorAll('img[' + attr + ']'), function (img) {
-        var newSrc = img.getAttribute(attr)
+        var newSrc = img.getAttribute(attr);
         if (newSrc && newSrc != img.src) {
-          img.setAttribute('src', newSrc)
-          img.removeAttribute(attr)
+          img.setAttribute('src', newSrc);
+          img.removeAttribute(attr);
         }
-      })
-    })
+      });
+    });
   }
 
   function removeScripts (node) { // 移除元素的 script
-    var scripts = getAllElements('css;script', node)
-    var scripts_x
-    for (i = scripts.length - 1; i >= 0; i--) {
-      scripts_x = scripts[i]
-      scripts_x.parentNode.removeChild(scripts_x)
+    var scripts = getAllElements('css;script', node);
+    var scripts_x;
+    for (var i = scripts.length - 1; i >= 0; i--) {
+      scripts_x = scripts[i];
+      scripts_x.parentNode.removeChild(scripts_x);
     }
   }
 
-  var noticeDiv
-  var noticeDivto
-  var noticeDivto2
+  var noticeDiv;
+  var noticeDivto;
+  var noticeDivto2;
 
   function notice (html_txt) {
     if (!noticeDiv) {
-      var div = document.createElement('div')
-      noticeDiv = div
+      var div = document.createElement('div');
+      noticeDiv = div;
       div.style.cssText = '\
             position:fixed!important;\
             z-index:2147483647!important;\
@@ -10258,229 +10265,229 @@
             -o-transition:opacity 0.3s ease-in-out;\
             -webkit-transition:opacity 0.3s ease-in-out;\
             -moz-transition:opacity 0.3s ease-in-out;\
-        '
-      document.body.appendChild(div)
+        ';
+      document.body.appendChild(div);
     }
-    clearTimeout(noticeDivto)
-    clearTimeout(noticeDivto2)
-    noticeDiv.innerHTML = html_txt
-    noticeDiv.style.display = 'block'
-    noticeDiv.style.opacity = '0.96'
+    clearTimeout(noticeDivto);
+    clearTimeout(noticeDivto2);
+    noticeDiv.innerHTML = html_txt;
+    noticeDiv.style.display = 'block';
+    noticeDiv.style.opacity = '0.96';
     noticeDivto2 = setTimeout(function () {
-      noticeDiv.style.opacity = '0'
-    }, 1666)
+      noticeDiv.style.opacity = '0';
+    }, 1666);
     noticeDivto = setTimeout(function () {
-      noticeDiv.style.display = 'none'
-    }, 2000)
+      noticeDiv.style.display = 'none';
+    }, 2000);
   }
 
   function $C (type, atArr, inner, action, listen) {
-    var e = document.createElement(type)
+    var e = document.createElement(type);
     for (var at in atArr) {
       if (atArr.hasOwnProperty(at)) {
-        e.setAttribute(at, atArr[at])
+        e.setAttribute(at, atArr[at]);
       }
     }
     if (action && listen) {
-      e.addEventListener(action, listen, false)
+      e.addEventListener(action, listen, false);
     }
     if (inner) {
-      e.innerHTML = inner
+      e.innerHTML = inner;
     }
-    return e
+    return e;
   }
 
   // css 获取单个元素
   function getElementByCSS (css, contextNode) {
-    return (contextNode || document).querySelector(css)
+    return (contextNode || document).querySelector(css);
   }
 
   // css 获取所有元素
   function getAllElementsByCSS (css, contextNode) {
-    return (contextNode || document).querySelectorAll(css)
+    return (contextNode || document).querySelectorAll(css);
   }
 
   // xpath 获取单个元素
   function getElementByXpath (xpath, contextNode, doc) {
-    doc = doc || document
-    contextNode = contextNode || doc
-    return doc.evaluate(xpath, contextNode, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue
+    doc = doc || document;
+    contextNode = contextNode || doc;
+    return doc.evaluate(xpath, contextNode, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
   }
 
   // xpath 获取多个元素.
   function getAllElementsByXpath (xpath, contextNode, doc) {
-    doc = doc || document
-    contextNode = contextNode || doc
-    return doc.evaluate(xpath, contextNode, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null)
+    doc = doc || document;
+    contextNode = contextNode || doc;
+    return doc.evaluate(xpath, contextNode, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
   }
 
   // 获取多个元素
   function getAllElements (selector, contextNode, doc, win) {
-    var ret = []
-    if (!selector) return ret
-    var Eles
-    doc = doc || document
-    win = win || window
-    contextNode = contextNode || doc
+    var ret = [];
+    if (!selector) return ret;
+    var Eles;
+    doc = doc || document;
+    win = win || window;
+    contextNode = contextNode || doc;
     if (typeof selector === 'string') {
       if (selector.search(/^css;/i) === 0) {
-        Eles = getAllElementsByCSS(selector.slice(4), contextNode)
+        Eles = getAllElementsByCSS(selector.slice(4), contextNode);
       } else {
-        Eles = getAllElementsByXpath(selector, contextNode, doc)
+        Eles = getAllElementsByXpath(selector, contextNode, doc);
       }
     } else {
-      Eles = selector(doc, win)
-      if (!Eles) return ret
+      Eles = selector(doc, win);
+      if (!Eles) return ret;
       if (Eles.nodeType) { // 单个元素.
-        ret[0] = Eles
-        return ret
+        ret[0] = Eles;
+        return ret;
       }
     }
 
     function unique (array) { // 数组去重并且保持数组顺序.
-      var i, ca, ca2, j
+      var i, ca, ca2, j;
       for (i = 0; i < array.length; i++) {
-        ca = array[i]
+        ca = array[i];
         for (j = i + 1; j < array.length; j++) {
-          ca2 = array[j]
+          ca2 = array[j];
           if (ca2 == ca) {
-            array.splice(j, 1)
-            j--
+            array.splice(j, 1);
+            j--;
           }
         }
       }
-      return array
+      return array;
     }
 
     function makeArray (x) {
-      var ret = []
-      var i, ii
-      var x_x
+      var ret = [];
+      var i, ii;
+      var x_x;
       if (x.pop) { // 普通的 array
         for (i = 0, ii = x.length; i < ii; i++) {
-          x_x = x[i]
+          x_x = x[i];
           if (x_x) {
             if (x_x.nodeType) { // 普通类型,直接放进去.
-              ret.push(x_x)
+              ret.push(x_x);
             } else {
-              ret = ret.concat(makeArray(x_x)) // 嵌套的.
+              ret = ret.concat(makeArray(x_x)); // 嵌套的.
             }
           }
         }
         // alert(ret)
-        return unique(ret)
+        return unique(ret);
       } else if (x.item) { // nodelist or HTMLcollection
-        i = x.length
+        i = x.length;
         while (i) {
-          ret[--i] = x[i]
+          ret[--i] = x[i];
         }
         /*
                 for(i=0,ii=x.length;i<ii;i++){
                     ret.push(x[i]);
                 };
                 */
-        return ret
+        return ret;
       } else if (x.iterateNext) { // XPathResult
-        i = x.snapshotLength
+        i = x.snapshotLength;
         while (i) {
-          ret[--i] = x.snapshotItem(i)
+          ret[--i] = x.snapshotItem(i);
         }
         /*
                 for(i=0,ii=x.snapshotLength;i<ii;i++){
                     ret.push(x.snapshotItem(i));
                 };
                 */
-        return ret
+        return ret;
       }
     }
 
-    return makeArray(Eles)
+    return makeArray(Eles);
   }
 
   // 获取最后一个元素.
   function getLastElement (selector, contextNode, doc, win) {
-    var eles = getAllElements(selector, contextNode, doc, win)
-    var l = eles.length
+    var eles = getAllElements(selector, contextNode, doc, win);
+    var l = eles.length;
     if (l > 0) {
-      return eles[l - 1]
+      return eles[l - 1];
     }
   }
 
   function saveValue (key, value) {
-    localStorage.setItem(key, encodeURIComponent(value))
+    localStorage.setItem(key, encodeURIComponent(value));
   }
 
   function getValue (key) {
-    var value = localStorage.getItem(key)
-    return value ? decodeURIComponent(value) : undefined
+    var value = localStorage.getItem(key);
+    return value ? decodeURIComponent(value) : undefined;
   }
 
   function createDocumentByString (str) { // string转为DOM
     if (!str) {
-      C.error('没有找到要转成DOM的字符串')
-      return
+      C.error('没有找到要转成DOM的字符串');
+      return;
     }
     if (document.documentElement.nodeName != 'HTML') {
-      return new DOMParser().parseFromString(str, 'application/xhtml+xml')
+      return new DOMParser().parseFromString(str, 'application/xhtml+xml');
     }
 
-    var doc
+    var doc;
     try {
       // firefox and chrome 30+，Opera 12 会报错
-      doc = new DOMParser().parseFromString(str, 'text/html')
+      doc = new DOMParser().parseFromString(str, 'text/html');
     } catch (ex) {}
 
     if (doc) {
-      return doc
+      return doc;
     }
 
     if (document.implementation.createHTMLDocument) {
-      doc = document.implementation.createHTMLDocument('superPreloader')
+      doc = document.implementation.createHTMLDocument('superPreloader');
     } else {
       try {
-        doc = document.cloneNode(false)
-        doc.appendChild(doc.importNode(document.documentElement, false))
-        doc.documentElement.appendChild(doc.createElement('head'))
-        doc.documentElement.appendChild(doc.createElement('body'))
+        doc = document.cloneNode(false);
+        doc.appendChild(doc.importNode(document.documentElement, false));
+        doc.documentElement.appendChild(doc.createElement('head'));
+        doc.documentElement.appendChild(doc.createElement('body'));
       } catch (e) {}
     }
-    if (!doc) return
-    var range = document.createRange()
-    range.selectNodeContents(document.body)
-    var fragment = range.createContextualFragment(str)
-    doc.body.appendChild(fragment)
+    if (!doc) return;
+    var range = document.createRange();
+    range.selectNodeContents(document.body);
+    var fragment = range.createContextualFragment(str);
+    doc.body.appendChild(fragment);
     var headChildNames = {
       TITLE: true,
       META: true,
       LINK: true,
       STYLE: true,
       BASE: true
-    }
-    var child
-    var body = doc.body
-    var bchilds = body.childNodes
+    };
+    var child;
+    var body = doc.body;
+    var bchilds = body.childNodes;
     for (var i = bchilds.length - 1; i >= 0; i--) { // 移除head的子元素
-      child = bchilds[i]
-      if (headChildNames[child.nodeName]) body.removeChild(child)
+      child = bchilds[i];
+      if (headChildNames[child.nodeName]) body.removeChild(child);
     }
     // alert(doc.documentElement.innerHTML);
     // debug(doc);
     // debug(doc.documentElement.innerHTML);
-    return doc
+    return doc;
   }
 
   // 从相对路径的a.href获取完全的href值.
   function getFullHref (href) {
-    if (typeof href !== 'string') href = href.getAttribute('href')
+    if (typeof href !== 'string') href = href.getAttribute('href');
     // alert(href);
     // if(href.search(/^https?:/)==0)return href;//http打头,不一定就是完整的href;
-    var a = getFullHref.a
+    var a = getFullHref.a;
     if (!a) {
-      getFullHref.a = a = document.createElement('a')
+      getFullHref.a = a = document.createElement('a');
     }
-    a.href = href
+    a.href = href;
     // alert(a.href);
-    return a.href
+    return a.href;
   }
 
   // 任何转成字符串，存储，修改过
@@ -10488,106 +10495,105 @@
     function toStr (x) {
       switch (typeof x) {
         case 'undefined':
-          return Str(x)
+          return Str(x);
         case 'boolean':
-          return Str(x)
+          return Str(x);
         case 'number':
-          return Str(x)
+          return Str(x);
         case 'string':
           return ('"' +
-                        (x.replace(/(?:\r\n|\n|\r|\t|\\|")/g, function (a) {
-                          var ret
+                        (x.replace(/(?:\r\n|\n|\r|\t|\\|\")/g, function (a) {
+                          var ret;
                           switch (a) { // 转成字面量
                             case '\r\n':
-                              ret = '\\r\\n'
-                              break
+                              ret = '\\r\\n';
+                              break;
                             case '\n':
-                              ret = '\\n'
-                              break
+                              ret = '\\n';
+                              break;
                             case '\r':
-                              ret = '\\r'
-                              break
+                              ret = '\\r';
+                              break;
                             case '\t':
-                              ret = '\\t'
-                              break
+                              ret = '\\t';
+                              break;
                             case '\\':
-                              ret = '\\\\'
-                              break
+                              ret = '\\\\';
+                              break;
                             case '"':
-                              ret = '\\"'
-                              break
+                              ret = '\\"';
+                              break;
                             default:
-                              break
+                              break;
                           }
-                          return ret
-                        })) + '"')
+                          return ret;
+                        })) + '"');
         case 'function':
-          var fnStr = Str(x)
-          return fnStr.indexOf('native code') == -1 ? fnStr : 'function(){}'
+          var fnStr = Str(x);
+          return fnStr.indexOf('native code') == -1 ? fnStr : 'function(){}';
         case 'object':
           // 注,object的除了单纯{},其他的对象的属性会造成丢失..
           if (x === null) {
-            return Str(x)
+            return Str(x);
           }
+          var i;
+          var rStr = '';
           switch (x.constructor.name) {
             case 'Object':
-              var i
-              var rStr = ''
               for (i in x) {
                 if (!x.hasOwnProperty(i)) { // 去掉原型链上的属性.
-                  continue
+                  continue;
                 }
-                rStr += toStr(i) + ':' + toStr(x[i]) + ','
+                rStr += toStr(i) + ':' + toStr(x[i]) + ',';
               }
-              return ('{' + rStr.replace(/,$/i, '') + '}')
+              return ('{' + rStr.replace(/,$/i, '') + '}');
             case 'Array':
-              var i
-              var rStr = ''
               for (i in x) {
                 if (!x.hasOwnProperty(i)) { // 去掉原型链上的属性.
-                  continue
+                  continue;
                 }
-                rStr += toStr(x[i]) + ','
+                rStr += toStr(x[i]) + ',';
               }
-              return '[' + rStr.replace(/,$/i, '') + ']'
+              return '[' + rStr.replace(/,$/i, '') + ']';
             case 'String':
-              return toStr(Str(x))
+              return toStr(Str(x));
             case 'RegExp':
-              return Str(x)
+              return Str(x);
             case 'Number':
-              return Str(x)
+              return Str(x);
             case 'Boolean':
-              return Str(x)
+              return Str(x);
             default:
               // alert(x.constructor);//漏了什么类型么?
-              break
+              break;
           }
+          break;
         default:
-          break
+          break;
       }
     }
-    var Str = String
-    return toStr(x)
+    var Str = String;
+    return toStr(x);
   }
 
   function toRE (obj) {
     if (obj instanceof RegExp) {
-      return obj
+      return obj;
     } else if (obj instanceof Array) {
-      return new RegExp(obj[0], obj[1])
+      return new RegExp(obj[0], obj[1]);
     } else {
       if (obj.search(/^wildc;/i) === 0) {
-        obj = wildcardToRegExpStr(obj.slice(6))
+        obj = wildcardToRegExpStr(obj.slice(6));
       }
-      return new RegExp(obj)
+      return new RegExp(obj);
     }
   }
 
   function wildcardToRegExpStr (urlstr) {
-    if (urlstr.source) return urlstr.source
+    if (urlstr.source) return urlstr.source;
     var reg = urlstr.replace(/[()\[\]{}|+.,^$?\\]/g, '\\$&').replace(/\*+/g, function (str) {
-      return str === '*' ? '.*' : '[^/]*'
-    })
-    return '^' + reg + '$'
+      return str === '*' ? '.*' : '[^/]*';
+    });
+    return '^' + reg + '$';
   }
-})()
+})();
