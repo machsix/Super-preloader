@@ -4,6 +4,7 @@
 1. 添加、更新站点规则
 2. 适配Greasemonkey4的新异步编程API(欢迎其他脚本作者使用库函数实现Greasemonkey4的兼容[https://greasyfork.org/zh-CN/scripts/373124-gm4-polyfill-mach6-legacy](https://greasyfork.org/zh-CN/scripts/373124-gm4-polyfill-mach6-legacy)
 3. 添加针对部分使用lazyload的网站的支持
+4. 添加功能以直接使用共享数据库[wedata](http://wedata.net/databases/AutoPagerize/items)
 
 [ywzhaiqi 原始脚本最后一次更新于 Sep 7th 2017](https://github.com/ywzhaiqi/userscript/tree/master/scripts/Super_preloaderPlus). Greasefork上其他所谓的Super_preloaderPlus基本是ywzhaiqi原脚本的拷贝
 
@@ -83,6 +84,7 @@ For website with X-Header, you should follow issue 8 in the last section
 
 
 #重大change
+- Nov 15th 2018: 完成对wedata规则的适配
 - Oct 10th 2018: 基本完成了对gm4的适配
 - July 15th 2018: 修正许多漫画网站
 - 5月10日，2018： 修补虎扑、pixiv、哈姆雷特、NSFW rules. 合并部分[日文规则](http://wedata.net/databases/AutoPagerize)
