@@ -7,7 +7,7 @@
 // @description:zh-cn  预读+翻页..全加速你的浏览体验
 // @description:zh-TW  预读+翻页..全加速你的浏览体验
 // @author       Mach6
-// @version      6.6.00
+// @version      6.6.02
 // @license      GNU GPL v3
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
@@ -21,6 +21,7 @@
 // @grant        GM_xmlhttpRequest
 // @grant        GM_addStyle
 // @grant        GM_registerMenuCommand
+// @connect      wedata.net
 // @include      http*
 // @exclude      http*://mail.google.com/*
 // @exclude      http*://maps.google*
@@ -50,9 +51,9 @@
 // ==/UserScript==
 (function () {
   var scriptInfo = {
-    version: '6.6.00',
-    updateTime: '2018/11/15 EST',
-    changelog: 'function to download rules from wedata.net',
+    version: '6.6.02',
+    updateTime: '2018/11/17',
+    changelog: 'Fix douban',
     homepageURL: 'https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new',
     downloadUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.user.js',
     metaUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.meta.js',
@@ -424,19 +425,20 @@
       siteExample: 'bing.com/search?q=',
       nextLink: '//a[contains(@class,"sb_pagN")]',
       autopager: {
-        pageElement: 'id("b_results")/li[@class="b_algo"]',
+        pageElement: 'id("b_results")/li[not(contains(@class,"b_pag") or contains(@class,"b_ans b_top"))]',
+        //pageElement: 'id("b_results")/li[@class="b_algo"]',
         replaceE: '//nav[@role="navigation"]',
         HT_insert: ['id("b_results")/li[@class="b_pag"]', 1],
-        startFilter: function (win, doc) { // 移动相关搜索到第一页
-          var brs = doc.evaluate('id("b_results")/li[@class="b_ans"]').iterateNext();
-          debug(brs);
-          var ins = doc.getElementsByClassName('b_algo');
-          ins = ins[ins.length - 1];
-          debug(ins);
-          if (brs && ins) {
-            ins.appendChild(brs);
-          }
-        }
+//         startFilter: function (win, doc) { // 移动相关搜索到第一页
+//           var brs = doc.evaluate('id("b_results")/li[@class="b_ans"]').iterateNext();
+//           debug(brs);
+//           var ins = doc.getElementsByClassName('b_algo');
+//           ins = ins[ins.length - 1];
+//           debug(ins);
+//           if (brs && ins) {
+//             ins.appendChild(brs);
+//           }
+//         }
       }
     },
     {
@@ -1160,9 +1162,9 @@
     {
       name: '豆瓣-书影音评论',
       url: '^https?://.*\\.douban\\.com/subject',
-      nextLink: '//div[@class="paginator"]/span[@class="next"]/a[contains(text(),"后页>")]',
+      nextLink: '//div[@class="paginator"]/span[@class="next"]/a[contains(text(),"后页")]|id("paginator")/a[contains(text(),"后页")]',
       autopager: {
-        pageElement: '//ul[contains(@class,"topic-reply")] | //div[@class="article"]/table | //div[@id="comments" or @class="post-comments"]'
+        pageElement: '//ul[contains(@class,"topic-reply")] | //div[@class="discussion-posts"]/table/tbody |//div[contains(@class,"review-list")]/div | //div[@id="comments" or @class="post-comments"]'
       }
     },
     {
@@ -2269,7 +2271,7 @@
     },
     {
       name: 'mimifuli',
-      url: /^https?:\/\/(www\.)?(mimifuli|bbt01|yxpjw|yxpjwnet|tangniaobingyinshi)\.(info|club|net|com)/i,
+      url: /^https?:\/\/(www\.)?(mimifuli|bbt01|yxpjw|yxpjwnet|tangniaobingyinshi|52zfl)\.(vip|info|club|net|com)/i,
       nextLink: '//li[@class="next-page"]/a | //div[@class="article-paging"]/span/following-sibling::a[1]',
       autopager: {
         enable: true,
@@ -4805,7 +4807,7 @@
         if ( this.info.expire < currentDate || SITEINFO_json.length == 0 ){
           this.updateRule(jsonFinish);
         } else {
-          debug('Json rule will be updated at '+this.info.expire.toString());
+          //debug('Json rule will be updated at '+this.info.expire.toString());
           jsonUpdateFinish();
         }
     },
@@ -4947,7 +4949,8 @@
         if ($('setup')) return;
 
         var styleNode = GM.addStyle('\
-                      #sp-prefs-setup { position:fixed;z-index:2147483647;top:30px;right:60px;padding:20px 30px;background:#eee;width:500px;border:1px solid black; }\
+                      #sp-prefs-setup { position:fixed;z-index:2147483647;top:30px;right:60px;padding:20px 30px;background:#eee;width:500px;border:1px solid black;\
+                                        font-family:"Roboto","Helvetica Neue","Helvetica","sans-serif" !important; }\
                       #sp-prefs-setup * { color:black;text-align:left;line-height:normal;font-size:12px; }\
                       #sp-prefs-setup a { color:black;text-decoration:underline; }\
                       #sp-prefs-setup div { text-align:center;font-weight:bold;font-size:14px; }\
@@ -4981,7 +4984,7 @@
                                    <li title="下一页的链接设置成在新标签页打开"><input type="checkbox" id="sp-prefs-forceTargetWindow" /> 新标签打开链接</li>\
                                    <li><input type="checkbox" id="sp-prefs-SITEINFO_D-useiframe" /> 在预读模式下，默认启用 iframe 方式</li>\
                                    <li><input type="checkbox" id="sp-prefs-SITEINFO_D-a_enable" /> 默认启用自动翻页 </li>\
-                                   <li><input type="checkbox" id="sp-prefs-SITEINFO_D-a_force_enable" /> 自动翻页默认启用强制拼接</li>\
+                                   <li title="请勿随意启用"><input type="checkbox" id="sp-prefs-SITEINFO_D-a_force_enable" /> 启用强制拼接（仅限高级用户）</li>\
                                    <li>自定义排除列表：\
                                        <div><textarea id="sp-prefs-excludes" placeholder="自定义排除列表，支持通配符。\n例如：http://*.douban.com/*"></textarea></div>\
                                    </li>\
@@ -5008,7 +5011,7 @@
                                    <li title="Open next link in new tab"><input type="checkbox" id="sp-prefs-forceTargetWindow" /> Open next link in new tab</li>\
                                    <li><input type="checkbox" id="sp-prefs-SITEINFO_D-useiframe" /> Use iframe mode globally</li>\
                                    <li><input type="checkbox" id="sp-prefs-SITEINFO_D-a_enable" /> Enable preload </li>\
-                                   <li><input type="checkbox" id="sp-prefs-SITEINFO_D-a_force_enable" /> Force to join pages</li>\
+                                   <li><input type="checkbox" id="sp-prefs-SITEINFO_D-a_force_enable" /> Force to join pages (Advanced User Only)</li>\
                                    <li>Custom excludes:\
                                        <div><textarea id="sp-prefs-excludes" placeholder="Customized excludes, support regex\nEx: http://*.douban.com/*"></textarea></div>\
                                    </li>\
