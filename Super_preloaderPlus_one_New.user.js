@@ -7,7 +7,7 @@
 // @description:zh-cn  预读+翻页..全加速你的浏览体验
 // @description:zh-TW  预读+翻页..全加速你的浏览体验
 // @author       Mach6
-// @version      6.6.02
+// @version      6.6.03
 // @license      GNU GPL v3
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
@@ -51,9 +51,9 @@
 // ==/UserScript==
 (function () {
   var scriptInfo = {
-    version: '6.6.02',
-    updateTime: '2018/11/17',
-    changelog: 'Fix douban',
+    version: '6.6.03',
+    updateTime: '2018/11/20',
+    changelog: 'Add a button to update rules manually',
     homepageURL: 'https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new',
     downloadUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.user.js',
     metaUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.meta.js',
@@ -1230,8 +1230,8 @@
     {
       name: '大众点评网',
       url: '^https?://www\\.dianping\\.com/.*',
-      nextLink: '//a[@class="NextPage" and @title="下一页" and (text()="下一页")]',
-      pageElement: '//div[@id="searchList"]'
+      nextLink: '//a[@class="NextPage"]',
+      pageElement: '//div[@id="searchList"] | //div[@class="reviews-items"]'
     },
     {
       name: '家在深圳',
@@ -4794,9 +4794,10 @@
         }
       );
     },
-    updateJsonRule: function(jsonUpdateFinish, reject){
+    updateJsonRule: function(jsonUpdateFinish, reject, force){
       // a function used to create promise to update json rule
       // jsonUpdateFinish: Callback after both jsonInfo and SITEINFO_json are updated
+        force = force || false;
         var currentDate = new Date();
         var jsonFinish = function(){
           this.info.expire = new Date(currentDate.getTime() + this.info.updatePeriodInDay*24*60*60*1000);
@@ -4804,7 +4805,7 @@
           GM.setValue('SITEINFO_json', JSON.stringify(SITEINFO_json));
           jsonUpdateFinish();
         }.bind(this);
-        if ( this.info.expire < currentDate || SITEINFO_json.length == 0 ){
+        if ( this.info.expire < currentDate || SITEINFO_json.length == 0 || force){
           this.updateRule(jsonFinish);
         } else {
           //debug('Json rule will be updated at '+this.info.expire.toString());
@@ -4957,7 +4958,7 @@
                       #sp-prefs-setup ul { margin:15px 0 15px 0;padding:0;list-style:none;background:#eee;border:0; }\
                       #sp-prefs-setup input, #sp-prefs-setup select { border:1px solid gray;padding:2px;background:white; }\
                       #sp-prefs-setup li { margin:0;padding:6px 0;vertical-align:middle;background:#eee;border:0 }\
-                      #sp-prefs-setup button { width:150px;margin:0 10px;text-align:center;}\
+                      #sp-prefs-setup button { margin:0 10px;text-align:center;white-space: nowrap;}\
                       #sp-prefs-setup textarea { width:98%; height:60px; margin:3px 0; }\
                       #sp-prefs-setup b { font-weight: bold; font-family: "微软雅黑", sans-serif; }\
                       #sp-prefs-setup button:disabled { color: graytext; }\
@@ -4970,15 +4971,14 @@
           div.innerHTML = '\
                            <div>Super_preloaderPlus_one_New设置</div>\
                                <ul>\
-                                   <li>当前版本为 <b>' + scriptInfo.version + ' </b>，上次更新时间为 <b>' + scriptInfo.updateTime + '</b>\
+                                   <li>脚本版本: <b>' + scriptInfo.version + ' </b>   更新时间: <b>' + scriptInfo.updateTime + '</b>\
                                        <a id="sp-prefs-homepageURL" target="_blank" href="' + scriptInfo.homepageURL + '"/>脚本主页</a>\
                                        <a id="sp-prefs-homepageURL-feedback" target="_blank" href="' + scriptInfo.homepageURL + '/feedback' + '"/> 反馈规则 </a>\
                                    </li>\
-                                   <li>规则数目: <b>' + SITEINFO_D.numOfRule + '</b>  最近更新: <b>' + scriptInfo.changelog + '</b></li>\
-                                   <li>现维护者: <a href="https://greasyfork.org/en/users/32861-mach6">Mach6</a>\
-                                   原作者: <a href="http://userscripts-mirror.org/users/202260/scripts">NFL</a>, <a href="https://github.com/ywzhaiqi">ywzhaiqi</a></li>\
+                                   <li>维护者: <b><a href="https://greasyfork.org/en/users/32861-mach6">Mach6</a></b>   更新日志: <b>' + scriptInfo.changelog + '</b></li>\
+                                   <li>规则数目: <b>' + SITEINFO_D.numOfRule + '</b> 下次更新时间: <b>' + jsonRule.info.expire.toDateString() + '</b> <button id="sp-prefs-updaterule">更新Wedata.net规则</button></li>\
                                    <li><input type="checkbox" id="sp-prefs-debug" /> 调试模式</li>\
-                                   <li title="勾掉开启英文界面"><input type="checkbox" id="sp-prefs-ChineseUI" /> 中文界面 (刷新页面后生效)</li>\
+                                   <li title="勾掉开启英文界面"><input type="checkbox" id="sp-prefs-ChineseUI" /> 中文界面</li>\
                                    <li><input type="checkbox" id="sp-prefs-dblclick_pause" /> 鼠标双击暂停翻页（默认为 Ctrl + 长按左键）</li>\
                                    <li><input type="checkbox" id="sp-prefs-enableHistory" /> 添加下一页到历史记录</li>\
                                    <li title="下一页的链接设置成在新标签页打开"><input type="checkbox" id="sp-prefs-forceTargetWindow" /> 新标签打开链接</li>\
@@ -4992,20 +4992,19 @@
                                        <div><textarea id="sp-prefs-custom_siteinfo" placeholder="自定义站点规则"></textarea></div>\
                                    </li>\
                                </ul>\
-                           <div><button id="sp-prefs-ok">确定</button><button id="sp-prefs-cancel">取消</button></div>';
+                           <div><button id="sp-prefs-ok" style="width:150px;">确定</button><button id="sp-prefs-cancel" style="width:150px;">取消</button></div>';
         } else {
           div.innerHTML = '\
                            <div>Super_preloaderPlus_one_New Settings</div>\
                                <ul>\
-                                   <li>Current version <b>' + scriptInfo.version + ' </b>  Last update at<b> ' + scriptInfo.updateTime + '</b>\
+                                   <li>Version: <b>' + scriptInfo.version + ' </b>  Update time: <b> ' + scriptInfo.updateTime + '</b>\
                                        <a id="sp-prefs-homepageURL" target="_blank" href="' + scriptInfo.homepageURL + '"/>Homepage</a>\
                                        <a id="sp-prefs-homepageURL-feedback" target="_blank" href="' + scriptInfo.homepageURL + '/feedback' + '"/> Feedback </a>\
                                    </li>\
-                                   <li>Number of Rules: <b>' + SITEINFO_D.numOfRule + '</b>  Recent updates: <b>' + scriptInfo.changelog + '</b></li>\
-                                   <li>Current maintainer: <a href="https://greasyfork.org/en/users/32861-mach6">Mach6</a>\
-                                   Original authors: <a href="http://userscripts-mirror.org/users/202260/scripts">NFL</a>, <a href="https://github.com/ywzhaiqi">ywzhaiqi</a></li>\
+                                   <li>Maintainer: <b><a href="https://greasyfork.org/en/users/32861-mach6">Mach6</a></b>  Changelog: <b>' + scriptInfo.changelog + '</b></li>\
+                                   <li>Number of Rules: <b>' + SITEINFO_D.numOfRule + '</b> Next update: <b>' + jsonRule.info.expire.toDateString() + '</b> <button id="sp-prefs-updaterule">Download from Wedata.net</button></li>\
                                    <li><input type="checkbox" id="sp-prefs-debug" /> Debug mode</li>\
-                                   <li tile="English/Chinese UI"><input type="checkbox" id="sp-prefs-ChineseUI" /> Chinese UI (Take effect after refresh)</li>\
+                                   <li tile="English/Chinese UI"><input type="checkbox" id="sp-prefs-ChineseUI" /> Chinese UI</li>\
                                    <li><input type="checkbox" id="sp-prefs-dblclick_pause" /> Double click to stop preload (Default: Ctrl + Long Left)</li>\
                                    <li><input type="checkbox" id="sp-prefs-enableHistory" /> Add next page to history</li>\
                                    <li title="Open next link in new tab"><input type="checkbox" id="sp-prefs-forceTargetWindow" /> Open next link in new tab</li>\
@@ -5019,7 +5018,7 @@
                                        <div><textarea id="sp-prefs-custom_siteinfo" placeholder="Custom rules"></textarea></div>\
                                    </lhttps://greasyfork.org/en/scripts/33522-super-preloaderplus-one-newi>\
                                </ul>\
-                           <div><button id="sp-prefs-ok">OK</button><button id="sp-prefs-cancel">Cancel</button></div>';
+                           <div><button id="sp-prefs-ok" style="width:150px;">OK</button><button id="sp-prefs-cancel" style="width:150px;">Cancel</button></div>';
         }
         div = null;
 
@@ -5055,7 +5054,19 @@
             debug = xbug ? console.log.bind(console) : function () {};
             SP.loadSetting();
             close();
+            location.reload();
           });
+        });
+
+        on($('updaterule'), 'click', function(){
+            $('updaterule').innerHTML = "Updating...";
+            var p = new Promise(function(resolve, reject) {
+                jsonRule.updateJsonRule(resolve, reject, true);});
+            p.then(function(values){
+                SP.loadSetting();
+                close();
+                location.reload();
+            });
         });
 
         on($('cancel'), 'click', close);
