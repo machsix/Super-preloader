@@ -7,7 +7,7 @@
 // @description:zh-cn  预读+翻页..全加速你的浏览体验
 // @description:zh-TW  预读+翻页..全加速你的浏览体验
 // @author       Mach6
-// @version      6.6.03
+// @version      6.6.04
 // @license      GNU GPL v3
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
@@ -51,9 +51,9 @@
 // ==/UserScript==
 (function () {
   var scriptInfo = {
-    version: '6.6.03',
-    updateTime: '2018/11/20',
-    changelog: 'Add a button to update rules manually',
+    version: '6.6.04',
+    updateTime: '2018/11/21',
+    changelog: 'Fix seperator for table',
     homepageURL: 'https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new',
     downloadUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.user.js',
     metaUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.meta.js',
@@ -6429,6 +6429,9 @@
             if (pageElements[0] && pageElements[0].tagName == 'TR') {
               var insertParent = insertPoint.parentNode;
               var colNodes = getAllElements('child::tr[1]/child::*[self::td or self::th]', insertParent);
+              if (colNodes.length == 0) {
+                  colNodes = getAllElements('child::*[self::td or self::th]', pageElements[0]);
+              }
               var colums = 0;
               for (var x = 0, l = colNodes.length; x < l; x++) {
                 var col = colNodes[x].getAttribute('colspan');
