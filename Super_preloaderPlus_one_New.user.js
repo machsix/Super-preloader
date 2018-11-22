@@ -7,7 +7,7 @@
 // @description:zh-cn  预读+翻页..全加速你的浏览体验
 // @description:zh-TW  预读+翻页..全加速你的浏览体验
 // @author       Mach6
-// @version      6.6.04
+// @version      6.6.05
 // @license      GNU GPL v3
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
@@ -51,7 +51,7 @@
 // ==/UserScript==
 (function () {
   var scriptInfo = {
-    version: '6.6.04',
+    version: '6.6.05',
     updateTime: '2018/11/21',
     changelog: 'Fix seperator for table',
     homepageURL: 'https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new',
@@ -4406,27 +4406,13 @@
       exampleUrl: 'https://zh.porn-image-xxx.com/image/g-cup-beauty-big-breasts-image-intertwined-konno-anzu-minami-and-shore-sayaka/page/1/'
     },
     {
-      name: 'namethatpornstar-mobile',
-      url: /^https?:\/\/namethatpornstar.com\/mobile/i,
-      siteExample: 'http://namethatpornstar.com/mobile/search/Koni+Demiko',
-      nextLink: '//a[@class="button pinkBack" and contains(text(),"Older")]',
-      autopager: {
-        useiframe: true,
-        pageElement: '//*[@id="grid"]'
-      }
-    },
-    {
       name: 'namethatpornstar',
       url: /^https?:\/\/namethatpornstar.com/i,
       siteExample: 'http://namethatpornstar.com/all-requests.php?page=2',
-      nextLink: {
-        startAfter: '?page=',
-        inc: 1,
-        mFails: [/^https?:\/\/namethatpornstar.com\/.*\.php/i, '?page=1']
-      },
+      nextLink: '//*[@id="pagination"]/a[./div[contains(@class,"selected")]]/following-sibling::a[1]',
       autopager: {
         useiframe: true,
-        pageElement: '//*[@id="newcontainer"]'
+        pageElement: '//*[@id="content"]'
       }
     },
     {
