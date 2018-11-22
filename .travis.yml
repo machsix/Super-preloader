@@ -3,8 +3,8 @@ python:
   - "2.7"
 
 install:
-    - pip install --user sphinx_rtd_theme
-    - pip install --user travis-sphinx
+    - pip install sphinx_rtd_theme
+    - pip install travis-sphinx
 
 script:
     travis-sphinx build --source docs/source
