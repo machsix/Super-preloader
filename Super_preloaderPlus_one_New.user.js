@@ -7,7 +7,7 @@
 // @description:zh-cn  预读+翻页..全加速你的浏览体验
 // @description:zh-TW  预读+翻页..全加速你的浏览体验
 // @author       Mach6
-// @version      6.6.06
+// @version      6.6.07
 // @license      GNU GPL v3
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
@@ -53,8 +53,8 @@
 // ==/UserScript==
 (function () {
   var scriptInfo = {
-    version: '6.6.06',
-    updateTime: '2018/11/21',
+    version: '6.6.07',
+    updateTime: '2018/11/22',
     changelog: 'Add jsonRuleProvider',
     homepageURL: 'https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new',
     downloadUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.user.js',
@@ -4739,8 +4739,8 @@
                   rule = jsonRuleProvider[iurl].ruleParser(res.responseText);
                 } else {
                   rule = JSON.parse(res.responseText);
-                  //console.log(rule);
                 }
+                //debug(rule);
                 resolve(rule);
               },
               onerror: function(res) {console.log(jsonRuleProvider[iurl].url, 'error');}
@@ -4752,7 +4752,7 @@
       Promise.all(jsonRulePromises).then(
         function(jsons){
           SITEINFO_json = _.flat(jsons);
-          debug(SITEINFO_json);
+          // debug(SITEINFO_json);
           jsonFinish(); // a callback after rules are updated
         },
         function(rejreason){
@@ -4777,7 +4777,7 @@
         if ( this.info.expire < currentDate || SITEINFO_json.length == 0 || force){
           this.updateRule(jsonFinish);
         } else {
-          //debug('Json rule will be updated at '+this.info.expire.toString());
+          // debug('Json rule will be updated at '+this.info.expire.toString());
           jsonUpdateFinish();
         }
     },
