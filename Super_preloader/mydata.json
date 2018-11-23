@@ -1,0 +1,25 @@
+[
+  {
+    "name": "wnacg",
+    "url": "^https?://(www\\.)?wnacg\\.org/photos-view-id.*\\.html",
+    "nextLink": "//a[text()='下一頁']",
+    "autopager": {
+      "maxpage": 500,
+      "enable": true,
+      "useiframe": false,
+      "pageElement": "//img[@id='picarea']",
+      "ipages": [
+        true,
+        30
+      ]
+    },
+    "exampleUrl": "http://www.wnacg.org/photos-index-aid-42394.html"
+  },
+  {
+    "name": "wnacglist",
+    "url": "^https?://(www\\.)?wnacg\\.org",
+    "nextLink": "//span[@class='next']/a",
+    "pageElement": "//div[@class='gallary_wrap']",
+    "exampleUrl": "http://www.wnacg.org/photos-view-id-2132443.html"
+  }
+]

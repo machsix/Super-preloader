@@ -9,8 +9,9 @@ install:
 script:
     - travis-sphinx build --source docs/source
     - rm -rf doc/build/_downloads
-    - sed -i 's|_downloads/\w\+/||' doc/build/super_preloader.html
+    - sed -i 's|_downloads/\w\+/||g' doc/build/super_preloader.html
     - cp Super_preloader/wedata.json doc/build/wedata.json
+    - cp Super_preloader/mydata.json doc/build/mydata.json
 
 after_success:
     travis-sphinx deploy
