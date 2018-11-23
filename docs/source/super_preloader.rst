@@ -104,6 +104,11 @@ To request rule, you should follow the following format
 **I won’t spend time on writing rules for those who don’t obey the
 rule.**
 
+Database of rules
+-------------------------------------
+
+1. `Wedata.net <http://wedata.net/databases/AutoPagerize/items_all.json>`_ Alternative host: :download:`GitHub <../../Super_preloader/wedata.json>`
+
 Major changes
 --------------------------
 
