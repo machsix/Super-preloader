@@ -7,7 +7,7 @@
 // @description:zh-cn  预读+翻页..全加速你的浏览体验
 // @description:zh-TW  预读+翻页..全加速你的浏览体验
 // @author       Mach6
-// @version      6.6.05
+// @version      6.6.06
 // @license      GNU GPL v3
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
@@ -22,6 +22,7 @@
 // @grant        GM_addStyle
 // @grant        GM_registerMenuCommand
 // @connect      wedata.net
+// @connect      github.io
 // @include      http*
 // @exclude      http*://mail.google.com/*
 // @exclude      http*://maps.google*
@@ -47,13 +48,14 @@
 // @exclude      http://www.duokan.com/reader/*
 // @exclude      https://www.kohls.com/*
 // @exclude      http://list.jd.com/*
+// @changelog    Add jsonRuleProvider
 
 // ==/UserScript==
 (function () {
   var scriptInfo = {
-    version: '6.6.05',
+    version: '6.6.06',
     updateTime: '2018/11/21',
-    changelog: 'Fix seperator for table',
+    changelog: 'Add jsonRuleProvider',
     homepageURL: 'https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new',
     downloadUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.user.js',
     metaUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.meta.js',
@@ -4373,26 +4375,6 @@
       siteExample: 'http://dl.getchu.com/search/dojin_circle_detail.php?id=1447&pageID=3',
       pageElement: '//td[@bgcolor="white" and @align="center" and not(@class)]/*',
     },
-    {
-      name: 'wnacg',
-      url: '^https?://(www\\.)?wnacg\\.org/photos-view-id.*\\.html',
-      nextLink: '//a[text()="下一頁"]',
-      autopager: {
-        maxpage: 500,
-        enable: true,
-        useiframe: false,
-        pageElement: '//img[@id="picarea"]',
-        ipages: [true, 30]
-      },
-      exampleUrl: 'http://www.wnacg.org/photos-index-aid-42394.html'
-    },
-    {
-      name: 'wnacglist',
-      url: '^https?://(www\\.)?wnacg\\.org',
-      nextLink: '//span[@class="next"]/a',
-      pageElement: '//div[@class="gallary_wrap"]',
-      exampleUrl: 'http://www.wnacg.org/photos-view-id-2132443.html'
-    },
     // ==== NSFW ====
     {
       name: 'porn-image-xxx.com',
@@ -4477,12 +4459,6 @@
       pageElement: '//div[@class="c-1 endless_page_template"]'
     },
     // ==== English websites ====================
-    //         {
-    //             name: "reddit",
-    //             url: "^https?://([^.]+\.)?reddit\.com/",
-    //             nextLink: '//a[contains(@rel,"next")]',
-    //             pageElement: 'id("siteTable")/*[not(@class="nav-buttons")]',
-    //         },
     {
       name: 'Gamefaqs',
       url: '^https://gamefaqs\.gamespot\.com/',
@@ -4727,11 +4703,17 @@
 
   //  ///////// ----- Rules obtained from online json files -------///////////
   // url: url of json file
-  // ruleParser: a function parse response and return rule / null
+  // ruleParser: a function parse responseText and return rule / null
   var jsonRuleProvider = [
     {
-      url: 'http://wedata.net/databases/AutoPagerize/items.json',
+      url: 'https://machsix.github.io/personal-scripts/mydata.json',
       ruleParser: null
+    },
+    {
+      url: 'http://wedata.net/databases/AutoPagerize/items.json',
+      ruleParser: function(responseText){
+          return JSON.parse(responseText).map(function(i) {return i.data;});
+      }
     }
   ];
 
@@ -4754,9 +4736,10 @@
               onload: function(res) {
                 var rule;
                 if (_.isFunction(jsonRuleProvider[iurl].ruleParser)) {
-                  rule = jsonRuleProvider[iurl].ruleParser(res);
+                  rule = jsonRuleProvider[iurl].ruleParser(res.responseText);
                 } else {
-                  rule = JSON.parse(res.responseText).map(function(i) {return i.data;});
+                  rule = JSON.parse(res.responseText);
+                  //console.log(rule);
                 }
                 resolve(rule);
               },
@@ -4769,7 +4752,7 @@
       Promise.all(jsonRulePromises).then(
         function(jsons){
           SITEINFO_json = _.flat(jsons);
-          //debug(SITEINFO_json);
+          debug(SITEINFO_json);
           jsonFinish(); // a callback after rules are updated
         },
         function(rejreason){
@@ -4962,7 +4945,7 @@
                                        <a id="sp-prefs-homepageURL-feedback" target="_blank" href="' + scriptInfo.homepageURL + '/feedback' + '"/> 反馈规则 </a>\
                                    </li>\
                                    <li>维护者: <b><a href="https://greasyfork.org/en/users/32861-mach6">Mach6</a></b>   更新日志: <b>' + scriptInfo.changelog + '</b></li>\
-                                   <li>规则数目: <b>' + SITEINFO_D.numOfRule + '</b> 下次更新时间: <b>' + jsonRule.info.expire.toDateString() + '</b> <button id="sp-prefs-updaterule">更新Wedata.net规则</button></li>\
+                                   <li>规则数目: <b>' + SITEINFO_D.numOfRule + '</b> 下次更新时间: <b>' + jsonRule.info.expire.toDateString() + '</b> <button id="sp-prefs-updaterule">更新规则</button></li>\
                                    <li><input type="checkbox" id="sp-prefs-debug" /> 调试模式</li>\
                                    <li title="勾掉开启英文界面"><input type="checkbox" id="sp-prefs-ChineseUI" /> 中文界面</li>\
                                    <li><input type="checkbox" id="sp-prefs-dblclick_pause" /> 鼠标双击暂停翻页（默认为 Ctrl + 长按左键）</li>\
@@ -4988,7 +4971,7 @@
                                        <a id="sp-prefs-homepageURL-feedback" target="_blank" href="' + scriptInfo.homepageURL + '/feedback' + '"/> Feedback </a>\
                                    </li>\
                                    <li>Maintainer: <b><a href="https://greasyfork.org/en/users/32861-mach6">Mach6</a></b>  Changelog: <b>' + scriptInfo.changelog + '</b></li>\
-                                   <li>Number of Rules: <b>' + SITEINFO_D.numOfRule + '</b> Next update: <b>' + jsonRule.info.expire.toDateString() + '</b> <button id="sp-prefs-updaterule">Download from Wedata.net</button></li>\
+                                   <li>Number of Rules: <b>' + SITEINFO_D.numOfRule + '</b> Next update: <b>' + jsonRule.info.expire.toDateString() + '</b> <button id="sp-prefs-updaterule">Update rules</button></li>\
                                    <li><input type="checkbox" id="sp-prefs-debug" /> Debug mode</li>\
                                    <li tile="English/Chinese UI"><input type="checkbox" id="sp-prefs-ChineseUI" /> Chinese UI</li>\
                                    <li><input type="checkbox" id="sp-prefs-dblclick_pause" /> Double click to stop preload (Default: Ctrl + Long Left)</li>\
@@ -6782,7 +6765,7 @@
 
         // 第一阶段..分析高级模式..
         SITEINFO = SITEINFO.concat(SITEINFO_TP, SITEINFO_comp, SITEINFO_json);
-        if (!SITEINFO_D.numOfRule  || SITEINFO_D.numOfRule < SITEINFO.length) {
+        if (!SITEINFO_D.numOfRule  || SITEINFO_D.numOfRule != SITEINFO.length) {
           SITEINFO_D.numOfRule = SITEINFO.length;
           GM.setValue('SITEINFO_D', JSON.stringify(SITEINFO_D));
         }
