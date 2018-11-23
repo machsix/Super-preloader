@@ -7,7 +7,10 @@ install:
     - pip install travis-sphinx
 
 script:
-    travis-sphinx build --source docs/source
+    - travis-sphinx build --source docs/source
+    - rm -rf doc/build/_downloads
+    - sed -i 's|_downloads/\w\+/||' doc/build/super_preloader.html
+    - cp Super_preloader/wedata.json doc/build/wedata.json
 
 after_success:
     travis-sphinx deploy
