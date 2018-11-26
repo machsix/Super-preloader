@@ -10,7 +10,7 @@ script:
     - travis-sphinx build --source docs/source
     - rm -rf doc/build/_downloads
     - sed -i 's|_downloads/\w\+/||g' doc/build/super_preloader.html
-    - cp Super_preloader/wedata.json doc/build/wedata.json
+    - curl http://wedata.net/databases/AutoPagerize/items_all.json -X GET -H "Content-Type: application/json"  -o doc/build/wedata.json
     - cp Super_preloader/mydata.json doc/build/mydata.json
 
 after_success:
