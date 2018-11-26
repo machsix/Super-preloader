@@ -7,7 +7,7 @@
 // @description:zh-cn  预读+翻页..全加速你的浏览体验
 // @description:zh-TW  预读+翻页..全加速你的浏览体验
 // @author       Mach6
-// @version      6.6.07
+// @version      6.6.08
 // @license      GNU GPL v3
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
@@ -53,8 +53,8 @@
 // ==/UserScript==
 (function () {
   var scriptInfo = {
-    version: '6.6.07',
-    updateTime: '2018/11/22',
+    version: '6.6.08',
+    updateTime: '2018/11/26',
     changelog: 'Add jsonRuleProvider',
     homepageURL: 'https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new',
     downloadUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.user.js',
@@ -543,36 +543,6 @@
       nextLink: '//div[@class="page-content"]/a[@class="next"]',
       autopager: {
         pageElement: '//div[@class="search-result"]/dl'
-      }
-    },
-    {
-      name: '小众软件',
-      url: /^https?:\/\/www.appinn\.com/i,
-      exampleUrl: 'https://www.appinn.com/',
-      nextLink: '//a[@class="nextpostslink"]',
-      prevLink: '//a[@class="previouspostslink"]',
-      autopager: {
-        pageElement: '//div[@id="spost"]/div'
-      }
-    },
-    {
-      name: '好人卡',
-      url: /^https?:\/\/www.haorenka\.net/i,
-      exampleUrl: 'https://www.haorenka.net/page/3',
-      prevLink: '//a[@class="prev page-numbers"]',
-      nextLink: '//a[@class="next page-numbers"]',
-      autopager: {
-        pageElement: '//div[contains(@class, "block5_widget_content block5_list loop-rows posts-loop-rows")]'
-      }
-    },
-    {
-      name: 'v2ex',
-      url: /^https?:\/\/www.v2ex\.com\/(recent|go)/i,
-      exampleUrl: 'https://www.v2ex.com/recent?p=3',
-      nextLink: '//link[@rel="next"]',
-      prevLink: '//link[@rel="prev"]',
-      autopager: {
-        pageElement: '//div[@class="cell item"]|//div[contains(@class, "cell from")]'
       }
     },
     {
