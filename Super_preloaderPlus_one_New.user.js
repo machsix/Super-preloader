@@ -7,7 +7,7 @@
 // @description:zh-cn  预读+翻页..全加速你的浏览体验
 // @description:zh-TW  预读+翻页..全加速你的浏览体验
 // @author       Mach6
-// @version      6.6.08
+// @version      6.6.09
 // @license      GNU GPL v3
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
@@ -53,15 +53,14 @@
 // ==/UserScript==
 (function () {
   var scriptInfo = {
-    version: '6.6.08',
-    updateTime: '2018/11/26',
+    version: '6.6.09',
+    updateTime: '2018/12/08',
     changelog: 'Add jsonRuleProvider',
     homepageURL: 'https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new',
     downloadUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.user.js',
     metaUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.meta.js',
   };
 
-  GM.setValue('version', scriptInfo.version);
   // ----------------------------------
   // rule.js
 
@@ -133,8 +132,8 @@
         // Callback function to execute when mutations are observed
         var callback = function (mutationsList, observer) {
           // console.log("First callback");
-          for (var mutation of mutationsList) {
-            num_node_check = LLS.mutationParser(mutation, num_node_check);
+          for (var i = 0; i < mutationsList.length; i++) {
+            num_node_check = LLS.mutationParser(mutationsList[i], num_node_check);
             //  console.log(num_node_check);
             if (num_node_check == LLS.node_check_time) {
               //    console.log("finish");
@@ -1132,32 +1131,6 @@
 
     // ========================= 知识、阅读 ============================
     {
-      name: '豆瓣-书影音评论',
-      url: '^https?://.*\\.douban\\.com/subject',
-      nextLink: '//div[@class="paginator"]/span[@class="next"]/a[contains(text(),"后页")]|id("paginator")/a[contains(text(),"后页")]',
-      autopager: {
-        pageElement: '//ul[contains(@class,"topic-reply")] | //div[@class="discussion-posts"]/table/tbody |//div[contains(@class,"review-list")]/div | //div[@id="comments" or @class="post-comments"]'
-      }
-    },
-    {
-      name: '我的小组话题 - 豆瓣',
-      url: /^https?:\/\/www\.douban\.com\/group\//i,
-      exampleUrl: 'http://www.douban.com/group/',
-      nextLink: '//div[@class="paginator"]/span[@class="next"]/a[text()="后页>"]',
-      autopager: {
-        pageElement: 'id("content")/div/div[@class="article"]'
-      }
-    },
-    {
-      name: '豆瓣全站',
-      url: '^https?://.*\\.douban\\.com/.*',
-      nextLink: '//div[@class="paginator"]/span[@class="next"]/a[contains(text(),"后页>")]',
-      autopager: {
-        pageElement: 'id("miniblog") | //*[@class="photolst clearfix" or @class="photolst clearbox" or @class="event-photo-list" or @class="poster-col4 clearfix"] | \
-            //div[@id="comment-section"] | //table[@class="olt" or @class="list-b"]/tbody | //div[contains(@class,"clearfix")]/div[@class="article"]'
-      }
-    },
-    {
       name: '知乎收藏夹',
       url: /^https?:\/\/www\.zhihu\.com\/collection/i,
       exampleUrl: 'https?://www.zhihu.com/collection/19561986',
@@ -1274,14 +1247,6 @@
       },
       autopager: {
         pageElement: '//div[@id="resultsdiv"]/div[@class="subitem"]'
-      }
-    },
-    {
-      name: '豆瓣people',
-      url: '^https?://.*\\.douban\\.com/people/',
-      nextLink: '//div[@class="paginator"]/span[@class="next"]/a[contains(text(),"后页>")]',
-      autopager: {
-        pageElement: '//ul[@class="interest-list"]'
       }
     },
     {
@@ -2334,16 +2299,6 @@
       exampleUrl: 'http://www.ppzix.com/tyjr/1915.html'
     },
     {
-      name: '性感尤物',
-      url: /^https?:\/\/www\.jpxgyw\.com\/[^\/]*\/[^\/]*\.html/,
-      nextLink: '//div[@class="page"]/a[text()="后"]',
-      autopager: {
-        pageElement: '//div[@class="img"]/p',
-        ipages: [true, 30]
-      },
-      exampleUrl: 'http://www.xgyw.cc/Xgyw/Xgyw6874.html'
-    },
-    {
       name: 'sytaotu',
       url: /^https?:\/\/www\.sytaotu\.com/,
       nextLink: 'auto;',
@@ -2352,17 +2307,6 @@
         ipages: [true, 30] // 立即翻页,第一项是控制是否在js加载的时候立即翻第二项(必须小于maxpage)的页数,比如[true,3].就是说JS加载后.立即翻3页.(可选)
       },
       exampleUrl: 'http://www.sytaotu.com/seying/meinvmote/20200608/85252.html'
-    },
-    {
-      name: '性感尤物2',
-      url: /^https?:\/\/www\.jpxgyw\.com\/[^\/]*/,
-      nextLink: '//div[@class="page"]/a[text()="下页"]',
-      autopager: {
-        enable: true, // 启用(自动翻页)(可选)
-        pageElement: '//tr[./td[@class="td6"]]',
-        ipages: [true, 10] // 立即翻页,第一项是控制是否在js加载的时候立即翻第二项(必须小于maxpage)的页数,比如[true,3].就是说JS加载后.立即翻3页.(可选)
-      },
-      exampleUrl: 'http://www.xgyw.cc/Xgyw'
     },
     {
       name: '7160美女图片',
@@ -4745,6 +4689,7 @@
           jsonUpdateFinish();
         }.bind(this);
         if ( this.info.expire < currentDate || SITEINFO_json.length == 0 || force){
+          debug('Json rule is being updated');
           this.updateRule(jsonFinish);
         } else {
           // debug('Json rule will be updated at '+this.info.expire.toString());
@@ -4857,7 +4802,8 @@
     GM.getValue('SITEINFO_D', JSON.stringify(SITEINFO_D)),
     GM.getValue('autoMatch', JSON.stringify(autoMatch)),
     GM.getValue('jsonRuleInfo', JSON.stringify(jsonRule.info)),
-    GM.getValue('SITEINFO_json', JSON.stringify(SITEINFO_json))
+    GM.getValue('SITEINFO_json', JSON.stringify(SITEINFO_json)),
+    GM.getValue('version', '1.0.00')
   ]).then(
     function (values) {
       // retrieve settings
@@ -4866,6 +4812,12 @@
       autoMatch = JSON.parse(values[2]);
       jsonRule.parseJsonInfo(values[3]);
       SITEINFO_json = JSON.parse(values[4]);
+
+      myVersion = values[5];
+      if (versionCompare(myVersion, scriptInfo.version)<0) {
+        jsonRule.info.expire = new Date(Date.now()-24*60*60*1000);
+        GM.setValue("version",scriptInfo.version);
+      }
 
       var xbug = prefs.debug || false;
       debug = xbug ? console.log.bind(console) : function () {};
@@ -8205,5 +8157,53 @@
       return str === '*' ? '.*' : '[^/]*';
     });
     return '^' + reg + '$';
+  }
+
+  //Function to compare two version strings https://gist.github.com/TheDistantSea/8021359
+  function versionCompare(v1, v2, options) {
+    var lexicographical = options && options.lexicographical,
+        zeroExtend = options && options.zeroExtend,
+        v1parts = v1.split('.'),
+        v2parts = v2.split('.');
+
+    function isValidPart(x) {
+        return (lexicographical ? /^\d+[A-Za-z]*$/ : /^\d+$/).test(x);
+    }
+
+    if (!v1parts.every(isValidPart) || !v2parts.every(isValidPart)) {
+        return NaN;
+    }
+
+    if (zeroExtend) {
+        while (v1parts.length < v2parts.length) v1parts.push("0");
+        while (v2parts.length < v1parts.length) v2parts.push("0");
+    }
+
+    if (!lexicographical) {
+        v1parts = v1parts.map(Number);
+        v2parts = v2parts.map(Number);
+    }
+
+    for (var i = 0; i < v1parts.length; ++i) {
+        if (v2parts.length == i) {
+            return 1;
+        }
+
+        if (v1parts[i] == v2parts[i]) {
+            continue;
+        }
+        else if (v1parts[i] > v2parts[i]) {
+            return 1;
+        }
+        else {
+            return -1;
+        }
+    }
+
+    if (v1parts.length != v2parts.length) {
+        return -1;
+    }
+
+    return 0;
   }
 })();
