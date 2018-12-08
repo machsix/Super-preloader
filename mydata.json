@@ -60,6 +60,19 @@
     }
   },
   {
+    "name": "5156",
+    "url": "^https?://tu\\.jiachong\\.net/meinvtupian",
+    "exampleUrl": "http://tu.jiachong.net/meinvtupian/rentiyishu/105115.html",
+    "nextLink": "//div[@class='pages']/ul/li/a[contains(text(),'下一页')]",
+    "autopager": {
+      "pageElement": "//div[@class='articleBox']/div[@id='picBody']",
+      "ipages": [
+        true,
+        30
+      ]
+    }
+  },
+  {
     "name": "性感尤物2",
     "url": "^https?://www\\.(jpxgyw|xgyw)\\.(com|cc)/[^/]*/",
     "exampleUrl": "http://www.xgyw.cc/Xgyw",
@@ -104,5 +117,12 @@
     "autopager": {
       "pageElement": "id('miniblog') | //*[@class='photolst clearfix' or @class='photolst clearbox' or @class='event-photo-list' or @class='poster-col4 clearfix'] |             //div[@id='comment-section'] | //table[@class='olt' or @class='list-b']/tbody | //div[contains(@class,'clearfix')]/div[@class='article']"
     }
+  },
+  {
+    "name": "anime1.me",
+    "url": "^https?://anime1\\.me/\\d+",
+    "exampleUrl": "https://anime1.me/2657",
+    "nextLink": "//div[@class='entry-content']/p/a[text()='下一集']",
+    "pageElement": "//article"
   }
 ]
