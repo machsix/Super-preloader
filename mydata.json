@@ -45,5 +45,64 @@
     "nextLink": "//link[@rel='next']",
     "prevLink": "//link[@rel='prev']",
     "pageElement": "//div[@class='cell item']|//div[contains(@class, 'cell from')]"
+  },
+  {
+    "name": "性感尤物",
+    "url": "^https?://www\\.(jpxgyw|xgyw)\\.(com|cc)/[^/]*/[^/]*\\.html",
+    "exampleUrl": "http://www.xgyw.cc/Xgyw/Xgyw6874.html",
+    "nextLink": "//div[@class='page']/a[text()='后']",
+    "autopager": {
+      "pageElement": "//div[@class='img']/p",
+      "ipages": [
+        true,
+        30
+      ]
+    }
+  },
+  {
+    "name": "性感尤物2",
+    "url": "^https?://www\\.(jpxgyw|xgyw)\\.(com|cc)/[^/]*/",
+    "exampleUrl": "http://www.xgyw.cc/Xgyw",
+    "nextLink": "//div[@class='page']/a[text()='下页']",
+    "autopager": {
+      "enable": true,
+      "pageElement": "//tr[./td[@class='td6']]",
+      "ipages": [
+        true,
+        10
+      ]
+    }
+  },
+  {
+    "name": "豆瓣-书影音评论",
+    "url": "^https?://.*\\.douban\\.com/subject",
+    "nextLink": "//div[@class='paginator']/span[@class='next']/a[contains(text(),'后页')]|id('paginator')/a[contains(text(),'后页')]",
+    "autopager": {
+      "pageElement": "//ul[contains(@class,'topic-reply')] | //div[@class='discussion-posts']/table/tbody |//div[contains(@class,'review-list')]/div | //div[@id='comments' or @class='post-comments']"
+    }
+  },
+  {
+    "name": "豆瓣-我的小组话题",
+    "url": "^https?://www\\.douban\\.com/group",
+    "exampleUrl": "http://www.douban.com/group/",
+    "nextLink": "//div[@class='paginator']/span[@class='next']/a[text()='后页>']",
+    "autopager": {
+      "pageElement": "id('content')/div/div[@class='article']"
+    }
+  },
+  {
+    "name": "豆瓣广播",
+    "url": "^https?://www\\.douban\\.com/people/\\d+/statuses",
+    "exampleUrl": "https://www.douban.com/people/142521167/statuses",
+    "nextLink": "//div[@class='paginator']/span[@class='next']/a[contains(text(),'后页')]",
+    "pageElement": "//div[@class='stream-items']/div"
+  },
+  {
+    "name": "豆瓣全站",
+    "url": "^https?://.*\\.douban\\.com/.*",
+    "nextLink": "//div[@class='paginator']/span[@class='next']/a[contains(text(),'后页>')]",
+    "autopager": {
+      "pageElement": "id('miniblog') | //*[@class='photolst clearfix' or @class='photolst clearbox' or @class='event-photo-list' or @class='poster-col4 clearfix'] |             //div[@id='comment-section'] | //table[@class='olt' or @class='list-b']/tbody | //div[contains(@class,'clearfix')]/div[@class='article']"
+    }
   }
 ]
