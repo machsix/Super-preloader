@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-empty */
 // ==UserScript==
 // @name         Super_preloaderPlus_one_New
 // @name:zh-CN   Super_preloaderPlus_one_改
@@ -7,7 +9,7 @@
 // @description:zh-cn  预读+翻页..全加速你的浏览体验
 // @description:zh-TW  预读+翻页..全加速你的浏览体验
 // @author       Mach6
-// @version      6.6.09
+// @version      6.6.11
 // @license      GNU GPL v3
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
@@ -48,14 +50,13 @@
 // @exclude      http://www.duokan.com/reader/*
 // @exclude      https://www.kohls.com/*
 // @exclude      http://list.jd.com/*
-// @changelog    Add jsonRuleProvider
 
 // ==/UserScript==
 (function () {
   var scriptInfo = {
-    version: '6.6.09',
-    updateTime: '2018/12/08',
-    changelog: 'Add jsonRuleProvider',
+    version: '6.6.11',
+    updateTime: '2018/12/12',
+    changelog: 'Remove generic rule in wedata',
     homepageURL: 'https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new',
     downloadUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.user.js',
     metaUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.meta.js',
@@ -4626,7 +4627,16 @@
     {
       url: 'http://wedata.net/databases/AutoPagerize/items.json',
       ruleParser: function(responseText){
-          return JSON.parse(responseText).map(function(i) {return i.data;});
+          return JSON.parse(responseText).filter(function(i) {
+              if (i.name === 'Generic Posts Rule')
+                  return false;
+              else
+                  return true;
+          }).map(function(i) {
+                  i.data.name = i.name;
+                  i.data.source = 'wedata.net';
+                  return i.data;
+                  });
       }
     }
   ];
@@ -4813,7 +4823,7 @@
       jsonRule.parseJsonInfo(values[3]);
       SITEINFO_json = JSON.parse(values[4]);
 
-      myVersion = values[5];
+      var myVersion = values[5];
       if (versionCompare(myVersion, scriptInfo.version)<0) {
         jsonRule.info.expire = new Date(Date.now()-24*60*60*1000);
         GM.setValue("version",scriptInfo.version);
