@@ -124,5 +124,16 @@
     "exampleUrl": "https://anime1.me/2657",
     "nextLink": "//div[@class='entry-content']/p/a[text()='下一集']",
     "pageElement": "//article"
+  },
+  {
+    "name": "gssy",
+    "url": "^https?://www\\.gssy\\.cc",
+    "nextLink": "//a[@title='下一页']",
+    "autopager": {
+      "pageElement": "//div[@id='image_div']",
+      "useiframe": true,
+      "ipages": [true, 30]
+    },
+    "exampleUrl": "http://www.gssy.cc/30856/5"
   }
 ]
