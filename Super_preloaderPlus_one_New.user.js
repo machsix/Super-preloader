@@ -547,12 +547,16 @@
     },
     {
       name: 'smzdm-search',
-      url: '^https?://search\\.smzdm\\.com/',
+      url: '^https?://search\\.smzdm\\.com/\\?c=',
+      exampleUrl: 'http://search.smzdm.com/?c=post&s=%E7%A9%BA%E8%B0%83&v=b',
+      // 添加了如下页面的匹配
+      // exampleUrl: 'https://search.smzdm.com/?c=youhui&s=%E7%A9%BA%E8%B0%83',
+      // exampleUrl: 'https://search.smzdm.com/?c=haitao&s=%E7%A9%BA%E8%B0%83',
       enable: true,
       nextLink: '//a[contains(text(),"下一页")][@href]',
       preLink: '//a[contains(text(),"上一页")][@href]',
       autopager: {
-        pageElement: 'css;ul#feed-main-list > *',
+        pageElement: 'css;ul#feed-main-list >*',
         replaceE: 'css;#J_feed_pagenation',
       }
     },
@@ -561,7 +565,7 @@
       url: /^https?:\/\/www\.smzdm\.com\/fenlei\//i,
       exampleUrl: 'https://www.smzdm.com/fenlei/shuiguo/',
       nextLink: '//li/a[text()="下一页"]',
-      prevLink: '//li/a[text()="上一页"]',
+      preLink: '//li/a[text()="上一页"]',
       autopager: {
         pageElement: '//li[@class="feed-row-wide"]',
       }
@@ -571,17 +575,30 @@
       url: /^https?:\/\/www\.smzdm\.com\/tag\//i,
       exampleUrl: 'https://www.smzdm.com/tag/%E5%8D%8A%E4%BB%B7%E7%89%B9%E6%83%A0/youhui/',
       nextLink: '//li/a[text()="下一页"]',
-      prevLink: '//li/a[text()="上一页"]',
+      preLink: '//li/a[text()="上一页"]',
       autopager: {
         pageElement: '//div[contains(@class,"list list_preferential")]',
       }
     },
     {
       name: 'smzdm-comment',
-      url: /^https?:\/\/post\.smzdm\.com\/p\/\d+/i,
+      url: /^https?:\/\/\w+\.smzdm\.com\/p\/\d+/i,
       exampleUrl: 'https://post.smzdm.com/p/559992/',
+      // 还有另外一种评论
+      // exampleUrl: 'https://www.smzdm.com/p/11496450/',
       nextLink: '//ul[@class="pagination"]/li[@class="pagedown"]/a',
-      pageElement: '(//ul[@class="comment_listBox"])[1]'
+      autopager: {
+        pageElement: 'id("commentTabBlockNew")/ul[@class="comment_listBox"]',
+        replaceE: '(//ul[@class="pagination"])[1]',
+        // 好好的一个页面非要弄出2个翻页器，干掉一个
+        // 只执行一次
+        startFilter: function (win, doc) {
+          var firstDiv = doc.querySelector(".pagination");
+          if (firstDiv) {
+            firstDiv.parentNode.removeChild(firstDiv);
+          }
+        }
+      }
     },
     // ================ news、Reading ===========================
     {
