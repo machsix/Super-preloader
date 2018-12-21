@@ -547,12 +547,13 @@
     },
     {
       name: 'smzdm-search',
-      url: /^https?:\/\/search\.smzdm\.com/i,
-      exampleUrl: 'http://search.smzdm.com/?c=post&s=%E7%A9%BA%E8%B0%83&v=b',
-      nextLink: '//li/a[text()="下一页"]',
-      prevLink: '//li/a[text()="上一页"]',
+      url: '^https?://search\\.smzdm\\.com/',
+      enable: true,
+      nextLink: '//a[contains(text(),"下一页")][@href]',
+      preLink: '//a[contains(text(),"上一页")][@href]',
       autopager: {
-        pageElement: '//li[@class="feed-row-wide"]',
+        pageElement: 'css;ul#feed-main-list > *',
+        replaceE: 'css;#J_feed_pagenation',
       }
     },
     {
