@@ -600,6 +600,16 @@
         }
       }
     },
+    {
+      name: 'smzdm-值友评论',
+      url: /^https?:\/\/zhiyou\.smzdm\.com\/member\/\d+\/pinglun/i,
+      exampleUrl: 'https://zhiyou.smzdm.com/member/1823681945/pinglun/',
+      nextLink: '//ul[@class="pagination"]/li[@class="pagedown"]/a',
+      autopager: {
+        pageElement: '//div[@class="infoPerBlock infoCommentBlock"]',
+        replaceE: '(//ul[@class="pagination"])[1]',
+      }
+    },
     // ================ news、Reading ===========================
     {
       name: '新浪新闻',
