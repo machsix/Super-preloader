@@ -2591,32 +2591,13 @@
       pageElement: '//div[@id="content"]/div[@class="results"]/ul[@class="packages results"]'
     },
     {
-      name: 'laomaoit - 老殁软件分享-首页',
+      name: 'laomaoit - 老殁软件分享',
       url: '^https?://www\\.laomoit\\.com',
       exampleUrl: 'https://www.laomoit.com',
       nextLink: '//div[@id="pagenavi"]//a[text()="下一页"]',
       autopager:{
-          pageElement:'//div[@id="post"]',
-          // 删除页面上不需要的元素
-          documentFilter: function(doc){
-              var nodeBrowse = doc.querySelector(".browse");
-              if (nodeBrowse) {
-                  nodeBrowse.parentNode.removeChild(nodeBrowse);
-              }
-              var nodeMap = doc.querySelector("#map");
-              if (nodeMap) {
-                  nodeMap.parentNode.removeChild(nodeMap);
-              }
-          },
-      },
-    },
-    {
-      name: 'laomaoit - 老殁软件分享-其他页面',
-      url: '^https?://www\\.laomoit\\.com/.+',
-      exampleUrl: 'https://www.laomoit.com',
-      nextLink: '//div[@id="pagenavi"]//a[text()="下一页"]',
-      autopager:{
-          pageElement:'//div[@id="content"]',
+          pageElement:'id("post") | id("content")',
+          replaceE: 'css;#pagenavi',
           // 删除页面上不需要的元素
           documentFilter: function(doc){
               var nodeBrowse = doc.querySelector(".browse");
