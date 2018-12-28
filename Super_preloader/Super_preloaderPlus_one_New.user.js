@@ -547,12 +547,17 @@
     },
     {
       name: 'smzdm-search',
-      url: /^https?:\/\/search\.smzdm\.com/i,
+      url: '^https?://search\\.smzdm\\.com/\\?c=',
       exampleUrl: 'http://search.smzdm.com/?c=post&s=%E7%A9%BA%E8%B0%83&v=b',
-      nextLink: '//li/a[text()="下一页"]',
-      prevLink: '//li/a[text()="上一页"]',
+      // 添加了如下页面的匹配
+      // exampleUrl: 'https://search.smzdm.com/?c=youhui&s=%E7%A9%BA%E8%B0%83',
+      // exampleUrl: 'https://search.smzdm.com/?c=haitao&s=%E7%A9%BA%E8%B0%83',
+      enable: true,
+      nextLink: '//a[contains(text(),"下一页")][@href]',
+      preLink: '//a[contains(text(),"上一页")][@href]',
       autopager: {
-        pageElement: '//li[@class="feed-row-wide"]',
+        pageElement: 'css;ul#feed-main-list >*',
+        replaceE: 'css;#J_feed_pagenation',
       }
     },
     {
@@ -560,7 +565,7 @@
       url: /^https?:\/\/www\.smzdm\.com\/fenlei\//i,
       exampleUrl: 'https://www.smzdm.com/fenlei/shuiguo/',
       nextLink: '//li/a[text()="下一页"]',
-      prevLink: '//li/a[text()="上一页"]',
+      preLink: '//li/a[text()="上一页"]',
       autopager: {
         pageElement: '//li[@class="feed-row-wide"]',
       }
@@ -570,17 +575,40 @@
       url: /^https?:\/\/www\.smzdm\.com\/tag\//i,
       exampleUrl: 'https://www.smzdm.com/tag/%E5%8D%8A%E4%BB%B7%E7%89%B9%E6%83%A0/youhui/',
       nextLink: '//li/a[text()="下一页"]',
-      prevLink: '//li/a[text()="上一页"]',
+      preLink: '//li/a[text()="上一页"]',
       autopager: {
         pageElement: '//div[contains(@class,"list list_preferential")]',
       }
     },
     {
       name: 'smzdm-comment',
-      url: /^https?:\/\/post\.smzdm\.com\/p\/\d+/i,
+      url: /^https?:\/\/\w+\.smzdm\.com\/p\/\d+/i,
       exampleUrl: 'https://post.smzdm.com/p/559992/',
+      // 还有另外一种评论
+      // exampleUrl: 'https://www.smzdm.com/p/11496450/',
       nextLink: '//ul[@class="pagination"]/li[@class="pagedown"]/a',
-      pageElement: '(//ul[@class="comment_listBox"])[1]'
+      autopager: {
+        pageElement: 'id("commentTabBlockNew")/ul[@class="comment_listBox"]',
+        replaceE: '(//ul[@class="pagination"])[1]',
+        // 好好的一个页面非要弄出2个翻页器，干掉一个
+        // 只执行一次
+        startFilter: function (win, doc) {
+          var firstDiv = doc.querySelector(".pagination");
+          if (firstDiv) {
+            firstDiv.parentNode.removeChild(firstDiv);
+          }
+        }
+      }
+    },
+    {
+      name: 'smzdm-值友评论',
+      url: /^https?:\/\/zhiyou\.smzdm\.com\/member\/\d+\/pinglun/i,
+      exampleUrl: 'https://zhiyou.smzdm.com/member/1823681945/pinglun/',
+      nextLink: '//ul[@class="pagination"]/li[@class="pagedown"]/a',
+      autopager: {
+        pageElement: '//div[@class="infoPerBlock infoCommentBlock"]',
+        replaceE: '(//ul[@class="pagination"])[1]',
+      }
     },
     // ================ news、Reading ===========================
     {
@@ -2562,7 +2590,27 @@
       nextLink: '//nav[@class="pagination"]/a[@class="selected"]/following::a[1]',
       pageElement: '//div[@id="content"]/div[@class="results"]/ul[@class="packages results"]'
     },
-
+    {
+      name: 'laomaoit - 老殁软件分享',
+      url: '^https?://www\\.laomoit\\.com',
+      exampleUrl: 'https://www.laomoit.com',
+      nextLink: '//div[@id="pagenavi"]//a[text()="下一页"]',
+      autopager:{
+          pageElement:'id("post") | id("content")',
+          replaceE: 'css;#pagenavi',
+          // 删除页面上不需要的元素
+          documentFilter: function(doc){
+              var nodeBrowse = doc.querySelector(".browse");
+              if (nodeBrowse) {
+                  nodeBrowse.parentNode.removeChild(nodeBrowse);
+              }
+              var nodeMap = doc.querySelector("#map");
+              if (nodeMap) {
+                  nodeMap.parentNode.removeChild(nodeMap);
+              }
+          },
+      },
+    },
     // ========================= dev =================================
     {
       name: 'User Scripts',
