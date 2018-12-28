@@ -135,5 +135,12 @@
       "ipages": [true, 30]
     },
     "exampleUrl": "http://www.gssy.cc/30856/5"
+  },
+  {
+    "name": "free-proxy",
+    "url": "^https?://free-proxy.cz",
+    "exampleUrl": "http://free-proxy.cz/en/",
+    "nextLink": "//div[@class='paginator']/a[last()]",
+    "pageElement": "//table[@id='proxy_list']"
   }
 ]
