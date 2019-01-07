@@ -294,7 +294,7 @@
         // filter:'//li[@class="g"]',                                                                        //(此项功能未完成)xpath 或 CSS选择器从匹配到的节点里面过滤掉符合的节点.
         remain: 1 / 3, // 剩余页面的高度..是显示高度的 remain 倍开始翻页(可选)
         relatedObj: ['css;div#navcnt', 'bottom'], // 以这个元素当做最底的元素,计算页面总高度的计算.(可选)
-        replaceE: '//div[@id="navcnt"]', // 需要替换的部分 xpat h或 CSS选择器 一般是页面的本来的翻页导航(可选);
+        replaceE: '//div[@id="navcnt"]', // 需要替换的部分 xpath或 CSS选择器 一般是页面的本来的翻页导航(可选);
         // replaceE:'css;div#navcnt',
         ipages: [false, 2], // 立即翻页,第一项是控制是否在js加载的时候立即翻第二项(必须小于maxpage)的页数,比如[true,3].就是说JS加载后.立即翻3页.(可选)
         separator: true, // 是否显示翻页导航(可选)
@@ -431,16 +431,16 @@
         //pageElement: 'id("b_results")/li[@class="b_algo"]',
         replaceE: '//nav[@role="navigation"]',
         HT_insert: ['id("b_results")/li[@class="b_pag"]', 1],
-//         startFilter: function (win, doc) { // 移动相关搜索到第一页
-//           var brs = doc.evaluate('id("b_results")/li[@class="b_ans"]').iterateNext();
-//           debug(brs);
-//           var ins = doc.getElementsByClassName('b_algo');
-//           ins = ins[ins.length - 1];
-//           debug(ins);
-//           if (brs && ins) {
-//             ins.appendChild(brs);
-//           }
-//         }
+        // startFilter: function (win, doc) { // 移动相关搜索到第一页
+        //   var brs = doc.evaluate('id("b_results")/li[@class="b_ans"]').iterateNext();
+        //   debug(brs);
+        //   var ins = doc.getElementsByClassName('b_algo');
+        //   ins = ins[ins.length - 1];
+        //   debug(ins);
+        //   if (brs && ins) {
+        //     ins.appendChild(brs);
+        //   }
+        // }
       }
     },
     {
@@ -2695,7 +2695,6 @@
       nextLink: '//a[@rel="next"]',
       pageElement: 'id("mainbar questions")//div[contains(concat(" ",@class," ")," question-summary ")]|id("answers")/div[@class="pager-answers"][1]/following-sibling::*[./following-sibling::div[@class="pager-answers"]]'
     },
-
     // ========================= novel =============================
     {
       name: '起点文学',
