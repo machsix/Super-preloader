@@ -48,7 +48,7 @@
   },
   {
     "name": "性感尤物",
-    "url": "^https?://www\\.(jpxgyw|xgyw)\\.(com|cc)/[^/]*/[^/]*\\.html",
+    "url": "^https?://www\\.(jpxgyw|xgyw|nvshenheji)\\.(com|cc)/[^/]*/[^/]*\\.html",
     "exampleUrl": "http://www.xgyw.cc/Xgyw/Xgyw6874.html",
     "nextLink": "//div[@class='page']/a[text()='后']",
     "autopager": {
@@ -135,5 +135,19 @@
       "ipages": [true, 30]
     },
     "exampleUrl": "http://www.gssy.cc/30856/5"
+  },
+  {
+    "name": "free-proxy",
+    "url": "^https?://free-proxy.cz",
+    "exampleUrl": "http://free-proxy.cz/en/",
+    "nextLink": "//div[@class='paginator']/a[last()]",
+    "pageElement": "//table[@id='proxy_list']"
+  },
+  {
+    "name": "烈火软件",
+    "url": "^https?://hrtsea.(com|cc)",
+    "exampleUrl": "https://hrtsea.com/",
+    "nextLink": "//div[@class='pagination']/ul/li[@class='next-page']/a",
+    "pageElement": "//div[@class='content']/article"
   }
 ]
