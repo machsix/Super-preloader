@@ -9,7 +9,7 @@
 // @description:zh-cn  预读+翻页..全加速你的浏览体验
 // @description:zh-TW  预读+翻页..全加速你的浏览体验
 // @author       Mach6
-// @version      6.6.12
+// @version      6.6.13
 // @license      GNU GPL v3
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
@@ -54,9 +54,9 @@
 // ==/UserScript==
 (function () {
   var scriptInfo = {
-    version: '6.6.12',
-    updateTime: '2018/12/12',
-    changelog: 'Remove generic rule in wedata',
+    version: '6.6.13',
+    updateTime: '2018/12/28',
+    changelog: 'Merge smzdm',
     homepageURL: 'https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new',
     downloadUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.user.js',
     metaUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.meta.js',
@@ -7962,7 +7962,7 @@
     doc = doc || document;
     contextNode = contextNode || doc;
     try {
-        result = doc.evaluate(xpath, contextNode, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
+        var result = doc.evaluate(xpath, contextNode, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
     } catch (err) {
         console.log('Invalid xpath: ',xpath);
     }
