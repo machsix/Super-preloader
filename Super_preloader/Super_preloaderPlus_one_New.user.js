@@ -9,7 +9,7 @@
 // @description:zh-cn  预读+翻页..全加速你的浏览体验
 // @description:zh-TW  预读+翻页..全加速你的浏览体验
 // @author       Mach6
-// @version      6.6.13
+// @version      6.6.14
 // @license      GNU GPL v3
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
@@ -54,9 +54,9 @@
 // ==/UserScript==
 (function () {
   var scriptInfo = {
-    version: '6.6.13',
-    updateTime: '2018/12/28',
-    changelog: 'Merge smzdm',
+    version: '6.6.14',
+    updateTime: '2019/1/17',
+    changelog: 'SF manga',
     homepageURL: 'https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new',
     downloadUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.user.js',
     metaUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.meta.js',
@@ -3538,7 +3538,7 @@
     //     },
     {
       name: 'SF在线漫画',
-      url: /^https?:\/\/manhua\.sfacg\.com\/mh\/.+/i,
+      url: "^https?://(manhua\\.sfacg\\.com/mh|www\\.acg456\\.com)/.+",
       siteExample: 'https://manhua.sfacg.com/mh/YULINGSHI/20087/#p=2',
       preLink: {
         startAfter: '#p=',
@@ -3547,14 +3547,13 @@
       },
       nextLink: {
         startAfter: '#p=',
-        mFails: [/^https?:\/\/manhua\.sfacg\.com\/mh\/.+/i, '#p=1'],
+        mFails: [/^https?:\/\/(?:manhua\.sfacg\.com\/mh|www\.acg456\.com)\/.+/i, '#p=1'],
         inc: 1,
         isLast: function (doc, win, lhref) {
-          var pageSel = doc.getElementById('pageSel');
-          if (pageSel) {
-            var s2os = pageSel.options;
-            var s2osl = s2os.length;
-            if (pageSel.selectedIndex == s2osl - 1) return true;
+          var TotalPage = Number(doc.getElementById('TotalPage').innerText)-1;
+          var CurrentPage = Number(doc.getElementById('CurrentPage').innerText);
+          if (CurrentPage == TotalPage) {
+            return true;
           }
         }
       },
@@ -3564,7 +3563,6 @@
         reload: true,
         replaceE: 'id("Pages")'
       }
-      // only work in chrome
     },
     {
       name: '哦漫画',
@@ -3602,11 +3600,13 @@
         var next = current + 1;
         var xpath = '//div[@class="cH1"]/b[1]';
         var maxpage = document.getElementById('hdPageCount');
-        if (maxpage) { maxpage = Number(maxpage.value); } else {
-          maxpage = document.getElementById('spPageCount');
-          if (maxpage) { maxpage = Number(maxpage.innerText); } else { return undefined; }
+        if (maxpage) {
+            maxpage = Number(maxpage.value);
+        } else {
+            maxpage = document.getElementById('spPageCount');
+            if (maxpage) { maxpage = Number(maxpage.innerText); } else { return undefined; }
         }
-        if (next == maxpage) { return undefined; } else { return m[1] + next + m[3] + dID; }
+        if (next == maxpage+1) { return undefined; } else { return m[1] + next + m[3] + dID; }
       },
       autopager: {
         useiframe: true,
@@ -7556,6 +7556,9 @@
     var index;
 
     if (saType == 'string') {
+      if (sa[0] == '#') {
+          _cplink = doc.location.href;
+      }
       index = _cplink.indexOf(sa);
       if (index == -1) {
         _cplink = getHref(_cplink);
