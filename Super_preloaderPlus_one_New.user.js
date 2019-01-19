@@ -2044,12 +2044,6 @@
       nextLink: '//a[@class="now"]/following-sibling::a[1][not(@class="last") ]',
       pageElement: '//tr[@class="topic_list_row"]'
     },
-    {
-      name: '宽带山',
-      url: '^https?://club\\.kdslife\\.com/.*\\.html$',
-      nextLink: '//div[@class="pages"]/a[last()]',
-      pageElement: 'id("reply_list_panel")'
-    },
 
     // ========================= picture ================================================
     {
