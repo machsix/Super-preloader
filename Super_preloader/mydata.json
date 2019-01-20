@@ -26,9 +26,9 @@
     "name": "小众软件",
     "url": "^https?://www.appinn\\.com",
     "exampleUrl": "https://www.appinn.com/",
-    "nextLink": "//a[@class='nextpostslink']",
-    "prevLink": "//a[@class='previouspostslink']",
-    "pageElement": "//div[@id='spost']/div[not(contains(@id,'post-26940'))]"
+    "nextLink": "//div[@class='nav-links']/a[contains(@class,'next')]",
+    "prevLink": "//div[@class='nav-links']/a[contains(@class,'prev')]",
+    "pageElement": "//div[@id='latest-posts']"
   },
   {
     "name": "好人卡",
