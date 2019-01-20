@@ -28,7 +28,7 @@
     "exampleUrl": "https://www.appinn.com/",
     "nextLink": "//div[@class='nav-links']/a[contains(@class,'next')]",
     "prevLink": "//div[@class='nav-links']/a[contains(@class,'prev')]",
-    "pageElement": "//div[@id='latest-posts']"
+    "pageElement": "//section[@id='latest-posts']"
   },
   {
     "name": "好人卡",
