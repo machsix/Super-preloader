@@ -39,8 +39,8 @@ Content:
 > /^https?://((?:\w+.)(?!pixiv))?\w+.(com|cn|ja|jp|net|ru|co|io|cc|me|tw|org|edu|tv|co)(.\w+)?/.*$/
 
 #Compatibility with different brownser
-|JS manager          | Chrome   | Firefox (>57) | Firefox (<57) |
-|--------------------|----------|---------------|---------------|
+Following the trend of asynchronous programming and new API of Greasemonkey 4 , your browser needs to support ES6 in order to use this script. If you have Chrome<49, you can use the old version of my script [download](https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/code?version=634666) but the rules won't be updated anymore.
+|JS manager          | ![Chrome](https://img.shields.io/badge/Chrome-%3Ev49-blue.svg) | ![Firefox](https://img.shields.io/badge/Firefox-%3E57-red.svg) | Firefox (<57)|--------------------|----------|---------------|---------------|
 |Tampermonkey        |   ✓      | ✓             | NA            |
 |Violentmonkey       |   ✓      | ✓             | No tested     |
 |Greasemonkey 4      |   NA     | ✓             | NA            |
