@@ -1,10 +1,9 @@
 ![icon!](https://github.com/machsix/personal-scripts/raw/master/Super_preloader/icon2.png)
 #介绍
 自动翻页脚本，由[ywzhaiqi && NLF原作](https://github.com/ywzhaiqi/userscript/tree/master/scripts/Super_preloaderPlus)修改规则而来。我的维护主要包括以下几方面
-1. 添加、更新站点规则
-2. 适配Greasemonkey4的新异步编程API(欢迎其他脚本作者使用库函数实现Greasemonkey4的兼容[https://greasyfork.org/zh-CN/scripts/373124-gm4-polyfill-mach6-legacy](https://greasyfork.org/zh-CN/scripts/373124-gm4-polyfill-mach6-legacy)
-3. 添加针对部分使用lazyload的网站的支持
-4. 添加功能以直接使用共享数据库[wedata](http://wedata.net/databases/AutoPagerize/items)
+1. 适配Greasemonkey4的新异步编程API(欢迎其他脚本作者使用库函数实现Greasemonkey4的兼容[https://greasyfork.org/zh-CN/scripts/373124-gm4-polyfill-mach6-legacy](https://greasyfork.org/zh-CN/scripts/373124-gm4-polyfill-mach6-legacy)
+2. 添加针对部分使用lazyload的网站的支持
+3. 添加功能以直接使用共享数据库[wedata](http://wedata.net/databases/AutoPagerize/items)
 
 [ywzhaiqi 原始脚本最后一次更新于 Sep 7th 2017](https://github.com/ywzhaiqi/userscript/tree/master/scripts/Super_preloaderPlus). Greasefork上其他所谓的Super_preloaderPlus基本是ywzhaiqi原脚本的拷贝
 
@@ -55,7 +54,8 @@ https://greasyfork.org/en/forum/discussion/43712/x
 8. 部分网站response内有个'x-frame-options'的header，你需要安装插件[ModHeader for Firefox](https://addons.mozilla.org/en-US/firefox/addon/modheader-firefox/?src=search) 或者 [Ignore X-Frame headers for Chrome](https://chrome.google.com/webstore/detail/ignore-x-frame-headers/gleekbfjekiniecknbkamfmkohkpodhe?hl=en-US) 来修改header。对于前者，你需要手动添加规则 response header -> Name:X-Frame-Options Value:\[空白\] 
 
 #浏览器兼容性
-|JS manager          | Chrome   | Firefox (>57) | Firefox (<57) |
+浏览器需要提供对ES6的支持， Chrome>49
+|JS manager          | ![Chrome](https://img.shields.io/badge/Chrome-%3Ev49-blue.svg) | ![Firefox](https://img.shields.io/badge/Firefox-%3E57-red.svg) | Firefox (<57)
 |--------------------|----------|---------------|---------------|
 |Tampermonkey        |   ✓      | ✓             | NA            |
 |Violentmonkey       |   ✓      | ✓             | Not test     |

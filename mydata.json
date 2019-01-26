@@ -47,19 +47,6 @@
     "pageElement": "//div[@class='cell item']|//div[contains(@class, 'cell from')]"
   },
   {
-    "name": "性感尤物",
-    "url": "^https?://www\\.(jpxgyw|xgyw|nvshenheji)\\.(com|cc)/[^/]*/[^/]*\\.html",
-    "exampleUrl": "http://www.xgyw.cc/Xgyw/Xgyw6874.html",
-    "nextLink": "//div[@class='page']/a[text()='后']",
-    "autopager": {
-      "pageElement": "//div[@class='img']/p",
-      "ipages": [
-        true,
-        30
-      ]
-    }
-  },
-  {
     "name": "5156",
     "url": "^https?://tu\\.jiachong\\.net/meinvtupian",
     "exampleUrl": "http://tu.jiachong.net/meinvtupian/rentiyishu/105115.html",
@@ -73,8 +60,21 @@
     }
   },
   {
+    "name": "性感尤物",
+    "url": "^https?://www\\.(jpxgyw|xgyw|nvshenheji|xgmn5)\\.(com|cc)/[^/]*/[^/]*\\.html",
+    "exampleUrl": "http://www.xgyw.cc/Xgyw/Xgyw6874.html",
+    "nextLink": "//div[@class='page']/a[text()='后']",
+    "autopager": {
+      "pageElement": "//div[@class='img']/p",
+      "ipages": [
+        true,
+        30
+      ]
+    }
+  },
+  {
     "name": "性感尤物2",
-    "url": "^https?://www\\.(jpxgyw|xgyw)\\.(com|cc)/[^/]*/",
+    "url": "^https?://www\\.(jpxgyw|xgyw|xgmn5|nvshenheji)\\.(com|cc)/[^/]*/",
     "exampleUrl": "http://www.xgyw.cc/Xgyw",
     "nextLink": "//div[@class='page']/a[text()='下页']",
     "autopager": {

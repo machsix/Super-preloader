@@ -9,11 +9,11 @@
 // @description:zh-cn  预读+翻页..全加速你的浏览体验
 // @description:zh-TW  预读+翻页..全加速你的浏览体验
 // @author       Mach6
-// @version      6.6.15
+// @version      6.6.16
 // @license      GNU GPL v3
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
-// @icon         https://cdn.rawgit.com/machsix/personal-scripts/master/Super_preloader/icon.png
+// @icon         https://raw.githubusercontent.com/machsix/Super-preloader/master/icon.png
 // @require      https://greasyfork.org/scripts/373124-gm4-polyfill-mach6-legacy/code/gm4-polyfill-mach6-legacy.js?version=635792
 // @grant        GM.getValue
 // @grant        GM_getValue
@@ -54,9 +54,9 @@
 // ==/UserScript==
 (function () {
   var scriptInfo = {
-    version: '6.6.15',
-    updateTime: '2019/1/19',
-    changelog: 'Appinn',
+    version: '6.6.16',
+    updateTime: '2019/1/26',
+    changelog: 'xgyw',
     homepageURL: 'https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new',
     downloadUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.user.js',
     metaUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.meta.js',
@@ -1597,7 +1597,7 @@
     },
     {
       name: 'Discuz X2.5修复',
-      url: /^http?:\/\/(bbs.gfan|bbs.xda|bbs.weiphone|bbs.feng|www.weiqitv|www.diypda|f.ppxclub|bbs.sd001|bbs.itiankong)\.(com|cn)/i,
+      url: /^https?:\/\/(bbs.gfan|bbs.xda|bbs.weiphone|bbs.feng|www.weiqitv|www.diypda|f.ppxclub|bbs.sd001|bbs.itiankong)\.(com|cn)/i,
       nextLink: 'auto;',
       autopager: {
         pageElement: '//div[@id="threadlist"] | //div[@id="postlist"]',
@@ -4698,10 +4698,12 @@
   // ruleParser: a function parse responseText and return rule / null
   var jsonRuleProvider = [
     {
-      url: 'https://machsix.github.io/personal-scripts/mydata.json',
+      name: 'machsix.github.io',
+      url: 'https://machsix.github.io/Super-preloader/mydata.json',
       ruleParser: null
     },
     {
+      name: 'wedata.net',
       url: 'http://wedata.net/databases/AutoPagerize/items.json',
       ruleParser: function(responseText){
           return JSON.parse(responseText).filter(function(i) {
@@ -4741,7 +4743,7 @@
                 } else {
                   rule = JSON.parse(res.responseText);
                 }
-                //debug(rule);
+                debug('Rules from' + jsonRuleProvider[iurl].name + ' is updated');
                 resolve(rule);
               },
               onerror: function(res) {console.log(jsonRuleProvider[iurl].url, 'error');}

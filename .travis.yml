@@ -1,0 +1,18 @@
+language: python
+python:
+  - "2.7"
+
+install:
+    - pip install sphinx_rtd_theme
+    - pip install travis-sphinx
+
+script:
+    - travis-sphinx build --source docs/source
+    - rm -rf doc/build/_downloads
+    - sed -i 's|_downloads/\w\+/||g' doc/build/super_preloader.html
+    - "curl \"http://wedata.net/databases/AutoPagerize/items_all.json\" -X GET -H 'Content-Type: application/json'  -o doc/build/wedata.json"
+    - cp mydata.json doc/build/mydata.json
+
+after_success:
+    - "export DAY=`date --date='TZ=\"America/Los_Angeles\" now' +'%F %X'`"
+    - "travis-sphinx deploy -m \"${TRAVIS_COMMIT}-${DAY}\""
