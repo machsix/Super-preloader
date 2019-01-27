@@ -54,7 +54,6 @@
 
 // ==/UserScript==
 (function () {
-  'use strict';
   const scriptInfo = {
     version: '6.6.17',
     updateTime: '2019/1/27',
