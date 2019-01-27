@@ -23,6 +23,20 @@
     "exampleUrl": "http://www.wnacg.org/photos-view-id-2132443.html"
   },
   {
+    "name": "vBulletin Special Thread",
+    "url": "^https?://(www|forum)\\.(planetsuzy)\\.(org|com)/t\\d+-.*",
+    "nextLink": "//tr[@valign='top']//div[@class='pagenav']//a[contains(text(), '>')]",
+    "pageElement": "//div[contains(@id,'edit')]",
+    "exampleUrl": "Request by heiyutian "
+  },
+  {
+    "name": "vBulletin Special Threadlist",
+    "url": "^https?://(www|forum)\\.(planetsuzy)\\.(org|com)/f\\d+-.*",
+    "nextLink": "auto;",
+    "pageElement": "//div[@id='posts']/div[@align='center'] | //table[@class='tborder'][@id='threadslist']",
+    "exampleUrl": "Why do you masturbate!!"
+  },
+  {
     "name": "小众软件",
     "url": "^https?://www.appinn\\.com",
     "exampleUrl": "https://www.appinn.com/",

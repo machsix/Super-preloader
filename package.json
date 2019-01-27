@@ -1,0 +1,30 @@
+{
+  "name": "super-preloader",
+  "version": "6.6.17",
+  "description": "Super-preloader",
+  "main": "Super_preloaderPlus_one_New.user.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/machsix/Super-preloader.git"
+  },
+  "keywords": [
+    "userscript"
+  ],
+  "author": "MachX",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/machsix/Super-preloader/issues"
+  },
+  "homepage": "https://github.com/machsix/Super-preloader#readme",
+  "devDependencies": {},
+  "browserslist": [
+    "Chrome > 32 or Firefox > 36"
+  ],
+  "dependencies": {}
+}
