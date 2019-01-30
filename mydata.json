@@ -169,5 +169,11 @@
     "url": "^https?://club\\.kdslife\\.com/.*\\.html$",
     "nextLink": "//div[@class='pages']/a[last()]",
     "pageElement": "id('reply_list_panel')"
+  },
+  {
+    "name": "llss",
+    "url": "^https?://[^.]+\\.(liuli|liuli)\\.(pw|in)/",
+    "nextLink": "//div[@id='wp_page_numbers']/ul/li[last()]/a",
+    "pageElement": "//div[@id='content']/article"
   }
 ]

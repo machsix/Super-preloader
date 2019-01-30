@@ -10,7 +10,7 @@
 // @description:zh-cn  预读+翻页..全加速你的浏览体验
 // @description:zh-TW  预读+翻页..全加速你的浏览体验
 // @author       Mach6
-// @version      6.6.17
+// @version      6.6.18
 // @license      GNU GPL v3
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
@@ -56,7 +56,7 @@
 (function () {
   'use strict';
   const scriptInfo = {
-    version: '6.6.17',
+    version: '6.6.18',
     updateTime: '2019/1/27',
     changelog: 'Fix general rule',
     homepageURL: 'https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new',
@@ -4415,15 +4415,6 @@
       nextLink: '//li[contains(concat(" ", @class, " "), " page_next ")]/a',
       siteExample: 'http://www.pornhub.com/video http://www.pornhub.com/album',
       pageElement: '//li[contains(concat(" ", @class, " "), " videoblock ")] | //li[contains(concat(" ", @class, " "), " photoAlbumListContainer ")] ',
-    },
-    {
-      name: 'llss',
-      url: '^https?://[^.]+\.liuli\.pw/',
-      nextLink: "//div[@id='wp_page_numbers']/ul/li[last()]/a",
-      autopager: {
-        enable: true,
-        pageElement: "//div[@id='content']/article"
-      }
     },
     {
       name: 'YouAV',
