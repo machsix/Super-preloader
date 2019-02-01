@@ -943,7 +943,7 @@
       url: /^https?:\/\/(?:www|u|i|tv)\.youku\.com\//i,
       nextLink: '//a[@title="下一页"] | //li[@class="next"]/a[text()="下一页"] | //a[em/@class="ico_next"] | //a[span/@class="ico__pagenext"]',
       autopager: {
-        pageElement: '//div[@id="list" or @id="listofficial"] | id("getVideoList") | id("imgType") | //div[@class="YK_main" or @class="mainCol"]/descendant::div[@class="items"]'
+        pageElement: '//div[@id="list" or @id="listofficial"] | id("getVideoList") | id("imgType") | //div[@class="YK_main" or @class="mainCol"]/descendant::div[@class="items"] | div[@class="videos-list"]/div[@class="items"]'
       }
     },
     {
@@ -1799,7 +1799,7 @@
       nextLink: 'id("cms_page_next")',
       autopager: {
         pageElement: '//div[@id="text"]',
-        replaceE: '//div[@class="page"]',
+        replaceE: '//div[@class="page"] | id("m_pbtnbtm")',
         relatedObj: true
       }
     },
@@ -2046,7 +2046,22 @@
       nextLink: '//a[@class="now"]/following-sibling::a[1][not(@class="last") ]',
       pageElement: '//tr[@class="topic_list_row"]'
     },
-
+    {
+      name: "koolshare扩展页面",
+      url: "^https?://koolshare\\.cn/home\\.php",
+      exampleUrl: "http://koolshare.cn/home.php",
+      nextLink: "//a[contains(text(),'下一页')]",
+      pageElement: "id('ct')//tbody",
+      autopager: {
+        // 只执行一次，删除多余的表头
+        documentFilter: function (doc) {
+          const firstDiv = doc.querySelector(".th");
+          if (firstDiv) {
+            firstDiv.parentNode.removeChild(firstDiv);
+          }
+        }
+      }
+    },
     // ========================= picture ================================================
     {
       name: 'Flickr photos',
