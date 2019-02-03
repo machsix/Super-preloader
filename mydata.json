@@ -175,5 +175,17 @@
     "url": "^https?://[^.]+\\.(liuli|liuli)\\.(pw|in)/",
     "nextLink": "//div[@id='wp_page_numbers']/ul/li[last()]/a",
     "pageElement": "//div[@id='content']/article"
+  },
+  {
+    "name": "libaclub.com threads",
+    "url": "^https?://www\\.libaclub\\.com/t_",
+    "nextLink": "//a[@class='ui-paging-next']",
+    "pageElement": "//div[@class='ui-box-content']"
+  },
+  {
+    "name": "libaclub.com thread_list",
+    "url": "^https?://www\\.libaclub\\.com",
+    "nextLink": "//div[@class='ui-paging']/a[contains(text(),'下一页')] | //a[@class='fn-link']",
+    "pageElement": "//li[contains(@class, 'ui-list-item')]"
   }
 ]
