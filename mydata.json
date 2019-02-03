@@ -101,6 +101,13 @@
     }
   },
   {
+    "name": "豆瓣-影人",
+    "url": "^https?://movie\\.douban\\.com/celebrity/\\d+/(movie|photos|partners)",
+    "nextLink": "//div[@class='paginator']/span[@class='next']/a",
+    "pageElement": "//div[@class='article']/ul|//div[@class='article']/div[@class='']|//div[@class='grid_view']/ul",
+    "exampleUrl": "https://movie.douban.com/celebrity/1054531/movies?sortby=time&format=pic"
+  },
+  {
     "name": "豆瓣-书影音评论",
     "url": "^https?://.*\\.douban\\.com/subject",
     "nextLink": "//div[@class='paginator']/span[@class='next']/a[contains(text(),'后页')]|id('paginator')/a[contains(text(),'后页')]",
