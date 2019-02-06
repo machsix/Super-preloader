@@ -3463,7 +3463,31 @@
       pageElement: '//table[@width="100%"][@cellspacing="0"][@cellpadding="2"]',
       scroll_only: true
     },
+    {
+      name: '优书-书单|评论',
+      url: /^https?:\/\/www\.yousuu\.com\/(comments|booklist)/i,
+      nextLink: function (doc, win, cplink) {
+        res = getElementByXpath('//ul[@class="pagination"]/li[2]', doc);
+        if (res == null) {
+          return undefined;
+        }
 
+        t = res.innerHTML.match(/\d+/g)
+        if (t == null) {
+          return undefined;
+        }
+
+        t = t[0]
+        if (cplink.indexOf("t=") != -1) {
+          return cplink.replace(/t=\d+/, 't=' + t);
+        } else if (cplink.indexOf("?") != -1) {
+          return cplink + "&t="+t;
+        } else {
+          return cplink + "?t="+t;
+        }
+      },
+      pageElement: '//table[contains(@class, "shudanlist")] | //ul[contains(@class, "ys-comments")]',
+    },
     // =============================== manhua ========================
     {
       name: '天极动漫频道新闻',
