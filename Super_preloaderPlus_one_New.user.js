@@ -2726,6 +2726,35 @@
       }
     },
     {
+      name: '起点文学-排行榜',
+      url: /^https?:\/\/www\.(qidian)\.com(\/mm)?\/rank\/.*/i,
+      siteExample: 'https://www.qidian.com/rank/collect',
+      nextLink: function (doc, win, cplink) {
+        res = getElementByXpath('//div[@id="page-container"]', doc);
+
+        if (res == null) {
+          return undefined;
+        }
+
+        const next = Number(res.dataset.page) + 1;
+
+        if (next > res.dataset.pagemax) {
+          return undefined;
+        } else {
+          if (cplink.indexOf("page=") != -1) {
+            return cplink.replace(/page=\d+/, 'page=' + next);
+          } else if (cplink.indexOf("?") != -1) {
+            return cplink + "&page="+next;
+          } else {
+            return cplink + "?page="+next;
+          }
+        }
+      },
+      autopager: {
+        pageElement: '//div[@class="rank-body"]'
+      }
+    },
+    {
       name: '逐浪小说',
       url: /^https?:\/\/book\.zhulang\.com\/.+\.html/i,
       siteExample: 'http://book.zhulang.com/153319/62230.html',
