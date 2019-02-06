@@ -3469,7 +3469,6 @@
       nextLink: function (doc, win, cplink) {
         res = getElementByXpath('//ul[contains(@class, "pagination")]', doc);
         if (res == null) {
-          console.log("没找到")
           return undefined;
         }
 
@@ -3480,7 +3479,6 @@
         } else if (res.childNodes.length == 4) {
           pageNode = res.childNodes[2]
         } else {
-          console.log("未知长度")
           return undefined;
         }
 
@@ -3490,7 +3488,6 @@
         }
 
         pageInfo = findout[1]+"="+findout[2]
-        console.log("pageInfo", pageInfo)
 
         if (cplink.indexOf(findout[1]+"=") != -1) {
           return cplink.replace(new RegExp(findout[1]+"=\\d+"), pageInfo);
