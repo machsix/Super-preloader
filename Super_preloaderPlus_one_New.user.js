@@ -3467,26 +3467,43 @@
       name: '优书-书单|评论',
       url: /^https?:\/\/www\.yousuu\.com\/(comments|booklist)/i,
       nextLink: function (doc, win, cplink) {
-        res = getElementByXpath('//ul[@class="pagination"]/li[2]', doc);
+        res = getElementByXpath('//ul[contains(@class, "pagination")]', doc);
         if (res == null) {
+          console.log("没找到")
           return undefined;
         }
 
-        t = res.innerHTML.match(/\d+/g)
-        if (t == null) {
-          return undefined;
-        }
 
-        t = t[0]
-        if (cplink.indexOf("t=") != -1) {
-          return cplink.replace(/t=\d+/, 't=' + t);
-        } else if (cplink.indexOf("?") != -1) {
-          return cplink + "&t="+t;
+        var pageNode
+        if (res.childNodes.length == 2) {
+          pageNode = res.childNodes[1]
+        } else if (res.childNodes.length == 4) {
+          pageNode = res.childNodes[2]
         } else {
-          return cplink + "?t="+t;
+          console.log("未知长度")
+          return undefined;
+        }
+
+        findout = /jumpurl\('(\w+)','?(\d+)'?\)/.exec(pageNode.innerHTML)
+        if (findout == null || findout.length != 3) {
+          return undefined;
+        }
+
+        pageInfo = findout[1]+"="+findout[2]
+        console.log("pageInfo", pageInfo)
+
+        if (cplink.indexOf(findout[1]+"=") != -1) {
+          return cplink.replace(new RegExp(findout[1]+"=\\d+"), pageInfo);
+        } else if (cplink.indexOf("?") != -1) {
+          return cplink + "&"+pageInfo;
+        } else {
+          return cplink + "?"+pageInfo;
         }
       },
-      pageElement: '//table[contains(@class, "shudanlist")] | //ul[contains(@class, "ys-comments")]',
+      autopager: {
+        pageElement: '//table[contains(@class, "shudanlist")] | //ul[contains(@class, "ys-comments")] | //div[@class="ro"]/div',
+        replaceE: '//ul[contains(@class, "pagination")]'
+      }
     },
     // =============================== manhua ========================
     {
