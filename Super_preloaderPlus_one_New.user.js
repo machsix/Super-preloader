@@ -3472,17 +3472,26 @@
           return undefined;
         }
 
+        var nextNode
 
-        var pageNode
         if (res.childNodes.length == 2) {
-          pageNode = res.childNodes[1]
-        } else if (res.childNodes.length == 4) {
-          pageNode = res.childNodes[2]
+          // 只有2个子节点，首页|下一页
+          nextNode = res.childNodes[1]
         } else {
-          return undefined;
+          // 其他类型 << 1 2(active) 3 ... >>
+          // 找到active的后一项
+          for (var i = res.childNodes.length - 1; i >= 0; i--) {
+            if (res.children[i].className == "active") {
+              // 如果当前页是最后第二项，就不翻页
+              if (i == res.childNodes.length - 2) {
+                return undefined;
+              }
+              nextNode = res.childNodes[i+1]
+            }
+          }
         }
 
-        findout = /jumpurl\('(\w+)','?(\d+)'?\)/.exec(pageNode.innerHTML)
+        findout = /jumpurl\('(\w+)','?(\d+)'?\)/.exec(nextNode.innerHTML)
         if (findout == null || findout.length != 3) {
           return undefined;
         }
@@ -3498,8 +3507,7 @@
         }
       },
       autopager: {
-        pageElement: '//table[contains(@class, "shudanlist")] | //ul[contains(@class, "ys-comments")] | //div[@class="ro"]/div',
-        replaceE: '//ul[contains(@class, "pagination")]'
+        pageElement: '//table[contains(@class, "shudanlist")] | //ul[contains(@class, "ys-comments")] | //div[@class="ro"]',
       }
     },
     // =============================== manhua ========================
