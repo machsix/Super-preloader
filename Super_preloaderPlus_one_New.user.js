@@ -4342,7 +4342,7 @@
       url: '^https?://github\\.com/search',
       nextLink: "//div[@class='pagination']/a[@rel='next']",
       autopager: {
-        pageElement: "id('code_search_results issue_search_results')|//div[@class='sort-bar']/following-sibling::*[following-sibling::span[@class='search-foot-note']]",
+        pageElement: "id('code_search_results issue_search_results')|//div[@class='sort-bar']/following-sibling::*[following-sibling::span[@class='search-foot-note']] | //ul[@class='repo-list']",
         insertBefore: "//div[@class='pagination']",
         stylish: 'li.repo-list-item { text-align: left; }'
       }
