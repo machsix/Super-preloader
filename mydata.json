@@ -162,7 +162,8 @@
     "url": "^https?://free-proxy.cz",
     "exampleUrl": "http://free-proxy.cz/en/",
     "nextLink": "//div[@class='paginator']/a[last()]",
-    "pageElement": "//table[@id='proxy_list']"
+    "pageElement": "//table[@id='proxy_list']",
+    "useiframe": true
   },
   {
     "name": "烈火软件",
@@ -179,7 +180,7 @@
   },
   {
     "name": "llss",
-    "url": "^https?://[^.]+\\.(liuli|liuli)\\.(pw|in)/",
+    "url": "^https?://[^.]+\\.(liuli|liuli|llss)\\.(pw|in|me)/",
     "nextLink": "//div[@id='wp_page_numbers']/ul/li[last()]/a",
     "pageElement": "//div[@id='content']/article"
   },

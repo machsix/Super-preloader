@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-empty */
 /* eslint-disable no-console */
@@ -54,10 +55,9 @@
 
 // ==/UserScript==
 (function () {
-  'use strict';
   const scriptInfo = {
     version: '6.6.18',
-    updateTime: '2019/1/27',
+    updateTime: '2019/2/20',
     changelog: 'Fix general rule',
     homepageURL: 'https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new',
     downloadUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.user.js',
@@ -6930,6 +6930,8 @@
               if (SII.pageElement) { // 如果是Oautopager的规则..
                 if (!(SII.autopager instanceof Object)) SII.autopager = {};
                 SII.autopager.pageElement = SII.pageElement;
+                if (SII.useiframe) SII.autopager.useiframe = SII.useiframe;
+                if (SII.preLink)   SII.autopager.preLink   = SII.preLink;
                 if (SII.insertBefore) SII.autopager.HT_insert = [SII.insertBefore, 1];
               }
               SSS.a_header = (SII.header === undefined) ? false : SII.header;
