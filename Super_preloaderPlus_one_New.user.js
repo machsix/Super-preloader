@@ -3679,7 +3679,7 @@
     },
     {
       name: '汗汗漫画',
-      url: /^https?:\/\/\w+\.(?:vs20|3gmanhua|hhcomic|huhudm|huhumh|hhimm)\.(?:com|net)\/\w+\/\d+\.html/i,
+      url: /^https?:\/\/\w+\.(?:vs20|3gmanhua|hhcomic|huhudm|huhumh|hhimm|hhmmoo)\.(?:com|net)\/\w+\/\d+\.html/i,
       siteExample: 'http://www.hhmmoo.com/page315224/1.html?s=1； http://www.hhmmoo.com/page315224/4.html?s=1&d=0',
       nextLink: function (doc, win, cplink) {
         // created based on http://www.hhmmoo.com/script/view.js
