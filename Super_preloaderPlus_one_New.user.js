@@ -7460,7 +7460,7 @@
           }
         }
 
-        var ralativePageStr;
+        let ralativePageStr = "";
         if (realPageSiteMatch) { // 如果匹配就显示实际网页信息
           if (isChineseUI()) {
             if (ralativePageNumarray[1] - ralativePageNumarray[0] > 1) { // 一般是搜索引擎的第xx - xx项……
@@ -7479,10 +7479,8 @@
               ralativePageStr = ' [ <font color="red">Actual elements ends</font> ]';
             }
           }
-        } else {
-          ralativePageStr = '';
         }
-        return ralativePageStr || '';
+        return ralativePageStr;
       }
     }
   );
