@@ -75,8 +75,8 @@
   ];
 
   function CheckIframe () {
-    for (var i = 0; i < ChangeIframeSites.length; i++) {
-      if (toRE(ChangeIframeSites[i]).test(window.location.href)) {
+    for (let c of ChangeIframeSites) {
+      if (toRE(c).test(window.location.href)) {
         try {
           return window.self !== window.top;
         } catch (e) {
@@ -99,8 +99,8 @@
     mutationParser: function (mutation, ncheck) {
       if (mutation.type == 'childList') {
         if (mutation.addedNodes) {
-          for (var i = 0; i < mutation.addedNodes.length; i++) {
-            if (mutation.addedNodes[i].className.indexOf('photo-view') != -1) {
+          for (let node of mutation.addedNodes) {
+            if (node.className.indexOf('photo-view') != -1) {
               ncheck = ncheck + 1;
               break;
             }
@@ -119,11 +119,11 @@
     const domloaded = function () { // 滚动到底部,针对,某些使用滚动事件加载图片的网站.
       var targetNode;
       var LLS;
-      for (var i = 0; i < LazyLoadSites.length; i++) {
-        if (toRE(LazyLoadSites[i].url).test(window.location.href)) {
+      for (let site of LazyLoadSites) {
+        if (toRE(site.url).test(window.location.href)) {
           // Select the node that will be observed for mutations
-          targetNode = getElementByXpath(LazyLoadSites[i].target, document, document);
-          LLS = LazyLoadSites[i];
+          targetNode = getElementByXpath(site.target, document, document);
+          LLS = site;
           break;
         }
       }
@@ -133,8 +133,8 @@
         // Callback function to execute when mutations are observed
         const callback = function (mutationsList, observer) {
           // console.log("First callback");
-          for (var i = 0; i < mutationsList.length; i++) {
-            num_node_check = LLS.mutationParser(mutationsList[i], num_node_check);
+          for (let item of mutationsList) {
+            num_node_check = LLS.mutationParser(item, num_node_check);
             //  console.log(num_node_check);
             if (num_node_check == LLS.node_check_time) {
               //    console.log("finish");
@@ -4808,27 +4808,25 @@
       // jsonFinish: a callback after jsonRules are updated
       // create promises
       const jsonRulePromises = [];
-      for (var i = 0; i < jsonRuleProvider.length; i++ ){
-        (function(iurl) {
+      for (let provider of jsonRuleProvider){
           jsonRulePromises.push(new Promise(function(resolve, reject){
             const req = {
               method: "GET",
-              url: jsonRuleProvider[iurl].url,
+              url: provider.url,
               onload: function(res) {
                 var rule;
-                if (_.isFunction(jsonRuleProvider[iurl].ruleParser)) {
-                  rule = jsonRuleProvider[iurl].ruleParser(res.responseText);
+                if (_.isFunction(provider.ruleParser)) {
+                  rule = provider.ruleParser(res.responseText);
                 } else {
                   rule = JSON.parse(res.responseText);
                 }
-                debug('Rules from' + jsonRuleProvider[iurl].name + ' is updated');
+                debug('Rules from' + provider.name + ' is updated');
                 resolve(rule);
               },
-              onerror: function(res) {console.log(jsonRuleProvider[iurl].url, 'error');}
+              onerror: function(res) {console.log(provider.url, 'error');}
             };
             GM.xmlHttpRequest(req);
           }));
-        })(i);
       }
       Promise.all(jsonRulePromises).then(
         function(jsons){
@@ -5953,7 +5951,7 @@
             debug('移除各种事件监听');
             floatWO.updateColor('Astop');
             const _remove = remove;
-            for (var i = 0, ii = _remove.length; i < ii; i++) {
+            for (var i = 0, ii = _remove.length; i < ii; i++) { // TODO: forEach()
               _remove[i]();
             }
 
@@ -6423,8 +6421,7 @@
 
             const fragment = document.createDocumentFragment();
             const pageElements = getAllElements(SSS.a_pageElement, false, doc, win);
-            const ii = pageElements.length;
-            if (ii <= 0) {
+            if (pageElements.length <= 0) {
               debug('获取下一页的主要内容失败', SSS.a_pageElement);
               removeL();
               return;
@@ -6448,9 +6445,8 @@
             }
 
             var i, pe_x, pe_x_nn;
-            for (i = 0; i < ii; i++) {
-              pe_x = pageElements[i];
-              pe_x_nn = pe_x.nodeName;
+            for (let page of pageElements) {
+              pe_x_nn = page.nodeName;
               if (pe_x_nn == 'BODY' || pe_x_nn == 'HTML' || pe_x_nn == 'SCRIPT') continue;
               fragment.appendChild(pe_x);
             }
@@ -6497,8 +6493,8 @@
                   colNodes = getAllElements('child::*[self::td or self::th]', pageElements[0]);
               }
               var colums = 0;
-              for (var x = 0, l = colNodes.length; x < l; x++) {
-                const col = colNodes[x].getAttribute('colspan');
+              for (let c of colNodes) {
+                const col = c.getAttribute('colspan');
                 colums += parseInt(col, 10) || 1;
               }
               const td = doc.createElement('td');
@@ -6527,8 +6523,7 @@
               setTimeout(function () {
                 const _imgs = imgs;
                 var i, ii, img;
-                for (i = 0, ii = _imgs.length; i < ii; i++) {
-                  img = _imgs[i];
+                for (let img of _imgs) {
                   const src = img.src;
                   img.src = src;
                 }
@@ -6536,6 +6531,7 @@
             }
 
             if (SSS.a_replaceE) {
+              // TODO: map()
               const oldE = getAllElements(SSS.a_replaceE);
               const oldE_lt = oldE.length;
               // alert(oldE_lt);
@@ -7089,7 +7085,7 @@
           if (savedValue) {
             SSS.savedValue = savedValue;
             var i, ii;
-            for (i = 0, ii = savedValue.length; i < ii; i++) {
+            for (let savedValue_x of savedValue) {
               const savedValue_x = savedValue[i];
               if (savedValue_x.Rurl == SSS.Rurl) {
                 for (var ix in savedValue_x) {
@@ -7163,8 +7159,8 @@
           } else if (type == 'function') {
             ret = selector(doc, win, _cplink);
           } else if (selector instanceof Array) {
-            for (var i = 0, l = selector.length; i < l; i++) {
-              ret = getElement(selector[i], contextNode, doc, win);
+            for (let s of selector) {
+              ret = getElement(s, contextNode, doc, win);
               if (ret) {
                 break;
               }
@@ -7244,9 +7240,8 @@
             debug('全文档链接数量:', alllinksl);
           }
 
-          for (i = 0; i < alllinksl; i++) {
+          for (let a of alllinks) {
             if (_nextlink && _prelink) break;
-            a = alllinks[i];
             if (!a) continue; // undefined跳过
             // links集合返回的本来就是包含href的a元素..所以不用检测
             // if(!a.hasAttribute("href"))continue;
@@ -7350,8 +7345,7 @@
             }
             if (!atext) {
               aimgs = a.getElementsByTagName('img');
-              for (j = 0, jj = aimgs.length; j < jj; j++) {
-                aimg_x = aimgs[j];
+              for (let aimg_x of aimgs) {
                 atext = aimg_x.alt || aimg_x.title;
                 if (atext) break;
               }
@@ -7390,7 +7384,7 @@
         }
 
         function parseKWRE () {
-          function modifyPageKey (name, pageKey, pageKeyLength) {
+          function modifyPageKey (name, pageKey) {
             function strMTE (str) {
               return (str.replace(/\\/g, '\\\\')
                 .replace(/\+/g, '\\+')
@@ -7436,16 +7430,13 @@
             // alert(slwords);
             rep = prefs.cases ? '' : 'i';
 
-            for (var i = 0; i < pageKeyLength; i++) {
-              pageKey[i] = new RegExp(plwords + strMTE(pageKey[i]) + slwords, rep);
-              // alert(pageKey[i]);
-            }
-            return pageKey;
+            const newPK = pageKey.map((pk) => RegExp(plwords + strMTE(pk) + slwords, rep));
+            return newPK;
           }
 
           // 转成正则.
-          prePageKey = modifyPageKey('previous', prePageKey, prePageKey.length);
-          nextPageKey = modifyPageKey('next', nextPageKey, nextPageKey.length);
+          prePageKey = modifyPageKey('previous', prePageKey);
+          nextPageKey = modifyPageKey('next', nextPageKey);
         }
       }
 
@@ -7520,9 +7511,7 @@
         }
 
         if (!realPageSiteMatch) { // 不满足以上条件，再根据地址特征来匹配
-          var sitePattern;
-          for (var i = 0, length = REALPAGE_SITE_PATTERN.length; i < length; i++) {
-            sitePattern = REALPAGE_SITE_PATTERN[i];
+          for (let sitePattern of REALPAGE_SITE_PATTERN) {
             if (currentUrl.toLocaleLowerCase().indexOf(sitePattern) >= 0) {
               realPageSiteMatch = true;
               break;
@@ -7647,8 +7636,7 @@
         const array = [];
         var i, ii;
         var mValue;
-        for (i = 0, ii = mFails.length; i < ii; i++) {
-          fx = mFails[i];
+        for (let fx of mFails) {
           if (!fx) continue;
           if (typeof fx === 'string') {
             array.push(fx);
@@ -8090,21 +8078,11 @@
     }
 
     function unique (array) { // 数组去重并且保持数组顺序.
-      var i, ca, ca2, j;
-      for (i = 0; i < array.length; i++) {
-        ca = array[i];
-        for (j = i + 1; j < array.length; j++) {
-          ca2 = array[j];
-          if (ca2 == ca) {
-            array.splice(j, 1);
-            j--;
-          }
-        }
-      }
-      return array;
+      return Array.from(new Set(array));
     }
 
     function makeArray (x) {
+      // TODO: better
       var ret = [];
       var i, ii;
       var x_x;
@@ -8201,20 +8179,18 @@
     range.selectNodeContents(document.body);
     const fragment = range.createContextualFragment(str);
     doc.body.appendChild(fragment);
-    const headChildNames = {
-      TITLE: true,
-      META: true,
-      LINK: true,
-      STYLE: true,
-      BASE: true
-    };
-    var child;
-    const body = doc.body;
-    const bchilds = body.childNodes;
-    for (var i = bchilds.length - 1; i >= 0; i--) { // 移除head的子元素
-      child = bchilds[i];
-      if (headChildNames[child.nodeName]) body.removeChild(child);
-    }
+    const headChildRemoves = [
+      "TITLE",
+      "META",
+      "LINK",
+      "STYLE",
+      "BASE"
+    ]; // 要移除的子元素
+    // document.querySelectorAll('body>SCRIPT')
+    const bchilds = doc.body.childNodes;
+    bchilds.forEach((node) => {
+      if (headChildRemoves.includes(node.nodeName)) node.parentNode.removeChild(node);
+    }); // 移除head的子元素
     // alert(doc.documentElement.innerHTML);
     // debug(doc);
     // debug(doc.documentElement.innerHTML);
