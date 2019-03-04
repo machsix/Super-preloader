@@ -6804,7 +6804,6 @@
 
         const findCurSiteInfo = function () {
           const SIIAD = SITEINFO_D.autopager;
-          var Rurl;
           const ii = SITEINFO.length;
 
           if (isChineseUI()) {
@@ -6817,7 +6816,7 @@
 
           for (var i = 0; i < ii; i++) {
             const SII = SITEINFO[i];
-            Rurl = toRE(SII.url);
+            const Rurl = toRE(SII.url);
             if (Rurl.test(url)) {
               if (isChineseUI()) {
                   debug('找到当前站点规则:', SII);
