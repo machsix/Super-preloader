@@ -67,9 +67,7 @@
   // ----------------------------------
   // rule.js
 
-  if (window.name === 'mynovelreader-iframe') {
-    return;
-  }
+  if (window.name === 'mynovelreader-iframe') return;
 
   // Website which has script to change window name
   const ChangeIframeSites = [
@@ -86,7 +84,7 @@
         }
       }
     }
-    if (window.name === 'superpreloader-iframe') { return true; } else { return false; }
+    return window.name === 'superpreloader-iframe';
   }
 
   // Website which uses lazyload feature [url, xpath, timeout]
