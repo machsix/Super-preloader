@@ -4715,15 +4715,12 @@
       url: 'http://wedata.net/databases/AutoPagerize/items.json',
       ruleParser: function(responseText){
           return JSON.parse(responseText).filter(function(i) {
-              if (i.name === 'Generic Posts Rule')
-                  return false;
-              else
-                  return true;
-          }).map(function(i) {
-                  i.data.name = i.name;
-                  i.data.source = 'wedata.net';
-                  return i.data;
-                  });
+              return (!(i.name === 'Generic Posts Rule'));
+            }).map(function(i) {
+                i.data.name = i.name;
+                i.data.source = 'wedata.net';
+                return i.data;
+            });
       }
     }
   ];
