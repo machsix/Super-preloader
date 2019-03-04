@@ -4894,6 +4894,10 @@
 
   // ------------------------下面的不要管他-----------------
   /// ////////////////////////////////////////////////////////////////
+  function isChineseUI() {
+    return (userLang.indexOf('zh') !== -1) || prefs.ChineseUI;
+  }
+
   Promise.all([
     GM.getValue('prefs', JSON.stringify(prefs)),
     GM.getValue('SITEINFO_D', JSON.stringify(SITEINFO_D)),
@@ -4955,7 +4959,7 @@
         var div = d.createElement('div');
         div.id = 'sp-prefs-setup';
         d.body.appendChild(div);
-        if ((userLang.indexOf('zh') !== -1) || prefs.ChineseUI) {
+        if (isChineseUI()) {
           div.innerHTML = '\
                            <div>Super_preloaderPlus_one_New设置</div>\
                                <ul>\
@@ -5080,7 +5084,7 @@
 
           this.loadSetting();
 
-          if ((userLang.indexOf('zh') !== -1) || prefs.ChineseUI) {
+          if (isChineseUI()) {
             GM.registerMenuCommand('Super_preloaderPlus_one_New 设置', setup);
           } else {
             GM.registerMenuCommand('Super_preloaderPlus_one_New', setup);
@@ -5560,7 +5564,7 @@
 
         function floatWindowUI () {
           var innerHTML = '';
-          if ((userLang.indexOf('zh') !== -1) || prefs.ChineseUI) {
+          if (isChineseUI()) {
             innerHTML = '\
                                 <div id="sp-fw-rect" style="background-color:#000;">\
                                     <div id="sp-fw-dot" style="display:none;"></div>\
@@ -6115,7 +6119,7 @@
               });
               manualDiv = div;
               var nextStr = 'Next';
-              if ((userLang.indexOf('zh') !== -1) || prefs.ChineseUI) {
+              if (isChineseUI()) {
                 nextStr = '下';
               }
               const span = $C('span', {
@@ -6156,7 +6160,7 @@
                 }
               }, false);
               div.appendChild(input);
-              if ((userLang.indexOf('zh') !== -1) || prefs.ChineseUI) {
+              if (isChineseUI()) {
                 div.appendChild($C('span', {
                   className: 'sp-sp-md-span'
                 }, '页'));
@@ -6263,7 +6267,7 @@
               div.id = 'sp-separator-' + curNumber;
               div.addEventListener('click', sepHandler, false);
               var pageStr = '';
-              if ((userLang.indexOf('zh') !== -1) || prefs.ChineseUI) {
+              if (isChineseUI()) {
                 pageStr = '第 <span style="color:red!important;">' + curNumber + '</span> 页' +
                                     (SSS.a_separatorReal ? getRalativePageStr(lastUrl, currentUrl, nextUrl) : '');
               } else {
@@ -6803,7 +6807,7 @@
           var Rurl;
           const ii = SITEINFO.length;
 
-          if ((userLang.indexOf('zh') !== -1) || prefs.ChineseUI) {
+          if (isChineseUI()) {
               debug('高级规则数目:',ii);
               debug('规则数 > ', ii - SITEINFO_json.length, '来自其他来源, 比如: wedata.net');
           } else {
@@ -6815,7 +6819,7 @@
             const SII = SITEINFO[i];
             Rurl = toRE(SII.url);
             if (Rurl.test(url)) {
-              if ((userLang.indexOf('zh') !== -1) || prefs.ChineseUI) {
+              if (isChineseUI()) {
                   debug('找到当前站点规则:', SII);
                   debug('规则ID: ', i + 1);
               } else {
@@ -7459,7 +7463,7 @@
 
         var ralativePageStr;
         if (realPageSiteMatch) { // 如果匹配就显示实际网页信息
-          if ((userLang.indexOf('zh') !== -1) || prefs.ChineseUI) {
+          if (isChineseUI()) {
             if (ralativePageNumarray[1] - ralativePageNumarray[0] > 1) { // 一般是搜索引擎的第xx - xx项……
               ralativePageStr = ' [ 实际：第 <font color="red">' + ralativePageNumarray[0] + ' - ' + ralativePageNumarray[1] + '</font> 项 ]';
             } else if ((ralativePageNumarray[1] - ralativePageNumarray[0]) === 1) { // 一般的翻页数，差值应该是1
