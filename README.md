@@ -4,6 +4,15 @@
 # Complete document
 [Complete Document](https://machsix.github.io/Super-preloader/super_preloader.html)
 
+# Difference of verions:
+ - Super_preloaderPlus_one_New_legacy.user.js: old version doesn't work with GM4 but doesn't use `Promise` at all
+ - Super_preloaderPlus_one_New.user.js: stable version synced with [Greasefork](https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new) but using old javascript syntax
+ - Super_preloaderPlus_one_ES8.user.js: version in active development
+
+# Naming convention of commit message:
+ - vXX: version XX commit for stable version
+ - ES8 vXXX: version XX commit for ES8 version
+
 # Introduction
 A gm script for auto loading paginated web pages. It will join pages together based on the rules.
 
