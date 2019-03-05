@@ -2755,6 +2755,16 @@
       }
     },
     {
+      name: '起点文学-其他',
+      url: /^https?:\/\/www\.(qidian|qdmm|qdwenxue)\.com(\/mm)?/i,
+      siteExample: 'https://www.qidian.com/all',
+      nextLink: 'id("page-container")//a[@class="lbf-pagination-next "]',
+      autopager: {
+        pageElement: '//div[@class="all-book-list"]',
+        replaceE:'id("page-container")'
+      }
+    },
+    {
       name: '逐浪小说',
       url: /^https?:\/\/book\.zhulang\.com\/.+\.html/i,
       siteExample: 'http://book.zhulang.com/153319/62230.html',
