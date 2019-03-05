@@ -2726,6 +2726,35 @@
       }
     },
     {
+      name: '起点文学-排行榜',
+      url: /^https?:\/\/www\.(qidian)\.com(\/mm)?\/rank\/.*/i,
+      siteExample: 'https://www.qidian.com/rank/collect',
+      nextLink: function (doc, win, cplink) {
+        res = getElementByXpath('//div[@id="page-container"]', doc);
+
+        if (res == null) {
+          return undefined;
+        }
+
+        const next = Number(res.dataset.page) + 1;
+
+        if (next > res.dataset.pagemax) {
+          return undefined;
+        } else {
+          if (cplink.indexOf("page=") != -1) {
+            return cplink.replace(/page=\d+/, 'page=' + next);
+          } else if (cplink.indexOf("?") != -1) {
+            return cplink + "&page="+next;
+          } else {
+            return cplink + "?page="+next;
+          }
+        }
+      },
+      autopager: {
+        pageElement: '//div[@class="rank-body"]'
+      }
+    },
+    {
       name: '逐浪小说',
       url: /^https?:\/\/book\.zhulang\.com\/.+\.html/i,
       siteExample: 'http://book.zhulang.com/153319/62230.html',
@@ -3434,7 +3463,53 @@
       pageElement: '//table[@width="100%"][@cellspacing="0"][@cellpadding="2"]',
       scroll_only: true
     },
+    {
+      name: '优书-书单|评论',
+      url: /^https?:\/\/www\.yousuu\.com\/(comments|booklist)/i,
+      nextLink: function (doc, win, cplink) {
+        res = getElementByXpath('//ul[contains(@class, "pagination")]', doc);
+        if (res == null) {
+          return undefined;
+        }
 
+        var nextNode
+
+        if (res.childNodes.length == 2) {
+          // 只有2个子节点，首页|下一页
+          nextNode = res.childNodes[1]
+        } else {
+          // 其他类型 << 1 2(active) 3 ... >>
+          // 找到active的后一项
+          for (var i = res.childNodes.length - 1; i >= 0; i--) {
+            if (res.children[i].className == "active") {
+              // 如果当前页是最后第二项，就不翻页
+              if (i == res.childNodes.length - 2) {
+                return undefined;
+              }
+              nextNode = res.childNodes[i+1]
+            }
+          }
+        }
+
+        findout = /jumpurl\('(\w+)','?(\d+)'?\)/.exec(nextNode.innerHTML)
+        if (findout == null || findout.length != 3) {
+          return undefined;
+        }
+
+        pageInfo = findout[1]+"="+findout[2]
+
+        if (cplink.indexOf(findout[1]+"=") != -1) {
+          return cplink.replace(new RegExp(findout[1]+"=\\d+"), pageInfo);
+        } else if (cplink.indexOf("?") != -1) {
+          return cplink + "&"+pageInfo;
+        } else {
+          return cplink + "?"+pageInfo;
+        }
+      },
+      autopager: {
+        pageElement: '//table[contains(@class, "shudanlist")] | //ul[contains(@class, "ys-comments")] | //div[@class="ro"]',
+      }
+    },
     // =============================== manhua ========================
     {
       name: '天极动漫频道新闻',
@@ -3604,7 +3679,7 @@
     },
     {
       name: '汗汗漫画',
-      url: /^https?:\/\/\w+\.(?:vs20|3gmanhua|hhcomic|huhudm|huhumh|hhimm)\.(?:com|net)\/\w+\/\d+\.html/i,
+      url: /^https?:\/\/\w+\.(?:vs20|3gmanhua|hhcomic|huhudm|huhumh|hhimm|hhmmoo)\.(?:com|net)\/\w+\/\d+\.html/i,
       siteExample: 'http://www.hhmmoo.com/page315224/1.html?s=1； http://www.hhmmoo.com/page315224/4.html?s=1&d=0',
       nextLink: function (doc, win, cplink) {
         // created based on http://www.hhmmoo.com/script/view.js
@@ -4267,7 +4342,7 @@
       url: '^https?://github\\.com/search',
       nextLink: "//div[@class='pagination']/a[@rel='next']",
       autopager: {
-        pageElement: "id('code_search_results issue_search_results')|//div[@class='sort-bar']/following-sibling::*[following-sibling::span[@class='search-foot-note']]",
+        pageElement: "id('code_search_results issue_search_results')|//div[@class='sort-bar']/following-sibling::*[following-sibling::span[@class='search-foot-note']] | //ul[@class='repo-list']",
         insertBefore: "//div[@class='pagination']",
         stylish: 'li.repo-list-item { text-align: left; }'
       }
