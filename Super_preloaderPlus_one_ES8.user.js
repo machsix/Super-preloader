@@ -11,19 +11,19 @@
 // @description:zh-cn  预读+翻页..全加速你的浏览体验
 // @description:zh-TW  预读+翻页..全加速你的浏览体验
 // @author       Mach6
-// @version      6.6.20
+// @version      6.6.21
 // @license      GNU GPL v3
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
 // @icon         https://raw.githubusercontent.com/machsix/Super-preloader/master/icon.png
 // @require      https://greasyfork.org/scripts/373124-gm4-polyfill-mach6-legacy/code/gm4-polyfill-mach6-legacy.js?version=635792
+// @require      https://github.com/ivysrono/Scripts/raw/master/Require/addStyle.js
 // @grant        GM.getValue
 // @grant        GM_getValue
 // @grant        GM.setValue
 // @grant        GM_setValue
 // @grant        GM.xmlHttpRequest
 // @grant        GM_xmlhttpRequest
-// @grant        GM_addStyle
 // @grant        GM_registerMenuCommand
 // @connect      wedata.net
 // @connect      github.io
@@ -5009,7 +5009,7 @@
         };
         if ($('setup')) return;
 
-        const styleNode = GM.addStyle('\
+        const styleNode = addStyle('\
                       #sp-prefs-setup { position:fixed;z-index:2147483647;top:30px;right:60px;padding:20px 30px;background:#eee;width:500px;border:1px solid black;\
                                         font-family:"Roboto","Helvetica Neue","Helvetica","sans-serif" !important; }\
                       #sp-prefs-setup * { color:black;text-align:left;line-height:normal;font-size:12px; }\
@@ -5183,7 +5183,7 @@
 
           // 分辨率 高度 > 宽度 的是手机
           if (window.screen.height > window.screen.width) {
-            GM.addStyle('div.sp-separator { min-width:auto !important; }');
+            addStyle('div.sp-separator { min-width:auto !important; }');
           }
         },
         loadSetting: function () {
@@ -5245,7 +5245,7 @@
         };
 
         function floatWindow (SSS) {
-          GM.addStyle('\
+          addStyle('\
                          #sp-fw-container {\
                              z-index:999999!important;\
                              text-align:left!important;\
@@ -5910,7 +5910,7 @@
           }
 
           if (SSS.a_stylish) { // 插入自定义样式
-            GM.addStyle(SSS.a_stylish, 'Super_preloader-style');
+            addStyle(SSS.a_stylish, 'Super_preloader-style');
           }
 
           var insertPointP;
@@ -6125,7 +6125,7 @@
 
           function manualAdiv () {
             if (!manualDiv) {
-              GM.addStyle('\
+              addStyle('\
                     #sp-sp-manualdiv{\
                         line-height:1.6!important;\
                         opacity:1!important;\
@@ -6275,7 +6275,7 @@
             const div = document.createElement('div');
             if (SSS.a_separator) {
               if (!sepStyle) {
-                sepStyle = GM.addStyle('\
+                sepStyle = addStyle('\
                         div.sp-separator{\
                             line-height:1.6!important;\
                             opacity:1!important;\
