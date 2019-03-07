@@ -5086,8 +5086,18 @@
         div = null;
 
         const close = function () {
+          var realStyleNode;
           if (styleNode) {
-            styleNode.parentNode.removeChild(styleNode);
+            if (typeof styleNode.then == "function") {
+              // https://violentmonkey.github.io/api/gm/#gm_addstyle
+              styleNode.then(function(x) {
+                realStyleNode = x;
+                realStyleNode.parentNode.removeChild(realStyleNode)
+              });
+            }
+            else {
+              styleNode.parentNode.removeChild(styleNode);
+            }
           }
           const div = $('setup');
           div.parentNode.removeChild(div);
