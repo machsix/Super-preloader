@@ -3,10 +3,10 @@
 /* eslint-disable no-empty */
 /* eslint-disable no-console */
 // ==UserScript==
-// @name         Super_preloaderPlus_one_New
-// @name:zh-CN   Super_preloaderPlus_one_改
-// @name:zh-TW   Super_preloaderPlus_one_改
-// @namespace    https://github.com/machsix
+// @name         Super_preloaderPlus_one_ES8
+// @name:zh-CN   Super_preloaderPlus_one_ES8
+// @name:zh-TW   Super_preloaderPlus_one_ES8
+// @namespace    https://github.com/machsix/Super-preloader/ES8
 // @description  Preload and Autopager
 // @description:zh-cn  预读+翻页..全加速你的浏览体验
 // @description:zh-TW  预读+翻页..全加速你的浏览体验
@@ -67,9 +67,7 @@
   // ----------------------------------
   // rule.js
 
-  if (window.name === 'mynovelreader-iframe') {
-    return;
-  }
+  if (window.name === 'mynovelreader-iframe') return;
 
   // Website which has script to change window name
   const ChangeIframeSites = [
@@ -77,8 +75,8 @@
   ];
 
   function CheckIframe () {
-    for (var i = 0; i < ChangeIframeSites.length; i++) {
-      if (toRE(ChangeIframeSites[i]).test(window.location.href)) {
+    for (let c of ChangeIframeSites) {
+      if (toRE(c).test(window.location.href)) {
         try {
           return window.self !== window.top;
         } catch (e) {
@@ -86,7 +84,7 @@
         }
       }
     }
-    if (window.name === 'superpreloader-iframe') { return true; } else { return false; }
+    return window.name === 'superpreloader-iframe';
   }
 
   // Website which uses lazyload feature [url, xpath, timeout]
@@ -101,8 +99,8 @@
     mutationParser: function (mutation, ncheck) {
       if (mutation.type == 'childList') {
         if (mutation.addedNodes) {
-          for (var i = 0; i < mutation.addedNodes.length; i++) {
-            if (mutation.addedNodes[i].className.indexOf('photo-view') != -1) {
+          for (let node of mutation.addedNodes) {
+            if (node.className.indexOf('photo-view') != -1) {
               ncheck = ncheck + 1;
               break;
             }
@@ -121,11 +119,11 @@
     const domloaded = function () { // 滚动到底部,针对,某些使用滚动事件加载图片的网站.
       var targetNode;
       var LLS;
-      for (var i = 0; i < LazyLoadSites.length; i++) {
-        if (toRE(LazyLoadSites[i].url).test(window.location.href)) {
+      for (let site of LazyLoadSites) {
+        if (toRE(site.url).test(window.location.href)) {
           // Select the node that will be observed for mutations
-          targetNode = getElementByXpath(LazyLoadSites[i].target, document, document);
-          LLS = LazyLoadSites[i];
+          targetNode = getElementByXpath(site.target, document, document);
+          LLS = site;
           break;
         }
       }
@@ -135,8 +133,8 @@
         // Callback function to execute when mutations are observed
         const callback = function (mutationsList, observer) {
           // console.log("First callback");
-          for (var i = 0; i < mutationsList.length; i++) {
-            num_node_check = LLS.mutationParser(mutationsList[i], num_node_check);
+          for (let item of mutationsList) {
+            num_node_check = LLS.mutationParser(item, num_node_check);
             //  console.log(num_node_check);
             if (num_node_check == LLS.node_check_time) {
               //    console.log("finish");
@@ -2663,28 +2661,9 @@
       name: 'CSDN博客',
       url: /^https?:\/\/blog\.csdn\.net/i,
       siteExample: 'http://blog.csdn.net/wangjieest?viewmode=list',
-      nextLink: function (doc, win, cplink) {
-        for(let index in doc.scripts) {
-          let scriptText = doc.scripts[index].text
-          if (typeof(scriptText) != "undefined" && scriptText.indexOf("currentPage") > 0) {
-            let pageMatches = scriptText.match(/currentPage[ ]?=[ ]?(\d+)/)
-            if (pageMatches.length != 2) {
-              return null
-            }
-
-            let baseUrlMatches = scriptText.match(/baseUrl[ ]?=[ ]?'([^']+)'/)
-            if (baseUrlMatches.length != 2) {
-              return null
-            }
-            console.log(baseUrlMatches[1] + '/' +(parseInt(pageMatches[1]) + 1))
-            return baseUrlMatches[1] + '/' +(parseInt(pageMatches[1]) + 1)
-          }
-
-          return null
-        };
-      },
+      nextLink: '//div[@id="papelist"]/descendant::a[text()="下一页"]',
       autopager: {
-        pageElement: '//div[@id="article_list"] | // div[@class="article-list"]'
+        pageElement: '//div[@id="article_list"]'
       }
     },
     {
@@ -2771,16 +2750,6 @@
       },
       autopager: {
         pageElement: '//div[@class="rank-body"]'
-      }
-    },
-    {
-      name: '起点文学-其他',
-      url: /^https?:\/\/www\.(qidian|qdmm|qdwenxue)\.com(\/mm)?/i,
-      siteExample: 'https://www.qidian.com/all',
-      nextLink: 'id("page-container")//a[@class="lbf-pagination-next "]',
-      autopager: {
-        pageElement: '//div[@class="all-book-list"]',
-        replaceE:'id("page-container")'
       }
     },
     {
@@ -4819,15 +4788,12 @@
       url: 'http://wedata.net/databases/AutoPagerize/items.json',
       ruleParser: function(responseText){
           return JSON.parse(responseText).filter(function(i) {
-              if (i.name === 'Generic Posts Rule')
-                  return false;
-              else
-                  return true;
-          }).map(function(i) {
-                  i.data.name = i.name;
-                  i.data.source = 'wedata.net';
-                  return i.data;
-                  });
+              return (!(i.name === 'Generic Posts Rule'));
+            }).map(function(i) {
+                i.data.name = i.name;
+                i.data.source = 'wedata.net';
+                return i.data;
+            });
       }
     }
   ];
@@ -4842,27 +4808,25 @@
       // jsonFinish: a callback after jsonRules are updated
       // create promises
       const jsonRulePromises = [];
-      for (var i = 0; i < jsonRuleProvider.length; i++ ){
-        (function(iurl) {
+      for (let provider of jsonRuleProvider){
           jsonRulePromises.push(new Promise(function(resolve, reject){
             const req = {
               method: "GET",
-              url: jsonRuleProvider[iurl].url,
+              url: provider.url,
               onload: function(res) {
                 var rule;
-                if (_.isFunction(jsonRuleProvider[iurl].ruleParser)) {
-                  rule = jsonRuleProvider[iurl].ruleParser(res.responseText);
+                if (_.isFunction(provider.ruleParser)) {
+                  rule = provider.ruleParser(res.responseText);
                 } else {
                   rule = JSON.parse(res.responseText);
                 }
-                debug('Rules from' + jsonRuleProvider[iurl].name + ' is updated');
+                debug('Rules from' + provider.name + ' is updated');
                 resolve(rule);
               },
-              onerror: function(res) {console.log(jsonRuleProvider[iurl].url, 'error');}
+              onerror: function(res) {console.log(provider.url, 'error');}
             };
             GM.xmlHttpRequest(req);
           }));
-        })(i);
       }
       Promise.all(jsonRulePromises).then(
         function(jsons){
@@ -4998,6 +4962,10 @@
 
   // ------------------------下面的不要管他-----------------
   /// ////////////////////////////////////////////////////////////////
+  function isChineseUI() {
+    return (userLang.indexOf('zh') !== -1) || prefs.ChineseUI;
+  }
+
   Promise.all([
     GM.getValue('prefs', JSON.stringify(prefs)),
     GM.getValue('SITEINFO_D', JSON.stringify(SITEINFO_D)),
@@ -5059,7 +5027,7 @@
         var div = d.createElement('div');
         div.id = 'sp-prefs-setup';
         d.body.appendChild(div);
-        if ((userLang.indexOf('zh') !== -1) || prefs.ChineseUI) {
+        if (isChineseUI()) {
           div.innerHTML = '\
                            <div>Super_preloaderPlus_one_New设置</div>\
                                <ul>\
@@ -5115,18 +5083,8 @@
         div = null;
 
         const close = function () {
-          var realStyleNode;
           if (styleNode) {
-            if (typeof styleNode.then == "function") {
-              // https://violentmonkey.github.io/api/gm/#gm_addstyle
-              styleNode.then(function(x) {
-                realStyleNode = x;
-                realStyleNode.parentNode.removeChild(realStyleNode)
-              });
-            }
-            else {
-              styleNode.parentNode.removeChild(styleNode);
-            }
+            styleNode.parentNode.removeChild(styleNode);
           }
           const div = $('setup');
           div.parentNode.removeChild(div);
@@ -5194,7 +5152,7 @@
 
           this.loadSetting();
 
-          if ((userLang.indexOf('zh') !== -1) || prefs.ChineseUI) {
+          if (isChineseUI()) {
             GM.registerMenuCommand('Super_preloaderPlus_one_New 设置', setup);
           } else {
             GM.registerMenuCommand('Super_preloaderPlus_one_New', setup);
@@ -5674,7 +5632,7 @@
 
         function floatWindowUI () {
           var innerHTML = '';
-          if ((userLang.indexOf('zh') !== -1) || prefs.ChineseUI) {
+          if (isChineseUI()) {
             innerHTML = '\
                                 <div id="sp-fw-rect" style="background-color:#000;">\
                                     <div id="sp-fw-dot" style="display:none;"></div>\
@@ -5993,7 +5951,7 @@
             debug('移除各种事件监听');
             floatWO.updateColor('Astop');
             const _remove = remove;
-            for (var i = 0, ii = _remove.length; i < ii; i++) {
+            for (var i = 0, ii = _remove.length; i < ii; i++) { // TODO: forEach()
               _remove[i]();
             }
 
@@ -6229,7 +6187,7 @@
               });
               manualDiv = div;
               var nextStr = 'Next';
-              if ((userLang.indexOf('zh') !== -1) || prefs.ChineseUI) {
+              if (isChineseUI()) {
                 nextStr = '下';
               }
               const span = $C('span', {
@@ -6270,7 +6228,7 @@
                 }
               }, false);
               div.appendChild(input);
-              if ((userLang.indexOf('zh') !== -1) || prefs.ChineseUI) {
+              if (isChineseUI()) {
                 div.appendChild($C('span', {
                   className: 'sp-sp-md-span'
                 }, '页'));
@@ -6377,7 +6335,7 @@
               div.id = 'sp-separator-' + curNumber;
               div.addEventListener('click', sepHandler, false);
               var pageStr = '';
-              if ((userLang.indexOf('zh') !== -1) || prefs.ChineseUI) {
+              if (isChineseUI()) {
                 pageStr = '第 <span style="color:red!important;">' + curNumber + '</span> 页' +
                                     (SSS.a_separatorReal ? getRalativePageStr(lastUrl, currentUrl, nextUrl) : '');
               } else {
@@ -6463,8 +6421,7 @@
 
             const fragment = document.createDocumentFragment();
             const pageElements = getAllElements(SSS.a_pageElement, false, doc, win);
-            const ii = pageElements.length;
-            if (ii <= 0) {
+            if (pageElements.length <= 0) {
               debug('获取下一页的主要内容失败', SSS.a_pageElement);
               removeL();
               return;
@@ -6488,9 +6445,8 @@
             }
 
             var i, pe_x, pe_x_nn;
-            for (i = 0; i < ii; i++) {
-              pe_x = pageElements[i];
-              pe_x_nn = pe_x.nodeName;
+            for (let page of pageElements) {
+              pe_x_nn = page.nodeName;
               if (pe_x_nn == 'BODY' || pe_x_nn == 'HTML' || pe_x_nn == 'SCRIPT') continue;
               fragment.appendChild(pe_x);
             }
@@ -6537,8 +6493,8 @@
                   colNodes = getAllElements('child::*[self::td or self::th]', pageElements[0]);
               }
               var colums = 0;
-              for (var x = 0, l = colNodes.length; x < l; x++) {
-                const col = colNodes[x].getAttribute('colspan');
+              for (let c of colNodes) {
+                const col = c.getAttribute('colspan');
                 colums += parseInt(col, 10) || 1;
               }
               const td = doc.createElement('td');
@@ -6567,8 +6523,7 @@
               setTimeout(function () {
                 const _imgs = imgs;
                 var i, ii, img;
-                for (i = 0, ii = _imgs.length; i < ii; i++) {
-                  img = _imgs[i];
+                for (let img of _imgs) {
                   const src = img.src;
                   img.src = src;
                 }
@@ -6576,6 +6531,7 @@
             }
 
             if (SSS.a_replaceE) {
+              // TODO: map()
               const oldE = getAllElements(SSS.a_replaceE);
               const oldE_lt = oldE.length;
               // alert(oldE_lt);
@@ -6914,10 +6870,9 @@
 
         const findCurSiteInfo = function () {
           const SIIAD = SITEINFO_D.autopager;
-          var Rurl;
           const ii = SITEINFO.length;
 
-          if ((userLang.indexOf('zh') !== -1) || prefs.ChineseUI) {
+          if (isChineseUI()) {
               debug('高级规则数目:',ii);
               debug('规则数 > ', ii - SITEINFO_json.length, '来自其他来源, 比如: wedata.net');
           } else {
@@ -6927,9 +6882,9 @@
 
           for (var i = 0; i < ii; i++) {
             const SII = SITEINFO[i];
-            Rurl = toRE(SII.url);
+            const Rurl = toRE(SII.url);
             if (Rurl.test(url)) {
-              if ((userLang.indexOf('zh') !== -1) || prefs.ChineseUI) {
+              if (isChineseUI()) {
                   debug('找到当前站点规则:', SII);
                   debug('规则ID: ', i + 1);
               } else {
@@ -7085,12 +7040,6 @@
           document.addEventListener('keyup', function (e) {
             const tarNN = e.target.nodeName;
             if (tarNN != 'BODY' && tarNN != 'HTML') return;
-
-            // check is a combo pressed
-            if (e.ctrlKey || e.shiftKey || e.altKey || e.metaKey) {
-                return;
-            }
-
             switch (e.keyCode) {
               case 37:
                 superPreloader.back();
@@ -7136,7 +7085,7 @@
           if (savedValue) {
             SSS.savedValue = savedValue;
             var i, ii;
-            for (i = 0, ii = savedValue.length; i < ii; i++) {
+            for (let savedValue_x of savedValue) {
               const savedValue_x = savedValue[i];
               if (savedValue_x.Rurl == SSS.Rurl) {
                 for (var ix in savedValue_x) {
@@ -7210,8 +7159,8 @@
           } else if (type == 'function') {
             ret = selector(doc, win, _cplink);
           } else if (selector instanceof Array) {
-            for (var i = 0, l = selector.length; i < l; i++) {
-              ret = getElement(selector[i], contextNode, doc, win);
+            for (let s of selector) {
+              ret = getElement(s, contextNode, doc, win);
               if (ret) {
                 break;
               }
@@ -7291,9 +7240,8 @@
             debug('全文档链接数量:', alllinksl);
           }
 
-          for (i = 0; i < alllinksl; i++) {
+          for (let a of alllinks) {
             if (_nextlink && _prelink) break;
-            a = alllinks[i];
             if (!a) continue; // undefined跳过
             // links集合返回的本来就是包含href的a元素..所以不用检测
             // if(!a.hasAttribute("href"))continue;
@@ -7397,8 +7345,7 @@
             }
             if (!atext) {
               aimgs = a.getElementsByTagName('img');
-              for (j = 0, jj = aimgs.length; j < jj; j++) {
-                aimg_x = aimgs[j];
+              for (let aimg_x of aimgs) {
                 atext = aimg_x.alt || aimg_x.title;
                 if (atext) break;
               }
@@ -7437,7 +7384,7 @@
         }
 
         function parseKWRE () {
-          function modifyPageKey (name, pageKey, pageKeyLength) {
+          function modifyPageKey (name, pageKey) {
             function strMTE (str) {
               return (str.replace(/\\/g, '\\\\')
                 .replace(/\+/g, '\\+')
@@ -7483,16 +7430,13 @@
             // alert(slwords);
             rep = prefs.cases ? '' : 'i';
 
-            for (var i = 0; i < pageKeyLength; i++) {
-              pageKey[i] = new RegExp(plwords + strMTE(pageKey[i]) + slwords, rep);
-              // alert(pageKey[i]);
-            }
-            return pageKey;
+            const newPK = pageKey.map((pk) => RegExp(plwords + strMTE(pk) + slwords, rep));
+            return newPK;
           }
 
           // 转成正则.
-          prePageKey = modifyPageKey('previous', prePageKey, prePageKey.length);
-          nextPageKey = modifyPageKey('next', nextPageKey, nextPageKey.length);
+          prePageKey = modifyPageKey('previous', prePageKey);
+          nextPageKey = modifyPageKey('next', nextPageKey);
         }
       }
 
@@ -7567,9 +7511,7 @@
         }
 
         if (!realPageSiteMatch) { // 不满足以上条件，再根据地址特征来匹配
-          var sitePattern;
-          for (var i = 0, length = REALPAGE_SITE_PATTERN.length; i < length; i++) {
-            sitePattern = REALPAGE_SITE_PATTERN[i];
+          for (let sitePattern of REALPAGE_SITE_PATTERN) {
             if (currentUrl.toLocaleLowerCase().indexOf(sitePattern) >= 0) {
               realPageSiteMatch = true;
               break;
@@ -7577,9 +7519,9 @@
           }
         }
 
-        var ralativePageStr;
+        let ralativePageStr = "";
         if (realPageSiteMatch) { // 如果匹配就显示实际网页信息
-          if ((userLang.indexOf('zh') !== -1) || prefs.ChineseUI) {
+          if (isChineseUI()) {
             if (ralativePageNumarray[1] - ralativePageNumarray[0] > 1) { // 一般是搜索引擎的第xx - xx项……
               ralativePageStr = ' [ 实际：第 <font color="red">' + ralativePageNumarray[0] + ' - ' + ralativePageNumarray[1] + '</font> 项 ]';
             } else if ((ralativePageNumarray[1] - ralativePageNumarray[0]) === 1) { // 一般的翻页数，差值应该是1
@@ -7596,10 +7538,8 @@
               ralativePageStr = ' [ <font color="red">Actual elements ends</font> ]';
             }
           }
-        } else {
-          ralativePageStr = '';
         }
-        return ralativePageStr || '';
+        return ralativePageStr;
       }
     }
   );
@@ -7696,8 +7636,7 @@
         const array = [];
         var i, ii;
         var mValue;
-        for (i = 0, ii = mFails.length; i < ii; i++) {
-          fx = mFails[i];
+        for (let fx of mFails) {
           if (!fx) continue;
           if (typeof fx === 'string') {
             array.push(fx);
@@ -8139,21 +8078,11 @@
     }
 
     function unique (array) { // 数组去重并且保持数组顺序.
-      var i, ca, ca2, j;
-      for (i = 0; i < array.length; i++) {
-        ca = array[i];
-        for (j = i + 1; j < array.length; j++) {
-          ca2 = array[j];
-          if (ca2 == ca) {
-            array.splice(j, 1);
-            j--;
-          }
-        }
-      }
-      return array;
+      return Array.from(new Set(array));
     }
 
     function makeArray (x) {
+      // TODO: better
       var ret = [];
       var i, ii;
       var x_x;
@@ -8250,20 +8179,18 @@
     range.selectNodeContents(document.body);
     const fragment = range.createContextualFragment(str);
     doc.body.appendChild(fragment);
-    const headChildNames = {
-      TITLE: true,
-      META: true,
-      LINK: true,
-      STYLE: true,
-      BASE: true
-    };
-    var child;
-    const body = doc.body;
-    const bchilds = body.childNodes;
-    for (var i = bchilds.length - 1; i >= 0; i--) { // 移除head的子元素
-      child = bchilds[i];
-      if (headChildNames[child.nodeName]) body.removeChild(child);
-    }
+    const headChildRemoves = [
+      "TITLE",
+      "META",
+      "LINK",
+      "STYLE",
+      "BASE"
+    ]; // 要移除的子元素
+    // document.querySelectorAll('body>SCRIPT')
+    const bchilds = doc.body.childNodes;
+    bchilds.forEach((node) => {
+      if (headChildRemoves.includes(node.nodeName)) node.parentNode.removeChild(node);
+    }); // 移除head的子元素
     // alert(doc.documentElement.innerHTML);
     // debug(doc);
     // debug(doc.documentElement.innerHTML);
