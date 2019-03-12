@@ -2663,9 +2663,28 @@
       name: 'CSDN博客',
       url: /^https?:\/\/blog\.csdn\.net/i,
       siteExample: 'http://blog.csdn.net/wangjieest?viewmode=list',
-      nextLink: '//div[@id="papelist"]/descendant::a[text()="下一页"]',
+      nextLink: function (doc, win, cplink) {
+        for(let index in doc.scripts) {
+          let scriptText = doc.scripts[index].text
+          if (typeof(scriptText) != "undefined" && scriptText.indexOf("currentPage") > 0) {
+            let pageMatches = scriptText.match(/currentPage[ ]?=[ ]?(\d+)/)
+            if (pageMatches.length != 2) {
+              return null
+            }
+
+            let baseUrlMatches = scriptText.match(/baseUrl[ ]?=[ ]?'([^']+)'/)
+            if (baseUrlMatches.length != 2) {
+              return null
+            }
+            console.log(baseUrlMatches[1] + '/' +(parseInt(pageMatches[1]) + 1))
+            return baseUrlMatches[1] + '/' +(parseInt(pageMatches[1]) + 1)
+          }
+
+          return null
+        };
+      },
       autopager: {
-        pageElement: '//div[@id="article_list"]'
+        pageElement: '//div[@id="article_list"] | // div[@class="article-list"]'
       }
     },
     {
@@ -7046,6 +7065,12 @@
           document.addEventListener('keyup', function (e) {
             const tarNN = e.target.nodeName;
             if (tarNN != 'BODY' && tarNN != 'HTML') return;
+
+            // check is a combo pressed
+            if (e.ctrlKey || e.shiftKey || e.altKey || e.metaKey) {
+                return;
+            }
+
             switch (e.keyCode) {
               case 37:
                 superPreloader.back();
