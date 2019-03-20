@@ -4033,26 +4033,13 @@
       pageElement: '//div[@class="data-list"]/div[@class="row"]'
     },
     {
-      name: 'sis001.com列表',
-      url: /^https?:\/\/(\w+\.)?sis001\.com\/forum\/thread[0-9\-]+\.html/i,
-      exampleUrl: 'https://www.sis001.com/forum/thread-230-1.html',
-      autopager: {
-        // 只执行一次，删除广告
-        startFilter: function (win, doc) {
-          const firstDiv = doc.querySelector("#ad_text");
-          if (firstDiv) {
-            firstDiv.parentNode.removeChild(firstDiv);
-          }
-        }
-      }
-    },
-    {
-      name: 'sis001.com详情',
-      url: /^https?:\/\/(\w+\.)?sis001\.com\/forum\/forum[0-9\-]+\.html/i,
+      name: 'sis001.com',
+      url: /^https?:\/\/(\w+\.)?sis001\.com\/forum\/(forum|thread)[0-9\-]+\.html/i,
       exampleUrl: 'https://www.sis001.com/forum/forum-230-1.html',
-      // nextLink: '//div[@class="pages_btns"]//a[@class="next"]',
+      nextLink: '//div[@class="pages_btns"]//a[@class="next"]',
       autopager: {
         pageElement: '//div[@class="mainbox"]//table[last()]',
+        replaceE: '//div[@class="pages_btns"]',
         // 只执行一次，删除广告
         startFilter: function (win, doc) {
           const firstDiv = doc.querySelector("#ad_text");
