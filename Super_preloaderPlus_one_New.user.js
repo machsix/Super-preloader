@@ -2669,21 +2669,40 @@
           if (typeof(scriptText) != "undefined" && scriptText.indexOf("currentPage") > 0) {
             let pageMatches = scriptText.match(/currentPage[ ]?=[ ]?(\d+)/)
             if (pageMatches.length != 2) {
-              return null
+              continue;
             }
 
             let baseUrlMatches = scriptText.match(/baseUrl[ ]?=[ ]?'([^']+)'/)
             if (baseUrlMatches.length != 2) {
-              return null
+              continue;
             }
+
             return baseUrlMatches[1] + '/' +(parseInt(pageMatches[1]) + 1)
           }
-
-          return null
         };
+        return null
       },
       autopager: {
-        pageElement: '//div[@id="article_list"] | // div[@class="article-list"]'
+        pageElement: '//div[@id="article_list"] | // div[@class="article-list"]',
+        documentFilter: function (doc) {
+          // 文档底部的 marginBottom 重置
+          const articleList = doc.querySelector(".article-list");
+          if (articleList) {
+            articleList.style.marginBottom = "0"
+          }
+        },
+        startFilter: function (win, doc) {
+          // 文档底部的 marginBottom 重置
+          const articleList = doc.querySelector(".article-list");
+          if (articleList) {
+            articleList.style.marginBottom = "0"
+          }
+          // 移动分页位置
+          const pageBox = document.querySelector("#pageBox");
+          if (pageBox) {
+            pageBox.parentNode.parentNode.appendChild(pageBox)
+          }
+        }
       }
     },
     {
