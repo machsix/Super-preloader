@@ -6486,20 +6486,8 @@
 
             const docTitle = getElementByCSS('title', doc).textContent;
 
-            removeScripts(doc);
-
-            const fragment = document.createDocumentFragment();
-            const pageElements = getAllElements(SSS.a_pageElement, false, doc, win);
-            const ii = pageElements.length;
-            if (ii <= 0) {
-              debug('获取下一页的主要内容失败', SSS.a_pageElement);
-              removeL();
-              return;
-            } else {
-              debug('获取下一页的主要内容成功');
-            }
-
             // 提前查找下一页链接，后面再赋值
+            // 在removeScripts前执行，是因为有部分下一页的信息是在script中（比如新加的csdn的规则）
             const lastUrl = cplink;
             cplink = nextlink;
             var nl = getElement(SSS.nextLink, false, doc, win);
@@ -6512,6 +6500,19 @@
               }
             } else {
               nextlink = null;
+            }
+
+            removeScripts(doc);
+
+            const fragment = document.createDocumentFragment();
+            const pageElements = getAllElements(SSS.a_pageElement, false, doc, win);
+            const ii = pageElements.length;
+            if (ii <= 0) {
+              debug('获取下一页的主要内容失败', SSS.a_pageElement);
+              removeL();
+              return;
+            } else {
+              debug('获取下一页的主要内容成功');
             }
 
             var i, pe_x, pe_x_nn;
