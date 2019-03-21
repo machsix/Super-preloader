@@ -2697,7 +2697,7 @@
           if (articleList) {
             articleList.style.marginBottom = "0"
           }
-          // 删除分页信息
+          // 移动分页位置
           const pageBox = document.querySelector("#pageBox");
           if (pageBox) {
             pageBox.parentNode.parentNode.appendChild(pageBox)
