@@ -2702,6 +2702,11 @@
           if (pageBox) {
             pageBox.parentNode.parentNode.appendChild(pageBox)
           }
+          // 删除广告
+          const adBox = document.querySelector(".box-box-large");
+          if (adBox) {
+            adBox.parentNode.removeChild(adBox)
+          }
         }
       }
     },
