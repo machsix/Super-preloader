@@ -2676,7 +2676,6 @@
             if (baseUrlMatches.length != 2) {
               return null
             }
-            console.log(baseUrlMatches[1] + '/' +(parseInt(pageMatches[1]) + 1))
             return baseUrlMatches[1] + '/' +(parseInt(pageMatches[1]) + 1)
           }
 
@@ -2693,7 +2692,7 @@
       siteExample: 'http://bbs.csdn.net/forums/Qt',
       nextLink: '//div[@class="page_nav"]/descendant::a[text()="下一页"]',
       autopager: {
-        pageElement: '//body/div/div[@class="content"]/table',
+        pageElement: '//table[@class="forums_tab_table"]/tbody/tr',
         replaceE: '//div[@class="page_nav"]'
       }
     },
@@ -2701,10 +2700,51 @@
       name: 'CSDN话题',
       url: /^https?:\/\/bbs\.csdn\.net\/topics\//i,
       siteExample: 'http://bbs.csdn.net/topics/390244325',
-      nextLink: '//div[@class="control_area"]/descendant::a[@class="next"]',
+      nextLink: '//div[@class="page_nav"]/a[contains(@class, "next_page")]',
       autopager: {
-        pageElement: '//div[@class="detailed"]',
-        replaceE: '//div[@class="control_area"]'
+        pageElement: 'id("bbs_detail_wrap")',
+        documentFilter: function (doc) {
+          // 删除文档中的多余表头
+          const titleH = doc.querySelector(".bbs_title_h");
+          if (titleH) {
+            titleH.parentNode.removeChild(titleH);
+          }
+
+          const titleBar = doc.querySelector(".bbs_title_bar");
+          if (titleBar) {
+            titleBar.parentNode.removeChild(titleBar);
+          }
+
+          const breadWrap = doc.querySelector(".bbs_bread_wrap");
+          if (breadWrap) {
+            breadWrap.parentNode.removeChild(breadWrap);
+          }
+          // 尾页的分页信息隐藏
+          const pageNav = doc.querySelectorAll(".mod_fun_wrap");
+          if (pageNav) {
+            index = 0
+            if (pageNav.length == 2) {
+              index = 1
+            }
+            pageNav[index].style.display = "none";
+          }
+        },
+        startFilter: function (win, doc) {
+          // 尾页的分页信息隐藏
+          const pageNav = doc.querySelectorAll(".mod_fun_wrap");
+          if (pageNav) {
+            index = 0
+            if (pageNav.length == 2) {
+              index = 1
+            }
+            pageNav[index].style.display = "none";
+          }
+          // 扩展的其他话题信息移除，长度太长，导致翻页信息有点问题
+          const feedBox = doc.querySelector(".post_feed_box");
+          if (feedBox) {
+            feedBox.parentNode.removeChild(feedBox);
+          }
+        }
       }
     },
     {
