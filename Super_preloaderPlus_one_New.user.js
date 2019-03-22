@@ -584,7 +584,7 @@
     },
     {
       name: 'smzdm-comment',
-      url: /^https?:\/\/\w+\.smzdm\.com(\/\w+)?\/p\/\d+/i,
+      url: /^https?:\/\/\w+\.smzdm\.com(\/\w+)?\/p\/[\d\w\W]+/i,
       exampleUrl: 'https://post.smzdm.com/p/559992/',
       // 还有另外一种评论
       // exampleUrl: 'https://www.smzdm.com/p/11496450/ | https://test.smzdm.com/pingce/p/70095121/',
