@@ -584,10 +584,10 @@
     },
     {
       name: 'smzdm-comment',
-      url: /^https?:\/\/\w+\.smzdm\.com\/p\/\d+/i,
+      url: /^https?:\/\/\w+\.smzdm\.com(\/\w+)?\/p\/\d+/i,
       exampleUrl: 'https://post.smzdm.com/p/559992/',
       // 还有另外一种评论
-      // exampleUrl: 'https://www.smzdm.com/p/11496450/',
+      // exampleUrl: 'https://www.smzdm.com/p/11496450/ | https://test.smzdm.com/pingce/p/70095121/',
       nextLink: '//ul[@class="pagination"]/li[@class="pagedown"]/a',
       autopager: {
         pageElement: 'id("commentTabBlockNew")/ul[@class="comment_listBox"]',
