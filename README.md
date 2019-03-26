@@ -24,6 +24,16 @@ This userscript exists because someone needs to maintain the rules for Chinese a
 
 Please leave feedback at [Greasefork page](https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new)
 
+# Development Guide
+I appreciate anyone who is interested in devoting their time to the development. We currently have two verions of the code. The `ES8` branch is in active development. As the name suggests, I will gradually abandon the further development of the code style code.
+
+To take part into the development, you need to:
+1. Be familiar with `javascript` and `xpath`
+2. Install `node js` by `npm install`
+3. Follow the style of the code and make your contributions!
+
+Everytime you make a commt, `eslint` will check your code style.
+
 # License
 gpl-3.0
 
