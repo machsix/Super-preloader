@@ -2292,17 +2292,6 @@
       exampleUrl: 'https://www.192tt.com/gq/'
     },
     {
-      name: '凹凸吧,欲女8',
-      url: /^https?:\/\/(www\.)?(tuao8|tuitu8|lunu8)\.(com|top)\/(?:post)?/,
-      nextLink: '//li[@class="next-page"]/a | //span[text()="›"]/parent::a',
-      autopager: {
-        enable: true,
-        pageElement: '//div[@class="entry"]/p|//article[contains(@class,"post-box")]',
-        ipages: [true, 30]
-      },
-      exampleUrl: 'https://www.tuao8.com/post/95.html?pagenum=7;https://www.yunu8.com/web/295.html'
-    },
-    {
       name: '17see',
       url: /^https?:\/\/www\.17see\.net/i,
       nextLink: 'auto;',
