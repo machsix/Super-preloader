@@ -2696,7 +2696,7 @@
           if (adBox) {
             adBox.parentNode.removeChild(adBox);
           }
-        }
+        },
       }
     },
     {
