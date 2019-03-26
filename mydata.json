@@ -201,5 +201,15 @@
     "url": "^https?://bbs\\.tjdige\\.com",
     "nextLink": "//div[@class='pagination']/a[span[contains(text(),'下一页')]]",
     "pageElement": "//div[contains(@class,'clearfix mod')]"
+  },
+  {
+    "name": "凹凸吧,欲女8",
+    "url": "^https?://(www\\.)?(yunu8|tuao8|tuitu8|lunu8)\\.(com|top)/(?:post/)?",
+    "nextLink": "//li[@class='next-page']/a | //span[text()='›']/parent::a",
+    "autopager": {
+      "enable": true,
+      "pageElement": "//div[@class='entry']/p|//article[contains(@class,'post-box')]",
+      "ipages": [true, 30]
+    }
   }
 ]
