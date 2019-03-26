@@ -11,7 +11,7 @@
 // @description:zh-cn  预读+翻页..全加速你的浏览体验
 // @description:zh-TW  预读+翻页..全加速你的浏览体验
 // @author       Mach6
-// @version      6.6.20
+// @version      6.6.21
 // @license      GNU GPL v3
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
@@ -56,9 +56,9 @@
 // ==/UserScript==
 (function () {
   const scriptInfo = {
-    version: '6.6.20',
-    updateTime: '2019/3/5',
-    changelog: 'MergePR',
+    version: '6.6.21',
+    updateTime: '2019/3/26',
+    changelog: 'Fix novel websites',
     homepageURL: 'https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new',
     downloadUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.user.js',
     metaUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.meta.js',
@@ -2837,6 +2837,26 @@
             doc.getElementById('nr1').innerHTML=c;
           }
         });
+      }
+    },
+    {
+      name: '第一版主',
+      url: "^https?://www\\.diyibanzhu9\\.com",
+      pageElement: "//div[@id='content']",
+      nextLink: function(doc, win, cplink) {
+        var chapters = getAllElementsByXpath("//div[@class='chapterPages']/a",doc);
+        var prefix = cplink.substr(0,cplink.lastIndexOf('/')) + '/';
+        var i = 0;
+        for (i=0; i<chapters.snapshotLength; i++){
+          if (chapters.snapshotItem(i).className === 'curr') {
+            if (i+1 < chapters.snapshotLength) {
+              return prefix + chapters.snapshotItem(i+1).getAttribute('href');
+            }
+            else {
+              return getDomain(cplink) + getElementByXpath("//span[@class='next']/a").getAttribute('href');
+            }
+          }
+        }
       }
     },
     {
@@ -8461,6 +8481,24 @@
     return '^' + reg + '$';
   }
 
+  function getAllIndexes(arr, val) {
+    var indexes = [], i = -1;
+    while ((i = arr.indexOf(val, i+1)) != -1){
+        indexes.push(i);
+    }
+    return indexes;
+  }
+
+  function getDomain(cplink) {
+    // Get [PROTOCOL]://[DOMAIN]
+    var a = getAllIndexes(cplink, '/');
+    if (a.length > 2) {
+      return cplink.substr(0, a[2]);
+    }
+    else {
+      return cplink;
+    }
+  }
   //Function to compare two version strings https://gist.github.com/TheDistantSea/8021359
   function versionCompare(v1, v2, options) {
     var lexicographical = options && options.lexicographical,
