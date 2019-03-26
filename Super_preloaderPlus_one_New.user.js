@@ -389,11 +389,12 @@
       name: '百度搜索-手机',
       url: /^https?:\/\/m\.baidu\.com/i,
       enable: true,
-      nextLink: '//div[@id="page-controller"]//a[@class="new-nextpage"]',
-      preLink: '//div[@id="page-controller"]//a[@class="new-prepage"]',
+      nextLink: '//div[@id="page-controller"]//a[contains(@class,"new-nextpage")]',
+      preLink: '//div[@id="page-controller"]//a[contains(@class,"new-prepage")]',
       autopager: {
         pageElement: '//div[@id="results"]',
-        useiframe: true
+        useiframe: true,
+        relatedObj: true
       }
     },
     {
@@ -2811,13 +2812,40 @@
       }
     },
     {
+      name: "bl-novel",
+      url: "^https?://bl-novel\\.in/novel",
+      nextLink: "//a[@id='pb_next']",
+      pageElement: "//div[@id='nr']",
+      documentFilter: function (doc, nextLink) {
+        var scripts = doc.getElementsByTagName('script');
+        var re = /chapter\s*=\s*secret\(['"](.*)['"],\s*['"](.*)['"],\s*(\w+)\s*\)/g;
+        var c;
+        [].forEach.call(scripts, function(x) {
+          if (x.innerText.indexOf('var chapter') >= 0) {
+            var temp = re.exec(x.innerText);
+            var content = temp[1];
+            var salt = temp[2];
+            // function secret is provided by the website
+            if (temp[3].indexOf('true')>=0) {
+              // eslint-disable-next-line no-undef
+              c = secret(content, salt, true);
+            }
+            else {
+              // eslint-disable-next-line no-undef
+              c = secret(content, salt, false);
+            }
+            doc.getElementById('nr1').innerHTML=c;
+          }
+        });
+      }
+    },
+    {
       name: '起点文学-排行榜',
       url: /^https?:\/\/www\.(qidian)\.com(\/mm)?\/rank\/.*/i,
       siteExample: 'https://www.qidian.com/rank/collect',
       nextLink: function (doc, win, cplink) {
-        res = getElementByXpath('//div[@id="page-container"]', doc);
-
-        if (res == null) {
+        var res = getElementByXpath('//div[@id="page-container"]', doc);
+        if (res === null) {
           return undefined;
         }
 
@@ -3562,16 +3590,14 @@
       name: '优书-书单|评论',
       url: /^https?:\/\/www\.yousuu\.com\/(comments|booklist)/i,
       nextLink: function (doc, win, cplink) {
-        res = getElementByXpath('//ul[contains(@class, "pagination")]', doc);
-        if (res == null) {
+        var res = getElementByXpath('//ul[contains(@class, "pagination")]', doc);
+        if (res === null) {
           return undefined;
         }
-
-        var nextNode
-
+        var nextNode;
         if (res.childNodes.length == 2) {
           // 只有2个子节点，首页|下一页
-          nextNode = res.childNodes[1]
+          nextNode = res.childNodes[1];
         } else {
           // 其他类型 << 1 2(active) 3 ... >>
           // 找到active的后一项
@@ -3581,17 +3607,16 @@
               if (i == res.childNodes.length - 2) {
                 return undefined;
               }
-              nextNode = res.childNodes[i+1]
+              nextNode = res.childNodes[i+1];
             }
           }
         }
-
-        findout = /jumpurl\('(\w+)','?(\d+)'?\)/.exec(nextNode.innerHTML)
-        if (findout == null || findout.length != 3) {
+        var findout = /jumpurl\('(\w+)','?(\d+)'?\)/.exec(nextNode.innerHTML);
+        if (findout === null || findout.length != 3) {
           return undefined;
         }
 
-        pageInfo = findout[1]+"="+findout[2]
+        var pageInfo = findout[1]+"="+findout[2];
 
         if (cplink.indexOf(findout[1]+"=") != -1) {
           return cplink.replace(new RegExp(findout[1]+"=\\d+"), pageInfo);
@@ -5168,18 +5193,8 @@
         div = null;
 
         const close = function () {
-          var realStyleNode;
           if (styleNode) {
-            if (typeof styleNode.then == "function") {
-              // https://violentmonkey.github.io/api/gm/#gm_addstyle
-              styleNode.then(function(x) {
-                realStyleNode = x;
-                realStyleNode.parentNode.removeChild(realStyleNode)
-              });
-            }
-            else {
-              styleNode.parentNode.removeChild(styleNode);
-            }
+            styleNode.parentNode.removeChild(styleNode);
           }
           const div = $('setup');
           div.parentNode.removeChild(div);
