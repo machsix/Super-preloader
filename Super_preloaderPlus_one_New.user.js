@@ -2714,7 +2714,6 @@
       name: 'CSDN话题',
       url: /^https?:\/\/bbs\.csdn\.net\/topics\//i,
       siteExample: 'http://bbs.csdn.net/topics/390244325',
-      // nextLink: '//div[@class="page_nav"]/a[contains(@class, "next_page")]',
       nextLink: '(//div[@class="page_nav"])[1]/a[text()="下一页"]',
       autopager: {
         pageElement: 'id("bbs_detail_wrap")',
