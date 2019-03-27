@@ -2654,9 +2654,9 @@
       url: /^https?:\/\/blog\.csdn\.net/i,
       siteExample: 'http://blog.csdn.net/wangjieest?viewmode=list',
       nextLink: function (doc, win, cplink) {
-        for(let index in doc.scripts) {
+        for (index of doc.scripts) {
           const scriptText = doc.scripts[index].text;
-          if (typeof(scriptText) != "undefined" && scriptText.indexOf("currentPage") > 0) {
+          if (typeof (scriptText) != "undefined" && scriptText.indexOf("currentPage") > 0) {
             const pageMatches = scriptText.match(/currentPage[ ]?=[ ]?(\d+)/);
             if (pageMatches.length != 2) {
               continue;
@@ -2669,8 +2669,8 @@
 
             return baseUrlMatches[1] + '/' +(parseInt(pageMatches[1]) + 1);
           }
-        };
-        return null
+        }
+        return null;
       },
       autopager: {
         pageElement: '//div[@id="article_list"] | // div[@class="article-list"]',
