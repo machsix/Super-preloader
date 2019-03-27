@@ -11,7 +11,7 @@
 // @description:zh-cn  预读+翻页..全加速你的浏览体验
 // @description:zh-TW  预读+翻页..全加速你的浏览体验
 // @author       Mach6
-// @version      6.6.20
+// @version      6.6.21
 // @license      GNU GPL v3
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
@@ -56,9 +56,9 @@
 // ==/UserScript==
 (function () {
   const scriptInfo = {
-    version: '6.6.20',
-    updateTime: '2019/3/5',
-    changelog: 'MergePR',
+    version: '6.6.21',
+    updateTime: '2019/3/26',
+    changelog: 'Fix novel websites',
     homepageURL: 'https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new',
     downloadUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.user.js',
     metaUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.meta.js',
@@ -389,11 +389,12 @@
       name: '百度搜索-手机',
       url: /^https?:\/\/m\.baidu\.com/i,
       enable: true,
-      nextLink: '//div[@id="page-controller"]//a[@class="new-nextpage"]',
-      preLink: '//div[@id="page-controller"]//a[@class="new-prepage"]',
+      nextLink: '//div[@id="page-controller"]//a[contains(@class,"new-nextpage")]',
+      preLink: '//div[@id="page-controller"]//a[contains(@class,"new-prepage")]',
       autopager: {
         pageElement: '//div[@id="results"]',
-        useiframe: true
+        useiframe: true,
+        relatedObj: true
       }
     },
     {
@@ -2291,17 +2292,6 @@
       exampleUrl: 'https://www.192tt.com/gq/'
     },
     {
-      name: '凹凸吧,欲女8',
-      url: /^https?:\/\/(www\.)?(tuao8|tuitu8|lunu8)\.(com|top)\/(?:post)?/,
-      nextLink: '//li[@class="next-page"]/a | //span[text()="›"]/parent::a',
-      autopager: {
-        enable: true,
-        pageElement: '//div[@class="entry"]/p|//article[contains(@class,"post-box")]',
-        ipages: [true, 30]
-      },
-      exampleUrl: 'https://www.tuao8.com/post/95.html?pagenum=7;https://www.yunu8.com/web/295.html'
-    },
-    {
       name: '17see',
       url: /^https?:\/\/www\.17see\.net/i,
       nextLink: 'auto;',
@@ -2613,19 +2603,19 @@
       exampleUrl: 'https://www.laomoit.com',
       nextLink: '//div[@id="pagenavi"]//a[text()="下一页"]',
       autopager:{
-          pageElement:'id("post") | id("content")',
-          replaceE: 'css;#pagenavi',
-          // 删除页面上不需要的元素
-          documentFilter: function(doc){
-              const nodeBrowse = doc.querySelector(".browse");
-              if (nodeBrowse) {
-                  nodeBrowse.parentNode.removeChild(nodeBrowse);
-              }
-              const nodeMap = doc.querySelector("#map");
-              if (nodeMap) {
-                  nodeMap.parentNode.removeChild(nodeMap);
-              }
-          },
+        pageElement:'id("post") | id("content")',
+        replaceE: 'css;#pagenavi',
+        // 删除页面上不需要的元素
+        documentFilter: function(doc){
+          const nodeBrowse = doc.querySelector(".browse");
+          if (nodeBrowse) {
+            nodeBrowse.parentNode.removeChild(nodeBrowse);
+          }
+          const nodeMap = doc.querySelector("#map");
+          if (nodeMap) {
+            nodeMap.parentNode.removeChild(nodeMap);
+          }
+        },
       },
     },
     // ========================= dev =================================
@@ -2811,13 +2801,60 @@
       }
     },
     {
+      name: "bl-novel",
+      url: "^https?://bl-novel\\.in/novel",
+      nextLink: "//a[@id='pb_next']",
+      pageElement: "//div[@id='nr']",
+      documentFilter: function (doc, nextLink) {
+        var scripts = doc.getElementsByTagName('script');
+        var re = /chapter\s*=\s*secret\(['"](.*)['"],\s*['"](.*)['"],\s*(\w+)\s*\)/g;
+        var c;
+        [].forEach.call(scripts, function(x) {
+          if (x.innerText.indexOf('var chapter') >= 0) {
+            var temp = re.exec(x.innerText);
+            var content = temp[1];
+            var salt = temp[2];
+            // function secret is provided by the website
+            if (temp[3].indexOf('true')>=0) {
+              // eslint-disable-next-line no-undef
+              c = secret(content, salt, true);
+            }
+            else {
+              // eslint-disable-next-line no-undef
+              c = secret(content, salt, false);
+            }
+            doc.getElementById('nr1').innerHTML=c;
+          }
+        });
+      }
+    },
+    {
+      name: '第一版主',
+      url: "^https?://www\\.diyibanzhu9\\.com",
+      pageElement: "//div[@id='content']",
+      nextLink: function(doc, win, cplink) {
+        var chapters = getAllElementsByXpath("//div[@class='chapterPages']/a",doc);
+        var prefix = cplink.substr(0,cplink.lastIndexOf('/')) + '/';
+        var i = 0;
+        for (i=0; i<chapters.snapshotLength; i++){
+          if (chapters.snapshotItem(i).className === 'curr') {
+            if (i+1 < chapters.snapshotLength) {
+              return prefix + chapters.snapshotItem(i+1).getAttribute('href');
+            }
+            else {
+              return getDomain(cplink) + getElementByXpath("//span[@class='next']/a").getAttribute('href');
+            }
+          }
+        }
+      }
+    },
+    {
       name: '起点文学-排行榜',
       url: /^https?:\/\/www\.(qidian)\.com(\/mm)?\/rank\/.*/i,
       siteExample: 'https://www.qidian.com/rank/collect',
       nextLink: function (doc, win, cplink) {
-        res = getElementByXpath('//div[@id="page-container"]', doc);
-
-        if (res == null) {
+        var res = getElementByXpath('//div[@id="page-container"]', doc);
+        if (res === null) {
           return undefined;
         }
 
@@ -3562,16 +3599,14 @@
       name: '优书-书单|评论',
       url: /^https?:\/\/www\.yousuu\.com\/(comments|booklist)/i,
       nextLink: function (doc, win, cplink) {
-        res = getElementByXpath('//ul[contains(@class, "pagination")]', doc);
-        if (res == null) {
+        var res = getElementByXpath('//ul[contains(@class, "pagination")]', doc);
+        if (res === null) {
           return undefined;
         }
-
-        var nextNode
-
+        var nextNode;
         if (res.childNodes.length == 2) {
           // 只有2个子节点，首页|下一页
-          nextNode = res.childNodes[1]
+          nextNode = res.childNodes[1];
         } else {
           // 其他类型 << 1 2(active) 3 ... >>
           // 找到active的后一项
@@ -3581,17 +3616,16 @@
               if (i == res.childNodes.length - 2) {
                 return undefined;
               }
-              nextNode = res.childNodes[i+1]
+              nextNode = res.childNodes[i+1];
             }
           }
         }
-
-        findout = /jumpurl\('(\w+)','?(\d+)'?\)/.exec(nextNode.innerHTML)
-        if (findout == null || findout.length != 3) {
+        var findout = /jumpurl\('(\w+)','?(\d+)'?\)/.exec(nextNode.innerHTML);
+        if (findout === null || findout.length != 3) {
           return undefined;
         }
 
-        pageInfo = findout[1]+"="+findout[2]
+        var pageInfo = findout[1]+"="+findout[2];
 
         if (cplink.indexOf(findout[1]+"=") != -1) {
           return cplink.replace(new RegExp(findout[1]+"=\\d+"), pageInfo);
@@ -3787,10 +3821,10 @@
         const xpath = '//div[@class="cH1"]/b[1]';
         var maxpage = document.getElementById('hdPageCount');
         if (maxpage) {
-            maxpage = Number(maxpage.value);
+          maxpage = Number(maxpage.value);
         } else {
-            maxpage = document.getElementById('spPageCount');
-            if (maxpage) { maxpage = Number(maxpage.innerText); } else { return undefined; }
+          maxpage = document.getElementById('spPageCount');
+          if (maxpage) { maxpage = Number(maxpage.innerText); } else { return undefined; }
         }
         if (next == maxpage+1) { return undefined; } else { return m[1] + next + m[3] + dID; }
       },
@@ -4871,16 +4905,16 @@
       name: 'wedata.net',
       url: 'http://wedata.net/databases/AutoPagerize/items.json',
       ruleParser: function(responseText){
-          return JSON.parse(responseText).filter(function(i) {
-              if (i.name === 'Generic Posts Rule')
-                  return false;
-              else
-                  return true;
-          }).map(function(i) {
-                  i.data.name = i.name;
-                  i.data.source = 'wedata.net';
-                  return i.data;
-                  });
+        return JSON.parse(responseText).filter(function(i) {
+          if (i.name === 'Generic Posts Rule')
+            return false;
+          else
+            return true;
+        }).map(function(i) {
+          i.data.name = i.name;
+          i.data.source = 'wedata.net';
+          return i.data;
+        });
       }
     }
   ];
@@ -4934,21 +4968,21 @@
     updateJsonRule: function(jsonUpdateFinish, reject, force){
       // a function used to create promise to update json rule
       // jsonUpdateFinish: Callback after both jsonInfo and SITEINFO_json are updated
-        force = force || false;
-        const currentDate = new Date();
-        const jsonFinish = function(){
-          this.info.expire = new Date(currentDate.getTime() + this.info.updatePeriodInDay*24*60*60*1000);
-          GM.setValue('jsonRuleInfo', JSON.stringify(this.info));
-          GM.setValue('SITEINFO_json', JSON.stringify(SITEINFO_json));
-          jsonUpdateFinish();
-        }.bind(this);
-        if ( this.info.expire < currentDate || SITEINFO_json.length == 0 || force){
-          debug('Json rule is being updated');
-          this.updateRule(jsonFinish);
-        } else {
-          // debug('Json rule will be updated at '+this.info.expire.toString());
-          jsonUpdateFinish();
-        }
+      force = force || false;
+      const currentDate = new Date();
+      const jsonFinish = function(){
+        this.info.expire = new Date(currentDate.getTime() + this.info.updatePeriodInDay*24*60*60*1000);
+        GM.setValue('jsonRuleInfo', JSON.stringify(this.info));
+        GM.setValue('SITEINFO_json', JSON.stringify(SITEINFO_json));
+        jsonUpdateFinish();
+      }.bind(this);
+      if ( this.info.expire < currentDate || SITEINFO_json.length == 0 || force){
+        debug('Json rule is being updated');
+        this.updateRule(jsonFinish);
+      } else {
+        // debug('Json rule will be updated at '+this.info.expire.toString());
+        jsonUpdateFinish();
+      }
     },
     parseJsonInfo: function(x) {
       // Parse the json saved for this.info
@@ -5168,18 +5202,8 @@
         div = null;
 
         const close = function () {
-          var realStyleNode;
           if (styleNode) {
-            if (typeof styleNode.then == "function") {
-              // https://violentmonkey.github.io/api/gm/#gm_addstyle
-              styleNode.then(function(x) {
-                realStyleNode = x;
-                realStyleNode.parentNode.removeChild(realStyleNode)
-              });
-            }
-            else {
-              styleNode.parentNode.removeChild(styleNode);
-            }
+            styleNode.parentNode.removeChild(styleNode);
           }
           const div = $('setup');
           div.parentNode.removeChild(div);
@@ -5214,14 +5238,14 @@
         });
 
         on($('updaterule'), 'click', function(){
-            $('updaterule').innerHTML = "Updating...";
-            const p = new Promise(function(resolve, reject) {
-                jsonRule.updateJsonRule(resolve, reject, true);});
-            p.then(function(values){
-                SP.loadSetting();
-                close();
-                location.reload();
-            });
+          $('updaterule').innerHTML = "Updating...";
+          const p = new Promise(function(resolve, reject) {
+            jsonRule.updateJsonRule(resolve, reject, true);});
+          p.then(function(values){
+            SP.loadSetting();
+            close();
+            location.reload();
+          });
         });
 
         on($('cancel'), 'click', close);
@@ -5704,24 +5728,24 @@
           // 非opera用fixed定位.
           div.style.position = 'fixed';
           switch (FW_position) {
-            case 1:
-              div.style.top = vertical + 'px';
-              div.style.left = horiz + 'px';
-              break;
-            case 2:
-              div.style.top = vertical + 'px';
-              div.style.right = horiz + 'px';
-              break;
-            case 3:
-              div.style.bottom = vertical + 'px';
-              div.style.right = horiz + 'px';
-              break;
-            case 4:
-              div.style.bottom = vertical + 'px';
-              div.style.left = horiz + 'px';
-              break;
-            default:
-              break;
+          case 1:
+            div.style.top = vertical + 'px';
+            div.style.left = horiz + 'px';
+            break;
+          case 2:
+            div.style.top = vertical + 'px';
+            div.style.right = horiz + 'px';
+            break;
+          case 3:
+            div.style.bottom = vertical + 'px';
+            div.style.right = horiz + 'px';
+            break;
+          case 4:
+            div.style.bottom = vertical + 'px';
+            div.style.left = horiz + 'px';
+            break;
+          default:
+            break;
           }
         }
 
@@ -5917,42 +5941,42 @@
           var o_scrollY, divS;
 
           switch (target.className) {
-            case 'sp-sp-gotop':
-              scrollIt(window.scrollY, 0);
-              break;
-            case 'sp-sp-gopre': {
-              const prediv = getRelativeDiv('pre');
-              if (!prediv) return;
-              o_scrollY = window.scrollY;
-              var preDS = prediv.getBoundingClientRect().top;
-              if (prefs.sepP) {
-                divS = div.getBoundingClientRect().top;
-                preDS = o_scrollY - (divS - preDS);
-              } else {
-                preDS += o_scrollY - 6;
-              }
-              scrollIt(o_scrollY, preDS);
-              break;
+          case 'sp-sp-gotop':
+            scrollIt(window.scrollY, 0);
+            break;
+          case 'sp-sp-gopre': {
+            const prediv = getRelativeDiv('pre');
+            if (!prediv) return;
+            o_scrollY = window.scrollY;
+            var preDS = prediv.getBoundingClientRect().top;
+            if (prefs.sepP) {
+              divS = div.getBoundingClientRect().top;
+              preDS = o_scrollY - (divS - preDS);
+            } else {
+              preDS += o_scrollY - 6;
             }
-            case 'sp-sp-gonext': {
-              const nextdiv = getRelativeDiv('next');
-              if (!nextdiv) return;
-              o_scrollY = window.scrollY;
-              var nextDS = nextdiv.getBoundingClientRect().top;
-              if (prefs.sepP) {
-                divS = div.getBoundingClientRect().top;
-                nextDS = o_scrollY + (-divS + nextDS);
-              } else {
-                nextDS += o_scrollY - 6;
-              }
-              scrollIt(o_scrollY, nextDS);
-              break;
+            scrollIt(o_scrollY, preDS);
+            break;
+          }
+          case 'sp-sp-gonext': {
+            const nextdiv = getRelativeDiv('next');
+            if (!nextdiv) return;
+            o_scrollY = window.scrollY;
+            var nextDS = nextdiv.getBoundingClientRect().top;
+            if (prefs.sepP) {
+              divS = div.getBoundingClientRect().top;
+              nextDS = o_scrollY + (-divS + nextDS);
+            } else {
+              nextDS += o_scrollY - 6;
             }
-            case 'sp-sp-gobottom':
-              scrollIt(window.scrollY, Math.max(document.documentElement.scrollHeight, document.body.scrollHeight));
-              break;
-            default:
-              break;
+            scrollIt(o_scrollY, nextDS);
+            break;
+          }
+          case 'sp-sp-gobottom':
+            scrollIt(window.scrollY, Math.max(document.documentElement.scrollHeight, document.body.scrollHeight));
+            break;
+          default:
+            break;
           }
         }
 
@@ -6588,7 +6612,7 @@
               const insertParent = insertPoint.parentNode;
               var colNodes = getAllElements('child::tr[1]/child::*[self::td or self::th]', insertParent);
               if (colNodes.length == 0) {
-                  colNodes = getAllElements('child::*[self::td or self::th]', pageElements[0]);
+                colNodes = getAllElements('child::*[self::td or self::th]', pageElements[0]);
               }
               var colums = 0;
               for (var x = 0, l = colNodes.length; x < l; x++) {
@@ -6972,11 +6996,11 @@
           const ii = SITEINFO.length;
 
           if ((userLang.indexOf('zh') !== -1) || prefs.ChineseUI) {
-              debug('高级规则数目:',ii);
-              debug('规则数 > ', ii - SITEINFO_json.length, '来自其他来源, 比如: wedata.net');
+            debug('高级规则数目:',ii);
+            debug('规则数 > ', ii - SITEINFO_json.length, '来自其他来源, 比如: wedata.net');
           } else {
-              debug('Number of advanced rules:', ii);
-              debug('Rules with ID > ', ii - SITEINFO_json.length, ' come from other source, ex: wedata.net');
+            debug('Number of advanced rules:', ii);
+            debug('Rules with ID > ', ii - SITEINFO_json.length, ' come from other source, ex: wedata.net');
           }
 
           for (var i = 0; i < ii; i++) {
@@ -6984,11 +7008,11 @@
             Rurl = toRE(SII.url);
             if (Rurl.test(url)) {
               if ((userLang.indexOf('zh') !== -1) || prefs.ChineseUI) {
-                  debug('找到当前站点规则:', SII);
-                  debug('规则ID: ', i + 1);
+                debug('找到当前站点规则:', SII);
+                debug('规则ID: ', i + 1);
               } else {
-                  debug('Find rule for this website: ', SII, '是第', i + 1, '规则');
-                  debug('Rule ID: ', i + 1);
+                debug('Find rule for this website: ', SII, '是第', i + 1, '规则');
+                debug('Rule ID: ', i + 1);
               }
 
 
@@ -7146,14 +7170,14 @@
             }
 
             switch (e.keyCode) {
-              case 37:
-                superPreloader.back();
-                break;
-              case 39:
-                superPreloader.go();
-                break;
-              default:
-                break;
+            case 37:
+              superPreloader.back();
+              break;
+            case 39:
+              superPreloader.go();
+              break;
+            default:
+              break;
             }
           }, false);
         }
@@ -7773,7 +7797,7 @@
 
     if (saType == 'string') {
       if (sa[0] == '#') {
-          _cplink = doc.location.href;
+        _cplink = doc.location.href;
       }
       index = _cplink.indexOf(sa);
       if (index == -1) {
@@ -8154,11 +8178,11 @@
     doc = doc || document;
     contextNode = contextNode || doc;
     try {
-        const result = doc.evaluate(xpath, contextNode, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
-        return result.singleNodeValue;
+      const result = doc.evaluate(xpath, contextNode, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
+      return result.singleNodeValue;
     } catch (err) {
-        console.log('Invalid xpath: ',xpath);
-        return undefined;
+      console.log('Invalid xpath: ',xpath);
+      return undefined;
     }
   }
 
@@ -8342,83 +8366,83 @@
   function xToString (x) {
     function toStr (x) {
       switch (typeof x) {
-        case 'undefined':
-          return Str(x);
-        case 'boolean':
-          return Str(x);
-        case 'number':
-          return Str(x);
-        case 'string':
-          return ('"' +
+      case 'undefined':
+        return Str(x);
+      case 'boolean':
+        return Str(x);
+      case 'number':
+        return Str(x);
+      case 'string':
+        return ('"' +
                         (x.replace(/(?:\r\n|\n|\r|\t|\\|\")/g, function (a) {
                           var ret;
                           switch (a) { // 转成字面量
-                            case '\r\n':
-                              ret = '\\r\\n';
-                              break;
-                            case '\n':
-                              ret = '\\n';
-                              break;
-                            case '\r':
-                              ret = '\\r';
-                              break;
-                            case '\t':
-                              ret = '\\t';
-                              break;
-                            case '\\':
-                              ret = '\\\\';
-                              break;
-                            case '"':
-                              ret = '\\"';
-                              break;
-                            default:
-                              break;
+                          case '\r\n':
+                            ret = '\\r\\n';
+                            break;
+                          case '\n':
+                            ret = '\\n';
+                            break;
+                          case '\r':
+                            ret = '\\r';
+                            break;
+                          case '\t':
+                            ret = '\\t';
+                            break;
+                          case '\\':
+                            ret = '\\\\';
+                            break;
+                          case '"':
+                            ret = '\\"';
+                            break;
+                          default:
+                            break;
                           }
                           return ret;
                         })) + '"');
-        case 'function': {
-          const fnStr = Str(x);
-          return fnStr.indexOf('native code') == -1 ? fnStr : 'function(){}';
+      case 'function': {
+        const fnStr = Str(x);
+        return fnStr.indexOf('native code') == -1 ? fnStr : 'function(){}';
+      }
+      case 'object':
+        // 注,object的除了单纯{},其他的对象的属性会造成丢失..
+        if (x === null) {
+          return Str(x);
         }
-        case 'object':
-          // 注,object的除了单纯{},其他的对象的属性会造成丢失..
-          if (x === null) {
-            return Str(x);
+        var rStr = '';
+        var i;
+        switch (x.constructor.name) {
+        case 'Object':
+          for (i in x) {
+            if (!x.hasOwnProperty(i)) { // 去掉原型链上的属性.
+              continue;
+            }
+            rStr += toStr(i) + ':' + toStr(x[i]) + ',';
           }
-          var rStr = '';
-          var i;
-          switch (x.constructor.name) {
-            case 'Object':
-              for (i in x) {
-                if (!x.hasOwnProperty(i)) { // 去掉原型链上的属性.
-                  continue;
-                }
-                rStr += toStr(i) + ':' + toStr(x[i]) + ',';
-              }
-              return ('{' + rStr.replace(/,$/i, '') + '}');
-            case 'Array':
-              for (i in x) {
-                if (!x.hasOwnProperty(i)) { // 去掉原型链上的属性.
-                  continue;
-                }
-                rStr += toStr(x[i]) + ',';
-              }
-              return '[' + rStr.replace(/,$/i, '') + ']';
-            case 'String':
-              return toStr(Str(x));
-            case 'RegExp':
-              return Str(x);
-            case 'Number':
-              return Str(x);
-            case 'Boolean':
-              return Str(x);
-            default:
-              // alert(x.constructor);//漏了什么类型么?
-              break;
+          return ('{' + rStr.replace(/,$/i, '') + '}');
+        case 'Array':
+          for (i in x) {
+            if (!x.hasOwnProperty(i)) { // 去掉原型链上的属性.
+              continue;
+            }
+            rStr += toStr(x[i]) + ',';
           }
-          break;
+          return '[' + rStr.replace(/,$/i, '') + ']';
+        case 'String':
+          return toStr(Str(x));
+        case 'RegExp':
+          return Str(x);
+        case 'Number':
+          return Str(x);
+        case 'Boolean':
+          return Str(x);
         default:
+          // alert(x.constructor);//漏了什么类型么?
           break;
+        }
+        break;
+      default:
+        break;
       }
     }
     const Str = String;
@@ -8446,49 +8470,68 @@
     return '^' + reg + '$';
   }
 
+  function getAllIndexes(arr, val) {
+    var indexes = [];
+    var i = -1;
+    while ((i = arr.indexOf(val, i+1)) != -1){
+      indexes.push(i);
+    }
+    return indexes;
+  }
+
+  function getDomain(cplink) {
+    // Get [PROTOCOL]://[DOMAIN]
+    var a = getAllIndexes(cplink, '/');
+    if (a.length > 2) {
+      return cplink.substr(0, a[2]);
+    }
+    else {
+      return cplink;
+    }
+  }
   //Function to compare two version strings https://gist.github.com/TheDistantSea/8021359
   function versionCompare(v1, v2, options) {
     var lexicographical = options && options.lexicographical,
-        zeroExtend = options && options.zeroExtend,
-        v1parts = v1.split('.'),
-        v2parts = v2.split('.');
+      zeroExtend = options && options.zeroExtend,
+      v1parts = v1.split('.'),
+      v2parts = v2.split('.');
 
     function isValidPart(x) {
-        return (lexicographical ? /^\d+[A-Za-z]*$/ : /^\d+$/).test(x);
+      return (lexicographical ? /^\d+[A-Za-z]*$/ : /^\d+$/).test(x);
     }
 
     if (!v1parts.every(isValidPart) || !v2parts.every(isValidPart)) {
-        return NaN;
+      return NaN;
     }
 
     if (zeroExtend) {
-        while (v1parts.length < v2parts.length) v1parts.push("0");
-        while (v2parts.length < v1parts.length) v2parts.push("0");
+      while (v1parts.length < v2parts.length) v1parts.push("0");
+      while (v2parts.length < v1parts.length) v2parts.push("0");
     }
 
     if (!lexicographical) {
-        v1parts = v1parts.map(Number);
-        v2parts = v2parts.map(Number);
+      v1parts = v1parts.map(Number);
+      v2parts = v2parts.map(Number);
     }
 
     for (var i = 0; i < v1parts.length; ++i) {
-        if (v2parts.length == i) {
-            return 1;
-        }
+      if (v2parts.length == i) {
+        return 1;
+      }
 
-        if (v1parts[i] == v2parts[i]) {
-            continue;
-        }
-        else if (v1parts[i] > v2parts[i]) {
-            return 1;
-        }
-        else {
-            return -1;
-        }
+      if (v1parts[i] == v2parts[i]) {
+        continue;
+      }
+      else if (v1parts[i] > v2parts[i]) {
+        return 1;
+      }
+      else {
+        return -1;
+      }
     }
 
     if (v1parts.length != v2parts.length) {
-        return -1;
+      return -1;
     }
 
     return 0;
