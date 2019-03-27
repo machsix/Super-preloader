@@ -2654,7 +2654,7 @@
       url: /^https?:\/\/blog\.csdn\.net/i,
       siteExample: 'http://blog.csdn.net/wangjieest?viewmode=list',
       nextLink: function (doc, win, cplink) {
-        for(var i = 0; i < doc.scripts.length; i++) {
+        for (var i = 0; i < doc.scripts.length; i++) {
           const scriptText = doc.scripts[i].text;
           if (typeof (scriptText) != "undefined" && scriptText.indexOf("currentPage") > 0) {
             const pageMatches = scriptText.match(/currentPage[ ]?=[ ]?(\d+)/);
