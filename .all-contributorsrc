@@ -16,6 +16,16 @@
         "content",
         "review"
       ]
+    },
+    {
+      "login": "suchunchen",
+      "name": "suchunchen",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/17309819?v=4",
+      "profile": "https://github.com/suchunchen",
+      "contributions": [
+        "code",
+        "content"
+      ]
     }
   ],
   "contributorsPerLine": 7,
