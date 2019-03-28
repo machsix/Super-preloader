@@ -6,6 +6,18 @@
   "commit": false,
   "contributors": [
     {
+      "login": "machsix",
+      "name": "MachX",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/28209092?v=4",
+      "profile": "https://github.com/machsix",
+      "contributions": [
+        "code",
+        "design",
+        "content",
+        "review"
+      ]
+    },
+    {
       "login": "suchunchen",
       "name": "suchunchen",
       "avatar_url": "https://avatars3.githubusercontent.com/u/17309819?v=4",
