@@ -34,6 +34,9 @@ To take part into the development, you need to:
 
 Everytime you make a commt, `eslint` will check your code style.
 
+# Contributers
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+
 # License
 gpl-3.0
 

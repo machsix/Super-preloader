@@ -1,0 +1,47 @@
+{
+  "projectName": "Super-preloader",
+  "projectOwner": "machsix",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "contributors": [
+    {
+      "login": "machsix",
+      "name": "Mach 6",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/28209092?v=4",
+      "profile": "https://github.com/machsix",
+      "contributions": [
+        "code",
+        "design",
+        "content",
+        "review"
+      ]
+    },
+    {
+      "login": "suchunchen",
+      "name": "suchunchen",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/17309819?v=4",
+      "profile": "https://github.com/suchunchen",
+      "contributions": [
+        "code",
+        "content"
+      ]
+    },
+    {
+      "login": "yfdyh000",
+      "name": "yfdyh000",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1769875?v=4",
+      "profile": "http://wiki.mozilla.org/User:YFdyh000",
+      "contributions": [
+        "code",
+        "design",
+        "idea"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7
+}
