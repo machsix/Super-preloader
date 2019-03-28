@@ -1,7 +1,7 @@
 [
   {
     "name": "wnacg",
-    "url": "^https?://(www\\.)?wnacg\\.(org|net)/photos-view-id.*\\.html",
+    "url": "^https?://(www\\.)?wnacg\\.(org|net|com)/photos-view-id.*\\.html",
     "nextLink": "//a[text()='下一頁']",
     "autopager": {
       "maxpage": 500,
@@ -17,7 +17,7 @@
   },
   {
     "name": "wnacglist",
-    "url": "^https?://(www\\.)?wnacg\\.(org|net)",
+    "url": "^https?://(www\\.)?wnacg\\.(org|net|comG)",
     "nextLink": "//span[@class='next']/a",
     "pageElement": "//div[@class='gallary_wrap']",
     "exampleUrl": "http://www.wnacg.org/photos-view-id-2132443.html"
@@ -195,5 +195,11 @@
     "url": "^https?://www\\.libaclub\\.com",
     "nextLink": "//div[@class='ui-paging']/a[contains(text(),'下一页')] | //a[@class='fn-link']",
     "pageElement": "//li[contains(@class, 'ui-list-item')]"
+  },
+  {
+    "name": "tjdige",
+    "url": "^https?://bbs\\.tjdige\\.com",
+    "nextLink": "//div[@class='pagination']/a[span[contains(text(),'下一页')]]",
+    "pageElement": "//div[contains(@class,'clearfix mod')]"
   }
 ]
