@@ -585,10 +585,10 @@
     },
     {
       name: 'smzdm-comment',
-      url: /^https?:\/\/\w+\.smzdm\.com\/p\/\d+/i,
+      url: /^https?:\/\/\w+\.smzdm\.com(\/\w+)?\/p\/[\d\w\W]+/i,
       exampleUrl: 'https://post.smzdm.com/p/559992/',
       // 还有另外一种评论
-      // exampleUrl: 'https://www.smzdm.com/p/11496450/',
+      // exampleUrl: 'https://www.smzdm.com/p/11496450/ | https://test.smzdm.com/pingce/p/70095121/',
       nextLink: '//ul[@class="pagination"]/li[@class="pagedown"]/a',
       autopager: {
         pageElement: 'id("commentTabBlockNew")/ul[@class="comment_listBox"]',
@@ -2653,9 +2653,50 @@
       name: 'CSDN博客',
       url: /^https?:\/\/blog\.csdn\.net/i,
       siteExample: 'http://blog.csdn.net/wangjieest?viewmode=list',
-      nextLink: '//div[@id="papelist"]/descendant::a[text()="下一页"]',
+      nextLink: function (doc, win, cplink) {
+        for (var i = 0; i < doc.scripts.length; i++) {
+          const scriptText = doc.scripts[i].text;
+          if (typeof (scriptText) != "undefined" && scriptText.indexOf("currentPage") > 0) {
+            const pageMatches = scriptText.match(/currentPage[ ]?=[ ]?(\d+)/);
+            if (pageMatches.length != 2) {
+              continue;
+            }
+
+            const baseUrlMatches = scriptText.match(/baseUrl[ ]?=[ ]?'([^']+)'/);
+            if (baseUrlMatches.length != 2) {
+              continue;
+            }
+            return baseUrlMatches[1] + '/' +(parseInt(pageMatches[1]) + 1);
+          }
+        }
+        return null;
+      },
       autopager: {
-        pageElement: '//div[@id="article_list"]'
+        pageElement: '//div[@id="article_list"] | // div[@class="article-list"]',
+        documentFilter: function (doc) {
+          // 文档底部的 marginBottom 重置
+          const articleList = doc.querySelector(".article-list");
+          if (articleList) {
+            articleList.style.marginBottom = "0";
+          }
+        },
+        startFilter: function (win, doc) {
+          // 文档底部的 marginBottom 重置
+          const articleList = doc.querySelector(".article-list");
+          if (articleList) {
+            articleList.style.marginBottom = "0";
+          }
+          // 移动分页位置
+          const pageBox = document.querySelector("#pageBox");
+          if (pageBox) {
+            pageBox.parentNode.parentNode.appendChild(pageBox);
+          }
+          // 删除广告
+          const adBox = document.querySelector(".box-box-large");
+          if (adBox) {
+            adBox.parentNode.removeChild(adBox);
+          }
+        }
       }
     },
     {
@@ -2664,7 +2705,7 @@
       siteExample: 'http://bbs.csdn.net/forums/Qt',
       nextLink: '//div[@class="page_nav"]/descendant::a[text()="下一页"]',
       autopager: {
-        pageElement: '//body/div/div[@class="content"]/table',
+        pageElement: '//table[@class="forums_tab_table"]/tbody/tr',
         replaceE: '//div[@class="page_nav"]'
       }
     },
@@ -2672,10 +2713,51 @@
       name: 'CSDN话题',
       url: /^https?:\/\/bbs\.csdn\.net\/topics\//i,
       siteExample: 'http://bbs.csdn.net/topics/390244325',
-      nextLink: '//div[@class="control_area"]/descendant::a[@class="next"]',
+      nextLink: '(//div[@class="page_nav"])[1]/a[text()="下一页"]',
       autopager: {
-        pageElement: '//div[@class="detailed"]',
-        replaceE: '//div[@class="control_area"]'
+        pageElement: 'id("bbs_detail_wrap")',
+        documentFilter: function (doc) {
+          // 删除文档中的多余表头
+          const titleH = doc.querySelector(".bbs_title_h");
+          if (titleH) {
+            titleH.parentNode.removeChild(titleH);
+          }
+
+          const titleBar = doc.querySelector(".bbs_title_bar");
+          if (titleBar) {
+            titleBar.parentNode.removeChild(titleBar);
+          }
+
+          const breadWrap = doc.querySelector(".bbs_bread_wrap");
+          if (breadWrap) {
+            breadWrap.parentNode.removeChild(breadWrap);
+          }
+          // 尾页的分页信息隐藏
+          const pageNav = doc.querySelectorAll(".mod_fun_wrap");
+          if (pageNav) {
+            let index = 0;
+            if (pageNav.length == 2) {
+              index = 1;
+            }
+            pageNav[index].style.display = "none";
+          }
+        },
+        startFilter: function (win, doc) {
+          // 尾页的分页信息隐藏
+          const pageNav = doc.querySelectorAll(".mod_fun_wrap");
+          if (pageNav) {
+            let index = 0;
+            if (pageNav.length == 2) {
+              index = 1;
+            }
+            pageNav[index].style.display = "none";
+          }
+          // 扩展的其他话题信息移除，长度太长，导致翻页信息有点问题
+          const feedBox = doc.querySelector(".post_feed_box");
+          if (feedBox) {
+            feedBox.parentNode.removeChild(feedBox);
+          }
+        }
       }
     },
     {
@@ -4038,26 +4120,13 @@
       pageElement: '//div[@class="data-list"]/div[@class="row"]'
     },
     {
-      name: 'sis001.com列表',
-      url: /^https?:\/\/(\w+\.)?sis001\.com\/forum\/thread[0-9\-]+\.html/i,
-      exampleUrl: 'https://www.sis001.com/forum/thread-230-1.html',
-      autopager: {
-        // 只执行一次，删除广告
-        startFilter: function (win, doc) {
-          const firstDiv = doc.querySelector("#ad_text");
-          if (firstDiv) {
-            firstDiv.parentNode.removeChild(firstDiv);
-          }
-        }
-      }
-    },
-    {
-      name: 'sis001.com详情',
-      url: /^https?:\/\/(\w+\.)?sis001\.com\/forum\/forum[0-9\-]+\.html/i,
+      name: 'sis001.com',
+      url: /^https?:\/\/(\w+\.)?sis001\.com\/forum\/(forum|thread)[0-9\-]+\.html/i,
       exampleUrl: 'https://www.sis001.com/forum/forum-230-1.html',
-      // nextLink: '//div[@class="pages_btns"]//a[@class="next"]',
+      nextLink: '//div[@class="pages_btns"]//a[@class="next"]',
       autopager: {
         pageElement: '//div[@class="mainbox"]//table[last()]',
+        replaceE: '//div[@class="pages_btns"]',
         // 只执行一次，删除广告
         startFilter: function (win, doc) {
           const firstDiv = doc.querySelector("#ad_text");
@@ -6454,8 +6523,6 @@
 
             const docTitle = getElementByCSS('title', doc).textContent;
 
-            removeScripts(doc);
-
             const fragment = document.createDocumentFragment();
             const pageElements = getAllElements(SSS.a_pageElement, false, doc, win);
             const ii = pageElements.length;
@@ -6481,6 +6548,8 @@
             } else {
               nextlink = null;
             }
+            // 有部分下一页的信息是在script中（比如新加的csdn的规则），因此先查找下一页信息，再执行 removeScripts
+            removeScripts(doc);
 
             var i, pe_x, pe_x_nn;
             for (i = 0; i < ii; i++) {
@@ -7080,6 +7149,12 @@
           document.addEventListener('keyup', function (e) {
             const tarNN = e.target.nodeName;
             if (tarNN != 'BODY' && tarNN != 'HTML') return;
+
+            // check is a combo pressed
+            if (e.ctrlKey || e.shiftKey || e.altKey || e.metaKey) {
+              return;
+            }
+
             switch (e.keyCode) {
             case 37:
               superPreloader.back();
