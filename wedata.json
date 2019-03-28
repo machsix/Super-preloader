@@ -1938,10 +1938,10 @@
   "name": "Amazon.com",
   "created_by": "anair3007",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-03-14T19:16:38+09:00",
+  "updated_at": "2019-03-27T22:15:23+09:00",
   "data": {
-    "exampleUrl": "https://www.amazon.com/s?rh=n%3A165793011%2Cn%3A%21165795011%2Cn%3A165993011&page=2",
-    "url": "^https?://(\\w+\\.)?amazon\\.com/",
+    "exampleUrl": "https://www.amazon.com/s?rh=n%3A165793011%2Cn%3A%21165795011%2Cn%3A165993011&page=2\r\nhttps://www.amazon.co.jp/s?k=%E3%82%8A%E3%82%85%E3%81%86%E3%81%8A%E3%81%86%E3%81%AE%E3%81%8A%E3%81%97%E3%81%94%E3%81%A8&__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&linkCode=qs&sourceid=Mozilla-search&tag=mozillajapan-fx-22",
+    "url": "^https?://(\\w+\\.)?amazon\\.(?:\\w{2,3}(?:\\.\\w{2})?)/",
     "pageElement": "id(\"mainResults\")|//div[contains(concat(\" \",@class,\" \"),\" s-result-list \")]",
     "nextLink": "//span[@class=\"pagnCur\"]/following-sibling::span/a|//li[@class=\"a-selected\"]/following-sibling::li/a"
   },
