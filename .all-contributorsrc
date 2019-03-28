@@ -26,6 +26,16 @@
         "code",
         "content"
       ]
+    },
+    {
+      "login": "yfdyh000",
+      "name": "YFdyh000",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1769875?v=4",
+      "profile": "http://wiki.mozilla.org/User:YFdyh000",
+      "contributions": [
+        "code",
+        "design"
+      ]
     }
   ],
   "contributorsPerLine": 7,
