@@ -2666,10 +2666,10 @@
             if (baseUrlMatches.length != 2) {
               continue;
             }
-            return baseUrlMatches[1] + '/' +(parseInt(pageMatches[1]) + 1)
+            return baseUrlMatches[1] + '/' +(parseInt(pageMatches[1]) + 1);
           }
-        };
-        return null
+        }
+        return null;
       },
       autopager: {
         pageElement: '//div[@id="article_list"] | // div[@class="article-list"]',
@@ -2677,24 +2677,24 @@
           // 文档底部的 marginBottom 重置
           const articleList = doc.querySelector(".article-list");
           if (articleList) {
-            articleList.style.marginBottom = "0"
+            articleList.style.marginBottom = "0";
           }
         },
         startFilter: function (win, doc) {
           // 文档底部的 marginBottom 重置
           const articleList = doc.querySelector(".article-list");
           if (articleList) {
-            articleList.style.marginBottom = "0"
+            articleList.style.marginBottom = "0";
           }
           // 移动分页位置
           const pageBox = document.querySelector("#pageBox");
           if (pageBox) {
-            pageBox.parentNode.parentNode.appendChild(pageBox)
+            pageBox.parentNode.parentNode.appendChild(pageBox);
           }
           // 删除广告
           const adBox = document.querySelector(".box-box-large");
           if (adBox) {
-            adBox.parentNode.removeChild(adBox)
+            adBox.parentNode.removeChild(adBox);
           }
         }
       }
