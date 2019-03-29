@@ -13,7 +13,7 @@
 // @author       Mach6
 // @contributers YFdyh000, suchunchen
 // @thanksto     ywzhaiqi, NLF
-// @version      6.6.25
+// @version      6.6.26
 // @license      GNU GPL v3
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
@@ -57,9 +57,9 @@
 // ==/UserScript==
 (function() {
   const scriptInfo = {
-    version: "6.6.25",
-    updateTime: "2019/3/29",
-    changelog: "Improve UI",
+    version: "6.6.26",
+    updateTime: "2019/3/30",
+    changelog: "Add generic rule for wordpresss",
     homepageURL: "https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new",
     downloadUrl: "https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.user.js",
     metaUrl: "https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.meta.js"
@@ -4861,6 +4861,38 @@
   // 所以说尽量不要放规则在这个组里面.
   const SITEINFO_comp = [
     {
+      name: "WordPress",
+      url: "^https?://[^/]+(/page/\\d+)?",
+      nextLink: {
+        startAfter: "/page/",
+        mFails: [/^https?:\/\/[^/]+/i, "/page/1/"],
+        inc: 1,
+        isLast: function(doc, win, lhref) {
+          return false;
+        }
+      },
+      autopager: {
+        pageElement: function(doc, win) {
+          // detect if this is wordpress
+          if (doc.documentElement.outerHTML.indexOf("WordPress") === -1 && doc.documentElement.outerHTML.indexOf("wp-content") === -1) {
+            return null;
+          }
+          var posts = getAllElements("//*[contains(@class,'container')]//article|//*[contains(@class,'container')]//div[contains(@class,'article-post')]", doc, doc, win);
+          if (posts.length > 0) {
+            return posts;
+          }
+          //https://www.portablesoft.org/
+          posts = getAllElements("//div[@id='main']/div[@class='post-entry']", doc, doc, win);
+          if (posts.length > 0) {
+            return posts;
+          }
+          posts = getAllElements("//*[contains(@class,'container')]//div[substring(@class,string-length(@class) -string-length('post')+1)='post']", doc, doc, win);
+          return posts;
+        },
+        relatedObj: true
+      }
+    },
+    {
       name: "discuz论坛通用搜索",
       url: "^https?://[^/]+/f/(?:discuz|search)",
       nextLink: "auto;",
@@ -5135,6 +5167,7 @@
     "下1页",
     "下1頁",
     "下页",
+    "下页 ›",
     "下頁",
     "翻页",
     "翻頁",
@@ -6310,6 +6343,11 @@
           scroll();
         }
 
+        function XHRNotLoaded(req) {
+          debug("XHR is failed to be loaded");
+          debug(req);
+        }
+
         function removeL(isRemoveAddPage) {
           debug("移除各种事件监听");
           floatWO.updateColor("Astop");
@@ -6451,6 +6489,7 @@
                 url: nextlink,
                 overrideMimeType: "text/html; charset=" + document.characterSet,
                 onload: XHRLoaded,
+                onerror: XHRNotLoaded,
                 header: SSS.a_header
               });
             } else {
@@ -6460,6 +6499,7 @@
                   url: nextlink,
                   overrideMimeType: "text/html; charset=" + document.characterSet,
                   onload: XHRLoaded,
+                  onerror: XHRNotLoaded,
                   header: cplink
                 });
               } else {
@@ -6467,7 +6507,8 @@
                   method: "GET",
                   url: nextlink,
                   overrideMimeType: "text/html; charset=" + document.characterSet,
-                  onload: XHRLoaded
+                  onload: XHRLoaded,
+                  onerror: XHRNotLoaded
                 });
               }
             }
