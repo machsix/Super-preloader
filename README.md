@@ -31,7 +31,10 @@ I appreciate anyone who is interested in devoting their time to the development.
 To take part into the development, you need to:
 1. Be familiar with `javascript` and `xpath`
 2. Install `node js` by `npm install`
-3. Follow the style of the code and make your contributions!
+3. Make your modifications
+4. Run `npm run lint` to check bugs
+4. Run `npm run format` to format the code based on our code style
+5. Commit and submit pull request!
 
 Everytime you make a commt, `eslint` will check your code style.
 

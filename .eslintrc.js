@@ -10,7 +10,8 @@ module.exports = {
     },
     "plugins": [
         "compat",
-        "json"
+        "json",
+        "prettier"
     ],
     "rules": {
         "accessor-pairs": "error",
@@ -64,7 +65,7 @@ module.exports = {
         "id-length": "off",
         "id-match": "error",
         "implicit-arrow-linebreak": "error",
-        "indent": ["error", 2],
+        "indent": ["error", 2, { "SwitchCase": 1 }],
         "indent-legacy": "off",
         "init-declarations": "off",
         "jsx-quotes": "error",
@@ -231,6 +232,7 @@ module.exports = {
         "prefer-rest-params": "error",
         "prefer-spread": "off",
         "prefer-template": "off",
+        "prettier/prettier": "warn",
         "quote-props": "off",
         "quotes": "off",
         "radix": "off",
