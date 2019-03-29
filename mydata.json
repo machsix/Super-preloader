@@ -219,7 +219,7 @@
     "nextLink": "id('page-container')//a[@class='lbf-pagination-next ']",
     "autopager": {
       "pageElement": "//div[@class='all-book-list']",
-      "replaceE":"id('page-container')",
+      "replaceE":"id('page-container')"
     }
-  },
+  }
 ]
