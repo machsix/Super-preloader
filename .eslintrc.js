@@ -8,7 +8,10 @@ module.exports = {
     "parserOptions": {
         "ecmaVersion": 6
     },
-    "plugins": ["compat"],
+    "plugins": [
+        "compat",
+        "json"
+    ],
     "rules": {
         "accessor-pairs": "error",
         "array-bracket-newline": "off",
