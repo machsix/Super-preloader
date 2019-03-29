@@ -11,7 +11,7 @@
 // @description:zh-cn  预读+翻页..全加速你的浏览体验
 // @description:zh-TW  预读+翻页..全加速你的浏览体验
 // @author       Mach6
-// @version      6.6.21
+// @version      6.6.23
 // @license      GNU GPL v3
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
@@ -56,9 +56,9 @@
 // ==/UserScript==
 (function () {
   const scriptInfo = {
-    version: '6.6.21',
-    updateTime: '2019/3/26',
-    changelog: 'Fix novel websites',
+    version: '6.6.23',
+    updateTime: '2019/3/28',
+    changelog: 'Fix csdn',
     homepageURL: 'https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new',
     downloadUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.user.js',
     metaUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.meta.js',
@@ -2654,23 +2654,22 @@
       url: /^https?:\/\/blog\.csdn\.net/i,
       siteExample: 'http://blog.csdn.net/wangjieest?viewmode=list',
       nextLink: function (doc, win, cplink) {
-        for(let index in doc.scripts) {
-          let scriptText = doc.scripts[index].text
-          if (typeof(scriptText) != "undefined" && scriptText.indexOf("currentPage") > 0) {
-            let pageMatches = scriptText.match(/currentPage[ ]?=[ ]?(\d+)/)
+        for (var i = 0; i < doc.scripts.length; i++) {
+          const scriptText = doc.scripts[i].text;
+          if (typeof (scriptText) != "undefined" && scriptText.indexOf("currentPage") > 0) {
+            const pageMatches = scriptText.match(/currentPage[ ]?=[ ]?(\d+)/);
             if (pageMatches.length != 2) {
               continue;
             }
 
-            let baseUrlMatches = scriptText.match(/baseUrl[ ]?=[ ]?'([^']+)'/)
+            const baseUrlMatches = scriptText.match(/baseUrl[ ]?=[ ]?'([^']+)'/);
             if (baseUrlMatches.length != 2) {
               continue;
             }
-
-            return baseUrlMatches[1] + '/' +(parseInt(pageMatches[1]) + 1)
+            return baseUrlMatches[1] + '/' +(parseInt(pageMatches[1]) + 1);
           }
-        };
-        return null
+        }
+        return null;
       },
       autopager: {
         pageElement: '//div[@id="article_list"] | // div[@class="article-list"]',
@@ -2678,24 +2677,24 @@
           // 文档底部的 marginBottom 重置
           const articleList = doc.querySelector(".article-list");
           if (articleList) {
-            articleList.style.marginBottom = "0"
+            articleList.style.marginBottom = "0";
           }
         },
         startFilter: function (win, doc) {
           // 文档底部的 marginBottom 重置
           const articleList = doc.querySelector(".article-list");
           if (articleList) {
-            articleList.style.marginBottom = "0"
+            articleList.style.marginBottom = "0";
           }
           // 移动分页位置
           const pageBox = document.querySelector("#pageBox");
           if (pageBox) {
-            pageBox.parentNode.parentNode.appendChild(pageBox)
+            pageBox.parentNode.parentNode.appendChild(pageBox);
           }
           // 删除广告
           const adBox = document.querySelector(".box-box-large");
           if (adBox) {
-            adBox.parentNode.removeChild(adBox)
+            adBox.parentNode.removeChild(adBox);
           }
         }
       }
@@ -2714,8 +2713,6 @@
       name: 'CSDN话题',
       url: /^https?:\/\/bbs\.csdn\.net\/topics\//i,
       siteExample: 'http://bbs.csdn.net/topics/390244325',
-      // 这种写法到了最后一页，next_page指向了倒数第二页，导致无限循环
-      // nextLink: '//div[@class="page_nav"]/a[contains(@class, "next_page")]',
       nextLink: '(//div[@class="page_nav"])[1]/a[text()="下一页"]',
       autopager: {
         pageElement: 'id("bbs_detail_wrap")',
@@ -2738,9 +2735,9 @@
           // 尾页的分页信息隐藏
           const pageNav = doc.querySelectorAll(".mod_fun_wrap");
           if (pageNav) {
-            index = 0
+            let index = 0;
             if (pageNav.length == 2) {
-              index = 1
+              index = 1;
             }
             pageNav[index].style.display = "none";
           }
@@ -2749,9 +2746,9 @@
           // 尾页的分页信息隐藏
           const pageNav = doc.querySelectorAll(".mod_fun_wrap");
           if (pageNav) {
-            index = 0
+            let index = 0;
             if (pageNav.length == 2) {
-              index = 1
+              index = 1;
             }
             pageNav[index].style.display = "none";
           }
@@ -6526,8 +6523,18 @@
 
             const docTitle = getElementByCSS('title', doc).textContent;
 
+            const fragment = document.createDocumentFragment();
+            const pageElements = getAllElements(SSS.a_pageElement, false, doc, win);
+            const ii = pageElements.length;
+            if (ii <= 0) {
+              debug('获取下一页的主要内容失败', SSS.a_pageElement);
+              removeL();
+              return;
+            } else {
+              debug('获取下一页的主要内容成功');
+            }
+
             // 提前查找下一页链接，后面再赋值
-            // 在removeScripts前执行，是因为有部分下一页的信息是在script中（比如新加的csdn的规则）
             const lastUrl = cplink;
             cplink = nextlink;
             var nl = getElement(SSS.nextLink, false, doc, win);
@@ -6541,19 +6548,8 @@
             } else {
               nextlink = null;
             }
-
+            // 有部分下一页的信息是在script中（比如新加的csdn的规则），因此先查找下一页信息，再执行 removeScripts
             removeScripts(doc);
-
-            const fragment = document.createDocumentFragment();
-            const pageElements = getAllElements(SSS.a_pageElement, false, doc, win);
-            const ii = pageElements.length;
-            if (ii <= 0) {
-              debug('获取下一页的主要内容失败', SSS.a_pageElement);
-              removeL();
-              return;
-            } else {
-              debug('获取下一页的主要内容成功');
-            }
 
             var i, pe_x, pe_x_nn;
             for (i = 0; i < ii; i++) {
@@ -7156,7 +7152,7 @@
 
             // check is a combo pressed
             if (e.ctrlKey || e.shiftKey || e.altKey || e.metaKey) {
-                return;
+              return;
             }
 
             switch (e.keyCode) {

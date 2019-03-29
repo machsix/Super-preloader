@@ -1,5 +1,7 @@
 #!/bin/bash -e
-if [ ! -z `git diff --name-only HEAD~1 HEAD | grep -EZ 'mydata.json|docs/'` ]; then
+git fetch origin gh-pages:gh-pages
+if [[ -n `git diff --name-status gh-pages..master -- mydata.json` ]]; then
+    echo "mydata.json is changed"
     travis-sphinx build --source docs/source
     rm -rf doc/build/_downloads
     sed -i 's|_downloads/\w\+/||g' doc/build/super_preloader.html
@@ -7,4 +9,7 @@ if [ ! -z `git diff --name-only HEAD~1 HEAD | grep -EZ 'mydata.json|docs/'` ]; t
     cp mydata.json doc/build/mydata.json
     export DAY=`date --date='now' +'%F %X %Z'`
     travis-sphinx deploy -m "${TRAVIS_COMMIT}-${DAY}"
+    echo "mydata.json is deployed"
+else
+    echo "mydata.json is not changed"
 fi
