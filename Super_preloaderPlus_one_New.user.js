@@ -11,7 +11,9 @@
 // @description:zh-cn  预读+翻页..全加速你的浏览体验
 // @description:zh-TW  预读+翻页..全加速你的浏览体验
 // @author       Mach6
-// @version      6.6.24
+// @contributers YFdyh000, suchunchen
+// @thanksto     ywzhaiqi, NLF
+// @version      6.6.25
 // @license      GNU GPL v3
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
@@ -23,7 +25,6 @@
 // @grant        GM_setValue
 // @grant        GM.xmlHttpRequest
 // @grant        GM_xmlhttpRequest
-// @grant        GM_addStyle
 // @grant        GM_registerMenuCommand
 // @connect      wedata.net
 // @connect      github.io
@@ -56,7 +57,7 @@
 // ==/UserScript==
 (function() {
   const scriptInfo = {
-    version: "6.6.24",
+    version: "6.6.25",
     updateTime: "2019/3/29",
     changelog: "Improve UI",
     homepageURL: "https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new",
@@ -5297,7 +5298,7 @@
       };
       if ($("setup")) return;
 
-      const styleNode = GM.addStyle(
+      const styleNode = addStyle(
         '\
                       #sp-prefs-setup { position:fixed;z-index:2147483647;top:30px;right:60px;padding:20px 30px;background:#eee;box-sizing:content-box;border:1px solid black;\
                                         font-family:"Arial","sans-serif" !important; color:transparent;max-height:80%;overflow:auto; }\
@@ -5508,7 +5509,7 @@
 
         // 分辨率 高度 > 宽度 的是手机
         if (window.screen.height > window.screen.width) {
-          GM.addStyle("div.sp-separator { min-width:auto !important; }");
+          addStyle("div.sp-separator { min-width:auto !important; }");
         }
       },
       loadSetting: function() {
@@ -5570,7 +5571,7 @@
       };
 
       function floatWindow(SSS) {
-        GM.addStyle(
+        addStyle(
           '\
                          #sp-fw-container {\
                              z-index:999999!important;\
@@ -6272,7 +6273,7 @@
 
         if (SSS.a_stylish) {
           // 插入自定义样式
-          GM.addStyle(SSS.a_stylish, "Super_preloader-style");
+          addStyle(SSS.a_stylish, "Super_preloader-style");
         }
 
         var insertPointP;
@@ -6490,7 +6491,7 @@
 
         function manualAdiv() {
           if (!manualDiv) {
-            GM.addStyle(
+            addStyle(
               "\
                     #sp-sp-manualdiv{\
                         line-height:1.6!important;\
@@ -6677,7 +6678,7 @@
           const div = document.createElement("div");
           if (SSS.a_separator) {
             if (!sepStyle) {
-              sepStyle = GM.addStyle(
+              sepStyle = addStyle(
                 "\
                         div.sp-separator{\
                             line-height:1.6!important;\
@@ -8855,6 +8856,25 @@
       }
     }
     return hasMissing;
+  }
+
+  function addStyle(aCss, aId, doc) {
+    doc = doc || document;
+    var head = doc.getElementsByTagName("head")[0];
+    if (!head) {
+      head = doc.documentElement;
+    }
+    var style = doc.createElement("style");
+    if (aId) {
+      style.setAttribute("id", aId);
+    }
+    style.setAttribute("type", "text/css");
+    style.textContent = aCss;
+    if (head) {
+      return head.appendChild(style);
+    } else {
+      return null;
+    }
   }
 
   //Function to compare two version strings https://gist.github.com/TheDistantSea/8021359
