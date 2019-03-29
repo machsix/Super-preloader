@@ -4,7 +4,7 @@ python:
 install:
     - npm install
 script:
-    - npm run lint
+    - npm run test
 before_deploy:
     - pip install sphinx_rtd_theme
     - pip install travis-sphinx
