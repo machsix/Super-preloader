@@ -11,7 +11,7 @@
 // @description:zh-cn  预读+翻页..全加速你的浏览体验
 // @description:zh-TW  预读+翻页..全加速你的浏览体验
 // @author       Mach6
-// @version      6.6.23
+// @version      6.6.24
 // @license      GNU GPL v3
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
@@ -56,9 +56,9 @@
 // ==/UserScript==
 (function () {
   const scriptInfo = {
-    version: '6.6.23',
-    updateTime: '2019/3/28',
-    changelog: 'Fix csdn',
+    version: '6.6.24',
+    updateTime: '2019/3/29',
+    changelog: 'Improve UI',
     homepageURL: 'https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new',
     downloadUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.user.js',
     metaUrl: 'https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.meta.js',
@@ -168,7 +168,7 @@
   /// //////////////////设置(请注意开关的缩进关系..子开关一般在父开关为true的时候才会生效.)//////////////////////
   const userLang = navigator.language || navigator.userLanguage;
   // (Default settings)
-  var prefs = {
+  const prefsFactory = {
     floatWindow: true, // 显示悬浮窗
     FW_position: 2, // 1:出现在左上角;2:出现在右上角;3：出现在右下角;4：出现在左下角;
     FW_offset: [20, 38], // 偏离版边的垂直和水平方向的数值..(单位:像素)
@@ -188,20 +188,22 @@
     s_duration: 333, // 动画持续时长.(单位:毫秒);
     someValue: '', // 显示在翻页导航最右边的一个小句子..-_-!!..Powered by Super_preloader 隐藏了
     DisableI: true, // 只在顶层窗口加载JS..提升性能..如果开启了这项,那么DIExclude数组有效,里面的网页即使不在顶层窗口也会加载....
-    arrowKeyPage: true, // 允许使用 左右方向键 翻页..
+    arrowKeyPage: false, // 允许使用 左右方向键 翻页..
     sepStartN: 2, // 翻页导航上的,从几开始计数.(貌似有人在意这个,所以弄个开关出来,反正简单.-_-!!)
 
     // 新增或修改的
     forceTargetWindow: true, // 下一页的链接设置成在新标签页打开
     debug: false,
-    enableHistory: false, // 把下一页链接添加到历史记录
+    enableHistory: true, // 把下一页链接添加到历史记录
     autoGetPreLink: false, // 一开始不自动查找上一页链接，改为调用时再查找
     excludes: '',
     custom_siteinfo: '[]',
     lazyImgSrc: 'zoomfile|file|original|load-src|_src|imgsrc|real_src|src2|data-lazyload-src|data-ks-lazyload|data-lazyload|data-src|data-original|data-thumb|data-imageurl|data-defer-src|data-placeholder',
     ChineseUI: false,
-    dblclick_pause: false
+    dblclick_pause: false,
+    factoryCheck: true
   };
+  var prefs = prefsFactory;
 
   /// ///////////////////////---------------规则-------////////////////
   // 高级规则的一些默认设置..如果你不知道是什么..请务必不要修改(删除)它.此修改会影响到所有高级规则...
@@ -5073,7 +5075,7 @@
   // ------------------------下面的不要管他-----------------
   /// ////////////////////////////////////////////////////////////////
   Promise.all([
-    GM.getValue('prefs', JSON.stringify(prefs)),
+    GM.getValue('prefs', JSON.stringify(prefsFactory)),
     GM.getValue('SITEINFO_D', JSON.stringify(SITEINFO_D)),
     GM.getValue('autoMatch', JSON.stringify(autoMatch)),
     GM.getValue('jsonRuleInfo', JSON.stringify(jsonRule.info)),
@@ -5092,6 +5094,16 @@
       if (versionCompare(myVersion, scriptInfo.version)<0) {
         jsonRule.info.expire = new Date(Date.now()-24*60*60*1000);
         GM.setValue("version",scriptInfo.version);
+        prefs.factoryCheck = true;
+      }
+
+      if (prefs.factoryCheck === true || prefs.factoryCheck === undefined ){
+        var hasMissing = assignMissingProperty(prefsFactory,prefs);
+        if (hasMissing) {
+          debug("Old prefs:",prefs);
+        }
+        prefs.factoryCheck = false;
+        GM.setValue('prefs', JSON.stringify(prefs));
       }
 
       var xbug = prefs.debug || false;
@@ -5116,15 +5128,17 @@
         if ($('setup')) return;
 
         const styleNode = GM.addStyle('\
-                      #sp-prefs-setup { position:fixed;z-index:2147483647;top:30px;right:60px;padding:20px 30px;background:#eee;width:500px;border:1px solid black;\
-                                        font-family:"Roboto","Helvetica Neue","Helvetica","sans-serif" !important; }\
-                      #sp-prefs-setup * { color:black;text-align:left;line-height:normal;font-size:12px; }\
+                      #sp-prefs-setup { position:fixed;z-index:2147483647;top:30px;right:60px;padding:20px 30px;background:#eee;box-sizing:content-box;border:1px solid black;\
+                                        font-family:"Arial","sans-serif" !important; color:transparent;max-height:80%;overflow:auto; }\
+                      #sp-prefs-setup * { color:black;text-align:left;line-height:normal;font-size:12px; min-height: 12px}\
                       #sp-prefs-setup a { color:black;text-decoration:underline; }\
-                      #sp-prefs-setup div { text-align:center;font-weight:bold;font-size:14px; }\
-                      #sp-prefs-setup ul { margin:15px 0 15px 0;padding:0;list-style:none;background:#eee;border:0; }\
-                      #sp-prefs-setup input, #sp-prefs-setup select { border:1px solid gray;padding:2px;background:white; }\
-                      #sp-prefs-setup li { margin:0;padding:6px 0;vertical-align:middle;background:#eee;border:0 }\
-                      #sp-prefs-setup button { margin:0 10px;text-align:center;white-space: nowrap;}\
+                      #sp-prefs-setup div { text-align:center;font-weight:bold;font-size:15px; }\
+                      #sp-prefs-setup ul { margin:15px 0 15px 0;padding:0;list-style:none;background:#eee;border:0;}\
+                      #sp-prefs-setup input, #sp-prefs-setup select { border:1px solid gray;padding:2px;background:white;margin:0px; }\
+                      #sp-prefs-setup li { margin:0;padding:5px 0;vertical-align:middle;background:#eee;border:0; font-size:12px; }\
+                      #sp-prefs-setup button { margin:0 10px;text-align:center;white-space: nowrap; background-color: rgb(221,221,221); \
+                                               padding-top: 1px; padding-bottom: 1px; padding-left: 6px; padding-right:6px; \
+                                               border-color: rgb(221,221,221);}\
                       #sp-prefs-setup textarea { width:98%; height:60px; margin:3px 0; }\
                       #sp-prefs-setup b { font-weight: bold; font-family: "微软雅黑", sans-serif; }\
                       #sp-prefs-setup button:disabled { color: graytext; }\
@@ -5134,6 +5148,10 @@
         div.id = 'sp-prefs-setup';
         d.body.appendChild(div);
         if ((userLang.indexOf('zh') !== -1) || prefs.ChineseUI) {
+          /* Deleted options
+                                   <li title="下一页的链接设置成在新标签页打开"><input type="checkbox" id="sp-prefs-forceTargetWindow" checked/> 新标签打开链接</li>\
+                                   <li><input type="checkbox" id="sp-prefs-enableHistory" /> 添加下一页到历史记录</li>\
+          */
           div.innerHTML = '\
                            <div>Super_preloaderPlus_one_New设置</div>\
                                <ul>\
@@ -5144,13 +5162,12 @@
                                    <li>维护者: <b><a href="https://greasyfork.org/en/users/32861-mach6">Mach6</a></b>   更新日志: <b>' + scriptInfo.changelog + '</b></li>\
                                    <li>规则数目: <b>' + SITEINFO_D.numOfRule + '</b> 下次更新时间: <b>' + jsonRule.info.expire.toDateString() + '</b> <button id="sp-prefs-updaterule">更新规则</button></li>\
                                    <li><input type="checkbox" id="sp-prefs-debug" /> 调试模式</li>\
-                                   <li title="勾掉开启英文界面"><input type="checkbox" id="sp-prefs-ChineseUI" /> 中文界面</li>\
+                                   <li><input title="强制开启中文界面" type="checkbox" id="sp-prefs-ChineseUI" /> 中文界面</li>\
                                    <li><input type="checkbox" id="sp-prefs-dblclick_pause" /> 鼠标双击暂停翻页（默认为 Ctrl + 长按左键）</li>\
-                                   <li><input type="checkbox" id="sp-prefs-enableHistory" /> 添加下一页到历史记录</li>\
-                                   <li title="下一页的链接设置成在新标签页打开"><input type="checkbox" id="sp-prefs-forceTargetWindow" /> 新标签打开链接</li>\
-                                   <li><input type="checkbox" id="sp-prefs-SITEINFO_D-useiframe" /> 在预读模式下，默认启用 iframe 方式</li>\
-                                   <li><input type="checkbox" id="sp-prefs-SITEINFO_D-a_enable" /> 默认启用自动翻页 </li>\
-                                   <li title="请勿随意启用"><input type="checkbox" id="sp-prefs-SITEINFO_D-a_force_enable" /> 启用强制拼接（仅限高级用户）</li>\
+                                   <li><input type="checkbox" id="sp-prefs-SITEINFO_D-useiframe" /> 全局启用iframe方式\
+                                   <li><input title="启用自动翻页，否则仅启用预读" type="checkbox" id="sp-prefs-SITEINFO_D-a_enable" checked/> 启用自动翻页 </li>\
+                                   <li><input type="checkbox" id="sp-prefs-arrowKeyPage"/> 使用 ← → 翻页 </li>\
+                                   <li><input title="强行拼接规则中没有的站点，不建议启用" type="checkbox" id="sp-prefs-SITEINFO_D-a_force_enable" /> 启用强制拼接（不建议）</li>\
                                    <li>自定义排除列表：\
                                        <div><textarea id="sp-prefs-excludes" placeholder="自定义排除列表，支持通配符。\n例如：http://*.douban.com/*"></textarea></div>\
                                    </li>\
@@ -5170,13 +5187,12 @@
                                    <li>Maintainer: <b><a href="https://greasyfork.org/en/users/32861-mach6">Mach6</a></b>  Changelog: <b>' + scriptInfo.changelog + '</b></li>\
                                    <li>Number of Rules: <b>' + SITEINFO_D.numOfRule + '</b> Next update: <b>' + jsonRule.info.expire.toDateString() + '</b> <button id="sp-prefs-updaterule">Update rules</button></li>\
                                    <li><input type="checkbox" id="sp-prefs-debug" /> Debug mode</li>\
-                                   <li tile="English/Chinese UI"><input type="checkbox" id="sp-prefs-ChineseUI" /> Chinese UI</li>\
+                                   <li><input type="checkbox"  tile="English/Chinese UI" id="sp-prefs-ChineseUI" /> Chinese UI</li>\
                                    <li><input type="checkbox" id="sp-prefs-dblclick_pause" /> Double click to stop preload (Default: Ctrl + Long Left)</li>\
-                                   <li><input type="checkbox" id="sp-prefs-enableHistory" /> Add next page to history</li>\
-                                   <li title="Open next link in new tab"><input type="checkbox" id="sp-prefs-forceTargetWindow" /> Open next link in new tab</li>\
-                                   <li><input type="checkbox" id="sp-prefs-SITEINFO_D-useiframe" /> Use iframe mode globally</li>\
-                                   <li><input type="checkbox" id="sp-prefs-SITEINFO_D-a_enable" /> Enable preload </li>\
-                                   <li><input type="checkbox" id="sp-prefs-SITEINFO_D-a_force_enable" /> Force to join pages (Advanced User Only)</li>\
+                                   <li><input type="checkbox" id="sp-prefs-SITEINFO_D-useiframe" /> Enable iframe mode globally</li>\
+                                   <li><input type="checkbox" title="Enable autopagger, otherwise only prefetcher is enabled" id="sp-prefs-SITEINFO_D-a_enable" checked/> Enable autopagger globally</li>\
+                                   <li><input type="checkbox" id="sp-prefs-arrowKeyPage"/> Turn to the next page with  ← →</li>\
+                                   <li><input type="checkbox" id="sp-prefs-SITEINFO_D-a_force_enable" /> Mandatorily join pages if not covered by the rules</li>\
                                    <li>Custom excludes:\
                                        <div><textarea id="sp-prefs-excludes" placeholder="Customized excludes, support regex\nEx: http://*.douban.com/*"></textarea></div>\
                                    </li>\
@@ -5202,9 +5218,8 @@
           prefs.custom_siteinfo = $('custom_siteinfo').value;
           prefs.debug = xbug = !!$('debug').checked;
           prefs.dblclick_pause = !!$('dblclick_pause').checked;
-          prefs.enableHistory = !!$('enableHistory').checked;
           prefs.excludes = $('excludes').value;
-          prefs.forceTargetWindow = !!$('forceTargetWindow').checked;
+          prefs.arrowKeyPage = !!$('arrowKeyPage').checked;
 
           SITEINFO_D.useiframe = !!$('SITEINFO_D-useiframe').checked;
           SITEINFO_D.autopager.enable = !!$('SITEINFO_D-a_enable').checked;
@@ -5239,12 +5254,13 @@
 
         $('debug').checked = xbug;
         $('ChineseUI').checked = prefs.ChineseUI;
-        $('enableHistory').checked = prefs.enableHistory;
-        $('forceTargetWindow').checked = prefs.forceTargetWindow;
+        // $('enableHistory').checked = prefs.enableHistory;
+        // $('forceTargetWindow').checked = prefs.forceTargetWindow;
         $('dblclick_pause').checked = prefs.dblclick_pause;
         $('SITEINFO_D-useiframe').checked = SITEINFO_D.useiframe;
         $('SITEINFO_D-a_enable').checked = SITEINFO_D.autopager.enable;
-        $('SITEINFO_D-a_force_enable').checked = SITEINFO_D.autopager.force_enable;
+        $('arrowKeyPage').checked = prefs.arrowKeyPage;
+        // $('SITEINFO_D-a_force_enable').checked = SITEINFO_D.autopager.force_enable;
         $('excludes').value = prefs.excludes;
         $('custom_siteinfo').value = prefs.custom_siteinfo;
       };
@@ -5261,7 +5277,7 @@
           if ((userLang.indexOf('zh') !== -1) || prefs.ChineseUI) {
             GM.registerMenuCommand('Super_preloaderPlus_one_New 设置', setup);
           } else {
-            GM.registerMenuCommand('Super_preloaderPlus_one_New', setup);
+            GM.registerMenuCommand('Super_preloaderPlus_one_New Settings', setup);
           }
 
           // 查找是否是页面不刷新的站点
@@ -5814,7 +5830,7 @@
                                 <div id="sp-fw-content" style="display:none;">\
                                     <div id="sp-fw-main">\
                                         <div id="sp-fw-main-head">\
-                                            <input type="checkbox" title="Enable Autopager, otherwise only preload" id="sp-fw-a_enable" name="sp-fw-a_enable"/>Enable autopager\
+                                            <input type="checkbox" title="Enable autopagger, otherwise only prefetcher is enabled" id="sp-fw-a_enable" name="sp-fw-a_enable"/>Enable autopagger\
                                             <span id="sp-fw-span-info">Super_preloader</span>\
                                         </div>\
                                         <fieldset>\
@@ -6450,6 +6466,7 @@
               }
               div.appendChild($C('a', {
                 class: 'sp-sp-nextlink',
+                target: '_blank',
                 href: currentUrl,
                 title: currentUrl
               }, pageStr));
@@ -8475,6 +8492,18 @@
       return cplink;
     }
   }
+
+  function assignMissingProperty(a, b) {
+    var hasMissing = false;
+    for (var prop in a){
+      if (!b.hasOwnProperty(prop)) {
+        hasMissing = true;
+        b[prop] = a[prop];
+      }
+    }
+    return hasMissing;
+  }
+
   //Function to compare two version strings https://gist.github.com/TheDistantSea/8021359
   function versionCompare(v1, v2, options) {
     var lexicographical = options && options.lexicographical,
