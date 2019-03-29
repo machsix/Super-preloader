@@ -19274,11 +19274,11 @@
   "name": "LITERA／リテラ　本と雑誌の知を再発見",
   "created_by": "yuta25",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2018-12-31T11:26:44+09:00",
+  "updated_at": "2019-03-29T11:04:57+09:00",
   "data": {
-    "exampleUrl": "http://lite-ra.com/2014/07/post-185.html",
+    "exampleUrl": "http://lite-ra.com/2014/07/post-185.html https://lite-ra.com/entertainment/sports/",
     "url": "^https?://lite-ra\\.com/",
-    "pageElement": "id(\"entryBody\")/*",
+    "pageElement": "id(\"entryBody\")/*[./* or string-length(./text())>1]|//div[@class=\"entryTL\"]",
     "nextLink": "//a[@class='link_next']"
   },
   "created_at": "2014-07-02T09:41:45+09:00"
