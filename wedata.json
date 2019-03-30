@@ -19,12 +19,12 @@
   "name": "同人誌即売会スケジュール",
   "created_by": "t_f_m",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-03-25T19:26:22+09:00",
+  "updated_at": "2019-03-30T10:11:20+09:00",
   "data": {
-    "exampleUrl": "https://shimeken.com/events/result/word:/page:2/sort:Event.event_date/direction:asc",
+    "exampleUrl": "https://shimeken.com/events/result/word:/page:2/sort:Event.event_date/direction:asc https://shimeken.com/events/result/page:7/sort:Event.event_date/direction:asc/word:",
     "url": "^https://shimeken\\.com/",
-    "pageElement": "//div[@class=\"tweet\"]/following-sibling::*",
-    "nextLink": "//span[@class=\"current\"]/following-sibling::span/a"
+    "pageElement": "//div[@class=\"event\"]|//div[@class=\"paging\"][1]",
+    "nextLink": "//span[@class='current']/following-sibling::span/a"
   },
   "created_at": "2019-03-25T15:47:27+09:00"
 },
