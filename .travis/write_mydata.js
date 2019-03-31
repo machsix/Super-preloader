@@ -1,6 +1,12 @@
 const fs = require('fs');
 const { gitLog } = require('./git-log');
 
+// strip whitespace in mydata.json
+fs.readFile("../mydata.json", {encoding="utf8"}, (err, data) => {
+    const mydata = JSON.parse(data);
+    fs.writeFile("../mydata.json", JSON.stringify(mydata), "utf8", ()=>{console.log("mydata.json is re-writted")});
+});
+
 // get latest update time
 const commitInfo = gitLog('../', {fileList: ['mydata.json'], nCommit: 1});
 const lastUpdateDate = new Date(commitInfo[0].date);
@@ -16,4 +22,6 @@ const info = {
     permit_other_keys: true
 };
 
-fs.writeFileSync('../mydata_detail.json', JSON.stringify(info, null, 2), 'utf8');
+fs.writeFileSync("../mydata_detail.json", JSON.stringify(info), "utf8");
+
+
