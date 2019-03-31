@@ -4993,98 +4993,122 @@
       }
     },
     triggerForceUpdate: false,
-    updateRule: function(jsonFinish) {
-      // jsonFinish: a callback after jsonRules are updated
+    updateRule: function() {
+      // return a promise when rule is updated
       // create promises
       const jsonRulePromises = [];
-      for (var i = 0; i < jsonRuleProvider.length; i++) {
-        (function(iurl) {
-          jsonRulePromises.push(
-            new Promise(function(resolve, reject) {
-              const req = {
-                method: "GET",
-                url: jsonRuleProvider[iurl].detailUrl,
-                onload: function(detailRes) {
+      jsonRuleProvider.forEach(function(val, iurl) {
+        jsonRulePromises.push(
+          new Promise(function(resolve, reject) {
+            const req = {
+              method: "GET",
+              url: val.detailUrl,
+              onload: function(detailRes) {
+                try {
                   const jdetailRes = JSON.parse(detailRes.responseText);
                   const ruleUpdateDate = new Date(jdetailRes.updated_at);
-                  // debug(jsonRuleProvider[iurl].name + " was updated at " + ruleUpdateDate.toDateString());
                   debug(jdetailRes);
                   resolve(ruleUpdateDate);
+                } catch (err) {
+                  reject(detailRes);
                 }
-              };
-              GM.xmlHttpRequest(req);
-            }).then(
+              },
+              onerror: function(res) {
+                reject(res);
+              }
+            };
+            GM.xmlHttpRequest(req);
+          })
+            .then(
               function(ruleUpdateDate) {
                 if (ruleUpdateDate > this.info.expire || this.triggerForceUpdate) {
                   return new Promise(function(resolve, reject) {
                     const req = {
                       method: "GET",
-                      url: jsonRuleProvider[iurl].url,
+                      url: val.url,
                       onload: function(res) {
                         var rule;
-                        if (_.isFunction(jsonRuleProvider[iurl].ruleParser)) {
-                          rule = jsonRuleProvider[iurl].ruleParser(res.responseText);
-                        } else {
-                          rule = JSON.parse(res.responseText);
+                        try {
+                          if (_.isFunction(val.ruleParser)) {
+                            rule = val.ruleParser(res.responseText);
+                          } else {
+                            rule = JSON.parse(res.responseText);
+                          }
+                          debug("Rules " + val.name + " is updated");
+                          resolve(rule);
+                        } catch (err) {
+                          reject(res);
                         }
-                        debug("Rules " + jsonRuleProvider[iurl].name + " is updated");
-                        resolve(rule);
+                      },
+                      onerror: function(res) {
+                        reject(res);
                       }
                     };
-                    debug("Rule " + jsonRuleProvider[iurl].name + " is to be updated");
+                    debug("Rule " + val.name + " is to be updated");
                     GM.xmlHttpRequest(req);
                   });
                 } else {
-                  debug("Rule " + jsonRuleProvider[iurl].name + " is not expired");
-                  return Promise.resolve(null);
+                  debug("Rule " + val.name + " is not expired");
+                  return Promise.resolve("not expire");
                 }
               }.bind(this)
             )
-          );
-        }.bind(this)(i));
-      }
-      Promise.all(jsonRulePromises).then(
-        function(jsons) {
-          jsons.forEach(function(rule, i) {
-            if (rule) {
-              SITEINFO_json[i] = rule;
-            }
-          });
-          // debug(SITEINFO_json);
-          jsonFinish(); // a callback after rules are updated
-        },
-        function(rejreason) {
-          console.log("Fail to update json rule because:");
-          console.log(rejreason);
-          this.resetRule();
-          jsonFinish();
-        }.bind(this)
-      );
+            .catch(function() {
+              debug("Fail to update for " + val.name);
+              return Promise.resolve(null);
+            })
+        );
+      }, this);
+
+      return Promise.all(jsonRulePromises);
     },
-    updateJsonRule: function(jsonUpdateFinish, reject, force) {
+    updateJsonRule: function(force) {
       // a function used to create promise to update json rule
       // jsonUpdateFinish: Callback after both jsonInfo and SITEINFO_json are updated
       force = force || false;
       const currentDate = new Date();
-      const jsonFinish = function() {
-        this.info.expire = new Date(currentDate.getTime() + this.info.updatePeriodInDay * 24 * 60 * 60 * 1000);
-        GM.setValue("jsonRuleInfo", JSON.stringify(this.info));
-        GM.setValue("SITEINFO_json", JSON.stringify(SITEINFO_json));
-        // flat SITEINFO_json
-        SITEINFO_json = _.flatFilter(SITEINFO_json);
-        jsonUpdateFinish();
-      }.bind(this);
       if (SITEINFO_json.length == 0 || force || SITEINFO_json.length !== jsonRuleProvider.length) {
         this.triggerForceUpdate = true;
         this.resetRule();
       }
       if (this.info.expire < currentDate || this.triggerForceUpdate) {
         debug("Json rule is being updated");
-        this.updateRule(jsonFinish);
+        return new Promise(
+          function(resolve, reject) {
+            this.updateRule()
+              .then(
+                function(jsons) {
+                  var allFail = true;
+                  debug(jsons);
+                  jsons.forEach(function(rule, i) {
+                    if (rule) {
+                      SITEINFO_json[i] = rule;
+                      allFail = false;
+                    }
+                  });
+
+                  if (allFail) {
+                    this.resetRule();
+                    reject(new Error("Rules are not successfully updated"));
+                  } else {
+                    this.info.expire = new Date(currentDate.getTime() + this.info.updatePeriodInDay * 24 * 60 * 60 * 1000);
+                    GM.setValue("jsonRuleInfo", JSON.stringify(this.info));
+                    GM.setValue("SITEINFO_json", JSON.stringify(SITEINFO_json));
+                    SITEINFO_json = _.flatFilter(SITEINFO_json);
+                    resolve();
+                  }
+                }.bind(this)
+              )
+              .catch(function(err) {
+                this.resetRule();
+                reject(err);
+              });
+          }.bind(this)
+        );
       } else {
         debug("Json rule will be updated at " + this.info.expire.toString());
         SITEINFO_json = _.flatFilter(SITEINFO_json);
-        jsonUpdateFinish();
+        return Promise.resolve();
       }
     },
     parseJsonInfo: function(x) {
@@ -5520,10 +5544,7 @@
 
       on($("updaterule"), "click", function() {
         $("updaterule").innerHTML = "Updating...";
-        const p = new Promise(function(resolve, reject) {
-          jsonRule.updateJsonRule(resolve, reject, true);
-        });
-        p.then(function(values) {
+        jsonRule.updateJsonRule(true).then(function() {
           SP.loadSetting();
           close();
           location.reload();
@@ -5567,9 +5588,7 @@
         });
 
         // update json rule
-        const p2 = new Promise(function(resolve, reject) {
-          jsonRule.updateJsonRule(resolve, reject);
-        });
+        const p2 = jsonRule.updateJsonRule();
         if (hashSite) {
           isHashchangeSite = true;
           hashchangeTimer = hashSite.timer;
