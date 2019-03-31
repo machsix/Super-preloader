@@ -13,7 +13,7 @@
 // @author       Mach6
 // @contributers YFdyh000, suchunchen
 // @thanksto     ywzhaiqi, NLF
-// @version      6.6.26
+// @version      6.6.30
 // @license      GNU GPL v3
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
@@ -57,9 +57,9 @@
 // ==/UserScript==
 (function() {
   const scriptInfo = {
-    version: "6.6.26",
-    updateTime: "2019/3/30",
-    changelog: "Add generic rule for wordpresss",
+    version: "6.6.30",
+    updateTime: "2019/3/31",
+    changelog: "New logic for updating rule",
     homepageURL: "https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new",
     downloadUrl: "https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.user.js",
     metaUrl: "https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.meta.js"
@@ -4950,16 +4950,18 @@
 
   //  ///////// ----- Rules obtained from online json files -------///////////
   // url: url of json file
-  // ruleParser: a function parse responseText and return rule / null
+  // ruleParser: a function parse responseText from url / null
   const jsonRuleProvider = [
     {
       name: "machsix.github.io",
       url: "https://machsix.github.io/Super-preloader/mydata.json",
+      detailUrl: "https://machsix.github.io/Super-preloader/mydata_detail.json",
       ruleParser: null
     },
     {
       name: "wedata.net",
       url: "http://wedata.net/databases/AutoPagerize/items.json",
+      detailUrl: "http://wedata.net/databases/AutoPagerize.json",
       ruleParser: function(responseText) {
         return JSON.parse(responseText)
           .filter(function(i) {
@@ -4976,11 +4978,21 @@
   ];
 
   var SITEINFO_json = [];
+  for (var i = 0; i < jsonRuleProvider.length; i++) {
+    SITEINFO_json.push(null);
+  }
   const jsonRule = {
     info: {
       expire: new Date(Date.now() - 24 * 60 * 60 * 1000),
       updatePeriodInDay: 1 // json rules are update everyday
     },
+    resetRule: function() {
+      SITEINFO_json = [];
+      for (var i = 0; i < jsonRuleProvider.length; i++) {
+        SITEINFO_json.push(null);
+      }
+    },
+    triggerForceUpdate: false,
     updateRule: function(jsonFinish) {
       // jsonFinish: a callback after jsonRules are updated
       // create promises
@@ -4991,38 +5003,62 @@
             new Promise(function(resolve, reject) {
               const req = {
                 method: "GET",
-                url: jsonRuleProvider[iurl].url,
-                onload: function(res) {
-                  var rule;
-                  if (_.isFunction(jsonRuleProvider[iurl].ruleParser)) {
-                    rule = jsonRuleProvider[iurl].ruleParser(res.responseText);
-                  } else {
-                    rule = JSON.parse(res.responseText);
-                  }
-                  debug("Rules from" + jsonRuleProvider[iurl].name + " is updated");
-                  resolve(rule);
-                },
-                onerror: function(res) {
-                  console.log(jsonRuleProvider[iurl].url, "error");
+                url: jsonRuleProvider[iurl].detailUrl,
+                onload: function(detailRes) {
+                  const jdetailRes = JSON.parse(detailRes.responseText);
+                  const ruleUpdateDate = new Date(jdetailRes.updated_at);
+                  // debug(jsonRuleProvider[iurl].name + " was updated at " + ruleUpdateDate.toDateString());
+                  debug(jdetailRes);
+                  resolve(ruleUpdateDate);
                 }
               };
               GM.xmlHttpRequest(req);
-            })
+            }).then(
+              function(ruleUpdateDate) {
+                if (ruleUpdateDate > this.info.expire || this.triggerForceUpdate) {
+                  return new Promise(function(resolve, reject) {
+                    const req = {
+                      method: "GET",
+                      url: jsonRuleProvider[iurl].url,
+                      onload: function(res) {
+                        var rule;
+                        if (_.isFunction(jsonRuleProvider[iurl].ruleParser)) {
+                          rule = jsonRuleProvider[iurl].ruleParser(res.responseText);
+                        } else {
+                          rule = JSON.parse(res.responseText);
+                        }
+                        debug("Rules " + jsonRuleProvider[iurl].name + " is updated");
+                        resolve(rule);
+                      }
+                    };
+                    debug("Rule " + jsonRuleProvider[iurl].name + " is to be updated");
+                    GM.xmlHttpRequest(req);
+                  });
+                } else {
+                  debug("Rule " + jsonRuleProvider[iurl].name + " is not expired");
+                  return Promise.resolve(null);
+                }
+              }.bind(this)
+            )
           );
-        })(i);
+        }.bind(this)(i));
       }
       Promise.all(jsonRulePromises).then(
         function(jsons) {
-          SITEINFO_json = _.flat(jsons);
+          jsons.forEach(function(rule, i) {
+            if (rule) {
+              SITEINFO_json[i] = rule;
+            }
+          });
           // debug(SITEINFO_json);
           jsonFinish(); // a callback after rules are updated
         },
         function(rejreason) {
           console.log("Fail to update json rule because:");
           console.log(rejreason);
-          SITEINFO_json = [];
+          this.resetRule();
           jsonFinish();
-        }
+        }.bind(this)
       );
     },
     updateJsonRule: function(jsonUpdateFinish, reject, force) {
@@ -5034,13 +5070,20 @@
         this.info.expire = new Date(currentDate.getTime() + this.info.updatePeriodInDay * 24 * 60 * 60 * 1000);
         GM.setValue("jsonRuleInfo", JSON.stringify(this.info));
         GM.setValue("SITEINFO_json", JSON.stringify(SITEINFO_json));
+        // flat SITEINFO_json
+        SITEINFO_json = _.flatFilter(SITEINFO_json);
         jsonUpdateFinish();
       }.bind(this);
-      if (this.info.expire < currentDate || SITEINFO_json.length == 0 || force) {
+      if (SITEINFO_json.length == 0 || force || SITEINFO_json.length !== jsonRuleProvider.length) {
+        this.triggerForceUpdate = true;
+        this.resetRule();
+      }
+      if (this.info.expire < currentDate || this.triggerForceUpdate) {
         debug("Json rule is being updated");
         this.updateRule(jsonFinish);
       } else {
-        // debug('Json rule will be updated at '+this.info.expire.toString());
+        debug("Json rule will be updated at " + this.info.expire.toString());
+        SITEINFO_json = _.flatFilter(SITEINFO_json);
         jsonUpdateFinish();
       }
     },
@@ -5290,15 +5333,17 @@
     SITEINFO_D = JSON.parse(values[1]);
     autoMatch = JSON.parse(values[2]);
     jsonRule.parseJsonInfo(values[3]);
+
+    // at this point, SITEINFO_json is an array
     SITEINFO_json = JSON.parse(values[4]);
 
+    // check the consistency of script settings
     const myVersion = values[5];
     if (versionCompare(myVersion, scriptInfo.version) < 0) {
       jsonRule.info.expire = new Date(Date.now() - 24 * 60 * 60 * 1000);
       GM.setValue("version", scriptInfo.version);
       prefs.factoryCheck = true;
     }
-
     if (prefs.factoryCheck === true || prefs.factoryCheck === undefined) {
       var hasMissing = assignMissingProperty(prefsFactory, prefs);
       if (hasMissing) {
@@ -5521,6 +5566,7 @@
           return toRE(x.url).test(locationHref);
         });
 
+        // update json rule
         const p2 = new Promise(function(resolve, reject) {
           jsonRule.updateJsonRule(resolve, reject);
         });
@@ -7334,7 +7380,7 @@
       debug("url为:", url, "JS加载成功");
 
       // 第一阶段..分析高级模式..
-      SITEINFO = SITEINFO.concat(SITEINFO_TP, SITEINFO_comp, SITEINFO_json);
+      SITEINFO = SITEINFO.concat(SITEINFO_json, SITEINFO_TP, SITEINFO_comp);
       if (!SITEINFO_D.numOfRule || SITEINFO_D.numOfRule != SITEINFO.length) {
         SITEINFO_D.numOfRule = SITEINFO.length;
         GM.setValue("SITEINFO_D", JSON.stringify(SITEINFO_D));
@@ -8281,6 +8327,15 @@
 
     _.flat = function(obj) {
       return [].concat.apply([], obj);
+    };
+
+    _.flatFilter = function(obj) {
+      return [].concat.apply(
+        [],
+        obj.filter(function(x) {
+          return x;
+        })
+      );
     };
 
     return _;
