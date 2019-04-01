@@ -13,7 +13,7 @@
 // @author       Mach6
 // @contributers YFdyh000, suchunchen
 // @thanksto     ywzhaiqi, NLF
-// @version      6.6.31
+// @version      6.6.32
 // @license      GNU GPL v3
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
@@ -57,7 +57,7 @@
 // ==/UserScript==
 (function() {
   const scriptInfo = {
-    version: "6.6.31",
+    version: "6.6.32",
     updateTime: "2019/4/1",
     changelog: "Fix for wzfou.com",
     homepageURL: "https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new",
@@ -4872,13 +4872,13 @@
         }
       },
       autopager: {
-        pageElement: function(doc, win) {
+        pageElement: function(doc, win, _cplink) {
           const blackList = [/^https?:\/\/bwg\.net\/?$/];
-          blackList.forEach(function(val) {
-            if (val.test(doc.location.href)) {
+          for (var i = 0; i < blackList.length; i++) {
+            if (blackList[i].test(_cplink)) {
               return null;
             }
-          });
+          }
           // detect if this is wordpress
           if (doc.documentElement.outerHTML.indexOf("WordPress") === -1 && doc.documentElement.outerHTML.indexOf("wp-content") === -1) {
             return null;
@@ -6359,7 +6359,7 @@
           insertPoint = getElement(SSS.a_HT_insert[0]);
           insertMode = SSS.a_HT_insert[1];
         } else {
-          pageElement = getAllElements(SSS.a_pageElement);
+          pageElement = getAllElements(SSS.a_pageElement, document, document, null, cplink);
           if (pageElement.length > 0) {
             const pELast = pageElement[pageElement.length - 1];
             insertPoint = pELast.nextSibling ? pELast.nextSibling : pELast.parentNode.appendChild(document.createTextNode(" "));
@@ -6966,7 +6966,7 @@
           const docTitle = getElementByCSS("title", doc).textContent;
 
           const fragment = document.createDocumentFragment();
-          const pageElements = getAllElements(SSS.a_pageElement, false, doc, win);
+          const pageElements = getAllElements(SSS.a_pageElement, false, doc, win, nextlink);
           const ii = pageElements.length;
           if (ii <= 0) {
             debug("获取下一页的主要内容失败", SSS.a_pageElement);
@@ -7171,9 +7171,10 @@
         }
 
         function getRemain() {
+          const _cplink = cplink || undefined;
           const scrolly = window.scrollY;
           const WI = window.innerHeight;
-          const obj = getLastElement(relatedObj_0);
+          const obj = getLastElement(relatedObj_0, _cplink);
           const scrollH = obj && obj.nodeType == 1 ? obj.getBoundingClientRect()[relatedObj_1] + scrolly : Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
           return (scrollH - scrolly - WI) / WI; // 剩余高度于页面总高度的比例.
         }
@@ -8671,12 +8672,13 @@
   }
 
   // 获取多个元素
-  function getAllElements(selector, contextNode, doc, win) {
+  function getAllElements(selector, contextNode, doc, win, _cplink) {
     const ret = [];
     if (!selector) return ret;
     var Eles;
     doc = doc || document;
     win = win || window;
+    _cplink = _cplink || undefined;
     contextNode = contextNode || doc;
     if (typeof selector === "string") {
       if (selector.search(/^css;/i) === 0) {
@@ -8685,7 +8687,7 @@
         Eles = getAllElementsByXpath(selector, contextNode, doc);
       }
     } else {
-      Eles = selector(doc, win);
+      Eles = selector(doc, win, _cplink);
       if (!Eles) return ret;
       if (Eles.nodeType) {
         // 单个元素.
@@ -8760,8 +8762,8 @@
   }
 
   // 获取最后一个元素.
-  function getLastElement(selector, contextNode, doc, win) {
-    const eles = getAllElements(selector, contextNode, doc, win);
+  function getLastElement(selector, _cplink, contextNode, doc, win) {
+    const eles = getAllElements(selector, contextNode, doc, win, _cplink);
     const l = eles.length;
     if (l > 0) {
       return eles[l - 1];
