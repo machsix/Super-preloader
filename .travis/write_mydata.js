@@ -14,9 +14,10 @@ fs.readFile("../mydata.json", {encoding: "utf8"}, (err, data) => {
 
 // get latest update time
 const commitInfo = gitLog("..", {
-  fileList: ["README.md"],
+  fileList: ["mydata.json"],
   nCommit: 1
 });
+console.log(commitInfo);
 const lastUpdateDate = new Date(commitInfo[0].date);
 
 const info = {

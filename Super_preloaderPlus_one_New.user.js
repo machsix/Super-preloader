@@ -13,7 +13,7 @@
 // @author       Mach6
 // @contributers YFdyh000, suchunchen
 // @thanksto     ywzhaiqi, NLF
-// @version      6.6.30
+// @version      6.6.31
 // @license      GNU GPL v3
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
@@ -57,9 +57,9 @@
 // ==/UserScript==
 (function() {
   const scriptInfo = {
-    version: "6.6.30",
-    updateTime: "2019/3/31",
-    changelog: "New logic for updating rule",
+    version: "6.6.31",
+    updateTime: "2019/4/1",
+    changelog: "Fix for wzfou.com",
     homepageURL: "https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new",
     downloadUrl: "https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.user.js",
     metaUrl: "https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.meta.js"
@@ -4873,11 +4873,28 @@
       },
       autopager: {
         pageElement: function(doc, win) {
+          const blackList = [/^https?:\/\/bwg\.net\/?$/];
+          blackList.forEach(function(val) {
+            if (val.test(doc.location.href)) {
+              return null;
+            }
+          });
           // detect if this is wordpress
           if (doc.documentElement.outerHTML.indexOf("WordPress") === -1 && doc.documentElement.outerHTML.indexOf("wp-content") === -1) {
             return null;
           }
-          var posts = getAllElements("//*[contains(@class,'container')]//article|//*[contains(@class,'container')]//div[contains(@class,'article-post')]", doc, doc, win);
+          // if this is the page of post, return null
+          var isPost = !!getElementByXpath("//div[@class='title-post']", doc, doc);
+          if (isPost) {
+            return null;
+          }
+          // get from latest post
+          // example https://next.365cent.com/ v5.1.1
+          var posts = getAllElements("//div[@id='latest-posts']//article[starts-with(@id,'post-')]", doc, doc, win);
+          if (posts.length > 0) {
+            return posts;
+          }
+          posts = getAllElements("//*[contains(@class,'container')]//article|//*[contains(@class,'container')]//div[contains(@class,'article-post')]", doc, doc, win);
           if (posts.length > 0) {
             return posts;
           }
