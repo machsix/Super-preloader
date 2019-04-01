@@ -214,12 +214,37 @@
   },
   {
     "name": "起点文学-其他",
-    "url": "^https?:\/\/www\\.(qidian|qdmm|qdwenxue)\\.com(\/mm)?",
+    "url": "^https?://www\\.(qidian|qdmm|qdwenxue)\\.com(/mm)?",
     "siteExample": "https://www.qidian.com/all",
     "nextLink": "id('page-container')//a[@class='lbf-pagination-next ']",
     "autopager": {
       "pageElement": "//div[@class='all-book-list']",
       "replaceE":"id('page-container')"
     }
+  },
+  {
+      "name": "sasaone.com-album",
+      "url": "^https?://(\\w*\\.)?sasaone\\.com/\\w+/\\d+/\\d\\.html",
+      "nextLink":"auto;",
+      "autopager": {
+        "enable": true,
+        "pageElement": "//div[@id=\"disappear\"]",
+        "ipages": [true, 30]
+      }
+  },
+  {
+    "name": "sasaone.com-list",
+    "url": "^https?:\\/\\/(\\w*\\.)?sasaone\\.com\\/\\w+(\\/list.*\\.html|\\/index.*\\.html)?",
+    "nextLink": "//a[text()=\"下一页\"]",
+    "autopager": {
+      "enable": true,
+      "pageElement": "//ul[@id=\"need\"]/li"
+    }
+  },
+  {
+    "name": "flhkk",
+    "url": "^https?://www\\.flhkk\\.com",
+    "nextLink": "auto;",
+    "pageElement": "//div[@class='container']//div[contains(@class,'posts-con') or @class='clearfix']"
   }
 ]

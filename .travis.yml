@@ -4,10 +4,7 @@ python:
 install:
     - npm install
 script:
-    - npm run lint
-before_deploy:
-    - pip install sphinx_rtd_theme
-    - pip install travis-sphinx
+    - npm run test
 deploy:
     - provider: script
       script: bash .travis/gen_ghpage.sh
