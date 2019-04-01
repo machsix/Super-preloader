@@ -201,7 +201,7 @@
     // 新增或修改的
     forceTargetWindow: true, // 下一页的链接设置成在新标签页打开
     debug: false,
-    enableHistory: true, // 把下一页链接添加到历史记录
+    enableHistory: false, // 把下一页链接添加到历史记录
     autoGetPreLink: false, // 一开始不自动查找上一页链接，改为调用时再查找
     excludes: "",
     custom_siteinfo: "[]",
@@ -5425,7 +5425,6 @@
       if (userLang.indexOf("zh") !== -1 || prefs.ChineseUI) {
         /* Deleted options
                                    <li title="下一页的链接设置成在新标签页打开"><input type="checkbox" id="sp-prefs-forceTargetWindow" checked/> 新标签打开链接</li>\
-                                   <li><input type="checkbox" id="sp-prefs-enableHistory" /> 添加下一页到历史记录</li>\
           */
         div.innerHTML =
           "\
@@ -5454,6 +5453,7 @@
           '</b> <button id="sp-prefs-updaterule">更新规则</button></li>\
                                    <li><input type="checkbox" id="sp-prefs-debug" /> 调试模式</li>\
                                    <li><input title="强制开启中文界面" type="checkbox" id="sp-prefs-ChineseUI" /> 中文界面</li>\
+                                   <li><input type="checkbox" id="sp-prefs-enableHistory" /> 添加下一页到历史记录</li>\
                                    <li><input type="checkbox" id="sp-prefs-dblclick_pause" /> 鼠标双击暂停翻页（默认为 Ctrl + 长按左键）</li>\
                                    <li><input type="checkbox" id="sp-prefs-SITEINFO_D-useiframe" /> 全局启用iframe方式\
                                    <li><input title="启用自动翻页，否则仅启用预读" type="checkbox" id="sp-prefs-SITEINFO_D-a_enable" checked/> 启用自动翻页 </li>\
@@ -5495,6 +5495,7 @@
           '</b> <button id="sp-prefs-updaterule">Update rules</button></li>\
                                    <li><input type="checkbox" id="sp-prefs-debug" /> Debug mode</li>\
                                    <li><input type="checkbox"  tile="English/Chinese UI" id="sp-prefs-ChineseUI" /> Chinese UI</li>\
+                                   <li><input type="checkbox" id="sp-prefs-enableHistory" /> Add next page to history</li>\
                                    <li><input type="checkbox" id="sp-prefs-dblclick_pause" /> Double click to stop preload (Default: Ctrl + Long Left)</li>\
                                    <li><input type="checkbox" id="sp-prefs-SITEINFO_D-useiframe" /> Enable iframe mode globally</li>\
                                    <li><input type="checkbox" title="Enable autopagger, otherwise only prefetcher is enabled" id="sp-prefs-SITEINFO_D-a_enable" checked/> Enable autopagger globally</li>\
@@ -5524,6 +5525,7 @@
         // document.getElementById('sp-fw-container').innerHTML = floatWindowUI();
         prefs.custom_siteinfo = $("custom_siteinfo").value;
         prefs.debug = xbug = !!$("debug").checked;
+        prefs.enableHistory = !!$("enableHistory").checked;
         prefs.dblclick_pause = !!$("dblclick_pause").checked;
         prefs.excludes = $("excludes").value;
         prefs.arrowKeyPage = !!$("arrowKeyPage").checked;
@@ -5555,7 +5557,7 @@
 
       $("debug").checked = xbug;
       $("ChineseUI").checked = prefs.ChineseUI;
-      // $('enableHistory').checked = prefs.enableHistory;
+      $("enableHistory").checked = prefs.enableHistory;
       // $('forceTargetWindow').checked = prefs.forceTargetWindow;
       $("dblclick_pause").checked = prefs.dblclick_pause;
       $("SITEINFO_D-useiframe").checked = SITEINFO_D.useiframe;
