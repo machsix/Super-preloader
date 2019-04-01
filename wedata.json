@@ -1,5 +1,20 @@
 [
 {
+  "resource_url": "http://wedata.net/items/82106",
+  "name": "まじっく　ざ　げーまー ",
+  "created_by": "jigendaddy_be",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "updated_at": "2019-04-01T10:51:12+09:00",
+  "data": {
+    "exampleUrl": "https://mtg60.com/",
+    "url": "^https://mtg60\\.com/",
+    "pageElement": "//div[@class=\"kanren\"]/dl",
+    "insertBefore": "",
+    "nextLink": "//a[@class=\"next page-numbers\"]"
+  },
+  "created_at": "2019-04-01T10:51:12+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/82105",
   "name": "ケットコム",
   "created_by": "t_f_m",

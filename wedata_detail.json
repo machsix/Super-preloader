@@ -1,7 +1,7 @@
 {
   "created_by": "swdyh",
   "name": "AutoPagerize",
-  "updated_at": "2019-03-30T10:11:20+09:00",
+  "updated_at": "2019-04-01T10:51:12+09:00",
   "required_keys": "url nextLink pageElement",
   "created_at": "2008-04-16T12:35:15+09:00",
   "optional_keys": "exampleUrl insertBefore",
