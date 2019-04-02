@@ -1304,8 +1304,8 @@
   const jsonRuleProvider = [
     {
       name: "machsix.github.io",
-      url: "https://machsix.github.io/Super-preloader/mydata.json",
-      detailUrl: "https://machsix.github.io/Super-preloader/mydata_detail.json",
+      url: "https://machsix.github.io/Super-preloader/mydata_dev.json",
+      detailUrl: "https://machsix.github.io/Super-preloader/mydata_dev_detail.json",
       ruleParser: null
     },
     {
