@@ -10,3 +10,7 @@ deploy:
       script: bash .travis/gen_ghpage.sh
       on:
         branch: master
+    - provider: script
+      script: bash .travis/gen_ghpage_dev.sh
+      on:
+        branch: dev

@@ -13,7 +13,7 @@
 // @author       Mach6
 // @contributers YFdyh000, suchunchen
 // @thanksto     ywzhaiqi, NLF
-// @version      6.6.32
+// @version      6.6.33
 // @license      GNU GPL v3
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
@@ -57,7 +57,7 @@
 // ==/UserScript==
 (function() {
   const scriptInfo = {
-    version: "6.6.32",
+    version: "6.6.33",
     updateTime: "2019/4/1",
     changelog: "Fix for wzfou.com",
     homepageURL: "https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new",
@@ -1767,11 +1767,25 @@
     {
       name: "游民星空",
       url: /^https?:\/\/www\.gamersky\.com/i,
-      siteExample: "http://www.gamersky.com/news/201207/206490.shtml",
-      nextLink: "auto;",
+      exampleUrl: "https://www.gamersky.com/ent/201510/671493.shtml",
+      nextLink: function(doc, win, cplink) {
+        const nL = getElementByXpath('//a[(text()="下一页")]', doc, doc).getAttribute("href");
+        const a = /^(https)?:\/\/.*$/.exec(cplink);
+        if (a) {
+          var b = /^https?:\/\/(.*)$/.exec(nL);
+          return a[1] + "://" + b[1];
+        }
+        return nL;
+      },
       autopager: {
-        remain: 1 / 2,
-        pageElement: '//div[@class="Mid2L_con"]/*[not(contains(@class, "page_css"))] | //div[span/@id="pe100_page_contentpage"]'
+        relatedObj: true,
+        pageElement: '//div[@class="Mid2L_con" and div/@class="page_css"] | //div[@class="Mid2L_con"]/span[@id="pe100_page_contentpage"]',
+        documentFilter: function(doc) {
+          const nav = getElementByXpath('//div[@class="page_css"]', doc, doc);
+          console.log(nav);
+          nav.style.visibility = "hidden";
+          nav.style.height = "0px";
+        }
       }
       // credit : https://greasyfork.org/en/forum/discussion/42040/x
     },
@@ -1781,7 +1795,8 @@
       siteExample: "https://www.3dmgame.com/news/201312/2310792.html|https://www.3dmgame.com/news/",
       nextLink: '//li[(@class="next")]//a',
       autopager: {
-        remain: 1 / 2,
+        relatedObj: true,
+        //remain: 1 / 2,
         pageElement: '//div[@class="news_warp_center"] | //ul[@class="list"]'
       }
       // credit : https://greasyfork.org/en/forum/discussion/42040/x
@@ -2501,12 +2516,6 @@
         pageElement: 'id("main")/div[@class="box"]',
         replaceE: '//div[@class="wp-pagenavi"]'
       }
-    },
-    {
-      name: "精品绿色便携软件",
-      url: "^https?://www\\.portablesoft\\.org/",
-      nextLink: '//div[@class="pagination"]/a[text()="下页 ?"]',
-      pageElement: 'id("main")/div[@class="post-entry"]'
     },
     {
       name: "zd423",
@@ -4863,12 +4872,20 @@
     {
       name: "WordPress",
       url: "^https?://[^/]+(/page/\\d+)?",
-      nextLink: {
-        startAfter: "/page/",
-        mFails: [/^https?:\/\/[^/]+/i, "/page/1/"],
-        inc: 1,
-        isLast: function(doc, win, lhref) {
-          return false;
+      nextLink: function(doc, win, _cplink) {
+        const cplink = _cplink.replace(/^(.*)(#[^\/]*)?$/, "$1");
+        if (cplink.slice(cplink.length - 5, cplink.length) === ".html") {
+          return undefined;
+        }
+        if (cplink.slice(cplink.length - 4, cplink.length) === ".htm") {
+          return undefined;
+        }
+        const a = /^(https?:\/\/.*?)(\/page\/\d+\/?)?$/.exec(cplink);
+        if (a[2]) {
+          const b = Number(/\/page\/(\d+)/.exec(a[2])[1]) + 1;
+          return cplink.replace(/^(https?:\/\/.*?\/page\/)\d+(.*)$/, "$1" + String(b) + "$2");
+        } else {
+          return cplink.replace(/^(.*?)\/?$/, "$1") + "/page/2";
         }
       },
       autopager: {
@@ -4880,17 +4897,37 @@
             }
           }
           // detect if this is wordpress
-          if (doc.documentElement.outerHTML.indexOf("WordPress") === -1 && doc.documentElement.outerHTML.indexOf("wp-content") === -1) {
+          const wpText = ["wp-content", "wp-plugin", "wp-comment"];
+          var isWP = false;
+          for (i = 0; i < wpText.length; i++) {
+            if (doc.documentElement.outerHTML.indexOf(wpText[i]) > -1) {
+              isWP = true;
+              break;
+            }
+          }
+          if (!isWP) {
             return null;
           }
           // if this is the page of post, return null
-          var isPost = !!getElementByXpath("//div[@class='title-post']", doc, doc);
-          if (isPost) {
-            return null;
+          const postXpath = [
+            "//input[@value='发表评论' or @value='提交评论' or @value='添加留言' or @value='SUBMIT COMMENT']",
+            "//a[text()='发表评论' or text()='提交评论' or text()='添加留言' or text()='SUBMIT COMMENT']",
+            "//div[@class='single-post-box']",
+            "//div[@class='single_post']"
+          ];
+          for (i = 0; i < postXpath.length; i++) {
+            if (getElementByXpath(postXpath[i], doc, doc)) {
+              return null;
+            }
           }
+
           // get from latest post
           // example https://next.365cent.com/ v5.1.1
-          var posts = getAllElements("//div[@id='latest-posts']//article[starts-with(@id,'post-')]", doc, doc, win);
+          var posts = getAllElements("//div[contains(@class,'main')]//article[starts-with(@id,'post-')]", doc, doc, win);
+          if (posts.length > 0) {
+            return posts;
+          }
+          posts = getAllElements("//article[starts-with(@id,'post-')]", doc, doc, win);
           if (posts.length > 0) {
             return posts;
           }
@@ -5123,7 +5160,7 @@
           }.bind(this)
         );
       } else {
-        debug("Json rule will be updated at " + this.info.expire.toString());
+        // debug("Json rule will be updated at " + this.info.expire.toString());
         SITEINFO_json = _.flatFilter(SITEINFO_json);
         return Promise.resolve();
       }
