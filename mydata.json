@@ -246,5 +246,20 @@
     "url": "^https?://www\\.flhkk\\.com",
     "nextLink": "auto;",
     "pageElement": "//div[@class='container']//div[contains(@class,'posts-con') or @class='clearfix']"
+  },
+  {
+    "name": "wzfou-category",
+    "url": "^https://wzfou.com/.+",
+    "nextLink": "//a[@class='next page-numbers']",
+    "pageElement": "//div[@class='grid-box']/div[@class='row']",
+    "autopager": {
+      "relatedObj": true
+    }
+  },
+  {
+    "name": "精品绿色便携软件",
+    "url": "^https?://www\\.portablesoft\\.org/",
+    "nextLink": "auto;",
+    "pageElement": "id(\"main\")/div[@class=\"post-entry\"]|id(\"main\")/div[@class=\"clear\"]"
   }
 ]
