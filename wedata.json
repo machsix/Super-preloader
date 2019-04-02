@@ -1,5 +1,34 @@
 [
 {
+  "resource_url": "http://wedata.net/items/82108",
+  "name": "Movie Walker 記事",
+  "created_by": "t_f_m",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "updated_at": "2019-04-02T16:16:20+09:00",
+  "data": {
+    "exampleUrl": "https://movie.walkerplus.com/news/article/173159/",
+    "url": "^https://movie\\.walkerplus\\.com/news/article/",
+    "pageElement": "//div[@class=\"p-newsDetail-article-block\"]",
+    "nextLink": "//div[@class=\"pagination\"]/ul/li[a/@class=\"is-current\"]/following-sibling::li/a"
+  },
+  "created_at": "2019-04-02T16:16:05+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/82107",
+  "name": "婦人公論.jp",
+  "created_by": "brib",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "updated_at": "2019-04-02T11:48:28+09:00",
+  "data": {
+    "exampleUrl": "https://fujinkoron.jp/articles/-/96\r\nhttps://fujinkoron.jp/category/articles\r\nhttps://fujinkoron.jp/search?fulltext=2018",
+    "url": "^https?://fujinkoron\\.jp/",
+    "pageElement": "//article[@class=\"article-body\"] | //main[@class=\"main-column\"]/div[contains(@class,\"-articles\")]",
+    "insertBefore": "",
+    "nextLink": "//link[@rel=\"next\"]"
+  },
+  "created_at": "2019-04-02T11:48:28+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/82106",
   "name": "まじっく　ざ　げーまー ",
   "created_by": "jigendaddy_be",
@@ -34,11 +63,11 @@
   "name": "同人誌即売会スケジュール",
   "created_by": "t_f_m",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-03-30T10:11:20+09:00",
+  "updated_at": "2019-04-02T05:32:53+09:00",
   "data": {
     "exampleUrl": "https://shimeken.com/events/result/word:/page:2/sort:Event.event_date/direction:asc https://shimeken.com/events/result/page:7/sort:Event.event_date/direction:asc/word:",
     "url": "^https://shimeken\\.com/",
-    "pageElement": "//div[@class=\"event\"]|//div[@class=\"paging\"][1]",
+    "pageElement": "//div[@class='tweet']/following-sibling::section/div",
     "nextLink": "//span[@class='current']/following-sibling::span/a"
   },
   "created_at": "2019-03-25T15:47:27+09:00"
