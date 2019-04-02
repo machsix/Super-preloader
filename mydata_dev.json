@@ -238,6 +238,21 @@
     }
   },
   {
+    "name": "flhkk",
+    "url": "^https?://www\\.flhkk\\.com",
+    "nextLink": "auto;",
+    "pageElement": "//div[@class='container']//div[contains(@class,'posts-con') or @class='clearfix']"
+  },
+  {
+    "name": "wzfou-category",
+    "url": "^https://wzfou.com/.+",
+    "nextLink": "//a[@class='next page-numbers']",
+    "pageElement": "//div[@class='grid-box']/div[@class='row']",
+    "autopager": {
+      "relatedObj": true
+    }
+  },
+  {
     "name": "起点文学-其他",
     "url": "^https?://www\\.(qidian|qdmm|qdwenxue)\\.com(/mm)?",
     "siteExample": "https://www.qidian.com/all",

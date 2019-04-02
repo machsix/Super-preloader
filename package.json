@@ -1,16 +1,16 @@
 {
   "name": "super-preloader",
-  "version": "6.6.26",
+  "version": "6.6.32",
   "description": "Super-preloader",
   "main": "Super_preloaderPlus_one_New.user.js",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
-    "lint": "eslint Super_preloaderPlus_one_New.user.js mydata.json",
+    "lint": "eslint Super_preloaderPlus_one_New.user.js mydata.json ./.travis",
     "checkformat": "prettylint Super_preloaderPlus_one_New.user.js",
     "format": "prettier Super_preloaderPlus_one_New.user.js --write",
-    "test": "eslint Super_preloaderPlus_one_New.user.js mydata.json && prettylint Super_preloaderPlus_one_New.user.js"
+    "test": "npm run lint && prettylint Super_preloaderPlus_one_New.user.js"
   },
   "husky": {
     "hooks": {

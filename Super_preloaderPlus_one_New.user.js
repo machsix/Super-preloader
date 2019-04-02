@@ -13,7 +13,7 @@
 // @author       Mach6
 // @contributers YFdyh000, suchunchen
 // @thanksto     ywzhaiqi, NLF
-// @version      6.6.26
+// @version      6.6.32
 // @license      GNU GPL v3
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
@@ -57,9 +57,9 @@
 // ==/UserScript==
 (function() {
   const scriptInfo = {
-    version: "6.6.26",
-    updateTime: "2019/3/30",
-    changelog: "Add generic rule for wordpresss",
+    version: "6.6.32",
+    updateTime: "2019/4/1",
+    changelog: "Fix for wzfou.com",
     homepageURL: "https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new",
     downloadUrl: "https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.user.js",
     metaUrl: "https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.meta.js"
@@ -201,7 +201,7 @@
     // 新增或修改的
     forceTargetWindow: true, // 下一页的链接设置成在新标签页打开
     debug: false,
-    enableHistory: true, // 把下一页链接添加到历史记录
+    enableHistory: false, // 把下一页链接添加到历史记录
     autoGetPreLink: false, // 一开始不自动查找上一页链接，改为调用时再查找
     excludes: "",
     custom_siteinfo: "[]",
@@ -1205,12 +1205,29 @@
         }
       },
       autopager: {
-        pageElement: function(doc, win) {
+        pageElement: function(doc, win, _cplink) {
+          const blackList = [/^https?:\/\/bwg\.net\/?$/];
+          for (var i = 0; i < blackList.length; i++) {
+            if (blackList[i].test(_cplink)) {
+              return null;
+            }
+          }
           // detect if this is wordpress
           if (doc.documentElement.outerHTML.indexOf("WordPress") === -1 && doc.documentElement.outerHTML.indexOf("wp-content") === -1) {
             return null;
           }
-          var posts = getAllElements("//*[contains(@class,'container')]//article|//*[contains(@class,'container')]//div[contains(@class,'article-post')]", doc, doc, win);
+          // if this is the page of post, return null
+          var isPost = !!getElementByXpath("//div[@class='title-post']", doc, doc);
+          if (isPost) {
+            return null;
+          }
+          // get from latest post
+          // example https://next.365cent.com/ v5.1.1
+          var posts = getAllElements("//div[@id='latest-posts']//article[starts-with(@id,'post-')]", doc, doc, win);
+          if (posts.length > 0) {
+            return posts;
+          }
+          posts = getAllElements("//*[contains(@class,'container')]//article|//*[contains(@class,'container')]//div[contains(@class,'article-post')]", doc, doc, win);
           if (posts.length > 0) {
             return posts;
           }
@@ -1283,16 +1300,18 @@
 
   //  ///////// ----- Rules obtained from online json files -------///////////
   // url: url of json file
-  // ruleParser: a function parse responseText and return rule / null
+  // ruleParser: a function parse responseText from url / null
   const jsonRuleProvider = [
     {
       name: "machsix.github.io",
       url: "https://machsix.github.io/Super-preloader/mydata.json",
+      detailUrl: "https://machsix.github.io/Super-preloader/mydata_detail.json",
       ruleParser: null
     },
     {
       name: "wedata.net",
       url: "http://wedata.net/databases/AutoPagerize/items.json",
+      detailUrl: "http://wedata.net/databases/AutoPagerize.json",
       ruleParser: function(responseText) {
         return JSON.parse(responseText)
           .filter(function(i) {
@@ -1309,72 +1328,137 @@
   ];
 
   var SITEINFO_json = [];
+  for (var i = 0; i < jsonRuleProvider.length; i++) {
+    SITEINFO_json.push(null);
+  }
   const jsonRule = {
     info: {
       expire: new Date(Date.now() - 24 * 60 * 60 * 1000),
       updatePeriodInDay: 1 // json rules are update everyday
     },
-    updateRule: function(jsonFinish) {
-      // jsonFinish: a callback after jsonRules are updated
+    resetRule: function() {
+      SITEINFO_json = [];
+      for (var i = 0; i < jsonRuleProvider.length; i++) {
+        SITEINFO_json.push(null);
+      }
+    },
+    triggerForceUpdate: false,
+    updateRule: function() {
+      // return a promise when rule is updated
       // create promises
       const jsonRulePromises = [];
-      for (var i = 0; i < jsonRuleProvider.length; i++) {
-        (function(iurl) {
-          jsonRulePromises.push(
-            new Promise(function(resolve, reject) {
-              const req = {
-                method: "GET",
-                url: jsonRuleProvider[iurl].url,
-                onload: function(res) {
-                  var rule;
-                  if (_.isFunction(jsonRuleProvider[iurl].ruleParser)) {
-                    rule = jsonRuleProvider[iurl].ruleParser(res.responseText);
-                  } else {
-                    rule = JSON.parse(res.responseText);
-                  }
-                  debug("Rules from" + jsonRuleProvider[iurl].name + " is updated");
-                  resolve(rule);
-                },
-                onerror: function(res) {
-                  console.log(jsonRuleProvider[iurl].url, "error");
+      jsonRuleProvider.forEach(function(val, iurl) {
+        jsonRulePromises.push(
+          new Promise(function(resolve, reject) {
+            const req = {
+              method: "GET",
+              url: val.detailUrl,
+              onload: function(detailRes) {
+                try {
+                  const jdetailRes = JSON.parse(detailRes.responseText);
+                  const ruleUpdateDate = new Date(jdetailRes.updated_at);
+                  debug(jdetailRes);
+                  resolve(ruleUpdateDate);
+                } catch (err) {
+                  reject(detailRes);
                 }
-              };
-              GM.xmlHttpRequest(req);
+              },
+              onerror: function(res) {
+                reject(res);
+              }
+            };
+            GM.xmlHttpRequest(req);
+          })
+            .then(
+              function(ruleUpdateDate) {
+                if (ruleUpdateDate > this.info.expire || this.triggerForceUpdate) {
+                  return new Promise(function(resolve, reject) {
+                    const req = {
+                      method: "GET",
+                      url: val.url,
+                      onload: function(res) {
+                        var rule;
+                        try {
+                          if (_.isFunction(val.ruleParser)) {
+                            rule = val.ruleParser(res.responseText);
+                          } else {
+                            rule = JSON.parse(res.responseText);
+                          }
+                          debug("Rules " + val.name + " is updated");
+                          resolve(rule);
+                        } catch (err) {
+                          reject(res);
+                        }
+                      },
+                      onerror: function(res) {
+                        reject(res);
+                      }
+                    };
+                    debug("Rule " + val.name + " is to be updated");
+                    GM.xmlHttpRequest(req);
+                  });
+                } else {
+                  debug("Rule " + val.name + " is not expired");
+                  return Promise.resolve("not expire");
+                }
+              }.bind(this)
+            )
+            .catch(function() {
+              debug("Fail to update for " + val.name);
+              return Promise.resolve(null);
             })
-          );
-        })(i);
-      }
-      Promise.all(jsonRulePromises).then(
-        function(jsons) {
-          SITEINFO_json = _.flat(jsons);
-          // debug(SITEINFO_json);
-          jsonFinish(); // a callback after rules are updated
-        },
-        function(rejreason) {
-          console.log("Fail to update json rule because:");
-          console.log(rejreason);
-          SITEINFO_json = [];
-          jsonFinish();
-        }
-      );
+        );
+      }, this);
+
+      return Promise.all(jsonRulePromises);
     },
-    updateJsonRule: function(jsonUpdateFinish, reject, force) {
+    updateJsonRule: function(force) {
       // a function used to create promise to update json rule
       // jsonUpdateFinish: Callback after both jsonInfo and SITEINFO_json are updated
       force = force || false;
       const currentDate = new Date();
-      const jsonFinish = function() {
-        this.info.expire = new Date(currentDate.getTime() + this.info.updatePeriodInDay * 24 * 60 * 60 * 1000);
-        GM.setValue("jsonRuleInfo", JSON.stringify(this.info));
-        GM.setValue("SITEINFO_json", JSON.stringify(SITEINFO_json));
-        jsonUpdateFinish();
-      }.bind(this);
-      if (this.info.expire < currentDate || SITEINFO_json.length == 0 || force) {
+      if (SITEINFO_json.length == 0 || force || SITEINFO_json.length !== jsonRuleProvider.length) {
+        this.triggerForceUpdate = true;
+        this.resetRule();
+      }
+      if (this.info.expire < currentDate || this.triggerForceUpdate) {
         debug("Json rule is being updated");
-        this.updateRule(jsonFinish);
+        return new Promise(
+          function(resolve, reject) {
+            this.updateRule()
+              .then(
+                function(jsons) {
+                  var allFail = true;
+                  debug(jsons);
+                  jsons.forEach(function(rule, i) {
+                    if (rule) {
+                      SITEINFO_json[i] = rule;
+                      allFail = false;
+                    }
+                  });
+
+                  if (allFail) {
+                    this.resetRule();
+                    reject(new Error("Rules are not successfully updated"));
+                  } else {
+                    this.info.expire = new Date(currentDate.getTime() + this.info.updatePeriodInDay * 24 * 60 * 60 * 1000);
+                    GM.setValue("jsonRuleInfo", JSON.stringify(this.info));
+                    GM.setValue("SITEINFO_json", JSON.stringify(SITEINFO_json));
+                    SITEINFO_json = _.flatFilter(SITEINFO_json);
+                    resolve();
+                  }
+                }.bind(this)
+              )
+              .catch(function(err) {
+                this.resetRule();
+                reject(err);
+              });
+          }.bind(this)
+        );
       } else {
-        // debug('Json rule will be updated at '+this.info.expire.toString());
-        jsonUpdateFinish();
+        debug("Json rule will be updated at " + this.info.expire.toString());
+        SITEINFO_json = _.flatFilter(SITEINFO_json);
+        return Promise.resolve();
       }
     },
     parseJsonInfo: function(x) {
@@ -1623,15 +1707,17 @@
     SITEINFO_D = JSON.parse(values[1]);
     autoMatch = JSON.parse(values[2]);
     jsonRule.parseJsonInfo(values[3]);
+
+    // at this point, SITEINFO_json is an array
     SITEINFO_json = JSON.parse(values[4]);
 
+    // check the consistency of script settings
     const myVersion = values[5];
     if (versionCompare(myVersion, scriptInfo.version) < 0) {
       jsonRule.info.expire = new Date(Date.now() - 24 * 60 * 60 * 1000);
       GM.setValue("version", scriptInfo.version);
       prefs.factoryCheck = true;
     }
-
     if (prefs.factoryCheck === true || prefs.factoryCheck === undefined) {
       var hasMissing = assignMissingProperty(prefsFactory, prefs);
       if (hasMissing) {
@@ -1689,7 +1775,6 @@
       if (userLang.indexOf("zh") !== -1 || prefs.ChineseUI) {
         /* Deleted options
                                    <li title="下一页的链接设置成在新标签页打开"><input type="checkbox" id="sp-prefs-forceTargetWindow" checked/> 新标签打开链接</li>\
-                                   <li><input type="checkbox" id="sp-prefs-enableHistory" /> 添加下一页到历史记录</li>\
           */
         div.innerHTML =
           "\
@@ -1718,6 +1803,7 @@
           '</b> <button id="sp-prefs-updaterule">更新规则</button></li>\
                                    <li><input type="checkbox" id="sp-prefs-debug" /> 调试模式</li>\
                                    <li><input title="强制开启中文界面" type="checkbox" id="sp-prefs-ChineseUI" /> 中文界面</li>\
+                                   <li><input type="checkbox" id="sp-prefs-enableHistory" /> 添加下一页到历史记录</li>\
                                    <li><input type="checkbox" id="sp-prefs-dblclick_pause" /> 鼠标双击暂停翻页（默认为 Ctrl + 长按左键）</li>\
                                    <li><input type="checkbox" id="sp-prefs-SITEINFO_D-useiframe" /> 全局启用iframe方式\
                                    <li><input title="启用自动翻页，否则仅启用预读" type="checkbox" id="sp-prefs-SITEINFO_D-a_enable" checked/> 启用自动翻页 </li>\
@@ -1759,6 +1845,7 @@
           '</b> <button id="sp-prefs-updaterule">Update rules</button></li>\
                                    <li><input type="checkbox" id="sp-prefs-debug" /> Debug mode</li>\
                                    <li><input type="checkbox"  tile="English/Chinese UI" id="sp-prefs-ChineseUI" /> Chinese UI</li>\
+                                   <li><input type="checkbox" id="sp-prefs-enableHistory" /> Add next page to history</li>\
                                    <li><input type="checkbox" id="sp-prefs-dblclick_pause" /> Double click to stop preload (Default: Ctrl + Long Left)</li>\
                                    <li><input type="checkbox" id="sp-prefs-SITEINFO_D-useiframe" /> Enable iframe mode globally</li>\
                                    <li><input type="checkbox" title="Enable autopagger, otherwise only prefetcher is enabled" id="sp-prefs-SITEINFO_D-a_enable" checked/> Enable autopagger globally</li>\
@@ -1788,6 +1875,7 @@
         // document.getElementById('sp-fw-container').innerHTML = floatWindowUI();
         prefs.custom_siteinfo = $("custom_siteinfo").value;
         prefs.debug = xbug = !!$("debug").checked;
+        prefs.enableHistory = !!$("enableHistory").checked;
         prefs.dblclick_pause = !!$("dblclick_pause").checked;
         prefs.excludes = $("excludes").value;
         prefs.arrowKeyPage = !!$("arrowKeyPage").checked;
@@ -1808,10 +1896,7 @@
 
       on($("updaterule"), "click", function() {
         $("updaterule").innerHTML = "Updating...";
-        const p = new Promise(function(resolve, reject) {
-          jsonRule.updateJsonRule(resolve, reject, true);
-        });
-        p.then(function(values) {
+        jsonRule.updateJsonRule(true).then(function() {
           SP.loadSetting();
           close();
           location.reload();
@@ -1822,7 +1907,7 @@
 
       $("debug").checked = xbug;
       $("ChineseUI").checked = prefs.ChineseUI;
-      // $('enableHistory').checked = prefs.enableHistory;
+      $("enableHistory").checked = prefs.enableHistory;
       // $('forceTargetWindow').checked = prefs.forceTargetWindow;
       $("dblclick_pause").checked = prefs.dblclick_pause;
       $("SITEINFO_D-useiframe").checked = SITEINFO_D.useiframe;
@@ -1854,9 +1939,8 @@
           return toRE(x.url).test(locationHref);
         });
 
-        const p2 = new Promise(function(resolve, reject) {
-          jsonRule.updateJsonRule(resolve, reject);
-        });
+        // update json rule
+        const p2 = jsonRule.updateJsonRule();
         if (hashSite) {
           isHashchangeSite = true;
           hashchangeTimer = hashSite.timer;
@@ -2608,7 +2692,7 @@
           insertPoint = getElement(SSS.a_HT_insert[0]);
           insertMode = SSS.a_HT_insert[1];
         } else {
-          pageElement = getAllElements(SSS.a_pageElement);
+          pageElement = getAllElements(SSS.a_pageElement, document, document, null, cplink);
           if (pageElement.length > 0) {
             const pELast = pageElement[pageElement.length - 1];
             insertPoint = pELast.nextSibling ? pELast.nextSibling : pELast.parentNode.appendChild(document.createTextNode(" "));
@@ -3215,7 +3299,7 @@
           const docTitle = getElementByCSS("title", doc).textContent;
 
           const fragment = document.createDocumentFragment();
-          const pageElements = getAllElements(SSS.a_pageElement, false, doc, win);
+          const pageElements = getAllElements(SSS.a_pageElement, false, doc, win, nextlink);
           const ii = pageElements.length;
           if (ii <= 0) {
             debug("获取下一页的主要内容失败", SSS.a_pageElement);
@@ -3420,9 +3504,10 @@
         }
 
         function getRemain() {
+          const _cplink = cplink || undefined;
           const scrolly = window.scrollY;
           const WI = window.innerHeight;
-          const obj = getLastElement(relatedObj_0);
+          const obj = getLastElement(relatedObj_0, _cplink);
           const scrollH = obj && obj.nodeType == 1 ? obj.getBoundingClientRect()[relatedObj_1] + scrolly : Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
           return (scrollH - scrolly - WI) / WI; // 剩余高度于页面总高度的比例.
         }
@@ -3667,7 +3752,7 @@
       debug("url为:", url, "JS加载成功");
 
       // 第一阶段..分析高级模式..
-      SITEINFO = SITEINFO.concat(SITEINFO_TP, SITEINFO_comp, SITEINFO_json);
+      SITEINFO = SITEINFO.concat(SITEINFO_json, SITEINFO_TP, SITEINFO_comp);
       if (!SITEINFO_D.numOfRule || SITEINFO_D.numOfRule != SITEINFO.length) {
         SITEINFO_D.numOfRule = SITEINFO.length;
         GM.setValue("SITEINFO_D", JSON.stringify(SITEINFO_D));
@@ -4616,6 +4701,15 @@
       return [].concat.apply([], obj);
     };
 
+    _.flatFilter = function(obj) {
+      return [].concat.apply(
+        [],
+        obj.filter(function(x) {
+          return x;
+        })
+      );
+    };
+
     return _;
   })();
 
@@ -4911,12 +5005,13 @@
   }
 
   // 获取多个元素
-  function getAllElements(selector, contextNode, doc, win) {
+  function getAllElements(selector, contextNode, doc, win, _cplink) {
     const ret = [];
     if (!selector) return ret;
     var Eles;
     doc = doc || document;
     win = win || window;
+    _cplink = _cplink || undefined;
     contextNode = contextNode || doc;
     if (typeof selector === "string") {
       if (selector.search(/^css;/i) === 0) {
@@ -4925,7 +5020,7 @@
         Eles = getAllElementsByXpath(selector, contextNode, doc);
       }
     } else {
-      Eles = selector(doc, win);
+      Eles = selector(doc, win, _cplink);
       if (!Eles) return ret;
       if (Eles.nodeType) {
         // 单个元素.
@@ -5000,8 +5095,8 @@
   }
 
   // 获取最后一个元素.
-  function getLastElement(selector, contextNode, doc, win) {
-    const eles = getAllElements(selector, contextNode, doc, win);
+  function getLastElement(selector, _cplink, contextNode, doc, win) {
+    const eles = getAllElements(selector, contextNode, doc, win, _cplink);
     const l = eles.length;
     if (l > 0) {
       return eles[l - 1];
