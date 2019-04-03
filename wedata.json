@@ -1,5 +1,19 @@
 [
 {
+  "resource_url": "http://wedata.net/items/82109",
+  "name": "InformIT",
+  "created_by": "syusui_s",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "updated_at": "2019-04-03T10:49:40+09:00",
+  "data": {
+    "exampleUrl": "http://www.informit.com/articles/article.aspx?p=1621865",
+    "url": "^http://www\\.informit\\.com/articles/article\\.aspx\\?p=\\d+$",
+    "pageElement": "//*[@id=\"articleText\"]",
+    "nextLink": "//*[@id=\"articleContent\"]//a[@class=\"paginationNext\"]"
+  },
+  "created_at": "2019-04-03T10:46:00+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/82108",
   "name": "Movie Walker 記事",
   "created_by": "t_f_m",
