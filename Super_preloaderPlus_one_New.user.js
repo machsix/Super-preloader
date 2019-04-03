@@ -13,7 +13,7 @@
 // @author       Mach6
 // @contributers YFdyh000, suchunchen
 // @thanksto     ywzhaiqi, NLF
-// @version      6.6.33
+// @version      6.6.34
 // @license      GNU GPL v3
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
@@ -57,9 +57,9 @@
 // ==/UserScript==
 (function() {
   const scriptInfo = {
-    version: "6.6.33",
-    updateTime: "2019/4/1",
-    changelog: "Fix for wzfou.com",
+    version: "6.6.34",
+    updateTime: "2019/4/3",
+    changelog: "Fix for wordpress",
     homepageURL: "https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new",
     downloadUrl: "https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.user.js",
     metaUrl: "https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.meta.js"
@@ -7568,6 +7568,7 @@
             const pageElement = getElement(SSS.a_pageElement);
             if (!pageElement) {
               debug("无法找到内容,跳过规则:", SII, "继续查找其他规则");
+              nextlink = undefined;
               continue;
             }
 
