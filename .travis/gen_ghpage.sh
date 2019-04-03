@@ -10,13 +10,15 @@ if [ -f "../mydata_dev.json" ]; then
 fi
 cd ${REPO_DIR}
 git add mydata.json
+git add mydata_detail.json
 if [ -f "mydata_dev.json" ]; then
     git add mydata_dev.json
+    git add mydata_dev_detail.json
 fi
 git commit -m "Temporary commit"
 
 git fetch origin gh-pages:gh-pages
-if [[ -n `git diff --name-status gh-pages..master -- mydata.json` ]] || [[ ${TRAVIS_COMMIT_MESSAGE} == *"[ci deploy]"* ]]; then
+if [[ -n `git diff --name-status gh-pages..master -- mydata.json` ]] || [[ -n `git diff --name-status gh-pages..master -- mydata_dev.json` ]] || [[ ${TRAVIS_COMMIT_MESSAGE} == *"[ci deploy]"* ]]; then
     pip install sphinx_rtd_theme
     pip install travis-sphinx
     echo "mydata.json is changed"
