@@ -261,5 +261,15 @@
     "url": "^https?://www\\.portablesoft\\.org/",
     "nextLink": "auto;",
     "pageElement": "id(\"main\")/div[@class=\"post-entry\"]|id(\"main\")/div[@class=\"clear\"]"
+  },
+  {
+    "name": "小木虫",
+    "url": "https?://(www\\.)?muchong\\.com",
+    "nextLink": "auto;",
+    "pageElement": "//div[contains(@class,\"forum_body\")]/table",
+    "useiframe": true,
+    "autopager": {
+      "relatedObj": true
+    }
   }
 ]
