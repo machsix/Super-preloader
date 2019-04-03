@@ -13,7 +13,7 @@
 // @author       Mach6
 // @contributers YFdyh000, suchunchen
 // @thanksto     ywzhaiqi, NLF
-// @version      6.6.34
+// @version      6.6.35
 // @license      GNU GPL v3
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
@@ -57,7 +57,7 @@
 // ==/UserScript==
 (function() {
   const scriptInfo = {
-    version: "6.6.34",
+    version: "6.6.35",
     updateTime: "2019/4/3",
     changelog: "Fix for wordpress",
     homepageURL: "https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new",
@@ -5426,6 +5426,9 @@
       var hasMissing = assignMissingProperty(prefsFactory, prefs);
       if (hasMissing) {
         debug("Old prefs:", prefs);
+      }
+      if (scriptInfo.version === "6.6.35") {
+        prefs.enableHistory = false;
       }
       prefs.factoryCheck = false;
       GM.setValue("prefs", JSON.stringify(prefs));
