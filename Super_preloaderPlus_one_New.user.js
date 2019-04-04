@@ -13,7 +13,7 @@
 // @author       Mach6
 // @contributers YFdyh000, suchunchen
 // @thanksto     ywzhaiqi, NLF
-// @version      6.6.32
+// @version      6.6.37
 // @license      GNU GPL v3
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
@@ -57,9 +57,9 @@
 // ==/UserScript==
 (function() {
   const scriptInfo = {
-    version: "6.6.32",
-    updateTime: "2019/4/1",
-    changelog: "Fix for wzfou.com",
+    version: "6.6.37",
+    updateTime: "2019/4/4",
+    changelog: "Fix for gamersky",
     homepageURL: "https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new",
     downloadUrl: "https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.user.js",
     metaUrl: "https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.meta.js"
@@ -395,6 +395,42 @@
           } catch (ex) {}
         }
       }
+    },
+    {
+      name: "游民星空",
+      url: /^https?:\/\/www\.gamersky\.com/i,
+      exampleUrl: "https://www.gamersky.com/ent/201510/671493.shtml | https://www.gamersky.com/handbook/201707/922480.shtml",
+      nextLink: function(doc, win, cplink) {
+        const node = getElementByXpath('//div[@class="page_css"]//a[(text()="下一页")]', doc, doc);
+        if (!node) {
+          return null;
+        }
+        // 请求协议保持一致
+        const a = /^(https)?:\/\/.*$/.exec(cplink);
+        if (a) {
+          var b = /^https?:\/\/(.*)$/.exec(node.getAttribute("href"));
+          return a[1] + "://" + b[1];
+        }
+        return node.getAttribute("href");
+      },
+      autopager: {
+        relatedObj: true,
+        pageElement: '//div[@class="Mid2L_con"]',
+        replaceE: '//div[@class="page_css"]',
+        startFilter: function(win, doc) {
+          const nav = getElementByXpath('//div[@class="page_css"]', doc, doc);
+          if (nav) {
+            nav.style.display = "none";
+          }
+        },
+        documentFilter: function(doc) {
+          const nav = getElementByXpath('//div[@class="page_css"]', doc, doc);
+          if (nav) {
+            nav.style.display = "none";
+          }
+        }
+      }
+      // credit : https://greasyfork.org/en/forum/discussion/42040/x
     },
     {
       name: "smzdm-comment",
@@ -1196,34 +1232,62 @@
     {
       name: "WordPress",
       url: "^https?://[^/]+(/page/\\d+)?",
-      nextLink: {
-        startAfter: "/page/",
-        mFails: [/^https?:\/\/[^/]+/i, "/page/1/"],
-        inc: 1,
-        isLast: function(doc, win, lhref) {
-          return false;
+      nextLink: function(doc, win, _cplink) {
+        const cplink = _cplink.replace(/^(.*)(#[^\/]*)?$/, "$1");
+        if (cplink.slice(cplink.length - 5, cplink.length) === ".html") {
+          return undefined;
+        }
+        if (cplink.slice(cplink.length - 4, cplink.length) === ".htm") {
+          return undefined;
+        }
+        const a = /^(https?:\/\/.*?)(\/page\/\d+\/?)?$/.exec(cplink);
+        if (a[2]) {
+          const b = Number(/\/page\/(\d+)/.exec(a[2])[1]) + 1;
+          return cplink.replace(/^(https?:\/\/.*?\/page\/)\d+(.*)$/, "$1" + String(b) + "$2");
+        } else {
+          return cplink.replace(/^(.*?)\/?$/, "$1") + "/page/2";
         }
       },
       autopager: {
         pageElement: function(doc, win, _cplink) {
-          const blackList = [/^https?:\/\/bwg\.net\/?$/];
+          const blackList = [/^https?:\/\/bwg\.net\/?$/, /^https?:\/\/sunbox.cc\/?$/];
           for (var i = 0; i < blackList.length; i++) {
             if (blackList[i].test(_cplink)) {
               return null;
             }
           }
           // detect if this is wordpress
-          if (doc.documentElement.outerHTML.indexOf("WordPress") === -1 && doc.documentElement.outerHTML.indexOf("wp-content") === -1) {
+          const wpText = ["wp-content", "wp-plugin", "wp-comment"];
+          var isWP = false;
+          for (i = 0; i < wpText.length; i++) {
+            if (doc.documentElement.outerHTML.indexOf(wpText[i]) > -1) {
+              isWP = true;
+              break;
+            }
+          }
+          if (!isWP) {
             return null;
           }
           // if this is the page of post, return null
-          var isPost = !!getElementByXpath("//div[@class='title-post']", doc, doc);
-          if (isPost) {
-            return null;
+          const postXpath = [
+            "//input[@value='发表评论' or @value='提交评论' or @value='添加留言' or @value='SUBMIT COMMENT']",
+            "//a[text()='发表评论' or text()='提交评论' or text()='添加留言' or text()='SUBMIT COMMENT']",
+            "//div[@class='single-post-box']",
+            "//div[@class='single_post']"
+          ];
+          for (i = 0; i < postXpath.length; i++) {
+            if (getElementByXpath(postXpath[i], doc, doc)) {
+              return null;
+            }
           }
+
           // get from latest post
           // example https://next.365cent.com/ v5.1.1
-          var posts = getAllElements("//div[@id='latest-posts']//article[starts-with(@id,'post-')]", doc, doc, win);
+          var posts = getAllElements("//div[contains(@class,'main')]//article[starts-with(@id,'post-')]", doc, doc, win);
+          if (posts.length > 0) {
+            return posts;
+          }
+          posts = getAllElements("//article[starts-with(@id,'post-')]", doc, doc, win);
           if (posts.length > 0) {
             return posts;
           }
@@ -1333,7 +1397,7 @@
   }
   const jsonRule = {
     info: {
-      expire: new Date(Date.now() - 24 * 60 * 60 * 1000),
+      expire: new Date("1992-05-15"),
       updatePeriodInDay: 1 // json rules are update everyday
     },
     resetRule: function() {
@@ -1419,6 +1483,17 @@
       const currentDate = new Date();
       if (SITEINFO_json.length == 0 || force || SITEINFO_json.length !== jsonRuleProvider.length) {
         this.triggerForceUpdate = true;
+      } else {
+        for (var i = 0; i < jsonRuleProvider.length; i++) {
+          // check if any rule is wrong
+          if (!SITEINFO_json[i]) {
+            this.triggerForceUpdate = true;
+          } else if (!Array.isArray(SITEINFO_json[i])) {
+            this.triggerForceUpdate = true;
+          }
+        }
+      }
+      if (this.triggerForceUpdate) {
         this.resetRule();
       }
       if (this.info.expire < currentDate || this.triggerForceUpdate) {
@@ -1431,7 +1506,7 @@
                   var allFail = true;
                   debug(jsons);
                   jsons.forEach(function(rule, i) {
-                    if (rule) {
+                    if (rule && Array.isArray(rule)) {
                       SITEINFO_json[i] = rule;
                       allFail = false;
                     }
@@ -1439,6 +1514,9 @@
 
                   if (allFail) {
                     this.resetRule();
+                    this.info.expire = new Date("1992-05-15");
+                    GM.setValue("jsonRuleInfo", JSON.stringify(this.info));
+                    GM.setValue("SITEINFO_json", JSON.stringify(SITEINFO_json));
                     reject(new Error("Rules are not successfully updated"));
                   } else {
                     this.info.expire = new Date(currentDate.getTime() + this.info.updatePeriodInDay * 24 * 60 * 60 * 1000);
@@ -1456,7 +1534,7 @@
           }.bind(this)
         );
       } else {
-        debug("Json rule will be updated at " + this.info.expire.toString());
+        // debug("Json rule will be updated at " + this.info.expire.toString());
         SITEINFO_json = _.flatFilter(SITEINFO_json);
         return Promise.resolve();
       }
@@ -1714,7 +1792,8 @@
     // check the consistency of script settings
     const myVersion = values[5];
     if (versionCompare(myVersion, scriptInfo.version) < 0) {
-      jsonRule.info.expire = new Date(Date.now() - 24 * 60 * 60 * 1000);
+      // update rule if the script is upgraded or it is installed for the first time
+      jsonRule.info.expire = new Date("1992-05-15");
       GM.setValue("version", scriptInfo.version);
       prefs.factoryCheck = true;
     }
@@ -1722,6 +1801,9 @@
       var hasMissing = assignMissingProperty(prefsFactory, prefs);
       if (hasMissing) {
         debug("Old prefs:", prefs);
+      }
+      if (scriptInfo.version === "6.6.35") {
+        prefs.enableHistory = false;
       }
       prefs.factoryCheck = false;
       GM.setValue("prefs", JSON.stringify(prefs));
@@ -3863,6 +3945,7 @@
             // 检验是否存在内容
             const pageElement = getElement(SSS.a_pageElement);
             if (!pageElement) {
+              nextlink = null;
               debug("无法找到内容,跳过规则:", SII, "继续查找其他规则");
               continue;
             }
@@ -4705,7 +4788,11 @@
       return [].concat.apply(
         [],
         obj.filter(function(x) {
-          return x;
+          if (Array.isArray(x)) {
+            return true;
+          } else {
+            return false;
+          }
         })
       );
     };
