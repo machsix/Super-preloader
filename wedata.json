@@ -36527,11 +36527,12 @@
   "name": "エキサイトニュース",
   "created_by": "t_f_m",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-01-26T10:19:37+09:00",
+  "updated_at": "2019-04-04T11:38:20+09:00",
   "data": {
-    "exampleUrl": "https://www.excite.co.jp/news/article/Shueishapn_20190124_108033/\r\nhttps://www.excite.co.jp/news/domestic-topic/",
+    "Stylus": ".autopagerize_page_separator~.list-item div:empty{display:none;}",
+    "exampleUrl": "https://www.excite.co.jp/news/article/Shueishapn_20190124_108033/\r\nhttps://www.excite.co.jp/news/article/Oricon_2132859/\r\nhttps://www.excite.co.jp/news/domestic-topic/",
     "url": "^https?://www\\.excite\\.co\\.jp/news/",
-    "pageElement": "//div[@class=\"story\"]/p[last()]/preceding-sibling::*|//div[@class=\"story\"]/p[last()] | //div[@class=\"main-contents\"][not(div[@class=\"article\"])]//ul[@class=\"list\"]",
+    "pageElement": "//div[@class=\"story\"]/node()[not(//div[@class=\"pager-Nextpage\"])]|//div[@class=\"pager-Nextpage\"]/preceding-sibling::node()|//ul[@class=\"list\"][not(./ancestor::section)]/li",
     "nextLink": "//link[@rel=\"next\"]"
   },
   "created_at": "2010-10-30T21:52:08+09:00"
