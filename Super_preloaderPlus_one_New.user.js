@@ -13,7 +13,7 @@
 // @author       Mach6
 // @contributers YFdyh000, suchunchen
 // @thanksto     ywzhaiqi, NLF
-// @version      6.6.35
+// @version      6.6.36
 // @license      GNU GPL v3
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
@@ -57,9 +57,9 @@
 // ==/UserScript==
 (function() {
   const scriptInfo = {
-    version: "6.6.35",
-    updateTime: "2019/4/3",
-    changelog: "Fix for wordpress",
+    version: "6.6.36",
+    updateTime: "2019/4/4",
+    changelog: "Fix for gamersky",
     homepageURL: "https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new",
     downloadUrl: "https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.user.js",
     metaUrl: "https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.meta.js"
@@ -1767,24 +1767,35 @@
     {
       name: "游民星空",
       url: /^https?:\/\/www\.gamersky\.com/i,
-      exampleUrl: "https://www.gamersky.com/ent/201510/671493.shtml",
+      exampleUrl: "https://www.gamersky.com/ent/201510/671493.shtml | https://www.gamersky.com/handbook/201707/922480.shtml",
       nextLink: function(doc, win, cplink) {
-        const nL = getElementByXpath('//a[(text()="下一页")]', doc, doc).getAttribute("href");
+        const node = getElementByXpath('//div[@class="page_css"]//a[(text()="下一页")]', doc, doc);
+        if (!node) {
+          return null;
+        }
+        // 请求协议保持一致
         const a = /^(https)?:\/\/.*$/.exec(cplink);
         if (a) {
-          var b = /^https?:\/\/(.*)$/.exec(nL);
+          var b = /^https?:\/\/(.*)$/.exec(node.getAttribute("href"));
           return a[1] + "://" + b[1];
         }
-        return nL;
+        return node.getAttribute("href");
       },
       autopager: {
         relatedObj: true,
-        pageElement: '//div[@class="Mid2L_con" and div/@class="page_css"] | //div[@class="Mid2L_con"]/span[@id="pe100_page_contentpage"]',
+        pageElement: '//div[@class="Mid2L_con"]',
+        replaceE: '//div[@class="page_css"]',
+        startFilter: function(win, doc) {
+          const nav = getElementByXpath('//div[@class="page_css"]', doc, doc);
+          if (nav) {
+            nav.style.display = "none";
+          }
+        },
         documentFilter: function(doc) {
           const nav = getElementByXpath('//div[@class="page_css"]', doc, doc);
-          console.log(nav);
-          nav.style.visibility = "hidden";
-          nav.style.height = "0px";
+          if (nav) {
+            nav.style.display = "none";
+          }
         }
       }
       // credit : https://greasyfork.org/en/forum/discussion/42040/x
@@ -7570,6 +7581,7 @@
             // 检验是否存在内容
             const pageElement = getElement(SSS.a_pageElement);
             if (!pageElement) {
+              nextlink = null;
               debug("无法找到内容,跳过规则:", SII, "继续查找其他规则");
               nextlink = undefined;
               continue;
