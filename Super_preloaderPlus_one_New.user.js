@@ -1767,24 +1767,37 @@
     {
       name: "游民星空",
       url: /^https?:\/\/www\.gamersky\.com/i,
-      exampleUrl: "https://www.gamersky.com/ent/201510/671493.shtml",
+      // 兼容以下2中页面
+      exampleUrl: "https://www.gamersky.com/ent/201510/671493.shtml | https://www.gamersky.com/handbook/201707/922480.shtml",
       nextLink: function(doc, win, cplink) {
-        const nL = getElementByXpath('//a[(text()="下一页")]', doc, doc).getAttribute("href");
+        const node  = getElementByXpath('//div[@class="page_css"]//a[(text()="下一页")]', doc, doc);
+        if (!node) {
+          return null
+        }
+        // 请求协议保持一致
         const a = /^(https)?:\/\/.*$/.exec(cplink);
         if (a) {
-          var b = /^https?:\/\/(.*)$/.exec(nL);
+          var b = /^https?:\/\/(.*)$/.exec(node.getAttribute("href"));
           return a[1] + "://" + b[1];
         }
-        return nL;
+        return node.getAttribute("href");
       },
       autopager: {
         relatedObj: true,
-        pageElement: '//div[@class="Mid2L_con" and div/@class="page_css"] | //div[@class="Mid2L_con"]/span[@id="pe100_page_contentpage"]',
+        pageElement: '//div[@class="Mid2L_con"]',
+        replaceE: '//div[@class="page_css"]',
+        // 翻页器省略
+        startFilter: function(win, doc) {
+          const nav = getElementByXpath('//div[@class="page_css"]', doc, doc)
+          if (nav) {
+            nav.style.display = "none";
+          }
+        },
         documentFilter: function(doc) {
-          const nav = getElementByXpath('//div[@class="page_css"]', doc, doc);
-          console.log(nav);
-          nav.style.visibility = "hidden";
-          nav.style.height = "0px";
+          const nav = getElementByXpath('//div[@class="page_css"]', doc, doc)
+          if (nav) {
+            nav.style.display = "none";
+          }
         }
       }
       // credit : https://greasyfork.org/en/forum/discussion/42040/x
