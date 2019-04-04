@@ -4886,6 +4886,11 @@
       name: "WordPress",
       url: "^https?://[^/]+(/page/\\d+)?",
       nextLink: function(doc, win, _cplink) {
+        // 判断是否由 wordpress 生成的页面
+        if (!getElementByXpath('//meta[@name="generator" and contains(@content, "WordPress")]')) {
+          return null;
+        }
+
         const cplink = _cplink.replace(/^(.*)(#[^\/]*)?$/, "$1");
         if (cplink.slice(cplink.length - 5, cplink.length) === ".html") {
           return undefined;
