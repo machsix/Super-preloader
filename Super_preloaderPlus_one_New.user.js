@@ -1770,9 +1770,9 @@
       // 兼容以下2中页面
       exampleUrl: "https://www.gamersky.com/ent/201510/671493.shtml | https://www.gamersky.com/handbook/201707/922480.shtml",
       nextLink: function(doc, win, cplink) {
-        const node  = getElementByXpath('//div[@class="page_css"]//a[(text()="下一页")]', doc, doc);
+        const node = getElementByXpath('//div[@class="page_css"]//a[(text()="下一页")]', doc, doc);
         if (!node) {
-          return null
+          return null;
         }
         // 请求协议保持一致
         const a = /^(https)?:\/\/.*$/.exec(cplink);
@@ -1788,13 +1788,13 @@
         replaceE: '//div[@class="page_css"]',
         // 翻页器省略
         startFilter: function(win, doc) {
-          const nav = getElementByXpath('//div[@class="page_css"]', doc, doc)
+          const nav = getElementByXpath('//div[@class="page_css"]', doc, doc);
           if (nav) {
             nav.style.display = "none";
           }
         },
         documentFilter: function(doc) {
-          const nav = getElementByXpath('//div[@class="page_css"]', doc, doc)
+          const nav = getElementByXpath('//div[@class="page_css"]', doc, doc);
           if (nav) {
             nav.style.display = "none";
           }
