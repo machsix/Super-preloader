@@ -13,7 +13,7 @@
 // @author       Mach6
 // @contributers YFdyh000, suchunchen
 // @thanksto     ywzhaiqi, NLF
-// @version      6.6.35
+// @version      6.6.36
 // @license      GNU GPL v3
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
@@ -57,9 +57,9 @@
 // ==/UserScript==
 (function() {
   const scriptInfo = {
-    version: "6.6.35",
-    updateTime: "2019/4/3",
-    changelog: "Fix for wordpress",
+    version: "6.6.36",
+    updateTime: "2019/4/4",
+    changelog: "Fix for gamersky",
     homepageURL: "https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new",
     downloadUrl: "https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.user.js",
     metaUrl: "https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.meta.js"
@@ -4884,11 +4884,6 @@
       name: "WordPress",
       url: "^https?://[^/]+(/page/\\d+)?",
       nextLink: function(doc, win, _cplink) {
-        // 判断是否由 wordpress 生成的页面
-        if (!getElementByXpath('//meta[@name="generator" and contains(@content, "WordPress")]')) {
-          return null;
-        }
-
         const cplink = _cplink.replace(/^(.*)(#[^\/]*)?$/, "$1");
         if (cplink.slice(cplink.length - 5, cplink.length) === ".html") {
           return undefined;
