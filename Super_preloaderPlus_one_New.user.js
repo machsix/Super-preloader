@@ -13,7 +13,7 @@
 // @author       Mach6
 // @contributers YFdyh000, suchunchen
 // @thanksto     ywzhaiqi, NLF
-// @version      6.6.36
+// @version      6.6.37
 // @license      GNU GPL v3
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
@@ -57,7 +57,7 @@
 // ==/UserScript==
 (function() {
   const scriptInfo = {
-    version: "6.6.36",
+    version: "6.6.37",
     updateTime: "2019/4/4",
     changelog: "Fix for gamersky",
     homepageURL: "https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new",
@@ -4901,7 +4901,7 @@
       },
       autopager: {
         pageElement: function(doc, win, _cplink) {
-          const blackList = [/^https?:\/\/bwg\.net\/?$/];
+          const blackList = [/^https?:\/\/bwg\.net\/?$/, /^https?:\/\/sunbox.cc\/?$/];
           for (var i = 0; i < blackList.length; i++) {
             if (blackList[i].test(_cplink)) {
               return null;
@@ -5134,6 +5134,17 @@
       const currentDate = new Date();
       if (SITEINFO_json.length == 0 || force || SITEINFO_json.length !== jsonRuleProvider.length) {
         this.triggerForceUpdate = true;
+      } else {
+        for (var i = 0; i < jsonRuleProvider.length; i++) {
+          // check if any rule is wrong
+          if (!SITEINFO_json[i]) {
+            this.triggerForceUpdate = true;
+          } else if (!Array.isArray(SITEINFO_json[i])) {
+            this.triggerForceUpdate = true;
+          }
+        }
+      }
+      if (this.triggerForceUpdate) {
         this.resetRule();
       }
       if (this.info.expire < currentDate || this.triggerForceUpdate) {
@@ -5146,7 +5157,7 @@
                   var allFail = true;
                   debug(jsons);
                   jsons.forEach(function(rule, i) {
-                    if (rule) {
+                    if (rule && Array.isArray(rule)) {
                       SITEINFO_json[i] = rule;
                       allFail = false;
                     }
@@ -5154,6 +5165,9 @@
 
                   if (allFail) {
                     this.resetRule();
+                    this.info.expire = new Date("1992-05-15");
+                    GM.setValue("jsonRuleInfo", JSON.stringify(this.info));
+                    GM.setValue("SITEINFO_json", JSON.stringify(SITEINFO_json));
                     reject(new Error("Rules are not successfully updated"));
                   } else {
                     this.info.expire = new Date(currentDate.getTime() + this.info.updatePeriodInDay * 24 * 60 * 60 * 1000);
@@ -5429,7 +5443,8 @@
     // check the consistency of script settings
     const myVersion = values[5];
     if (versionCompare(myVersion, scriptInfo.version) < 0) {
-      jsonRule.info.expire = new Date(Date.now() - 24 * 60 * 60 * 1000);
+      // update rule if the script is upgraded or it is installed for the first time
+      jsonRule.info.expire = new Date("1992-05-15");
       GM.setValue("version", scriptInfo.version);
       prefs.factoryCheck = true;
     }
@@ -7583,7 +7598,6 @@
             if (!pageElement) {
               nextlink = null;
               debug("无法找到内容,跳过规则:", SII, "继续查找其他规则");
-              nextlink = undefined;
               continue;
             }
 
@@ -8425,7 +8439,11 @@
       return [].concat.apply(
         [],
         obj.filter(function(x) {
-          return x;
+          if (Array.isArray(x)) {
+            return true;
+          } else {
+            return false;
+          }
         })
       );
     };
