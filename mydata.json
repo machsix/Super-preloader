@@ -271,5 +271,11 @@
     "autopager": {
       "relatedObj": true
     }
+  },
+  {
+    "name": "阳光盒子",
+    "url": "^https?://sunbox\\.cc/.*\\.html$",
+    "pageElement": "//div[@id='primary']//article",
+    "nextLink": "//div[@class='nav-links']/a[last()]"
   }
 ]
