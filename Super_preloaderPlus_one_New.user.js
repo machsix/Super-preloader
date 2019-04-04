@@ -1785,7 +1785,6 @@
         relatedObj: true,
         pageElement: '//div[@class="Mid2L_con"]',
         replaceE: '//div[@class="page_css"]',
-        // 翻页器省略
         startFilter: function(win, doc) {
           const nav = getElementByXpath('//div[@class="page_css"]', doc, doc);
           if (nav) {
