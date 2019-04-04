@@ -7567,6 +7567,7 @@
             // 检验是否存在内容
             const pageElement = getElement(SSS.a_pageElement);
             if (!pageElement) {
+              nextlink = null;
               debug("无法找到内容,跳过规则:", SII, "继续查找其他规则");
               continue;
             }
