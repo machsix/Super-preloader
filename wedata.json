@@ -1,5 +1,20 @@
 [
 {
+  "resource_url": "http://wedata.net/items/82112",
+  "name": "サンライズ出版",
+  "created_by": "t_f_m",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "updated_at": "2019-04-05T17:02:32+09:00",
+  "data": {
+    "exampleUrl": "http://www.sunrise-pub.co.jp/category/shosekiandgoods/books/omibunko/",
+    "url": "^http://www\\.sunrise-pub\\.co\\.jp/",
+    "pageElement": "id(\"main\")/div[@class=\"post\"]",
+    "insertBefore": "",
+    "nextLink": "//span[@class=\"current\"]/following-sibling::a"
+  },
+  "created_at": "2019-04-05T17:02:32+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/82111",
   "name": "女子SPA！",
   "created_by": "hatenaZZZ",
@@ -53039,18 +53054,19 @@
   "created_at": "2008-05-24T14:18:54+09:00"
 },
 {
+  "resource_url": "http://wedata.net/items/1568",
   "name": "ニコニコ大百科 掲示板",
   "created_by": "gifnksm",
-  "updated_at": "2018-11-14T00:00:31+09:00",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "updated_at": "2019-04-04T21:16:42+09:00",
   "data": {
     "exampleUrl": "http://dic.nicovideo.jp/b/a/%E3%82%A2%E3%82%A4%E3%83%89%E3%83%AB%E3%83%9E%E3%82%B9%E3%82%BF%E3%83%BC/1- http://dic.nicovideo.jp/b/a/%E3%82%A2%E3%82%A4%E3%83%89%E3%83%AB%E3%83%9E%E3%82%B9%E3%82%BF%E3%83%BC/31-",
+    "comment": "id #bbs is not unique",
     "url": "^https://dic\\.nicovideo\\.jp/b/[aiuv]/",
-    "pageElement": "id(\"bbs\")/dl/*[self::dt or self::dd]",
+    "pageElement": "//div[@id=\"bbs\"]/div/dl/*[self::dt or self::dd]",
     "nextLink": "//span[@class=\"current\"]/following-sibling::a[1]"
   },
-  "created_at": "2008-05-24T05:19:27+09:00",
-  "resource_url": "http://wedata.net/items/1568",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize"
+  "created_at": "2008-05-24T05:19:27+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/1567",
