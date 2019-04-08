@@ -13,16 +13,18 @@
 // @author       Mach6
 // @contributers YFdyh000, suchunchen
 // @thanksto     ywzhaiqi, NLF
-// @version      6.6.37
+// @version      6.6.38
 // @license      GNU GPL v3
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
-// @icon         https://raw.githubusercontent.com/machsix/Super-preloader/master/icon.png
+// @icon         data:image/png;base64,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
 // @require      https://greasyfork.org/scripts/373124-gm4-polyfill-mach6-legacy/code/gm4-polyfill-mach6-legacy.js?version=635792
 // @grant        GM.getValue
 // @grant        GM_getValue
 // @grant        GM.setValue
 // @grant        GM_setValue
+// @grant        GM.notification
+// @grant        GM_notification
 // @grant        GM.xmlHttpRequest
 // @grant        GM_xmlhttpRequest
 // @grant        GM_registerMenuCommand
@@ -57,12 +59,25 @@
 // ==/UserScript==
 (function() {
   const scriptInfo = {
-    version: "6.6.37",
-    updateTime: "2019/4/4",
-    changelog: "Fix for gamersky",
+    name: "Super_preloaderPlus_one_New",
+    version: "6.6.38",
+    updateTime: "2019/4/6",
+    changelog: "Fix Ctrl+Mouse",
     homepageURL: "https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new",
     downloadUrl: "https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.user.js",
     metaUrl: "https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.meta.js"
+  };
+
+  const upgradeNotification = {
+    text: {
+      zh_CN: "Tip: 你可以使用 <Ctrl>+<长按左键> 临时暂停/启用自动翻页",
+      en_US: "Tip: you can use <Ctrl>+<Deep left click> to toggle autopagger temporarily"
+    },
+    title: scriptInfo.name,
+    image:
+      "data:image/png;base64,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",
+    onload: function() {},
+    show: true
   };
 
   // ----------------------------------
@@ -277,7 +292,7 @@
       name: "Google搜索",
       url: "^https?://(?:(?:www|encrypted)\\.google(?:stable)?\\..{2,9}|wen\\.lu)/(?:webhp|search|#|$|\\?)",
       // url:'wildc;http://www.google.com.hk/search*',
-      siteExample: "http://www.google.com", // 站点实例...(可选)
+      exampleUrl: "http://www.google.com", // 站点实例...(可选)
       enable: true, // 启用.(总开关)(可选)
       useiframe: false, // 是否用iframe预读...(可选)
       // sandbox: "allow-forms allow-modals allow-same-origin allow-scripts";    //设置sandbox选项
@@ -427,7 +442,7 @@
     {
       name: "搜狗搜索",
       url: /^https?:\/\/www\.sogou\.com\/(?:web|sogou)/i,
-      siteExample: "http://www.sogou.com",
+      exampleUrl: "http://www.sogou.com",
       enable: true,
       nextLink: '//div[@id="pagebar_container"]/a[@id="sogou_next"]',
       autopager: {
@@ -438,7 +453,7 @@
     {
       name: "Bing网页搜索",
       url: "^https?://(?:www|cnweb|cn).bing.com/(?:[^/]+/)*?(?:results.aspx|search)",
-      siteExample: "bing.com/search?q=",
+      exampleUrl: "bing.com/search?q=",
       nextLink: '//a[contains(@class,"sb_pagN")]',
       autopager: {
         pageElement: 'id("b_results")/li[not(contains(@class,"b_pag") or contains(@class,"b_ans b_top"))]',
@@ -460,7 +475,7 @@
     {
       name: "AOL 搜索",
       url: /^https?:\/\/(www\.)?aolsearch.com\/search\?q=/i,
-      siteExample: "https://www.aolsearch.com/search?q=test",
+      exampleUrl: "https://www.aolsearch.com/search?q=test",
       nextLink: '//div[@class="compPagination"]/a[@class="next"]',
       autopager: {
         pageElement: '//ol[contains(@class,"searchCenterMiddle")]'
@@ -504,7 +519,7 @@
     {
       name: "百度贴吧帖子",
       url: /^https?:\/\/tieba\.baidu\.com\/p/i,
-      siteExample: "https://tieba.baidu.com/p/918674650",
+      exampleUrl: "https://tieba.baidu.com/p/918674650",
       nextLink: '(//ul[@class="l_posts_num"])[2]/li/a[text()="下一页"]',
       preLink: '(//ul[@class="l_posts_num"])[2]/li/a[text()="上一页"]',
       autopager: {
@@ -523,7 +538,7 @@
     {
       name: "百度吧内搜索",
       url: /^https?:\/\/tieba\.baidu\.com\/f\/search/i,
-      siteExample: "http://tieba.baidu.com/f/search/",
+      exampleUrl: "http://tieba.baidu.com/f/search/",
       nextLink: "auto;",
       pageElement: "css;.s_post"
     },
@@ -536,7 +551,7 @@
     {
       name: "百度知道",
       url: /^https?:\/\/zhidao\.baidu\.com\/search\?/i,
-      siteExample: "http://zhidao.baidu.com/search?pn=0&&rn=10&word=%BD%AD%C4%CFstyle",
+      exampleUrl: "http://zhidao.baidu.com/search?pn=0&&rn=10&word=%BD%AD%C4%CFstyle",
       nextLink: "auto;",
       pageElement: "css;#wgt-list"
     },
@@ -648,7 +663,7 @@
     {
       name: "新华网新闻页面",
       url: /^https?:\/\/www\.xinhuanet\.com\/(\w+\/)?\d{4}-\d{2}\/\d{2}\/.+\.html?/i,
-      siteExample: "http://www.xinhuanet.com/2018-04/07/c_1122646152.htm",
+      exampleUrl: "http://www.xinhuanet.com/2018-04/07/c_1122646152.htm",
       nextLink: "auto;",
       autopager: {
         remain: 2,
@@ -658,7 +673,7 @@
     {
       name: "中国新闻网",
       url: /^https?:\/\/www\.chinanews\.com\/[a-z]+\/.+\.shtml/i,
-      siteExample: "http://www.chinanews.com/英文/年/日期/编号.shtml",
+      exampleUrl: "http://www.chinanews.com/英文/年/日期/编号.shtml",
       nextLink: '//div[@id="function_code_page"]/a[text()="下一页"]',
       autopager: {
         pageElement: '//div[@class="left_zw"] | //div[@class="hd_photo"]',
@@ -680,7 +695,7 @@
     {
       name: "中关村在线新闻页面",
       url: /^https?:\/\/(?:[^\.]+\.)?zol\.com\.cn\/\d+\/\d+/i,
-      siteExample: "http://lcd.zol.com.cn/187/1875145.html",
+      exampleUrl: "http://lcd.zol.com.cn/187/1875145.html",
       nextLink: '//div[@class="page"]/a[text()="下一页"]',
       autopager: {
         pageElement: '//div[@id="cotent_idd" or @id="article-content"]',
@@ -826,7 +841,7 @@
     {
       name: "汽车之家论坛帖子和列表",
       url: /^https?:\/\/club\.autohome\.com\.cn\/bbs/i,
-      siteExample: "http://club.autohome.com.cn/bbs/forum-c-2313-1.html",
+      exampleUrl: "http://club.autohome.com.cn/bbs/forum-c-2313-1.html",
       nextLink: "auto;",
       autopager: {
         pageElement: '//dl[@class="list_dl "][@lang] | //div[@class="conmain"]'
@@ -846,7 +861,7 @@
     {
       name: "爱卡汽车论坛帖子",
       url: /^https?:\/\/www\.xcar\.com\.cn\/bbs\/viewthread/i,
-      siteExample: "http://www.xcar.com.cn/bbs/viewthread.php?tid=12474760",
+      exampleUrl: "http://www.xcar.com.cn/bbs/viewthread.php?tid=12474760",
       nextLink: '//a[text()="下一页＞"][@href]',
       autopager: {
         pageElement: '//form[@id="delpost"] | //div[@class="maintable"][@id="_img"]'
@@ -1094,7 +1109,7 @@
       name: "Amazon.com",
       url: "https?://(w+).amazon.com/.+",
       nextLink: "/html/body/div[2]/div[4]/div[2]/div[5]/div/span/div[1]/ul/li[7]/a",
-      siteExample: "https://smile.amazon.com/toys/b/ref=sd_allcat_tg?ie=UTF8&node=165793011",
+      exampleUrl: "https://smile.amazon.com/toys/b/ref=sd_allcat_tg?ie=UTF8&node=165793011",
       pageElement: '//*[@id="widgetContent"]'
     },
     {
@@ -1235,7 +1250,7 @@
     {
       name: "VeryCD搜索页面",
       url: /^https?:\/\/www\.verycd\.com\/search\/folders.+/i,
-      siteExample: "http://www.verycd.com/search/folders/",
+      exampleUrl: "http://www.verycd.com/search/folders/",
       nextLink: '//ul[@class="page"]//a[contains(text(),"下一页")][@href]',
       autopager: {
         pageElement: '//ul[@id="resultsContainer"]',
@@ -1466,7 +1481,7 @@
     {
       name: "idope.se",
       url: /^https?:\/\/idope\.se\/torrent-list\/.+/i,
-      siteExample: "https://idope.se/torrent-list/transformer/?p=3",
+      exampleUrl: "https://idope.se/torrent-list/transformer/?p=3",
       preLink: {
         startAfter: "?p=",
         inc: -1,
@@ -1498,7 +1513,7 @@
     {
       name: "天涯论坛帖子",
       url: /^https?:\/\/bbs\.tianya\.cn\/.+\.shtml/i,
-      siteExample: "http://bbs.tianya.cn/post-feeling-2792523-1.shtml",
+      exampleUrl: "http://bbs.tianya.cn/post-feeling-2792523-1.shtml",
       nextLink: '//div[@class="atl-pages"]/descendant::a[text()="下页"][@href]',
       autopager: {
         useiframe: true,
@@ -1561,7 +1576,7 @@
     {
       name: "Mozilla Addons",
       url: /^https?:\/\/addons\.mozilla\.org\/[^\/]+\/firefox/i,
-      siteExample: "https://addons.mozilla.org/zh-CN/firefox/",
+      exampleUrl: "https://addons.mozilla.org/zh-CN/firefox/",
       nextLink: '//p[@class="rel"]/a[@class="button next"][@href] | //ol[@class="pagination"]/li/a[@rel="next"][@href]',
       autopager: {
         pageElement: '//div[@id="pjax-results" or @class="separated-listing"]/div[@class="items"] | //section[@class="primary"]/div/div[@class="items"] | //ul[@class="personas-grid"] | //div[@id="my-addons"] | //div[@id="reviews"]',
@@ -1710,8 +1725,6 @@
       nextLink: "//a[@class='nextPage']",
       autopager: {
         pageElement: '//div[div[@class="floor-show  "]]',
-        //  useiframe:f,
-        //  iloaded: true,
         replaceE: "css;.page"
       }
     },
@@ -1723,14 +1736,13 @@
       autopager: {
         pageElement: '//li[div[@class="titlelink box"]]',
         useiframe: true,
-        //  iloaded: true,
         replaceE: "css;.page"
       }
     },
     {
       name: "人大经济论坛",
       url: /^https?:\/\/bbs\.pinggu\.org\/thread/i,
-      siteExample: "http://bbs.pinggu.org/thread-1562552-3-1.html",
+      exampleUrl: "http://bbs.pinggu.org/thread-1562552-3-1.html",
       nextLink: '//div[@id="pgt"]/descendant::a[@class="nxt"]',
       autopager: {
         pageElement: '//div[@class="floor"]'
@@ -1739,7 +1751,7 @@
     {
       name: "九尾网",
       url: /joowii\.com\/arc/i,
-      siteExample: "http://www.joowii.com/arc/ysyl/ssgx/2012/0905/125571.html",
+      exampleUrl: "http://www.joowii.com/arc/ysyl/ssgx/2012/0905/125571.html",
       nextLink: "auto;",
       autopager: {
         useiframe: true,
@@ -1803,11 +1815,10 @@
     {
       name: "3DMGAME",
       url: "^https://.*.3dmgame.com/*",
-      siteExample: "https://www.3dmgame.com/news/201312/2310792.html|https://www.3dmgame.com/news/",
+      exampleUrl: "https://www.3dmgame.com/news/201312/2310792.html|https://www.3dmgame.com/news/",
       nextLink: '//li[(@class="next")]//a',
       autopager: {
         relatedObj: true,
-        //remain: 1 / 2,
         pageElement: '//div[@class="news_warp_center"] | //ul[@class="list"]'
       }
       // credit : https://greasyfork.org/en/forum/discussion/42040/x
@@ -1852,8 +1863,7 @@
     {
       name: "煎蛋首页",
       url: /^https?:\/\/jandan\.net\/(?:page)?/i,
-      siteExample: "http://jandan.net/",
-      useiframe: true,
+      exampleUrl: "http://jandan.net/",
       prevLink: '//a[contains(text(),"上一页")]',
       nextLink: '//a[contains(text(),"下一页")]|//a[contains(text(),"更多文章")]',
       autopager: {
@@ -1863,7 +1873,7 @@
     {
       name: "蜂鸟网",
       url: /^https?:\/\/qicai\.fengniao\.com\/\d+\/\d+.html/i,
-      siteExample: "http://qicai.fengniao.com/370/3705137.html",
+      exampleUrl: "http://qicai.fengniao.com/370/3705137.html",
       useiframe: true,
       nextLink: "auto;",
       autopager: {
@@ -1875,7 +1885,7 @@
     {
       name: "55188论坛",
       url: /^https?:\/\/www\.55188\.com/i,
-      siteExample: "http://www.55188.com/forum-8-1.html",
+      exampleUrl: "http://www.55188.com/forum-8-1.html",
       nextLink: "auto;",
       autopager: {
         pageElement: '//div[@class="mainbox threadlist"] | //div[@class="mainbox viewthread"]'
@@ -1884,7 +1894,7 @@
     {
       name: "pcdvd论坛",
       url: /^https?:\/\/(?:www|forum)\.pcdvd\.com\.tw\/showthread\.php\?/i,
-      siteExample: "https://www.pcdvd.com.tw/showthread.php?t=1144412",
+      exampleUrl: "https://www.pcdvd.com.tw/showthread.php?t=1144412",
       nextLink: '(//div[@class="pagenav"]//a[text()="下一頁"])[1]',
       autopager: {
         pageElement: 'id("posts") | id("posts")/following-sibling::div[@align="center"][position() < last()]'
@@ -1893,7 +1903,7 @@
     {
       name: "pcdvd论坛_thread_list",
       url: /^https?:\/\/(?:www|forum)\.pcdvd\.com\.tw\/forumdisplay\.php\?/i,
-      siteExample: "https://www.pcdvd.com.tw/forumdisplay.php?f=34&page=4&sort=lastpost&order=&pp=18&daysprune=-1",
+      exampleUrl: "https://www.pcdvd.com.tw/forumdisplay.php?f=34&page=4&sort=lastpost&order=&pp=18&daysprune=-1",
       nextLink: '//div[@class="pagenav"]//a[text()="下一頁"]',
       autopager: {
         pageElement: '//td[@width="100%"][@valign="top"]/table[@class="tborder"]/tbody/tr[td[@class="alt1Active"]]'
@@ -1902,7 +1912,7 @@
     {
       name: "PCHOME 社区",
       url: /^https?:\/\/club\.pchome\.net/i,
-      siteExample: "http://club.pchome.net/forum_1_15.html#",
+      exampleUrl: "http://club.pchome.net/forum_1_15.html#",
       nextLink: "auto;",
       autopager: {
         pageElement: '//form[@id="mytopics"] | //div[@id="weibo_app"]'
@@ -1987,7 +1997,7 @@
     {
       name: "色影无忌帖子",
       url: /^https?:\/\/forum\.xitek\.com\/showthread/i,
-      siteExample: "http://forum.xitek.com/showthread.php?threadid=571986",
+      exampleUrl: "http://forum.xitek.com/showthread.php?threadid=571986",
       nextLink: '//font[@size="2"]/font[@class="thtcolor"]/following-sibling::a[@href]',
       autopager: {
         pageElement: "//body/table[position()>2 and position()<(last()-2)]"
@@ -1996,13 +2006,10 @@
     {
       name: "19楼帖子",
       url: /^https?:\/\/www\.19lou\.com/i,
-      siteExample: "http://www.19lou.com/forum-1502-thread-29762777-1-1.html",
+      exampleUrl: "http://www.19lou.com/forum-1502-thread-29762777-1-1.html",
       nextLink: "auto;",
       useiframe: true,
-      autopager: {
-        useiframe: true,
-        pageElement: '//form[@name="postForm"] | //form[@name="manageForm"]'
-      }
+      pageElement: '//form[@name="postForm"] | //form[@name="manageForm"]'
     },
     {
       name: "blogspot",
@@ -2123,7 +2130,7 @@
     // },
     //     {name: 'pixiv',
     //         url: "^https?://(www\.)?pixiv\.net.+",
-    //         siteExample:'https://www.pixiv.net/novel/search.php?s_mode=s_tag&word=%E5%86%86%E7%92%B0',
+    //         exampleUrl:'https://www.pixiv.net/novel/search.php?s_mode=s_tag&word=%E5%86%86%E7%92%B0',
     //         nextLink:"//a[@rel='next' or contains(concat(' ',@class,' '),' next ')]|(//nav[@class='column-menu']/ul/li[contains(concat(' ',@class,' '),' after ')]|//span[@class='stacc_more_link']|//div[@class='spotlight-items']/p[@class='more'])/a|/ul[@class='page-list']/li[@class='current']/following-sibling::*[1]/a",
     //         autopager:{
     //             pageElement:"//*[not(@class='popular-introduction' or (contains(@class,'_unit') and //li/@class='bookmark-item'))]/ul[(contains(@class,'_image-items') and not(id('js-react-search-mid js-mount-point-latest-following'))) or contains(@class,'novel-items') or contains(@class,'tag-list inline-') or @class='bookmark-items' or @class='type_entrylist' or @class='member-items' or @class='thu' or @class='user-recommendation-items' or parent::node()[@class='members' or contains(@class,'search_a2_result')]]/li[not(//div/@class='_unit _work-detail-unit')]|//div[@class='event-information' or starts-with(@class,'stacc_status ') or contains(@class,'work-detail-unit') or ../@class='spotlight-items']|id('js-react-search-mid js-mount-point-latest-following')[not(//noscript/*)]/*",
@@ -2137,7 +2144,7 @@
     {
       name: "照片处理网",
       url: /^https?:\/\/www\.photops\.com\/Article\/.+/i,
-      siteExample: "http://www.photops.com/Article/xsjc/20100728172116.html",
+      exampleUrl: "http://www.photops.com/Article/xsjc/20100728172116.html",
       nextLink: '//a[text()="下一页"][@href]',
       autopager: {
         pageElement: "//body/table[last()-2]",
@@ -2147,7 +2154,7 @@
     {
       name: "扑家汉化平台",
       url: /^https?:\/\/www\.pujiahh\.com\/library/i,
-      siteExample: "http://www.pujiahh.com/library/",
+      exampleUrl: "http://www.pujiahh.com/library/",
       nextLink: '//div[@class="pagination"]/ul/li[@class="next-posts"]/a',
       autopager: {
         pageElement: '//div[@class="gametable"]/parent::div',
@@ -2169,7 +2176,7 @@
     {
       name: "Beautyleg腿模写真图片网",
       url: /^https?:\/\/www\.beautylegmm\.com\/\w+\/beautyleg-\d+.html/i,
-      siteExample: "http://www.beautylegmm.com/x/beautyleg-x.html",
+      exampleUrl: "http://www.beautylegmm.com/x/beautyleg-x.html",
       nextLink: "auto;",
       autopager: {
         pageElement: 'id("contents_post")/div[@class="post"]'
@@ -2667,7 +2674,7 @@
       name: "UserStyles, GreasyFork",
       url: "^https?://(forum.userstyles|greasyfork).org",
       nextLink: '//a[@rel="next" or div/@id="right-arrow"] | id("PagerMore")/a',
-      siteExample:
+      exampleUrl:
         "https://forum.userstyles.org;https://forum.userstyles.org/discussion/40694/;https://forum.userstyles.org/search?Page=p3&Search=xml;https://greasyfork.org/scripts?page=2;https://greasyfork.org/forum/categories/script-discussions/p2;https://greasyfork.org/forum/dashboard/log/edits;https://greasyfork.org/forum/profile/comments/1/JasonBarnabe",
       pageElement:
         '//div[@class="styles boxes"] | id("browse-script-list")/li | id("Content")//ul[contains(@class,"DataList")]/li | id("Log") | //div[@class="styles"]/div[@class="style_card overrideHref"] | id("search-results")/li | id("main-article")/article'
@@ -2690,7 +2697,7 @@
     {
       name: "CSDN博客",
       url: /^https?:\/\/blog\.csdn\.net/i,
-      siteExample: "http://blog.csdn.net/wangjieest?viewmode=list",
+      exampleUrl: "http://blog.csdn.net/wangjieest?viewmode=list",
       nextLink: function(doc, win, cplink) {
         for (var i = 0; i < doc.scripts.length; i++) {
           const scriptText = doc.scripts[i].text;
@@ -2740,7 +2747,7 @@
     {
       name: "CSDN论坛",
       url: /^https?:\/\/bbs\.csdn\.net\/forums\//i,
-      siteExample: "http://bbs.csdn.net/forums/Qt",
+      exampleUrl: "http://bbs.csdn.net/forums/Qt",
       nextLink: '//div[@class="page_nav"]/descendant::a[text()="下一页"]',
       autopager: {
         pageElement: '//table[@class="forums_tab_table"]/tbody/tr',
@@ -2750,7 +2757,7 @@
     {
       name: "CSDN话题",
       url: /^https?:\/\/bbs\.csdn\.net\/topics\//i,
-      siteExample: "http://bbs.csdn.net/topics/390244325",
+      exampleUrl: "http://bbs.csdn.net/topics/390244325",
       nextLink: '(//div[@class="page_nav"])[1]/a[text()="下一页"]',
       autopager: {
         pageElement: 'id("bbs_detail_wrap")',
@@ -2801,7 +2808,7 @@
     {
       name: "51CTO",
       url: /^https?:\/\/\w+\.51cto\.com\/\w+\/\d+\/\w+\.htm/i,
-      siteExample: "http://developer.51cto.com/art/201007/214478.htm",
+      exampleUrl: "http://developer.51cto.com/art/201007/214478.htm",
       nextLink: "auto;",
       autopager: {
         useiframe: false,
@@ -2826,12 +2833,11 @@
     {
       name: "起点文学",
       url: /^https?:\/\/(www|read)\.(qidian|qdmm|qdwenxue)\.com\/BookReader\/\d+,\d+/i,
-      siteExample: "http://www.qidian.com/BookReader/1545376,27301383.aspx",
+      exampleUrl: "http://www.qidian.com/BookReader/1545376,27301383.aspx",
       useiframe: true,
       nextLink: '//a[@id="NextLink"]',
       autopager: {
         enable: true,
-        useiframe: true,
         pageElement: '//div[@id="maincontent"]/div[@class="booktitle"] | //div[@id="maincontent"]/div[@id="content"]'
       }
     },
@@ -2884,7 +2890,7 @@
     {
       name: "起点文学-排行榜",
       url: /^https?:\/\/www\.(qidian)\.com(\/mm)?\/rank\/.*/i,
-      siteExample: "https://www.qidian.com/rank/collect",
+      exampleUrl: "https://www.qidian.com/rank/collect",
       nextLink: function(doc, win, cplink) {
         var res = getElementByXpath('//div[@id="page-container"]', doc);
         if (res === null) {
@@ -2912,7 +2918,7 @@
     {
       name: "逐浪小说",
       url: /^https?:\/\/book\.zhulang\.com\/.+\.html/i,
-      siteExample: "http://book.zhulang.com/153319/62230.html",
+      exampleUrl: "http://book.zhulang.com/153319/62230.html",
       nextLink: '//div[@class="readpage_leftnfy"]/descendant::a[text()="下一章"]',
       autopager: {
         pageElement: '//div[@class="readpage_leftntxt"]'
@@ -2921,7 +2927,7 @@
     {
       name: "烟雨红尘",
       url: /^https?:\/\/www\.cc222\.com\/chapter\/.+\.html/i,
-      siteExample: "http://www.cc222.com/chapter/558139.html",
+      exampleUrl: "http://www.cc222.com/chapter/558139.html",
       nextLink: '//div[@id="paging"]/descendant::a[text()="下一章"]',
       autopager: {
         pageElement: '//div[@id="aContainer"]',
@@ -2931,7 +2937,7 @@
     {
       name: "17k",
       url: /^https?:\/\/(mm.17k|www.17k)\.com\/chapter\/.+\.html/i,
-      siteExample: "http://www.17k.com/chapter/143095/3714822.html",
+      exampleUrl: "http://www.17k.com/chapter/143095/3714822.html",
       nextLink: '//div[@class="read_bottom"]/descendant::a[text()="下一章"]',
       autopager: {
         pageElement: '//div[@class="readAreaBox"]'
@@ -2940,7 +2946,7 @@
     {
       name: "纵横书库",
       url: /^https?:\/\/book\.zongheng\.com\/chapter\/.+\.html/i,
-      siteExample: "http://book.zongheng.com/chapter/239553/4380340.html",
+      exampleUrl: "http://book.zongheng.com/chapter/239553/4380340.html",
       nextLink: '//div[@class="tc quickkey"]/descendant::a[text()="下一章"]',
       autopager: {
         pageElement: '//div[@class="readcon"]'
@@ -2949,7 +2955,7 @@
     {
       name: "纵横女生",
       url: /^https?:\/\/www\.mmzh\.com\/chapter\/.+\.html/i,
-      siteExample: "http://www.mmzh.com/chapter/182074/3287355.html",
+      exampleUrl: "http://www.mmzh.com/chapter/182074/3287355.html",
       nextLink: '//div[@class="tc key"]/descendant::a[text()="下一章"]',
       autopager: {
         pageElement: '//div[@class="book_con"]'
@@ -2958,7 +2964,7 @@
     {
       name: "新小说吧",
       url: /^https?:\/\/book\.xxs8\.com\/.+\.html/i,
-      siteExample: "http://book.xxs8.com/165779/859903.html",
+      exampleUrl: "http://book.xxs8.com/165779/859903.html",
       nextLink: '//div[@class="page"]/descendant::a[text()="下一页"]',
       autopager: {
         pageElement: '//div[@id="midbody"]',
@@ -2968,7 +2974,7 @@
     {
       name: "书迷楼",
       url: /^https?:\/\/www\.shumilou\.com\/.+\.html/i,
-      siteExample: "http://www.shumilou.com/tiandilonghun/698520.html",
+      exampleUrl: "http://www.shumilou.com/tiandilonghun/698520.html",
       nextLink: '//div[@class="content"]/div[@id="content"]/div[@class="title"]/a[text()="下一页(→)"]',
       autopager: {
         pageElement: '//div[@class="content"]/div[@id="content"]'
@@ -2977,7 +2983,7 @@
     {
       name: "玄幻小说网",
       url: /^https?:\/\/www\.xhxsw\.com\/books\/.+\.htm/i,
-      siteExample: "http://www.xhxsw.com/books/1063/1063066/10579171.htm",
+      exampleUrl: "http://www.xhxsw.com/books/1063/1063066/10579171.htm",
       nextLink: '//div[@id="footlink"]/descendant::a[text()="下一页"]',
       autopager: {
         pageElement: '//div[@id="content"]'
@@ -2986,7 +2992,7 @@
     {
       name: "新浪读书",
       url: /^https?:\/\/vip\.book\.sina\.com\.cn\/book\/.+\.html/i,
-      siteExample: "http://vip.book.sina.com.cn/book/chapter_212356_210018.html",
+      exampleUrl: "http://vip.book.sina.com.cn/book/chapter_212356_210018.html",
       nextLink: '//p[@class="pages"]/descendant::a[text()="下一章"]',
       autopager: {
         pageElement: '//div[@class="mainContent"]'
@@ -2995,7 +3001,7 @@
     {
       name: "搜狐原创",
       url: /^https?:\/\/vip\.book\.sohu\.com\/content/i,
-      siteExample: "http://vip.book.sohu.com/content/124852/3902398/",
+      exampleUrl: "http://vip.book.sohu.com/content/124852/3902398/",
       nextLink: '//div[@class="artical_btn"]/descendant::a[text()="下一章"]',
       autopager: {
         pageElement: '//div[@id="bgdiv"]'
@@ -3004,7 +3010,7 @@
     {
       name: "红袖添香",
       url: /^https?:\/\/novel\.hongxiu\.com\/a\/.+\.shtml/i,
-      siteExample: "http://novel.hongxiu.com/a/303084/3543064.shtml",
+      exampleUrl: "http://novel.hongxiu.com/a/303084/3543064.shtml",
       nextLink: '//div[@class="papgbutton"]/descendant::a[text()="下一章"]',
       autopager: {
         pageElement: '//div[@class="wrapper_main"]'
@@ -3013,7 +3019,7 @@
     {
       name: "言情小说吧",
       url: /^https?:\/\/www\.xs8\.cn\/book\/.+\.html/i,
-      siteExample: "http://www.xs8.cn/book/132368/86157.html",
+      exampleUrl: "http://www.xs8.cn/book/132368/86157.html",
       nextLink: '//div[@class="chapter_Turnpage"]/descendant::a[text()="下一章"]',
       autopager: {
         pageElement: '//div[@class="chapter_content"]'
@@ -3022,7 +3028,7 @@
     {
       name: "来书小说网",
       url: /^https?:\/\/www\.laishu\.com\/book\/.+\.shtml/i,
-      siteExample: "http://www.laishu.com/book/8/8891/5488036.shtml",
+      exampleUrl: "http://www.laishu.com/book/8/8891/5488036.shtml",
       nextLink: "auto;",
       autopager: {
         pageElement: '//table[@class="tabkuan"]'
@@ -3031,7 +3037,7 @@
     {
       name: "小说阅读网",
       url: /^https?:\/\/www\.readnovel\.com\/novel\/.+/i,
-      siteExample: "http://www.readnovel.com/novel/142947.html",
+      exampleUrl: "http://www.readnovel.com/novel/142947.html",
       nextLink: '//div[@class="bottomTools1"]/descendant::a[text()="下一页"]',
       autopager: {
         pageElement: '//div[@class="newContentBody "]'
@@ -3040,7 +3046,7 @@
     {
       name: "凤鸣轩",
       url: /^https?:\/\/read\.fmx\.cn\/files\/article\/html\/.+\.html/i,
-      siteExample: "http://read.fmx.cn/files/article/html/5/7/0/4/8/5/70485/1339404.html",
+      exampleUrl: "http://read.fmx.cn/files/article/html/5/7/0/4/8/5/70485/1339404.html",
       nextLink: '//div[@class="newread_fy"]/descendant::a[text()="下一章>>"]',
       autopager: {
         pageElement: '//div[@class="newbodybox"]'
@@ -3049,7 +3055,7 @@
     {
       name: "红薯网",
       url: /^https?:\/\/www\.hongshu\.com\/content\/.+\.html/i,
-      siteExample: "http://www.hongshu.com/content/38591/49531-1193339.html",
+      exampleUrl: "http://www.hongshu.com/content/38591/49531-1193339.html",
       nextLink: '//div[@class="ann"]/descendant::a[text()="下一页"]',
       autopager: {
         pageElement: '//div[@id="readtext"]'
@@ -3058,17 +3064,17 @@
     {
       name: "百书斋",
       url: /^https?:\/\/baishuzhai\.com/i,
-      siteExample: "http://baishuzhai.com/shancunqirenchuan/683763.html",
+      exampleUrl: "http://baishuzhai.com/shancunqirenchuan/683763.html",
       nextLink: '//div[@class="page"]/descendant::a[text()="下一章(快捷键:→)"]',
+      useiframe: true,
       autopager: {
-        useiframe: true,
         pageElement: '//div[@id="booktext"]'
       }
     },
     {
       name: "百书库",
       url: /^https?:\/\/baishuku\.com\/html\/.+\.html/i,
-      siteExample: "http://baishuku.com/html/40/40514/8778339.html",
+      exampleUrl: "http://baishuku.com/html/40/40514/8778339.html",
       nextLink: '//div[@id="footlink"]/a[text()="下一页(快捷键:→)"]',
       autopager: {
         pageElement: '//div[@id="content"]'
@@ -3077,24 +3083,24 @@
     {
       name: "顶点小说",
       url: "^https?://www\\.23us\\.com/html/.+\\.html",
-      siteExample: "http://www.23us.com/html/26/26627/16952316.html",
+      exampleUrl: "http://www.23us.com/html/26/26627/16952316.html",
       nextLink: ' //dd[@id="footlink"]/descendant::a[text()="下一页"]',
       pageElement: 'id("amain")/dl/dd/h1 | id("contents")'
     },
     {
       name: "快眼文学网",
       url: /^https?:\/\/www\.kywxw\.com\/.+\.html/i,
-      siteExample: "http://www.kywxw.com/0/12/3792643.html",
+      exampleUrl: "http://www.kywxw.com/0/12/3792643.html",
       nextLink: '//div[@id="thumb"]/descendant::a[text()="下一章"]',
+      useiframe: true,
       autopager: {
-        useiframe: true,
         pageElement: '//div[@id="content"]'
       }
     },
     {
       name: "就爱文学",
       url: /^https?:\/\/www\.92wx\.org\/html\/.+\.html/i,
-      siteExample: "http://www.92wx.org/html/0/807/220709.html",
+      exampleUrl: "http://www.92wx.org/html/0/807/220709.html",
       nextLink: '//div[@id="page_bar"]/descendant::a[text()="下一章"]',
       autopager: {
         pageElement: '//div[@id="chapter_content"]'
@@ -3103,17 +3109,17 @@
     {
       name: "亲亲小说网",
       url: /^https?:\/\/www\.77shu\.com\/view\/.+\.html/i,
-      siteExample: "http://www.77shu.com/view/0/20/2062418.html",
+      exampleUrl: "http://www.77shu.com/view/0/20/2062418.html",
       nextLink: "auto;",
+      useiframe: true,
       autopager: {
-        useiframe: true,
         pageElement: '//div[@id="chapter_content"] | //div[@id="content"]'
       }
     },
     {
       name: "七味书屋",
       url: /^https?:\/\/www\.7wsw\.net\/html\/.+\.html/i,
-      siteExample: "http://www.7wsw.net/html/shifangtianshi/719412.html",
+      exampleUrl: "http://www.7wsw.net/html/shifangtianshi/719412.html",
       nextLink: '//div[@id="chapter_pager"]/descendant::a[text()="下一章"]',
       autopager: {
         pageElement: '//div[@class="book_middle_article"]'
@@ -3122,7 +3128,7 @@
     {
       name: "天天中文",
       url: /^https?:\/\/www\.360118\.com\/html\/.+\.html/i,
-      siteExample: "http://www.360118.com/html/21/21951/5416831.html",
+      exampleUrl: "http://www.360118.com/html/21/21951/5416831.html",
       nextLink: '//div[@id="FootLink"]/descendant::a[text()="下一页（快捷键→）"]',
       autopager: {
         pageElement: '//div[@id="content"]'
@@ -3131,7 +3137,7 @@
     {
       name: "言情后花园",
       url: /^https?:\/\/www\.yqhhy\.org\/novel\/.+\.html/i,
-      siteExample: "http://www.yqhhy.org/novel/0/761/38769.html",
+      exampleUrl: "http://www.yqhhy.org/novel/0/761/38769.html",
       nextLink: '//div[@id="link"]/descendant::a[text()="下一页"]',
       autopager: {
         pageElement: '//div[@id="content"]'
@@ -3140,27 +3146,27 @@
     {
       name: "平南文学",
       url: /^https?:\/\/www\.pnxs\.com\/book\/.+\.html/i,
-      siteExample: "http://www.pnxs.com/book/zhongshengyantaizidan/2164438.html",
+      exampleUrl: "http://www.pnxs.com/book/zhongshengyantaizidan/2164438.html",
       nextLink: '//div[@class="book_middle_text_next"]/descendant::a[text()="下一章"]',
+      useiframe: true,
       autopager: {
-        useiframe: true,
         pageElement: '//div[@class="book_middle_text"]'
       }
     },
     {
       name: "一流小说",
       url: /^https?:\/\/www\.1lxs\.com\/novel\/.+\.html/i,
-      siteExample: "http://www.1lxs.com/novel/80341/9055036.html",
+      exampleUrl: "http://www.1lxs.com/novel/80341/9055036.html",
       nextLink: '//div[@id="chapter_nav"]/descendant::a[text()="下一章"]',
+      useiframe: true,
       autopager: {
-        useiframe: true,
         pageElement: '//div[@id="content"]'
       }
     },
     {
       name: "一一小说",
       url: /^https?:\/\/www\.11xs\.com\/.+\.htm/i,
-      siteExample: "http://www.11xs.com/xs/213/119908.htm",
+      exampleUrl: "http://www.11xs.com/xs/213/119908.htm",
       nextLink: '//div[@id="LinkMenu"]/descendant::a[text()="下一页"]',
       autopager: {
         pageElement: '//div[@id="Content"]'
@@ -3169,7 +3175,7 @@
     {
       name: "六九中文",
       url: /^https?:\/\/www\.69zw\.com\/xiaoshuo\/.+\.html/i,
-      siteExample: "http://www.69zw.com/xiaoshuo/21/21943/4461482.html",
+      exampleUrl: "http://www.69zw.com/xiaoshuo/21/21943/4461482.html",
       nextLink: '//div[@class="chapter_Turnpage"]/descendant::a[text()="下一章"]',
       autopager: {
         pageElement: '//div[@class="novel_content"]'
@@ -3178,7 +3184,7 @@
     {
       name: "华夏书库",
       url: /^https?:\/\/www\.hxsk\.net\/files\/article\/html\/.+\.html/i,
-      siteExample: "http://www.hxsk.net/files/article/html/67/67509/12704488.html",
+      exampleUrl: "http://www.hxsk.net/files/article/html/67/67509/12704488.html",
       nextLink: '//td[@class="link_14"]/descendant::a[text()="下一页"]',
       autopager: {
         pageElement: '//table[@class="border_l_r"]'
@@ -3187,7 +3193,7 @@
     {
       name: "书路/3K",
       url: /^https?:\/\/www\.(shuluxs|kkkxs)\.com\/files\/article\/html\/.+\.html/i,
-      siteExample: "http://www.shuluxs.com/files/article/html/22/22306/8727879.html",
+      exampleUrl: "http://www.shuluxs.com/files/article/html/22/22306/8727879.html",
       nextLink: "auto;",
       autopager: {
         pageElement: '//div[@id="content"]'
@@ -3196,7 +3202,7 @@
     {
       name: "书山路",
       url: /^https?:\/\/www\.shu36\.com\/book\/.+\.html/i,
-      siteExample: "http://www.shu36.com/book/0/1/3.html",
+      exampleUrl: "http://www.shu36.com/book/0/1/3.html",
       nextLink: "auto;",
       autopager: {
         pageElement: '//div[@id="content"]'
@@ -3205,7 +3211,7 @@
     {
       name: "落秋",
       url: /^https?:\/\/www\.luoqiu\.com\/html\/.+\.html/i,
-      siteExample: "http://www.luoqiu.com/html/18/18505/1385765.html",
+      exampleUrl: "http://www.luoqiu.com/html/18/18505/1385765.html",
       nextLink: '//div[@id="bgdiv"]/descendant::a[text()="下一页"]',
       autopager: {
         pageElement: '//table[@class="border_l_r"]'
@@ -3214,7 +3220,7 @@
     {
       name: "君子网",
       url: /^https?:\/\/www\.junziwang\.com\/.+\.html/i,
-      siteExample: "http://www.junziwang.com/0/155/25137.html",
+      exampleUrl: "http://www.junziwang.com/0/155/25137.html",
       nextLink: '//div[@id="footlink"]/descendant::a[text()="下一页"]',
       autopager: {
         pageElement: '//div[@id="content"]'
@@ -3223,7 +3229,7 @@
     {
       name: "哈罗小说网",
       url: /^https?:\/\/www\.hellodba\.net\/files\/article\/html\/.+\.html/i,
-      siteExample: "http://www.hellodba.net/files/article/html/0/46/21565.html",
+      exampleUrl: "http://www.hellodba.net/files/article/html/0/46/21565.html",
       nextLink: '//div[@class="papgbutton"]/descendant::a[text()="下一章"]',
       autopager: {
         pageElement: '//div[@id="htmlContent"]'
@@ -3232,7 +3238,7 @@
     {
       name: "百书楼",
       url: /^https?:\/\/baishulou\.com\/read\/.+\.html/i,
-      siteExample: "http://baishulou.com/read/10/10647/2536085.html",
+      exampleUrl: "http://baishulou.com/read/10/10647/2536085.html",
       nextLink: '//a[text()="下一页(快捷键:→)"][@href]',
       autopager: {
         pageElement: '//div[@id="content"]'
@@ -3241,7 +3247,7 @@
     {
       name: "万书楼",
       url: /^https?:\/\/www\.wanshulou\.com\/xiaoshuo\/.+\.shtml/i,
-      siteExample: "http://www.wanshulou.com/xiaoshuo/29/29091/2062593.shtml",
+      exampleUrl: "http://www.wanshulou.com/xiaoshuo/29/29091/2062593.shtml",
       nextLink: '//div[@id="LinkMenu"]/descendant::a[text()="下一章"]',
       autopager: {
         pageElement: '//div[@id="BookText"]'
@@ -3250,7 +3256,7 @@
     {
       name: "万卷书屋",
       url: /^https?:\/\/www\.wjsw\.com\/html\/.+\.shtml/i,
-      siteExample: "http://www.wjsw.com/html/35/35404/2887335.shtml",
+      exampleUrl: "http://www.wjsw.com/html/35/35404/2887335.shtml",
       nextLink: '//div[@id="bookreadbottom"]/descendant::a[text()="下一章"]',
       autopager: {
         pageElement: '//div[@id="maincontent"]'
@@ -3259,7 +3265,7 @@
     {
       name: "书书网",
       url: /^https?:\/\/www\.shushuw\.cn\/shu\/.+\.html/i,
-      siteExample: "http://www.shushuw.cn/shu/28560/4509794.html",
+      exampleUrl: "http://www.shushuw.cn/shu/28560/4509794.html",
       nextLink: '//div[@align="center"]/a[text()="下页"][@href]',
       autopager: {
         pageElement: '//div[@class="cendiv"]'
@@ -3268,7 +3274,7 @@
     {
       name: "飞卢小说",
       url: /^https?:\/\/b\.faloo\.com\/p\/.+\.html/i,
-      siteExample: "http://b.faloo.com/p/247559/1.html",
+      exampleUrl: "http://b.faloo.com/p/247559/1.html",
       nextLink: '//div[@id="pager"]/descendant::a[text()="下一页"]',
       autopager: {
         pageElement: '//div[@class="main0"]'
@@ -3277,7 +3283,7 @@
     {
       name: "青帝文学网",
       url: /^https?:\/\/www\.qingdi\.com\/files\/article\/html\/.+\.html/i,
-      siteExample: "http://www.qingdi.com/files/article/html/0/27/13314.html",
+      exampleUrl: "http://www.qingdi.com/files/article/html/0/27/13314.html",
       nextLink: '//div[@class="readerFooterPage"]/descendant::a[text()="下一页"]',
       autopager: {
         useiframe: true,
@@ -3287,7 +3293,7 @@
     {
       name: "笔下文学",
       url: /^https?:\/\/www\.bxwx\.org\/b\/.+\.html/i,
-      siteExample: "http://www.bxwx.org/b/56/56907/9020932.html",
+      exampleUrl: "http://www.bxwx.org/b/56/56907/9020932.html",
       nextLink: '//div[@id="footlink"]/descendant::a[text()="下一页[→]"]',
       autopager: {
         useiframe: true,
@@ -3297,7 +3303,7 @@
     {
       name: "笔趣阁",
       url: /^https?:\/\/www\.biquge\.com\/.+\.html/i,
-      siteExample: "http://www.biquge.com/0_67/471472.html",
+      exampleUrl: "http://www.biquge.com/0_67/471472.html",
       nextLink: '//div[@class="bottem2"]/descendant::a[text()="下一章"]',
       autopager: {
         pageElement: '//div[@id="content"]'
@@ -3306,7 +3312,7 @@
     {
       name: "小说客栈",
       url: /^https?:\/\/www\.xskz\.com\/xiaoshuo\/.+\.shtml/i,
-      siteExample: "http://www.xskz.com/xiaoshuo/29/29091/2062593.shtml",
+      exampleUrl: "http://www.xskz.com/xiaoshuo/29/29091/2062593.shtml",
       nextLink: '//div[@id="LinkMenu"]/descendant::a[text()="下一章"]',
       autopager: {
         pageElement: '//div[@id="BookText"]'
@@ -3315,7 +3321,7 @@
     {
       name: "翠微居",
       url: /^https?:\/\/www\.cuiweiju\.com\/html\/.+\.html/i,
-      siteExample: "http://www.cuiweiju.com/html/124/124362/6468025.html",
+      exampleUrl: "http://www.cuiweiju.com/html/124/124362/6468025.html",
       nextLink: '//p[@class="cz_bar"]/descendant::a[text()="下一章 》"]',
       autopager: {
         pageElement: '//div[@class="book_wrap"]'
@@ -3324,7 +3330,7 @@
     {
       name: "在线书吧",
       url: /^https?:\/\/www\.bookba\.net\/Html\/Book\/.+\.html/i,
-      siteExample: "http://www.bookba.net/Html/Book/15/15995/2030251.html",
+      exampleUrl: "http://www.bookba.net/Html/Book/15/15995/2030251.html",
       nextLink: '//td[@id="thumb"]/descendant::a[text()="下一章"]',
       autopager: {
         useiframe: true,
@@ -3334,7 +3340,7 @@
     {
       name: "文学迷",
       url: /^https?:\/\/www\.wenxuemi\.net\/files\/article\/html\/.+\.html/i,
-      siteExample: "http://www.wenxuemi.net/files/article/html/10/10884/4852125.html",
+      exampleUrl: "http://www.wenxuemi.net/files/article/html/10/10884/4852125.html",
       nextLink: '//div[@id="footlink"]/descendant::a[text()="下一页"]',
       autopager: {
         pageElement: '//div[@id="content"]'
@@ -3343,7 +3349,7 @@
     {
       name: "爱尚文学网",
       url: /^https?:\/\/www\.kenshu\.cc\/files\/article\/html\/.+\.html/i,
-      siteExample: "http://www.kenshu.cc/files/article/html/5/5379/6389640.html",
+      exampleUrl: "http://www.kenshu.cc/files/article/html/5/5379/6389640.html",
       nextLink: '//dd[@id="footlink"]/descendant::a[text()="下一页"]',
       autopager: {
         pageElement: '//div[@class="bdsub"]'
@@ -3352,7 +3358,7 @@
     {
       name: "E品中文网",
       url: /^https?:\/\/www\.epzw\.com\/files\/article\/html\/.+\.html/i,
-      siteExample: "http://www.epzw.com/files/article/html/50/50244/3271485.html",
+      exampleUrl: "http://www.epzw.com/files/article/html/50/50244/3271485.html",
       nextLink: '//div[@id="link"]/descendant::a[text()="下一页"]',
       autopager: {
         pageElement: '//div[@id="content"]'
@@ -3361,7 +3367,7 @@
     {
       name: "大家读书院",
       url: /^https?:\/\/www\.dajiadu\.net\/files\/article\/html\/.+\.html/i,
-      siteExample: "http://www.dajiadu.net/files/article/html/14/14436/3337407.html",
+      exampleUrl: "http://www.dajiadu.net/files/article/html/14/14436/3337407.html",
       nextLink: '//div[@id="footlink"]/descendant::a[text()="下一页"]',
       autopager: {
         pageElement: '//div[@id="center"]'
@@ -3370,7 +3376,7 @@
     {
       name: "北京爱书",
       url: /^https?:\/\/www\.bj-ibook\.cn\/book\/.+\.htm/i,
-      siteExample: "http://www.bj-ibook.cn/book/17/t10409k/12.htm",
+      exampleUrl: "http://www.bj-ibook.cn/book/17/t10409k/12.htm",
       nextLink: '//div[@class="zhtop"]/a[text()="下一页（快捷键→）"][@href]',
       autopager: {
         useiframe: true,
@@ -3380,7 +3386,7 @@
     {
       name: "小说570",
       url: /^https?:\/\/www\.xiaoshuo570\.com/i,
-      siteExample: "http://www.xiaoshuo570.com/11/11844/2678383.html",
+      exampleUrl: "http://www.xiaoshuo570.com/11/11844/2678383.html",
       nextLink: '//div[@id="thumb"]/a[text()="下一页"][@href]',
       autopager: {
         useiframe: true,
@@ -3390,7 +3396,7 @@
     {
       name: "看书",
       url: /^https?:\/\/www\.kanshu\.com\/files\/article\/html\/.+\.html/i,
-      siteExample: "http://www.kanshu.com/files/article/html/30997/935806.html",
+      exampleUrl: "http://www.kanshu.com/files/article/html/30997/935806.html",
       nextLink: '//div[@class="yd_linebot"]/descendant::a[text()="下一章"]',
       autopager: {
         pageElement: '//table[@class="yd_table"]'
@@ -3399,7 +3405,7 @@
     {
       name: "全本小说网",
       url: /^https?:\/\/www\.quanben\.com\/xiaoshuo\/.+\.html/i,
-      siteExample: "http://www.quanben.com/xiaoshuo/10/10412/2095098.html",
+      exampleUrl: "http://www.quanben.com/xiaoshuo/10/10412/2095098.html",
       autopager: {
         pageElement: '//div[@id="content"]'
       }
@@ -3407,7 +3413,7 @@
     {
       name: "晋江原创",
       url: /^https?:\/\/www\.jjwxc\.net\/onebook\.php\?novelid=/i,
-      siteExample: "http://www.jjwxc.net/onebook.php?novelid=862877&chapterid=6",
+      exampleUrl: "http://www.jjwxc.net/onebook.php?novelid=862877&chapterid=6",
       nextLink: {
         startAfter: "&chapterid=",
         inc: 1
@@ -3419,7 +3425,7 @@
     {
       name: "奇书屋",
       url: /^https?:\/\/www\.qishuwu\.com\/.+/i,
-      siteExample: "http://www.qishuwu.com/a_zhijian/314815/",
+      exampleUrl: "http://www.qishuwu.com/a_zhijian/314815/",
       nextLink: "auto;",
       autopager: {
         pageElement: '//div[@id="bgdiv"]'
@@ -3428,7 +3434,7 @@
     {
       name: "lu5小说网",
       url: /^https?:\/\/www\.lu5\.com\/.+\.html/i,
-      siteExample: "http://www.lu5.com/b/5/5442/9575830.html",
+      exampleUrl: "http://www.lu5.com/b/5/5442/9575830.html",
       nextLink: "auto;",
       autopager: {
         pageElement: '//div[@id="content"]'
@@ -3437,7 +3443,7 @@
     {
       name: "飞库",
       url: /^https?:\/\/www\.feiku\.com\/\/html\/book\/.+\.shtm/i,
-      siteExample: "http://www.feiku.com//html/book/130/164016/4891625.shtm",
+      exampleUrl: "http://www.feiku.com//html/book/130/164016/4891625.shtm",
       nextLink: '//div[@class="prenext"]/descendant::a[text()="下一页→"]',
       autopager: {
         pageElement: '//div[@id="chcontent"]'
@@ -3446,7 +3452,7 @@
     {
       name: "幻侠小说网",
       url: /^https?:\/\/www\.huanxia\.com\/book\w+\.html/i,
-      siteExample: "http://www.huanxia.com/book548761_6041285.html",
+      exampleUrl: "http://www.huanxia.com/book548761_6041285.html",
       nextLink: '//a[@href][@id="htmlxiazhang"]',
       autopager: {
         pageElement: '//div[@class="h1title"] | //div[@id="htmlContent"][@class="contentbox"]',
@@ -3456,7 +3462,7 @@
     {
       name: "潇湘书院",
       url: /^https?:\/\/www\.xxsy\.net\/books\/.*\.html/i,
-      siteExample: "http://www.xxsy.net/books/485034/5259176.html",
+      exampleUrl: "http://www.xxsy.net/books/485034/5259176.html",
       nextLink: '//div[@id="detailsubsbox"]/span/a[@href][@title="阅读下一章节"]',
       autopager: {
         pageElement: '//div[@id="detail_title"] | //div[@id="zjcontentdiv"]',
@@ -3466,7 +3472,7 @@
     {
       name: "书海",
       url: /^https?:\/\/www\.shuhai\.com\/read\/.+\.html/i,
-      siteExample: "http://www.shuhai.com/read/4014/371553.html",
+      exampleUrl: "http://www.shuhai.com/read/4014/371553.html",
       nextLink: '//div[@class="page_operate font_blue"]/descendant::a[text()="下一章"]',
       autopager: {
         pageElement: '//div[@id="txt"]'
@@ -3475,7 +3481,7 @@
     {
       name: "yi-see",
       url: /^https?:\/\/www\.yi-see\.com/i,
-      siteExample: "http://www.yi-see.com/read_266768_15501.html",
+      exampleUrl: "http://www.yi-see.com/read_266768_15501.html",
       nextLink: '//div[@class="B2"]/descendant::a[text()="下一节"]',
       autopager: {
         pageElement: '//table[@width="900px"][@align="CENTER"]'
@@ -3484,7 +3490,7 @@
     {
       name: "天下书盟",
       url: /^https?:\/\/www\.fbook\.net\/book\/.+\.htm/i,
-      siteExample: "http://www.fbook.net/book/35793/2656834.htm",
+      exampleUrl: "http://www.fbook.net/book/35793/2656834.htm",
       nextLink: '//div[@id="pages"]/descendant::a[text()="下一章"]',
       autopager: {
         useiframe: true,
@@ -3494,7 +3500,7 @@
     {
       name: "涂鸦小说网",
       url: /^https?:\/\/www\.tooya\.net\/.+\.html/i,
-      siteExample: "http://www.tooya.net/tooya/2/2094/820902.html",
+      exampleUrl: "http://www.tooya.net/tooya/2/2094/820902.html",
       nextLink: '//div[@class="novel_bottom"]/descendant::a[text()="下一章"]',
       autopager: {
         pageElement: '//div[@id="content"]'
@@ -3503,7 +3509,7 @@
     {
       name: "百晓生/谷粒",
       url: /^https?:\/\/www\.(bxs|guli)\.cc\/.+/i,
-      siteExample: "http://www.bxs.cc/26758/7708992.html",
+      exampleUrl: "http://www.bxs.cc/26758/7708992.html",
       enable: true,
       nextLink: '//div[@id="papgbutton"]/descendant::a[text()="下一章"]',
       autopager: {
@@ -3514,7 +3520,7 @@
     {
       name: "熬夜看书",
       url: /^https?:\/\/www\.aoye\.cc\/.+\.html/i,
-      siteExample: "http://www.aoye.cc/843/5.html",
+      exampleUrl: "http://www.aoye.cc/843/5.html",
       nextLink: '//div[@id="pagebottom"]/descendant::a[@id="nextpage"]',
       autopager: {
         pageElement: '//pre[@id="content"]'
@@ -3523,7 +3529,7 @@
     {
       name: "塔读文学",
       url: /^https?:\/\/www\.tadu\.com\/book\/\d+\/\d+/i,
-      siteExample: "http://www.tadu.com/book",
+      exampleUrl: "http://www.tadu.com/book",
       nextLink: '//div[@class="container_center"]/div[@class="left"]/div[@class="jump"]/a[@href][text()="下一章>>"]',
       autopager: {
         useiframe: true,
@@ -3533,7 +3539,7 @@
     {
       name: "无错小说网",
       url: /^https?:\/\/www\.wcxiaoshuo\.com\/wcxs\-\d+\-\d+/i,
-      siteExample: "http://www.wcxiaoshuo.com/wcxs-*-*/",
+      exampleUrl: "http://www.wcxiaoshuo.com/wcxs-*-*/",
       nextLink: "auto;",
       autopager: {
         pageElement: '//div[@class="wrapper_main"][@id="jsreadbox"]/h1 | //div[@class="wrapper_main"][@id="jsreadbox"]/div[@id="htmlContent"][@class="contentbox"]'
@@ -3542,7 +3548,7 @@
     {
       name: "燃文",
       url: /^https?:\/\/www\.ranwen\.cc\/.+\.html/i,
-      siteExample: "http://www.ranwen.cc/A/9/9818/3505060.html",
+      exampleUrl: "http://www.ranwen.cc/A/9/9818/3505060.html",
       nextLink: '//div[@class="pageTools"]/descendant::a[text()="下一章"]',
       autopager: {
         pageElement: '//div[@id="oldtext"]'
@@ -3551,7 +3557,7 @@
     {
       name: "书河",
       url: /^https?:\/\/www\.shuhe\.cc\/.+/i,
-      siteExample: "http://www.shuhe.cc/30976/4401025/",
+      exampleUrl: "http://www.shuhe.cc/30976/4401025/",
       nextLink: '//div[@class="bottem"]/descendant::a[text()="下一章"]',
       autopager: {
         pageElement: '//div[@id="TXT"]'
@@ -3560,7 +3566,7 @@
     {
       name: "89文学",
       url: /^https?:\/\/89wx\.com\/.+\.htm/i,
-      siteExample: "http://89wx.com/html/book/70/70732/6641331.htm",
+      exampleUrl: "http://89wx.com/html/book/70/70732/6641331.htm",
       nextLink: '//dd[@id="footlink"]/descendant::a[text()="下一页"]',
       autopager: {
         pageElement: '//dd[@id="contents"]'
@@ -3569,7 +3575,7 @@
     {
       name: "极速小说网",
       url: /^https?:\/\/www\.186s\.cn\/files\/article\/html\/.+\.html/i,
-      siteExample: "http://www.186s.cn/files/article/html/0/304/4528937.html",
+      exampleUrl: "http://www.186s.cn/files/article/html/0/304/4528937.html",
       nextLink: '//div[@id="footlink"]/descendant::a[text()="下一页"]',
       autopager: {
         pageElement: '//div[@id="content"]'
@@ -3578,7 +3584,7 @@
     {
       name: "手打8",
       url: /^https?:\/\/shouda8\.com\/.+\.html/i,
-      siteExample: "http://shouda8.com/zhangyuxingchen/85649.html",
+      exampleUrl: "http://shouda8.com/zhangyuxingchen/85649.html",
       nextLink: '//div[@id="papgbutton"]/descendant::a[text()="下一章（快捷键 →）"]',
       autopager: {
         pageElement: '//div[@id="content"]'
@@ -3587,7 +3593,7 @@
     {
       name: "闪文书库",
       url: /^https?:\/\/read\.shanwen\.com\/.+\.html/i,
-      siteExample: "http://read.shanwen.com/14/14616/1011063.html",
+      exampleUrl: "http://read.shanwen.com/14/14616/1011063.html",
       nextLink: '//td[@class="tb0"]/descendant::a[text()="下一页"]',
       autopager: {
         pageElement: '//div[@id="content"]'
@@ -3596,7 +3602,7 @@
     {
       name: "PaiTxt",
       url: /^https?:\/\/paitxt\.com\/.+\.html/i,
-      siteExample: "http://paitxt.com/24/24596/4507312.html",
+      exampleUrl: "http://paitxt.com/24/24596/4507312.html",
       nextLink: '//div[@class="book_middle_text_next"]/descendant::a[text()="下一章(快捷键:→)"]',
       autopager: {
         pageElement: '//div[@id="booktext"]'
@@ -3605,7 +3611,7 @@
     {
       name: "好书楼",
       url: /^https?:\/\/www\.haoshulou\.com\/.+\.html/i,
-      siteExample: "http://www.haoshulou.com/Hao/6/60238.html",
+      exampleUrl: "http://www.haoshulou.com/Hao/6/60238.html",
       nextLink: '//div[@class="movenext"]/descendant::a[text()="下一章"]',
       autopager: {
         pageElement: '//div[@id="booktext"]'
@@ -3666,7 +3672,7 @@
     {
       name: "天极动漫频道新闻",
       url: /^https?:\/\/comic\.yesky\.com\/\d+\/.+\.shtml/i,
-      siteExample: "http://comic.yesky.com/249/11335749_5.shtml",
+      exampleUrl: "http://comic.yesky.com/249/11335749_5.shtml",
       nextLink: "auto;",
       autopager: {
         pageElement: '//div[@class="article"]/p[1]',
@@ -3677,7 +3683,7 @@
     {
       name: "动漫之家漫画网",
       url: /^https?:\/\/(www|manhua)\.(dmzj|178)\.com\/\w+\/\d+\.shtml/,
-      siteExample: "https://manhua.dmzj.com/yuanlian/36944.shtml#@page=1",
+      exampleUrl: "https://manhua.dmzj.com/yuanlian/36944.shtml#@page=1",
       nextLink: function(doc, win, cplink) {
         const current = Number(getElementByXpath('//*[@id="page_select"]/option[@selected][1]', doc).text.match(/(\d+)/)[1]);
         const xpath_last = '//*[@id="page_select"]/option[last()]';
@@ -3724,7 +3730,7 @@
     {
       name: "CC漫画网",
       url: "^https?://www\\.tuku\\.cc/comic/\\d+/\\d+/",
-      siteExample: "http://www.tuku.cc/comic/6123/1/",
+      exampleUrl: "http://www.tuku.cc/comic/6123/1/",
       nextLink: "auto;",
       autopager: {
         pageElement: '//img[@id="cp_image"]',
@@ -3734,7 +3740,7 @@
     // 已失效
     //     {name: '爱漫画',
     //         url: /^http:\/\/www\.iimanhua\.com\/comic\/.+/i,
-    //         siteExample:'http://www.iimanhua.com/comic/55/list_39448.html',
+    //         exampleUrl:'http://www.iimanhua.com/comic/55/list_39448.html',
     //         useiframe:true,
     //         preLink:{
     //             startAfter:'?p=',
@@ -3763,7 +3769,7 @@
     //     },
     //     {name: '新动漫',
     //         url:/http:\/\/www\.xindm\.cn\/mh\/.+/i,
-    //         siteExample:'http://www.xindm.cn/mh/shishangzuiqiangdizi/58784.html?p=2',
+    //         exampleUrl:'http://www.xindm.cn/mh/shishangzuiqiangdizi/58784.html?p=2',
     //         preLink:{
     //             startAfter:'?p=',
     //             inc:-1,
@@ -3790,7 +3796,7 @@
     {
       name: "SF在线漫画",
       url: "^https?://(manhua\\.sfacg\\.com/mh|www\\.acg456\\.com)/.+",
-      siteExample: "https://manhua.sfacg.com/mh/YULINGSHI/20087/#p=2",
+      exampleUrl: "https://manhua.sfacg.com/mh/YULINGSHI/20087/#p=2",
       preLink: {
         startAfter: "#p=",
         inc: -1,
@@ -3818,7 +3824,7 @@
     {
       name: "哦漫画",
       url: /^https?:\/\/www\.omanhua\.com\/comic\//i,
-      siteExample: "http://www.omanhua.com/comic/2957/36463/index.html?p=2",
+      exampleUrl: "http://www.omanhua.com/comic/2957/36463/index.html?p=2",
       nextLink: {
         startAfter: "?p=",
         mFails: [/^http:\/\/www\.omanhua\.com\/comic\/.+/i, "?p=1"],
@@ -3840,7 +3846,7 @@
     {
       name: "汗汗漫画",
       url: /^https?:\/\/\w+\.(?:vs20|3gmanhua|hhcomic|huhudm|huhumh|hhimm|hhmmoo)\.(?:com|net)\/\w+\/\d+\.html/i,
-      siteExample: "http://www.hhmmoo.com/page315224/1.html?s=1； http://www.hhmmoo.com/page315224/4.html?s=1&d=0",
+      exampleUrl: "http://www.hhmmoo.com/page315224/1.html?s=1； http://www.hhmmoo.com/page315224/4.html?s=1&d=0",
       nextLink: function(doc, win, cplink) {
         // created based on http://www.hhmmoo.com/script/view.js
         const m = cplink.match(/(.*\d+\/)(\d+)(\.html\?s=\d+)((?:\?|&)d=.*)?/);
@@ -3876,7 +3882,7 @@
     {
       name: "99漫画",
       url: /^https?:\/\/(cococomic|dm.99manga|99manga|99comic|www.99comic|www.hhcomic)\.(com|cc)/i,
-      siteExample: "http://dm.99manga.com/comic/35416/316645/?p=2&s=0",
+      exampleUrl: "http://dm.99manga.com/comic/35416/316645/?p=2&s=0",
       nextLink: {
         startAfter: "?p=",
         inc: 1,
@@ -3896,7 +3902,7 @@
     {
       name: "动漫Fans",
       url: /^https?:\/\/www\.dm123\.cn\/bbs\/(thread\.php\?fid=|read\.php\?tid=)/i,
-      siteExample: "http://www.dm123.cn/bbs/read.php?tid=593645",
+      exampleUrl: "http://www.dm123.cn/bbs/read.php?tid=593645",
       nextLink: "auto;",
       autopager: {
         pageElement: '//tbody[@id="threadlist"]|//div[@id="pw_content"]'
@@ -3905,7 +3911,7 @@
     {
       name: "KuKu动漫",
       url: /^https?:\/\/comic\.kukudm\.com\/comiclist\/\d+\/\d+.*\.htm/i,
-      siteExample: "http://comic.kukudm.com/comiclist/4/17099/3.htm",
+      exampleUrl: "http://comic.kukudm.com/comiclist/4/17099/3.htm",
       useiframe: true,
       nextLink: '//a[img[contains(@src,"images/d.gif")]]',
       autopager: {
@@ -3916,7 +3922,7 @@
     {
       name: "52pk漫画",
       url: /^https?:\/\/(op|sishen|narutocn)\.52pk\.com\/manhua\/\d+\/\d+/i,
-      siteExample: "http://op.52pk.com/manhua/2010/921364.html",
+      exampleUrl: "http://op.52pk.com/manhua/2010/921364.html",
       nextLink: '//li[@id="page__next"]/a[1]',
       autopager: {
         relatedObj: ["css;li#page__select", "bottom"],
@@ -3936,7 +3942,7 @@
     {
       name: "天使漫画网,TSDM漫画组",
       url: /^https?:\/\/mh\.tsdm\.net\/comic\/.+/i,
-      siteExample: "http://mh.tsdm.net/comic/4697/68059.html",
+      exampleUrl: "http://mh.tsdm.net/comic/4697/68059.html",
       useiframe: true,
       preLink: {
         startAfter: "?p=",
@@ -3968,7 +3974,7 @@
     {
       name: "930mh",
       url: /^https?:\/\/www\.930mh\.com\/manhua\/.+/i,
-      siteExample: "http://www.930mh.com/manhua/13355/500671.html?p=2",
+      exampleUrl: "http://www.930mh.com/manhua/13355/500671.html?p=2",
       preLink: {
         startAfter: "?p=",
         inc: -1,
@@ -3995,7 +4001,7 @@
     {
       name: "死神中文网",
       url: /^https?:\/\/(?:\w+\.)?bleachcn\.net\/manhua\/.+/i,
-      siteExample: "http://naruto.bleachcn.net/manhua/6759.html",
+      exampleUrl: "http://naruto.bleachcn.net/manhua/6759.html",
       nextLink: '//div[@id="comic_pages"]/a[text()="下一页"][@href]',
       autopager: {
         pageElement: '//div[@id="comic_endtext"]'
@@ -4011,7 +4017,7 @@
     {
       name: "sosg论坛帖子",
       url: /^https?:\/\/www\.sosg\.net\/read/i,
-      siteExample: "http://www.sosg.net/read.php?tid=424833",
+      exampleUrl: "http://www.sosg.net/read.php?tid=424833",
       nextLink: '//td[@align="left"]/b/following-sibling::a[@href]',
       autopager: {
         pageElement: '//div[@id="b5"]/form/a/table[1]'
@@ -4020,7 +4026,7 @@
     {
       name: "澄空贴子内容",
       url: /^https?:\/\/bbs\.sumisora\.org\/read\.php\?tid=/i,
-      siteExample: "http://bbs.sumisora.org/read.php?tid=11015694",
+      exampleUrl: "http://bbs.sumisora.org/read.php?tid=11015694",
       nextLink: "auto;",
       autopager: {
         pageElement: "css;.t.t2"
@@ -4029,7 +4035,7 @@
     {
       name: "9gal苍雪论坛",
       url: /^https?:\/\/bbs\.(9gal|9baka)\.com\/read\.php\?tid=/i,
-      siteExample: "http://bbs.9gal.com/read.php?tid=299016",
+      exampleUrl: "http://bbs.9gal.com/read.php?tid=299016",
       nextLink: "auto;",
       autopager: {
         pageElement: '//form[@method="post"]/a[@name]/following-sibling::div',
@@ -4129,7 +4135,7 @@
       name: "DesignCrowd",
       url: "^https://.+.designcrowd.com/.",
       nextLink: '//li[@class="active" or @class="current"]/following-sibling::li[1]/a',
-      siteExample: "https://jobs.designcrowd.com/graphic-design-jobs https://designers.designcrowd.com/3 https://www.designcrowd.com/community/",
+      exampleUrl: "https://jobs.designcrowd.com/graphic-design-jobs https://designers.designcrowd.com/3 https://www.designcrowd.com/community/",
       pageElement: '//table[@class="table table-striped"]//tr|//div[@class="row small-up-1 medium-up-2 large-up-4"]|id("communityContests")'
     },
     {
@@ -4377,7 +4383,7 @@
       name: "Google Scholar",
       url: "^https?://scholar.google.(?:[^.]{2,3}.)?[^./]{2,3}/scholar",
       nextLink: '//a[./span[@class="gs_ico gs_ico_nav_next"]]',
-      siteExample: "https://scholar.google.com/scholar?q=wii&hl=ja",
+      exampleUrl: "https://scholar.google.com/scholar?q=wii&hl=ja",
       pageElement: '//div[@class="gs_r gs_or gs_scl"]'
     },
     {
@@ -4578,7 +4584,7 @@
       name: "e-hentaidb",
       url: "^https://e-hentaidb.com/",
       nextLink: '//div[@class="pageUnit"]/a[b]/following-sibling::a',
-      siteExample: "https://e-hentaidb.com/?female=%E5%87%A6%E5%A5%B3%E5%96%AA%E5%A4%B1",
+      exampleUrl: "https://e-hentaidb.com/?female=%E5%87%A6%E5%A5%B3%E5%96%AA%E5%A4%B1",
       pageElement: '//div[@class="preview"]/div'
     },
     {
@@ -4601,7 +4607,6 @@
       nextLink: '//a[text()="下一页"]',
       autopager: {
         enable: true,
-        useiframe: false,
         pageElement: '//div[@class="entry-content"]',
         ipages: [true, 30]
       },
@@ -4611,7 +4616,7 @@
       name: "DL.Getchu.com",
       url: "^https?://dl.getchu.com/",
       nextLink: '//div[@class="pgr2"]/b/following-sibling::a[1]',
-      siteExample: "http://dl.getchu.com/search/dojin_circle_detail.php?id=1447&pageID=3",
+      exampleUrl: "http://dl.getchu.com/search/dojin_circle_detail.php?id=1447&pageID=3",
       pageElement: '//td[@bgcolor="white" and @align="center" and not(@class)]/*'
     },
     // ==== NSFW ====
@@ -4629,7 +4634,7 @@
     {
       name: "namethatpornstar",
       url: /^https?:\/\/namethatpornstar.com/i,
-      siteExample: "http://namethatpornstar.com/all-requests.php?page=2",
+      exampleUrl: "http://namethatpornstar.com/all-requests.php?page=2",
       nextLink: '//*[@id="pagination"]/a[./div[contains(@class,"selected")]]/following-sibling::a[1]',
       autopager: {
         useiframe: true,
@@ -4658,21 +4663,21 @@
       name: "PornHub.com",
       url: "^https://[^.]+.pornhub.com/",
       nextLink: '//li[contains(concat(" ", @class, " "), " page_next ")]/a',
-      siteExample: "http://www.pornhub.com/video http://www.pornhub.com/album",
+      exampleUrl: "http://www.pornhub.com/video http://www.pornhub.com/album",
       pageElement: '//li[contains(concat(" ", @class, " "), " videoblock ")] | //li[contains(concat(" ", @class, " "), " photoAlbumListContainer ")] '
     },
     {
       name: "YouAV",
       url: "^https://www.youav.com/search|videos",
       nextLink: '//div[@class="hidden-xs"]/ul/li/a[@class="prevnext"]',
-      siteExample: "",
+      exampleUrl: "",
       pageElement: '//div[@class="container"]/div[@class="row"]/div/div[@class="row"]'
     },
     {
       name: "Creema",
       url: "^https://(www.)?creema.jp/(listing|c)/",
       nextLink: '//link[@rel="next"]',
-      siteExample: "https://www.creema.jp/listing?sort=newer",
+      exampleUrl: "https://www.creema.jp/listing?sort=newer",
       pageElement: '//ul[@class="p-items-article-list"]'
     },
     {
@@ -4693,7 +4698,7 @@
       name: "Gamefaqs",
       url: "^https://gamefaqs.gamespot.com/",
       nextLink: '//a[i/@class="fa fa-angle-right"]',
-      siteExample: "https://gamefaqs.gamespot.com/boards/631516-wii-u",
+      exampleUrl: "https://gamefaqs.gamespot.com/boards/631516-wii-u",
       pageElement:
         '//div[@class="ffaq ffaqbody"]//div[@class="section" and not(contains(h2,"(Continued)")) or @class="section_box"]|//table[starts-with(@class,"board topics tlist") or starts-with(@class,"board message") or @class="results"]/tbody/tr'
     },
@@ -4701,8 +4706,7 @@
       name: "Screen Rant",
       url: "^https?://screenrant.com/.+",
       nextLink: '//*[@rel="next"]',
-      siteExample:
-        "http://screenrant.com/most-powerful-dc-comic-superheroes http://screenrant.com/fantastic-four-movie-rights-fox-marvel-studios-2015/2/ https://screenrant.com/movies-didnt-know-had-post-credits-scenes/4/?view=lista",
+      exampleUrl: "http://screenrant.com/most-powerful-dc-comic-superheroes http://screenrant.com/fantastic-four-movie-rights-fox-marvel-studios-2015/2/ https://screenrant.com/movies-didnt-know-had-post-credits-scenes/4/?view=lista",
       pageElement:
         '(//a[@class="next-btn icon i-arrow-2"]/preceding-sibling::*[preceding-sibling::h2/@class="item-title"]|//h2[@class="item-title"]|//h2[@style="text-align: center;"][a]/preceding-sibling::*[preceding-sibling::p])[not(//div/@class="wp-pagenavi")]|//div[@itemprop="articleBody"]/div[@class="wp-pagenavi"]/preceding-sibling::*[not(self::h3 or self::h2[@style="text-align: center;"]/a)]'
     },
@@ -4710,7 +4714,7 @@
       name: "rarbg",
       url: "^https?://(proxy)?rarbg(mirror|proxy|to|2018)?.(to|net|org)/",
       nextLink: '//a[@title="next page"]',
-      siteExample: "https://rarbg.to/torrents.php?category=movies",
+      exampleUrl: "https://rarbg.to/torrents.php?category=movies",
       pageElement: '//table[@class="lista2t"]/tbody/tr[td/@class="lista"]'
     },
     {
@@ -4744,14 +4748,14 @@
       name: "Zophars Domain Music",
       url: "^https://(www.)?zophar.net/music/",
       nextLink: '//a[@title="Next"]',
-      siteExample: "https://www.zophar.net/music/nintendo-nes-nsf",
+      exampleUrl: "https://www.zophar.net/music/nintendo-nes-nsf",
       pageElement: 'id("gamelist")//tr[contains(@class,"regularrow")]'
     },
     {
       name: "Headline Planet",
       url: "^https://headlineplanet.com/home/",
       nextLink: '//link[@rel="next"]',
-      siteExample: "https://headlineplanet.com/home/ https://headlineplanet.com/home/category/music/music-news/ https://headlineplanet.com/home/category/music/reviews-music/",
+      exampleUrl: "https://headlineplanet.com/home/ https://headlineplanet.com/home/category/music/music-news/ https://headlineplanet.com/home/category/music/reviews-music/",
       pageElement: '//div[@id="primary"]/div/div/ul[@class="g1-collection-items"]/li'
     }
   ];
@@ -4846,7 +4850,7 @@
     {
       name: "phpBB列表",
       url: /^https?:\/\/[^\/]+(\/[a-z,0-9]+)?\/viewforum/i,
-      siteExample: "http://www.firefox.net.cn/forum/viewforum.php?f=4",
+      exampleUrl: "http://www.firefox.net.cn/forum/viewforum.php?f=4",
       nextLink: "auto;",
       autopager: {
         pageElement: '(//div[@id="page-body"]/div[@class="forumbg"]|//table[@class="forumline"]|//table[@class="tablebg"])',
@@ -4857,7 +4861,7 @@
     {
       name: "phpBB帖子",
       url: /^https?:\/\/[^\/]+(\/[a-z,0-9]+)?\/viewtopic/i,
-      siteExample: "http://www.firefox.net.cn/forum/viewtopic.php?t=34339",
+      exampleUrl: "http://www.firefox.net.cn/forum/viewtopic.php?t=34339",
       nextLink: "auto;",
       autopager: {
         // pageElement:'//div[@id="page-body"]',
@@ -5444,6 +5448,19 @@
     const myVersion = values[5];
     if (versionCompare(myVersion, scriptInfo.version) < 0) {
       // update rule if the script is upgraded or it is installed for the first time
+      if (upgradeNotification) {
+        if (upgradeNotification.show) {
+          if (i8n() === "zh_CN") {
+            const text = "脚本从 v" + myVersion + " 升级到 v" + scriptInfo.version + "。 ";
+            // eslint-disable-next-line no-undef
+            GM_notification(text + upgradeNotification.text.zh_CN, upgradeNotification.title, upgradeNotification.image, upgradeNotification.onload);
+          } else {
+            const text = "Script is upgraded from v" + myVersion + " to v" + scriptInfo.version + ". ";
+            // eslint-disable-next-line no-undef
+            GM_notification(text + upgradeNotification.text.en_US, upgradeNotification.title, upgradeNotification.image, upgradeNotification.onload);
+          }
+        }
+      }
       jsonRule.info.expire = new Date("1992-05-15");
       GM.setValue("version", scriptInfo.version);
       prefs.factoryCheck = true;
@@ -5452,9 +5469,6 @@
       var hasMissing = assignMissingProperty(prefsFactory, prefs);
       if (hasMissing) {
         debug("Old prefs:", prefs);
-      }
-      if (scriptInfo.version === "6.6.35") {
-        prefs.enableHistory = false;
       }
       prefs.factoryCheck = false;
       GM.setValue("prefs", JSON.stringify(prefs));
@@ -5505,7 +5519,7 @@
       var div = d.createElement("div");
       div.id = "sp-prefs-setup";
       d.body.appendChild(div);
-      if (userLang.indexOf("zh") !== -1 || prefs.ChineseUI) {
+      if (i8n() === "zh_CN") {
         /* Deleted options
                                    <li title="下一页的链接设置成在新标签页打开"><input type="checkbox" id="sp-prefs-forceTargetWindow" checked/> 新标签打开链接</li>\
           */
@@ -5660,7 +5674,7 @@
 
         this.loadSetting();
 
-        if (userLang.indexOf("zh") !== -1 || prefs.ChineseUI) {
+        if (i8n() === "zh_CN") {
           GM.registerMenuCommand("Super_preloaderPlus_one_New 设置", setup);
         } else {
           GM.registerMenuCommand("Super_preloaderPlus_one_New Settings", setup);
@@ -6132,6 +6146,15 @@
           dot: "读取完后"
         };
 
+        if (i8n() !== "zh_CN") {
+          FWKG_state.loading = "Loading";
+          FWKG_state.prefetcher = "Prefetching";
+          FWKG_state.autopager = "Autopagger (Running)";
+          FWKG_state.Apause = "Autopagger (Pause)";
+          FWKG_state.Astop = "Autopagger (Stop)";
+          FWKG_state.dot = "Finish loading";
+        }
+
         floatWO = {
           updateColor: function(state) {
             rect.style.backgroundColor = FWKG_color[state];
@@ -6175,7 +6198,7 @@
 
       function floatWindowUI() {
         var innerHTML = "";
-        if (userLang.indexOf("zh") !== -1 || prefs.ChineseUI) {
+        if (i8n() === "zh_CN") {
           innerHTML =
             '\
                                 <div id="sp-fw-rect" style="background-color:#000;">\
@@ -6746,7 +6769,7 @@
             });
             manualDiv = div;
             var nextStr = "Next";
-            if (userLang.indexOf("zh") !== -1 || prefs.ChineseUI) {
+            if (i8n() === "zh_CN") {
               nextStr = "下";
             }
             const span = $C(
@@ -6796,7 +6819,7 @@
               false
             );
             div.appendChild(input);
-            if (userLang.indexOf("zh") !== -1 || prefs.ChineseUI) {
+            if (i8n() === "zh_CN") {
               div.appendChild(
                 $C(
                   "span",
@@ -6931,7 +6954,7 @@
             div.id = "sp-separator-" + curNumber;
             div.addEventListener("click", sepHandler, false);
             var pageStr = "";
-            if (userLang.indexOf("zh") !== -1 || prefs.ChineseUI) {
+            if (i8n() === "zh_CN") {
               pageStr = '第 <span style="color:red!important;">' + curNumber + "</span> 页" + (SSS.a_separatorReal ? getRalativePageStr(lastUrl, currentUrl, nextUrl) : "");
             } else {
               pageStr = 'Page <span style="color:red!important;">' + curNumber + "</span>" + (SSS.a_separatorReal ? getRalativePageStr(lastUrl, currentUrl, nextUrl) : "");
@@ -7258,11 +7281,19 @@
             if (prefs.stop_ipage) ipagesmode = false;
             if (pause) {
               floatWO.updateColor("Apause");
-              notice("<b>状态</b>:" + '自动翻页<span style="color:red!important;"><b>暂停</b></span>.');
+              if (i8n() === "zh_CN") {
+                notice("<b>状态</b>:" + '自动翻页<span style="color:red!important;"><b> 暂停</b></span>.', -1);
+              } else {
+                notice("<b>Status</b>:" + 'Autopagger<span style="color:red!important;"><b> Pause</b></span>.', -1);
+              }
             } else {
               floatWO.updateColor("autopager");
               floatWO.CmodeIcon("hide");
-              notice("<b>状态</b>:" + '自动翻页<span style="color:red!important;"><b>启用</b></span>.');
+              if (i8n() === "zh_CN") {
+                notice("<b>状态</b>:" + '自动翻页<span style="color:red!important;"><b> 启用</b></span>.');
+              } else {
+                notice("<b>Status</b>:" + 'Autopagger<span style="color:red!important;"><b> Enable</b></span>.');
+              }
             }
             scroll();
           };
@@ -7274,7 +7305,7 @@
           };
 
           const pausehandler = function(e) {
-            if (!SSS.a_manualA || ipagesmode || pause) {
+            if (!SSS.a_manualA || ipagesmode) {
               if (e[button_1] && e[button_2] && e[button_3]) {
                 if (e.type == "mousedown") {
                   document.addEventListener("mouseup", clearPause, false);
@@ -7503,7 +7534,7 @@
         var Rurl;
         const ii = SITEINFO.length;
 
-        if (userLang.indexOf("zh") !== -1 || prefs.ChineseUI) {
+        if (i8n() === "zh_CN") {
           debug("高级规则数目:", ii);
           debug("规则数 > ", ii - SITEINFO_json.length, "来自其他来源, 比如: wedata.net");
         } else {
@@ -7515,7 +7546,7 @@
           const SII = SITEINFO[i];
           Rurl = toRE(SII.url);
           if (Rurl.test(url)) {
-            if (userLang.indexOf("zh") !== -1 || prefs.ChineseUI) {
+            if (i8n() === "zh_CN") {
               debug("找到当前站点规则:", SII);
               debug("规则ID: ", i + 1);
             } else {
@@ -7569,7 +7600,15 @@
               if (!SSS.a_pageElement) break;
               SSS.a_manualA = SIIA.manualA === undefined ? SIIAD.manualA : SIIA.manualA;
               SSS.a_enable = SIIA.enable === undefined ? SIIAD.enable : SIIA.enable;
-              SSS.a_useiframe = SIIA.useiframe === undefined ? SIIAD.useiframe : SIIA.useiframe;
+              if (SIIA.useiframe === undefined) {
+                if (SII.useiframe === undefined) {
+                  SSS.a_useiframe = SIIAD.useiframe;
+                } else {
+                  SSS.a_useiframe = SII.useiframe;
+                }
+              } else {
+                SSS.a_useiframe = SIIA.useiframe;
+              }
               SSS.a_newIframe = SIIA.newIframe === undefined ? SIIAD.newIframe : SIIA.newIframe;
               SSS.a_iloaded = SIIA.iloaded === undefined ? SIIAD.iloaded : SIIA.iloaded;
               SSS.a_itimeout = SIIA.itimeout === undefined ? SIIAD.itimeout : SIIA.itimeout;
@@ -8200,7 +8239,7 @@
       var ralativePageStr;
       if (realPageSiteMatch) {
         // 如果匹配就显示实际网页信息
-        if (userLang.indexOf("zh") !== -1 || prefs.ChineseUI) {
+        if (i8n() === "zh_CN") {
           if (ralativePageNumarray[1] - ralativePageNumarray[0] > 1) {
             // 一般是搜索引擎的第xx - xx项……
             ralativePageStr = ' [ 实际：第 <font color="red">' + ralativePageNumarray[0] + " - " + ralativePageNumarray[1] + "</font> 项 ]";
@@ -8655,7 +8694,7 @@
   var noticeDivto;
   var noticeDivto2;
 
-  function notice(html_txt) {
+  function notice(html_txt, showTime) {
     if (!noticeDiv) {
       const div = document.createElement("div");
       noticeDiv = div;
@@ -8688,12 +8727,17 @@
     noticeDiv.innerHTML = html_txt;
     noticeDiv.style.display = "block";
     noticeDiv.style.opacity = "0.96";
-    noticeDivto2 = setTimeout(function() {
-      noticeDiv.style.opacity = "0";
-    }, 1666);
-    noticeDivto = setTimeout(function() {
-      noticeDiv.style.display = "none";
-    }, 2000);
+    if (showTime === undefined) {
+      showTime = 1666;
+    }
+    if (showTime > 0) {
+      noticeDivto2 = setTimeout(function() {
+        noticeDiv.style.opacity = "0";
+      }, showTime);
+      noticeDivto = setTimeout(function() {
+        noticeDiv.style.display = "none";
+      }, showTime + 300);
+    }
   }
 
   function $C(type, atArr, inner, action, listen) {
@@ -9084,6 +9128,13 @@
     }
   }
 
+  function i8n() {
+    if (userLang.indexOf("zh") !== -1 || prefs.ChineseUI) {
+      return "zh_CN";
+    } else {
+      return "en_US";
+    }
+  }
   //Function to compare two version strings https://gist.github.com/TheDistantSea/8021359
   function versionCompare(v1, v2, options) {
     var lexicographical = options && options.lexicographical,
@@ -9128,5 +9179,51 @@
     }
 
     return 0;
+  }
+
+  // https://gist.github.com/cking/aa1787207596261eaf69d79d983f6f49
+  function shim_GM_notification() {
+    if (typeof GM_notification === "function") {
+      return;
+    }
+    window.GM_notification = function(ntcOptions) {
+      checkPermission();
+
+      function checkPermission() {
+        if (Notification.permission === "granted") {
+          fireNotice();
+        } else if (Notification.permission === "denied") {
+          alert("User has denied notifications for this page/site!");
+          // eslint-disable-next-line no-useless-return
+          return;
+        } else {
+          // eslint-disable-next-line compat/compat
+          Notification.requestPermission(function(permission) {
+            console.log("New permission: ", permission);
+            checkPermission();
+          });
+        }
+      }
+
+      function fireNotice() {
+        if (!ntcOptions.title) {
+          console.log("Title is required for notification");
+          return;
+        }
+        if (ntcOptions.text && !ntcOptions.body) {
+          ntcOptions.body = ntcOptions.text;
+        }
+        var ntfctn = new Notification(ntcOptions.title, ntcOptions);
+
+        if (ntcOptions.onclick) {
+          ntfctn.onclick = ntcOptions.onclick;
+        }
+        if (ntcOptions.timeout) {
+          setTimeout(function() {
+            ntfctn.close();
+          }, ntcOptions.timeout);
+        }
+      }
+    };
   }
 })();
