@@ -277,5 +277,12 @@
     "url": "^https?://sunbox\\.cc/.*\\.html$",
     "pageElement": "//div[@id='primary']//article",
     "nextLink": "//div[@class='nav-links']/a[last()]"
+  },
+  {
+    "name": "wearn.com",
+    "url": "^https?://www\\.wearn\\.com/bbs",
+    "pageElement": "//div[@id='topwrapper']/table[@cellpadding='0' and  @cellspacing='0']",
+    "nextLink": "auto;",
+    "exampleUrl": "https://www.wearn.com/bbs/t983642.html"
   }
 ]
