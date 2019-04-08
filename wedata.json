@@ -1,5 +1,35 @@
 [
 {
+  "resource_url": "http://wedata.net/items/82114",
+  "name": "カドブン",
+  "created_by": "brib",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "updated_at": "2019-04-07T16:54:06+09:00",
+  "data": {
+    "exampleUrl": "https://kadobun.jp/interview/164/79fb8cbb",
+    "url": "^https://kadobun\\.jp/",
+    "pageElement": "//ul[contains(@class,\"pager\")]/preceding-sibling::*",
+    "insertBefore": "",
+    "nextLink": "//link[@rel=\"next\"]"
+  },
+  "created_at": "2019-04-07T16:54:06+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/82113",
+  "name": "NEWSポストセブン",
+  "created_by": "hatenaZZZ",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "updated_at": "2019-04-07T10:11:43+09:00",
+  "data": {
+    "exampleUrl": "https://www.news-postseven.com/archives/20190407_1347987.html",
+    "url": "^https?://www\\.news-postseven\\.com/",
+    "pageElement": "//div[@class=\"wp-editor\"]",
+    "insertBefore": "",
+    "nextLink": "//link[@rel=\"next\"]"
+  },
+  "created_at": "2019-04-07T10:11:43+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/82112",
   "name": "サンライズ出版",
   "created_by": "t_f_m",
@@ -53058,12 +53088,12 @@
   "name": "ニコニコ大百科 掲示板",
   "created_by": "gifnksm",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-04-04T21:16:42+09:00",
+  "updated_at": "2019-04-07T10:39:22+09:00",
   "data": {
     "exampleUrl": "http://dic.nicovideo.jp/b/a/%E3%82%A2%E3%82%A4%E3%83%89%E3%83%AB%E3%83%9E%E3%82%B9%E3%82%BF%E3%83%BC/1- http://dic.nicovideo.jp/b/a/%E3%82%A2%E3%82%A4%E3%83%89%E3%83%AB%E3%83%9E%E3%82%B9%E3%82%BF%E3%83%BC/31-",
     "comment": "id #bbs is not unique",
     "url": "^https://dic\\.nicovideo\\.jp/b/[aiuv]/",
-    "pageElement": "//div[@id=\"bbs\"]/div/dl/*[self::dt or self::dd]",
+    "pageElement": "id(\"main\")//*[self::dt or self::dd]",
     "nextLink": "//span[@class=\"current\"]/following-sibling::a[1]"
   },
   "created_at": "2008-05-24T05:19:27+09:00"
