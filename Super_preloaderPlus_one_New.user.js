@@ -2832,6 +2832,10 @@
           if (feedBox) {
             feedBox.parentNode.removeChild(feedBox);
           }
+        },
+        sepdivDom: function(doc, sepdiv) {
+          sepdiv.className += " bbs_detail_wrap"
+          return sepdiv;
         }
       }
     },
