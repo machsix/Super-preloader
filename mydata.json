@@ -279,10 +279,18 @@
     "nextLink": "//div[@class='nav-links']/a[last()]"
   },
   {
-    "name": "wearn.com",
-    "url": "^https?://www\\.wearn\\.com/bbs",
-    "pageElement": "//div[@id='topwrapper']/table[@cellpadding='0' and  @cellspacing='0']",
+    "name": "wearn.com-threads",
+    "url": "^https?://www\\.wearn\\.com/bbs/t.*$",
+    "pageElement": "//body/table[@cellpadding='3']/following-sibling::table[@cellspacing='1']/preceding-sibling::table[preceding-sibling::table[@cellpadding='3'] and not(@style)]",
     "nextLink": "auto;",
     "exampleUrl": "https://www.wearn.com/bbs/t983642.html"
+  },
+  {
+    "name": "wearn.com-thread-list",
+    "url": "^https?://www\\.wearn\\.com",
+    "pageElement": "//div[@class='main_content']/ul",
+    "nextLink": "auto;",
+    "exampleUrl": "https://www.wearn.com/bbs/active.asp",
+    "note": "You need to add '||wearn.com/bbs/fansadd_new.asp' to your ad blocker"
   }
 ]
