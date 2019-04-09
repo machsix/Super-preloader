@@ -263,8 +263,8 @@
     "pageElement": "id(\"main\")/div[@class=\"post-entry\"]|id(\"main\")/div[@class=\"clear\"]"
   },
   {
-    "name": "小木虫",
-    "url": "https?://(www\\.)?muchong\\.com",
+    "name": "小木虫-帖子列表",
+    "url": "https?://(www\\.)?muchong\\.com/f-.*$",
     "nextLink": "auto;",
     "pageElement": "//div[contains(@class,\"forum_body\")]/table",
     "useiframe": true,
