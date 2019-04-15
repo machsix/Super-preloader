@@ -13,7 +13,7 @@
 // @author       Mach6
 // @contributers YFdyh000, suchunchen
 // @thanksto     ywzhaiqi, NLF
-// @version      6.6.39
+// @version      6.6.40
 // @license      GNU GPL v3
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
@@ -60,9 +60,9 @@
 (function() {
   const scriptInfo = {
     name: "Super_preloaderPlus_one_New",
-    version: "6.6.39",
-    updateTime: "2019/4/9",
-    changelog: "Add muchong thread page",
+    version: "6.6.40",
+    updateTime: "2019/4/15",
+    changelog: "suchuchen: ali213/csdn",
     homepageURL: "https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new",
     downloadUrl: "https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.user.js",
     metaUrl: "https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.meta.js"
@@ -1656,7 +1656,7 @@
     },
     {
       name: "Discuz X2.5修复",
-      url: /^https?:\/\/(bbs.gfan|bbs.xda|bbs.weiphone|bbs.feng|www.weiqitv|www.diypda|f.ppxclub|bbs.sd001|bbs.itiankong)\.(com|cn)/i,
+      url: "^https?://(bbs\\.gfan|bbs\\.xda|bbs\\.weiphone|bbs\\.feng|www\\.weiqitv|www\\.diypda|f\\.ppxclub|bbs\\.sd001|bbs\\.itiankong|www.91wii)\\.(com|cn)",
       nextLink: "auto;",
       autopager: {
         pageElement: '//div[@id="threadlist"] | //div[@id="postlist"]',
@@ -1841,6 +1841,24 @@
         }
       }
       // credit : https://greasyfork.org/en/forum/discussion/42040/x
+    },
+    {
+      name: "ali213 - 攻略",
+      url: "^http://gl\\.ali213\\.net/html",
+      exampleUrl: "http://gl.ali213.net/html/2011/25399_2.html",
+      nextLink: "id('after_this_page')",
+      autopager: {
+        useiframe: true,
+        pageElement: "//div[@class='glzjshow_con']",
+        replaceE: "id('after_this_page')",
+        // 只执行一次，不展示用户评论，这里是否需要开放设定滚动条件后触发下一页的条件
+        startFilter: function(win, doc) {
+          const comments = getElementByXpath('//div[@class="glzjshow_plun"]', doc, doc);
+          if (comments) {
+            comments.style.display = "none";
+          }
+        }
+      }
     },
     {
       name: "3DMGAME",
@@ -2832,6 +2850,10 @@
           if (feedBox) {
             feedBox.parentNode.removeChild(feedBox);
           }
+        },
+        sepdivDom: function(doc, sepdiv) {
+          sepdiv.className += " bbs_detail_wrap";
+          return sepdiv;
         }
       }
     },
@@ -4683,13 +4705,6 @@
       exampleUrl: "http://www.avbaike.net/17237.html"
     },
     {
-      name: "avgle",
-      url: /^https:\/\/avgle\.com\/.*/,
-      nextLink: '//a[@class="prevnext"]',
-      pageElement: '//div[@id="wrapper"]/div[1]/div[@class="row"]/div[1]',
-      exampleUrl: "https://avgle.com/search/videos?search_query=%E5%A5%B3%E6%95%99%E5%B8%AB&search_type=videos&o=tr"
-    },
-    {
       name: "PornHub.com",
       url: "^https://[^.]+.pornhub.com/",
       nextLink: '//li[contains(concat(" ", @class, " "), " page_next ")]/a',
@@ -4915,6 +4930,60 @@
   // 所以说尽量不要放规则在这个组里面.
   const SITEINFO_comp = [
     {
+      name: "discuz论坛通用搜索",
+      url: "^https?://[^/]+/f/(?:discuz|search)",
+      nextLink: "auto;",
+      pageElement: 'id("result-items")'
+    },
+    {
+      name: "View forum - 通用",
+      url: "^https?://.+?/viewforum\\.php\\?",
+      nextLink:
+        '//span[@class="gensmall"]/b/b/following-sibling::a[1] | (//table/tbody/tr/td[@class="nav"])[last()]/b[last()]/following-sibling::a[1]  | //div[@class="pagination"]/span/strong/following-sibling::a[1] | //a[text()="Next"]',
+      pageElement: '//ul[contains(concat(" ",@class," ")," topics ")]|//form[table/@class="forumline"]'
+    },
+    {
+      name: "wiki 通用",
+      url: ".\\?(?:.+&)?search=",
+      nextLink: '//a[@class="mw-nextlink"]',
+      pageElement: '//ul[@class="mw-search-results"]'
+    },
+    {
+      name: "通用 Forum 规则1",
+      url: "^https?://.*((showthread\\.php\\?)|(forum|thread))",
+      nextLink: '//a[@rel="next"]',
+      pageElement: '//div[@id="posts"]|//ol[@id="posts"]/li',
+      separatorReal: false
+    },
+    {
+      name: "通用 Forum 规则2 vBulletin threads",
+      url: "^https?://[^?#]+?/showthread\\.php\\?",
+      nextLink: '//tr[@valign="top"]//div[@class="pagenav"]//a[contains(text(), ">")]',
+      pageElement: '(//div[@class="pagenav"])[1]|//div[@id="posts"]/node()',
+      separatorReal: false
+    },
+    {
+      name: "通用 Forum 规则3 vBulletin thread_list",
+      url: "^https?://.*((forumdisplay\\.php\\?)|forum)",
+      nextLink: "auto;",
+      pageElement: '//div[@id="posts"]/div[@align="center"] | //table[@class="tborder"][@id="threadslist"]',
+      separatorReal: false
+    },
+    {
+      name: "通用 Forum 规则4",
+      url: /^https?:\/\/forums\..*\/threads/i,
+      nextLink: '(//div[@class="PageNav"])[1]//a[contains(text(),' > ")]",
+      pageElement: '//ol[@id="messageList"]/li',
+      separatorReal: false
+    },
+    {
+      name: "PHPWind 5.3.0 / 6.0.0 / 6.3.2 / 7.0.0 / 7.5.0 - View Thread",
+      url: "^https?://.+/read\\.php\\?.*tid((=[0-9]+.*)|(-[0-9]+.*\\.html?))$",
+      nextLink: "auto;",
+      pageElement: '//form[@name="delatc"]',
+      exampleUrl: "http://www.yydzh.com/read.php?tid=1584013"
+    },
+    {
       name: "WordPress",
       url: "^https?://[^/]+(/page/\\d+)?",
       nextLink: function(doc, win, _cplink) {
@@ -4990,60 +5059,6 @@
         },
         relatedObj: true
       }
-    },
-    {
-      name: "discuz论坛通用搜索",
-      url: "^https?://[^/]+/f/(?:discuz|search)",
-      nextLink: "auto;",
-      pageElement: 'id("result-items")'
-    },
-    {
-      name: "View forum - 通用",
-      url: "^https?://.+?/viewforum\\.php\\?",
-      nextLink:
-        '//span[@class="gensmall"]/b/b/following-sibling::a[1] | (//table/tbody/tr/td[@class="nav"])[last()]/b[last()]/following-sibling::a[1]  | //div[@class="pagination"]/span/strong/following-sibling::a[1] | //a[text()="Next"]',
-      pageElement: '//ul[contains(concat(" ",@class," ")," topics ")]|//form[table/@class="forumline"]'
-    },
-    {
-      name: "wiki 通用",
-      url: ".\\?(?:.+&)?search=",
-      nextLink: '//a[@class="mw-nextlink"]',
-      pageElement: '//ul[@class="mw-search-results"]'
-    },
-    {
-      name: "通用 Forum 规则1",
-      url: "^https?://.*((showthread\\.php\\?)|(forum|thread))",
-      nextLink: '//a[@rel="next"]',
-      pageElement: '//div[@id="posts"]|//ol[@id="posts"]/li',
-      separatorReal: false
-    },
-    {
-      name: "通用 Forum 规则2 vBulletin threads",
-      url: "^https?://[^?#]+?/showthread\\.php\\?",
-      nextLink: '//tr[@valign="top"]//div[@class="pagenav"]//a[contains(text(), ">")]',
-      pageElement: '(//div[@class="pagenav"])[1]|//div[@id="posts"]/node()',
-      separatorReal: false
-    },
-    {
-      name: "通用 Forum 规则3 vBulletin thread_list",
-      url: "^https?://.*((forumdisplay\\.php\\?)|forum)",
-      nextLink: "auto;",
-      pageElement: '//div[@id="posts"]/div[@align="center"] | //table[@class="tborder"][@id="threadslist"]',
-      separatorReal: false
-    },
-    {
-      name: "通用 Forum 规则4",
-      url: /^https?:\/\/forums\..*\/threads/i,
-      nextLink: '(//div[@class="PageNav"])[1]//a[contains(text(),' > ")]",
-      pageElement: '//ol[@id="messageList"]/li',
-      separatorReal: false
-    },
-    {
-      name: "PHPWind 5.3.0 / 6.0.0 / 6.3.2 / 7.0.0 / 7.5.0 - View Thread",
-      url: "^https?://.+/read\\.php\\?.*tid((=[0-9]+.*)|(-[0-9]+.*\\.html?))$",
-      nextLink: "auto;",
-      pageElement: '//form[@name="delatc"]',
-      exampleUrl: "http://www.yydzh.com/read.php?tid=1584013"
     }
   ];
 
@@ -5368,6 +5383,7 @@
     "Next Page",
     "次へ",
     "次のページ",
+    "次のページ »",
     "下一页 →",
     "下一頁 →",
     "下1页 →",
@@ -7668,7 +7684,7 @@
 
             // 检验是否存在内容
             const pageElement = getElement(SSS.a_pageElement);
-            if (!pageElement) {
+            if (!pageElement || (Array.isArray(pageElement) && pageElement.length === 0)) {
               nextlink = null;
               debug("无法找到内容,跳过规则:", SII, "继续查找其他规则");
               continue;

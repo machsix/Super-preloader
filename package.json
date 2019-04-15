@@ -9,7 +9,7 @@
   "scripts": {
     "lint": "eslint Super_preloaderPlus_one_New.user.js mydata.json ./.travis",
     "checkformat": "prettylint Super_preloaderPlus_one_New.user.js",
-    "format": "prettier Super_preloaderPlus_one_New.user.js --write",
+    "format": "prettier --write Super_preloaderPlus_one_New.user.js && prettier --write mydata.json",
     "test": "npm run lint && prettylint Super_preloaderPlus_one_New.user.js"
   },
   "husky": {
