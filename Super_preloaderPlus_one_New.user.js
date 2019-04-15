@@ -1656,7 +1656,7 @@
     },
     {
       name: "Discuz X2.5修复",
-      url: /^https?:\/\/(bbs.gfan|bbs.xda|bbs.weiphone|bbs.feng|www.weiqitv|www.diypda|f.ppxclub|bbs.sd001|bbs.itiankong)\.(com|cn)/i,
+      url: /^https?:\/\/(bbs.gfan|bbs.xda|bbs.weiphone|bbs.feng|www.weiqitv|www.diypda|f.ppxclub|bbs.sd001|bbs.itiankong|www.91wii)\.(com|cn)/i,
       nextLink: "auto;",
       autopager: {
         pageElement: '//div[@id="threadlist"] | //div[@id="postlist"]',
