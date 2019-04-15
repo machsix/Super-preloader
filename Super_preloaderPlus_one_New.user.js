@@ -1843,6 +1843,24 @@
       // credit : https://greasyfork.org/en/forum/discussion/42040/x
     },
     {
+      name: "ali213 - 攻略",
+      url: "^http://gl\.ali213\.net/html",
+      exampleUrl: "http://gl.ali213.net/html/2011/25399_2.html",
+      nextLink: "id('after_this_page')",
+      autopager: {
+        useiframe: true,
+        pageElement: "//div[@class='glzjshow_con']",
+        replaceE: "id('after_this_page')",
+        // 只执行一次，不展示用户评论，这里是否需要开放设定滚动条件后触发下一页的条件
+        startFilter: function(win, doc){
+          const comments = getElementByXpath('//div[@class="glzjshow_plun"]', doc, doc);
+          if (comments) {
+            comments.style.display = "none";
+          }
+        }
+      }
+    },
+    {
       name: "3DMGAME",
       url: "^https://.*.3dmgame.com/*",
       exampleUrl: "https://www.3dmgame.com/news/201312/2310792.html|https://www.3dmgame.com/news/",
