@@ -8,10 +8,7 @@
       "enable": true,
       "useiframe": false,
       "pageElement": "//img[@id='picarea']",
-      "ipages": [
-        true,
-        30
-      ]
+      "ipages": [true, 30]
     },
     "exampleUrl": "http://www.wnacg.org/photos-index-aid-42394.html"
   },
@@ -67,10 +64,7 @@
     "nextLink": "//div[@class='pages']/ul/li/a[contains(text(),'下一页')]",
     "autopager": {
       "pageElement": "//div[@class='articleBox']/div[@id='picBody']",
-      "ipages": [
-        true,
-        30
-      ]
+      "ipages": [true, 30]
     }
   },
   {
@@ -80,10 +74,7 @@
     "nextLink": "//div[@class='page']/a[text()='后']",
     "autopager": {
       "pageElement": "//div[@class='img']/p",
-      "ipages": [
-        true,
-        30
-      ]
+      "ipages": [true, 30]
     }
   },
   {
@@ -94,10 +85,7 @@
     "autopager": {
       "enable": true,
       "pageElement": "//tr[./td[@class='td6']]",
-      "ipages": [
-        true,
-        10
-      ]
+      "ipages": [true, 10]
     }
   },
   {
@@ -219,18 +207,18 @@
     "nextLink": "id('page-container')//a[@class='lbf-pagination-next ']",
     "autopager": {
       "pageElement": "//div[@class='all-book-list']",
-      "replaceE":"id('page-container')"
+      "replaceE": "id('page-container')"
     }
   },
   {
-      "name": "sasaone.com-album",
-      "url": "^https?://(\\w*\\.)?sasaone\\.com/\\w+/\\d+/\\d\\.html",
-      "nextLink":"auto;",
-      "autopager": {
-        "enable": true,
-        "pageElement": "//div[@id=\"disappear\"]",
-        "ipages": [true, 30]
-      }
+    "name": "sasaone.com-album",
+    "url": "^https?://(\\w*\\.)?sasaone\\.com/\\w+/\\d+/\\d\\.html",
+    "nextLink": "auto;",
+    "autopager": {
+      "enable": true,
+      "pageElement": "//div[@id=\"disappear\"]",
+      "ipages": [true, 30]
+    }
   },
   {
     "name": "sasaone.com-list",
@@ -279,10 +267,33 @@
     "nextLink": "//div[@class='nav-links']/a[last()]"
   },
   {
-    "name": "wearn.com",
-    "url": "^https?://www\\.wearn\\.com/bbs",
-    "pageElement": "//div[@id='topwrapper']/table[@cellpadding='0' and  @cellspacing='0']",
+    "name": "wearn.com-threads",
+    "url": "^https?://www\\.wearn\\.com/bbs/t.*$",
+    "pageElement": "//body/table[@cellpadding='3']/following-sibling::table[@cellspacing='1']/preceding-sibling::table[preceding-sibling::table[@cellpadding='3'] and not(@style)]",
     "nextLink": "auto;",
     "exampleUrl": "https://www.wearn.com/bbs/t983642.html"
+  },
+  {
+    "name": "wearn.com-thread-list",
+    "url": "^https?://www\\.wearn\\.com",
+    "pageElement": "//div[@class='main_content']/ul",
+    "nextLink": "auto;",
+    "exampleUrl": "https://www.wearn.com/bbs/active.asp",
+    "note": "You need to add '||wearn.com/bbs/fansadd_new.asp' to your ad blocker"
+  },
+  {
+    "name": "avgle",
+    "url": "^https?://avgle\\.com/.*/",
+    "nextLink": "//a[@class=\"prevnext\"]",
+    "pageElement": "//div[@id=\"wrapper\"]/div[1]/div[@class=\"row\"]/div[1]",
+    "exampleUrl": "https://avgle.com/search/videos?search_query=%E5%A5%B3%E6%95%99%E5%B8%AB&search_type=videos&o=tr"
+  },
+  {
+    "name": "jav777",
+    "url": "^https?://www\\.jav777\\.cc",
+    "nextLink": "auto;",
+    "useiframe": true,
+    "pageElement": "//div[@class=\"content section-inner\"]",
+    "exampleUrl": "https://www.jav777.cc/"
   }
 ]
