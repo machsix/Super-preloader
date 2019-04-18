@@ -1,5 +1,48 @@
 [
 {
+  "resource_url": "http://wedata.net/items/82124",
+  "name": "論文relation",
+  "created_by": "yoshi",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "updated_at": "2019-04-17T23:54:52+09:00",
+  "data": {
+    "exampleUrl": "http://sc.chat-shuffle.net/search-paper/q:%E7%89%B9%E8%A8%B1%E3%80%80%E4%BA%BA%E5%B7%A5%E7%9F%A5%E8%83%BD",
+    "url": "^http?://sc\\.chat-shuffle\\.net/search-paper/",
+    "pageElement": "//div[@class=\"mb\"]",
+    "insertBefore": "",
+    "nextLink": "//a[contains(text(),\"次のページ\")]"
+  },
+  "created_at": "2019-04-17T23:54:52+09:00"
+},
+{
+  "name": "patentfield",
+  "created_by": "yoshi",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "updated_at": "2019-04-17T21:10:43+09:00",
+  "resource_url": "http://wedata.net/items/82123",
+  "data": {
+    "exampleUrl": "https://patentfield.com/patents?",
+    "url": "^https?://patentfield\\.com",
+    "pageElement": "//ul[@id=\"results-list\"]",
+    "nextLink": "//i[@class=\"el-icon el-icon-arrow-right\"]"
+  },
+  "created_at": "2019-04-17T20:55:15+09:00"
+},
+{
+  "name": "arXiv Search",
+  "created_by": "yoshi",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "updated_at": "2019-04-16T20:56:49+09:00",
+  "resource_url": "http://wedata.net/items/82122",
+  "data": {
+    "exampleUrl": "https://arxiv.org/search/",
+    "url": "^https?://arxiv\\.org/search/",
+    "pageElement": "//li[@class=\"arxiv-result\"]",
+    "nextLink": "//a[@class=\"pagination-next\"]"
+  },
+  "created_at": "2019-04-16T20:27:37+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/82120",
   "name": "キャリコネニュース ダミー",
   "created_by": "jigendaddy_be",
@@ -20834,11 +20877,12 @@
   "name": "ログミー[o_O]",
   "created_by": "raimon49",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-02-19T21:12:09+09:00",
+  "updated_at": "2019-04-18T09:57:15+09:00",
   "data": {
+    "Stylus": ".autopagerize_page_separator~.hero-title{color:#212529;\r\ntext-align:left;}",
     "exampleUrl": "https://logmi.jp/business/tags/%E3%83%93%E3%82%B8%E3%83%8D%E3%82%B9 https://logmi.jp/business/articles/85000",
     "url": "^https?://logmi\\.jp/",
-    "pageElement": "//div[@class=\"log-content u-clearfix\"]/*|//div[@class=\"pagination\"]/preceding-sibling::div[1]/div",
+    "pageElement": "id(\"s1\")|id(\"s1\")/following-sibling::*|//h1[@class=\"hero-title\"]|//div[@class=\"pagination\"]/preceding-sibling::div[1]",
     "nextLink": "//div[contains(@class,\"is-active\")]/following-sibling::a[1]"
   },
   "created_at": "2014-03-26T22:30:46+09:00"
@@ -23105,10 +23149,10 @@
   "name": "Harvard Business Review",
   "created_by": "Sugorok",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-04-11T18:12:54+09:00",
+  "updated_at": "2019-04-17T09:48:11+09:00",
   "data": {
     "exampleUrl": "http://www.dhbr.net/articles/-/1415\r\nhttp://www.dhbr.net/articles/-/5702",
-    "url": "^http://www\\.dhbr\\.net/articles",
+    "url": "^https?://www\\.dhbr\\.net/articles",
     "pageElement": "id(\"article-body\")/*",
     "nextLink": "//li[@class=\"next\"]/a"
   },
