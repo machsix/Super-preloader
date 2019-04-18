@@ -1,7 +1,9 @@
 
 ![icon!](https://raw.githubusercontent.com/machsix/Super-preloader/master/icon2.png)
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors)
+
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors)   &nbsp; [![Build Status](https://travis-ci.org/machsix/Super-preloader.svg?branch=master)](https://travis-ci.org/machsix/Super-preloader)
+
 # Complete document
 [Complete Document](https://machsix.github.io/Super-preloader/super_preloader.html)
 
