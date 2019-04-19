@@ -13,7 +13,7 @@
 // @author       Mach6
 // @contributers YFdyh000, suchunchen
 // @thanksto     ywzhaiqi, NLF
-// @version      6.6.43
+// @version      6.6.45
 // @license      GNU GPL v3
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
@@ -60,9 +60,9 @@
 (function() {
   const scriptInfo = {
     name: "Super_preloaderPlus_one_New",
-    version: "6.6.43",
-    updateTime: "2019/4/18",
-    changelog: "improve documentFilter",
+    version: "6.6.45",
+    updateTime: "2019/4/19",
+    changelog: "Fix sepdiv for tbody table",
     homepageURL: "https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new",
     downloadUrl: "https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.user.js",
     metaUrl: "https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.meta.js"
@@ -7262,29 +7262,46 @@
           }
 
           const sepdiv = createSep(lastUrl, cplink, nextlink);
+          var toInsert = sepdiv;
+          var ncol = 0;
           if (SSS.a_sepdivDom !== undefined && typeof SSS.a_sepdivDom === "function") {
-            const n = SSS.a_sepdivDom(doc, sepdiv);
-            fragment.insertBefore(n, fragment.firstChild);
+            toInsert = SSS.a_sepdivDom(doc, sepdiv);
           } else if (pageElements[0] && pageElements[0].tagName === "TR") {
             const insertParent = insertPoint.parentNode;
             var colNodes = getAllElements("child::tr[1]/child::*[self::td or self::th]", insertParent);
             if (colNodes.length == 0) {
               colNodes = getAllElements("child::*[self::td or self::th]", pageElements[0]);
             }
-            var colums = 0;
-            for (var x = 0, l = colNodes.length; x < l; x++) {
-              const col = colNodes[x].getAttribute("colspan");
-              colums += parseInt(col, 10) || 1;
+            for (i = 0, ncol = 0; i < colNodes.length; i++) {
+              ncol += parseInt(colNodes[i].getAttribute("colspan"), 10) || 1;
             }
             const td = doc.createElement("td");
             td.appendChild(sepdiv);
             const tr = doc.createElement("tr");
-            td.setAttribute("colspan", colums);
+            td.setAttribute("colspan", ncol);
             tr.appendChild(td);
-            fragment.insertBefore(tr, fragment.firstChild);
-          } else {
-            fragment.insertBefore(sepdiv, fragment.firstChild);
+
+            toInsert = tr;
+          } else if (pageElements[0] && pageElements[0].tagName === "TBODY") {
+            var trs = pageElements[pageElements.length - 1].getElementsByTagName("tr");
+            if (trs) {
+              trs = trs[trs.length - 1];
+              for (i = 0, ncol = 0; i < trs.children.length; i++) {
+                ncol += parseInt(trs.children[i].getAttribute("colspan"), 10) || 1;
+              }
+              const tbody = doc.createElement("tbody");
+              const td = $C("td", {
+                colspan: ncol
+              });
+              const tr = doc.createElement("tr");
+              td.appendChild(sepdiv);
+              tr.appendChild(td);
+              tbody.appendChild(tr);
+
+              toInsert = tbody;
+            }
           }
+          fragment.insertBefore(toInsert, fragment.firstChild);
 
           addIntoDoc(fragment);
 
