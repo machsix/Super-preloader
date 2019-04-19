@@ -1687,7 +1687,7 @@
     },
     {
       name: "Discuz X2.5修复",
-      url: "^https?://(bbs\\.gfan|bbs\\.xda|bbs\\.weiphone|bbs\\.feng|www\\.weiqitv|www\\.diypda|f\\.ppxclub|bbs\\.sd001|bbs\\.itiankong|www.91wii)\\.(com|cn)",
+      url: "^https?://(bbs\\.gfan|bbs\\.xda|bbs\\.weiphone|bbs\\.feng|www\\.weiqitv|www\\.diypda|f\\.ppxclub|bbs\\.sd001|bbs\\.itiankong|www\\.91wii)\\.(com|cn)",
       nextLink: "auto;",
       autopager: {
         pageElement: '//div[@id="threadlist"] | //div[@id="postlist"]',
@@ -1839,7 +1839,7 @@
     },
     {
       name: "游民星空",
-      url: /^https?:\/\/www\.gamersky\.com/i,
+      url: /^https?:\/\/www\.gamersky\.com\/\w+\/\d{6}\/.*.shtml/i,
       exampleUrl: "https://www.gamersky.com/ent/201510/671493.shtml | https://www.gamersky.com/handbook/201707/922480.shtml",
       nextLink: function(doc, win, cplink) {
         const node = getElementByXpath('//div[@class="page_css"]//a[(text()="下一页")]', doc, doc);
@@ -1857,14 +1857,7 @@
       autopager: {
         relatedObj: true,
         pageElement: '//div[@class="Mid2L_con"]',
-        replaceE: '//div[@class="page_css"]',
-        startFilter: function(doc) {
-          const nav = getElementByXpath('//div[@class="page_css"]', doc, doc);
-          if (nav) {
-            nav.style.display = "none";
-          }
-        },
-        documentFilter: "startFilter"
+        replaceE: '//div[@class="page_css"]'
       }
       // credit : https://greasyfork.org/en/forum/discussion/42040/x
     },
@@ -1882,6 +1875,24 @@
           if (comments) {
             comments.style.display = "none";
           }
+        }
+      }
+    },
+    {
+      name: "电玩巴士 - 图文",
+      url: "^https?://pc\\.tgbus\\.com/.*\\d+/$",
+      exampleUrl: "http://pc.tgbus.com/tuwen_180/88983/",
+      nextLink: "//div[contains(@class, 'art-page')]/a[text()='下一页']",
+      autopager: {
+        pageElement: "//div[@class='art-body']",
+        documentFilter: function(doc) {
+          // 删除导航
+          const navigator = doc.querySelector(".art-pagination");
+          if (navigator) {
+            navigator.parentNode.removeChild(navigator);
+          }
+          // 隐藏分页
+          doc.querySelector(".art-page").style.display = "none";
         }
       }
     },
