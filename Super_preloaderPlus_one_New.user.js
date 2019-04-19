@@ -1892,7 +1892,7 @@
             navigator.parentNode.removeChild(navigator);
           }
           // 隐藏分页
-          doc.querySelector(".art-page").style.display = "none"
+          doc.querySelector(".art-page").style.display = "none";
         }
       }
     },
