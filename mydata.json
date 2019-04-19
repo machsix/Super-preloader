@@ -268,18 +268,18 @@
   },
   {
     "name": "wearn.com-threads",
-    "url": "^https?://www\\.wearn\\.com/bbs/t.*$",
-    "pageElement": "//body/table[@cellpadding='3']/following-sibling::table[@cellspacing='1']/preceding-sibling::table[preceding-sibling::table[@cellpadding='3'] and not(@style)]",
+    "url": "^https?://www\\.wearn\\.com/bbs/(t\\d+\\.html|dtmessage\\.asp\\?topic_id=\\d+)",
+    "pageElement": "(//*[@id='topwrapper'] | //body)/table[@cellpadding='3']/following-sibling::table[@cellspacing='1']/preceding-sibling::table[preceding-sibling::table[@cellpadding='3'] and not(@style)]",
     "nextLink": "auto;",
-    "exampleUrl": "https://www.wearn.com/bbs/t983642.html"
+    "exampleUrl": "https://www.wearn.com/bbs/t983642.html; https://www.wearn.com/bbs/dtmessage.asp?topic_id=980966&forum_id=116&cat_id=19"
   },
   {
     "name": "wearn.com-thread-list",
     "url": "^https?://www\\.wearn\\.com",
-    "pageElement": "//div[@class='main_content']/ul",
+    "pageElement": "//div[@class='main_content']/ul | //*[@id=\"topwrapper\"]/table[4]/tbody/tr/td/table",
     "nextLink": "auto;",
     "exampleUrl": "https://www.wearn.com/bbs/active.asp",
-    "note": "You need to add '||wearn.com/bbs/fansadd_new.asp' to your ad blocker"
+    "note": "You need to add '||wearn.com/bbs/fansadd_new.asp' to your ad blocker,这个垃圾论坛..挑战xpath极限"
   },
   {
     "name": "avgle",
