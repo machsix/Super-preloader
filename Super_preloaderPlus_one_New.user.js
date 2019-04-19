@@ -13,7 +13,7 @@
 // @author       Mach6
 // @contributers YFdyh000, suchunchen
 // @thanksto     ywzhaiqi, NLF
-// @version      6.6.42
+// @version      6.6.43
 // @license      GNU GPL v3
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
@@ -60,7 +60,7 @@
 (function() {
   const scriptInfo = {
     name: "Super_preloaderPlus_one_New",
-    version: "6.6.42",
+    version: "6.6.43",
     updateTime: "2019/4/18",
     changelog: "improve documentFilter",
     homepageURL: "https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new",
@@ -224,7 +224,8 @@
     lazyImgSrc: "zoomfile|file|original|load-src|_src|imgsrc|real_src|src2|data-lazyload-src|data-ks-lazyload|data-lazyload|data-src|data-original|data-thumb|data-imageurl|data-defer-src|data-placeholder",
     ChineseUI: false,
     dblclick_pause: false,
-    factoryCheck: true
+    factoryCheck: true,
+    disappearDelay: -1 //暂停翻页状态栏disappearDelay ms后消失, -1为不消失
   };
   var prefs = prefsFactory;
 
@@ -661,43 +662,6 @@
       autopager: {
         pageElement: '//div[@class="infoPerBlock infoCommentBlock"]',
         replaceE: '(//ul[@class="pagination"])[1]'
-      }
-    },
-    {
-      name: "mteam detail",
-      url: "^https?://tp\\.m-team\\.cc/artist\\.php?",
-      exampleUrl: "https://zhiyou.smzdm.com/member/1823681945/pinglun/",
-      nextLink: "//div[@class='artist']//b[@title='Alt+Pagedown']/parent::a",
-      autopager: {
-        pageElement: '//form[@id="form2"]/table',
-        relatedObj: true,
-        documentFilter: "startFilter",
-        startFilter: function(doc) {
-          const trs = getAllElementsByXpath("//div[@class='artist']/div[@class='atl']/form/table/tbody/tr/td[@colspan='5']/parent::tr", doc, doc);
-          if (trs.snapshotLength > 0) {
-            for (var i = 0; i < trs.snapshotLength; i++) {
-              var img = trs.snapshotItem(i).getElementsByTagName("img");
-              if (img) {
-                img = img[0];
-                var imgSrc = img.getAttribute("src");
-                const newImg = doc.createElement("img");
-                newImg.setAttribute("src", imgSrc);
-                newImg.setAttribute("style", "display:block; width:100%; height:auto;");
-
-                const newtd = doc.createElement("td");
-                newtd.setAttribute("colspan", "3");
-                newtd.setAttribute("style", "border-bottom:1pt dashed black;");
-
-                const newtr = doc.createElement("tr");
-
-                newtd.appendChild(newImg);
-                newtr.appendChild(newtd);
-
-                trs.snapshotItem(i).parentNode.insertBefore(newtr, trs.snapshotItem(i));
-              }
-            }
-          }
-        }
       }
     },
     // ================ news、Reading ===========================
@@ -1457,6 +1421,79 @@
     },
     // ================== PT ==============================
     {
+      name: "m-team artist detail",
+      url: "^https?://tp\\.m-team\\.cc/artist\\.php?",
+      nextLink: '//b[@title="Alt+Pagedown"]/parent::a',
+      autopager: {
+        pageElement: '//form[@id="form2"]/table',
+        relatedObj: true,
+        documentFilter: "startFilter",
+        startFilter: function(doc) {
+          const trs = getAllElementsByXpath("//div[@class='artist']/div[@class='atl']/form/table/tbody/tr/td[@colspan='5']/parent::tr", doc, doc);
+          if (trs.snapshotLength > 0) {
+            for (var i = 0; i < trs.snapshotLength; i++) {
+              var img = trs.snapshotItem(i).getElementsByTagName("img");
+              if (img) {
+                img = img[0];
+                var imgSrc = img.getAttribute("src");
+                const newImg = $C("img", {
+                  src: imgSrc,
+                  style: "display:block; width:100%; height:auto;"
+                });
+
+                const newtd = $C("td", {
+                  colspan: 5,
+                  style: "border-bottom:1px dashed black;"
+                });
+
+                const newtr = $C("tr", {
+                  align: "center"
+                });
+
+                newtd.appendChild(newImg);
+                newtr.appendChild(newtd);
+                trs.snapshotItem(i).parentNode.insertBefore(newtr, trs.snapshotItem(i));
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      name: "m-team adults",
+      url: "^https?://tp\\.m-team\\.cc/adult\\.php",
+      nextLink: '//b[@title="Alt+Pagedown"]/parent::a',
+      autopager: {
+        pageElement: '//table[@class="torrents"]',
+        startFilter: function(doc) {
+          const tds = document.getElementsByClassName("torrentimg");
+          [].forEach.call(tds, function(td) {
+            const imgSrc = td.getElementsByTagName("img");
+            if (imgSrc) {
+              const newImg = $C("img", {
+                src: imgSrc[0].getAttribute("src"),
+                style: "display:block; width:100%; height:auto;"
+              });
+
+              const newtd = $C("td", {
+                colspan: 2,
+                style: "border-bottom:1px solid black;"
+              });
+
+              const newtr = $C("tr", {
+                align: "center"
+              });
+
+              newtd.appendChild(newImg);
+              newtr.appendChild(newtd);
+              td.parentNode.parentNode.insertBefore(newtr, td.parentNode);
+            }
+          });
+        },
+        documentFilter: "startFilter"
+      }
+    },
+    {
       name: "光华，cmct，chd，皇后，hd86，khdbits，hdsky，hdvnbits，hd-sportbits，tccf，皇后mv，mt，hd4fans，hdhc，发烧友，tlfbits，joyhd，蚂蚁pt，清影pt，北邮人，u2",
       url: /^https?:\/\/(?:bt\.upc\.edu|hdcmct|chdbits|open|hd86|khdbits|hdsky|hdvnbits|hd-sportbits|et8|mv\.open|tp\.m-team|www\.hd4fans|www\.hdhc|www\.pt|pt\.eastgame|www\.joyhd|ipv6\.antsoul|ipv4\.antsoul|pt\.hit\.edu|bt\.byr|u2\.dmhy)\.(net|cn|org|com|cd|cc|me|cm)\//i,
       exampleUrl: "http://hdcmct.org/torrents.php",
@@ -1485,7 +1522,7 @@
     },
     {
       name: "TTG",
-      url: /^https?:\/\/ttg\.im\/browse\.php/i,
+      url: "^https?://totheglory\\.im/browse\\.php",
       exampleUrl: "http://ttg.im/browse.php",
       nextLink: '//b[contains(text(), "下页")]/parent::a',
       autopager: {
@@ -7383,9 +7420,9 @@
             if (pause) {
               floatWO.updateColor("Apause");
               if (i8n() === "zh_CN") {
-                notice("<b>状态</b>:" + '自动翻页<span style="color:red!important;"><b> 暂停</b></span>.', -1);
+                notice("<b>状态</b>:" + '自动翻页<span style="color:red!important;"><b> 暂停</b></span>.', prefs.disappearDelay);
               } else {
-                notice("<b>Status</b>:" + 'Autopagger<span style="color:red!important;"><b> Pause</b></span>.', -1);
+                notice("<b>Status</b>:" + 'Autopagger<span style="color:red!important;"><b> Pause</b></span>.', prefs.disappearDelay);
               }
             } else {
               floatWO.updateColor("autopager");
