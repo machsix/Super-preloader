@@ -276,7 +276,7 @@
   {
     "name": "wearn.com-thread-list",
     "url": "^https?://www\\.wearn\\.com",
-    "pageElement": "//div[@class='main_content']/ul | //*[@id=\"topwrapper\"]/table[4]/tbody/tr/td/table",
+    "pageElement": "//div[@class='main_content']/ul| //*[@id='topwrapper']/table[@class]/tbody[tr/td/strong]",
     "nextLink": "auto;",
     "exampleUrl": "https://www.wearn.com/bbs/active.asp",
     "note": "You need to add '||wearn.com/bbs/fansadd_new.asp' to your ad blocker,这个垃圾论坛..挑战xpath极限"
