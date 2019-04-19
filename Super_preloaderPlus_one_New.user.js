@@ -13,7 +13,7 @@
 // @author       Mach6
 // @contributers YFdyh000, suchunchen
 // @thanksto     ywzhaiqi, NLF
-// @version      6.6.45
+// @version      6.6.47
 // @license      GNU GPL v3
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
@@ -60,7 +60,7 @@
 (function() {
   const scriptInfo = {
     name: "Super_preloaderPlus_one_New",
-    version: "6.6.45",
+    version: "6.6.47",
     updateTime: "2019/4/19",
     changelog: "Fix sepdiv for tbody table",
     homepageURL: "https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new",
@@ -7266,7 +7266,7 @@
           var ncol = 0;
           if (SSS.a_sepdivDom !== undefined && typeof SSS.a_sepdivDom === "function") {
             toInsert = SSS.a_sepdivDom(doc, sepdiv);
-          } else if (pageElements[0] && pageElements[0].tagName === "TR") {
+          } else if (pageElements[0] && pageElements[0].tagName === "TR" && pageElements[pageElements.length - 1].tagName === "TR") {
             const insertParent = insertPoint.parentNode;
             var colNodes = getAllElements("child::tr[1]/child::*[self::td or self::th]", insertParent);
             if (colNodes.length == 0) {
@@ -7282,7 +7282,7 @@
             tr.appendChild(td);
 
             toInsert = tr;
-          } else if (pageElements[0] && pageElements[0].tagName === "TBODY") {
+          } else if (pageElements[0] && pageElements[0].tagName === "TBODY" && pageElements[pageElements.length - 1].tagName === "TBODY") {
             var trs = pageElements[pageElements.length - 1].getElementsByTagName("tr");
             if (trs) {
               trs = trs[trs.length - 1];
