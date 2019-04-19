@@ -1,5 +1,19 @@
 [
 {
+  "name": "give it love",
+  "created_by": "t_f_m",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "updated_at": "2019-04-19T18:09:59+09:00",
+  "resource_url": "http://wedata.net/items/82125",
+  "data": {
+    "exampleUrl": "http://www.giveitlove.com/jp/seal-encounter-divers/2/?firefox=1",
+    "url": "^http://www\\.giveitlove\\.com/",
+    "pageElement": "//section[contains(concat(\" \",@class,\" \"),\" entry-content \")]",
+    "nextLink": "id(\"next-button\")/a"
+  },
+  "created_at": "2019-04-19T18:04:29+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/82124",
   "name": "論文relation",
   "created_by": "yoshi",
