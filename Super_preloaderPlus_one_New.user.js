@@ -13,7 +13,7 @@
 // @author       Mach6
 // @contributers YFdyh000, suchunchen
 // @thanksto     ywzhaiqi, NLF
-// @version      6.6.41
+// @version      6.6.42
 // @license      GNU GPL v3
 // @homepageURL  https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
@@ -60,7 +60,7 @@
 (function() {
   const scriptInfo = {
     name: "Super_preloaderPlus_one_New",
-    version: "6.6.41",
+    version: "6.6.42",
     updateTime: "2019/4/18",
     changelog: "improve documentFilter",
     homepageURL: "https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new",
@@ -5083,6 +5083,18 @@
         },
         relatedObj: true
       }
+    },
+    {
+      name: "Generic Posts Rule created by swdyh",
+      exampleUrl: "http://wedata.net/items/400.json",
+      url: "^https?://.+",
+      pageElement:
+        "(//article[not(contains(../@class,'widget'))][not(contains(@class,'columns four'))][not(ancestor::*[starts-with(@class,'sidebar')])]|//*[starts-with(@id,'post-')][not(contains(@id,'post-rating'))])[not(.//*[contains(@class,'admz')])][not(id('load-more-posts') or @id='fpost' or contains(@class,'carousel'))][parent::node()[not(self::h2)][not(@id='side')][not(contains(@class,'thumbnail'))][not(following-sibling::*[not(@id='side')][article or *[starts-with(@id,'post-')]])]/*[self::article or starts-with(@id,'post-')]/following-sibling::*[self::article or starts-with(@id,'post-')][not(contains(@id,'nav'))]]|id('content')[count(div)>1]/div[contains(@class,'post')][not(contains(div/@class,'breadcrumb'))][not(contains(div/@class,'nav'))]",
+      nextLink:
+        "(//*[not(contains(@class,'_inactive'))]/a[starts-with(@class,'nextpostslink') or contains(@class,'next page-numbers') or (.|..)[normalize-space(@rel)='next' or normalize-space(@class)='next' or contains(@class,'pagination-next')]][not(span/@class='link-text')]|//*[contains(@class,'nav-previous')][not(contains(@class,'pull'))]/a|(//*[contains(@class,'current')][number()>0]/following-sibling::a[1]|(//li|//span|//div)[(.//*|.)[contains(@class,'current')]][number()>0]/following-sibling::*[self::li or self::span or self::div][1]/a))[not(starts-with(@href, '#'))]",
+      autopager: {
+        stylish: '@-moz-document domain("wotopi.jp") { .figure-list{display:flex; flex-wrap:wrap;} }'
+      }
     }
   ];
 
@@ -5103,8 +5115,13 @@
       ruleParser: function(responseText) {
         return JSON.parse(responseText)
           .filter(function(i) {
-            if (i.name === "Generic Posts Rule") return false;
-            else return true;
+            const nameFilter = ["Generic Posts Rule", "hAtom"];
+            for (var j = 0; j < nameFilter.length; j++) {
+              if (nameFilter[j].indexOf(i.name) >= 0) {
+                return false;
+              }
+            }
+            return true;
           })
           .map(function(i) {
             i.data.name = i.name;
