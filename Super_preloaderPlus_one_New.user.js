@@ -1861,6 +1861,24 @@
       }
     },
     {
+      name: "电玩巴士 - 图文",
+      url: "^https?://pc\\.tgbus\\.com/.*\\d+/$",
+      exampleUrl: "http://pc.tgbus.com/tuwen_180/88983/",
+      nextLink: "//div[contains(@class, 'art-page')]/a[text()='下一页']",
+      autopager: {
+        pageElement: "//div[@class='art-body']",
+        documentFilter: function(doc) {
+          // 删除导航
+          const navigator = doc.querySelector(".art-pagination");
+          if (navigator) {
+            navigator.parentNode.removeChild(navigator);
+          }
+          // 隐藏分页
+          doc.querySelector(".art-page").style.display = "none"
+        }
+      }
+    },
+    {
       name: "3DMGAME",
       url: "^https://.*.3dmgame.com/*",
       exampleUrl: "https://www.3dmgame.com/news/201312/2310792.html|https://www.3dmgame.com/news/",
