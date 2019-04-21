@@ -1891,6 +1891,8 @@
           if (pager) {
             pager.parentNode.parentNode.appendChild(pager);
           }
+        }
+      }
     },
     {
       name: "电玩巴士 - 图文",
