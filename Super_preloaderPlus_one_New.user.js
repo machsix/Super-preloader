@@ -1844,7 +1844,7 @@
     },
     {
       name: "ali213 - 攻略",
-      url: "^http://gl\.ali213\.net/html",
+      url: /^http:\/\/gl\.ali213\.net\/html/,
       exampleUrl: "http://gl.ali213.net/html/2011/25399_2.html",
       nextLink: "id('after_this_page')",
       autopager: {
@@ -1856,6 +1856,22 @@
           const comments = getElementByXpath('//div[@class="glzjshow_plun"]', doc, doc);
           if (comments) {
             comments.style.display = "none";
+          }
+        }
+      }
+    },
+    {
+      name: "多玩 - 攻略",
+      url: /^https?:\/\/tv\.duowan\.com\/\d+\/\d+\.html/,
+      exampleUrl: "http://tv.duowan.com/1801/380717306538.html",
+      nextLink: "id('pageNum')//a[text()='下一页']",
+      autopager: {
+        useiframe: true,
+        pageElement: "//div[@class='box-bd'][last()]",
+        startFilter: function(doc){
+          const pager = doc.querySelector("#pageNum");
+          if (pager) {
+            pager.parentNode.parentNode.appendChild(pager)
           }
         }
       }
