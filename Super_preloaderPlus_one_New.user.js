@@ -1885,11 +1885,23 @@
       nextLink: "id('pageNum')//a[text()='下一页']",
       autopager: {
         useiframe: true,
+        replaceE: "id('pageNum')",
         pageElement: "//div[@class='box-bd'][last()]",
         startFilter: function(doc){
           const pager = doc.querySelector("#pageNum");
           if (pager) {
-            pager.parentNode.parentNode.appendChild(pager);
+            getElementByXpath("//div[@class='box-bd'][last()]", doc, doc).after(pager);
+          }
+          //删除侧边栏
+          const ad = doc.querySelector(".aside-wrap");
+          if (ad) {
+            ad.style.display = "none";
+          }
+        },
+        documentFilter: function(doc) {
+          const pager = doc.querySelector("#pageNum");
+          if (pager) {
+            pager.style.display = "none";
           }
         }
       }
