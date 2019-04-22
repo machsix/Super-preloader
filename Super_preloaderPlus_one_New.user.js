@@ -1887,7 +1887,7 @@
         useiframe: true,
         replaceE: "id('pageNum')",
         pageElement: "//div[@class='box-bd'][last()]",
-        startFilter: function(doc){
+        startFilter: function(doc) {
           const pager = doc.querySelector("#pageNum");
           if (pager) {
             getElementByXpath("//div[@class='box-bd'][last()]", doc, doc).after(pager);
