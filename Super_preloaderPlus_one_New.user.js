@@ -1897,6 +1897,25 @@
       }
     },
     {
+      name: "电玩巴士 - 攻略",
+      url: "^https?://zt\\.tgbus\\.com/.*.shtml",
+      exampleUrl: "http://zt.tgbus.com/zeldabotw/2017/03/06/11481575436.shtml",
+      // 修复最后一页的下一页还是最后一个的bug
+      nextLink: function(doc, win, cplink) {
+        const nextLinkNode = getElementByXpath("//span[@id='pe100_page_contentpage']/a[text()='>']");
+
+        if (!nextLinkNode) {
+          return undefined;
+        }
+        const urlPart = doc.domain + nextLinkNode.getAttribute("href");
+        if ("http://" + urlPart == cplink || "https://" + urlPart == cplink) {
+          return undefined;
+        }
+        return nextLinkNode.getAttribute("href");
+      },
+      pageElement: "id('main-content')"
+    },
+    {
       name: "3DMGAME",
       url: "^https://.*.3dmgame.com/*",
       exampleUrl: "https://www.3dmgame.com/news/201312/2310792.html|https://www.3dmgame.com/news/",

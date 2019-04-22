@@ -295,12 +295,5 @@
     "useiframe": true,
     "pageElement": "//div[@class=\"content section-inner\"]",
     "exampleUrl": "https://www.jav777.cc/"
-  },
-  {
-    "name": "电玩巴士 - 攻略",
-    "url": "^https?://zt\\.tgbus\\.com/.*.shtml",
-    "exampleUrl": "http://zt.tgbus.com/zeldabotw/2017/03/06/11481575436.shtml",
-    "pageElement": "id('main-content')",
-    "nextLink": "id('pe100_page_contentpage')/a[text()='>']"
   }
 ]
