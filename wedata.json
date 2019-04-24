@@ -1,5 +1,21 @@
 [
 {
+  "resource_url": "http://wedata.net/items/82131",
+  "name": "ファミ通AppVS",
+  "created_by": "jigendaddy_be",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "updated_at": "2019-04-24T17:22:52+09:00",
+  "data": {
+    "Stylus": ".autopagerize_page_separator~article figure>img {\r\n  width: 320px;\r\n  height: 180px;\r\n  object-fit: cover;\r\n}\r\n.autopagerize_page_separator~article figure[style]>img{display:none;}",
+    "exampleUrl": "https://appvs.famitsu.com/category/news/ https://appvs.famitsu.com/gametitle/2081/",
+    "bookmarklet": "var img = document.createElement(\"img\");\r\nvar listArray = document.querySelectorAll('.autopagerize_page_separator~article figure');\r\nfor (var i = 0; i < listArray.length; i++) {\r\n  listArray[i].appendChild(img.cloneNode(true));\r\n}\r\nvar listArray2 = document.querySelectorAll('.autopagerize_page_separator~article figure>img');\r\nvar listArray3 = document.querySelectorAll('.autopagerize_page_separator~article figure');\r\nfor (var j = 0; j < listArray3.length; j++) {\r\n  listArray2[j].src=listArray3[j].dataset.loadimageBackground;\r\n}",
+    "url": "^https://appvs\\.famitsu\\.com/",
+    "pageElement": "//div[@class=\"column-list__main\"]//article",
+    "nextLink": "//link[@rel=\"next\"]"
+  },
+  "created_at": "2019-04-24T16:05:54+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/82130",
   "name": "KJCLUB",
   "created_by": "t_f_m",
