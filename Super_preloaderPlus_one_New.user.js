@@ -5094,13 +5094,19 @@
           if (!isWP) {
             return null;
           }
-          // if this is the page of post, return null
-          const postXpath = [
-            "//input[@value='发表评论' or @value='提交评论' or @value='添加留言' or @value='SUBMIT COMMENT']",
-            "//a[text()='发表评论' or text()='提交评论' or text()='添加留言' or text()='SUBMIT COMMENT']",
-            "//div[@class='single-post-box']",
-            "//div[@class='single_post']"
-          ];
+
+          // if this is the page of an article, return null
+          const submitComment = ["发表评论", "提交评论", "添加留言", "提交留言", "コメントを送信", "SUBMIT COMMENT", "POST COMMENT", "Submit Comment", "Post comment"];
+          for (i = 0; i < submitComment.length; i++) {
+            if (getAllElementsByXpath("//input[@value='" + submitComment[i] + "']")) {
+              return null;
+            }
+            if (getAllElementsByXpath("//a[text()='" + submitComment[i] + "']")) {
+              return null;
+            }
+          }
+
+          const postXpath = ["//button[@id='submit']", "//div[@class='single-post-box']", "//div[@class='single_post']"];
           for (i = 0; i < postXpath.length; i++) {
             if (getElementByXpath(postXpath[i], doc, doc)) {
               return null;
