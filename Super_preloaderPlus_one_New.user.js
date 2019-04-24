@@ -1900,7 +1900,7 @@
     },
     {
       name: "ali213 - 攻略",
-      url: "^http://gl\\.ali213\\.net/html",
+      url: /^http:\/\/gl\.ali213\.net\/html/,
       exampleUrl: "http://gl.ali213.net/html/2011/25399_2.html",
       nextLink: "id('after_this_page')",
       autopager: {
@@ -1911,6 +1911,34 @@
           const comments = getElementByXpath('//div[@class="glzjshow_plun"]', doc, doc);
           if (comments) {
             comments.style.display = "none";
+          }
+        }
+      }
+    },
+    {
+      name: "多玩 - 攻略",
+      url: /^https?:\/\/tv\.duowan\.com\/\d+\/\d+\.html/,
+      exampleUrl: "http://tv.duowan.com/1801/380717306538.html",
+      nextLink: "id('pageNum')//a[text()='下一页']",
+      autopager: {
+        useiframe: true,
+        replaceE: "id('pageNum')",
+        pageElement: "//div[@class='box-bd'][last()]",
+        startFilter: function(doc) {
+          const pager = doc.querySelector("#pageNum");
+          if (pager) {
+            getElementByXpath("//div[@class='box-bd'][last()]", doc, doc).after(pager);
+          }
+          //删除侧边栏
+          const ad = doc.querySelector(".aside-wrap");
+          if (ad) {
+            ad.style.display = "none";
+          }
+        },
+        documentFilter: function(doc) {
+          const pager = doc.querySelector("#pageNum");
+          if (pager) {
+            pager.style.display = "none";
           }
         }
       }
@@ -7718,6 +7746,11 @@
             nextlink = getElement(SII.nextLink || "auto;");
             if (!nextlink) {
               debug("无法找到下一页链接,跳过规则:", SII, "继续查找其他规则");
+              continue;
+            }
+            // 如果匹配到的下一页链接和当前页一致，继续查找下一条规则
+            if (getFullHref(nextlink) == document.location.href) {
+              nextlink = null;
               continue;
             }
 
