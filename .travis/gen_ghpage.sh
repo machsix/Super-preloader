@@ -16,9 +16,19 @@ if [ -f "mydata_dev.json" ]; then
     git add mydata_dev_detail.json
 fi
 git commit -m "Temporary commit"
+COMMIT_HASH=`git rev-parse HEAD`
+echo -e "\e[1m\e[41m\e[97mHASH: ${COMMIT_HASH}\e[0m"
 
+# Fetch documents
 git fetch origin gh-pages:gh-pages
-if [[ -n `git diff --name-status gh-pages..master -- mydata.json` ]] || [[ -n `git diff --name-status gh-pages..master -- mydata_dev.json` ]] || [[ ${TRAVIS_COMMIT_MESSAGE} == *"[ci deploy]"* ]]; then
+
+# travis works in detached head mode, so we compare with commit hash instead of master
+COND1=`git diff gh-pages..${COMMIT_HASH} -- mydata.json`
+COND2=`git diff gh-pages..${COMMIT_HASH} -- mydata_dev.json`
+
+echo -e "\e[1m\e[41m\e[97mGit status\e[0m"
+git status
+if [[ -n $COND1 ]] || [[ -n $COND2 ]] || [[ ${TRAVIS_COMMIT_MESSAGE} == *"[ci deploy]"* ]]; then
     pip install sphinx_rtd_theme
     pip install travis-sphinx
     echo "mydata.json is changed"
