@@ -8,10 +8,12 @@ echo -e "\e[1m\e[41m\e[97mFinish writing details for ${JSONFILE}.json\e[0m"
 cd ${REPO_DIR}
 git add ${JSONFILE}.json
 git commit -m "Temporary commit"
+COMMIT_HASH=`git rev-parse HEAD`
+echo -e "\e[1m\e[41m\e[97mHASH: ${COMMIT_HASH}\e[0m"
 
 git remote set-url origin https://machsix:${GH_TOKEN}@github.com/machsix/Super-preloader.git
 git fetch origin gh-pages:gh-pages
-if [[ -n `git diff --name-status gh-pages..dev -- ${JSONFILE}.json` ]] || [[ ${TRAVIS_COMMIT_MESSAGE} == *"[ci deploy]"* ]]; then
+if [[ -n `git diff --name-status gh-pages..${COMMIT_HASH} -- ${JSONFILE}.json` ]] || [[ ${TRAVIS_COMMIT_MESSAGE} == *"[ci deploy]"* ]]; then
     cp ${REPO_DIR}/${JSONFILE}.json        /tmp/${JSONFILE}.json
     cp ${REPO_DIR}/${JSONFILE}_detail.json /tmp/${JSONFILE}_detail.json
     git reset --hard
