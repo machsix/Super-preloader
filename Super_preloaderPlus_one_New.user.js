@@ -13,7 +13,7 @@
 // @author       Mach6
 // @contributers YFdyh000, suchunchen
 // @thanksto     ywzhaiqi, NLF
-// @version      6.6.51
+// @version      6.6.52
 // @license      GPL-3.0-or-later
 // @homepageURL  https://github.com/machsix/Super-preloader
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
@@ -61,9 +61,9 @@
 (function() {
   const scriptInfo = {
     name: "Super_preloaderPlus_one_New",
-    version: "6.6.51",
-    updateTime: "2019/4/23",
-    changelog: "New UI",
+    version: "6.6.52",
+    updateTime: "2019/5/9",
+    changelog: "Fix inifinite autopagger",
     homepageURL: "https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new",
     downloadUrl: "https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.user.js",
     metaUrl: "https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.meta.js"
@@ -5125,7 +5125,7 @@
           }
 
           // if this is the page of an article, return null
-          const submitComment = ["发表评论", "提交评论", "添加留言", "提交留言", "コメントを送信", "SUBMIT COMMENT", "POST COMMENT", "Submit Comment", "Post comment"];
+          const submitComment = ["发表评论", "提交评论", "添加留言", "提交留言", "コメントを送信", "SUBMIT COMMENT", "POST COMMENT", "Submit Comment", "Post comment", "Post Comment"];
           for (i = 0; i < submitComment.length; i++) {
             if (getElementByXpath("//input[@value='" + submitComment[i] + "']", doc, doc)) {
               return null;
@@ -6240,7 +6240,19 @@
             };
 
             function gl(obj) {
-              return obj.type == "checkbox" ? obj.checked : obj.value;
+              switch (obj.type) {
+                case "checkbox":
+                  return obj.checked;
+                case "number": {
+                  const min = obj.hasAttribute("min") ? Number(obj.min) : undefined;
+                  const max = obj.hasAttribute("max") ? Number(obj.max) : undefined;
+                  if (min >= Number(obj.value)) return min;
+                  if (max < Number(obj.value)) return max;
+                  return obj.value;
+                }
+                default:
+                  return obj.value;
+              }
             }
             if (SSS.a_enable !== undefined) {
               value.a_enable = gl(a_enable);
@@ -6249,13 +6261,13 @@
               value.a_iloaded = gl(a_iloaded);
               value.a_manualA = gl(a_manualA);
               value.a_force = gl(a_force);
-              const t_a_itimeout = Number(gl(a_itimeout));
+              const t_a_itimeout = gl(a_itimeout);
               value.a_itimeout = isNaN(t_a_itimeout) ? SSS.a_itimeout : t_a_itimeout >= 0 ? t_a_itimeout : 0;
-              const t_a_remain = Number(gl(a_remain));
+              const t_a_remain = gl(a_remain);
               value.a_remain = isNaN(t_a_remain) ? SSS.a_remain : Number(t_a_remain.toFixed(2));
-              const t_a_maxpage = Number(gl(a_maxpage));
+              const t_a_maxpage = gl(a_maxpage);
               value.a_maxpage = isNaN(t_a_maxpage) ? SSS.a_maxpage : t_a_maxpage >= 1 ? t_a_maxpage : 1;
-              const t_a_ipages_1 = Number(gl(a_ipages_1));
+              const t_a_ipages_1 = gl(a_ipages_1);
               value.a_ipages = [gl(a_ipages_0), isNaN(t_a_ipages_1) ? SSS.a_ipages[1] : t_a_ipages_1 >= 1 ? t_a_ipages_1 : 1];
               value.a_separator = gl(a_separator);
             }
