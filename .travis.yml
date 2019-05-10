@@ -4,12 +4,13 @@ cache: yarn
 before_install:
   - curl -o- -L https://yarnpkg.com/install.sh | bash
   - export PATH="$HOME/.yarn/bin:$PATH"
+  - npm config set scripts-prepend-node-path true
 install:
-    - yarn install
+  - yarn install
 script:
-    - yarn run test
-    - yarn docs:build
-    - bash .travis/gen_ghpage.sh
+  - yarn run test
+  - yarn docs:build
+  - .travis/gen_ghpage.sh
 deploy:
   provider: pages
   skip_cleanup: true
