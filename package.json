@@ -33,8 +33,8 @@
   },
   "homepage": "https://github.com/machsix/Super-preloader#readme",
   "devDependencies": {
-    "@vuepress/plugin-back-to-top": "^1.0.0-alpha.0",
-    "@vuepress/plugin-google-analytics": "^1.0.0-alpha.47",
+    "@vuepress/plugin-back-to-top": "1.0.0-alpha.0",
+    "@vuepress/plugin-google-analytics": "1.0.0-alpha.47",
     "eslint": "5.16.0",
     "eslint-plugin-compat": "3.1.1",
     "eslint-plugin-json": "1.4.0",
@@ -42,7 +42,7 @@
     "husky": "2.2.0",
     "prettier": "1.17.0",
     "prettylint": "1.0.0",
-    "vuepress": "^0.14.11"
+    "vuepress": "0.14.11"
   },
   "browserslist": [
     "defaults"

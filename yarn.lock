@@ -811,14 +811,14 @@
     source-map "~0.6.1"
     vue-template-es2015-compiler "^1.9.0"
 
-"@vuepress/plugin-back-to-top@^1.0.0-alpha.0":
+"@vuepress/plugin-back-to-top@1.0.0-alpha.0":
   version "1.0.0-alpha.0"
   resolved "https://registry.yarnpkg.com/@vuepress/plugin-back-to-top/-/plugin-back-to-top-1.0.0-alpha.0.tgz#401513b39d5dd081f49404c35ab6f51002c1cca0"
   integrity sha512-Ll7AdL/Lnnqft73NVJlnlZQeWurJ4U6dfeBsbcJjnywrldQ3M4nVdXWxXVCpMOILxpIuzEPhS60sudk93rVtgQ==
   dependencies:
     lodash.debounce "^4.0.8"
 
-"@vuepress/plugin-google-analytics@^1.0.0-alpha.47":
+"@vuepress/plugin-google-analytics@1.0.0-alpha.47":
   version "1.0.0-alpha.47"
   resolved "https://registry.yarnpkg.com/@vuepress/plugin-google-analytics/-/plugin-google-analytics-1.0.0-alpha.47.tgz#48af1cda1bd9f1a9f5c3506c398a1c364db6647f"
   integrity sha512-QuJoudT8EGo14oQsNrFpV9sKYNAkHH31Jv5R8/7JSEBcG9NKgpIUAaCkb2+/Ytwot2Oh/cd7MQsZvHQeXWuTBQ==
@@ -8019,7 +8019,7 @@ vuepress-html-webpack-plugin@^3.2.0:
     toposort "^1.0.0"
     util.promisify "1.0.0"
 
-vuepress@^0.14.11:
+vuepress@0.14.11:
   version "0.14.11"
   resolved "https://registry.yarnpkg.com/vuepress/-/vuepress-0.14.11.tgz#fc6ba0e609e3433a8070e95301b4d987712b2a08"
   integrity sha512-5iB7iWeEG7GtEiNwmS2LOcifp2V93aZ4+oO9pq8OcUgOWay9/NqmNqzg7KQ7AJ0puZGg0tYwUKKjifIWIPE8jQ==
