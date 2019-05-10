@@ -811,10 +811,10 @@
     source-map "~0.6.1"
     vue-template-es2015-compiler "^1.9.0"
 
-"@vuepress/plugin-back-to-top@1.0.0-alpha.0":
-  version "1.0.0-alpha.0"
-  resolved "https://registry.yarnpkg.com/@vuepress/plugin-back-to-top/-/plugin-back-to-top-1.0.0-alpha.0.tgz#401513b39d5dd081f49404c35ab6f51002c1cca0"
-  integrity sha512-Ll7AdL/Lnnqft73NVJlnlZQeWurJ4U6dfeBsbcJjnywrldQ3M4nVdXWxXVCpMOILxpIuzEPhS60sudk93rVtgQ==
+"@vuepress/plugin-back-to-top@1.0.0-alpha.47":
+  version "1.0.0-alpha.47"
+  resolved "https://registry.yarnpkg.com/@vuepress/plugin-back-to-top/-/plugin-back-to-top-1.0.0-alpha.47.tgz#138262700c22c80878a36e6837bfe03a4e514580"
+  integrity sha512-02wOpaIzJqwDMMd5+22f48iOC7iz3NgAX42VOJjFvQmrFzcBMm/HMzXG0nLF0Q23Idcbs1b5Vf4UPPCgiHDZWQ==
   dependencies:
     lodash.debounce "^4.0.8"
 
