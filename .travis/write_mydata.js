@@ -5,7 +5,7 @@ const path = require("path");
 logger.setLevel("info");
 
 const jsonFilePath = process.argv.length >= 2 ? process.argv[2] : path.resolve("../dist/mydata.json");
-const url = process.argv.length >= 3 ? process.argv[3] : undefined;
+// const url = process.argv.length >= 3 ? process.argv[3] : undefined;
 
 const jsonFile = path.basename(jsonFilePath);
 const jsonFileName = jsonFile.split(".")[0];
