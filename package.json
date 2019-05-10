@@ -7,10 +7,12 @@
     "doc": "docs"
   },
   "scripts": {
-    "lint": "eslint Super_preloaderPlus_one_New.user.js mydata.json ./.travis",
-    "checkformat": "prettylint Super_preloaderPlus_one_New.user.js",
-    "format": "prettier --write Super_preloaderPlus_one_New.user.js && prettier --write mydata.json",
-    "test": "npm run lint && prettylint Super_preloaderPlus_one_New.user.js"
+    "lint": "eslint Super_preloaderPlus_one_New.user.js database/*.json .travis/*.js docs/.vuepress/config.js",
+    "checkformat": "npx prettylint Super_preloaderPlus_one_New.user.js",
+    "format": "prettier Super_preloaderPlus_one_New.user.js --write && prettier database/*.json --write && prettier docs/*.md --write",
+    "test": "npm run lint && prettylint Super_preloaderPlus_one_New.user.js",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   },
   "husky": {
     "hooks": {
@@ -31,16 +33,20 @@
   },
   "homepage": "https://github.com/machsix/Super-preloader#readme",
   "devDependencies": {
+    "@vuepress/plugin-back-to-top": "1.0.0-alpha.0",
+    "@vuepress/plugin-google-analytics": "1.0.0-alpha.47",
     "eslint": "5.16.0",
     "eslint-plugin-compat": "3.1.1",
     "eslint-plugin-json": "1.4.0",
     "eslint-plugin-prettier": "3.0.1",
     "husky": "2.2.0",
     "prettier": "1.17.0",
-    "prettylint": "1.0.0"
+    "prettylint": "1.0.0",
+    "vuepress": "0.14.11"
   },
   "browserslist": [
-    "Chrome > 32 or Firefox > 36"
+    "Firefox ESR",
+    "Chrome > 42"
   ],
   "dependencies": {}
 }

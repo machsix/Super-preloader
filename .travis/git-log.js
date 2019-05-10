@@ -1,10 +1,10 @@
 const {spawnSync} = require("child_process");
 const path = require("path");
 
-const gitLog = function(cwd, obj, magicKey) {
-  magicKey = "^^" || magicKey;
-  cwd = cwd || ".";
+const gitLog = function(obj, repoDir, magicKey) {
   const args = ["log"];
+  magicKey = magicKey || "^^";
+  repoDir = repoDir || "../";
 
   let logFormat = {
     commit: "%H",
@@ -45,7 +45,7 @@ const gitLog = function(cwd, obj, magicKey) {
   }
 
   const out = spawnSync("git", args, {
-    cwd: path.resolve(process.cwd(), cwd),
+    cwd: path.resolve(process.cwd(), repoDir),
     encoding: "utf8"
   });
   const commitInfoArray = out.stdout.split(magicKey).filter((val) => val.length > 0);
