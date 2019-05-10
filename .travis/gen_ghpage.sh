@@ -48,10 +48,11 @@ for jsDB in ${DB[@]}; do
   DB_FILENAME=`basename $jsDB`
   DETAIL_FILE="${DB_DIR}/${DB_FILENAME%.*}_detail.json"
 
+  cp ${DETAIL_FILE}  ${DOCS_DIR}/
   git checkout gh-pages -- ${DB_FILENAME}
   git checkout gh-pages -- "${DB_FILENAME%.*}_detail.json"
 
-  if [ `diff ${jsDB} ${DB_FILENAME}` != "" ]; then
+  if [[ -n `diff ${jsDB} ${DB_FILENAME}` ]]; then
     echo -e "\e[1m${DB_FILENAME} is updated\e[0m"
     cp ${jsDB}         ${DOCS_DIR}/
     cp ${DETAIL_FILE}  ${DOCS_DIR}/
