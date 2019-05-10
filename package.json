@@ -7,16 +7,16 @@
     "doc": "docs"
   },
   "scripts": {
-    "lint": "eslint Super_preloaderPlus_one_New.user.js database/*.json .travis/*.js docs/.vuepress/config.js",
-    "checkformat": "npx prettylint Super_preloaderPlus_one_New.user.js",
-    "format": "prettier Super_preloaderPlus_one_New.user.js --write && prettier database/*.json --write && prettier docs/*.md --write",
-    "test": "npm run lint && prettylint Super_preloaderPlus_one_New.user.js",
+    "lint": "eslint Super_preloaderPlus_one_New.user.js dist/*.json .travis/*.js docs/**/*.js dist/*.json docs/**/*.{json,js}",
+    "format:check": "prettier --ignore-path=.eslintignore --check Super_preloaderPlus_one_New.user.js dist/*.json .travis/*.js docs/**/*.js dist/*.json docs/**/*.{md,json,js}",
+    "format": "prettier --ignore-path=.eslintignore --write Super_preloaderPlus_one_New.user.js dist/*.json .travis/*.js docs/**/*.js dist/*.json docs/**/*.{json,js,md}",
+    "test": "npm run lint && npm run format:check",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run test"
+      "pre-commit": "npm run lint"
     }
   },
   "repository": {
@@ -36,12 +36,13 @@
     "@vuepress/plugin-back-to-top": "1.0.0-alpha.47",
     "@vuepress/plugin-google-analytics": "1.0.0-alpha.47",
     "eslint": "5.16.0",
+    "eslint-config-prettier": "4.2.0",
     "eslint-plugin-compat": "3.1.1",
     "eslint-plugin-json": "1.4.0",
     "eslint-plugin-prettier": "3.0.1",
     "husky": "2.2.0",
+    "loglevel": "1.6.1",
     "prettier": "1.17.0",
-    "prettylint": "1.0.0",
     "vuepress": "0.14.11"
   },
   "browserslist": [
