@@ -8,10 +8,7 @@
       "enable": true,
       "useiframe": false,
       "pageElement": "//img[@id='picarea']",
-      "ipages": [
-        true,
-        30
-      ]
+      "ipages": [true, 30]
     },
     "exampleUrl": "http://www.wnacg.org/photos-index-aid-42394.html"
   },
@@ -67,10 +64,7 @@
     "nextLink": "//div[@class='pages']/ul/li/a[contains(text(),'下一页')]",
     "autopager": {
       "pageElement": "//div[@class='articleBox']/div[@id='picBody']",
-      "ipages": [
-        true,
-        30
-      ]
+      "ipages": [true, 30]
     }
   },
   {
@@ -80,10 +74,7 @@
     "nextLink": "//div[@class='page']/a[text()='后']",
     "autopager": {
       "pageElement": "//div[@class='img']/p",
-      "ipages": [
-        true,
-        30
-      ]
+      "ipages": [true, 30]
     }
   },
   {
@@ -94,10 +85,7 @@
     "autopager": {
       "enable": true,
       "pageElement": "//tr[./td[@class='td6']]",
-      "ipages": [
-        true,
-        10
-      ]
+      "ipages": [true, 10]
     }
   },
   {
@@ -153,10 +141,7 @@
     "autopager": {
       "pageElement": "//div[@id='image_div']",
       "useiframe": true,
-      "ipages": [
-        true,
-        30
-      ]
+      "ipages": [true, 30]
     },
     "exampleUrl": "http://www.gssy.cc/30856/5"
   },
@@ -212,10 +197,7 @@
     "autopager": {
       "enable": true,
       "pageElement": "//div[@class='entry']/p|//article[contains(@class,'post-box')]",
-      "ipages": [
-        true,
-        30
-      ]
+      "ipages": [true, 30]
     }
   },
   {
@@ -225,7 +207,7 @@
     "nextLink": "id('page-container')//a[@class='lbf-pagination-next ']",
     "autopager": {
       "pageElement": "//div[@class='all-book-list']",
-      "replaceE":"id('page-container')"
+      "replaceE": "id('page-container')"
     }
   },
   {
@@ -235,14 +217,14 @@
     "nextLink": "//div[@class='nav-links']/a[last()]"
   },
   {
-      "name": "sasaone.com-album",
-      "url": "^https?://(\\w*\\.)?sasaone\\.com/\\w+/\\d+/\\d\\.html",
-      "nextLink":"auto;",
-      "autopager": {
-        "enable": true,
-        "pageElement": "//div[@id=\"disappear\"]",
-        "ipages": [true, 30]
-      }
+    "name": "sasaone.com-album",
+    "url": "^https?://(\\w*\\.)?sasaone\\.com/\\w+/\\d+/\\d\\.html",
+    "nextLink": "auto;",
+    "autopager": {
+      "enable": true,
+      "pageElement": "//div[@id=\"disappear\"]",
+      "ipages": [true, 30]
+    }
   },
   {
     "name": "sasaone.com-list",
@@ -315,10 +297,7 @@
     "autopager": {
       "pageElement": "id(\"b_results\")/li[not(contains(@class,\"b_pag\") or contains(@class,\"b_ans b_top\"))]",
       "replaceE": "//nav[@role=\"navigation\"]",
-      "HT_insert": [
-        "id(\"b_results\")/li[@class=\"b_pag\"]",
-        1
-      ]
+      "HT_insert": ["id(\"b_results\")/li[@class=\"b_pag\"]", 1]
     }
   },
   {
@@ -479,10 +458,7 @@
     "autopager": {
       "pageElement": "//div[@class=\"left_zw\"] | //div[@class=\"hd_photo\"]",
       "relatedObj": true,
-      "HT_insert": [
-        "//div[@id=\"function_code_page\"]",
-        1
-      ],
+      "HT_insert": ["//div[@id=\"function_code_page\"]", 1],
       "filter": "//div[@id=\"function_code_page\"]"
     }
   },
@@ -1001,10 +977,7 @@
     },
     "nextLink": {
       "startAfter": "&page=",
-      "mFails": [
-        "^https?:\\/\\/(?:www\\.)?assrt\\.net\\/sub\\/\\?searchword=[^\\/]+",
-        "&page=1"
-      ],
+      "mFails": ["^https?:\\/\\/(?:www\\.)?assrt\\.net\\/sub\\/\\?searchword=[^\\/]+", "&page=1"],
       "inc": 1
     },
     "autopager": {
@@ -1479,10 +1452,7 @@
     "nextLink": "auto;",
     "autopager": {
       "remain": 0.3333333333333333,
-      "relatedObj": [
-        "css;div.page_num",
-        "bottom"
-      ],
+      "relatedObj": ["css;div.page_num", "bottom"],
       "pageElement": "//div[@class=\"article\"]"
     }
   },
@@ -1739,10 +1709,7 @@
     "autopager": {
       "enable": true,
       "pageElement": "//div[@id=\"content\"]",
-      "ipages": [
-        true,
-        30
-      ]
+      "ipages": [true, 30]
     },
     "exampleUrl": "https://www.24fa.top/MeiNv/2017-10/50531p4.html"
   },
@@ -1752,10 +1719,7 @@
     "nextLink": "(//div/div/div/a[@class=\"next-page-a\"])[last()]",
     "autopager": {
       "pageElement": "//div[@class=\"img_box\"]",
-      "ipages": [
-        true,
-        30
-      ]
+      "ipages": [true, 30]
     },
     "exampleUrl": "http://www.17786.com/8104_2.html"
   },
@@ -1767,10 +1731,7 @@
     "autopager": {
       "enable": true,
       "pageElement": "//ul[@id=\"hgallery\"]",
-      "ipages": [
-        true,
-        30
-      ]
+      "ipages": [true, 30]
     }
   },
   {
@@ -1781,10 +1742,7 @@
     "autopager": {
       "enable": true,
       "pageElement": "id(\"big-pic\")/p/a",
-      "ipages": [
-        true,
-        30
-      ]
+      "ipages": [true, 30]
     },
     "exampleUrl": "https://www.aitaotu.com/guonei/1081_4.html"
   },
@@ -1795,10 +1753,7 @@
     "autopager": {
       "enable": true,
       "pageElement": "//div[@class=\"gallary_item\"]",
-      "ipages": [
-        true,
-        30
-      ]
+      "ipages": [true, 30]
     },
     "exampleUrl": "http://www.xiumeim.com/photos/YOUMI-189522.html"
   },
@@ -1809,10 +1764,7 @@
     "autopager": {
       "enable": true,
       "pageElement": "//div[@class=\"gallary_wrap\"]",
-      "ipages": [
-        true,
-        2
-      ]
+      "ipages": [true, 2]
     },
     "exampleUrl": "http://www.xiumeim.com/"
   },
@@ -1821,10 +1773,7 @@
     "url": "^https?://www\\.meitulu\\.com/item/\\d+(_\\d+)?\\.html",
     "nextLink": "//a[text()=\"下一页\"]",
     "autopager": {
-      "ipages": [
-        true,
-        30
-      ],
+      "ipages": [true, 30],
       "pageElement": "//div[@class=\"content\"]/center"
     },
     "exampleUrl": "https://www.meitulu.com/item/3225_2.html"
@@ -1835,10 +1784,7 @@
     "nextLink": "//a[text()=\"下一页\"]",
     "autopager": {
       "pageElement": "//div[@class=\"content\"]",
-      "ipages": [
-        true,
-        30
-      ]
+      "ipages": [true, 30]
     },
     "exampleUrl": "https://www.meitulu.com/item/3225_2.html"
   },
@@ -1849,10 +1795,7 @@
     "autopager": {
       "enable": true,
       "pageElement": "//article[@class=\"article-content\"]|//article[@class=\"excerpt excerpt-one\"]",
-      "ipages": [
-        true,
-        30
-      ],
+      "ipages": [true, 30],
       "replaceE": "//blockquote"
     },
     "exampleUrl": "http://zhaofuli.mobi/luyilu/2016/0224/1990.html"
@@ -1867,19 +1810,13 @@
     },
     "nextLink": {
       "startAfter": "_",
-      "mFails": [
-        "^https?:\\/\\/www\\.192tt\\.com\\/\\w+\\/\\w+\\/[^\\/]+(?=\\.html)",
-        "_1.html"
-      ],
+      "mFails": ["^https?:\\/\\/www\\.192tt\\.com\\/\\w+\\/\\w+\\/[^\\/]+(?=\\.html)", "_1.html"],
       "inc": 1
     },
     "autopager": {
       "enable": true,
       "pageElement": "//div[@class=\"picsbox picsboxcenter\"]/center",
-      "ipages": [
-        true,
-        30
-      ]
+      "ipages": [true, 30]
     }
   },
   {
@@ -1896,10 +1833,7 @@
     "autopager": {
       "enable": true,
       "pageElement": "//div[@id=\"ad_content_main\"]/following-sibling::img|//div[@id=\"ad_content_main\"]/following-sibling::p/img|//div[@class=\"m-list-main\"]/ul[not(//div[@id=\"ad_content_main\"]/following-sibling::img)]",
-      "ipages": [
-        true,
-        30
-      ]
+      "ipages": [true, 30]
     },
     "exampleUrl": "https://www.17see.net/qingchun/5542_44.html"
   },
@@ -1909,10 +1843,7 @@
     "nextLink": "(//div[@class=\"neiye_page\"]/span|//div[@class=\"neiye_page\"]/strong)/following-sibling::a",
     "autopager": {
       "pageElement": "//div[@class=\"nr_cons\"]/a|//ul[@class=\"tpboxul\"]/li",
-      "ipages": [
-        true,
-        30
-      ]
+      "ipages": [true, 30]
     },
     "exampleUrl": "http://www.ppzix.com/tyjr/1915.html"
   },
@@ -1922,10 +1853,7 @@
     "nextLink": "auto;",
     "autopager": {
       "pageElement": "//div[@id=\"picg\"]",
-      "ipages": [
-        true,
-        30
-      ]
+      "ipages": [true, 30]
     },
     "exampleUrl": "http://www.sytaotu.com/seying/meinvmote/20200608/85252.html"
   },
@@ -2225,10 +2153,7 @@
     "nextLink": "auto;",
     "autopager": {
       "useiframe": false,
-      "relatedObj": [
-        "css;#content",
-        "bottom"
-      ],
+      "relatedObj": ["css;#content", "bottom"],
       "pageElement": "css;#content>p"
     }
   },
@@ -2798,10 +2723,7 @@
     "nextLink": "//a[@href][@id=\"htmlxiazhang\"]",
     "autopager": {
       "pageElement": "//div[@class=\"h1title\"] | //div[@id=\"htmlContent\"][@class=\"contentbox\"]",
-      "HT_insert": [
-        "//div[@id=\"htmlContent\"]",
-        2
-      ]
+      "HT_insert": ["//div[@id=\"htmlContent\"]", 2]
     }
   },
   {
@@ -2811,10 +2733,7 @@
     "nextLink": "//div[@id=\"detailsubsbox\"]/span/a[@href][@title=\"阅读下一章节\"]",
     "autopager": {
       "pageElement": "//div[@id=\"detail_title\"] | //div[@id=\"zjcontentdiv\"]",
-      "HT_insert": [
-        "//div[@id=\"zjcontentdiv\"]",
-        2
-      ]
+      "HT_insert": ["//div[@id=\"zjcontentdiv\"]", 2]
     }
   },
   {
@@ -2862,10 +2781,7 @@
     "nextLink": "//div[@id=\"papgbutton\"]/descendant::a[text()=\"下一章\"]",
     "autopager": {
       "pageElement": "//div[@id=\"main\"]/h1 | //div[@id=\"readbox\"]/div[@id=\"content\"] | //div[@id=\"readbox\"]/div[@id=\"papgbutton\"]",
-      "HT_insert": [
-        "//div[@id=\"weekhot\"]",
-        1
-      ]
+      "HT_insert": ["//div[@id=\"weekhot\"]", 1]
     }
   },
   {
@@ -3022,10 +2938,7 @@
     "exampleUrl": "http://op.52pk.com/manhua/2010/921364.html",
     "nextLink": "//li[@id=\"page__next\"]/a[1]",
     "autopager": {
-      "relatedObj": [
-        "css;li#page__select",
-        "bottom"
-      ],
+      "relatedObj": ["css;li#page__select", "bottom"],
       "pageElement": "//div[@id=\"pictureContent\"]"
     }
   },
@@ -3261,14 +3174,8 @@
     "autopager": {
       "pageElement": "id(\"mainContent\")",
       "filter": "css;.reviewNavigatorTop, #amazonBuyboxContainer, .ad, #comments, .buyboxOld.amazon",
-      "relatedObj": [
-        "css;div.reviewNavigatorBottom",
-        "bottom"
-      ],
-      "HT_insert": [
-        "id(\"amazonBuyboxContainer\")",
-        1
-      ]
+      "relatedObj": ["css;div.reviewNavigatorBottom", "bottom"],
+      "HT_insert": ["id(\"amazonBuyboxContainer\")", 1]
     }
   },
   {
@@ -3306,10 +3213,7 @@
     "name": "手机网易网",
     "url": "^https?://3g\\.163\\.com/[a-z]+/.*\\.html",
     "exampleUrl": "http://3g.163.com/news/13/0914/04/98N4CSHI0001124J.html",
-    "nextLink": [
-      "//a[text()=\"余下全文\"]",
-      "//a[text()=\"下页\"]"
-    ],
+    "nextLink": ["//a[text()=\"余下全文\"]", "//a[text()=\"下页\"]"],
     "autopager": {
       "pageElement": "//div[@class=\"content\"]",
       "replaceE": "//div[@class=\"reset marTop10 cBlue\"][child::a[text()=\"下页\"]] | //div[child::form[@class=\"reset\"]]",
@@ -3320,10 +3224,7 @@
     "name": "手机凤凰网",
     "url": "^https?://3g\\.ifeng\\.com/[a-z]+/",
     "exampleUrl": "http://3g.163.com/news/13/0914/04/98N4CSHI0001124J.html",
-    "nextLink": [
-      "//a[text()=\"余下全文\"]",
-      "//a[text()=\"下一页\"]"
-    ],
+    "nextLink": ["//a[text()=\"余下全文\"]", "//a[text()=\"下一页\"]"],
     "autopager": {
       "pageElement": "//div[@class=\"zwword\"]",
       "relatedObj": true
@@ -3332,10 +3233,7 @@
   {
     "name": "手机环球网",
     "url": "^https?://wap\\.huanqiu\\.com/",
-    "nextLink": [
-      "//a[text()=\"余下全文\"]",
-      "//a[text()=\"下一页\"]"
-    ],
+    "nextLink": ["//a[text()=\"余下全文\"]", "//a[text()=\"下一页\"]"],
     "autopager": {
       "pageElement": "//div[@class=\"newscont\"]",
       "separatorReal": false,
@@ -3594,10 +3492,7 @@
     "autopager": {
       "enable": true,
       "pageElement": "//div[@id=\"i3\"]",
-      "ipages": [
-        true,
-        30
-      ]
+      "ipages": [true, 30]
     },
     "exampleUrl": "https://e-hentai.org/s/f61cb59d07/1099124-3"
   },
@@ -3637,10 +3532,7 @@
       "enable": true,
       "useiframe": false,
       "pageElement": "//div[@class=\"entry-content\"]",
-      "ipages": [
-        true,
-        30
-      ]
+      "ipages": [true, 30]
     },
     "exampleUrl": "http://www.177pic.info/html/2017/06/1409443.html"
   },
@@ -3658,10 +3550,7 @@
     "autopager": {
       "enable": true,
       "pageElement": "//div[@id=\"display_image_detail\"]",
-      "ipages": [
-        true,
-        30
-      ]
+      "ipages": [true, 30]
     },
     "exampleUrl": "https://zh.porn-image-xxx.com/image/g-cup-beauty-big-breasts-image-intertwined-konno-anzu-minami-and-shore-sayaka/page/1/"
   },
@@ -3682,10 +3571,7 @@
     "autopager": {
       "enable": true,
       "pageElement": "//div[@id=\"post_content\"]",
-      "ipages": [
-        true,
-        30
-      ]
+      "ipages": [true, 30]
     },
     "exampleUrl": "http://www.avbaike.net/17237.html"
   },
