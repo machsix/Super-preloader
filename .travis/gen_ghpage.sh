@@ -16,6 +16,7 @@ for jsDB in ${DB[@]}; do
     jdDBDetail="${DB_DIR}/${DB_FILE%.*}_detail.json"
 
     node write_mydata.js $jsDB
+    cat ${jsDBDetail}
     cp ${jsDB}         ${DOCS_DIR}/
     cp ${jdDBDetail}   ${DOCS_DIR}/
     echo -e "\e[1m\e[41m\e[97mFinish adding ${DB_FILE}\e[0m"
