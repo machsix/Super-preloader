@@ -25,7 +25,7 @@ const commitInfo = gitLog({
   fileList: [jsonFilePath],
   nCommit: 1
 });
-logger.info(commitInfo);
+logger.debug(commitInfo);
 const lastUpdateDate = new Date(commitInfo[0].date);
 
 const info = {
@@ -41,6 +41,7 @@ const info = {
 };
 
 const detailFilePath = path.resolve(path.dirname(jsonFilePath), `${jsonFileName}_detail.json`);
+logger.info(JSON.stringify(info));
 fs.writeFile(detailFilePath, JSON.stringify(info), "utf8", () => {
   logger.info(`${detailFilePath} is written`);
 });
