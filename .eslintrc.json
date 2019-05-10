@@ -5,7 +5,10 @@
     "node": true,
     "es6": true
   },
-  "extends": "eslint:recommended",
+  "extends": [
+    "eslint:recommended",
+    "prettier"
+  ],
   "parserOptions": {
     "ecmaVersion": 6
   },
@@ -202,7 +205,7 @@
     "prefer-rest-params": "error",
     "prefer-spread": "off",
     "prefer-template": "off",
-    "prettier/prettier": "warn",
+    "prettier/prettier": "error",
     "quote-props": "off",
     "quotes": "off",
     "radix": "off",
