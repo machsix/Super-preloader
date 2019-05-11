@@ -5,6 +5,9 @@ module.exports = {
     "@vuepress/pwa": {
       serviceWorker: true,
       updatePopup: true
+    },
+    "@vuepress/google-analytics": {
+      ga: "UA-139969974-1"
     }
   },
   locales: {
