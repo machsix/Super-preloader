@@ -7,13 +7,13 @@
     "doc": "docs"
   },
   "scripts": {
-    "lint": "eslint Super_preloaderPlus_one_New.user.js dist/*.json .travis/*.js docs/**/*.js dist/*.json docs/**/*.{json,js}",
-    "format:check": "prettier --ignore-path=.eslintignore --check Super_preloaderPlus_one_New.user.js dist/*.json .travis/*.js docs/**/*.js dist/*.json docs/**/*.{md,json,js}",
-    "format": "prettier --ignore-path=.eslintignore --write Super_preloaderPlus_one_New.user.js dist/*.json .travis/*.js docs/**/*.js dist/*.json docs/**/*.{json,js,md}",
+    "lint": "eslint Super_preloaderPlus_one_New.user.js dist/*.json .ci/*.js docs/**/*.js dist/*.json docs/**/*.{json,js}",
+    "format:check": "prettier --ignore-path=.eslintignore --check Super_preloaderPlus_one_New.user.js dist/*.json .ci/*.js docs/**/*.js dist/*.json docs/**/*.{md,json,js}",
+    "format": "prettier --ignore-path=.eslintignore --write Super_preloaderPlus_one_New.user.js dist/*.json .ci/*.js docs/**/*.js dist/*.json docs/**/*.{json,js,md}",
     "test": "npm run lint && npm run format:check",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
-    "docs:publish": "npm run docs:build && .travis/gen_ghpage.sh"
+    "docs:publish": "npm run docs:build && .ci/gen_ghpage.sh"
   },
   "husky": {
     "hooks": {

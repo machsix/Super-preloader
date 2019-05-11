@@ -1,0 +1,3 @@
+[build]
+  command = "sed -i 's|base: \".*\"|base: \"/\"|' docs/.vuepress/config.js && yarn docs:publish"
+  publish = "docs/.vuepress/dist"
