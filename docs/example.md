@@ -10,13 +10,11 @@
 
 <img :src="$withBase('/image/example/baidu.png')" alt="Baidu">
 
-
 ## 漫画
 
 ### XKCD:
 
 <img :src="$withBase('/image/example/xkcd.png')" alt="XKCD">
-
 
 ### hhmm:
 

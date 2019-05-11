@@ -1,5 +1,3 @@
-
-
 <p align="center" class="logo-img">
     <img src="/Super-preloader/logo.png" alt="logo" width="100">
 </p>
