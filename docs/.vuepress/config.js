@@ -1,6 +1,22 @@
 module.exports = {
-  plugins: ["@vuepress/last-updated", "@vuepress/back-to-top"],
-  title: "Super-preloader",
+  plugins: {
+    "@vuepress/last-updated": true,
+    "@vuepress/back-to-top": true,
+    "@vuepress/pwa": {
+      serviceWorker: true,
+      updatePopup: true
+    }
+  },
+  locales: {
+    "/": {
+      lang: "zh-CN",
+      title: "Super-preloader"
+    },
+    "/en/": {
+      lang: "en-US",
+      title: "Super-preloader"
+    }
+  },
   base: "/Super-preloader/",
   head: [
     [
@@ -13,26 +29,62 @@ module.exports = {
   ],
   description: ":scroll: Preload and Autopager",
   themeConfig: {
+    logo: "/logo.png",
     repo: "machsix/Super-preloader",
     editLinks: true,
     docsDir: "docs",
     locales: {
       "/": {
-        lang: "en-US",
+        lang: "zh-CN",
+        label: "中文",
+        editLinkText: "在 GitHub 上编辑此页",
+        lastUpdated: "更新时间",
+        nav: [
+          {
+            text: "介绍",
+            link: "/"
+          }
+        ],
         sidebar: {
           "/": [
             {
-              title: "Introdction",
+              title: "介绍",
               collapsable: false,
-              children: ["", "example", "compatibility"]
+              children: [["", "简介"], "example", "compatibility", "database"]
             },
             {
-              title: "Development",
+              title: "开发指南",
               collapsable: false,
-              children: ["database"]
+              children: ["develop", "siterule"]
             },
             {
-              title: "Faq",
+              title: "HOW TO",
+              collapsable: false,
+              children: ["faq"]
+            }
+          ]
+        }
+      },
+      "/en/": {
+        lang: "en-US",
+        label: "English",
+        editLinkText: "Edit this page on GitHub",
+        lastUpdated: "Last Updated",
+        nav: [
+          {
+            text: "Introduction",
+            link: "/en/"
+          }
+        ],
+        sidebar: {
+          "/en/": [
+            {
+              title: "Introduction",
+              collapsable: false,
+              children: [["", "Intoduction"], "example", "compatibility", "database"]
+            },
+            {
+              title: "HOW TO",
               collapsable: false,
               children: ["faq"]
             }

@@ -2,15 +2,15 @@
     <img src="/Super-preloader/logo.png" alt="logo" width="100">
 </p>
 <h1 align="center" class="logo-text">Super-preloader</h1>
+<br>
+<div class="center">从<a href="https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new" target="_blank">Greasy Fork</a> 或
+<a href="https://github.com/machsix/Super-preloader/raw/master/Super_preloaderPlus_one_New.user.js" target="_blank">Github</a>安装</div>
 
-# Introduction
 
-A gm script for auto loading paginated web pages. It will join pages together based on the rules.
+# 简介
 
-The script is forked from [ywzhaiqi/Super_preloaderPlus](https://github.com/ywzhaiqi/userscript/tree/master/scripts/Super_preloaderPlus). Thanks to the original author [swdyh](https://github.com/swdyh), [ywzhaiqi](https://github.com/ywzhaiqi/userscript/tree/master/scripts/Super_preloaderPlus) and [NLF](http://userscripts-mirror.org/scripts/show/84937). swdyh is still actively improving [rules](http://wedata.net/databases/AutoPagerize/items) and developing the Chrome extension, [AutoPagerize](https://addons.mozilla.org/en-US/firefox/addon/autopagerize/)
+自动翻页脚本，由[ywzhaiqi/Super_preloaderPlus](https://github.com/ywzhaiqi/userscript/tree/master/scripts/Super_preloaderPlus)修改而来。在此首先对作者[swdyh](https://github.com/swdyh), [ywzhaiqi](https://github.com/ywzhaiqi/userscript/tree/master/scripts/Super_preloaderPlus)和[NLF](http://userscripts-mirror.org/scripts/show/84937)致以谢意。swdyh仍在频繁的更新[规则](http://wedata.net/databases/AutoPagerize/items)以及开发扩展[AutoPagerize](https://addons.mozilla.org/en-US/firefox/addon/autopagerize/)。
 
-This userscript is more powerful than [AutoPagerize](https://addons.mozilla.org/en-US/firefox/addon/autopagerize/) in the sense that it has more flexibility for the method to define rules. You can not only use [xpath selector](https://developer.mozilla.org/en-US/docs/Web/XPath) link to derive the url for the next page, but also use [JavaScript](https://en.wikipedia.org/wiki/JavaScript) function to achieve the goal. You are also able to correct the content if the automatic rule is not perfect since we provide [ContentFilter]().
+相比[AutoPagerize](https://addons.mozilla.org/en-US/firefox/addon/autopagerize/)， 该脚本的主要优势在于规则的定义和DOM的处理更加灵活。你不仅可以使用[xpath selector](https://developer.mozilla.org/en-US/docs/Web/XPath)定义规则，还可以直接使用[JavaScript](https://en.wikipedia.org/wiki/JavaScript)提取元素、修改页面（比如去广告[DocumentFilter](/siterule.md#documentfilter)、增加新功能）等。另一方面，鉴于swdyh维护的规则主要针对日文用户，我也希望该脚本及相关规则能惠及中文、英文用户。
 
-The other reason for the existence of this userscript is because someone needs to maintain the rules for Chinese and English users since swdyh’s rules are mainly for Japanese websites. Don’t be afraid of the fact that most feedbacks are in Chinese. I would like to add rules for English users if I could. Feel free to leave feedback.
 
-I also hope that you can contribute rules for [wedata](http://wedata.net/databases/AutoPagerize/items). This will benifit other extensions with similar functions, like [uAutoPagerize](https://addons.mozilla.org/en-US/firefox/addon/uautopagerize)

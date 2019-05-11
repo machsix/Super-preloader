@@ -1,6 +1,6 @@
-# 兼容性
+# Compatibility
 
-## 浏览器及脚本管理器
+## Browsers
 
 | Userscript manager                                                             | Chrome             | Firefox (>57) :fox_face: | Firefox (<57)                                  |
 | ------------------------------------------------------------------------------ | ------------------ | ------------------------ | ---------------------------------------------- |
@@ -11,7 +11,7 @@
 
 Support for Greasemonkey3/Tampermonkey is achieved by [polyfill](https://greasemonkey.github.io/gm4-polyfill/gm4-polyfill.js)
 
-## 漫画网站
+## Manga websites
 
 | Website                | Chrome                      | Firefox                       |
 | ---------------------- | --------------------------- | ----------------------------- |

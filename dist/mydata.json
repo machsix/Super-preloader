@@ -320,7 +320,7 @@
     },
     "nextLink": {
       "startAfter": "_",
-      "mFails": ["^https?://www\\.192tb\\.com/\\.+(?=\\.html)", "_1.html"],
+      "mFails": ["re;^https?://www\\.192tb\\.com/\\.+(?=\\.html)", "_1.html"],
       "inc": 1
     },
     "autopager": {
