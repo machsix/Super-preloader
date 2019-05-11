@@ -1,12 +1,13 @@
 
 ![icon!](https://machsix.github.io/Super-preloader/logo.png)
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors)   &nbsp; [![Build Status](https://travis-ci.org/machsix/Super-preloader.svg?branch=master)](https://travis-ci.org/machsix/Super-preloader)
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors)   &nbsp; [![Build Status](https://travis-ci.org/machsix/Super-preloader.svg?branch=master)](https://travis-ci.org/machsix/Super-preloader) [![Netlify Status](https://api.netlify.com/api/v1/badges/9c4dac1a-823b-4bb7-9760-57895931fc16/deploy-status)](https://app.netlify.com/sites/super-preloader/deploys)
 
 # Super-preloader
 
 ## Document
-[Complete Document](https://machsix.github.io/Super-preloader/)
+[Document on Github Page](https://machsix.github.io/Super-preloader/)
+[Document on Netlify](https://super-preloader.netlify.com/)
 
 ## Difference between verions:
  - Super_preloaderPlus_one_New_legacy.user.js: old version doesn't work with GM4 but doesn't use `Promise` at all
