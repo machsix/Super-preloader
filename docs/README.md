@@ -1,5 +1,5 @@
 <p align="center" class="logo-img">
-    <img src="/Super-preloader/logo.png" alt="logo" width="100">
+    <img :src="$withBase('/logo.png')" alt="logo" width="100">
 </p>
 <h1 align="center" class="logo-text">Super-preloader</h1>
 <br>
