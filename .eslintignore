@@ -1,0 +1,4 @@
+!docs/.vuepress
+!.travis
+docs/.vuepress/dist
+.vscode

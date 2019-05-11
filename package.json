@@ -7,14 +7,16 @@
     "doc": "docs"
   },
   "scripts": {
-    "lint": "eslint Super_preloaderPlus_one_New.user.js mydata.json ./.travis",
-    "checkformat": "prettylint Super_preloaderPlus_one_New.user.js",
-    "format": "prettier --write Super_preloaderPlus_one_New.user.js && prettier --write mydata.json",
-    "test": "npm run lint && prettylint Super_preloaderPlus_one_New.user.js"
+    "lint": "eslint Super_preloaderPlus_one_New.user.js dist/*.json .travis/*.js docs/**/*.js dist/*.json docs/**/*.{json,js}",
+    "format:check": "prettier --ignore-path=.eslintignore --check Super_preloaderPlus_one_New.user.js dist/*.json .travis/*.js docs/**/*.js dist/*.json docs/**/*.{md,json,js}",
+    "format": "prettier --ignore-path=.eslintignore --write Super_preloaderPlus_one_New.user.js dist/*.json .travis/*.js docs/**/*.js dist/*.json docs/**/*.{json,js,md}",
+    "test": "npm run lint && npm run format:check",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run test"
+      "pre-commit": "npm run lint"
     }
   },
   "repository": {
@@ -31,16 +33,21 @@
   },
   "homepage": "https://github.com/machsix/Super-preloader#readme",
   "devDependencies": {
+    "@vuepress/plugin-back-to-top": "1.0.0-alpha.47",
+    "@vuepress/plugin-pwa": "1.0.0-alpha.47",
     "eslint": "5.16.0",
+    "eslint-config-prettier": "4.2.0",
     "eslint-plugin-compat": "3.1.1",
     "eslint-plugin-json": "1.4.0",
     "eslint-plugin-prettier": "3.0.1",
-    "husky": "2.1.0",
+    "husky": "2.2.0",
+    "loglevel": "1.6.1",
     "prettier": "1.17.0",
-    "prettylint": "1.0.0"
+    "vuepress": "1.0.0-alpha.47"
   },
   "browserslist": [
-    "Chrome > 32 or Firefox > 36"
+    "Firefox ESR",
+    "Chrome > 42"
   ],
   "dependencies": {}
 }

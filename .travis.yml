@@ -1,18 +1,23 @@
-language: python
-python:
-  - "2.7"
+language: node_js
+node_js: stable
+cache: yarn
+before_install:
+  - curl -o- -L https://yarnpkg.com/install.sh | bash
+  - export PATH="$HOME/.yarn/bin:$PATH"
+  - npm config set scripts-prepend-node-path true
 install:
-    - npm install
+  - yarn install
 script:
-    - npm run test
+  - yarn run test
+  - yarn docs:build
+  - .travis/gen_ghpage.sh
 deploy:
-    - provider: script
-      script: bash .travis/gen_ghpage.sh
-      skip_cleanup: true
-      on:
-        branch: master
-    - provider: script
-      script: bash .travis/gen_ghpage_dev.sh
-      skip_cleanup: true
-      on:
-        branch: dev
+  provider: pages
+  skip_cleanup: true
+  github_token: $GH_TOKEN
+  local_dir: docs/.vuepress/dist
+  keep_history: true
+  target_branch: gh-pages
+  verbose: true
+  on:
+    branch: master

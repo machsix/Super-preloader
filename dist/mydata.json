@@ -302,5 +302,31 @@
     "exampleUrl": "http://zt.tgbus.com/zeldabotw/2017/03/06/11481575436.shtml",
     "pageElement": "id('main-content')",
     "nextLink": "id('pe100_page_contentpage')/a[text()='>']"
+  },
+  {
+    "name": "192tt",
+    "url": "^https?://www\\.192tb\\.com",
+    "nextLink": "//div[@class='page']/a[@class='next']",
+    "pageElement": "//ul[@class='clearfix']/parent::div",
+    "exampleUrl": "https://www.192tb.com/gq/"
+  },
+  {
+    "name": "192tt-gallery",
+    "url": "^https?://www\\.192tb\\.com/.*?\\.html(#.*)?$",
+    "preLink": {
+      "startAfter": "_",
+      "inc": -1,
+      "min": 1
+    },
+    "nextLink": {
+      "startAfter": "_",
+      "mFails": ["re;^https?://www\\.192tb\\.com/.+(?=\\.html)", "_1.html"],
+      "inc": 1
+    },
+    "autopager": {
+      "enable": true,
+      "pageElement": "//div[@class='picsbox picsboxcenter']/center",
+      "ipages": [true, 30]
+    }
   }
 ]
