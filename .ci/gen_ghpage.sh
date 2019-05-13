@@ -8,7 +8,7 @@ DOCS_DIR=${REPO_DIR}/docs/.vuepress/dist
 DB=("${REPO_DIR}/dist/mydata.json"
     "${REPO_DIR}/dist/mydata_dev.json")
 
-cd ${REPO_DIR}/.travis
+cd ${REPO_DIR}/.ci
 for jsDB in ${DB[@]}; do
   if [ -f $jsDB ]; then
     DB_FILE=`basename $jsDB`
