@@ -5225,7 +5225,7 @@
           new Promise(function(resolve, reject) {
             const req = {
               method: "GET",
-              url: val.detailUrl,
+              url: val.detailUrl + "?" + new Date().getTime(),
               onload: function(detailRes) {
                 try {
                   const jdetailRes = JSON.parse(detailRes.responseText);
@@ -5248,7 +5248,7 @@
                   return new Promise(function(resolve, reject) {
                     const req = {
                       method: "GET",
-                      url: val.url,
+                      url: val.url + "?" + new Date().getTime(),
                       onload: function(res) {
                         var rule;
                         try {
