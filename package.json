@@ -7,9 +7,10 @@
     "doc": "docs"
   },
   "scripts": {
-    "lint": "eslint Super_preloaderPlus_one_New.user.js dist/*.json .ci/*.js docs/**/*.js dist/*.json docs/**/*.{json,js}",
-    "format:check": "prettier --ignore-path=.eslintignore --check Super_preloaderPlus_one_New.user.js dist/*.json .ci/*.js docs/**/*.js dist/*.json docs/**/*.{md,json,js}",
+    "lint": "eslint Super_preloaderPlus_one_New.user.js dist/*.json .ci/*.js docs/**/*.js docs/**/*.js",
     "format": "prettier --ignore-path=.eslintignore --write Super_preloaderPlus_one_New.user.js dist/*.json .ci/*.js docs/**/*.js dist/*.json docs/**/*.{json,js,md}",
+    "format:check": "prettier --ignore-path=.eslintignore --check Super_preloaderPlus_one_New.user.js dist/*.json .ci/*.js docs/**/*.js dist/*.json docs/**/*.{md,json,js}",
+    "format:staged": "pretty-quick --staged --ignore-path=.eslintignore --write Super_preloaderPlus_one_New.user.js dist/*.json .ci/*.js docs/**/*.js dist/*.json docs/**/*.{json,js,md}",
     "test": "npm run lint && npm run format:check",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
@@ -17,7 +18,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run test"
+      "pre-commit": "npm run lint && npm run format:staged"
     }
   },
   "repository": {
