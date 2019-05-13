@@ -1,14 +1,29 @@
 [
 {
-  "resource_url": "http://wedata.net/items/82142",
+  "resource_url": "http://wedata.net/items/82148",
+  "name": "moneyforward engineers blog",
+  "created_by": "t_f_m",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "updated_at": "2019-05-13T22:01:09+09:00",
+  "data": {
+    "exampleUrl": "https://moneyforward.com/engineers_blog/2018/12/14/ios12-siri-shortcuts/",
+    "url": "^https://moneyforward.com/engineers_blog/",
+    "pageElement": "id(\"content\")/article",
+    "insertBefore": "",
+    "nextLink": "//link[@rel=\"next\"]"
+  },
+  "created_at": "2019-05-13T22:01:09+09:00"
+},
+{
   "name": "Inkscape Gallery",
   "created_by": "Narju",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-05-11T21:23:37+09:00",
+  "updated_at": "2019-05-12T10:34:06+09:00",
+  "resource_url": "http://wedata.net/items/82142",
   "data": {
     "exampleUrl": "https://inkscape.org/gallery/=extension/?page=2&",
     "url": "^https?://inkscape\\.org/gallery/",
-    "pageElement": "id('gallery')/div[contains(@class, galleryitem)]",
+    "pageElement": "id('gallery')/node()",
     "nextLink": "//div[@class='pagination']/a[@class='next']"
   },
   "created_at": "2019-05-11T21:23:37+09:00"
@@ -20599,10 +20614,10 @@
   "name": "トゥギャッチ",
   "created_by": "jigendaddy_be",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-05-20T09:49:28+09:00",
+  "updated_at": "2019-05-13T21:51:15+09:00",
   "data": {
     "exampleUrl": "https://togech.jp/2014/04/25/7860 https://togech.jp/2015/05/30/24231",
-    "url": "^https://togech\\.jp/\\d",
+    "url": "^https://ch\\.togetter\\.com/\\d",
     "pageElement": "id('article_main')[not(//div/@class='page-link')]|//section[@class='entry-content']",
     "nextLink": "id('contents')/div[@class='navigation_box navigation_button clearfix']/a[1]|//div[@class='page-link']/span/following-sibling::a[1]"
   },
