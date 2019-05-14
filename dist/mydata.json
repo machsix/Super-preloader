@@ -79,7 +79,7 @@
   },
   {
     "name": "性感尤物2",
-    "url": "^https?://www\\.(jpxgyw|xgyw|xgmn5|nvshenheji)\\.(com|cc)/[^/]*/",
+    "url": "^https?://www\\.(jpxgyw|xgyw|xgmn5|nvshenheji|mntup)\\.(com|cc)/[^/]*/",
     "exampleUrl": "http://www.xgyw.cc/Xgyw",
     "nextLink": "//div[@class='page']/a[text()='下页']",
     "autopager": {
