@@ -13,7 +13,7 @@
 // @author       Mach6
 // @contributers YFdyh000, suchunchen
 // @thanksto     ywzhaiqi, NLF
-// @version      6.6.55
+// @version      6.6.56
 // @license      GPL-3.0-or-later
 // @homepageURL  https://github.com/machsix/Super-preloader
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
@@ -61,7 +61,7 @@
 (function() {
   const scriptInfo = {
     name: "Super_preloaderPlus_one_New",
-    version: "6.6.55",
+    version: "6.6.56",
     updateTime: "2019/5/9",
     changelog: "Core: rewrite update",
     homepageURL: "https://github.com/machsix/Super-preloader",
@@ -6156,6 +6156,7 @@
                           position:relative!important;\
                           left:0!important;\
                           right:0!important;\
+                          top: 2px!important;\
                           min-height:20px!important;\
                          }\
                          #sp-fw-container .sp-fw-spanbutton{\
@@ -6170,11 +6171,8 @@
                              box-shadow:inset 0 10px 5px white!important;\
                          }\
                          #sp-fw-container #sp-fw-savebutton{\
-                             position:absolute!important;\
-                             right:2px!important;\
-                             bottom: 0px!important;\
-                             top: 0px!important;\
-                             padding:0px 3px!important;\
+                             position:relative!important;\
+                             left: 96px!important;\
                          }'
         );
 
@@ -6323,7 +6321,7 @@
               const t_a_itimeout = gl(a_itimeout);
               value.a_itimeout = isNaN(t_a_itimeout) ? SSS.a_itimeout : t_a_itimeout >= 0 ? t_a_itimeout : 0;
               const t_a_remain = gl(a_remain);
-              value.a_remain = isNaN(t_a_remain) ? SSS.a_remain : Number(t_a_remain.toFixed(2));
+              value.a_remain = isNaN(t_a_remain) ? SSS.a_remain : Number(t_a_remain);
               const t_a_maxpage = gl(a_maxpage);
               value.a_maxpage = isNaN(t_a_maxpage) ? SSS.a_maxpage : t_a_maxpage >= 1 ? t_a_maxpage : 1;
               const t_a_ipages_1 = gl(a_ipages_1);
