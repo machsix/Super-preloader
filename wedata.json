@@ -4,10 +4,10 @@
   "name": "177pic",
   "created_by": "Mach6",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-05-20T06:10:50+09:00",
+  "updated_at": "2019-05-20T06:19:41+09:00",
   "data": {
     "exampleUrl": "http://www.177pic.info/html/2018/04/2028357.html?variant=zh-hans",
-    "url": "https?://www\\\\.177pic\\\\.info",
+    "url": "https?://www\\.177pic\\.info",
     "pageElement": "//div[@class=\"entry-content\"]/p | //div[@class=\"entry-content\"]/table",
     "nextLink": "//div[@class=\"wp-pagenavi\"]/p/span[@class=\"single-navi\"]/following-sibling::a",
     "insertBefore": "//div[@id=\"single-navi\"]"
