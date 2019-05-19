@@ -13,7 +13,7 @@
 // @author       Mach6
 // @contributers YFdyh000, suchunchen
 // @thanksto     ywzhaiqi, NLF
-// @version      6.6.56
+// @version      6.6.57
 // @license      GPL-3.0-or-later
 // @homepageURL  https://github.com/machsix/Super-preloader
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
@@ -61,7 +61,7 @@
 (function() {
   const scriptInfo = {
     name: "Super_preloaderPlus_one_New",
-    version: "6.6.56",
+    version: "6.6.57",
     updateTime: "2019/5/9",
     changelog: "Core: rewrite update",
     homepageURL: "https://github.com/machsix/Super-preloader",
@@ -4738,17 +4738,6 @@
       nextLink: '//section[@class="pagination"]/a[@class="next"]',
       pageElement: '//div[@class="container index-container"]|//section[@id="image-container"]',
       exampleUrl: "https://nhentai.net/tag/akigami-satoru/"
-    },
-    {
-      name: "177pic",
-      url: /^https?:\/\/(www\.)?177pic\.info\/html\/.*\.html/,
-      nextLink: '//a[text()="下一页"]',
-      autopager: {
-        enable: true,
-        pageElement: '//div[@class="entry-content"]',
-        ipages: [true, 30]
-      },
-      exampleUrl: "http://www.177pic.info/html/2017/06/1409443.html"
     },
     {
       name: "DL.Getchu.com",
