@@ -1,5 +1,49 @@
 [
 {
+  "resource_url": "http://wedata.net/items/82157",
+  "name": "177pic",
+  "created_by": "Mach6",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "updated_at": "2019-05-20T06:10:50+09:00",
+  "data": {
+    "exampleUrl": "http://www.177pic.info/html/2018/04/2028357.html?variant=zh-hans",
+    "url": "https?://www\\\\.177pic\\\\.info",
+    "pageElement": "//div[@class=\"entry-content\"]/p | //div[@class=\"entry-content\"]/table",
+    "nextLink": "//div[@class=\"wp-pagenavi\"]/p/span[@class=\"single-navi\"]/following-sibling::a",
+    "insertBefore": "//div[@id=\"single-navi\"]"
+  },
+  "created_at": "2019-05-20T06:05:03+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/82156",
+  "name": "NAVITIME",
+  "created_by": "t_f_m",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "updated_at": "2019-05-18T02:08:03+09:00",
+  "data": {
+    "exampleUrl": "https://www.navitime.co.jp/around/category/poi?node=00017255&category=0812",
+    "url": "^https://www\\.navitime\\.co\\.jp/",
+    "pageElement": "id(\"around_spot_list\")/ol/li",
+    "insertBefore": "",
+    "nextLink": "//ul[@class=\"page\"]/li[not(a)][number(.)>0]/following-sibling::li/a"
+  },
+  "created_at": "2019-05-18T02:08:03+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/82155",
+  "name": "キミラノ special",
+  "created_by": "t_f_m",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "updated_at": "2019-05-18T07:30:02+09:00",
+  "data": {
+    "exampleUrl": "https://kimirano.jp/special/interview/kimi1/long_interview01/",
+    "url": "^https://kimirano\\.jp/special/",
+    "pageElement": "id(\"book_background\")/*",
+    "nextLink": "//div[@class=\"next_page\"]/a"
+  },
+  "created_at": "2019-05-17T15:00:14+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/82154",
   "name": "GIZMODO JAPAN",
   "created_by": "jigendaddy_be",
@@ -20715,10 +20759,10 @@
   "name": "ガジェット通信",
   "created_by": "jigendaddy_be",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2016-05-04T07:50:05+09:00",
+  "updated_at": "2019-05-19T20:20:48+09:00",
   "data": {
-    "exampleUrl": "http://getnews.jp/\r\nhttp://getnews.jp/newarrival\r\nhttp://getnews.jp/cat/entertainment",
-    "url": "^http://getnews\\.jp/",
+    "exampleUrl": "http://getnews.jp/newarrival\r\nhttp://getnews.jp/cat/entertainment",
+    "url": "^https?://getnews\\.jp/",
     "pageElement": "//ul[@class='article-list']/li",
     "nextLink": "//a[@class='next page-numbers']"
   },
