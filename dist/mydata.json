@@ -328,5 +328,17 @@
       "pageElement": "//div[@class='picsbox picsboxcenter']/center",
       "ipages": [true, 30]
     }
+  },
+  {
+    "name": "177pic",
+    "exampleUrl": "http://www.177pic.info/html/2018/04/2028357.html?variant=zh-hans",
+    "url": "https?://www\\.177pic\\.info",
+    "nextLink": "//div[@class=\"wp-pagenavi\"]/p/a[text()=\"下一页\" or text()=\"下一頁\"]",
+    "autopager": {
+      "enable": true,
+      "pageElement": "//div[@class=\"entry-content\"]/p | //div[@class=\"entry-content\"]/table",
+      "ipages": [true, 30],
+      "insertBefore": "//div[@id=\"single-navi\"]"
+    }
   }
 ]
