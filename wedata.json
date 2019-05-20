@@ -8867,10 +8867,10 @@
   "name": "Pornolab.net",
   "created_by": "cloud",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2016-05-19T13:23:20+09:00",
+  "updated_at": "2019-05-20T18:02:36+09:00",
   "data": {
     "exampleUrl": "http://pornolab.net/forum/viewforum.php?f=1803&start=50",
-    "url": "^http://pornolab\\.net/forum/viewforum\\.php",
+    "url": "^https?://pornolab\\.net/forum/viewforum\\.php",
     "pageElement": "//table[@class=\"forumline forum\"]//tr[@id]",
     "nextLink": "id(\"pagination\")//a[last()][not(./following-sibling::b)]"
   },
@@ -32359,12 +32359,12 @@
   "name": "cnn.co.jp",
   "created_by": "t_f_m",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-05-24T01:23:50+09:00",
+  "updated_at": "2019-05-20T21:19:20+09:00",
   "data": {
-    "exampleUrl": "https://www.cnn.co.jp/fringe/30003461.html\r\nhttps://www.cnn.co.jp/showbiz/35024127.html\r\nhttps://www.cnn.co.jp/photo/\r\nhttps://www.cnn.co.jp/business/35044552.html\r\nhttps://www.cnn.co.jp/travel/35094757-2.html\r\nhttps://www.cnn.co.jp/photo/35094682.html",
-    "url": "^https://(www\\.)?cnn\\.co\\.jp/",
-    "pageElement": "id('leaf-body')[not(id('photoreport-body'))]|id('leaf_large_image')/..[@class='row']|//ul[@class='video-list']/li|id('photoreport-body')",
-    "nextLink": "//link[@rel='next']|id('leaf-media')//a"
+    "exampleUrl": "https://www.cnn.co.jp/fringe/30003461.html\r\nhttps://www.cnn.co.jp/showbiz/35024127.html\r\nhttps://www.cnn.co.jp/business/35044552.html\r\nhttps://www.cnn.co.jp/travel/35094757.html\r\nhttps://www.cnn.co.jp/archives/",
+    "url": "^https?://(www\\.)?cnn\\.co\\.jp/",
+    "pageElement": "//article/div|descendant::ul[@class=\"list-news-line\"][not(id(\"leaf-body\"))][1]/li",
+    "nextLink": "//link[@rel='next']|//ul[@class='pagination']/li[last()]/a[@href]"
   },
   "created_at": "2011-08-13T22:36:38+09:00"
 },
