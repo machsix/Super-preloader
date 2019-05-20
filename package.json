@@ -46,7 +46,7 @@
     "husky": "2.3.0",
     "loglevel": "1.6.1",
     "prettier": "1.17.1",
-    "pretty-quick": "1.10.0",
+    "pretty-quick": "1.11.0",
     "vuepress": "1.0.0-alpha.48"
   },
   "browserslist": [
