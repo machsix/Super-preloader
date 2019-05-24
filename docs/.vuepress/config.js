@@ -87,6 +87,11 @@ module.exports = {
               children: [["", "Intoduction"], "example", "compatibility", "database"]
             },
             {
+              title: "Deveopment",
+              collapsable: false,
+              children: ["siterule"]
+            },
+            {
               title: "HOW TO",
               collapsable: false,
               children: ["faq"]
