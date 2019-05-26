@@ -133,11 +133,18 @@
     "pageElement": "//div[@class='stream-items']/div"
   },
   {
+    "name": "豆瓣首页",
+    "url": "https?://www\\.douban\\.com(/?p\\d+)?",
+    "exampleUrl": "https://www.douban.com",
+    "nextLink": "//div[@class='paginator']/span[@class='next']/a",
+    "pageElement": "//div[@class='stream-items']/div[contains(@class,'new-status')]"
+  },
+  {
     "name": "豆瓣全站",
     "url": "^https?://.*\\.douban\\.com/(\\w*)(?!statuses)$",
     "nextLink": "//div[@class='paginator']/span[@class='next']/a[contains(text(),'后页>')]",
     "autopager": {
-      "pageElement": "id('miniblog') | //*[@class='photolst clearfix' or @class='photolst clearbox' or @class='event-photo-list' or @class='poster-col4 clearfix'] |             //div[@id='comment-section'] | //table[@class='olt' or @class='list-b']/tbody | //div[contains(@class,'clearfix')]/div[@class='article' and not(.//div[@class='stream-items'])]"
+      "pageElement": "id('miniblog') | //*[@class='photolst clearfix' or @class='photolst clearbox' or @class='event-photo-list' or @class='poster-col4 clearfix'] | //div[@id='comment-section'] | //table[@class='olt' or @class='list-b']/tbody | //div[contains(@class,'clearfix')]/div[@class='article' and not(.//div[@class='stream-items'])]"
     }
   },
   {
