@@ -1,5 +1,35 @@
 [
 {
+  "resource_url": "http://wedata.net/items/82160",
+  "name": "コミスペ！",
+  "created_by": "denimu",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "updated_at": "2019-05-26T21:42:35+09:00",
+  "data": {
+    "Stylus": "img.lazy{opacity:1;}",
+    "exampleUrl": "https://media.comicspace.jp/archives/1904",
+    "bookmarklet": "Array.prototype.forEach.call(document.querySelectorAll('img'), function(img) { var lazySrc = img.hasAttribute('data-src') ? img.getAttribute('data-src') : img.getAttribute('data-original'); if (lazySrc) { img.src = lazySrc; img.classList.remove('lazy');} });",
+    "url": "^https?://media\\.comicspace\\.jp/",
+    "pageElement": "//*[@id=\"single_content\"]",
+    "nextLink": "id(\"single_paging\")/p/a"
+  },
+  "created_at": "2019-05-26T18:26:23+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/82159",
+  "name": "Suits-woman.jp",
+  "created_by": "hatenaZZZ",
+  "updated_at": "2019-05-26T15:26:19+09:00",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "data": {
+    "exampleUrl": "https://suits-woman.jp/kenjitsunews/112593/ https://suits-woman.jp/suitsdiagnose/loveandcareer/",
+    "url": "^https?://suits-woman\\.jp/",
+    "pageElement": "//div[@class=\"post\"]|//div[@class=\"postListWrap\"]//article",
+    "nextLink": "//link[@rel=\"next\"][@href]"
+  },
+  "created_at": "2019-05-26T14:06:38+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/82157",
   "name": "177pic",
   "created_by": "Mach6",
@@ -10436,13 +10466,13 @@
   "resource_url": "http://wedata.net/items/77779",
   "name": "西日本新聞",
   "created_by": "t_f_m",
+  "updated_at": "2019-05-26T15:45:02+09:00",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-01-19T12:24:13+09:00",
   "data": {
-    "exampleUrl": "https://www.nishinippon.co.jp/nnp/today/\r\nhttps://www.nishinippon.co.jp/nnp/saga/?page=2\r\nhttps://www.nishinippon.co.jp/nnp/saga/",
+    "exampleUrl": "https://www.nishinippon.co.jp/nnp/saga/",
     "url": "^https?://www\\.nishinippon\\.co\\.jp/",
-    "pageElement": "//ul[@class='NP-articleList']/li",
-    "nextLink": "//link[@rel=\"next\"]"
+    "pageElement": "id(\"l-main\")//article",
+    "nextLink": "//a[@class=\"c-pagenation-next__inner\"]"
   },
   "created_at": "2016-01-18T16:51:40+09:00"
 },
