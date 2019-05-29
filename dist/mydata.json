@@ -16,7 +16,7 @@
   {
     "name": "wnacglist",
     "category": ["comic", "nsfw"],
-    "url": "^https?://(www\\.)?wnacg\\.(org|net|comG)",
+    "url": "^https?://(www\\.)?wnacg\\.(org|net|com)",
     "nextLink": "//span[@class='next']/a",
     "pageElement": "//div[@class='gallary_wrap']",
     "exampleUrl": "http://www.wnacg.org/photos-view-id-2132443.html"
@@ -48,7 +48,7 @@
   },
   {
     "name": "好人卡",
-    "url": "^https?://www.haorenka\\.cc",
+    "url": "^https?://www.haorenka\\.(?:cc|org)",
     "category": ["blog"],
     "exampleUrl": "https://www.haorenka.cc/page/2/",
     "nextLink": "//li[@class='next']/a",
