@@ -4683,6 +4683,12 @@
       nextLink: '//div[contains(concat(" ",@class," ")," pagination ")]/a[contains(text(),"Next")]',
       pageElement: 'id("posts")/div[contains(concat(" ",@class," ")," list ")]/ul/li'
     },
+    {
+      name: "github_issue",
+      url: "^https?://github\\.com/[^/]+/[^/]+/issue",
+      nextLink: '//div[@class="pagination"]/a[@class="next_page"]',
+      pageElement: '//div[@class="Box"]/div[@role="group"]'
+    },
 
     // ========= 很少用的 ================
     {
