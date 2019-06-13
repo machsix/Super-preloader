@@ -13,7 +13,7 @@
 // @author       Mach6
 // @contributers YFdyh000, suchunchen
 // @thanksto     ywzhaiqi, NLF
-// @version      6.6.53
+// @version      6.6.57
 // @license      GPL-3.0-or-later
 // @homepageURL  https://github.com/machsix/Super-preloader
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
@@ -61,10 +61,10 @@
 (function() {
   const scriptInfo = {
     name: "Super_preloaderPlus_one_New",
-    version: "6.6.53",
+    version: "6.6.57",
     updateTime: "2019/5/9",
-    changelog: "Fix inifinite autopagger",
-    homepageURL: "https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new",
+    changelog: "Core: rewrite update",
+    homepageURL: "https://github.com/machsix/Super-preloader",
     downloadUrl: "https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.user.js",
     metaUrl: "https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.meta.js"
   };
@@ -78,7 +78,7 @@
     image:
       "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAvCAYAAABOtfLKAAAL9UlEQVR42s1ZC1CU1xXee/9/dwGFFRU1SQURfCSaCCoaX6Py9gmDqBSN4zuKWvEFPqpGDGrjtLFJGzXO1FgfqNUYp2lim9hWGzH1hcT3pDHK2FidGtvqaIIi/b71/viz/wLL6tjuzJnz73/vf+455zv33HPvtSUm9hMgqUgjf1qUnBwvbeoXHBwcqGlaBynFSCHEa6C3pJT9MjPThY/yhM1khP1p8okTx2jHjx8QQUGBkVB6EmgvDLgCugeqVLSxd+8edhjti1xNGfOoYdCgFG3gwGSdPCUl3iLocfnQoQO0zZvXS6fT8aymyYVQ+JxS/D5Q4fM2GLYFvAJ8W2zsSzp0oB7QJ0F/pF9yNbkWZMaMyZLt2kUHhIU1DYyKigxs2zbanpTU315ZWSkqKx8IhgOfyZcsyddycibK1NREnwxJSOhrnz17moyN7eSAkkNAnysjboK267o2zOl0PtenT08d4ZZA40BbCwsXy/v3bwjKgW721q1bBTZrFhYE3QKyszMl5FqQgSHZbsghYBMG+gP4h+C/Af8V+BrQYgySA29m2O32PqA2LldIWHj4D5zvvPNTSQO3bt0gJ0x4RcIBFkN2794s4CQX5UDmvxhOeN4NmX2pIL+fPHmsBmfZdF1PRXs5kDqBPktAP2fIge+iXkq/TdA3YsWK14QFmWPHDgoITlIx+wB0hwLVc6UHse0qqASC94CvgGdHQ4mY0NBGTRYsmC2JIL1Kw/bt2y1cLlcY+q1THv8GY00LDm4YfOvW30Va2qAqww8d+pR6JKPPXY8xHyh97qjne9T3yJE/CwsyZ84ct9nteqry2Mfo2BPeTwASQ6go3s3A83K0b8Dz72iIMuh704Dfgv5KT4LSGjZs8FxFxU3RpEnjUH6nlDgNoxOBghw2LE33DMkvvvjcjAydNRO6jAYNgX4J0KUn3v2eeqJfyokTxTYLMsojSUasLl6cpxlzxMyHDBmgt2jRPIAhBmPb0mAInwqi1w8rgyqVnFN4vwJ8LagCVIr+3RhKSC4WQ8iLixUySo8DBz6Sanwy29Kl+ZLv2c5+xcX7rchcvHjWQOY+s0jnzp2QRarHPogJQRswIEmfMmW8LChYKA1DMzPTZOPGoY3hrVgMMhVy3gddN6H2FecalTLNKQsvLa1C5r4pm7kNJ+/SJUbH+yK2o1/yqVNHHyFj/kGJFOWRbd27d3XAez6nXSiIJPJDuXPne24DIyMjgiAvRk3aSoToMoshdSNT1K1bF+iRwHZ3euZ/6qeQSeFYVZGDwTri5StoLMTzHxnXZmT8X08GMkwpfzaNAZ9bVnbOCIlakDnsKzLU80/Um3OKdtjw57KKZ5UxwK3I+MUvXDhJtPMoE3zeuXMlDInHRKYzkdnqoW8F7XAjxFQJy3IRCj+uYc74xUtKDgkiopCZd/JkcZ3IoI/Pc4YVBPXG8z9oh01ZdrJ582Yh8Ej/+swZJgMkAi0jY4jX9vPnSzyQOeEHMp0NPXQiExfX2Txn4ps1axpC/UE0xgaviZNYwBohm6X4igzqI23OnOkaaqwIruwjR2bIJ4FMSYknMp1qy2ZJISHBjaB/qRmZUqZVWJroCzJZWcNkRsZQ1lADIfgjh8MRNWPGq5p3ZGS+Qibv7NnjTxqZJFQcjX1EJt5SYxUULJJt2kQFos9kxiroSmBgYNSqVcsEPcfJavCZM6do8F53GJQH3m3WrBzNaEeImg3RDU40iYxZDzMyXbtakcFz/ZChIczl7KdW9dvq20tEBtWzHhPzIsPAYeIMR53rCxda/ud7Tuq+fXsxO1Uz5Kkhk5MzSQYGBkQZgkwr+230/63ah2ynAj7wzRgrhousJzInTliQsVdHJrY2ZGw+IbN69esS7Wlou+GliuY39+pBt1mKFBVtFHUhAyRqRaZRI1f9kWH2wjsH9zPo86XJkGsQOgqUgO+T6BATT1TvE0z/yeMbNAhqOnx4umZF5rP6IhNaFzJFRMZzyzx4cKq2d2+R5KSGwEPGnMEOMdxcI5l5RER4ELYCTVq1Cg8yv8/KyuA81HxAhsaYkbHXgozwigzzOT3hbaEsKzsrUAG3VkXkJcyl6IUL51hCprCQm0Q5lnsY8PHMhEZ7Tfz48TqRsVdHJsQ/ZAxOj7799huSoYJvcgMCnC1ZCXgqdv3611xn5quqOe/q1a9sFgP8QEZKH5DR9dqQsRqEAxAN/ZhyOUktimE1r1YBoCIWdSPzl3oh43I9QgZUf2RMCnARpNFeFTtz5piNiChk5p4+fVTUjcx+n5HBFjrZb2TqUOSJIHPsWI3I6I+LjL+GKGSOiv8RMsG1IeMXv3jxNJHJU8jkX758zgdkDtaKTFycD8igxqkJGb8NwkIrqRictYGOQn0ma+tPOnx4v6DHHxpjQYbGeCIT+lSQIV+zZpVkobl+/RrvhpjJigz1+P9ABoumwELcF4MvB++zcuUyNWeslJ4+CNX1vwUVgscTTMhYEkCtyPBPSMiTR+bSpbPV5gxPZ8wGUD6OpgSQ46lnsMNhfwn9MkHu00/vyHT2Cxn74yLDhRV7nRjev5AbtVhSUj99/vxZcty40RJ1XVu0/wje/sTj0JBXGr/s3ftlbuRqRMblqhuZrT16xHECu3eMEOaXQVBepxxW21SK/3meBjR4P9OK4Yfx/qZ0KAedgqK/5toEx2YHBAREshYEQY943s3oPXt21+uLzE6c1gRHRLR0UhEexZ4/f1SYz3ypUG7uVMkBMJjXSb1hwy+4ZoyAvI/BM/kdqmcnnocb3gT9kwbg3SBcUbTIz8+V7PeoCr8jxo4dpWF3ase3ATiNaYj+O4zjWRhTKzL3FNyfwAMfqp3hetAKLHxzQNk8xUfV3LFBgwbP4BA9aPr0yVWH7DTciHGc6Aue4nMzRo6C1AVeiP+3QN+pHWd3Khod3doJeS0wbzrS40QG7XM4LuhdhhaI+hjhyFsAFppWZPCyCRR8kVCr3eR/QHeNLbIHldOjoLMYYB8vozD4JAh/GXuX5gwnIrhu3ZsClfWzUDgOc4aTe6OSV8bEwHM60AR+Dzm8pjinxi6vYTd7l3qpPqeYMABCEwsy8EpTXMHZMSEjMXAnKNAVxvXm4TQm2nAM+CpoEScliCf8R6iUx6XQLcqiJ4HgSMR8q2vXvhQIYZ5tbVLHqRWg06AS9jd9SzlllIu+76txFkHOFIYodEiFTr2gUxyN4Hzq1au7jpoyzIIMLAzjBRA2WZLhcuPG14LeJZl/ubk5Gk74nYQXkziK6wcGdXsXcg6YMhIVv8D3CpEKD09fAx1E25tQeAJQ7QNHRlEu7lOdc+fOkJ5jK33ExYulYuXKpciGozREQpg3ZMKys4dXbbCMLMJsBtJxlOTmIPf9DC5HteXLF1UNOHPmVIm1IoShCuXGq0n6jcc13hW+R/s49mP/WbOmSUPR1asLJA4YcZucxHFAHNfNmZZB/avSNIn7KW/InEQohD4U+r3Ys2eLSE8frOMO3r3xat++reP559s6X3ihnYPnXhSkLlOFYQy5GUkcFDqBWgd1vFTJBZBJIzo6MsBbfyOB8Aab8llgdujQ3tGuXRv3uJ06dbTzJnrYsKHa2rU/k8ZZgspmJWZkLjPbgPKZ+0FvwYPvgm8B3w6+G312gYPc2W2TiumfqIk8njGNWI4NCgp6Jjy8ZaChJNpnKWPmGEawnf1gXCy/4/eUQ3mUq+Qze+1StJtOoT6cj9QP9PrDsWUu55oZGW/0QGWQcnUJ+53i9xj/NWSbb1VG+kBdtfdjKlbGFKj/S6DcB6rfzRqyZQXH8Ri3XPV94FVfhUwBBljLQbmOsPTAoFmgdFavLPrA+z0iLQl8IBc+5dF5oDeIGGR9Ri+ZUusdlcIrFb9jSu1l7M/VnN9TDuSNo1yMMZBriGncvqBEvE+hXkq/ybyVo97UH7KW2fibNGmsEYPm+PXkwvjv+SsrOyNYECITubAwtuapCQZYqBa4mzRA8U/xfgFrKvbDPHVxbpSWHhIWodZ5Re61D455tR073hM2ZAmhyhEB8salL3zw4BQxatQIaR4I6T4EiKWCCsmxZwoxt48ePYLlkCHHbw79mWnFfwGWB6omxVHfzgAAAABJRU5ErkJggg==",
     onload: function() {},
-    show: true
+    show: false
   };
   shim_GM_notification();
 
@@ -4740,17 +4740,6 @@
       exampleUrl: "https://nhentai.net/tag/akigami-satoru/"
     },
     {
-      name: "177pic",
-      url: /^https?:\/\/(www\.)?177pic\.info\/html\/.*\.html/,
-      nextLink: '//a[text()="下一页"]',
-      autopager: {
-        enable: true,
-        pageElement: '//div[@class="entry-content"]',
-        ipages: [true, 30]
-      },
-      exampleUrl: "http://www.177pic.info/html/2017/06/1409443.html"
-    },
-    {
       name: "DL.Getchu.com",
       url: "^https?://dl.getchu.com/",
       nextLink: '//div[@class="pgr2"]/b/following-sibling::a[1]',
@@ -5166,192 +5155,264 @@
     }
   ];
 
-  //  ///////// ----- Rules obtained from online json files -------///////////
-  // url: url of json file
-  // ruleParser: a function parse responseText from url / null
-  const jsonRuleProvider = [
-    {
-      name: "machsix.github.io",
-      url: "https://machsix.github.io/Super-preloader/mydata.json",
-      detailUrl: "https://machsix.github.io/Super-preloader/mydata_detail.json",
-      ruleParser: null
-    },
-    {
-      name: "wedata.net",
-      url: "http://wedata.net/databases/AutoPagerize/items.json",
-      detailUrl: "http://wedata.net/databases/AutoPagerize.json",
-      ruleParser: function(responseText) {
-        return JSON.parse(responseText)
-          .filter(function(i) {
-            const nameFilter = ["Generic Posts Rule", "hAtom"];
-            for (var j = 0; j < nameFilter.length; j++) {
-              if (nameFilter[j].indexOf(i.name) >= 0) {
-                return false;
-              }
+  const axios = (function() {
+    /**
+     * axios-like library for Greasemonkey
+     * @param {string} method "GET"/"POST"
+     * @param {string} url requested url
+     * @param {object} conf Greasemonkey request configuration
+     * @returns {promise} reponse is resolved
+     */
+    const axios = function(method, url, conf) {
+      return new Promise(function(resolve, reject) {
+        const req = {
+          url: url,
+          method: method,
+          timeout: 60000,
+          onload: function(res) {
+            resolve(res);
+          },
+          onerror: function(err) {
+            reject(err);
+          },
+          ontimeout: function(err) {
+            reject(err);
+          }
+        };
+        const acceptedConf = ["binary", "context", "data", "headers", "method", "overrideMimeType", "password", "timeout", "upload", "url", "usr"];
+        if (conf) {
+          for (var prop in conf) {
+            if (acceptedConf.indexOf(prop) > -1) {
+              req[prop] = conf[prop];
             }
-            return true;
-          })
-          .map(function(i) {
-            i.data.name = i.name;
-            i.data.source = "wedata.net";
-            return i.data;
-          });
-      }
-    }
-  ];
+          }
+          if (conf.noCache === true) {
+            req.url += "?_" + new Date().getTime();
+          }
+        }
+        GM.xmlHttpRequest(req);
+      });
+    };
 
+    axios.get = function(url, conf) {
+      return axios("GET", url, conf);
+    };
+
+    axios.post = function(url, data, conf) {
+      if (!conf) {
+        conf = {data: data};
+      } else {
+        conf.data = data;
+      }
+      return axios("POST", url, conf);
+    };
+    return axios;
+  })();
+
+  //  ///////// ----- Rules obtained from online json files -------///////////
   var SITEINFO_json = [];
-  for (var i = 0; i < jsonRuleProvider.length; i++) {
-    SITEINFO_json.push(null);
-  }
   const jsonRule = {
     info: {
       expire: new Date("1992-05-15"),
       updatePeriodInDay: 1 // json rules are update everyday
     },
-    resetRule: function() {
-      SITEINFO_json = [];
-      for (var i = 0; i < jsonRuleProvider.length; i++) {
-        SITEINFO_json.push(null);
+    rule: [[], []], // length should be the same as this.provider
+    /**
+     * import string into data
+     * @param {object} jsonRuleInfo GM saved info
+     * @param {object} jsonRule GM saved rules
+     * @returns {void}
+     */
+    importData: function(jsonRuleInfo, jsonRule) {
+      const _jsonRuleInfo = JSON.parse(jsonRuleInfo);
+      this.info.expire = new Date(_jsonRuleInfo.expire);
+      this.info.updatePeriodInDay = _jsonRuleInfo.updatePeriodInDay;
+      this.rule = JSON.parse(jsonRule);
+    },
+    saveData: function(withRule, updatePeriodInDay) {
+      const promise = [];
+      if (withRule) {
+        promise.push(GM.setValue("SITEINFO_json", JSON.stringify(this.rule)));
       }
+      const _updatePeriodInDay = typeof updatePeriodInDay === "undefined" ? this.info.updatePeriodInDay : updatePeriodInDay;
+      const today = new Date();
+      this.info.expire = new Date(today.getTime() + _updatePeriodInDay * 24 * 60 * 60 * 1000);
+      promise.push(GM.setValue("jsonRuleInfo", JSON.stringify(this.info)));
+      return Promise.all(promise);
     },
-    triggerForceUpdate: false,
-    updateRule: function() {
-      // return a promise when rule is updated
-      // create promises
-      const jsonRulePromises = [];
-      jsonRuleProvider.forEach(function(val, iurl) {
-        jsonRulePromises.push(
-          new Promise(function(resolve, reject) {
-            const req = {
-              method: "GET",
-              url: val.detailUrl,
-              onload: function(detailRes) {
-                try {
-                  const jdetailRes = JSON.parse(detailRes.responseText);
-                  const ruleUpdateDate = new Date(jdetailRes.updated_at);
-                  debug(jdetailRes);
-                  resolve(ruleUpdateDate);
-                } catch (err) {
-                  reject(detailRes);
+    exportRule: function() {
+      return _.flat(this.rule);
+    },
+    provider: [
+      {
+        name: "machsix.github.io",
+        url: ["https://machsix.github.io/Super-preloader/mydata.json", "https://cdn.jsdelivr.net/gh/machsix/Super-preloader/dist/mydata.json"],
+        detailUrl: "https://machsix.github.io/Super-preloader/mydata_detail.json",
+        ruleParser: function(responseText) {
+          return JSON.parse(responseText);
+        }
+      },
+      {
+        name: "wedata.net",
+        url: ["http://wedata.net/databases/AutoPagerize/items.json", "https://super-preloader.netlify.com/wedata.json"],
+        detailUrl: "http://wedata.net/databases/AutoPagerize.json",
+        ruleParser: function(responseText) {
+          return JSON.parse(responseText)
+            .filter(function(i) {
+              const nameFilter = ["Generic Posts Rule", "hAtom"];
+              for (var j = 0; j < nameFilter.length; j++) {
+                if (nameFilter[j].indexOf(i.name) >= 0) {
+                  return false;
                 }
-              },
-              onerror: function(res) {
-                reject(res);
               }
-            };
-            GM.xmlHttpRequest(req);
-          })
-            .then(
-              function(ruleUpdateDate) {
-                if (ruleUpdateDate > this.info.expire || this.triggerForceUpdate) {
-                  return new Promise(function(resolve, reject) {
-                    const req = {
-                      method: "GET",
-                      url: val.url,
-                      onload: function(res) {
-                        var rule;
-                        try {
-                          if (_.isFunction(val.ruleParser)) {
-                            rule = val.ruleParser(res.responseText);
-                          } else {
-                            rule = JSON.parse(res.responseText);
-                          }
-                          debug("Rules " + val.name + " is updated");
-                          resolve(rule);
-                        } catch (err) {
-                          reject(res);
-                        }
-                      },
-                      onerror: function(res) {
-                        reject(res);
-                      }
-                    };
-                    debug("Rule " + val.name + " is to be updated");
-                    GM.xmlHttpRequest(req);
-                  });
-                } else {
-                  debug("Rule " + val.name + " is not expired");
-                  return Promise.resolve("not expire");
-                }
-              }.bind(this)
-            )
-            .catch(function() {
-              debug("Fail to update for " + val.name);
-              return Promise.resolve(null);
+              return true;
             })
-        );
-      }, this);
-
-      return Promise.all(jsonRulePromises);
-    },
-    updateJsonRule: function(force) {
-      // a function used to create promise to update json rule
-      // jsonUpdateFinish: Callback after both jsonInfo and SITEINFO_json are updated
-      force = force || false;
-      const currentDate = new Date();
-      if (SITEINFO_json.length == 0 || force || SITEINFO_json.length !== jsonRuleProvider.length) {
-        this.triggerForceUpdate = true;
-      } else {
-        for (var i = 0; i < jsonRuleProvider.length; i++) {
-          // check if any rule is wrong
-          if (!SITEINFO_json[i]) {
-            this.triggerForceUpdate = true;
-          } else if (!Array.isArray(SITEINFO_json[i])) {
-            this.triggerForceUpdate = true;
-          }
+            .map(function(i) {
+              i.data.name = i.name;
+              i.data.source = "wedata.net";
+              return i.data;
+            });
         }
       }
-      if (this.triggerForceUpdate) {
-        this.resetRule();
-      }
-      if (this.info.expire < currentDate || this.triggerForceUpdate) {
-        debug("Json rule is being updated");
+    ],
+    /**
+     * Download rule from provider[i]
+     * @param {number} i provider[i]
+     * @returns {promise} the downloaded rule
+     */
+    downloadRule: function(i) {
+      const createRequest = function(iurl) {
         return new Promise(
           function(resolve, reject) {
-            this.updateRule()
+            axios
+              .get(this.provider[i].url[iurl], {noCache: true})
               .then(
-                function(jsons) {
-                  var allFail = true;
-                  debug(jsons);
-                  jsons.forEach(function(rule, i) {
-                    if (rule && Array.isArray(rule)) {
-                      SITEINFO_json[i] = rule;
-                      allFail = false;
-                    }
-                  });
-
-                  if (allFail) {
-                    this.resetRule();
-                    this.info.expire = new Date("1992-05-15");
-                    GM.setValue("jsonRuleInfo", JSON.stringify(this.info));
-                    GM.setValue("SITEINFO_json", JSON.stringify(SITEINFO_json));
-                    reject(new Error("Rules are not successfully updated"));
-                  } else {
-                    this.info.expire = new Date(currentDate.getTime() + this.info.updatePeriodInDay * 24 * 60 * 60 * 1000);
-                    GM.setValue("jsonRuleInfo", JSON.stringify(this.info));
-                    GM.setValue("SITEINFO_json", JSON.stringify(SITEINFO_json));
-                    SITEINFO_json = _.flatFilter(SITEINFO_json);
-                    resolve();
+                function(res) {
+                  try {
+                    const rule = this.provider[i].ruleParser(res.responseText);
+                    debug("[Rule]" + this.provider[i].name + " [Status]download successfully");
+                    resolve(rule);
+                  } catch (error) {
+                    debug("[Rule]" + this.provider[i].name + " [Status]fail to parse");
+                    reject(error);
                   }
                 }.bind(this)
               )
-              .catch(function(err) {
-                this.resetRule();
-                reject(err);
-              });
+              .catch(
+                function(error) {
+                  if (iurl < this.provider[i].url.length) {
+                    return createRequest(iurl + 1);
+                  } else {
+                    debug("[Rule]" + this.provider[i].name + " [Status]fail to download");
+                    reject(error);
+                  }
+                }.bind(this)
+              );
+          }.bind(this)
+        );
+      }.bind(this);
+      return createRequest(0);
+    },
+    /**
+     * update rule for a specific index
+     * @param {number} i index of provider
+     * @param {boolean} force whether to forcely update
+     * @param {Object} lastUpdate override this.data.expire
+     * @returns {void}
+     */
+    updateRule: function(i, force, lastUpdate) {
+      // update rule[i] if we don't have rule for it
+      const _force = typeof force !== "undefined" ? this.rule[i].length < 1 || force : this.rule[i].length < 1 || false;
+      const _lastUpdate = typeof lastUpdate !== "undefined" ? lastUpdate : this.info.expire;
+      return new Promise(
+        function(resolve, reject) {
+          axios
+            .get(this.provider[i].detailUrl, {noCache: true})
+            .then(
+              function(res) {
+                const detail = JSON.parse(res.responseText);
+                const ruleLastUpdate = new Date(detail.updated_at);
+                if (_force || ruleLastUpdate > _lastUpdate || this.rule[i].length === 0) {
+                  // download rule for:
+                  // 1. forced update
+                  // 2. rule is updated
+                  // 3. rule is empty
+                  this.downloadRule(i)
+                    .then(function(rule) {
+                      resolve(rule);
+                    })
+                    .catch(function(error) {
+                      reject(error);
+                    });
+                } else {
+                  debug("[Rule]" + this.provider[i].name + " [Status]no need to update");
+                  resolve(this.rule[i]);
+                }
+              }.bind(this)
+            )
+            .catch(
+              function(error) {
+                debug("[Rule]" + this.provider[i].name + "[Status]fail to fetch detail");
+                reject(error);
+              }.bind(this)
+            );
+        }.bind(this)
+      );
+    },
+    /**
+     * update all rules
+     * @param {force} force force update rule
+     * @return {promise/val} the resolved rules
+     */
+    updateAllRules: function(force) {
+      const _force = this.rule.length !== this.provider.length ? true : !!force;
+      const today = new Date();
+
+      if (_force || today > this.info.expire) {
+        const reflect = function(promise) {
+          return promise.then(
+            function(v) {
+              return {v: v, status: "resolved"};
+            },
+            function(e) {
+              return {e: e, status: "rejected"};
+            }
+          );
+        };
+
+        // update rule if we have mismatched rule and provider
+        return Promise.all(
+          this.provider.map(
+            function(val, i) {
+              return reflect(this.updateRule(i, _force));
+            }.bind(this)
+          )
+        ).then(
+          function(v) {
+            var s = true;
+            this.rule = v.map(function(val, index) {
+              if (val.status === "resolved") {
+                return val.v;
+              } else {
+                s = false;
+                return [];
+              }
+            });
+
+            if (s) {
+              // although it returns a promise, we don't need to wait for it
+              this.saveData(true);
+            } else {
+              this.saveData(true, -1);
+            }
+            return Promise.resolve(this.exportRule());
           }.bind(this)
         );
       } else {
-        // debug("Json rule will be updated at " + this.info.expire.toString());
-        SITEINFO_json = _.flatFilter(SITEINFO_json);
-        return Promise.resolve();
+        this.saveData(false);
+        debug("Next update at: " + this.info.expire.toISOString());
+        return Promise.resolve(this.exportRule());
       }
-    },
-    parseJsonInfo: function(x) {
-      // Parse the json saved for this.info
-      this.info = JSON.parse(x);
-      this.info.expire = new Date(this.info.expire);
     }
   };
 
@@ -5588,17 +5649,17 @@
     GM.getValue("SITEINFO_D", JSON.stringify(SITEINFO_D)),
     GM.getValue("autoMatch", JSON.stringify(autoMatch)),
     GM.getValue("jsonRuleInfo", JSON.stringify(jsonRule.info)),
-    GM.getValue("SITEINFO_json", JSON.stringify(SITEINFO_json)),
+    GM.getValue("SITEINFO_json", JSON.stringify(jsonRule.rule)),
     GM.getValue("version", "1.0.00")
   ]).then(function(values) {
     // retrieve settings
     prefs = JSON.parse(values[0]);
     SITEINFO_D = JSON.parse(values[1]);
     autoMatch = JSON.parse(values[2]);
-    jsonRule.parseJsonInfo(values[3]);
 
-    // at this point, SITEINFO_json is an array
-    SITEINFO_json = JSON.parse(values[4]);
+    // import jsonRule to its handler
+    jsonRule.importData(values[3], values[4]);
+    SITEINFO_json = jsonRule.exportRule();
 
     // check the consistency of script settings
     const myVersion = values[5];
@@ -5808,7 +5869,8 @@
 
       on($("updaterule"), "click", function() {
         $("updaterule").innerHTML = "Updating...";
-        jsonRule.updateJsonRule(true).then(function() {
+        jsonRule.updateAllRules(true).then(function(val) {
+          SITEINFO_json = val;
           SP.loadSetting();
           close();
           location.reload();
@@ -5852,7 +5914,7 @@
         });
 
         // update json rule
-        const p2 = jsonRule.updateJsonRule();
+        const p2 = jsonRule.updateAllRules();
         if (hashSite) {
           isHashchangeSite = true;
           hashchangeTimer = hashSite.timer;
@@ -5865,6 +5927,7 @@
           });
         } else {
           p2.then(function(values) {
+            SITEINFO_json = values;
             init(window, document);
           });
         }
@@ -6082,6 +6145,7 @@
                           position:relative!important;\
                           left:0!important;\
                           right:0!important;\
+                          top: 2px!important;\
                           min-height:20px!important;\
                          }\
                          #sp-fw-container .sp-fw-spanbutton{\
@@ -6096,11 +6160,8 @@
                              box-shadow:inset 0 10px 5px white!important;\
                          }\
                          #sp-fw-container #sp-fw-savebutton{\
-                             position:absolute!important;\
-                             right:2px!important;\
-                             bottom: 0px!important;\
-                             top: 0px!important;\
-                             padding:0px 3px!important;\
+                             position:relative!important;\
+                             left: 96px!important;\
                          }'
         );
 
@@ -6249,7 +6310,7 @@
               const t_a_itimeout = gl(a_itimeout);
               value.a_itimeout = isNaN(t_a_itimeout) ? SSS.a_itimeout : t_a_itimeout >= 0 ? t_a_itimeout : 0;
               const t_a_remain = gl(a_remain);
-              value.a_remain = isNaN(t_a_remain) ? SSS.a_remain : Number(t_a_remain.toFixed(2));
+              value.a_remain = isNaN(t_a_remain) ? SSS.a_remain : Number(t_a_remain);
               const t_a_maxpage = gl(a_maxpage);
               value.a_maxpage = isNaN(t_a_maxpage) ? SSS.a_maxpage : t_a_maxpage >= 1 ? t_a_maxpage : 1;
               const t_a_ipages_1 = gl(a_ipages_1);
@@ -8681,23 +8742,13 @@
       return result;
     };
 
+    _.filter = function(obj, predicate) {
+      return [].filter.apply(obj, [predicate]);
+    };
+
     _.flat = function(obj) {
       return [].concat.apply([], obj);
     };
-
-    _.flatFilter = function(obj) {
-      return [].concat.apply(
-        [],
-        obj.filter(function(x) {
-          if (Array.isArray(x)) {
-            return true;
-          } else {
-            return false;
-          }
-        })
-      );
-    };
-
     return _;
   })();
 

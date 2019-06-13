@@ -7,16 +7,18 @@
     "doc": "docs"
   },
   "scripts": {
-    "lint": "eslint Super_preloaderPlus_one_New.user.js dist/*.json .travis/*.js docs/**/*.js dist/*.json docs/**/*.{json,js}",
-    "format:check": "prettier --ignore-path=.eslintignore --check Super_preloaderPlus_one_New.user.js dist/*.json .travis/*.js docs/**/*.js dist/*.json docs/**/*.{md,json,js}",
-    "format": "prettier --ignore-path=.eslintignore --write Super_preloaderPlus_one_New.user.js dist/*.json .travis/*.js docs/**/*.js dist/*.json docs/**/*.{json,js,md}",
+    "lint": "eslint Super_preloaderPlus_one_New.user.js dist/*.json .ci/*.js docs/**/*.js docs/**/*.js",
+    "format": "prettier --ignore-path=.eslintignore --write Super_preloaderPlus_one_New.user.js dist/*.json .ci/*.js docs/**/*.js dist/*.json docs/**/*.{json,js,md}",
+    "format:check": "prettier --ignore-path=.eslintignore --check Super_preloaderPlus_one_New.user.js dist/*.json .ci/*.js docs/**/*.js dist/*.json docs/**/*.{md,json,js}",
+    "format:staged": "pretty-quick --staged --ignore-path=.eslintignore --write Super_preloaderPlus_one_New.user.js dist/*.json .ci/*.js docs/**/*.js dist/*.json docs/**/*.{json,js,md}",
     "test": "npm run lint && npm run format:check",
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "docs:publish": "npm run docs:build && .ci/gen_ghpage.sh"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint"
+      "pre-commit": "npm run lint && npm run format:staged"
     }
   },
   "repository": {
@@ -33,17 +35,19 @@
   },
   "homepage": "https://github.com/machsix/Super-preloader#readme",
   "devDependencies": {
-    "@vuepress/plugin-back-to-top": "1.0.0-alpha.47",
-    "@vuepress/plugin-pwa": "1.0.0-alpha.47",
+    "@vuepress/plugin-back-to-top": "1.0.0-alpha.48",
+    "@vuepress/plugin-google-analytics": "1.0.0-alpha.48",
+    "@vuepress/plugin-pwa": "1.0.0-alpha.48",
     "eslint": "5.16.0",
-    "eslint-config-prettier": "4.2.0",
+    "eslint-config-prettier": "4.3.0",
     "eslint-plugin-compat": "3.1.1",
     "eslint-plugin-json": "1.4.0",
-    "eslint-plugin-prettier": "3.0.1",
-    "husky": "2.2.0",
+    "eslint-plugin-prettier": "3.1.0",
+    "husky": "2.3.0",
     "loglevel": "1.6.1",
-    "prettier": "1.17.0",
-    "vuepress": "1.0.0-alpha.47"
+    "prettier": "1.17.1",
+    "pretty-quick": "1.11.0",
+    "vuepress": "1.0.0-alpha.48"
   },
   "browserslist": [
     "Firefox ESR",

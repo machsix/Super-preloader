@@ -5,6 +5,9 @@ module.exports = {
     "@vuepress/pwa": {
       serviceWorker: true,
       updatePopup: true
+    },
+    "@vuepress/google-analytics": {
+      ga: "UA-139969974-1"
     }
   },
   locales: {
@@ -82,6 +85,11 @@ module.exports = {
               title: "Introduction",
               collapsable: false,
               children: [["", "Intoduction"], "example", "compatibility", "database"]
+            },
+            {
+              title: "Deveopment",
+              collapsable: false,
+              children: ["siterule"]
             },
             {
               title: "HOW TO",

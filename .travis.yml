@@ -9,8 +9,7 @@ install:
   - yarn install
 script:
   - yarn run test
-  - yarn docs:build
-  - .travis/gen_ghpage.sh
+  - yarn docs:publish
 deploy:
   provider: pages
   skip_cleanup: true
