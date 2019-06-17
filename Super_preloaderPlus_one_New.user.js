@@ -6739,8 +6739,8 @@
 
         var doc, win;
 
-        function XHRLoaded(req) {
-          const str = req.responseText;
+        function XHRLoaded(res) {
+          const str = res.responseText;
           doc = win = createDocumentByString(str);
 
           if (!doc) {
@@ -6755,9 +6755,10 @@
           scroll();
         }
 
-        function XHRNotLoaded(req) {
+        function XHRNotLoaded(res) {
           debug("XHR is failed to be loaded");
-          debug(req);
+          debug(res);
+          removeL();
         }
 
         function removeL(isRemoveAddPage) {
@@ -6895,35 +6896,23 @@
           if (SSS.a_useiframe) {
             iframeRequest(nextlink);
           } else {
-            if (typeof SSS.a_header === "string") {
-              GM.xmlHttpRequest({
-                method: "GET",
-                url: nextlink,
-                overrideMimeType: "text/html; charset=" + document.characterSet,
-                onload: XHRLoaded,
-                onerror: XHRNotLoaded,
-                header: SSS.a_header
+            const reqConf = {
+              overrideMimeType: "text/html; charset=" + document.characterSet,
+              headers: SSS.a_headers ? SSS.a_headers : {Referer: cplink}
+            };
+            axios
+              .get(nextlink, reqConf)
+              .then(function(res) {
+                if (res.finalUrl === cplink) {
+                  debug("最终地址相同");
+                  XHRNotLoaded(res);
+                } else {
+                  XHRLoaded(res);
+                }
+              })
+              .catch(function(res) {
+                XHRNotLoaded(res);
               });
-            } else {
-              if (SSS.a_header) {
-                GM.xmlHttpRequest({
-                  method: "GET",
-                  url: nextlink,
-                  overrideMimeType: "text/html; charset=" + document.characterSet,
-                  onload: XHRLoaded,
-                  onerror: XHRNotLoaded,
-                  header: cplink
-                });
-              } else {
-                GM.xmlHttpRequest({
-                  method: "GET",
-                  url: nextlink,
-                  overrideMimeType: "text/html; charset=" + document.characterSet,
-                  onload: XHRLoaded,
-                  onerror: XHRNotLoaded
-                });
-              }
-            }
             debug("读取完成");
           }
         }
@@ -7857,7 +7846,6 @@
               if (SII.preLink) SII.autopager.preLink = SII.preLink;
               if (SII.insertBefore) SII.autopager.HT_insert = [SII.insertBefore, 1];
             }
-            SSS.a_header = SII.header === undefined ? false : SII.header;
 
             // 自动翻页设置.
             const SIIA = SII.autopager;
@@ -7901,7 +7889,7 @@
               }
               SSS.a_stylish = SII.stylish || SIIA.stylish;
               SSS.lazyImgSrc = SIIA.lazyImgSrc;
-              SSS.a_header = SIIA.header === undefined ? SSS.a_header : SIIA.header; // custom header for XHRLoaded
+              SSS.a_headers = SIIA.headers === undefined ? undefined : SIIA.headers; // custom header for XHRLoaded
               SSS.a_reload = SIIA.reload === undefined ? SIIAD.reload : SIIA.reload; // force reload iframe
               SSS.a_sandbox = SIIA.sandbox === undefined ? SIIAD.sandbox : SIIA.sandbox;
             }
