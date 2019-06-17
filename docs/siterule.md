@@ -141,6 +141,12 @@ sidebarDepth: 3
 - **default**: `false`
 - **description**: 如果实在难以找出[pageElement](/siterule.md#pageelement),开启该选项会使整个页面被拼接上去
 
+### headers
+
+- **type**: `Object` <Jbadge/>
+- **default**: `{ Referer: <本页链接> }`
+- **description**: 自定义请求下一页的 headers
+
 ### remain
 
 - **type**: `Number` <Jbadge/>

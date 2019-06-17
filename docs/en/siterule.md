@@ -147,6 +147,12 @@ In addition to the basic elements, the rule can also contain an `Object` with `k
 - **default**: `false`
 - **description**: If it is really difficult to find [pageElement](/siterule.md#pageelement), turning this option on will make the entire page spliced ​​up.
 
+### headers
+
+- **type**: `Object` <Jbadge/>
+- **default**: `{ Referer: <Link of current page> }`
+- **description**: Customized headers to request next page
+
 ### remain
 
 - **type**: `Number` <Jbadge/>
