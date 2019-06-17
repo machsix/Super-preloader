@@ -327,53 +327,6 @@
     "nextLink": "id('pe100_page_contentpage')/a[text()='>']"
   },
   {
-    "name": "chottie",
-    "url": "^https?://chottie\\.com/blog",
-    "nextLink": "//span[contains(@class, 'current')]/following-sibling::a",
-    "autopager": {
-      "pageElement": "//div[@class='entry-content']/p",
-      "ipages": [true, 30]
-    }
-  },
-  {
-    "name": "192tt",
-    "url": "^https?://www\\.(192tb|192ta)\\.com",
-    "nextLink": "//div[@class='page']/a[@class='next']",
-    "pageElement": "//ul[@class='clearfix']/parent::div",
-    "exampleUrl": "https://www.192tb.com/gq/"
-  },
-  {
-    "name": "192tt-gallery",
-    "url": "^https?://www\\.(192tb|192ta)\\.com/.*?\\.html(#.*)?$",
-    "preLink": {
-      "startAfter": "_",
-      "inc": -1,
-      "min": 1
-    },
-    "nextLink": {
-      "startAfter": "_",
-      "mFails": ["re;^https?://www\\.(192tb|192ta)\\.com/.+(?=\\.html)", "_1.html"],
-      "inc": 1
-    },
-    "autopager": {
-      "enable": true,
-      "pageElement": "//div[@class='picsbox picsboxcenter']/center",
-      "ipages": [true, 30]
-    }
-  },
-  {
-    "name": "177pic",
-    "exampleUrl": "http://www.177pic.info/html/2018/04/2028357.html?variant=zh-hans",
-    "url": "https?://www\\.177pic\\.info",
-    "nextLink": "//div[@class=\"wp-pagenavi\"]/p/a[text()=\"下一页\" or text()=\"下一頁\"]",
-    "autopager": {
-      "enable": true,
-      "pageElement": "//div[@class=\"entry-content\"]/p | //div[@class=\"entry-content\"]/table",
-      "ipages": [true, 30],
-      "insertBefore": "//div[@id=\"single-navi\"]"
-    }
-  },
-  {
     "name": "mebook",
     "exampleUrl": "http://mebook.cc/page/2",
     "url": "https?://mebook\\.cc",
@@ -1864,14 +1817,108 @@
   {
     "name": "爱套图",
     "url": "^https://www\\.aitaotu\\.com/[a-z]+/\\d+(_\\d)*\\.html",
-    "nextLink": "//a[text()=\"上一页\"]",
-    "prevLink": "//a[text()=\"下一页\"]",
+    "prevLink": "//a[text()=\"上一页\"]",
+    "nextLink": "//a[text()=\"下一页\"]",
     "autopager": {
       "enable": true,
       "pageElement": "id(\"big-pic\")/p/a",
       "ipages": [true, 30]
     },
     "exampleUrl": "https://www.aitaotu.com/guonei/1081_4.html"
+  },
+  {
+    "name": "mm131",
+    "url": "^https://www\\.mm131\\.com",
+    "nextLink": "auto;",
+    "autopager": {
+      "enable": true,
+      "pageElement": "//div[@class='content-pic']",
+      "ipages": [true, 30]
+    }
+  },
+  {
+    "name": "新闻吧",
+    "url": "https://www\\.xinwenba\\.net",
+    "nextLink": "auto;",
+    "autopager": {
+      "pageElement": "//div[@class='picture']/p | //div[@class='listbox']",
+      "ipages": [true, 5]
+    }
+  },
+  {
+    "name": "16128",
+    "url": "https://www\\.16128\\.com",
+    "nextLink": "auto;",
+    "autopager": {
+      "pageElement": "//div[@id='picBody']",
+      "ipages": [true, 30]
+    }
+  },
+  {
+    "name": "chottie",
+    "url": "^https?://chottie\\.com/blog",
+    "nextLink": "//span[contains(@class, 'current')]/following-sibling::a",
+    "autopager": {
+      "pageElement": "//div[@class='entry-content']/p",
+      "ipages": [true, 30]
+    }
+  },
+  {
+    "name": "xgtutu",
+    "url": "^https?://www\\.xgtutu\\.com",
+    "nextLink": "auto;",
+    "autopager": {
+      "pageElement": "//div[@id='picg']/p | //div[@id='list']",
+      "ipages": [true, 30]
+    }
+  },
+  {
+    "name": "192tt",
+    "url": "^https?://www\\.(192tb|192ta)\\.com",
+    "nextLink": "//div[@class='page']/a[@class='next']",
+    "pageElement": "//ul[@class='clearfix']/parent::div",
+    "exampleUrl": "https://www.192tb.com/gq/"
+  },
+  {
+    "name": "192tt-gallery",
+    "url": "^https?://www\\.(192tb|192ta)\\.com/.*?\\.html(#.*)?$",
+    "preLink": {
+      "startAfter": "_",
+      "inc": -1,
+      "min": 1
+    },
+    "nextLink": {
+      "startAfter": "_",
+      "mFails": ["re;^https?://www\\.(?:192tb|192ta)\\.com/.+(?=\\.html)", "_1.html"],
+      "inc": 1
+    },
+    "autopager": {
+      "enable": true,
+      "pageElement": "//div[@class='picsbox picsboxcenter']/center",
+      "ipages": [true, 30]
+    }
+  },
+  {
+    "name": "177pic",
+    "exampleUrl": "http://www.177pic.info/html/2018/04/2028357.html?variant=zh-hans",
+    "url": "https?://www\\.177pic\\.info",
+    "nextLink": "//div[@class=\"wp-pagenavi\"]/p/a[text()=\"下一页\" or text()=\"下一頁\"]",
+    "autopager": {
+      "enable": true,
+      "pageElement": "//div[@class=\"entry-content\"]/p | //div[@class=\"entry-content\"]/table",
+      "ipages": [true, 30],
+      "insertBefore": "//div[@id=\"single-navi\"]"
+    }
+  },
+  {
+    "name": "妹子图",
+    "url": "^https://www\\.mzitu\\.com",
+    "nextLink": "auto;",
+    "autopager": {
+      "enable": true,
+      "pageElement": "//div[@class='main-image']/p | //div[@class='postlist']/ul",
+      "ipages": [true, 10]
+    }
   },
   {
     "name": "秀美眉",
