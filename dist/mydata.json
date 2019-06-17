@@ -344,7 +344,7 @@
   },
   {
     "name": "192tt-gallery",
-    "url": "^https?://www\\.192tb\\.com/.*?\\.html(#.*)?$",
+    "url": "^https?://www\\.(192tb|192ta)\\.com/.*?\\.html(#.*)?$",
     "preLink": {
       "startAfter": "_",
       "inc": -1,
@@ -352,7 +352,7 @@
     },
     "nextLink": {
       "startAfter": "_",
-      "mFails": ["re;^https?://www\\.192tb\\.com/.+(?=\\.html)", "_1.html"],
+      "mFails": ["re;^https?://www\\.(192tb|192ta)\\.com/.+(?=\\.html)", "_1.html"],
       "inc": 1
     },
     "autopager": {
