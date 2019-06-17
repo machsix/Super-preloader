@@ -21,7 +21,7 @@ importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox
 self.__precacheManifest = [
   {
     "url": "404.html",
-    "revision": "8b82779bbc46f9f17b300c7cd00f73ac"
+    "revision": "6b255716c9e87d5d4740ce3d73ab4879"
   },
   {
     "url": "assets/css/0.styles.a5636e7a.css",
@@ -108,52 +108,52 @@ self.__precacheManifest = [
     "revision": "79dc77df0c6a97b9df5d5f2ebb8ab272"
   },
   {
-    "url": "assets/js/app.122074b1.js",
-    "revision": "27f40f31a0158184a06528115356aed2"
+    "url": "assets/js/app.42062863.js",
+    "revision": "e6f725938cb6a5899d910c2b20e0e619"
   },
   {
     "url": "compatibility.html",
-    "revision": "7ae01e6bb80c95e142178b06f089c70c"
+    "revision": "10697509dafd9ed292774279f746e9d9"
   },
   {
     "url": "database.html",
-    "revision": "ff5777b8a645198fdf3f091a90134f1a"
+    "revision": "732ba88ab60dbee8e9ecd75be04e6519"
   },
   {
     "url": "develop.html",
-    "revision": "c9c257f1ad22e98abef966ff5381bc36"
+    "revision": "0322570b31127b513071df7759fe2100"
   },
   {
     "url": "en/compatibility.html",
-    "revision": "3d39fbe49c60611d42b99dab78ce9279"
+    "revision": "a58a14931e7939394bd0a6f187f16898"
   },
   {
     "url": "en/database.html",
-    "revision": "5935327286ceff71939e2c9b94abd116"
+    "revision": "077297ece77cc6710e9f87c40c89014b"
   },
   {
     "url": "en/example.html",
-    "revision": "d4b35c0a3d7c2513c3cc3104189c758d"
+    "revision": "6b1b9ecfb69c0e630ed82d7e9e013e46"
   },
   {
     "url": "en/faq.html",
-    "revision": "851ad4bf99c4149105d9f39444ad719b"
+    "revision": "25dd5afabdeda12d75c2601883ddcc09"
   },
   {
     "url": "en/index.html",
-    "revision": "0947b3535317cc1f7c2631d76ebf73f6"
+    "revision": "c3447cbf500d0693dfdc7843d3873cf3"
   },
   {
     "url": "en/siterule.html",
-    "revision": "e4f52b6ba17a51627bf7169ae38cc327"
+    "revision": "6f43cbd83daf3ad4082016a391a67df2"
   },
   {
     "url": "example.html",
-    "revision": "9964ad994a55d20c7de5e5689dc3ae09"
+    "revision": "4196f06c555586d59a181d7c51c75f16"
   },
   {
     "url": "faq.html",
-    "revision": "30cef53681ee7b1ffa622967f486b7f7"
+    "revision": "c0410ca7ed3fb8d60f139aafa1920a3e"
   },
   {
     "url": "image/example/baidu.png",
@@ -173,7 +173,7 @@ self.__precacheManifest = [
   },
   {
     "url": "index.html",
-    "revision": "8df7fbb3ddd5df5ba7e28296c66d7bb7"
+    "revision": "faa1ab8eb19638fc477efdbb6bf2a252"
   },
   {
     "url": "logo.png",
@@ -181,7 +181,7 @@ self.__precacheManifest = [
   },
   {
     "url": "siterule.html",
-    "revision": "2699ac3681b376549e7f4b31347d293a"
+    "revision": "aa36768ad8f301714946db1b9c855823"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
