@@ -327,8 +327,17 @@
     "nextLink": "id('pe100_page_contentpage')/a[text()='>']"
   },
   {
+    "name": "chottie",
+    "url": "^https?://chottie\\.com/blog",
+    "nextLink": "//span[contains(@class, 'current')]/following-sibling::a",
+    "autopager": {
+      "pageElement": "//div[@class='entry-content']/p",
+      "ipages": [true, 30]
+    }
+  },
+  {
     "name": "192tt",
-    "url": "^https?://www\\.192tb\\.com",
+    "url": "^https?://www\\.(192tb|192ta)\\.com",
     "nextLink": "//div[@class='page']/a[@class='next']",
     "pageElement": "//ul[@class='clearfix']/parent::div",
     "exampleUrl": "https://www.192tb.com/gq/"
