@@ -1,5 +1,33 @@
 [
 {
+  "name": "Twitterの勢い順ランキング | TwTimez",
+  "created_by": "livecros7",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "updated_at": "2019-06-19T08:36:45+09:00",
+  "resource_url": "http://wedata.net/items/82187",
+  "data": {
+    "exampleUrl": "http://www.twtimez.net/",
+    "url": "^https?://(www\\.)?twtimez\\.net/",
+    "pageElement": "//div[@class='box']/*",
+    "nextLink": "//a[@class='sideScrValue sideScrValueSelect']/following-sibling::a[1]"
+  },
+  "created_at": "2019-06-18T19:44:22+09:00"
+},
+{
+  "name": "Twitterイラスト検索。Buhitter !",
+  "created_by": "livecros7",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "updated_at": "2019-06-18T21:02:23+09:00",
+  "resource_url": "http://wedata.net/items/82186",
+  "data": {
+    "exampleUrl": "https://buhitter.com/trend/favorite https://buhitter.com/trend/daily https://buhitter.com/trend",
+    "url": "^https://buhitter\\.com/",
+    "pageElement": "//div[@class=\"row\"]",
+    "nextLink": "//a[@class=\"btn btn-primary btn-lg btn-block\" and text()=\"次のページへ\"]"
+  },
+  "created_at": "2019-06-18T18:26:14+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/82184",
   "name": "zfls001",
   "created_by": "Genmetsu",
@@ -4719,9 +4747,10 @@
   "name": "AKIBA PC HOTLINE!",
   "created_by": "t_f_m",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-06-17T10:56:33+09:00",
+  "updated_at": "2019-06-17T21:07:26+09:00",
   "data": {
     "exampleUrl": "http://akiba-pc.watch.impress.co.jp/docs/sp/1077969.html https://akiba-pc.watch.impress.co.jp/category/pcparts/",
+    "bookmarklet": "for (var i=0; i<Number($(\".autopagerize_link\").last().text())*50; i++) {\r\n    $(\"img[ajax]\").eq(i).attr(\"src\",$(\"img[ajax]\").eq(i).attr(\"ajax\"));\r\n}",
     "url": "^https?://akiba-pc\\.watch\\.impress\\.co\\.jp/",
     "pageElement": "//div[@class=\"tab-wrap\"]/preceding-sibling::*[not(@class=\"box-01\")]|//section[@class=\"list\"]//li",
     "nextLink": "//link[@rel=\"next\"]"
@@ -18220,11 +18249,11 @@
   "name": "tsure2-children BOOTH",
   "created_by": "t_f_m",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-07-04T09:40:17+09:00",
+  "updated_at": "2019-06-17T19:42:30+09:00",
   "data": {
     "exampleUrl": "https://booth.pm/ja/items?page=2&sort=new https://tsure2-children.booth.pm/",
     "url": "^https://(?:[^/]+\\.)?booth\\.pm/",
-    "pageElement": "//ul[@class='items_basic' or @class='item-list']/li",
+    "pageElement": "//ul[@class=\"l-cards\" or @class=\"item-list\"]",
     "nextLink": "//a[@rel='next']"
   },
   "created_at": "2014-10-07T04:47:02+09:00"
@@ -39776,16 +39805,16 @@
   "created_at": "2010-06-13T22:56:52+09:00"
 },
 {
-  "name": "goo \u8f9e\u66f8 \u56fd\u8a9e \u82f1\u548c \u548c\u82f1",
-  "updated_at": "2010-06-13T05:22:26+09:00",
-  "resource_url": "http:\/\/wedata.net\/items\/33174",
+  "resource_url": "http://wedata.net/items/33174",
+  "name": "goo 辞書 国語 英和 和英",
   "created_by": "t_f_m",
-  "database_resource_url": "http:\/\/wedata.net\/databases\/AutoPagerize",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "updated_at": "2019-06-18T17:51:55+09:00",
   "data": {
-    "pageElement": "id(\"incontents\")\/dl[@class=\"allList\"]",
-    "url": "^http:\/\/dictionary\\.goo\\.ne\\.jp\/srch\/(?:ej|j[en])\/",
-    "nextLink": "id(\"incontents\")\/div[@class=\"paging\"]\/\/span[@class=\"cur\"]\/following-sibling::a[1]",
-    "exampleUrl": "http:\/\/dictionary.goo.ne.jp\/srch\/jn\/%E7%81%AB\/m0u\/"
+    "exampleUrl": "http://dictionary.goo.ne.jp/srch/jn/%E7%81%AB/m0u/\r\nhttps://dictionary.goo.ne.jp/srch/dialect/%E6%9D%B1%E4%BA%AC/m9p2u/",
+    "url": "^https://dictionary\\.goo\\.ne\\.jp/srch/",
+    "pageElement": "//ul[@class=\"list-search-a\"]/li",
+    "nextLink": "//li[@class=\"next\"]/a"
   },
   "created_at": "2010-06-13T04:27:14+09:00"
 },
