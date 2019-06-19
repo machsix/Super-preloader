@@ -47,15 +47,6 @@
     "pageElement": "//section[@id='latest-posts']"
   },
   {
-    "name": "好人卡",
-    "url": "^https?://www.haorenka\\.(?:cc|org)",
-    "category": ["blog"],
-    "exampleUrl": "https://www.haorenka.cc/page/2/",
-    "nextLink": "//li[@class='next']/a",
-    "prevLink": "//li[@class='prev']/a",
-    "pageElement": "//div[contains(@class, 'blog-post')]"
-  },
-  {
     "name": "v2ex",
     "url": "^https?://www.v2ex\\.com/(recent|go)",
     "category": ["forum"],

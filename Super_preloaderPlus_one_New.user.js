@@ -1443,6 +1443,25 @@
       exampleUrl: "http://www.yydzh.com/read.php?tid=1584013"
     },
     {
+      name: "Typecho",
+      url: "^https?://",
+      nextLink: "//ol[@class='page-navigator']/li[@class='next']/a",
+      autopager: {
+        pageElement: function(doc, win, _cplink) {
+          const gen = getElementByXpath("//head/meta[@name='generator']", doc, doc);
+          if (!gen || !gen.content.includes("Typecho") || !doc.documentElement.outerHTML.includes("Typecho")) {
+            return null;
+          }
+          try {
+            return getAllElementsByXpath("//article[@class='post'] | //div[@class='blog-post']", doc, doc);
+          } catch (error) {
+            return null;
+          }
+        },
+        relatedObj: true
+      }
+    },
+    {
       name: "WordPress",
       url: "^https?://[^/]+(/page/\\d+)?",
       nextLink: function(doc, win, _cplink) {
