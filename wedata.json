@@ -1,5 +1,20 @@
 [
 {
+  "resource_url": "http://wedata.net/items/82188",
+  "name": "NB Press Online",
+  "created_by": "jigendaddy_be",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "updated_at": "2019-06-20T10:58:04+09:00",
+  "data": {
+    "exampleUrl": "http://www.nbpress.online/",
+    "url": "^http://www\\.nbpress\\.online/",
+    "pageElement": "//article",
+    "insertBefore": "",
+    "nextLink": "//link[@rel=\"next\"]"
+  },
+  "created_at": "2019-06-20T10:58:04+09:00"
+},
+{
   "name": "Twitterの勢い順ランキング | TwTimez",
   "created_by": "livecros7",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
@@ -14,15 +29,15 @@
   "created_at": "2019-06-18T19:44:22+09:00"
 },
 {
+  "resource_url": "http://wedata.net/items/82186",
   "name": "Twitterイラスト検索。Buhitter !",
   "created_by": "livecros7",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-06-18T21:02:23+09:00",
-  "resource_url": "http://wedata.net/items/82186",
+  "updated_at": "2019-06-19T14:37:14+09:00",
   "data": {
     "exampleUrl": "https://buhitter.com/trend/favorite https://buhitter.com/trend/daily https://buhitter.com/trend",
     "url": "^https://buhitter\\.com/",
-    "pageElement": "//div[@class=\"row\"]",
+    "pageElement": "//div[@class=\"row\"][./div/div[contains(@id,\"tweet-\")]]",
     "nextLink": "//a[@class=\"btn btn-primary btn-lg btn-block\" and text()=\"次のページへ\"]"
   },
   "created_at": "2019-06-18T18:26:14+09:00"
