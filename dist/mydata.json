@@ -3771,9 +3771,17 @@
   },
   {
     "name": "Headline Planet",
-    "url": "^https://headlineplanet.com/home/",
+    "url": "^https?://headlineplanet.com/home/",
     "nextLink": "//link[@rel=\"next\"]",
     "exampleUrl": "https://headlineplanet.com/home/ https://headlineplanet.com/home/category/music/music-news/ https://headlineplanet.com/home/category/music/reviews-music/",
     "pageElement": "//div[@id=\"primary\"]/div/div/ul[@class=\"g1-collection-items\"]/li"
+  },
+  {
+    "name": "south-plus-post",
+    "url": "^https?://south-plus.net",
+    "nextLink": "//div[@class='pages']//li[b]/following-sibling::li[1]/a",
+    "autopager": {
+      "pageElement": "//div[@id='ajaxtable'] | //form[@name='delatc']"
+    }
   }
 ]
