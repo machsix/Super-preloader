@@ -43,7 +43,7 @@
     "eslint-plugin-compat": "3.1.2",
     "eslint-plugin-json": "1.4.0",
     "eslint-plugin-prettier": "3.1.0",
-    "husky": "2.4.1",
+    "husky": "2.6.0",
     "loglevel": "1.6.3",
     "prettier": "1.18.2",
     "pretty-quick": "1.11.1",
