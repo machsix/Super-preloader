@@ -40,7 +40,7 @@
     "@vuepress/plugin-pwa": "1.0.2",
     "eslint": "6.0.1",
     "eslint-config-prettier": "6.0.0",
-    "eslint-plugin-compat": "3.1.2",
+    "eslint-plugin-compat": "3.2.0",
     "eslint-plugin-json": "1.4.0",
     "eslint-plugin-prettier": "3.1.0",
     "husky": "2.4.1",
