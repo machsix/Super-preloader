@@ -367,7 +367,7 @@
   {
     "name": "Bing网页搜索",
     "url": "^https?://(?:www|cnweb|cn).bing.com/(?:[^/]+/)*?(?:results.aspx|search)",
-    "exampleUrl": "bing.com/search?q=",
+    "exampleUrl": "https://bing.com/search?q=",
     "nextLink": "//a[contains(@class,\"sb_pagN\")]",
     "autopager": {
       "pageElement": "id(\"b_results\")/li[not(contains(@class,\"b_pag\") or contains(@class,\"b_ans b_top\"))]",
@@ -433,16 +433,6 @@
     "exampleUrl": "http://zhidao.baidu.com/search?pn=0&&rn=10&word=%BD%AD%C4%CFstyle",
     "nextLink": "auto;",
     "pageElement": "css;#wgt-list"
-  },
-  {
-    "name": "百度空间",
-    "url": "^https?://hi\\.baidu\\.com",
-    "nextLink": "id(\"pagerBar\")/div/a[@class=\"next\"]",
-    "autopager": {
-      "useiframe": true,
-      "pageElement": "//div[@class=\"mod-realcontent mod-cs-contentblock\"]"
-    },
-    "exampleUrl": "http://hi.baidu.com/gelida"
   },
   {
     "name": "百度文库搜索",
@@ -3055,10 +3045,10 @@
   },
   {
     "name": "KuKu动漫",
-    "url": "^https?://comic\\.kukudm\\.com/comiclist/\\d+/\\d+.*\\.htm",
-    "exampleUrl": "http://comic.kukudm.com/comiclist/4/17099/3.htm",
+    "url": "^https?://comic\\.ikkdm\\.com/comiclist/\\d+/\\d+.*\\.htm",
+    "exampleUrl": "http://comic.ikkdm.com/comiclist/4/17099/3.htm",
     "useiframe": true,
-    "nextLink": "//a[img[contains(@src,\"images/d.gif\")]]",
+    "nextLink": "//a[img[contains(@src,'images/d.gif')]]",
     "autopager": {
       "useiframe": true,
       "pageElement": "//body/table[2]"
