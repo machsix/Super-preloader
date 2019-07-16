@@ -1,5 +1,47 @@
 [
 {
+  "resource_url": "http://wedata.net/items/82209",
+  "created_by": "t_f_m",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "name": "TRAICY",
+  "data": {
+    "exampleUrl": "https://www.traicy.com/20190713-fukabori",
+    "nextLink": "//div[@class='page-numbers']/span/following-sibling::a",
+    "url": "^https://(www\\.)?traicy\\.com/",
+    "pageElement": "//div[@class='page-numbers']/preceding-sibling::*[not(@class='next-title')]"
+  },
+  "created_at": "2019-07-15T21:17:03+09:00",
+  "updated_at": "2019-07-16T07:21:05+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/82208",
+  "created_by": "brib",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "name": "紀伊國屋書店ウェブストア よくあるご質問",
+  "data": {
+    "exampleUrl": "https://faq.kinokuniya.co.jp/category/show/40?site_domain=default",
+    "nextLink": "//a[@rel='next']",
+    "url": "^https://faq\\.kinokuniya\\.co\\.jp/",
+    "pageElement": "//ul[@class='search_list']/li"
+  },
+  "created_at": "2019-07-13T22:08:56+09:00",
+  "updated_at": "2019-07-14T12:11:40+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/82206",
+  "created_by": "t_f_m",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "name": "MONEY PLUS",
+  "data": {
+    "exampleUrl": "https://media.moneyforward.com/articles/1326",
+    "nextLink": "//a[contains(concat(\" \",@class,\" \"),\" current \")]/following-sibling::a[not(contains(@class,\"disabled\"))]",
+    "url": "^https://media\\.moneyforward\\.com/articles/",
+    "pageElement": "//div[@class=\"article-box\"]/div[@class=\"mp-article-body\" or @class=\"related-articles\"]"
+  },
+  "created_at": "2019-07-10T17:42:34+09:00",
+  "updated_at": "2019-07-10T17:45:58+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/82205",
   "created_by": "t_f_m",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
@@ -12216,19 +12258,19 @@
 },
 {
   "resource_url": "http://wedata.net/items/77631",
-  "name": "Microsoft Blog",
   "created_by": "wOxxOm=-",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-05-29T10:53:06+09:00",
+  "name": "Microsoft Blog",
   "data": {
-    "Stylus": ".autopagerize_page_separator~article [data-lazy-src]{display:block !important;}",
     "exampleUrl": "https://devblogs.microsoft.com/oldnewthing/",
-    "bookmarklet": "Array.prototype.forEach.call(document.querySelectorAll('img'), function(img) { var lazySrc = img.hasAttribute('data-src') ? img.getAttribute('data-src') : img.getAttribute('data-lazy-src'); if (lazySrc) { img.src = lazySrc;} });",
+    "nextLink": "//a[contains(@class,\"next page-link\")]",
+    "Stylus": ".autopagerize_page_separator~article [data-lazy-src]{display:block !important;}",
     "url": "^https://devblogs\\.microsoft\\.com/",
     "pageElement": "id('most-recent')/article",
-    "nextLink": "//link[@rel=\"next\"]"
+    "bookmarklet": "Array.prototype.forEach.call(document.querySelectorAll('img'), function(img) { var lazySrc = img.hasAttribute('data-src') ? img.getAttribute('data-src') : img.getAttribute('data-lazy-src'); if (lazySrc) { img.src = lazySrc;} });"
   },
-  "created_at": "2015-11-06T08:18:44+09:00"
+  "created_at": "2015-11-06T08:18:44+09:00",
+  "updated_at": "2019-07-08T08:37:19+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/77630",
@@ -20642,20 +20684,6 @@
   "created_by": "jigendaddy_be",
   "created_at": "2014-06-10T10:24:57+09:00",
   "updated_at": "2014-06-10T10:24:57+09:00"
-},
-{
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "name": "Bing ニュース",
-  "created_by": "jigendaddy_be",
-  "updated_at": "2016-05-06T14:57:14+09:00",
-  "resource_url": "http://wedata.net/items/74891",
-  "data": {
-    "exampleUrl": "https://www.bing.com/news/search?q=%E6%A2%85%E9%9B%A8&qs=n&form=QBNT&pq=%E6%A2%85%E9%9B%A8&sc=8-2&sp=-1&sk=",
-    "url": "^https?://www\\.bing\\.com/news/search",
-    "pageElement": "//div[@class=\"sn_r\"]",
-    "nextLink": "//a[@class=\"sb_pagN\"]"
-  },
-  "created_at": "2014-06-09T21:27:18+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/74890",
@@ -41601,18 +41629,18 @@
 },
 {
   "resource_url": "http://wedata.net/items/32523",
-  "name": "eMAG.pl",
   "created_by": "toshi",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-02-18T14:21:11+09:00",
+  "name": "eMAG.pl",
   "data": {
-    "Stylish": "Array.prototype.forEach.call(document.querySelectorAll('img'), function(img) { var lazySrc = img.hasAttribute('data-src') ? img.getAttribute('data-src') : img.getAttribute('data-lazy-src'); if (lazySrc) { img.src = lazySrc;} });",
-    "exampleUrl": "http://www.emag.pl/telewizory/c",
+    "exampleUrl": "https://www.emag.pl/telewizory/c",
+    "nextLink": "//link[@rel='next']",
     "url": "^https?://(www\\.)?emag\\.pl/",
-    "pageElement": "id('products-holder')/*",
-    "nextLink": "//link[@rel=\"next\"]"
+    "pageElement": "id('card_grid')/*",
+    "bookmarklet": "Array.prototype.forEach.call(document.querySelectorAll('img'), function(img) { var lazySrc = img.hasAttribute('data-src') ? img.getAttribute('data-src') : img.getAttribute('data-lazy-src'); if (lazySrc) { img.src = lazySrc;} });"
   },
-  "created_at": "2010-05-11T00:56:10+09:00"
+  "created_at": "2010-05-11T00:56:10+09:00",
+  "updated_at": "2019-07-08T08:40:37+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/32522",
@@ -56181,17 +56209,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/501",
-  "name": "Bing",
   "created_by": "swdyh",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2018-03-17T20:26:03+09:00",
+  "name": "Bing",
   "data": {
-    "exampleUrl": "http://www.bing.com/search?q=autopagerize\r\nhttp://cnweb.bing.com/results.aspx?q=autopagerize\r\nhttps://www.bing.com/search?q=autopagerize",
-    "url": "^https?://(?:www|cnweb)\\.bing\\.com/(?:[^/]+/)*?(?:results\\.aspx|search)",
-    "pageElement": "id(\"b_results\")/li[@class=\"b_algo\"]|id(\"results\")",
-    "nextLink": "//a[contains(@class,\"sb_pagN\")]"
+    "exampleUrl": "https://www.bing.com/search?q=autopagerize\r\nhttp://cnweb.bing.com/results.aspx?q=autopagerize\r\nhttps://www4.bing.com/search?q=food&qs=n&sp=-1&pq=foo&sc=8-3&sk=&cvid=387D0CF73BAD466697D930524DD38825&first=11&FORM=PERE",
+    "nextLink": "//a[contains(@class,\"sb_pagN\")]",
+    "url": "^https?://(?:www|cnweb)4?\\.bing\\.com/(?:[^/]+/)*?(?:results\\.aspx|search)",
+    "pageElement": "id(\"b_results\")/li[@class=\"b_algo\"]|id(\"results\")"
   },
-  "created_at": "2008-04-16T12:35:44+09:00"
+  "created_at": "2008-04-16T12:35:44+09:00",
+  "updated_at": "2019-07-12T10:02:32+09:00"
 },
 {
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
@@ -56332,19 +56360,19 @@
 },
 {
   "resource_url": "http://wedata.net/items/472",
-  "name": "Google Search",
   "created_by": "swdyh",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-01-17T06:38:28+09:00",
+  "name": "Google Search",
   "data": {
+    "exampleUrl": "http://www.google.com/search?q=AutoPagerize\r\nhttp://www.google.co.jp/custom?q=firefox\r\nhttps://www.google.com/search?q=bucket&tbm=pts\r\nhttps://www.google.com/search?q=autopagerize&client=firefox-b-1-d&source=lnms&tbm=nws&sa=X&ved=0ahUKEwjImsSLhq7jAhVUa80KHbVfDPMQ_AUIECgB&biw=1536&bih=728",
     "Stylish": "/* Displays images when using search preview extension. Example:https://www.google.com/search?q=food&num=20&source=lnms&tbm=nws&sa=X&ved=0ahUKEwjalvHv0OHWAhXD2SYKHSRwBqUQ_AUIDCgD */ @-moz-document domain(\"google.com\") { div.bkWMgd > div > div > a > img{ display: inline-block !important; }}",
-    "exampleUrl": "http://www.google.com/search?q=AutoPagerize\r\nhttp://www.google.co.jp/custom?q=firefox\r\nhttps://www.google.com/search?q=bucket&tbm=pts",
+    "nextLink": "id('pnnext')|id('navbar navcnt nav')//td[span]/following-sibling::td[1]/a|id('nn')/parent::a",
     "comment": "Google Custom Search Result: http://wedata.net/items/60908\r\nGoogle Movies: http://wedata.net/items/58112\r\nGoogle Shopping: http://wedata.net/items/38952\r\nGoogle Custom Search Result: http://wedata.net/items/60908",
     "url": "^https?://[^./]+\\.google(?:\\.[^./]{2,3}){1,2}/(?:c(?:se|ustom)|search|webhp|m|#)",
-    "pageElement": "id('res')//li[div]|//div[@class='gsc-webResult gsc-result' or @class='psli']|id('rso')//div[contains(concat(\" \", normalize-space(@class), \" \"), \" g \") or contains(concat(\" \", normalize-space(@class), \" \"), \" g _cy \")]",
-    "nextLink": "id('pnnext')|id('navbar navcnt nav')//td[span]/following-sibling::td[1]/a|id('nn')/parent::a"
+    "pageElement": "id('res')//li[div]|//div[@class='gsc-webResult gsc-result' or @class='psli']|id('rso')//div[contains(concat(' ', normalize-space(@class), ' '), ' g ') or contains(concat(' ', normalize-space(@class), ' '), ' g _cy ') or contains(concat(' ', normalize-space(@class), ' '), ' bkWMgd ')]"
   },
-  "created_at": "2008-04-16T12:35:37+09:00"
+  "created_at": "2008-04-16T12:35:37+09:00",
+  "updated_at": "2019-07-12T08:59:34+09:00"
 },
 {
   "name": "Getchu.com \u8a73\u7d30\u691c\u7d22",
