@@ -102,9 +102,7 @@
     "url": "^https?://.*\\.douban\\.com/subject",
     "category": ["movie"],
     "nextLink": "//div[@class='paginator']/span[@class='next']/a[contains(text(),'后页')]|id('paginator')/a[contains(text(),'后页')]",
-    "autopager": {
-      "pageElement": "//ul[contains(@class,'topic-reply')] | //div[@class='discussion-posts']/table/tbody |//div[contains(@class,'review-list')]/div | //div[@id='comments' or @class='post-comments']"
-    }
+    "pageElement": "//ul[contains(@class,'topic-reply')] | //div[@class='discussion-posts']/table/tbody |//div[contains(@class,'review-list')]/div | //div[@id='comments' or @class='post-comments'] | //ul[contains(@class,'poster')]"
   },
   {
     "name": "豆瓣-我的小组话题",
@@ -3773,5 +3771,17 @@
     "autopager": {
       "pageElement": "//div[@id='ajaxtable'] | //form[@name='delatc']"
     }
+  },
+  {
+    "name": "Steam Workshop",
+    "url": "https?://steamcommunity.com/workshop",
+    "nextLink": "//a[@class='pagebtn']",
+    "pageElement": "//div[@class='workshopBrowseRow']"
+  },
+  {
+    "name": "Steam discussion",
+    "url": "https?://steamcommunity.com/app/\\d+/discussions/",
+    "nextLink": "//a[@class='pagebtn' and contains(@id,'next')]",
+    "pageElement": "//div[@class='forum_topics']"
   }
 ]
