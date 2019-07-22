@@ -1,5 +1,20 @@
 [
 {
+  "resource_url": "http://wedata.net/items/82210",
+  "created_by": "t_f_m",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "name": "コロコロオンライン",
+  "data": {
+    "exampleUrl": "https://corocoro.jp/tag/%e3%83%9d%e3%82%b1%e3%83%83%e3%83%88%e3%83%a2%e3%83%b3%e3%82%b9%e3%82%bf%e3%83%bc/",
+    "insertBefore": "",
+    "nextLink": "//a[@rel=\"next\"]",
+    "pageElement": "//ul[contains(concat(\" \",@class,\" \"),\" manga__list \")]/li",
+    "url": "^https://corocoro\\.jp/"
+  },
+  "created_at": "2019-07-16T23:14:31+09:00",
+  "updated_at": "2019-07-16T23:14:31+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/82209",
   "created_by": "t_f_m",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
@@ -4789,18 +4804,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/81579",
-  "name": "キンマweb",
   "created_by": "jigendaddy_be",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-04-08T16:40:16+09:00",
+  "name": "キンマweb",
   "data": {
-    "exampleUrl": "https://kinmaweb.jp/archives/47322",
-    "comment": "This is a dummy code.",
+    "exampleUrl": "https://kinmaweb.jp/archives/47322 https://kinmaweb.jp/archives/70121\r\nhttps://kinmaweb.jp/archives/70121/2",
+    "nextLink": "//link[@rel=\"next\"]|id(\"logo\")[not(//link[@rel=\"next\"])]//a",
     "url": "^https?://kinmaweb\\.jp/archives/",
-    "pageElement": "//div[@class=\"footer-links cf\"]",
-    "nextLink": "id(\"logo\")//a"
+    "pageElement": "//div[@class=\"page-links cf\"]/preceding-sibling::*|id(\"logo\")[//link[@rel=\"next\"][@href=\"https://kinmaweb.jp/page/2\"]]//img|//div[@class=\"footer-links cf\"][not(//link[@rel=\"next\"])]"
   },
-  "created_at": "2017-09-30T13:23:47+09:00"
+  "created_at": "2017-09-30T13:23:47+09:00",
+  "updated_at": "2019-07-19T08:08:20+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/81578",
@@ -27493,17 +27507,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/63821",
-  "name": "ソフトバンク ビジネス+IT",
   "created_by": "taizooo",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2018-05-09T07:20:04+09:00",
+  "name": "ソフトバンク ビジネス+IT",
   "data": {
-    "exampleUrl": "http://www.sbbit.jp/article/7481/ http://www.sbbit.jp/article/cont1/21311 http://www.sbbit.jp/article/cont1/21311?page=2 http://www.sbbit.jp/article/cont1/30551",
+    "exampleUrl": "http://www.sbbit.jp/article/7481/ http://www.sbbit.jp/article/cont1/21311 http://www.sbbit.jp/article/cont1/21311?page=2 https://www.sbbit.jp/article/cont1/36675",
+    "nextLink": "//a[contains(text(),'次へ')][contains(@href,'?page=')]",
     "url": "^https://www\\.sbbit\\.jp/article/",
-    "pageElement": "//div[@class=\"ar-title-sentence\"]/descendant::br[1]/ancestor::div[1]/node()|//div[@class=\"ar-title-sentence\"]/descendant::text()[string-length(normalize-space()) > 0][1]/ancestor::div[1][./p]",
-    "nextLink": "//a[contains(text(),'次へ')][contains(@href,'?page=')]"
+    "pageElement": "//div[@class=\"ar-title-sentence\"]/descendant::br[last()]/ancestor::div[1]/node()|//div[@class=\"ar-title-sentence\"]/descendant::text()[string-length(normalize-space()) > 0][1]/ancestor::div[1][./p]"
   },
-  "created_at": "2012-10-05T17:13:23+09:00"
+  "created_at": "2012-10-05T17:13:23+09:00",
+  "updated_at": "2019-07-18T17:50:34+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/63804",
@@ -50791,17 +50805,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/2759",
-  "name": "Stack Overflow, Super User, Server Fault, Stack Apps",
   "created_by": "satyr",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2016-07-14T09:08:24+09:00",
+  "name": "Stack Overflow, Super User, Server Fault, Stack Apps",
   "data": {
-    "exampleUrl": "http://stackoverflow.com/questions?sort=hot http://stackoverflow.com/search?q=%22apple%22&tab=newest http://stackoverflow.com/questions/tagged/javascript http://stackoverflow.com/questions/62188 http://meta.stackoverflow.com/questions/tagged/discussion http://english.stackexchange.com/questions http://askubuntu.com/questions/tagged/11.10 http://buddhism.stackexchange.com/users http://cs.stackexchange.com/tags",
+    "exampleUrl": "https://stackoverflow.com/questions?sort=hot https://stackoverflow.com/search?q=%22apple%22&tab=newest https://stackoverflow.com/questions/tagged/javascript https://stackoverflow.com/questions/62188 https://meta.stackoverflow.com/questions/tagged/discussion https://english.stackexchange.com/questions https://askubuntu.com/questions/tagged/11.10 https://buddhism.stackexchange.com/users https://cs.stackexchange.com/tags",
+    "nextLink": "//a[@rel='next']",
     "url": "^https?://(?:meta\\.)?(?:s(?:erverfault|tackoverflow|uperuser|tackapps)|\\w+\\.stackexchange|askubuntu)\\.com/",
-    "pageElement": "//div[contains(@class,'search-results') or contains(@id,'questions') or contains(@id,'answers')]/div[contains(@class,'question-') or contains(@id,'question-') or contains(@class,'answer-') or contains(@id,'answer-')]|//*[contains(@id,'-browser')]//tr",
-    "nextLink": "//a[@rel='next']"
+    "pageElement": "//div[contains(@class,'search-results') or contains(@id,'questions') or contains(@id,'answers')]/div[contains(@class,'question-') or contains(@id,'question-') or contains(@class,'answer-') or contains(@id,'answer-')]|//*[contains(@id,'-browser')]//tr|//div[contains(@class,'search-results')]/div/div[contains(@class,'question-')]|//div[@class='grid-layout']/*"
   },
-  "created_at": "2008-10-06T06:00:23+09:00"
+  "created_at": "2008-10-06T06:00:23+09:00",
+  "updated_at": "2019-07-21T04:21:54+09:00"
 },
 {
   "name": "Meister Online",
