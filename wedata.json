@@ -1,5 +1,50 @@
 [
 {
+  "resource_url": "http://wedata.net/items/82214",
+  "created_by": "Tanookirby",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "name": "Prop Archives",
+  "data": {
+    "exampleUrl": "https://www.proparchives.com/listing-category/action/",
+    "insertBefore": "",
+    "nextLink": "//li[@class='active']/following-sibling::li[1]/a",
+    "pageElement": "//div[@class='wlt_search_results list_style']/div[starts-with(@class,'itemdata')]",
+    "url": "^https://(www\\.)?proparchives\\.com/."
+  },
+  "created_at": "2019-07-25T10:17:20+09:00",
+  "updated_at": "2019-07-25T10:17:20+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/82213",
+  "created_by": "Tanookirby",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "name": "Getty Images",
+  "data": {
+    "exampleUrl": "https://www.gettyimages.ca/photos/food?phrase=food&sort=best#license",
+    "insertBefore": "",
+    "nextLink": "//a[@rel='next']",
+    "pageElement": "//div[@class='search-content__gallery-assets']/*",
+    "url": "^https://(www\\.)?gettyimages\\.ca/."
+  },
+  "created_at": "2019-07-24T10:04:00+09:00",
+  "updated_at": "2019-07-24T10:04:00+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/82212",
+  "created_by": "t_f_m",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "name": "WoltLab Forum",
+  "data": {
+    "exampleUrl": "https://www.camp-firefox.de/forum/forum/15-firefox-allgemein/",
+    "insertBefore": "",
+    "nextLink": "//li[@class=\"active\"]/following-sibling::li/a",
+    "pageElement": "id(\"content\")/div/ol/li",
+    "url": "^https://www\\.camp-firefox\\.de/forum/"
+  },
+  "created_at": "2019-07-22T16:32:30+09:00",
+  "updated_at": "2019-07-22T16:32:30+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/82210",
   "created_by": "t_f_m",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
@@ -2371,17 +2416,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/81996",
-  "name": "FNN.jpプライムオンライン",
   "created_by": "hatenaZZZ",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2018-10-23T01:51:57+09:00",
+  "name": "FNN.jpプライムオンライン",
   "data": {
     "exampleUrl": "https://www.fnn.jp/posts?news=1\r\nhttps://www.fnn.jp/programs",
+    "nextLink": "//a[contains(@class,\"Pagination__link-current\")]/following-sibling::a[@href]",
     "url": "^https?://www\\.fnn\\.jp/",
-    "pageElement": "//div[@class='PageGrid__mainArea']/div/section",
-    "nextLink": "//a[@href][*[@aria-label='次のページ']]"
+    "pageElement": "//div[@class='PageGrid__mainArea']/div/section"
   },
-  "created_at": "2018-10-22T04:25:07+09:00"
+  "created_at": "2018-10-22T04:25:07+09:00",
+  "updated_at": "2019-07-25T18:06:48+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/81993",
