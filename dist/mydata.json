@@ -3691,6 +3691,14 @@
     "pageElement": "//li[contains(concat(\" \", @class, \" \"), \" videoblock \")] | //li[contains(concat(\" \", @class, \" \"), \" photoAlbumListContainer \")] "
   },
   {
+    "name": "XVideo",
+    "url": "https?://www\\.xvideos\\.com",
+    "useiframe": true,
+    "nextLink": "(//a[contains(@class,'next-page')])[1]",
+    "pageElement": "//div[@id='content']/div[1]",
+    "exampleUrl": "https://www.xvideos.com/?k=sss"
+  },
+  {
     "name": "YouAV",
     "url": "^https://www.youav.com/search|videos",
     "nextLink": "//div[@class=\"hidden-xs\"]/ul/li/a[@class=\"prevnext\"]",
