@@ -1,5 +1,20 @@
 [
 {
+  "resource_url": "http://wedata.net/items/82215",
+  "created_by": "t_f_m",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "name": "イーストパーク通販",
+  "data": {
+    "exampleUrl": "https://shop-ep.net/trifle_stage/",
+    "insertBefore": "",
+    "nextLink": "//a[contains(img/@src,\"next\")]",
+    "pageElement": "id(\"itemtable\")/li",
+    "url": "^https://shop-ep.net/"
+  },
+  "created_at": "2019-07-26T18:31:23+09:00",
+  "updated_at": "2019-07-26T18:31:23+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/82214",
   "created_by": "Tanookirby",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
