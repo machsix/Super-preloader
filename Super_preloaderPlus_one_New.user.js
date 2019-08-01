@@ -13,7 +13,7 @@
 // @author       Mach6
 // @contributers YFdyh000, suchunchen
 // @thanksto     ywzhaiqi, NLF
-// @version      6.6.58
+// @version      6.6.59
 // @license      GPL-3.0-or-later
 // @homepageURL  https://github.com/machsix/Super-preloader
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
@@ -485,7 +485,7 @@
     },
     {
       name: "m-team artist detail",
-      url: "^https?://tp\\.m-team\\.cc/artist\\.php?",
+      url: "^https?://pt\\.m-team\\.cc/artist\\.php?",
       nextLink: '//b[@title="Alt+Pagedown"]/parent::a',
       autopager: {
         pageElement: '//form[@id="form2"]/table',
@@ -524,7 +524,7 @@
     },
     {
       name: "m-team adults",
-      url: "^https?://tp\\.m-team\\.cc/adult\\.php",
+      url: "^https?://pt\\.m-team\\.cc/adult\\.php",
       nextLink: '//b[@title="Alt+Pagedown"]/parent::a',
       autopager: {
         pageElement: '//table[@class="torrents"]',
