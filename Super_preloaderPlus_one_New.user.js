@@ -467,6 +467,7 @@
       nextLink: '//ul[@class="pagination"]/li[@class="pagedown"]/a',
       autopager: {
         pageElement: 'id("commentTabBlockNew")/ul[@class="comment_listBox"]',
+        excludeElement: '//div[@class="article-card J_trigger_ani"]',
         replaceE: '(//ul[@class="pagination"])[1]',
         startFilter: function(doc) {
           const firstDiv = doc.querySelector(".pagination");
