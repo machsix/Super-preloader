@@ -13,7 +13,7 @@
 // @author       Mach6
 // @contributers YFdyh000, suchunchen
 // @thanksto     ywzhaiqi, NLF
-// @version      6.6.59
+// @version      6.6.60
 // @license      GPL-3.0-or-later
 // @homepageURL  https://github.com/machsix/Super-preloader
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
@@ -70,8 +70,8 @@
   const scriptInfo = {
     name: "Super_preloaderPlus_one_New",
     version: GM.info.script.version,
-    updateTime: "2019/6/16",
-    changelog: "Core: Move json rules",
+    updateTime: "2019/08/15",
+    changelog: "Core: add excludeElement",
     homepageURL: "https://github.com/machsix/Super-preloader",
     downloadUrl: "https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.user.js",
     metaUrl: "https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.meta.js"
@@ -337,7 +337,7 @@
         itimeout: 0, // 延时多少毫秒后,在操作..
         // reload: true,      // Force reload iframe when the src is changed
         newIframe: false, // 下一页使用新的 iframe，能解决按钮无法点击的问题
-        pageElement: '//div[@id="ires"]', // 主体内容 xpath 或 CSS选择器 或函数返回值(~~必须~~)
+        pageElement: '//div[@id="res"]|//div[@id="extrares"]', // 主体内容 xpath 或 CSS选择器 或函数返回值(~~必须~~)
         // pageElement:'css;div#ires',
         // pageElement:function(doc,win){return doc.getElementById('ires')},
         // filter:'//li[@class="g"]',                                                                        //(此项功能未完成)xpath 或 CSS选择器从匹配到的节点里面过滤掉符合的节点.
@@ -361,11 +361,9 @@
         separatorReal: true,
         maxpage: 66, // 最多翻页数量(可选)
         manualA: false, // 是否使用手动翻页.
-        HT_insert: ['//div[@id="res"]', 2], // 插入方式此项为一个数组: [节点xpath或CSS选择器,插入方式(1：插入到给定节点之前;2：附加到给定节点的里面;)](可选);
+        // HT_insert: ['//div[@id="res"]', 0], // 插入方式此项为一个数组: [节点xpath或CSS选择器,插入方式(0: 插入到给定节点之后 1：插入到给定节点之前;2：附加到给定节点的里面;)](可选);
         // HT_insert:['css;div#res',2],
         lazyImgSrc: "imgsrc",
-        // 新增的自定义样式。下面这个是调整 Google 下一页可能出现的图片排列问题。
-        stylish: "hr.rgsep{display:none;}" + ".rg_meta{display:none}.bili{display:inline-block;margin:0 6px 6px 0;overflow:hidden;position:relative;vertical-align:top}._HG{margin-bottom:2px;margin-right:2px}",
         documentFilter: function(doc, nextLink) {
           // 作用于xhr或iframe加载的下一页
           // 可以是一个函数 接收doc, nextLink 两个参数，也可以是字符串'startFilter'
@@ -374,6 +372,23 @@
             try {
               new Function("document", "window", "google", x.nodeValue)(doc, unsafeWindow, unsafeWindow.google);
             } catch (e) {}
+          }
+          // Fix image, dirty fix
+          const imgPs = getAllElementsByXpath("//g-scrolling-carousel/div/div/div", doc, doc);
+          if (imgPs.snapshotLength > 0) {
+            for (var i = 0; i < imgPs.snapshotLength; i++) {
+              const d = imgPs.snapshotItem(i);
+              d.style.display = "flex";
+              d.style.flexWrap = "nowrap";
+              d.style.overflowX = "auto";
+              d.style.whiteSpace = "nowrap";
+              d.style.width = "600px";
+            }
+          }
+
+          const brs = doc.getElementById("brs");
+          if (brs) {
+            brs.remove();
           }
         },
         filter: function() {
@@ -398,23 +413,11 @@
           doc.documentElement.appendChild(script);
           doc.documentElement.removeChild(script);
 
-          // 移动相关搜索到第一页
-          const ins = doc.getElementById("ires");
-          const bres = doc.getElementById("bres");
+          // change id of related search
           const brs = doc.getElementById("brs");
-          // var imagexbox = getElementByXpath('//*[@id="imagebox_bigimages"]//parent::div', doc, doc);
-          // var rso = doc.getElementById('rso');
-          if (ins) {
-            if (bres) {
-              ins.appendChild(bres);
-            }
-            if (brs) {
-              ins.appendChild(brs);
-            }
+          if (brs) {
+            brs.id = "ibrs";
           }
-          // if (rso && imagexbox) {
-          // rso.appendChild(imagexbox);
-          // }
         }
       }
     },
@@ -3102,6 +3105,7 @@
             const pELast = pageElement[pageElement.length - 1];
             insertPoint = pELast.nextSibling ? pELast.nextSibling : pELast.parentNode.appendChild(document.createTextNode(" "));
           }
+          insertMode = -1;
         }
 
         if (insertPoint) {
@@ -3137,13 +3141,17 @@
         }
 
         var addIntoDoc;
-        if (insertMode == 2) {
+        if (insertMode == -1 || insertMode == 1) {
+          addIntoDoc = function(obj) {
+            return insertPointP.insertBefore(obj, insertPoint);
+          };
+        } else if (insertMode == 2) {
           addIntoDoc = function(obj) {
             return insertPoint.appendChild(obj);
           };
-        } else {
+        } else if (insertMode == 0) {
           addIntoDoc = function(obj) {
-            return insertPointP.insertBefore(obj, insertPoint);
+            return insertPointP.insertBefore(obj, insertPoint.nextSibling);
           };
         }
 
