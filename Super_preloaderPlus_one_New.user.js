@@ -58,6 +58,12 @@
 // @exclude      http://www.duokan.com/reader/*
 // @exclude      https://www.kohls.com/*
 // @exclude      http://list.jd.com/*
+// @exclude      http*://eclick.baidu.com/*
+// @exclude      http*://googleads.g.doubleclick.net/*
+// @exclude      http*://pos.baidu.com/*
+// @exclude      http*://tpc.googlesyndication.com/*
+// @exclude      http*://ad.doubleclick.net/*
+// @exclude      http*://ad.agrantsem.com/*
 
 // ==/UserScript==
 (function() {
@@ -778,7 +784,7 @@
     },
     {
       name: "laomaoit - 老殁软件分享",
-      url: "^https?://www\\.laomoit\\.com",
+      url: "^https?://www\\.(laomoit|mpyit)\\.com",
       exampleUrl: "https://www.laomoit.com",
       nextLink: '//div[@id="pagenavi"]//a[text()="下一页"]',
       autopager: {
@@ -3918,7 +3924,12 @@
           const WI = window.innerHeight;
           const obj = getLastElement(relatedObj_0, _cplink);
           const scrollH = obj && obj.nodeType == 1 ? obj.getBoundingClientRect()[relatedObj_1] + scrolly : Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
-          return (scrollH - scrolly - WI) / WI; // 剩余高度于页面总高度的比例.
+          var exElementHeight = 0;
+          if (SSS.a_excludeElement != undefined) {
+            exElementHeight = getLastElement(SSS.a_excludeElement, _cplink).offsetHeight;
+          }
+
+          return (scrollH - scrolly - WI - exElementHeight) / WI; // 剩余高度于页面总高度的比例.
         }
 
         var pause = false;
@@ -4295,6 +4306,10 @@
               SSS.a_headers = SIIA.headers === undefined ? undefined : SIIA.headers; // custom header for XHRLoaded
               SSS.a_reload = SIIA.reload === undefined ? SIIAD.reload : SIIA.reload; // force reload iframe
               SSS.a_sandbox = SIIA.sandbox === undefined ? SIIAD.sandbox : SIIA.sandbox;
+
+              // 在翻页的时候会有一些其他元素占据了页面的高度，导致翻页不精准。
+              // 比如正文下面的推荐文章列表（占据超过整个页面10%就很难受）
+              SSS.a_excludeElement = SIIA.excludeElement;
             }
 
             // 检验是否存在内容

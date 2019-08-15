@@ -3608,7 +3608,7 @@
     "url": "^https?://github\\.com/[^/]+/[^/]+/(?:issues)",
     "exampleUrl": "https://github.com/desktop/desktop/issues?page=2&q=is%3Aissue+is%3Aopen",
     "nextLink": "//div[@class='pagination']/a[text()='Next']",
-    "pageElement": "//div[@class='js-navigation-container js-active-navigation-container']"
+    "pageElement": "id('js-repo-pjax-container')//div[@class='js-navigation-container js-active-navigation-container']"
   },
   {
     "name": "bookcool-小说合集",
