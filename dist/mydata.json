@@ -47,6 +47,16 @@
     "pageElement": "//section[@id='latest-posts']"
   },
   {
+    "name": "蓝点新闻",
+    "url": "^https?://www\\.landiannews\\.com",
+    "category": ["blog"],
+    "nextLink": "//a[@class='next page-numbers']",
+    "autopager": {
+      "pageElement": "//li[@class='ajaxpost']",
+      "relatedObj": true
+    }
+  },
+  {
     "name": "v2ex",
     "url": "^https?://www.v2ex\\.com/(recent|go)",
     "category": ["forum"],
