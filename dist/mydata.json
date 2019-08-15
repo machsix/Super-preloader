@@ -102,9 +102,7 @@
     "url": "^https?://.*\\.douban\\.com/subject",
     "category": ["movie"],
     "nextLink": "//div[@class='paginator']/span[@class='next']/a[contains(text(),'后页')]|id('paginator')/a[contains(text(),'后页')]",
-    "autopager": {
-      "pageElement": "//ul[contains(@class,'topic-reply')] | //div[@class='discussion-posts']/table/tbody |//div[contains(@class,'review-list')]/div | //div[@id='comments' or @class='post-comments']"
-    }
+    "pageElement": "//ul[contains(@class,'topic-reply')] | //div[@class='discussion-posts']/table/tbody |//div[contains(@class,'review-list')]/div | //div[@id='comments' or @class='post-comments'] | //ul[contains(@class,'poster')]"
   },
   {
     "name": "豆瓣-我的小组话题",
@@ -182,7 +180,7 @@
   },
   {
     "name": "llss",
-    "url": "^https?://[^.]+\\.(liuli|liuli|llss)\\.(pw|in|me)/",
+    "url": "^https?://[^.]+\\.(liuli|liuli|llss)\\.(pw|in|me|uk)/",
     "nextLink": "//div[@id='wp_page_numbers']/ul/li[last()]/a",
     "pageElement": "//div[@id='content']/article"
   },
@@ -367,7 +365,7 @@
   {
     "name": "Bing网页搜索",
     "url": "^https?://(?:www|cnweb|cn).bing.com/(?:[^/]+/)*?(?:results.aspx|search)",
-    "exampleUrl": "bing.com/search?q=",
+    "exampleUrl": "https://bing.com/search?q=",
     "nextLink": "//a[contains(@class,\"sb_pagN\")]",
     "autopager": {
       "pageElement": "id(\"b_results\")/li[not(contains(@class,\"b_pag\") or contains(@class,\"b_ans b_top\"))]",
@@ -433,16 +431,6 @@
     "exampleUrl": "http://zhidao.baidu.com/search?pn=0&&rn=10&word=%BD%AD%C4%CFstyle",
     "nextLink": "auto;",
     "pageElement": "css;#wgt-list"
-  },
-  {
-    "name": "百度空间",
-    "url": "^https?://hi\\.baidu\\.com",
-    "nextLink": "id(\"pagerBar\")/div/a[@class=\"next\"]",
-    "autopager": {
-      "useiframe": true,
-      "pageElement": "//div[@class=\"mod-realcontent mod-cs-contentblock\"]"
-    },
-    "exampleUrl": "http://hi.baidu.com/gelida"
   },
   {
     "name": "百度文库搜索",
@@ -3055,10 +3043,10 @@
   },
   {
     "name": "KuKu动漫",
-    "url": "^https?://comic\\.kukudm\\.com/comiclist/\\d+/\\d+.*\\.htm",
-    "exampleUrl": "http://comic.kukudm.com/comiclist/4/17099/3.htm",
+    "url": "^https?://comic\\.ikkdm\\.com/comiclist/\\d+/\\d+.*\\.htm",
+    "exampleUrl": "http://comic.ikkdm.com/comiclist/4/17099/3.htm",
     "useiframe": true,
-    "nextLink": "//a[img[contains(@src,\"images/d.gif\")]]",
+    "nextLink": "//a[img[contains(@src,'images/d.gif')]]",
     "autopager": {
       "useiframe": true,
       "pageElement": "//body/table[2]"
@@ -3710,6 +3698,14 @@
     "pageElement": "//li[contains(concat(\" \", @class, \" \"), \" videoblock \")] | //li[contains(concat(\" \", @class, \" \"), \" photoAlbumListContainer \")] "
   },
   {
+    "name": "XVideo",
+    "url": "https?://www\\.xvideos\\.com",
+    "useiframe": true,
+    "nextLink": "(//a[contains(@class,'next-page')])[1]",
+    "pageElement": "//div[@id='content']/div[1]",
+    "exampleUrl": "https://www.xvideos.com/?k=sss"
+  },
+  {
     "name": "YouAV",
     "url": "^https://www.youav.com/search|videos",
     "nextLink": "//div[@class=\"hidden-xs\"]/ul/li/a[@class=\"prevnext\"]",
@@ -3790,5 +3786,17 @@
     "autopager": {
       "pageElement": "//div[@id='ajaxtable'] | //form[@name='delatc']"
     }
+  },
+  {
+    "name": "Steam Workshop",
+    "url": "https?://steamcommunity.com/workshop",
+    "nextLink": "//a[@class='pagebtn']",
+    "pageElement": "//div[@class='workshopBrowseRow']"
+  },
+  {
+    "name": "Steam discussion",
+    "url": "https?://steamcommunity.com/app/\\d+/discussions/",
+    "nextLink": "//a[@class='pagebtn' and contains(@id,'next')]",
+    "pageElement": "//div[@class='forum_topics']"
   }
 ]
