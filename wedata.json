@@ -1,5 +1,90 @@
 [
 {
+  "created_by": "かいらいぺるくん",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "name": "日経 xTECH Active",
+  "data": {
+    "exampleUrl": "https://active.nikkeibp.co.jp/atclact/active/15/070800078/041000098/\r\nhttps://active.nikkeibp.co.jp/atclact/active/18/053100114/060300002/",
+    "nextLink": "//footer/nav[@class='pagenation']//li[@class='next']/a",
+    "url": "^https://active\\.nikkeibp\\.co\\.jp/",
+    "pageElement": "//div[@class='articleBody']"
+  },
+  "created_at": "2019-08-13T14:03:28+09:00",
+  "resource_url": "http://wedata.net/items/82223",
+  "updated_at": "2019-08-14T18:27:23+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/82221",
+  "created_by": "jigendaddy_be",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "name": "メルカリマガジン",
+  "data": {
+    "exampleUrl": "https://magazine.mercari.com/hobby",
+    "nextLink": "//link[@rel=\"next\"]",
+    "url": "^https://magazine\\.mercari\\.com/",
+    "pageElement": "//ul[@class=\"list\"]/li"
+  },
+  "created_at": "2019-08-10T18:36:58+09:00",
+  "updated_at": "2019-08-10T18:45:48+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/82220",
+  "created_by": "t_f_m",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "name": "Webオートバイ",
+  "data": {
+    "exampleUrl": "https://www.autoby.jp/_ct/17284485",
+    "insertBefore": "",
+    "nextLink": "//div[@class='content-paging-next']/a",
+    "pageElement": "//div[@class='content-body']/div[contains(concat(' ',@class,' '),' article ')]",
+    "url": "^https://www\\.autoby\\.jp/"
+  },
+  "created_at": "2019-08-09T22:47:59+09:00",
+  "updated_at": "2019-08-09T22:47:59+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/82219",
+  "created_by": "t_f_m",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "name": "TOPPA!!",
+  "data": {
+    "exampleUrl": "https://toppamedia.com/interview-2019-8-akatsuki-uni/2/",
+    "insertBefore": "",
+    "nextLink": "//p[@class=\"page-links\"]/span/following-sibling::a",
+    "pageElement": "//div[@class=\"entry-content\"]/div[@class=\"entry-the-content\"]",
+    "url": "^https://toppamedia\\.com/"
+  },
+  "created_at": "2019-08-09T22:46:14+09:00",
+  "updated_at": "2019-08-09T22:46:14+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/82218",
+  "created_by": "hatenaZZZ",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "name": "DailyNK Japan（デイリーNKジャパン）",
+  "data": {
+    "exampleUrl": "https://dailynkjp.com/archives/5294\r\nhttps://dailynk.jp/archives/125421",
+    "nextLink": "//li[@class='active_page']/following-sibling::li/a[@href]",
+    "url": "^https?://dailynk\\.?jp(\\.com)?/",
+    "pageElement": "//div[@class='entry-content']/node()[following-sibling::div/@class='wp_page_numbers'][not(@class='clear mb-30' or @class='wp_social_bookmarking_light')]"
+  },
+  "created_at": "2019-08-08T13:23:23+09:00",
+  "updated_at": "2019-08-09T23:57:58+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/82217",
+  "created_by": "mygrove",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "name": "Ancestry",
+  "data": {
+    "nextLink": "//*[@id=\"pageSets\"]/ul/li[5]",
+    "url": "(http:\\/\\/|https:\\/\\/)(?:www|search)\\.ancestry(library|libraryedition)?\\.(?:c(?:a|o(?:m|\\.(?:jp|uk)))|de|fr)(\\.au)?",
+    "pageElement": "//div[@class='tablerow record']"
+  },
+  "created_at": "2019-08-05T17:49:40+09:00",
+  "updated_at": "2019-08-05T20:58:01+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/82215",
   "created_by": "t_f_m",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
@@ -570,21 +655,6 @@
     "nextLink": "//a[@class='pagination__next']"
   },
   "created_at": "2019-05-28T12:28:58+09:00"
-},
-{
-  "name": "MMO Culture",
-  "created_by": "Tanookirby",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-05-28T12:12:00+09:00",
-  "resource_url": "http://wedata.net/items/82165",
-  "data": {
-    "exampleUrl": "https://mmoculture.com/category/global/",
-    "url": "^https://mmoculture\\.com/.",
-    "pageElement": "//div[@class='td-block-row']",
-    "insertBefore": "",
-    "nextLink": "//span[@class='current']/following-sibling::a[1]"
-  },
-  "created_at": "2019-05-28T12:12:00+09:00"
 },
 {
   "name": "婚活・恋活ブログ Matchmaking",
@@ -10063,17 +10133,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/80660",
-  "name": "Category Lists (td-block-row)",
   "created_by": "Tanookirby",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-10-29T09:50:36+09:00",
+  "name": "Category Lists (td-block-row)",
   "data": {
-    "exampleUrl": "http://atlantablackstar.com/category/local/ https://www.mobipicker.com/category/news/ https://apkmos.com/category/android-games/ https://www.pojo.com/category/pokemon/card-of-the-day-pokemon/",
-    "url": "^https?://(www\\.)?.+\\.com/category/",
-    "pageElement": "//div[@class='td-block-row']",
-    "nextLink": "//link[@rel='next']"
+    "exampleUrl": "http://atlantablackstar.com/category/local/ https://www.mobipicker.com/category/news/ https://apkmos.com/category/android-games/ https://www.pojo.com/category/pokemon/card-of-the-day-pokemon/ https://automaton-media.com/articles/iotw/page/4/ https://automaton-media.com/articles/interviewsjp/ https://mmoculture.com/category/global/",
+    "nextLink": "//link[@rel='next']|//span[@class='current']/following-sibling::a[1]",
+    "url": "^https?://(www\\.)?.+\\.com/(category|articles)/",
+    "pageElement": "//div[@class='td-block-row']"
   },
-  "created_at": "2016-03-25T13:21:22+09:00"
+  "created_at": "2016-03-25T13:21:22+09:00",
+  "updated_at": "2019-08-14T06:00:53+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/80659",
@@ -18109,17 +18179,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/76476",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "data": {
-    "pageElement": "id(\"video_list_4column video_list_2column video_list_1column\")|//div[@class=\"member_prof_box clearfix\" or @class=\"ch_movie_list_wrap clearfix\"]",
-    "nextLink": "//div[@class='pager_box']/strong/following-sibling::a[1]",
-    "url": "^http://video\\.fc2\\.com/",
-    "Stylish": "@-moz-document url-prefix(\"http://video.fc2.com/list\") {\r\n.autopagerize_page_info~div div.member_img{\r\nborder-top: 1px solid #DFDFDF !important;\r\npadding: 20px 0 0 0 !important;\r\n}\r\n.autopagerize_page_info~div div.member_prof{\r\nborder-top: 1px solid #DFDFDF !important;\r\npadding: 20px 0 0 6px !important;\r\n    float:left !important;\r\n}\r\n}"
-  },
   "created_by": "hokuto_",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "name": "FC2動画",
+  "data": {
+    "exampleUrl": "https://video.fc2.com/search/video/?category_id=5 https://video.fc2.com/account/26474865/content",
+    "nextLink": "//div[@class='c-pager-101']/span[@aria-selected]/following-sibling::a[1]",
+    "url": "^https?://video\\.fc2\\.com/",
+    "pageElement": "//ul[@class='c-boxList-111']/li[@class='c-boxList-111_video']"
+  },
   "created_at": "2014-11-21T01:15:25+09:00",
-  "updated_at": "2014-12-02T13:10:14+09:00"
+  "updated_at": "2019-08-15T13:37:17+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/76475",
@@ -18466,17 +18536,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/76421",
-  "name": "オモコロ あたまゆるゆるインターネット (記事)",
   "created_by": "yuta25",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-05-31T21:31:51+09:00",
+  "name": "オモコロ あたまゆるゆるインターネット (記事)",
   "data": {
-    "exampleUrl": "http://omocoro.jp/kiji/33805/",
+    "exampleUrl": "http://omocoro.jp/kiji/33805/ https://omocoro.jp/kiji/183672/",
+    "nextLink": "//div[@class=\"page-navi\"]/span/following-sibling::a",
     "url": "^https?://omocoro\\.jp/kiji/",
-    "pageElement": "//div[@class=\"article-body kiji\"]",
-    "nextLink": "//div[@class=\"page-navi\"]/span/following-sibling::a"
+    "pageElement": "//div[contains(@class,\"article-body\")]"
   },
-  "created_at": "2014-10-10T15:45:40+09:00"
+  "created_at": "2014-10-10T15:45:40+09:00",
+  "updated_at": "2019-08-07T10:03:45+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/76419",
@@ -28604,14 +28674,14 @@
   "created_by": "jigendaddy_be",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "name": "CAREER HACK",
-  "created_at": "2012-09-06T20:09:47+09:00",
   "data": {
-    "exampleUrl": "http://careerhack.en-japan.com/report/detail/34 http://careerhack.en-japan.com/report/detail/24 http://careerhack.en-japan.com/report",
-    "pageElement": "id(\"contents-body\")/p[not(./a)]|id(\"contents-body\")/*[not(self::p or @id=\"report-tags\")]|//section/article",
-    "url": "^http://careerhack\\.en-japan\\.com/report",
-    "nextLink": "id(\"contents-body\")/p[last()]/a|//a[@rel=\"next\"]"
+    "exampleUrl": "http://careerhack.en-japan.com/report",
+    "nextLink": "//a[@rel=\"next\"]",
+    "url": "^https?://careerhack\\.en-japan\\.com/report",
+    "pageElement": "id(\"articleSearchList\")/div[@class=\"content\"]/div[1]"
   },
-  "updated_at": "2015-05-05T19:20:18+09:00"
+  "created_at": "2012-09-06T20:09:47+09:00",
+  "updated_at": "2019-08-07T17:30:50+09:00"
 },
 {
   "name": "E=mC^2 NOVEL",
