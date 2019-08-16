@@ -84,6 +84,3 @@ docs/.vuepress/dist
 
 # DynamoDB Local files
 .dynamodb/
-
-# Vscode
-.vscode/
