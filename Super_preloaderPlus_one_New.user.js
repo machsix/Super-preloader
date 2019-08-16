@@ -13,7 +13,7 @@
 // @author       Mach6
 // @contributers YFdyh000, suchunchen
 // @thanksto     ywzhaiqi, NLF
-// @version      6.6.61
+// @version      6.6.63
 // @license      GPL-3.0-or-later
 // @homepageURL  https://github.com/machsix/Super-preloader
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
@@ -71,7 +71,7 @@
     name: "Super_preloaderPlus_one_New",
     version: GM.info.script.version,
     updateTime: "2019/08/15",
-    changelog: "Core: add excludeElement",
+    changelog: "Rule: improve Google",
     homepageURL: "https://github.com/machsix/Super-preloader",
     downloadUrl: "https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.user.js",
     metaUrl: "https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.meta.js"
@@ -86,7 +86,9 @@
     image:
       "data:image/png;base64,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",
     onload: function() {},
-    show: true
+    show: function(oldversion) {
+      return false;
+    }
   };
   shim_GM_notification();
 
@@ -198,6 +200,7 @@
   }
 
   /// //////////////////设置(请注意开关的缩进关系..子开关一般在父开关为true的时候才会生效.)//////////////////////
+  const debugStyle = "color:#02A9DE";
   const userLang = navigator.language || navigator.userLanguage;
   // (Default settings)
   const prefsFactory = {
@@ -208,7 +211,7 @@
     pauseA: true, // 快速停止自动翻页(当前模式为翻页模式的时候生效.);
     Pbutton: [2, 0, 0], // 需要按住的键.....0: 不按住任何键;1: shift鍵;2: ctrl鍵; 3: alt鍵;(同时按3个键.就填 1 2 3)(一个都不按.就填 0 0 0)
     mouseA: true, // 按住鼠标左键..否则.双击;
-    Atimeout: 200, // 按住左键时..延时.多少生效..(单位:毫秒);
+    Atimeout: 200, // 按住左键时..延时.多少生效..(单位:ms);
     stop_ipage: true, // 如果在连续翻页过程中暂停.重新启用后.不在继续..连续翻页..
 
     Aplus: true, // 自动翻页模式的时候..提前预读好一页..就是翻完第1页,立马预读第2页,翻完第2页,立马预读第3页..(大幅加快翻页快感-_-!!)(建议开启)..
@@ -217,7 +220,7 @@
     s_method: 3, // 动画方式 0-10 一种11种动画效果..自己试试吧
     s_ease: 2, // 淡入淡出效果 0：淡入 1：淡出 2：淡入淡出
     s_FPS: 60, // 帧速.(单位:帧/秒)
-    s_duration: 333, // 动画持续时长.(单位:毫秒);
+    s_duration: 333, // 动画持续时长.(单位:ms);
     someValue: "", // 显示在翻页导航最右边的一个小句子..-_-!!..Powered by Super_preloader 隐藏了
     DisableI: true, // 只在顶层窗口加载JS..提升性能..如果开启了这项,那么DIExclude数组有效,里面的网页即使不在顶层窗口也会加载....
     arrowKeyPage: false, // 允许使用 左右方向键 翻页..
@@ -251,7 +254,7 @@
       manualA: false, // 手动翻页.
       useiframe: false, // (翻页)是否使用iframe..
       iloaded: false, // 是否在iframe完全load后操作..否则在DOM完成后操作
-      itimeout: 0, // 延时多少毫秒后,在操作..
+      itimeout: 0, // 延时多少ms后,在操作..
       newIframe: false,
       remain: 1, // 剩余页面的高度..是显示高度的 remain 倍开始翻页..
       maxpage: 99, // 最多翻多少页..
@@ -334,7 +337,7 @@
         enable: true, // 启用(自动翻页)(可选)
         useiframe: false, // 是否使用iframe翻页(可选)
         iloaded: false, // 是否在iframe完全load之后操作..否则在DOM完成后操作.
-        itimeout: 0, // 延时多少毫秒后,在操作..
+        itimeout: 0, // 延时多少ms后,在操作..
         // reload: true,      // Force reload iframe when the src is changed
         newIframe: false, // 下一页使用新的 iframe，能解决按钮无法点击的问题
         pageElement: '//div[@id="res"]|//div[@id="extrares"]', // 主体内容 xpath 或 CSS选择器 或函数返回值(~~必须~~)
@@ -373,16 +376,22 @@
               new Function("document", "window", "google", x.nodeValue)(doc, unsafeWindow, unsafeWindow.google);
             } catch (e) {}
           }
-          // Fix image, dirty fix
+          // Fix images
+          // add horizontal flexity first
           const imgPs = getAllElementsByXpath("//g-scrolling-carousel/div/div/div", doc, doc);
           if (imgPs.snapshotLength > 0) {
-            for (var i = 0; i < imgPs.snapshotLength; i++) {
+            for (let i = 0; i < imgPs.snapshotLength; i++) {
               const d = imgPs.snapshotItem(i);
-              d.style.display = "flex";
-              d.style.flexWrap = "nowrap";
-              d.style.overflowX = "auto";
-              d.style.whiteSpace = "nowrap";
-              d.style.width = "600px";
+              d.style.cssText += "display: flex;flex-wrap: nowrap;width: 600px;white-space: nowrap;overflow-x: auto;";
+            }
+          }
+
+          const hiddenImgs = getAllElementsByXpath("//g-scrolling-carousel/div/div/div/div[not(@data-vis)]//g-img/img", doc, doc);
+          if (hiddenImgs.snapshotLength > 0) {
+            for (let i = 0; i < hiddenImgs.snapshotLength; i++) {
+              const d = hiddenImgs.snapshotItem(i);
+              d.setAttribute("src", d.getAttribute("data-src"));
+              d.style.opacity = 1;
             }
           }
 
@@ -391,9 +400,9 @@
             brs.remove();
           }
         },
-        filter: function() {
-          // 在添加内容到页面后运行
-        },
+        // filter: function() {
+        // 在添加内容到页面后运行
+        //},
         startFilter: function(doc, win) {
           // 只作用一次, 用于打开的页面
           // 函数： 接收doc, win 两个参数
@@ -417,6 +426,14 @@
           const brs = doc.getElementById("brs");
           if (brs) {
             brs.id = "ibrs";
+          }
+          console.log("%cGoogle    is %s", "font-weight:bold;color:red", emoji("1F4A9"));
+
+          const keyword = getElementByXpath("//input[@title='Search']", doc, doc);
+          if (keyword) {
+            console.log("%cMicrosoft is %s %csearch with Bing %s", "font-weight:bold;color:00bbee", emoji("1F60E"), "font-weight:bold;color:00bbee", encodeURI("https://www.bing.com/search?q=" + keyword.value));
+          } else {
+            console.log("%cMicrosoft is %s", "font-weight:bold;color:00bbee", emoji("1F60E"));
           }
         }
       }
@@ -1180,7 +1197,6 @@
         isLast: function(doc, win, lhref) {
           const maxpage = Number(doc.getElementById("spPageCount").innerText);
           const current = Number(doc.getElementById("spPageIndex").innerText);
-          debug(current, maxpage);
           if (current == maxpage) return true;
         }
       },
@@ -1709,10 +1725,10 @@
                 function(res) {
                   try {
                     const rule = this.provider[i].ruleParser(res.responseText);
-                    debug("[Rule]" + this.provider[i].name + " [Status]download successfully");
+                    console.warn("%c[Super-preloader] %c[UpdateRule] %s [Status] %s ", debugStyle, "", this.provider[i].name, "Success");
                     resolve(rule);
                   } catch (error) {
-                    debug("[Rule]" + this.provider[i].name + " [Status]fail to parse");
+                    console.error("%c[Super-preloader] %c[UpdateRule] %s [Status] %s ", debugStyle, "", this.provider[i].name, "Fail to parse");
                     reject(error);
                   }
                 }.bind(this)
@@ -1722,7 +1738,7 @@
                   if (iurl < this.provider[i].url.length) {
                     return createRequest(iurl + 1);
                   } else {
-                    debug("[Rule]" + this.provider[i].name + " [Status]fail to download");
+                    console.error("%c[Super-preloader] %c[UpdateRule] %s [Status] %s ", debugStyle, "", this.provider[i].name, "Fail to download");
                     reject(error);
                   }
                 }.bind(this)
@@ -1764,14 +1780,14 @@
                       reject(error);
                     });
                 } else {
-                  debug("[Rule]" + this.provider[i].name + " [Status]no need to update");
+                  debug("%c[Super-preloader] %c[UpdateRule] %s [Status] %s ", debugStyle, "", this.provider[i].name, "No need to update");
                   resolve(this.rule[i]);
                 }
               }.bind(this)
             )
             .catch(
               function(error) {
-                debug("[Rule]" + this.provider[i].name + "[Status]fail to fetch detail");
+                console.error("%c[Super-preloader] %c[UpdateRule] %s [Status] %s ", debugStyle, "", this.provider[i].name, "Fail to fetch detail");
                 reject(error);
               }.bind(this)
             );
@@ -1829,7 +1845,7 @@
         );
       } else {
         this.saveData(false);
-        debug("Next update at: " + this.info.expire.toISOString());
+        debug("%c[Super-preloader] %c[Rule] Next update at: %s", debugStyle, "", this.info.expire.toISOString());
         return Promise.resolve(this.exportRule());
       }
     }
@@ -1909,7 +1925,7 @@
       manualA: false, // 手动翻页.
       useiframe: false, // (翻页)是否使用iframe..
       iloaded: false, // (只在opera有效)如果使用iframe翻页..是否在iframe完全load后操作..否则在DOM完成后操作
-      itimeout: 0, // 当使用iframe翻页时在完成后继续等待多少毫秒后,在操作..
+      itimeout: 0, // 当使用iframe翻页时在完成后继续等待多少ms后,在操作..
       remain: 1, // 剩余页面的高度..是显示高度的 remain 倍开始翻页..
       maxpage: 99, // 最多翻多少页..
       ipages: [false, 2], // 立即翻页,第一项是控制是否在js加载的时候立即翻第二项(必须小于maxpage)的页数,比如[true,3].就是说JS加载后.立即翻3页.
@@ -2085,7 +2101,7 @@
     if (versionCompare(myVersion, scriptInfo.version) < 0) {
       // update rule if the script is upgraded or it is installed for the first time
       if (upgradeNotification) {
-        if (upgradeNotification.show) {
+        if (upgradeNotification.show(myVersion)) {
           if (i8n() === "zh_CN") {
             const text = "脚本从 v" + myVersion + " 升级到 v" + scriptInfo.version + "。 ";
             // eslint-disable-next-line no-undef
@@ -2107,7 +2123,7 @@
     if (prefs.factoryCheck === true || prefs.factoryCheck === undefined) {
       var hasMissing = assignMissingProperty(prefsFactory, prefs);
       if (hasMissing) {
-        debug("Old prefs:", prefs);
+        debug("%c[Super-preloader] %cOld prefs: %o", debugStyle, "", prefs);
       }
       prefs.factoryCheck = false;
       GM.setValue("prefs", JSON.stringify(prefs));
@@ -2337,7 +2353,7 @@
         if (hashSite) {
           isHashchangeSite = true;
           hashchangeTimer = hashSite.timer;
-          debug("当前是页面不刷新的站点", hashSite);
+          debug("%c[Super-preloader]当前是页面不刷新的站点 %o", debugStyle, "", hashSite);
           const p1 = new Promise(function(resolve, reject) {
             setTimeout(resolve, hashchangeTimer);
           });
@@ -2392,7 +2408,7 @@
       }
     };
 
-    debug("----------------------------------------------------");
+    debug("%c[Super-preloader] %cEntrypoint", debugStyle, "");
     SP.spinit();
 
     function init(window, document) {
@@ -2891,7 +2907,7 @@
                                                             <input type="checkbox" title="等待iframe完全载入后(发生load事件),将内容取出,否则在DOM完成后,就直接取出来..(勾上后,会比较慢,但是可能会解决一些问题.)" id="sp-fw-a_iloaded" name="sp-fw-a_iloaded" />等待iframe完全载入\
                                                         </li>\
                                                         <li>\
-                                                            <input type="number"  min="0" title="在可以从iframe取数据的时候,继续等待设定的毫秒才开始取出数据(此项为特殊网页准备,如果正常,请设置为0)" id="sp-fw-a_itimeout" name="sp-fw-a_itimeout"/>ms延时取出\
+                                                            <input type="number"  min="0" title="在可以从iframe取数据的时候,继续等待设定的ms才开始取出数据(此项为特殊网页准备,如果正常,请设置为0)" id="sp-fw-a_itimeout" name="sp-fw-a_itimeout"/>ms延时取出\
                                                         </li>\
                                                     </ul>\
                                                 </li>\
@@ -3115,23 +3131,23 @@
         }
 
         if (insertPoint) {
-          debug("验证是否能找到插入位置节点:成功,", insertPoint);
+          debug("%c[Super-preloader] %c验证是否能找到插入位置节点:成功,%o", debugStyle, "", insertPoint);
         } else {
-          C.error("验证是否能找到插入位置节点:失败", SSS.a_HT_insert ? SSS.a_HT_insert[0] : "", "JS执行终止");
+          console.error("%c[Super-preloader] %c验证是否能找到插入位置节点:失败 %o JS执行终止", debugStyle, "", SSS.a_HT_insert ? SSS.a_HT_insert[0] : "");
           floatWO.updateColor("Astop");
           return;
         }
         if (window.navigator.language != "en") {
-          debug(window.navigator.language);
+          debug("%c[Super-preloader] %cLanguage: %s", debugStyle, "", window.navigator.language);
         }
 
         if (pageElement === undefined) {
           pageElement = getAllElements(SSS.a_pageElement);
         }
         if (pageElement.length > 0) {
-          debug("验证是否能找到主要元素:成功,", pageElement);
+          debug("%c[Super-preloader] %c验证是否能找到主要元素:成功,%o", debugStyle, "", pageElement);
         } else {
-          C.error("验证是否能找到主要元素:失败,", SSS.a_pageElement, "JS执行终止");
+          console.error("%c[Super-preloader] %c验证是否能找到主要元素:失败,%o", debugStyle, "", SSS.a_pageElement);
           floatWO.updateColor("Astop");
           return;
         }
@@ -3168,7 +3184,7 @@
           doc = win = createDocumentByString(str);
 
           if (!doc) {
-            C.error("文档对象创建失败");
+            console.error("%c[Super-preloader] %c文档对象创建失败", debugStyle, "");
             removeL();
             return;
           }
@@ -3180,13 +3196,13 @@
         }
 
         function XHRNotLoaded(res) {
-          debug("XHR is failed to be loaded");
-          debug(res);
+          console.error("XHR is failed to be loaded");
+          console.error(res);
           removeL();
         }
 
         function removeL(isRemoveAddPage) {
-          debug("移除各种事件监听");
+          debug("%c[Super-preloader] %c移除各种事件监听", debugStyle, "");
           floatWO.updateColor("Astop");
           const _remove = remove;
           for (var i = 0, ii = _remove.length; i < ii; i++) {
@@ -3224,11 +3240,11 @@
         if (isHashchangeSite && !hashchangeAdded) {
           window.addEventListener("hashchange", onhashChange, false);
           hashchangeAdded = true;
-          debug("成功添加 hashchange 事件");
+          debug("%c[Super-preloader] %c成功添加 hashchange 事件", debugStyle, "");
         }
 
         function onhashChange(event) {
-          debug("触发 Hashchang 事件");
+          debug("%c[Super-preloader] %c触发 Hashchang 事件", debugStyle, "");
           removeL(true);
 
           setTimeout(function() {
@@ -3316,7 +3332,7 @@
           floatWO.updateColor("loading");
           floatWO.CmodeIcon("show");
 
-          debug("获取下一页" + (SSS.a_useiframe ? "(iframe方式)" : ""), nextlink);
+          debug("%c[Super-preloader] %c获取下一页 %o %o", debugStyle, "", SSS.a_useiframe ? "(iframe方式)" : "(XHR方式)", nextlink);
           if (SSS.a_useiframe) {
             iframeRequest(nextlink);
           } else {
@@ -3328,7 +3344,7 @@
               .get(nextlink, reqConf)
               .then(function(res) {
                 if (res.finalUrl === cplink) {
-                  debug("最终地址相同");
+                  debug("%c[Super-preloader] %c最终地址相同", debugStyle, "");
                   XHRNotLoaded(res);
                 } else {
                   XHRLoaded(res);
@@ -3337,7 +3353,7 @@
               .catch(function(res) {
                 XHRNotLoaded(res);
               });
-            debug("读取完成");
+            debug("%c[Super-preloader] %c读取完成", debugStyle, "");
           }
         }
 
@@ -3525,11 +3541,11 @@
           working = true;
           if (SSS.a_manualA && !ipagesmode) {
             // 显示手动翻页触发条.
-            debug("手动拼接");
+            debug("%c[Super-preloader] %c手动拼接", debugStyle, "");
             manualAdiv();
           } else {
             // 直接拼接.
-            debug("直接拼接");
+            debug("%c[Super-preloader] %c直接拼接", debugStyle, "");
             insertedIntoDoc();
           }
         }
@@ -3694,15 +3710,16 @@
 
         function insertedIntoDoc() {
           if (!doc) {
-            debug("没有找到doc");
+            console.error("没有找到doc");
             return;
           }
 
           if (SSS.a_documentFilter) {
             try {
               SSS.a_documentFilter(doc, nextlink);
+              debug("%c[Super-preloader] %c执行 documentFilter 成功", debugStyle, "");
             } catch (e) {
-              C.error("执行 documentFilter 错误", e, SSS.a_documentFilter.toString());
+              console.error("%c[Super-preloader] %c执行 documentFilter 错误 %o %s", debugStyle, "", e, SSS.a_documentFilter.toString());
             }
           }
 
@@ -3712,11 +3729,11 @@
           const pageElements = getAllElements(SSS.a_pageElement, false, doc, win, nextlink);
           const ii = pageElements.length;
           if (ii <= 0) {
-            debug("获取下一页的主要内容失败", SSS.a_pageElement);
+            console.error("获取下一页的主要内容失败", SSS.a_pageElement);
             removeL();
             return;
           } else {
-            debug("获取下一页的主要内容成功");
+            debug("%c[Super-preloader] %c获取下一页的主要内容成功 %o", debugStyle, "", pageElements);
           }
 
           // 提前查找下一页链接，后面再赋值
@@ -3828,9 +3845,9 @@
           if (SSS.filter && typeof SSS.filter === "function") {
             try {
               SSS.filter(pageElements);
-              debug("执行 filter(pages) 成功");
+              debug("%c[Super-preloader] %c执行 filter(pages) 成功", debugStyle, "");
             } catch (e) {
-              C.error("执行 filter(pages) 错误", e, SSS.filter.toString());
+              console.error("%c[Super-preloader] %c执行 filter(pages) 错误 %o %e", debugStyle, "", e, SSS.filter.toString());
             }
           }
 
@@ -3889,7 +3906,7 @@
           }
 
           if (paged >= SSS.a_maxpage) {
-            debug("到达所设定的最大翻页数", SSS.a_maxpage);
+            debug("%c[Super-preloader] %c到达所设定的最大翻页数", debugStyle, "", SSS.a_maxpage);
             notice("<b>状态</b>:" + '到达所设定的最大翻页数:<b style="color:red">' + SSS.a_maxpage + "</b>");
             removeL();
             return;
@@ -3916,7 +3933,7 @@
               }
             }
           } else {
-            debug("没有找到下一页链接", SSS.nextLink);
+            console.error("%c[Super-preloader] %c没有找到下一页链接%o", debugStyle, "", SSS.nextLink);
             removeL();
           }
         }
@@ -4130,7 +4147,7 @@
               const str = req.responseText;
               const doc = createDocumentByString(str);
               if (!doc) {
-                C.error("文档对象创建失败!");
+                console.error("%c[Super-preloader] %c文档对象创建失败!", debugStyle, "");
                 return;
               }
 
@@ -4178,7 +4195,7 @@
       // 分析黑名单
       const blackList_re = new RegExp(blackList.map(wildcardToRegExpStr).join("|"));
       if (blackList_re.test(url)) {
-        debug("匹配黑名单，js执行终止");
+        debug("%c[Super-preloader] %c匹配黑名单，js执行终止", debugStyle, "");
         return;
       }
 
@@ -4188,11 +4205,11 @@
           return x[1] && x[2].test(url);
         });
         if (isReturn) {
-          debug("url为:", url, "的页面为非顶层窗口,JS执行终止.");
+          debug("%c[Super-preloader] %curl为:%s的页面为非顶层窗口,JS执行终止", debugStyle, "", url);
           return;
         }
       }
-      debug("url为:", url, "JS加载成功");
+      debug("%c[Super-preloader] %curl为:%s的页面,JS加载成功", debugStyle, "", url);
 
       // 第一阶段..分析高级模式..
       SITEINFO = SITEINFO.concat(SITEINFO_json, SITEINFO_TP, SITEINFO_comp);
@@ -4214,11 +4231,11 @@
         const ii = SITEINFO.length;
 
         if (i8n() === "zh_CN") {
-          debug("高级规则数目:", ii);
-          debug("规则数 > ", ii - SITEINFO_json.length, "来自其他来源, 比如: wedata.net");
+          debug("%c[Super-preloader] %c高级规则数目:%i", debugStyle, "", ii);
+          debug("%c[Super-preloader] %c规则数 > %i 来自其他来源, 比如: wedata.net", debugStyle, "", ii - SITEINFO_json.length);
         } else {
-          debug("Number of advanced rules:", ii);
-          debug("Rules with ID > ", ii - SITEINFO_json.length, " come from other source, ex: wedata.net");
+          debug("%c[Super-preloader] %cNumber of advanced rules:%i", debugStyle, "", ii);
+          debug("%c[Super-preloader] %cRules with ID > %i 来自其他来源, 比如: wedata.net", debugStyle, "", ii - SITEINFO_json.length);
         }
 
         for (var i = 0; i < ii; i++) {
@@ -4226,22 +4243,26 @@
           Rurl = toRE(SII.url);
           if (Rurl.test(url)) {
             if (i8n() === "zh_CN") {
-              debug("找到当前站点规则:", SII);
-              debug("规则ID: ", i + 1);
+              debug("%c[Super-preloader] %c找到当前站点规则:%o", debugStyle, "", SII);
+              debug("%c[Super-preloader] %c规则ID: %i", debugStyle, "", i + 1);
             } else {
-              debug("Find rule for this website: ", SII, "是第", i + 1, "规则");
-              debug("Rule ID: ", i + 1);
+              debug("[Super-preloader] %cFind rule for this website:%o", debugStyle, "", SII);
+              debug("%c[Super-preloader] %cRule ID: %i", debugStyle, "", i + 1);
             }
 
             // 运行规则的 startFilter
             if (SII.autopager && SII.autopager.startFilter) {
-              SII.autopager.startFilter(document, window);
-              debug("成功运行 startFilter");
+              try {
+                SII.autopager.startFilter(document, window);
+                debug("%c[Super-preloader] %c执行 startFilter 成功", debugStyle, "");
+              } catch (e) {
+                console.error("%c[Super-preloader] %c执行 startFilter 错误 %o", debugStyle, "", e);
+              }
             }
 
             nextlink = getElement(SII.nextLink || "auto;");
             if (!nextlink) {
-              debug("无法找到下一页链接,跳过规则:", SII, "继续查找其他规则");
+              console.warn("%c[Super-preloader] %c无法找到下一页链接,继续查找其他规则,跳过规则:%o", debugStyle, "", SII);
               continue;
             }
             // 如果匹配到的下一页链接和当前页一致，继续查找下一条规则
@@ -4331,7 +4352,7 @@
             const pageElement = getElement(SSS.a_pageElement);
             if (!pageElement || (Array.isArray(pageElement) && pageElement.length === 0)) {
               nextlink = null;
-              debug("无法找到内容,跳过规则:", SII, "继续查找其他规则");
+              console.error("%c[Super-preloader] %c无法找到内容,跳过规则:%o %s", debugStyle, "", SII, "继续查找其他规则");
               continue;
             }
 
@@ -4341,10 +4362,10 @@
         }
 
         if (!SSS.hasRule) {
-          debug("未找到合适的高级规则,开始自动匹配.");
+          console.warn("%c[Super-preloader] %c未找到合适的高级规则,开始自动匹配.", debugStyle, "");
           // 自动搜索.
           if (!autoMatch.keyMatch) {
-            debug("自动匹配功能被禁用了.");
+            debug("%c[Super-preloader] %c自动匹配功能被禁用了.", debugStyle, "");
           } else {
             nextlink = autoGetLink();
             // alert(nextlink);
@@ -4377,18 +4398,18 @@
           SSS.lazyImgSrc = prefs.lazyImgSrc;
         }
 
-        debug("搜索高级规则和自动匹配过程总耗时:", new Date() - startTime, "毫秒");
+        debug("%c[Super-preloader] %c搜索高级规则和自动匹配过程总耗时:%ims", debugStyle, "", new Date() - startTime);
       };
 
       findCurSiteInfo();
 
       // 上下页都没有找到啊
       if (!nextlink && !prelink) {
-        debug("未找到相关链接, JS执行停止. 共耗时" + (new Date() - startTime) + "毫秒");
+        console.warn("%c[Super-preloader] %c未找到相关链接, JS执行停止. 共耗时:%ims", debugStyle, "", new Date() - startTime);
         return;
       } else {
-        debug("上一页链接:", prelink);
-        debug("下一页链接:", nextlink);
+        debug("%c[Super-preloader] %c上一页链接:%o", debugStyle, "", prelink);
+        debug("%c[Super-preloader] %c下一页链接:%o", debugStyle, "", nextlink);
         nextlink = nextlink ? nextlink.href || nextlink : undefined;
         prelink = prelink ? prelink.href || prelink : undefined;
       }
@@ -4404,7 +4425,7 @@
       };
 
       if (prefs.arrowKeyPage) {
-        debug("添加键盘左右方向键翻页监听.");
+        debug("%c[Super-preloader] %c添加键盘左右方向键翻页监听.", debugStyle, "");
         document.addEventListener(
           "keyup",
           function(e) {
@@ -4432,7 +4453,7 @@
       }
 
       // 监听下一页事件.
-      debug("添加鼠标手势翻页监听.");
+      debug("%c[Super-preloader] %c添加鼠标手势翻页监听", debugStyle, "");
       document.addEventListener(
         "superPreloader.go",
         function() {
@@ -4452,14 +4473,15 @@
 
       // 没找到下一页的链接
       if (!nextlink) {
-        debug("下一页链接不存在,JS无法继续.");
-        debug("全部过程耗时:", new Date() - startTime, "毫秒");
+        console.error("%c[Super-preloader] %c下一页链接不存在,JS无法继续.", debugStyle, "");
+        debug("%c[Super-preloader] %c全部过程耗时:%ims", debugStyle, "", new Date() - startTime);
+
         return;
       }
 
       // 载入设置..
       const loadLocalSetting = function() {
-        debug("加载设置");
+        debug("%c[Super-preloader] %c加载设置", debugStyle, "");
         var savedValue = getValue("spfwset");
         if (savedValue) {
           try {
@@ -4503,23 +4525,24 @@
       }
 
       if (prefs.floatWindow) {
-        debug("创建悬浮窗");
+        debug("%c[Super-preloader] %c创建悬浮窗", debugStyle, "");
         floatWindow(SSS);
       }
 
       if (!SSS.enable) {
-        debug("本规则被关闭,脚本执行停止");
-        debug("全部过程耗时:", new Date() - startTime, "毫秒");
+        console.warn("%c[Super-preloader] %c本规则被关闭,脚本执行停止", debugStyle, "");
+        debug("%c[Super-preloader] %c全部过程耗时:%ims", debugStyle, "", new Date() - startTime);
+
         return;
       }
-      debug("全部过程耗时:", new Date() - startTime, "毫秒");
+      debug("%c[Super-preloader] %c全部过程耗时:%ims", debugStyle, "", new Date() - startTime);
 
       // 预读或者翻页.
       if (SSS.a_enable) {
-        debug("初始化,翻页模式.");
+        debug("%c[Super-preloader] %c初始化,翻页模式.", debugStyle, "");
         autopager(SSS, floatWO);
       } else {
-        debug("初始化,预读模式.");
+        debug("%c[Super-preloader] %c初始化,预读模式.", debugStyle, "");
         prefetcher(SSS, floatWO);
       }
 
@@ -4632,7 +4655,7 @@
         }
 
         if (xbug) {
-          debug("全文档链接数量:", alllinksl);
+          debug("%c[Super-preloader] %c全文档链接数量:%i", debugStyle, "", alllinksl);
         }
 
         for (i = 0; i < alllinksl; i++) {
@@ -4777,8 +4800,7 @@
             }
           }
         }
-
-        debug("搜索链接数量:", i, "耗时:", new Date() - startTime, "毫秒");
+        debug("%c[Super-preloader] %c搜索链接数量:%i 耗时:%ims ", debugStyle, "", i, new Date() - startTime);
 
         if (!autoGetLink.checked) {
           // 只在第一次检测的时候,抛出上一页链接.
@@ -5170,6 +5192,10 @@
     _.flat = function(obj) {
       return [].concat.apply([], obj);
     };
+
+    _.has = function(obj, key) {
+      return obj ? hasOwnProperty.call(obj, key) : false;
+    };
     return _;
   })();
 
@@ -5423,6 +5449,7 @@
     }
   }
 
+  // create element with attribute
   function $C(type, atArr, inner, action, listen) {
     const e = document.createElement(type);
     for (var at in atArr) {
@@ -5439,6 +5466,14 @@
     return e;
   }
 
+  // set multiple attributes for a dom element
+  function setAttributes(el, attrs) {
+    for (var key in attrs) {
+      if (Object.prototype.hasOwnProperty.call(attrs, key)) {
+        el.setAttribute(key, attrs[key]);
+      }
+    }
+  }
   // css 获取单个元素
   function getElementByCSS(css, contextNode) {
     return (contextNode || document).querySelector(css);
@@ -5580,7 +5615,7 @@
   function createDocumentByString(str) {
     // string转为DOM
     if (!str) {
-      C.error("没有找到要转成DOM的字符串");
+      console.error("%c[Super-preloader] %c没有找到要转成DOM的字符串", debugStyle, "");
       return;
     }
     if (document.documentElement.nodeName != "HTML") {
@@ -5818,6 +5853,7 @@
       return "en_US";
     }
   }
+
   //Function to compare two version strings https://gist.github.com/TheDistantSea/8021359
   function versionCompare(v1, v2, options) {
     var lexicographical = options && options.lexicographical,
@@ -5862,6 +5898,16 @@
     }
 
     return 0;
+  }
+
+  function emoji(unifiedValue) {
+    if (String.fromCodePoint) {
+      var emoji = parseInt(unifiedValue, 16);
+      return String.fromCodePoint(emoji);
+    } else {
+      console.error("Shame on your browser!");
+      return "";
+    }
   }
 
   // https://gist.github.com/cking/aa1787207596261eaf69d79d983f6f49

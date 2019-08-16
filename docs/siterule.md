@@ -199,10 +199,16 @@ function(currentDocument, sepdiv) {
 ### documentFilter
 
 1. [JS function]() <Jbadge :json="false"/>
-   - **description**: 一个作用于预读内容的 js 函数，可以用来修正预读内容(比如 csdn)、去除广告(比如很多 nsfw)、根据 XHR 结果生成页面内容而避免使用 iframe(比如 bl-novel)甚至生成新的内容(比如 m-team)。 理论上你可以用 js 实现对 DOM 静态内容的修改
+   - **description**: 一个作用于预读内容整体的 js 函数，执行于预读内容被插入到当前页面前。可以用来修正预读内容(比如 csdn)、去除广告(比如很多 nsfw)、根据 XHR 结果生成页面内容而避免使用 iframe(比如 bl-novel)甚至生成新的内容(比如 m-team)。 理论上你可以用 js 实现对 DOM 静态内容的修改
    - **content**: `function (currentDocument, nextPageLink) {return newDocument}`
 2. ["startFilter"]()
    - **description**: 重复使用[startFilter](/siterule.md#startfilter)
+
+### filter
+
+1. [JS function]() <Jbadge :json="false"/>
+   - **description**: 一个作用预读内容 element 的 js 函数，执行于预读内容被插入到当前页面后。
+   - **content**: `function (pageElement) {return null}`
 
 ### stylish
 
