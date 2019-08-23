@@ -78,7 +78,7 @@
   },
   {
     "name": "性感尤物",
-    "url": "^https?://www\\.(jpxgyw|xgyw|nvshenheji|xgmn5|mntup)\\.(com|cc)/[^/]*/[^/]*\\.html",
+    "url": "^https?://www\\.(jpxgyw|xgyw|nvshenheji|xgmn5|mntup|xgmn)\\.(com|cc|org)/[^/]*/[^/]*\\.html",
     "exampleUrl": "http://www.xgyw.cc/Xgyw/Xgyw6874.html",
     "category": ["gallery", "nsfw"],
     "nextLink": "//div[@class='page']/a[text()='后']",
@@ -89,7 +89,7 @@
   },
   {
     "name": "性感尤物2",
-    "url": "^https?://www\\.(jpxgyw|xgyw|xgmn5|nvshenheji|mntup)\\.(com|cc)/[^/]*/",
+    "url": "^https?://www\\.(jpxgyw|xgyw|xgmn5|nvshenheji|mntup|xgmn)\\.(com|cc|org)/[^/]*/",
     "exampleUrl": "http://www.xgyw.cc/Xgyw",
     "category": ["gallery", "nsfw"],
     "nextLink": "//div[@class='page']/a[text()='下页']",
@@ -253,7 +253,7 @@
   },
   {
     "name": "flhkk",
-    "url": "^https?://www\\.flhkk\\.com",
+    "url": "^https?://www\\.flhhkk\\.com",
     "nextLink": "auto;",
     "pageElement": "//div[@class='container']//div[contains(@class,'posts-con') or @class='clearfix']"
   },
