@@ -5106,17 +5106,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/81544",
-  "name": "wezz-y.com",
   "created_by": "brib",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-09-19T22:04:10+09:00",
+  "name": "wezz-y.com",
   "data": {
     "exampleUrl": "http://wezz-y.com/archives/50178 http://wezz-y.com/archives/date/2017/09",
+    "nextLink": "//link[@rel=\"next\"]",
     "url": "^https?://wezz-y\\.com/archives/",
-    "pageElement": "id(\"postpage\")/preceding-sibling::*|id(\"newArticle\")/div[@class=\"article\"][not(@id)]",
-    "nextLink": "//link[@rel=\"next\"]"
+    "pageElement": "id(\"postpage\")/preceding-sibling::*|id(\"newArticle\")/div[@class=\"article\"][not(@id)]"
   },
-  "created_at": "2017-09-18T18:55:03+09:00"
+  "created_at": "2017-09-18T18:55:03+09:00",
+  "updated_at": "2019-08-17T08:22:13+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/81542",
@@ -6691,18 +6691,18 @@
   "created_at": "2017-03-16T18:08:06+09:00"
 },
 {
-  "resource_url": "http://wedata.net/items/81232",
-  "name": "mess-y | メッシー",
   "created_by": "t_f_m",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-03-16T06:53:39+09:00",
+  "name": "mess-y",
   "data": {
-    "exampleUrl": "http://mess-y.com/archives/39105",
+    "exampleUrl": "http://mess-y.com/archives/39105 http://wezz-y.com/archives/50178 http://wezz-y.com/archives/date/2017/09",
+    "nextLink": "//link[@rel='next']",
     "url": "^https?://mess-y\\.com/archives/",
-    "pageElement": "id('postpage')/preceding-sibling::*",
-    "nextLink": "id('postpage')/span/following-sibling::a"
+    "pageElement": "id('postpage')/preceding-sibling::*[not(@id='nextPageTitle')]|id('newArticle')/div[@class='article'][not(@id)]"
   },
-  "created_at": "2017-03-14T19:59:09+09:00"
+  "created_at": "2017-03-14T19:59:09+09:00",
+  "resource_url": "http://wedata.net/items/81232",
+  "updated_at": "2019-08-17T08:25:34+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/81231",
@@ -42095,21 +42095,6 @@
     "nextLink": "//li[@class='next']/a|//a[@class='control next']"
   },
   "created_at": "2010-05-10T15:19:53+09:00"
-},
-{
-  "name": "XVideosLive - Live Sex Chat, Sex Shows and Webcam Sex - Amateur Cams and Pornstars",
-  "updated_at": "2010-05-10T15:10:24+09:00",
-  "resource_url": "http:\/\/wedata.net\/items\/32490",
-  "created_by": "toshi",
-  "database_resource_url": "http:\/\/wedata.net\/databases\/AutoPagerize",
-  "data": {
-    "insertBefore": "",
-    "pageElement": "id(\"cam-container\")\/*",
-    "url": "^http:\/\/(?:www\\.)?xvideoslive\\.com\/",
-    "nextLink": "\/\/li[@class=\"active\"]\/following-sibling::li[1]\/a",
-    "exampleUrl": "http:\/\/xvideoslive.com\/"
-  },
-  "created_at": "2010-05-10T15:10:24+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/32488",
