@@ -22,6 +22,16 @@
     "exampleUrl": "http://www.wnacg.org/photos-view-id-2132443.html"
   },
   {
+    "name": "spring4u",
+    "url": "^https?://(www\\.)?spring4u\\.info/forumdisplay.php.*",
+    "nextLink": "//div[1]//table[1]//tbody[1]//tr[1]//td[1]//table[1]//tbody[1]//tr[2]//td[1]//table[1]//tbody[1]//tr[1]//td[last()-2]/a",
+    "category": ["forum", "nsfw"],
+    "autopager": {
+      "pageElement": "/html/body/center/form[1]",
+    },
+    "exampleUrl": "http://www.spring4u.info/forumdisplay.php?fid=9&page=5"
+  },
+  {
     "name": "vBulletin Special Thread",
     "category": ["forum"],
     "url": "^https?://(www|forum)\\.(planetsuzy)\\.(org|com)/t\\d+-.*",
