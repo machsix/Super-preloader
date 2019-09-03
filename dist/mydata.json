@@ -455,6 +455,12 @@
     }
   },
   {
+    "name": "ville-bobigny",
+    "url": "^https?://bibliotheque\\.ville-bobigny\\.fr",
+    "nextLink": "//a[span[contains(@class,'step-forward')]]",
+    "pageElement": "//form[@id='form_result']"
+  },
+  {
     "name": "新浪新闻",
     "url": "^https?://[a-z]+\\.sina\\.com\\.cn/",
     "exampleUrl": "http://news.sina.com.cn/c/sd/2013-11-08/165728658916.shtml",
