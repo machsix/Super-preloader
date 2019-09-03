@@ -1,5 +1,64 @@
 [
 {
+  "resource_url": "http://wedata.net/items/82231",
+  "created_by": "t_f_m",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "name": "macaroni",
+  "data": {
+    "exampleUrl": "https://macaro-ni.jp/4211",
+    "insertBefore": "",
+    "nextLink": "//a[contains(concat(\" \",@class,\" \"),\" ga_next \")]",
+    "pageElement": "//article[@class=\"article-wrapper\"]/div[starts-with(concat(\" \",@class),\" aw-\")]",
+    "url": "^https://macaro-ni\\.jp/"
+  },
+  "created_at": "2019-09-02T21:58:54+09:00",
+  "updated_at": "2019-09-02T21:58:54+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/82228",
+  "created_by": "solact",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "name": "GSMArena.com",
+  "data": {
+    "exampleUrl": "https://www.gsmarena.com/sony_xperia_1-review-1941.php",
+    "insertBefore": "",
+    "nextLink": "//a[@class=\"pages-next\"]",
+    "pageElement": "//div[@id=\"review-body\"]",
+    "url": "https://www.gsmarena.com/.+\\.php"
+  },
+  "created_at": "2019-09-01T15:40:55+09:00",
+  "updated_at": "2019-09-01T15:40:55+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/82227",
+  "created_by": "t_f_m",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "name": "ライブドアニュース 特集・インタビュー",
+  "data": {
+    "exampleUrl": "https://news.livedoor.com/article/detail/16954003/",
+    "nextLink": "//li[@class='pager-next']/a",
+    "url": "^https://news\\.livedoor\\.com/article/detail/",
+    "pageElement": "//span[@itemprop='articleBody']/ul[@class='pager-item']/preceding-sibling::*"
+  },
+  "created_at": "2019-08-29T16:54:45+09:00",
+  "updated_at": "2019-09-01T01:29:02+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/82226",
+  "created_by": "jigendaddy_be",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "name": "Fun Pay! ",
+  "data": {
+    "exampleUrl": "https://card-media.infoseek.co.jp/",
+    "insertBefore": "",
+    "nextLink": "//link[@rel=\"next\"]",
+    "pageElement": "id(\"paginate\")/preceding-sibling::div",
+    "url": "^https://card-media\\.infoseek\\.co\\.jp/"
+  },
+  "created_at": "2019-08-26T14:25:51+09:00",
+  "updated_at": "2019-08-26T14:25:51+09:00"
+},
+{
   "created_by": "かいらいぺるくん",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "name": "日経 xTECH Active",
@@ -1140,18 +1199,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/82119",
-  "name": "Yahoo!知恵袋 検索一覧",
   "created_by": "Kkairri",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-04-14T09:31:50+09:00",
+  "name": "Yahoo!知恵袋 検索一覧",
   "data": {
     "exampleUrl": "https://chiebukuro.yahoo.co.jp/search/?p=%E3%82%A2%E3%83%A1%E3%83%AA%E3%82%AB%E4%BA%BA&flg=3&class=1&ei=UTF-8&fr=common-navi https://chiebukuro.yahoo.co.jp/search/;_ylt=A2RCL6ZafrJc0UcAjwBOY.B7;_ylu=X3oDMTBwNTFlNXU3BHZ0aWQDY2hpZWJ1a3Vyb19zcmMxMF8wMDI-?sort=4&p=%E6%97%A5%E6%9C%AC%E4%BA%BA&ei=UTF-8",
+    "nextLink": "id(\"pg_low\")//a[contains(@class,\"next\")]",
     "url": "https?://chiebukuro\\.yahoo\\.co\\.jp/search",
-    "pageElement": "//ol[@class=\"cl\"]",
-    "insertBefore": "",
-    "nextLink": "//div[@id=\"Sp1\"]/p/span[@class=\"m\"]/a"
+    "pageElement": "id(\"sr\")/ul/li"
   },
-  "created_at": "2019-04-14T09:31:50+09:00"
+  "created_at": "2019-04-14T09:31:50+09:00",
+  "updated_at": "2019-09-02T21:44:19+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/82118",
@@ -7616,17 +7674,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/81101",
-  "name": "fc2 contents market",
   "created_by": "Narju",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-01-18T02:26:11+09:00",
+  "name": "fc2 contents market",
   "data": {
     "exampleUrl": "https://contents.fc2.com/search/?q=&genre=5&type=1 https://adult.contents.fc2.com/users/sangou/?&page=2 https://adult.contents.fc2.com/mypage.php?mode_=show_history",
+    "nextLink": "//div[@class='c-pager-101']/a[@class='items'][last()]|//ul[@class='pager']/li[@class='next_btn']/a",
     "url": "^https?://(?:adult\\.)?contents\\.fc2\\.com/",
-    "pageElement": "//*[@class='c-cntCard-110']|//ul[@class='list']/li[@class='sell_block' or @class='list_wrapper']",
-    "nextLink": "//div[@class='c-pager-101']/a[@class='items'][last()]|//ul[@class='pager']/li[@class='next_btn']/a"
+    "pageElement": "//*[@class='c-cntCard-110']|//ul[@class='list']/li[contains(@class, 'sell_block') or @class='list_wrapper']"
   },
-  "created_at": "2016-12-22T05:47:24+09:00"
+  "created_at": "2016-12-22T05:47:24+09:00",
+  "updated_at": "2019-08-26T02:46:08+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/81100",
@@ -15832,17 +15890,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/77075",
-  "name": "沖縄タイムス",
   "created_by": "t_f_m",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-08-17T12:17:08+09:00",
+  "name": "沖縄タイムス",
   "data": {
-    "exampleUrl": "http://www.okinawatimes.co.jp/w/column.php?id=236 http://www.okinawatimes.co.jp/category/news-all",
+    "exampleUrl": "http://www.okinawatimes.co.jp/w/column.php?id=236 http://www.okinawatimes.co.jp/category/news-all\r\nhttps://www.okinawatimes.co.jp/articles/-/462429",
+    "nextLink": "//div[@class=\"m-pagination\"]/a[contains(concat(\" \",@class,\" \"),\" m-pagination__item--next \")]",
     "url": "^https?://(www\\.)?okinawatimes\\.co\\.jp/",
-    "pageElement": "//div[@class='article-body']/node()|//div[@class='category-list']//li[div/@class]",
-    "nextLink": "//span[@class='next']/a"
+    "pageElement": "//div[@class='article-body']/node()|//ul[@class=\"m-articles-v\"]/li"
   },
-  "created_at": "2015-04-09T22:08:53+09:00"
+  "created_at": "2015-04-09T22:08:53+09:00",
+  "updated_at": "2019-08-26T20:42:00+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/77074",
@@ -45749,17 +45807,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/29655",
-  "name": "livedoor ニュース 写真集",
   "created_by": "xfdata",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2016-01-25T09:55:03+09:00",
+  "name": "livedoor ニュース 写真集",
   "data": {
     "exampleUrl": "http://news.livedoor.com/article/image_detail/4072827/?img_id=628355",
-    "url": "^http://news\\.livedoor\\.com/article/image_detail/",
-    "pageElement": "//figure[@class='imageFigure']",
-    "nextLink": "//li[@class='imagePagerNext']/a"
+    "nextLink": "//li[@class='imagePagerNext']/a",
+    "url": "^https://news\\.livedoor\\.com/article/image_detail/",
+    "pageElement": "//figure[@class='imageFigure']"
   },
-  "created_at": "2009-09-06T11:53:32+09:00"
+  "created_at": "2009-09-06T11:53:32+09:00",
+  "updated_at": "2019-08-29T16:47:47+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/29649",
@@ -56771,19 +56829,19 @@
   "updated_at": "2014-09-10T19:16:16+09:00"
 },
 {
-  "resource_url": "http://wedata.net/items/418",
-  "name": "Amazon 検索結果",
   "created_by": "swdyh",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-06-15T18:06:08+09:00",
+  "name": "Amazon 検索結果",
   "data": {
+    "exampleUrl": "http://www.amazon.co.jp/s/?field-keywords=windows\r\nhttp://www.amazon.co.jp/s/?url=search-alias%3Dtoys&field-keywords=lego\r\nhttp://www.amazon.co.jp/s/rh=n%3A13299531 http://www.amazon.co.jp/exec/obidos/search-handle-url?_encoding=UTF8&search-type=ss&index=books-jp&field-author=%E6%9D%91%E4%B8%8A%20%E6%98%A5%E6%A8%B9\r\nhttp://www.amazon.co.jp/gp/search/rh=k%3A%E3%83%9D%E3%82%B1%E3%83%A2%E3%83%B3%2Ci%3Avideogames&keywords=%E3%83%9D%E3%82%B1%E3%83%A2%E3%83%B3\r\nhttp://www.amazon.co.jp/b?ie=UTF8&node=2515445051\r\nhttp://www.amazon.co.jp/%E6%A9%99%E4%B9%83-%E3%81%BE%E3%81%BE%E3%82%8C/e/B006AIETUI/\r\nhttp://www.amazon.com/gp/aag/main?ie=UTF8&seller=AGHVE2KVOZA3D\r\nhttp://www.amazon.co.jp/s/ref=lp_3452196051_pg_2?rh=n%3A2250738051%2Cn%3A!2275265051%2Cn%3A!2275277051%2Cn%3A3452196051&page=2&ie=UTF8&qid=1438764067\r\nhttps://www.amazon.co.jp/s?rh=n%3A6990947051&page=2\r\nhttps://www.amazon.co.jp/kindle-dbs/entity/author/B00J1JKSOY?_encoding=UTF8&offset=0&pageSize=12&searchAlias=stripbooks&sort=author-pages-popularity-rank&page=4&langFilter=default#formatSelectorHeader",
     "Stylish": "@-moz-document url-prefix(\"http://www.amazon.co.jp/\") {\r\nul.s-result-list p.autopagerize_page_info{\r\n    letter-spacing:normal !important;}\r\n}\r\n\r\n@-moz-document url-prefix(\"http://www.amazon.co.jp/s/?rh\"), url-prefix(\"http://www.amazon.co.jp/s/ref=sr_pg_1\") {\r\n.autopagerize_page_separator~#resultsCol .s-result-item{\r\n    display: inline-block;\r\n    border-top: 1px solid #DDD;\r\n    padding-top:10px;\r\n}\r\n.autopagerize_page_separator~#resultsCol .a-fixed-left-grid-inner{\r\n    padding-left: 120px !important;\r\n}\r\n\r\n.autopagerize_page_separator~#resultsCol .a-fixed-left-grid-inner a h2{\r\n    font-weight:bold !important;\r\n      font-size: 1.25em;\r\n}\r\n.autopagerize_page_separator~#resultsCol .med {\r\n    font-size: 1.2em;\r\n}\r\n.autopagerize_page_separator~#resultsCol .a-icon-alt{\r\n    display:none;\r\n}\r\n}",
-    "exampleUrl": "http://www.amazon.co.jp/s/?field-keywords=windows\r\nhttp://www.amazon.co.jp/s/?url=search-alias%3Dtoys&field-keywords=lego\r\nhttp://www.amazon.co.jp/s/rh=n%3A13299531 http://www.amazon.co.jp/exec/obidos/search-handle-url?_encoding=UTF8&search-type=ss&index=books-jp&field-author=%E6%9D%91%E4%B8%8A%20%E6%98%A5%E6%A8%B9\r\nhttp://www.amazon.co.jp/gp/search/rh=k%3A%E3%83%9D%E3%82%B1%E3%83%A2%E3%83%B3%2Ci%3Avideogames&keywords=%E3%83%9D%E3%82%B1%E3%83%A2%E3%83%B3\r\nhttp://www.amazon.co.jp/b?ie=UTF8&node=2515445051\r\nhttp://www.amazon.co.jp/%E6%A9%99%E4%B9%83-%E3%81%BE%E3%81%BE%E3%82%8C/e/B006AIETUI/\r\nhttp://www.amazon.com/gp/aag/main?ie=UTF8&seller=AGHVE2KVOZA3D\r\nhttp://www.amazon.co.jp/s/ref=lp_3452196051_pg_2?rh=n%3A2250738051%2Cn%3A!2275265051%2Cn%3A!2275277051%2Cn%3A3452196051&page=2&ie=UTF8&qid=1438764067\r\nhttps://www.amazon.co.jp/s?rh=n%3A6990947051&page=2",
-    "url": "^https?://www\\.amazon\\.(?:c(?:a|n|o(?:m|\\.(?:jp|uk)))|de|fr)/(?:[^/]+/)?(?:[bes]|(?:gp|exec/obidos)/(search|aag))",
-    "pageElement": "id(\"rightResults atfResults btfResults mainResults Results sparseWrapper\")[not(//link[@rel=\"canonical\"][contains(@href,\"page\")])]//*[starts-with(@id,\"result_\")]|//li[@class=\"shoveler-cell\"]|id(\"resultsCol\")[//link[@rel=\"canonical\"][contains(@href,\"page\")]]|//div[contains(concat(' ',@class,' '),' s-search-results ')]/div",
-    "nextLink": "id('pagnNextLink')|//a[@class='next-button-link']|//li[@class='a-selected']/following-sibling::li/a"
+    "nextLink": "id('pagnNextLink')|//a[@class='next-button-link']|//li[@class='a-selected']/following-sibling::li/a",
+    "url": "^https?://www\\.amazon\\.(?:c(?:a|n|o(?:m|\\.(?:jp|uk)))|de|fr)/(?:[^/]+/)?(?:[bes]|(?:gp|exec/obidos)/(search|aag)|entity/author)",
+    "pageElement": "id(\"rightResults atfResults btfResults mainResults Results sparseWrapper\")[not(//link[@rel=\"canonical\"][contains(@href,\"page\")])]//*[starts-with(@id,\"result_\")]|//li[@class=\"shoveler-cell\"]|id(\"resultsCol\")[//link[@rel=\"canonical\"][contains(@href,\"page\")]]|//div[contains(concat(' ',@class,' '),' s-search-results ')]/div|id(\"searchWidget\")/*[self::div or self::hr]"
   },
-  "created_at": "2008-04-16T12:35:23+09:00"
+  "created_at": "2008-04-16T12:35:23+09:00",
+  "resource_url": "http://wedata.net/items/418",
+  "updated_at": "2019-08-29T00:20:01+09:00"
 },
 {
   "name": "Amazon \u304a\u3059\u3059\u3081\u5546\u54c1",

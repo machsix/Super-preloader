@@ -5,7 +5,7 @@
   "resource_url": "http://wedata.net/databases/AutoPagerize",
   "name": "AutoPagerize",
   "created_at": "2008-04-16T12:35:15+09:00",
-  "updated_at": "2019-08-23T07:30:45+09:00",
+  "updated_at": "2019-09-02T21:58:54+09:00",
   "optional_keys": "exampleUrl insertBefore",
   "permit_other_keys": true
 }
