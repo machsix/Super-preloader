@@ -204,6 +204,11 @@ function(currentDocument, sepdiv) {
 2. ["startFilter"]()
    - **description**: 重复使用[startFilter](/siterule.md#startfilter)
 
+### scriptFilter
+
+- **type**: String <Jbadge/>
+- **description**: 在将预读内容插入到当前页面之前，脚本默认会移除所有的`<script>`元素。 如果你想保留某些`<script>`, 可以讲 scriptFilter 设置为一个匹配 inline code 或者 src 的正则表达式。 可以参考站点 kongregate
+
 ### filter
 
 1. [JS function]() <Jbadge :json="false"/>

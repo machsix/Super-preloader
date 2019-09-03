@@ -15,7 +15,7 @@ Site rules can be
 - [JavaScript object](https://en.wikipedia.org/wiki/JavaScript) stored in the `SITEINFO` variable
 - [JSON data](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/JSON) stored in `dist/mydata.json`
 
-We prefer [JSON data](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/JSON) because [JSON]() can implement hot update. An example is shown at the [end](/siterule.md#example).
+We prefer [JSON data](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/JSON) because [JSON]() can implement hot update. An example is shown at the [end](/en/siterule.md#example).
 
 ## The basic composition of the rules
 
@@ -145,7 +145,7 @@ In addition to the basic elements, the rule can also contain an `Object` with `k
 
 - **type**: `Boolean` <Jbadge/> <Badge text="Not Recommend" type="error" />
 - **default**: `false`
-- **description**: If it is really difficult to find [pageElement](/siterule.md#pageelement), turning this option on will make the entire page spliced ​​up.
+- **description**: If it is really difficult to find [pageElement](/en/siterule.md#pageelement), turning this option on will make the entire page spliced ​​up.
 
 ### headers
 
@@ -180,7 +180,7 @@ In addition to the basic elements, the rule can also contain an `Object` with `k
 ### sepdivDom
 
 - **type**: `JS function` <Jbadge :json="false"/>
-- **description**: For some pages, the navigation bar automatically added by the script may cause the page format to be garbled. `sepdivDom` defines a function to generate the appropriate navigation bar that will be inserted after the last [pageElement](/siterule.md#pageelement). An example is `小木虫-posts`
+- **description**: For some pages, the navigation bar automatically added by the script may cause the page format to be garbled. `sepdivDom` defines a function to generate the appropriate navigation bar that will be inserted after the last [pageElement](/en/siterule.md#pageelement). An example is `小木虫-posts`
 - **example**
 
 ```js
@@ -200,7 +200,7 @@ Function(currentDocument, sepdiv) {
 ### startFilter
 
 - **type**: `JS function` <Jbadge :json="false"/>
-- **description**: A js function that acts on the home page (i.e. current page) to fix the page. Receive `currentDocument`, `currentWindow` two parameters. For details, please see [documentFilter (1)](/siterule.md#documentfilter)
+- **description**: A js function that acts on the home page (i.e. current page) to fix the page. Receive `currentDocument`, `currentWindow` two parameters. For details, please see [documentFilter (1)](/en/siterule.md#documentfilter)
 
 ### documentFilter
 
@@ -208,7 +208,18 @@ Function(currentDocument, sepdiv) {
    - **description**: A js function for prefetching content that can be used to correct prefetched content (such as csdn), remove ads (such as many nsfw), generate page content based on XHR results, and avoid using iframes (such as bl -novel) even generate new content (like m-team). In theory, you can use js to modify the static content of DOM.
    - **content**: `function (currentDocument, nextPageLink) {return newDocument}`
 2. ["startFilter"]()
-   - **description**: Reuse [startFilter](/siterule.md#startfilter)
+   - **description**: Reuse [startFilter](/en/siterule.md#startfilter)
+
+### scriptFilter
+
+- **type**: String <Jbadge/>
+- **description**: The script will delete all `<script>` nodes before inserting the preloaded content into the page. You can set `scriptFilter` as a Regex string to match the `src` or inline content of the `<script>` node to keep some nodes. In this way, you can use these inline js scripts in the [filter](/en/siterule.md#filter)
+
+### filter
+
+1. [JS function]() <Jbadge :json="false"/>
+   - **description**: a js function to manipulate with the preloaded content once it is inserted into the page
+   - **content**: `function (pageElement) {return null}`
 
 ### stylish
 
@@ -217,7 +228,7 @@ Function(currentDocument, sepdiv) {
 
 ### replaceE
 
-- **description**: Similar to [pageElement](/siterule.md#pageelement), select the `node` to replace the navigation bar.
+- **description**: Similar to [pageElement](/en/siterule.md#pageelement), select the `node` to replace the navigation bar.
 
 ## example
 
