@@ -1916,7 +1916,7 @@
     "name": "爱美图吧",
     "url": "^https?://www\\.itmtu\\.com",
     "category": ["gallery", "nsfw"],
-    "nextLink": "//div[contains(@class, 'nav-links')]/span/following-sibling::a[@class='page-numbers']",
+    "nextLink": "css;.page-numbers.current+a",
     "autopager": {
       "enable": true,
       "pageElement": "//div[@id='image_div'] | //ul[@id='index_ajax_list']",
