@@ -11898,19 +11898,18 @@
   "created_at": "2015-12-01T19:03:02+09:00"
 },
 {
-  "resource_url": "http://wedata.net/items/77700",
-  "name": "Czech Casting",
   "created_by": "rainwalker",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2015-12-01T17:13:58+09:00",
+  "name": "Czech Casting",
   "data": {
-    "exampleUrl": "http://www.czechcasting.com/",
-    "url": "^http://www\\.czechcasting\\.com/",
-    "pageElement": "//div[@class=\"console inner tour pagebar\"]/following-sibling::*[following::div[@class=\"bonussites\"]]",
-    "insertBefore": "",
-    "nextLink": "//a[@class=\"arrow-right\"]"
+    "exampleUrl": "https://czechcasting.com/",
+    "nextLink": "//a[@title=\"Next page\"]",
+    "url": "^https://czechcasting\\.com/",
+    "pageElement": "//div[@class=\"content small-block-grid-2 medium-block-grid-3 large-block-grid-4\" or @class=\"pagination\"]"
   },
-  "created_at": "2015-12-01T17:13:58+09:00"
+  "created_at": "2015-12-01T17:13:58+09:00",
+  "resource_url": "http://wedata.net/items/77700",
+  "updated_at": "2019-09-07T17:13:06+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/77699",
@@ -56555,10 +56554,10 @@
     "nextLink": "id('pnnext')|id('navbar navcnt nav')//td[span]/following-sibling::td[1]/a|id('nn')/parent::a",
     "comment": "Google Custom Search Result: http://wedata.net/items/60908\r\nGoogle Movies: http://wedata.net/items/58112\r\nGoogle Shopping: http://wedata.net/items/38952\r\nGoogle Custom Search Result: http://wedata.net/items/60908",
     "url": "^https?://[^./]+\\.google(?:\\.[^./]{2,3}){1,2}/(?:c(?:se|ustom)|search|webhp|m|#)",
-    "pageElement": "id('res')//li[div]|//div[@class='gsc-webResult gsc-result' or @class='psli']|id('rso')//div[contains(concat(' ', normalize-space(@class), ' '), ' g ') or contains(concat(' ', normalize-space(@class), ' '), ' g _cy ') or contains(concat(' ', normalize-space(@class), ' '), ' bkWMgd ')]"
+    "pageElement": "id('res')//li[div]|//div[@class='gsc-webResult gsc-result' or @class='psli']|id('rso')//div[contains(concat(' ', normalize-space(@class), ' '), ' g _cy ') or contains(concat(' ', normalize-space(@class), ' '), ' bkWMgd ')]"
   },
   "created_at": "2008-04-16T12:35:37+09:00",
-  "updated_at": "2019-07-12T08:59:34+09:00"
+  "updated_at": "2019-09-05T06:28:44+09:00"
 },
 {
   "name": "Getchu.com \u8a73\u7d30\u691c\u7d22",
