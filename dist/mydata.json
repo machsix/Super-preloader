@@ -1983,12 +1983,12 @@
   },
   {
     "name": "mimifuli",
-    "url": "^https?://(www\\.)?(mimifuli|bbt01|yxpjw|yxpjwnet|tangniaobingyinshi|52zfl)\\.(vip|info|club|net|com)",
+    "url": "^https?://((?:zhaifuli|www)\\.)?(mimifuli|bbt01|19tu|yxpjw|yxpjwnet|tangniaobingyinshi|52zfl)\\.(vip|info|club|net|com)",
     "category": ["gallery", "nsfw"],
-    "nextLink": "//li[@class=\"next-page\"]/a | //div[@class=\"article-paging\"]/span/following-sibling::a[1]",
+    "nextLink": "//li[@class='next-page']/a | //div[@class='article-paging']/span/following-sibling::a[1]",
     "autopager": {
       "enable": true,
-      "pageElement": "//article[@class=\"article-content\"]|//article[@class=\"excerpt excerpt-one\"]",
+      "pageElement": "//article[@class='article-content']|//article[@class='excerpt excerpt-one']",
       "ipages": [true, 30],
       "replaceE": "//blockquote"
     },
