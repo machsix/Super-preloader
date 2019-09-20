@@ -1,5 +1,76 @@
 [
 {
+  "resource_url": "http://wedata.net/items/82279",
+  "created_by": "KAWASAKICHIRO",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "name": "メルカリ日本版　特定商品の一覧ページ",
+  "data": {
+    "exampleUrl": "https://item.mercari.com/jp/product_key/1_31868971/",
+    "nextLink": "//li[contains(concat(\" \", normalize-space(@class), \" \"), \" pager-next \")]//a[1]",
+    "url": "https?://item\\.mercari\\.com/jp/product_key/.+",
+    "pageElement": "//div[contains(concat(\" \", normalize-space(@class), \" \"), \" entertainment-product-sell-item-content \")]"
+  },
+  "created_at": "2019-09-19T17:32:03+09:00",
+  "updated_at": "2019-09-19T17:35:48+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/82278",
+  "created_by": "KAWASAKICHIRO",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "name": "実務教育出版　書籍検索",
+  "data": {
+    "exampleUrl": "https://jitsumu.hondana.jp/search/",
+    "insertBefore": "",
+    "nextLink": "id(\"searchResult\")//div[@class=\"paging\"]/a[last()]",
+    "pageElement": "id(\"searchResult\")//div[@class=\"contents\"]",
+    "url": "^https?://jitsumu\\.hondana\\.jp/search/.+"
+  },
+  "created_at": "2019-09-19T15:54:48+09:00",
+  "updated_at": "2019-09-19T15:54:48+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/82277",
+  "created_by": "t_f_m",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "name": "dmm / fanza 購入書籍",
+  "data": {
+    "exampleUrl": "https://book.dmm.co.jp/library/ https://book.dmm.com/library/",
+    "nextLink": "//ul[@class=\"m-boxPagenation__list\"]/li[contains(concat(\" \",span/@class,\" \"), \" is-current \")]/following-sibling::li/a",
+    "url": "^https://book\\.dmm\\.co(?:\\.jp|m)/library/",
+    "pageElement": "//ul[@class=\"m-boxListBookProductLarge__list\"]/li"
+  },
+  "created_at": "2019-09-19T03:43:44+09:00",
+  "updated_at": "2019-09-19T03:48:53+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/82266",
+  "created_by": "kissmekissu",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "name": "Yahoo Japan Test",
+  "data": {
+    "exampleUrl": "https://search.yahoo.co.jp/search?p=test&aq=-1&oq=&ei=UTF-8&fr=top_ga1_sa&x=wrt",
+    "nextLink": "//span[@class=\"m\"]/a",
+    "url": "^https://search\\.yahoo\\.co\\.jp/",
+    "pageElement": "//div[@id=\"contents\"]"
+  },
+  "created_at": "2019-09-12T00:29:28+09:00",
+  "updated_at": "2019-09-17T03:10:34+09:00"
+},
+{
+  "created_by": "kissmekissu",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "name": "fbgao.com",
+  "data": {
+    "exampleUrl": "https://www.fbgao.com",
+    "nextLink": "//a[@class='nxt']",
+    "url": "^https?://www\\.fbgao\\.com/forum",
+    "pageElement": "//div[@id='threadlist']"
+  },
+  "created_at": "2019-09-10T02:21:11+09:00",
+  "resource_url": "http://wedata.net/items/82250",
+  "updated_at": "2019-09-20T05:52:53+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/82231",
   "created_by": "t_f_m",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
@@ -28940,19 +29011,20 @@
 },
 {
   "resource_url": "http://wedata.net/items/62707",
-  "name": "Yahoo.com Search",
   "created_by": "tokumeisan",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2018-06-18T05:24:20+09:00",
+  "name": "Yahoo.com Search",
   "data": {
-    "Stylish": " @-moz-document domain(\"yahoo.com\") {\r\n    img.s-img {\r\n        display: inline-block !important;\r\n    }\r\n    .layoutleft a{padding:0;} \r\n}",
     "exampleUrl": "https://search.yahoo.com/search;_ylt=A0LEVy2SOA1UlMAA6glXNyoA?p=wii&ei=UTF-8&fr=yfp-t-901&fp=1&b=11&pstart=5 https://news.search.yahoo.com/search;_ylt=AwrBT6LfOQ1Umz8Ae2BXNyoA?p=wii&fr=yfp-t-901&fr2=piv-web http://hk.search.yahoo.com/search?p=yahoo http://hk.news.search.yahoo.com/search;_ylt=AwrsMN75e9NWqzoA6bq4ygt.;_ylu=X3oDMTEwOG1tc2p0BGNvbG8DBHBvcwMxBHZ0aWQDBHNlYwNwYWdpbmF0aW9u?p=yahoo&b=11&pz=10&xargs=0 http://de.search.yahoo.com/search;_ylt=A0oGkzIMLOxLBVsAHnIyCQx.;_ylc=X1MDMjE0MjQ3ODk0OARfcgMyBGZyAzQwNARuX2dwcwMxMARvcmlnaW4Dc3ljBHF1ZXJ5A3lhaG9vBHNhbwMx?p=yahoo&fr=404&fr2=sfp&iscqry= https://search.yahoo.co.jp/search?p=test http://chiebukuro.yahoo.co.jp/search?p=perl http://news.search.yahoo.co.jp/search?p=yahoo http://kr.search.yahoo.com/search;_ylt=ApfKILpw.ykmbAa6eNZzDKzJ3_p6?p=%EA%B5%AC%ED%95%98%EB%9D%BC&toggle=1&cop=mss&ei=UTF-8&fr=yfp-t-714 http://kr.search.yahoo.com/search/web;_ylt=A3ehDaboKtZNJxAB9Sqo2MUA?ei=UTF-8&p=%EA%B5%AC%ED%95%98%EB%9D%BC&fr2=tab-combo&fr=yfp-t-714 http://kr.blog.search.yahoo.com/search/blog;_ylt=A3ehDaR2OdZNYkEAcSylfO56?ei=UTF-8&p=%EA%B5%AC%ED%95%98%EB%9D%BC&fr2=tab-web&fr=yfp-t-714 http://kr.news.search.yahoo.com/search/news?p=%EA%B5%AC%ED%95%98%EB%9D%BC&ret=1&fr=kr-search_top http://custom.search.yahoo.co.jp/search?p=wii&ei=UTF-8&fr=custom-NwuQmEZGHLrDw.oSM71z.bijh4PDkQqTMMy5&n=10&fl=0&x=wrt&csid=NwuQmEZGHLrDw.oSM71z.bijh4PDkQqTMMy5&vs=mantan-web.jp ",
-    "bookmarklet": "var result = document.evaluate('//img[contains(@class,\"hidden\")]',document, null, 7, null);\r\nfor(var i=0;i<result.snapshotLength;i++)\r\n{\r\nresult.snapshotItem(i).src=result.snapshotItem(i).dataset.src;\r\n    result.snapshotItem(i).style.display='inline-block';\r\n }",
-    "url": "^https?://(.+\\.)?(news\\.)?(search|chiebukuro)?\\.yahoo\\.co(m|\\.jp)/(yhs/)?search",
+    "Stylish": " @-moz-document domain(\"yahoo.com\") {\r\n    img.s-img {\r\n        display: inline-block !important;\r\n    }\r\n    .layoutleft a{padding:0;} \r\n}",
+    "nextLink": "//div[contains(@class,'Pagination')]/a[contains(@class,'next')]|//a[contains(span[2],'>')]|//li[@class='nex']/a",
+    "comment": "Previous Update Has an Error in the 'URL' regex::\r\n  ==\r\n  =>  ^https?://(.+\\.)?(news\\.)?(search|chiebukuro)?\\.yahoo\\.com)/(yhs/)?search\r\n  ==\r\n  ===> The ')' after '.yahoo\\.com' is unmatched and throws an 'SyntaxError: Invalid regular expression:' Exception.\r\n\r\nCorrected it to::\r\n  ==\r\n  =>  ^https?://(.+\\.)?(news\\.)?(search|chiebukuro)?\\.yahoo\\.com/(yhs/)?search\r\n  ==",
+    "url": "^https?://(.+\\.)?(news\\.)?(search|chiebukuro)?\\.yahoo\\.com/(yhs/)?search",
     "pageElement": "id('web resultsWrapper')/ol|//div[@class='searchCenterMiddle']/div|id('WS2m NSm')/*|//ol[@class='cl']/*|//div[contains(concat(' ', normalize-space(@class), ' '), ' cmm ') and @data-pos]",
-    "nextLink": "//div[contains(@class,'Pagination')]/a[contains(@class,'next')]|//a[contains(span[2],'>')]|//li[@class='nex']/a"
+    "bookmarklet": "var result = document.evaluate('//img[contains(@class,\"hidden\")]',document, null, 7, null);\r\nfor(var i=0;i<result.snapshotLength;i++)\r\n{\r\nresult.snapshotItem(i).src=result.snapshotItem(i).dataset.src;\r\n    result.snapshotItem(i).style.display='inline-block';\r\n }"
   },
-  "created_at": "2012-08-14T03:20:22+09:00"
+  "created_at": "2012-08-14T03:20:22+09:00",
+  "updated_at": "2019-09-17T00:42:11+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/62675",
@@ -30484,17 +30556,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/59677",
-  "name": "PRESIDENT online",
   "created_by": "seki",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-04-13T12:44:25+09:00",
+  "name": "PRESIDENT online",
   "data": {
     "exampleUrl": "https://president.jp/articles/-/21710\r\nhttps://president.jp/articles/-/28246\r\nhttps://president.jp/list/woman/latest\r\nhttps://president.jp/category/column",
+    "nextLink": "//div[@class='to_next']/a | //link[@rel='next'] | //a[contains(@class,'is-current')]/following-sibling::a[@href]\r\n",
     "url": "^https?://president\\.jp/",
-    "pageElement": "//div[contains(@class,'article-body')]/* | //div[@class='article-list']/article[@class='article-column'] | //div[contains(@class,'mod-list')]/ul/li[@class='article-unit']",
-    "nextLink": "//div[@class='to_next']/a | //link[@rel='next']"
+    "pageElement": "//div[contains(@class,'article-body')]/* | //div[@class='article-list']/article[@class='article-column'] | //div[contains(@class,'mod-list')]/ul/li[@class='article-unit'] | //section[@class='article-body']\r\n"
   },
-  "created_at": "2012-03-27T03:38:13+09:00"
+  "created_at": "2012-03-27T03:38:13+09:00",
+  "updated_at": "2019-09-14T07:53:13+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/59651",
@@ -54678,17 +54750,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/1214",
-  "name": "L-Cruise - 日経トレンディネット",
   "created_by": "otsune",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2018-10-03T00:06:29+09:00",
+  "name": "日経クロストレンド",
   "data": {
-    "exampleUrl": "http://trendy.nikkeibp.co.jp/article/pickup/20080414/1009323/ http://trendy.nikkeibp.co.jp/new/",
-    "url": "^https?://trendy\\.nikkeibp\\.co\\.jp/",
-    "pageElement": "//div[@class='articlebody']|//ul[@class='list03']/li",
-    "nextLink": "//a[@class='next' or .='次へ']"
+    "exampleUrl": "https://xtrend.nikkei.com/atcl/contents/18/00215/00001/?i_cid=nbpnxr_child",
+    "nextLink": "//link[@rel=\"next\"]",
+    "url": "^https://xtrend\\.nikkei\\.com/atcl/",
+    "pageElement": "//div[@class=\"container-more\"]/preceding-sibling::*|//div[@class=\"container container-pagenation\"][not(./preceding-sibling::div[@class=\"container-more\"])]/preceding-sibling::*"
   },
-  "created_at": "2008-04-27T01:08:29+09:00"
+  "created_at": "2008-04-27T01:08:29+09:00",
+  "updated_at": "2019-09-09T14:14:16+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/1127",
@@ -56366,17 +56438,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/503",
+  "created_by": "swdyh",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "name": "MOONGIFT",
   "data": {
     "exampleUrl": "http://www.moongift.jp/category/software",
-    "pageElement": "//div[@class=\"mg_list cf\"]",
     "nextLink": "//span[@class=\"next\"]/a",
-    "url": "^http://www\\.moongift\\.jp/"
+    "url": "^https?://www\\.moongift\\.jp/",
+    "pageElement": "//div[@class=\"mg_list cf\"]"
   },
-  "created_by": "swdyh",
-  "name": "MOONGIFT",
   "created_at": "2008-04-16T12:35:44+09:00",
-  "updated_at": "2014-07-28T01:27:38+09:00"
+  "updated_at": "2019-09-16T07:17:40+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/502",
