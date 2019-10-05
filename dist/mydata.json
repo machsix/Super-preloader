@@ -1914,7 +1914,7 @@
   },
   {
     "name": "爱美图吧",
-    "url": "^https?://www\\.itmtu\\.com",
+    "url": "^https?://(?:www\\.)?(itmtu|moemzi)\\.com",",
     "category": ["gallery", "nsfw"],
     "nextLink": "css;.page-numbers.current+a",
     "autopager": {
