@@ -7,7 +7,7 @@
 - alternativeUrl: <https://cdn.jsdelivr.net/gh/machsix/Super-preloader/dist/wedata.json>
 - detailUrl <http://wedata.net/databases/AutoPagerize.jsoni>
 - Bonus:
-    - How to login with openID account?<br>Create a yahoo account and enter https://me.yahoo.com to the URL for openID login, then the website will redirect you to yahoo login
+  - How to login with openID account?<br>Create a yahoo account and enter https://me.yahoo.com to the URL for openID login, then the website will redirect you to yahoo login
 
 ## machsix.github.io
 

@@ -1761,12 +1761,12 @@
   },
   {
     "name": "宅男女神",
-    "url": "^https?://www\\.nvshens\\.com\\/.\\/\\d+\\/",
-    "nextLink": "//div[@id=\"pages\"]/span/following::a[not(@class) and not(@id)]",
+    "url": "^https?://www\\.nvshens\\.(com|net)",
+    "nextLink": "//a[text()='下一页']",
     "exampleUrl": "http://www.nvshens.com/g/17951/",
     "autopager": {
       "enable": true,
-      "pageElement": "//ul[@id=\"hgallery\"]",
+      "pageElement": "//ul[@id='hgallery'] | //div[@id='listdiv']/ul",
       "ipages": [true, 30]
     }
   },
@@ -1914,7 +1914,7 @@
   },
   {
     "name": "爱美图吧",
-    "url": "^https?://(?:www\\.)?(itmtu|moemzi)\\.com",",
+    "url": "^https?://(?:www\\.)?(itmtu|moemzi)\\.com",
     "category": ["gallery", "nsfw"],
     "nextLink": "css;.page-numbers.current+a",
     "autopager": {
