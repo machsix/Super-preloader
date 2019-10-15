@@ -1,5 +1,252 @@
 [
 {
+  "resource_url": "http://wedata.net/items/82311",
+  "created_by": "denimu",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "name": "TRiP EDiTOR",
+  "data": {
+    "exampleUrl": "https://tripeditor.com/358670",
+    "insertBefore": "//div[@class=\"saboxplugin-wrap\"]",
+    "nextLink": "//p[@class=\"nxplink \"]//a",
+    "pageElement": "//div[@class=\"entry-content\"]",
+    "url": "^https?://tripeditor\\.com/[0-9]+"
+  },
+  "created_at": "2019-10-14T09:53:28+09:00",
+  "updated_at": "2019-10-14T09:53:28+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/82310",
+  "created_by": "denimu",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "name": "By Them",
+  "data": {
+    "exampleUrl": "https://by-them.com/404635",
+    "nextLink": "//div[@class='page_next_title_box']//a",
+    "url": "^https://by-them\\.com/[0-9]+",
+    "pageElement": "//div[@class='p-entry__body']/*[preceding-sibling::div/@class='post_top_iine'][following-sibling::div/@class='p-page-links'][not(@class='page_next_title_box')]"
+  },
+  "created_at": "2019-10-14T09:17:26+09:00",
+  "updated_at": "2019-10-14T10:11:40+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/82309",
+  "created_by": "nnniro",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "name": "resemom",
+  "data": {
+    "exampleUrl": "https://resemom.jp/feature/public-highschool-exam/hokkaido/2019/japanese/question01.html https://resemom.jp/special/1298/recent/%E6%9C%AA%E5%B0%B1%E5%AD%A6%E5%85%90 https://resemom.jp/category/it-education/",
+    "nextLink": "//li[a/@class='btn serected']/following-sibling::li[1]/a|//link[@rel='next']",
+    "url": "^https?://resemom\\.jp/.",
+    "pageElement": "//div[@class='aq_img']|//div[@class='news-list']/section"
+  },
+  "created_at": "2019-10-14T00:29:53+09:00",
+  "updated_at": "2019-10-14T09:41:00+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/82299",
+  "created_by": "Tanookirby",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "name": "The Ringer",
+  "data": {
+    "exampleUrl": "https://www.theringer.com/ https://www.theringer.com/archives",
+    "nextLink": "//a[starts-with(@class,'c-pagination__more') or starts-with(@class,'c-pagination__next')]",
+    "url": "^https://(www\\.)?theringer\\.com/",
+    "pageElement": "//div[@class='c-compact-river']/*"
+  },
+  "created_at": "2019-10-07T02:23:00+09:00",
+  "updated_at": "2019-10-08T10:22:02+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/82295",
+  "created_by": "natuha03@hatena",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "name": "GIFヌキ.com エロgif画像まとめ",
+  "data": {
+    "exampleUrl": "http://gifnuki.com/page/2",
+    "nextLink": "//div[@class='tablenav']/a[contains(@class, 'next')]",
+    "url": "^https?://gifnuki\\.com/",
+    "pageElement": "id('main_contents')/div[contains(@class, 'entry')]"
+  },
+  "created_at": "2019-10-02T02:35:07+09:00",
+  "updated_at": "2019-10-02T02:35:07+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/82294",
+  "created_by": "natuha03@hatena",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "name": "HHH（トリプルエイチ）公式サイト",
+  "data": {
+    "exampleUrl": "https://www.hhh-av.com/works/list/maker/2/2/",
+    "nextLink": "//ul[@class='bx-paging']/li[@class='current']/following-sibling::li[1]/a",
+    "url": "^https?://www\\.hhh-av\\.com/",
+    "pageElement": "//ul[@class='lst-works']/li[@class='bx-item']"
+  },
+  "created_at": "2019-10-02T02:35:07+09:00",
+  "updated_at": "2019-10-02T02:35:07+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/82292",
+  "created_by": "vtorica",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "name": "Green",
+  "data": {
+    "exampleUrl": "https://www.green-japan.com/search_key/01?keyword=",
+    "nextLink": "//a[@class='next_page']",
+    "url": "^https://(www\\.)?green-japan\\.com/",
+    "pageElement": "//div[@class='srch-rslt']/div"
+  },
+  "created_at": "2019-09-27T22:12:08+09:00",
+  "updated_at": "2019-09-28T08:36:31+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/82291",
+  "created_by": "t_f_m",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "name": "annict user page",
+  "data": {
+    "exampleUrl": "https://annict.jp/@matsudotsuyoshi/watched?page=2\r\nhttps://annict.jp/@matsudotsuyoshi/watching\r\nhttps://annict.jp/@matsudotsuyoshi/wanna_watch\r\nhttps://annict.jp/@matsudotsuyoshi/on_hold\r\nhttps://annict.jp/@matsudotsuyoshi/stop_watching\r\n",
+    "nextLink": "//a[@rel=\"next\"]",
+    "url": "^https://annict\\.jp/@[^/]+/(?:on_hold|(?:(?:stop|wanna)_)?watch(?:ed|ing)?)",
+    "pageElement": "//div[contains(concat(\" \",@class,\" \"),\" p-application__content \")]/div[contains(concat(\" \",div/@class,\" \"),\" container-fluid \")]"
+  },
+  "created_at": "2019-09-24T20:03:04+09:00",
+  "updated_at": "2019-09-24T20:08:11+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/82290",
+  "created_by": "KAWASAKICHIRO",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "name": "カーリル　みんなの書評",
+  "data": {
+    "exampleUrl": "https://calil.jp/review/",
+    "insertBefore": "",
+    "nextLink": "id(\"ccontent\")//li[contains(concat(\" \", normalize-space(@class), \" \"), \" next \")]/a",
+    "pageElement": "id(\"ccontent\")//div[contains(concat(\" \", normalize-space(@class), \" \"), \" reviews \")]",
+    "url": "^https?://calil\\.jp/review/(?:$|\\?.+|#$)"
+  },
+  "created_at": "2019-09-24T04:09:35+09:00",
+  "updated_at": "2019-09-24T04:09:35+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/82289",
+  "created_by": "KAWASAKICHIRO",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "name": "カーリル　レシピライター",
+  "data": {
+    "note": "1ページ目では次のページを継ぎ足せない不具合、2〜3ページ以上継ぎ足せない不具合が有る。",
+    "exampleUrl": "https://calil.jp/recipe/writer",
+    "insertBefore": "",
+    "nextLink": "id(\"ccontent\")//nav[contains(concat(\" \", normalize-space(@class), \" \"), \" calil_pagination \")]//a[last()]",
+    "pageElement": "id(\"ccontent\")//div[contains(concat(\" \", normalize-space(@class), \" \"), \" recipe_list_box \")]/div[2]",
+    "url": "^https?://calil\\.jp/recipe/writer(?:$|\\?.+)"
+  },
+  "created_at": "2019-09-24T04:04:15+09:00",
+  "updated_at": "2019-09-24T04:04:15+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/82288",
+  "created_by": "KAWASAKICHIRO",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "name": "カーリル　レシピを探す",
+  "data": {
+    "note": "1ページ目では次のページを継ぎ足せない不具合、2〜3ページ以上継ぎ足せない不具合が有る。",
+    "exampleUrl": "https://calil.jp/recipe/list?sort=hot",
+    "insertBefore": "",
+    "nextLink": "id(\"ccontent\")//nav[contains(concat(\" \", normalize-space(@class), \" \"), \" calil_pagination \")]//a[last()]",
+    "exampleUrl2": "https://calil.jp/recipe/list?sort=date",
+    "pageElement": "id(\"ccontent\")//div[contains(concat(\" \", normalize-space(@class), \" \"), \" recipe_list_box \")]/ul",
+    "url": "^https?://calil\\.jp/recipe/list\\?(?:.*&)?sort=(?:hot|date)(?:$|&.*)"
+  },
+  "created_at": "2019-09-24T04:01:52+09:00",
+  "updated_at": "2019-09-24T04:01:52+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/82287",
+  "created_by": "natuha03@hatena",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "name": "177漫畫",
+  "data": {
+    "exampleUrl": "http://www.177pic.info/html/2019/08/3004134.html",
+    "nextLink": "//div[@class='page-links']/a[span/i[contains(@class, 'be-arrowright')]]",
+    "url": "^https?://www\\.177pic\\.info/html/",
+    "pageElement": "//div[@class='single-content']/p[img]"
+  },
+  "created_at": "2019-09-23T20:19:57+09:00",
+  "updated_at": "2019-09-23T20:20:15+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/82286",
+  "created_by": "natuha03@hatena",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "name": "唐墨速報",
+  "data": {
+    "exampleUrl": "http://seiroganmania.com/page-1.html",
+    "nextLink": "//p[@class='page_navi']/a[.='HOME']/following-sibling::a",
+    "url": "^https?://seiroganmania\\.com/",
+    "pageElement": "id('main')/div[@class='ently_outline']"
+  },
+  "created_at": "2019-09-23T03:03:03+09:00",
+  "updated_at": "2019-09-23T03:03:03+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/82285",
+  "created_by": "natuha03@hatena",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "name": "二次ろぐぴんく",
+  "data": {
+    "exampleUrl": "https://2ji.pink/page/2/ https://2ji.pink/page/158/",
+    "nextLink": "//ul[@class='pagination']/li/a[i[.='›']]",
+    "url": "^https?://2ji\\.pink/",
+    "pageElement": "id('tile-2')/div[not(@id)][not(contains(@class, 'posts-list-middle-widget'))]"
+  },
+  "created_at": "2019-09-23T02:51:44+09:00",
+  "updated_at": "2019-09-23T02:51:44+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/82284",
+  "created_by": "natuha03@hatena",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "name": "萌えエロ画像.com",
+  "data": {
+    "exampleUrl": "https://xn--r8jwklh769h2mc880dk1o431a.com/page/2 https://xn--r8jwklh769h2mc880dk1o431a.com/tag/中出し",
+    "nextLink": "//div[@class='pagination']/span[@class='current']/following-sibling::a[1]",
+    "url": "^https?://xn--r8jwklh769h2mc880dk1o431a\\.com/",
+    "pageElement": "//div[contains(@class, 'post')]/div[contains('entry,archivebox', @class)]"
+  },
+  "created_at": "2019-09-23T02:51:44+09:00",
+  "updated_at": "2019-09-23T02:51:44+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/82281",
+  "created_by": "t_f_m",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "name": "annict",
+  "data": {
+    "exampleUrl": "https://annict.jp/search?q=%E3%82%A8",
+    "insertBefore": "",
+    "nextLink": "//a[@rel=\"next\"]",
+    "pageElement": "//div[contains(concat(\" \",@class,\" \"),\" container \")]/div[contains(concat(\" \",@class,\" \"),\" c-card \")]/div",
+    "url": "^https://annict\\.jp/search"
+  },
+  "created_at": "2019-09-22T18:02:10+09:00",
+  "updated_at": "2019-09-22T18:02:10+09:00"
+},
+{
+  "created_by": "sachi",
+  "name": "at.sachi-web.com",
+  "data": {
+    "exampleUrl": "https://at.sachi-web.com/",
+    "insertBefore": "",
+    "nextLink": "//a[contains(@class, \"pagination-next-link\")]",
+    "pageElement": "//a[contains(@class, \"entry-card-wrap\")]",
+    "url": "^https://at\\.sachi-web\\.com/"
+  },
+  "created_at": "2019-09-21T22:26:58+09:00",
+  "resource_url": "http://wedata.net/items/82280",
+  "updated_at": "2019-09-21T22:26:58+09:00",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize"
+},
+{
   "resource_url": "http://wedata.net/items/82279",
   "created_by": "KAWASAKICHIRO",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
@@ -11170,21 +11417,6 @@
   "created_at": "2016-01-27T08:51:25+09:00"
 },
 {
-  "resource_url": "http://wedata.net/items/77827",
-  "name": "おうちでイオン イオンネットスーパー",
-  "created_by": "aomgp",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2016-01-26T23:43:07+09:00",
-  "data": {
-    "exampleUrl": "",
-    "url": "^https://www\\.aeonnetshop\\.com/shop/.*",
-    "pageElement": "//div[@class=\"pc2015-memo-body\"]",
-    "insertBefore": "",
-    "nextLink": "//a[@rel=\"next\"]"
-  },
-  "created_at": "2016-01-26T23:43:07+09:00"
-},
-{
   "resource_url": "http://wedata.net/items/77826",
   "name": "forum.ru-board.com",
   "created_by": "wOxxOm=-",
@@ -15447,16 +15679,17 @@
   "resource_url": "http://wedata.net/items/77174",
   "created_by": "sktn3",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "name": "図書館検索カーリル　読みたいリスト",
-  "created_at": "2015-04-24T09:43:03+09:00",
+  "name": "カーリル　読みたいリスト・読んだリスト",
   "data": {
     "exampleUrl": "https://calil.jp/list",
-    "pageElement": "//table[@id='wishlist_table']/tbody",
-    "url": "^https://calil\\.jp/list.*",
-    "nextLink": "//div[@id='ccontent']/div[3]/ul/li[last()]/a",
-    "補足": "AutoPageで継ぎ足したページでは自動蔵書検索しない"
+    "nextLink": "id(\"ccontent\")//nav[contains(concat(\" \", normalize-space(@class), \" \"), \" calil_pagination \")]//a[last()]",
+    "url": "^https?://calil\\.jp/list(?:$|\\?.+)",
+    "pageElement": "id(\"wishlist_table\")//tr",
+    "補足": "1ページ目では次のページを継ぎ足せない不具合、2〜3ページ以上継ぎ足せない不具合、継ぎ足されたページでは蔵書の有無が表示されない不具合が有る。",
+    "exampleUrl2": "https://calil.jp/list?status=read"
   },
-  "updated_at": "2015-04-24T10:34:45+09:00"
+  "created_at": "2015-04-24T09:43:03+09:00",
+  "updated_at": "2019-09-24T04:08:08+09:00"
 },
 {
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
@@ -36140,18 +36373,20 @@
   "created_at": "2011-02-02T22:34:45+09:00"
 },
 {
-  "resource_url": "http://wedata.net/items/43381",
-  "name": "図書館横断検索カーリル",
   "created_by": "t_f_m",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2016-03-17T11:18:16+09:00",
+  "name": "カーリル　検索結果",
   "data": {
-    "exampleUrl": "http://calil.jp/category?c=%E6%96%87%E5%AD%A6%E3%83%BB%E8%A9%95%E8%AB%96\r\nhttp://calil.jp/search?q=%E3%81%82&x=0&y=0\r\nhttp://calil.jp/author?c=%E6%97%A5%E6%9C%AC%E3%81%AE%E5%B0%8F%E8%AA%AC%E5%AE%B6&a=%E8%8A%A5%E5%B7%9D%E9%BE%8D%E4%B9%8B%E4%BB%8B\r\nhttp://calil.jp/recipe/list?sort=date\r\nhttp://calil.jp/recipe/list?sort=hot\r\nhttp://calil.jp/recipe/writer\r\nhttp://calil.jp/list\r\n",
-    "url": "^https?://calil\\.jp/",
-    "pageElement": "id('info_bar')/following-sibling::ul/li|//div[contains(concat(' ', @class, ' '), ' recipe_list_box ')]/*[contains(concat(' ', @class, ' '), ' prefix ')]/li",
-    "nextLink": "//div[contains(concat(' ', @class, ' '), ' pagination ')]//li[@class='active']/following-sibling::li[1]/a"
+    "exampleUrl": "https://calil.jp/search?q=%E5%9C%B0%E7%90%83",
+    "note": "1ページ目では次のページを継ぎ足せない不具合、2〜3ページ以上継ぎ足せない不具合、継ぎ足されたページでは蔵書の有無が表示されない不具合が有る。",
+    "nextLink": "id(\"ccontent\")//nav[contains(concat(\" \", normalize-space(@class), \" \"), \" calil_pagination \")]//a[last()]",
+    "url": "^https?://calil\\.jp/(?:search\\?|author\\?(?:.*&)?a=).+",
+    "pageElement": "id(\"ccontent\")//ul[contains(concat(\" \", normalize-space(@class), \" \"), \" search_items_icon \")]",
+    "exampleUrl2": "https://calil.jp/author?c=%E6%97%A5%E6%9C%AC%E3%81%AE%E5%B0%8F%E8%AA%AC%E5%AE%B6&a=%E5%B7%9D%E7%AB%AF%E5%BA%B7%E6%88%90"
   },
-  "created_at": "2011-02-02T15:14:36+09:00"
+  "created_at": "2011-02-02T15:14:36+09:00",
+  "resource_url": "http://wedata.net/items/43381",
+  "updated_at": "2019-09-24T03:49:46+09:00",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize"
 },
 {
   "resource_url": "http://wedata.net/items/43377",
@@ -40816,18 +41051,18 @@
   "created_at": "2010-05-19T01:01:21+09:00"
 },
 {
-  "name": "\u30a4\u30aa\u30f3\u30cd\u30c3\u30c8\u30b9\u30fc\u30d1\u30fc",
-  "resource_url": "http:\/\/wedata.net\/items\/32833",
-  "updated_at": "2011-10-04T02:30:59+09:00",
+  "resource_url": "http://wedata.net/items/32833",
   "created_by": "amos",
-  "database_resource_url": "http:\/\/wedata.net\/databases\/AutoPagerize",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "name": "イオンネットスーパー",
   "data": {
-    "pageElement": "id(\"_ctl9_ProductImageList\")\/*",
-    "url": "^https?:\/\/netsuper\\.aeon\\.jp\/(?:[^\/]+\/)?[^\/]+\/shop\/category_list\\.aspx\\?",
-    "nextLink": "id(\"_ctl9_PagerU__ctl0_lnkNext\")[@href]",
-    "exampleUrl": "https:\/\/netsuper.aeon.jp\/tsukuba\/shop\/category_list.aspx?CD=F1002784&WKCD=F1002784&View=lnkbImageList&Sort=default&Init=true"
+    "exampleUrl": "https://shop.aeon.com/netsuper/01050000019810/25.html",
+    "nextLink": "//div[@class=\"pages\"]//li[contains(concat(\" \",@class,\" \"),\" pages-item-next \")]/a",
+    "url": "^https?://shop\\.aeon\\.com/netsuper/",
+    "pageElement": "//div[contains(concat(\" \",@class,\" \"),\" products \")]"
   },
-  "created_at": "2010-05-18T19:35:29+09:00"
+  "created_at": "2010-05-18T19:35:29+09:00",
+  "updated_at": "2019-09-20T14:23:06+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/32832",
