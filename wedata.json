@@ -1,5 +1,51 @@
 [
 {
+  "created_by": "KAWASAKICHIRO",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "name": "参議院サイト内検索",
+  "data": {
+    "exampleUrl": "https://online.sangiin.go.jp/cgi-bin/search/ja/search-ja2.cgi?query=%B9%F1&reference=off&submit=%B8%A1%BA%F7&whence=0&idxname=data",
+    "insertBefore": "",
+    "nextLink": "id(\"HomeContents\")//div[contains(concat(\" \", normalize-space(@class), \" \"), \" namazu-result-footer \")]/strong[last()]/following-sibling::a[1]",
+    "pageElement": "id(\"HomeContents\")//dl",
+    "url": "https?://online\\.sangiin\\.go\\.jp/cgi-bin/search/ja/search-ja2\\.cgi\\?.+"
+  },
+  "created_at": "2019-10-21T02:50:53+09:00",
+  "resource_url": "http://wedata.net/items/82314",
+  "updated_at": "2019-10-21T02:50:53+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/82313",
+  "created_by": "KAWASAKICHIRO",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "name": "衆議院サイト内検索",
+  "data": {
+    "exampleUrl": "http://search.shugiin.go.jp/ja/search.x?q=%E5%9B%BD&ie=utf8",
+    "insertBefore": "",
+    "nextLink": "id(\"zoom_area\")//li[contains(concat(\" \", normalize-space(@class), \" \"), \" mf_nextpage \")]/a",
+    "pageElement": "id(\"zoom_area\")//div[contains(concat(\" \", normalize-space(@class), \" \"), \" mf_resultbox \")]",
+    "url": "https?://search\\.shugiin\\.go\\.jp/ja/search\\.x\\?.+"
+  },
+  "created_at": "2019-10-21T02:48:44+09:00",
+  "updated_at": "2019-10-21T02:48:44+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/82312",
+  "created_by": "KAWASAKICHIRO",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "name": "国会議事録検索kokalog、地方議会議事録検索chiholog",
+  "data": {
+    "exampleUrl": "https://kokalog.net/search.html?speech=%22%E8%AD%B0%E5%A0%B4%E9%A8%92%E7%84%B6%22",
+    "insertBefore": "",
+    "nextLink": "//li[contains(concat(\" \", normalize-space(@class), \" \"), \" active \")]/following-sibling::li[1]/a",
+    "exampleUrl2": "https://chiholog.net/chiholog/search.html?meeting_text=%22%E5%BE%85%E6%A9%9F%E5%85%90%E7%AB%A5%22&submit=%E6%A4%9C%E7%B4%A2",
+    "pageElement": "//article",
+    "url": "^https?://(?:kokalog\\.net|chiholog\\.net/.+)/search\\.html\\?.+"
+  },
+  "created_at": "2019-10-21T01:31:05+09:00",
+  "updated_at": "2019-10-21T01:31:05+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/82311",
   "created_by": "denimu",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
@@ -34,13 +80,13 @@
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "name": "resemom",
   "data": {
-    "exampleUrl": "https://resemom.jp/feature/public-highschool-exam/hokkaido/2019/japanese/question01.html https://resemom.jp/special/1298/recent/%E6%9C%AA%E5%B0%B1%E5%AD%A6%E5%85%90 https://resemom.jp/category/it-education/",
-    "nextLink": "//li[a/@class='btn serected']/following-sibling::li[1]/a|//link[@rel='next']",
+    "exampleUrl": "https://resemom.jp/feature/public-highschool-exam/hokkaido/2019/japanese/question01.html https://resemom.jp/special/1298/recent/%E6%9C%AA%E5%B0%B1%E5%AD%A6%E5%85%90 https://resemom.jp/category/it-education/\r\nhttps://resemom.jp/feature/public-highschool-exam/fukushima/2017/science/question01.html",
+    "nextLink": "//li[a/@class='btn serected']/following-sibling::li[1]/a|//link[@rel='next']|//li[a/@class='punc']/following-sibling::li[1]/a",
     "url": "^https?://resemom\\.jp/.",
     "pageElement": "//div[@class='aq_img']|//div[@class='news-list']/section"
   },
   "created_at": "2019-10-14T00:29:53+09:00",
-  "updated_at": "2019-10-14T09:41:00+09:00"
+  "updated_at": "2019-10-18T16:03:15+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/82299",
@@ -1229,17 +1275,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/82149",
-  "name": "CamShowHub",
   "created_by": "abrinizzze",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-05-14T07:57:42+09:00",
+  "name": "CamShowHub",
   "data": {
     "exampleUrl": "https://camshowhub.to/model/myfreecams-msskate/10",
-    "url": "^https?://camshowhub.to/model",
-    "pageElement": "//div[@class=\"wrapper\"]/div[@class=\"container-fluid\"]",
-    "nextLink": "//ul[contains(@class,\"pagination\")]/li/a[contains(text(),\"Next\")]"
+    "nextLink": "//ul[contains(@class,\"pagination\")]/li/a[contains(text(),\"Next\")]",
+    "url": "^https?://camshowhub.to/.+",
+    "pageElement": "//div[@class=\"wrapper\"]/div[@class=\"container-fluid\"]"
   },
-  "created_at": "2019-05-14T07:51:28+09:00"
+  "created_at": "2019-05-14T07:51:28+09:00",
+  "updated_at": "2019-11-01T10:25:57+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/82148",
@@ -19790,17 +19836,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/76304",
-  "name": "ZDNet Japan",
   "created_by": "bimi",
-  "updated_at": "2017-12-04T11:23:18+09:00",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "name": "ZDNet Japan",
   "data": {
     "exampleUrl": "https://japan.zdnet.com/sp/ziddy/20197967/\r\nhttps://japan.zdnet.com/sp/enterprise-trend/35011766/\r\nhttps://japan.zdnet.com/sp/10things/20379662/\r\nhttps://japan.zdnet.com/cio/sp_09bpm/20392596/\r\nhttps://japan.zdnet.com/os/analysis/35002007/",
+    "nextLink": "//a[@id='script_pagination_next' or @class='mediaNext noluke']",
     "url": "^https://japan\\.zdnet\\.com/",
-    "pageElement": "//div[@class='article_body' or @class='story_photoreport']",
-    "nextLink": "//a[@id='script_pagination_next' or @class='mediaNext noluke']"
+    "pageElement": "//div[@class='article_body' or @class='story_photoreport' or @class='article_contents']"
   },
-  "created_at": "2014-09-09T15:49:10+09:00"
+  "created_at": "2014-09-09T15:49:10+09:00",
+  "updated_at": "2019-11-01T10:44:00+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/76302",
