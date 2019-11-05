@@ -7,7 +7,8 @@
   },
   "extends": ["eslint:recommended", "prettier"],
   "parserOptions": {
-    "ecmaVersion": 6
+    "ecmaVersion": 6,
+    "sourceType": "module"
   },
   "plugins": ["compat", "json", "prettier"],
   "rules": {
@@ -240,7 +241,7 @@
     "template-curly-spacing": "error",
     "template-tag-spacing": "error",
     "unicode-bom": ["error", "never"],
-    "valid-jsdoc": "error",
+    "valid-jsdoc": "warn",
     "vars-on-top": "off",
     "wrap-regex": "off",
     "yield-star-spacing": "error",
