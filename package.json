@@ -1,24 +1,25 @@
 {
   "name": "super-preloader",
-  "version": "6.6.34",
+  "version": "6.6.70",
   "description": "Super-preloader",
   "main": "./dist/Super_preloaderPlus_one_New.user.js",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
-    "lint": "eslint dist/*.{js,json} .ci/*.js docs/**/*.{js,json}",
-    "format": "prettier --ignore-path=.eslintignore --write dist/*.{js,json} .ci/*.js docs/**/*.{json,js,md}",
-    "format:check": "prettier --ignore-path=.eslintignore --check dist/*.{js,json} .ci/*.js docs/**/*.{json,js,md}",
+    "lint": "eslint dist/*.json src/**/*.js .ci/*.js docs/**/*.{js,json}",
+    "format": "prettier --ignore-path=.eslintignore --write dist/*.json src/**/*.js .ci/*.js docs/**/*.{json,js,md}",
+    "format:check": "prettier --ignore-path=.eslintignore --check dist/*.json src/**/*/js .ci/*.js docs/**/*.{json,js,md}",
     "format:staged": "pretty-quick --staged --ignore-path=.eslintignore --write dist/*.{js,json} .ci/*.js docs/**/*.{json,js,md}",
     "test": "npm run lint && npm run format:check",
+    "build": "webpack",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "docs:publish": "npm run docs:build && .ci/gen_ghpage.sh"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint && npm run format:staged"
+      "pre-commit": "npm run build && npm run lint && npm run format:staged && git add dist/*.js"
     }
   },
   "repository": {
@@ -28,16 +29,19 @@
   "keywords": [
     "userscript"
   ],
-  "author": "MachX",
+  "author": "Mach6",
   "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/machsix/Super-preloader/issues"
   },
-  "homepage": "https://github.com/machsix/Super-preloader#readme",
+  "homepage": "https://github.com/machsix/Super-preloader",
   "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
     "@vuepress/plugin-back-to-top": "1.0.4",
     "@vuepress/plugin-google-analytics": "1.2.0",
     "@vuepress/plugin-pwa": "1.0.4",
+    "babel-loader": "^8.0.6",
     "eslint": "6.6.0",
     "eslint-config-prettier": "6.2.0",
     "eslint-plugin-compat": "3.3.0",
@@ -47,14 +51,12 @@
     "loglevel": "1.6.4",
     "prettier": "1.18.2",
     "pretty-quick": "1.11.1",
+    "underscore": "^1.9.1",
     "vuepress": "1.2.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.9.0"
+    "webpack-dev-server": "^3.9.0",
+    "webpack-inject-plugin": "^1.5.3"
   },
-  "browserslist": [
-    "Firefox ESR",
-    "Chrome > 42"
-  ],
   "dependencies": {}
 }
