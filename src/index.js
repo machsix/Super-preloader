@@ -5,32 +5,15 @@
 const _ = require("underscore");
 const axios = require("axios");
 const adapter = require("./lib/axios-userscript-adapter");
+const GME = require("./lib/gm-enhanced");
+const logger = require("./lib/logger");
+const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
+
 axios.defaults.adapter = adapter;
 
 (function() {
-  const scriptInfo = {
-    name: "Super_preloaderPlus_one_New",
-    version: GM.info.script.version,
-    updateTime: "2019/09/03",
-    changelog: "Rules",
-    homepageURL: "https://github.com/machsix/Super-preloader",
-    downloadUrl: "https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.user.js",
-    metaUrl: "https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.meta.js"
-  };
-
-  const upgradeNotification = {
-    text: {
-      zh_CN: "感谢首位捐助者 loveqianool o(*￣▽￣*)ブ",
-      en_US: "Thanks to the first donor: loveqianool!"
-    },
-    title: scriptInfo.name,
-    image:
-      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAvCAYAAABOtfLKAAAL9UlEQVR42s1ZC1CU1xXee/9/dwGFFRU1SQURfCSaCCoaX6Py9gmDqBSN4zuKWvEFPqpGDGrjtLFJGzXO1FgfqNUYp2lim9hWGzH1hcT3pDHK2FidGtvqaIIi/b71/viz/wLL6tjuzJnz73/vf+455zv33HPvtSUm9hMgqUgjf1qUnBwvbeoXHBwcqGlaBynFSCHEa6C3pJT9MjPThY/yhM1khP1p8okTx2jHjx8QQUGBkVB6EmgvDLgCugeqVLSxd+8edhjti1xNGfOoYdCgFG3gwGSdPCUl3iLocfnQoQO0zZvXS6fT8aymyYVQ+JxS/D5Q4fM2GLYFvAJ8W2zsSzp0oB7QJ0F/pF9yNbkWZMaMyZLt2kUHhIU1DYyKigxs2zbanpTU315ZWSkqKx8IhgOfyZcsyddycibK1NREnwxJSOhrnz17moyN7eSAkkNAnysjboK267o2zOl0PtenT08d4ZZA40BbCwsXy/v3bwjKgW721q1bBTZrFhYE3QKyszMl5FqQgSHZbsghYBMG+gP4h+C/Af8V+BrQYgySA29m2O32PqA2LldIWHj4D5zvvPNTSQO3bt0gJ0x4RcIBFkN2794s4CQX5UDmvxhOeN4NmX2pIL+fPHmsBmfZdF1PRXs5kDqBPktAP2fIge+iXkq/TdA3YsWK14QFmWPHDgoITlIx+wB0hwLVc6UHse0qqASC94CvgGdHQ4mY0NBGTRYsmC2JIL1Kw/bt2y1cLlcY+q1THv8GY00LDm4YfOvW30Va2qAqww8d+pR6JKPPXY8xHyh97qjne9T3yJE/CwsyZ84ct9nteqry2Mfo2BPeTwASQ6go3s3A83K0b8Dz72iIMuh704Dfgv5KT4LSGjZs8FxFxU3RpEnjUH6nlDgNoxOBghw2LE33DMkvvvjcjAydNRO6jAYNgX4J0KUn3v2eeqJfyokTxTYLMsojSUasLl6cpxlzxMyHDBmgt2jRPIAhBmPb0mAInwqi1w8rgyqVnFN4vwJ8LagCVIr+3RhKSC4WQ8iLixUySo8DBz6Sanwy29Kl+ZLv2c5+xcX7rchcvHjWQOY+s0jnzp2QRarHPogJQRswIEmfMmW8LChYKA1DMzPTZOPGoY3hrVgMMhVy3gddN6H2FecalTLNKQsvLa1C5r4pm7kNJ+/SJUbH+yK2o1/yqVNHHyFj/kGJFOWRbd27d3XAez6nXSiIJPJDuXPne24DIyMjgiAvRk3aSoToMoshdSNT1K1bF+iRwHZ3euZ/6qeQSeFYVZGDwTri5StoLMTzHxnXZmT8X08GMkwpfzaNAZ9bVnbOCIlakDnsKzLU80/Um3OKdtjw57KKZ5UxwK3I+MUvXDhJtPMoE3zeuXMlDInHRKYzkdnqoW8F7XAjxFQJy3IRCj+uYc74xUtKDgkiopCZd/JkcZ3IoI/Pc4YVBPXG8z9oh01ZdrJ582Yh8Ej/+swZJgMkAi0jY4jX9vPnSzyQOeEHMp0NPXQiExfX2Txn4ps1axpC/UE0xgaviZNYwBohm6X4igzqI23OnOkaaqwIruwjR2bIJ4FMSYknMp1qy2ZJISHBjaB/qRmZUqZVWJroCzJZWcNkRsZQ1lADIfgjh8MRNWPGq5p3ZGS+Qibv7NnjTxqZJFQcjX1EJt5SYxUULJJt2kQFos9kxiroSmBgYNSqVcsEPcfJavCZM6do8F53GJQH3m3WrBzNaEeImg3RDU40iYxZDzMyXbtakcFz/ZChIczl7KdW9dvq20tEBtWzHhPzIsPAYeIMR53rCxda/ud7Tuq+fXsxO1Uz5Kkhk5MzSQYGBkQZgkwr+230/63ah2ynAj7wzRgrhousJzInTliQsVdHJrY2ZGw+IbN69esS7Wlou+GliuY39+pBt1mKFBVtFHUhAyRqRaZRI1f9kWH2wjsH9zPo86XJkGsQOgqUgO+T6BATT1TvE0z/yeMbNAhqOnx4umZF5rP6IhNaFzJFRMZzyzx4cKq2d2+R5KSGwEPGnMEOMdxcI5l5RER4ELYCTVq1Cg8yv8/KyuA81HxAhsaYkbHXgozwigzzOT3hbaEsKzsrUAG3VkXkJcyl6IUL51hCprCQm0Q5lnsY8PHMhEZ7Tfz48TqRsVdHJsQ/ZAxOj7799huSoYJvcgMCnC1ZCXgqdv3611xn5quqOe/q1a9sFgP8QEZKH5DR9dqQsRqEAxAN/ZhyOUktimE1r1YBoCIWdSPzl3oh43I9QgZUf2RMCnARpNFeFTtz5piNiChk5p4+fVTUjcx+n5HBFjrZb2TqUOSJIHPsWI3I6I+LjL+GKGSOiv8RMsG1IeMXv3jxNJHJU8jkX758zgdkDtaKTFycD8igxqkJGb8NwkIrqRictYGOQn0ma+tPOnx4v6DHHxpjQYbGeCIT+lSQIV+zZpVkobl+/RrvhpjJigz1+P9ABoumwELcF4MvB++zcuUyNWeslJ4+CNX1vwUVgscTTMhYEkCtyPBPSMiTR+bSpbPV5gxPZ8wGUD6OpgSQ46lnsMNhfwn9MkHu00/vyHT2Cxn74yLDhRV7nRjev5AbtVhSUj99/vxZcty40RJ1XVu0/wje/sTj0JBXGr/s3ftlbuRqRMblqhuZrT16xHECu3eMEOaXQVBepxxW21SK/3meBjR4P9OK4Yfx/qZ0KAedgqK/5toEx2YHBAREshYEQY943s3oPXt21+uLzE6c1gRHRLR0UhEexZ4/f1SYz3ypUG7uVMkBMJjXSb1hwy+4ZoyAvI/BM/kdqmcnnocb3gT9kwbg3SBcUbTIz8+V7PeoCr8jxo4dpWF3ase3ATiNaYj+O4zjWRhTKzL3FNyfwAMfqp3hetAKLHxzQNk8xUfV3LFBgwbP4BA9aPr0yVWH7DTciHGc6Aue4nMzRo6C1AVeiP+3QN+pHWd3Khod3doJeS0wbzrS40QG7XM4LuhdhhaI+hjhyFsAFppWZPCyCRR8kVCr3eR/QHeNLbIHldOjoLMYYB8vozD4JAh/GXuX5gwnIrhu3ZsClfWzUDgOc4aTe6OSV8bEwHM60AR+Dzm8pjinxi6vYTd7l3qpPqeYMABCEwsy8EpTXMHZMSEjMXAnKNAVxvXm4TQm2nAM+CpoEScliCf8R6iUx6XQLcqiJ4HgSMR8q2vXvhQIYZ5tbVLHqRWg06AS9jd9SzlllIu+76txFkHOFIYodEiFTr2gUxyN4Hzq1au7jpoyzIIMLAzjBRA2WZLhcuPG14LeJZl/ubk5Gk74nYQXkziK6wcGdXsXcg6YMhIVv8D3CpEKD09fAx1E25tQeAJQ7QNHRlEu7lOdc+fOkJ5jK33ExYulYuXKpciGozREQpg3ZMKys4dXbbCMLMJsBtJxlOTmIPf9DC5HteXLF1UNOHPmVIm1IoShCuXGq0n6jcc13hW+R/s49mP/WbOmSUPR1asLJA4YcZucxHFAHNfNmZZB/avSNIn7KW/InEQohD4U+r3Ys2eLSE8frOMO3r3xat++reP559s6X3ihnYPnXhSkLlOFYQy5GUkcFDqBWgd1vFTJBZBJIzo6MsBbfyOB8Aab8llgdujQ3tGuXRv3uJ06dbTzJnrYsKHa2rU/k8ZZgspmJWZkLjPbgPKZ+0FvwYPvgm8B3w6+G312gYPc2W2TiumfqIk8njGNWI4NCgp6Jjy8ZaChJNpnKWPmGEawnf1gXCy/4/eUQ3mUq+Qze+1StJtOoT6cj9QP9PrDsWUu55oZGW/0QGWQcnUJ+53i9xj/NWSbb1VG+kBdtfdjKlbGFKj/S6DcB6rfzRqyZQXH8Ri3XPV94FVfhUwBBljLQbmOsPTAoFmgdFavLPrA+z0iLQl8IBc+5dF5oDeIGGR9Ri+ZUusdlcIrFb9jSu1l7M/VnN9TDuSNo1yMMZBriGncvqBEvE+hXkq/ybyVo97UH7KW2fibNGmsEYPm+PXkwvjv+SsrOyNYECITubAwtuapCQZYqBa4mzRA8U/xfgFrKvbDPHVxbpSWHhIWodZ5Re61D455tR073hM2ZAmhyhEB8salL3zw4BQxatQIaR4I6T4EiKWCCsmxZwoxt48ePYLlkCHHbw79mWnFfwGWB6omxVHfzgAAAABJRU5ErkJggg==",
-    onload: function() {},
-    show: function(oldversion) {
-      return false;
-    }
-  };
+  const scriptInfo = SCRIPT_INFO;
+  const upgradeNotification = NOTIFICATION;
   shim_GM_notification();
 
   // ----------------------------------
@@ -138,7 +121,6 @@ axios.defaults.adapter = adapter;
   }
 
   /// //////////////////设置(请注意开关的缩进关系..子开关一般在父开关为true的时候才会生效.)//////////////////////
-  const debugStyle = "color:#02A9DE";
   const userLang = navigator.language || navigator.userLanguage;
   // (Default settings)
   const prefsFactory = {
@@ -1678,10 +1660,10 @@ axios.defaults.adapter = adapter;
                 function(res) {
                   try {
                     const rule = this.provider[i].ruleParser(res.responseText);
-                    console.warn("%c[Super-preloader] %c[UpdateRule] %s [Status] %s ", debugStyle, "", this.provider[i].name, "Success");
+                    logger.warn(`[UpdateRule] ${this.provider[i].name} [Status] Success`);
                     resolve(rule);
                   } catch (error) {
-                    console.error("%c[Super-preloader] %c[UpdateRule] %s [Status] %s ", debugStyle, "", this.provider[i].name, "Fail to parse");
+                    logger.error(`[UpdateRule] ${this.provider[i].name} [Status] Fail to parse`);
                     reject(error);
                   }
                 }.bind(this)
@@ -1691,7 +1673,7 @@ axios.defaults.adapter = adapter;
                   if (iurl < this.provider[i].url.length) {
                     return createRequest(iurl + 1);
                   } else {
-                    console.error("%c[Super-preloader] %c[UpdateRule] %s [Status] %s ", debugStyle, "", this.provider[i].name, "Fail to download");
+                    logger.error(`[Update Rule] ${this.provider[i].name} [Status] Fail to download`);
                     reject(error);
                   }
                 }.bind(this)
@@ -1733,14 +1715,14 @@ axios.defaults.adapter = adapter;
                       reject(error);
                     });
                 } else {
-                  debug("%c[Super-preloader] %c[UpdateRule] %s [Status] %s ", debugStyle, "", this.provider[i].name, "No need to update");
+                  logger.log(`[UpdateRule] ${this.provider[i].name} [Status] No need to update`);
                   resolve(this.rule[i]);
                 }
               }.bind(this)
             )
             .catch(
               function(error) {
-                console.error("%c[Super-preloader] %c[UpdateRule] %s [Status] %s ", debugStyle, "", this.provider[i].name, "Fail to fetch detail");
+                logger.error(`[UpdateRule] ${this.provider[i].name} [Status] Fail to fetch detail`);
                 reject(error);
               }.bind(this)
             );
@@ -1798,7 +1780,7 @@ axios.defaults.adapter = adapter;
         );
       } else {
         this.saveData(false);
-        debug("%c[Super-preloader] %c[Rule] Next update at: %s", debugStyle, "", this.info.expire.toISOString());
+        logger.debug("[Rule] Next update at:" + this.info.expire.toISOString());
         return Promise.resolve(this.exportRule());
       }
     }
@@ -2076,14 +2058,14 @@ axios.defaults.adapter = adapter;
     if (prefs.factoryCheck === true || prefs.factoryCheck === undefined) {
       var hasMissing = assignMissingProperty(prefsFactory, prefs);
       if (hasMissing) {
-        debug("%c[Super-preloader] %cOld prefs: %o", debugStyle, "", prefs);
+        logger.debug("Old prefs:", prefs);
       }
       prefs.factoryCheck = false;
       GM.setValue("prefs", JSON.stringify(prefs));
     }
 
-    var xbug = prefs.debug || false;
-    debug = xbug ? console.log.bind(console) : function() {};
+    logger.enableDebug(prefs.debug || false);
+
     // 黑名单,网站正则..
     var blackList = [
       // 例子
@@ -2105,7 +2087,7 @@ axios.defaults.adapter = adapter;
       };
       if ($("setup")) return;
 
-      const styleNode = addStyle(
+      const styleNode = GME.addStyle(
         '\
         #sp-prefs-setup { position:fixed;z-index:2147483647;top:30px;right:60px;padding:20px 30px;box-sizing:content-box;\
                           border-radius: 3px!important;border: 1px solid #A0A0A0!important; \
@@ -2235,7 +2217,8 @@ axios.defaults.adapter = adapter;
         prefs.ChineseUI = !!$("ChineseUI").checked;
         // document.getElementById('sp-fw-container').innerHTML = floatWindowUI();
         prefs.custom_siteinfo = $("custom_siteinfo").value;
-        prefs.debug = xbug = !!$("debug").checked;
+        prefs.debug = !!$("debug").checked;
+        logger.enableDebug(prefs.debug);
         prefs.enableHistory = !!$("enableHistory").checked;
         prefs.dblclick_pause = !!$("dblclick_pause").checked;
         prefs.excludes = $("excludes").value;
@@ -2248,7 +2231,6 @@ axios.defaults.adapter = adapter;
         autoMatch.useiframe = SITEINFO_D.useiframe;
 
         Promise.all([GM.setValue("prefs", JSON.stringify(prefs)), GM.setValue("SITEINFO_D", JSON.stringify(SITEINFO_D)), GM.setValue("autoMatch", JSON.stringify(autoMatch))]).then(function(values) {
-          debug = xbug ? console.log.bind(console) : function() {};
           SP.loadSetting();
           close();
           location.reload();
@@ -2267,7 +2249,7 @@ axios.defaults.adapter = adapter;
 
       on($("cancel"), "click", close);
 
-      $("debug").checked = xbug;
+      $("debug").checked = logger.getLevel() === logger.levels.DEBUG;
       $("ChineseUI").checked = prefs.ChineseUI;
       $("enableHistory").checked = prefs.enableHistory;
       // $('forceTargetWindow').checked = prefs.forceTargetWindow;
@@ -2306,7 +2288,7 @@ axios.defaults.adapter = adapter;
         if (hashSite) {
           isHashchangeSite = true;
           hashchangeTimer = hashSite.timer;
-          debug("%c[Super-preloader]当前是页面不刷新的站点 %o", debugStyle, "", hashSite);
+          logger.debug("当前是页面不刷新的站点", hashSite);
           const p1 = new Promise(function(resolve, reject) {
             setTimeout(resolve, hashchangeTimer);
           });
@@ -2322,7 +2304,7 @@ axios.defaults.adapter = adapter;
 
         // 分辨率 高度 > 宽度 的是手机
         if (window.screen.height > window.screen.width) {
-          addStyle("div.sp-separator { min-width:auto !important; }");
+          GME.addStyle("div.sp-separator { min-width:auto !important; }");
         }
       },
       loadSetting: function() {
@@ -2346,8 +2328,7 @@ axios.defaults.adapter = adapter;
           try {
             infos = new Function("", "return " + prefs.custom_siteinfo)();
           } catch (e) {
-            console.error("自定义站点规则错误", prefs.custom_siteinfo);
-            // alert('自定义站点规则错误');
+            logger.error("自定义站点规则错误", prefs.custom_siteinfo);
           }
 
           if (_.isArray(infos)) {
@@ -2361,7 +2342,7 @@ axios.defaults.adapter = adapter;
       }
     };
 
-    debug("%c[Super-preloader] %cEntrypoint", debugStyle, "");
+    logger.debug("Entrypoint");
     SP.spinit();
 
     function init(window, document) {
@@ -2384,7 +2365,7 @@ axios.defaults.adapter = adapter;
       };
 
       function floatWindow(SSS) {
-        addStyle(
+        GME.addStyle(
           '\
                          #sp-fw-container {\
                              z-index:999999!important;\
@@ -3084,30 +3065,30 @@ axios.defaults.adapter = adapter;
         }
 
         if (insertPoint) {
-          debug("%c[Super-preloader] %c验证是否能找到插入位置节点:成功,%o", debugStyle, "", insertPoint);
+          logger.log("验证是否能找到插入位置节点:成功", insertPoint);
         } else {
-          console.error("%c[Super-preloader] %c验证是否能找到插入位置节点:失败 %o JS执行终止", debugStyle, "", SSS.a_HT_insert ? SSS.a_HT_insert[0] : "");
+          logger.error("验证是否能找到插入位置节点:失败  JS执行终止", SSS.a_HT_insert ? SSS.a_HT_insert[0] : "");
           floatWO.updateColor("Astop");
           return;
         }
         if (window.navigator.language != "en") {
-          debug("%c[Super-preloader] %cLanguage: %s", debugStyle, "", window.navigator.language);
+          logger.debug("Language: %s", window.navigator.language);
         }
 
         if (pageElement === undefined) {
           pageElement = getAllElements(SSS.a_pageElement);
         }
         if (pageElement.length > 0) {
-          debug("%c[Super-preloader] %c验证是否能找到主要元素:成功,%o", debugStyle, "", pageElement);
+          logger.debug("验证是否能找到主要元素:成功", pageElement);
         } else {
-          console.error("%c[Super-preloader] %c验证是否能找到主要元素:失败,%o", debugStyle, "", SSS.a_pageElement);
+          logger.error("验证是否能找到主要元素:失败", SSS.a_pageElement);
           floatWO.updateColor("Astop");
           return;
         }
 
         if (SSS.a_stylish) {
           // 插入自定义样式
-          addStyle(SSS.a_stylish, "Super_preloader-style");
+          GME.addStyle(SSS.a_stylish, "Super_preloader-style");
         }
 
         var insertPointP;
@@ -3137,7 +3118,7 @@ axios.defaults.adapter = adapter;
           doc = win = createDocumentByString(str);
 
           if (!doc) {
-            console.error("%c[Super-preloader] %c文档对象创建失败", debugStyle, "");
+            logger.error("文档对象创建失败");
             removeL();
             return;
           }
@@ -3149,13 +3130,13 @@ axios.defaults.adapter = adapter;
         }
 
         function XHRNotLoaded(res) {
-          console.error("XHR is failed to be loaded");
-          console.error(res);
+          logger.error("XHR is failed to be loaded");
+          logger.error(res);
           removeL();
         }
 
         function removeL(isRemoveAddPage) {
-          debug("%c[Super-preloader] %c移除各种事件监听", debugStyle, "");
+          logger.debug("移除各种事件监听");
           floatWO.updateColor("Astop");
           const _remove = remove;
           for (var i = 0, ii = _remove.length; i < ii; i++) {
@@ -3193,11 +3174,11 @@ axios.defaults.adapter = adapter;
         if (isHashchangeSite && !hashchangeAdded) {
           window.addEventListener("hashchange", onhashChange, false);
           hashchangeAdded = true;
-          debug("%c[Super-preloader] %c成功添加 hashchange 事件", debugStyle, "");
+          logger.debug("成功添加 hashchange 事件");
         }
 
         function onhashChange(event) {
-          debug("%c[Super-preloader] %c触发 Hashchang 事件", debugStyle, "");
+          logger.debug("触发 Hashchang 事件");
           removeL(true);
 
           setTimeout(function() {
@@ -3285,7 +3266,7 @@ axios.defaults.adapter = adapter;
           floatWO.updateColor("loading");
           floatWO.CmodeIcon("show");
 
-          debug("%c[Super-preloader] %c获取下一页 %o %o", debugStyle, "", SSS.a_useiframe ? "(iframe方式)" : "(XHR方式)", nextlink);
+          logger.debug("获取下一页", SSS.a_useiframe ? "(iframe方式)" : "(XHR方式)", nextlink);
           if (SSS.a_useiframe) {
             iframeRequest(nextlink);
           } else {
@@ -3297,7 +3278,7 @@ axios.defaults.adapter = adapter;
               .get(nextlink, reqConf)
               .then(function(res) {
                 if (res.finalUrl === cplink) {
-                  debug("%c[Super-preloader] %c最终地址相同", debugStyle, "");
+                  logger.debug("最终地址相同");
                   XHRNotLoaded(res);
                 } else {
                   XHRLoaded(res);
@@ -3306,7 +3287,7 @@ axios.defaults.adapter = adapter;
               .catch(function(res) {
                 XHRNotLoaded(res);
               });
-            debug("%c[Super-preloader] %c读取完成", debugStyle, "");
+            logger.debug("读取完成");
           }
         }
 
@@ -3326,7 +3307,7 @@ axios.defaults.adapter = adapter;
 
         function manualAdiv() {
           if (!manualDiv) {
-            addStyle(
+            GME.addStyle(
               "\
                     #sp-sp-manualdiv{\
                         line-height:1.6!important;\
@@ -3494,11 +3475,11 @@ axios.defaults.adapter = adapter;
           working = true;
           if (SSS.a_manualA && !ipagesmode) {
             // 显示手动翻页触发条.
-            debug("%c[Super-preloader] %c手动拼接", debugStyle, "");
+            logger.debug("手动拼接");
             manualAdiv();
           } else {
             // 直接拼接.
-            debug("%c[Super-preloader] %c直接拼接", debugStyle, "");
+            logger.debug("直接拼接");
             insertedIntoDoc();
           }
         }
@@ -3513,7 +3494,7 @@ axios.defaults.adapter = adapter;
           const div = document.createElement("div");
           if (SSS.a_separator) {
             if (!sepStyle) {
-              sepStyle = addStyle(
+              sepStyle = GME.addStyle(
                 "\
                         div.sp-separator{\
                             line-height:1.8!important;\
@@ -3663,16 +3644,16 @@ axios.defaults.adapter = adapter;
 
         function insertedIntoDoc() {
           if (!doc) {
-            console.error("%c[Super-preloader]%c %s", debugStyle, "", "没有找到doc");
+            logger.error("No document");
             return;
           }
 
           if (SSS.a_documentFilter) {
             try {
               SSS.a_documentFilter(doc, nextlink);
-              debug("%c[Super-preloader] %c执行 documentFilter 成功", debugStyle, "");
+              logger.debug("执行 documentFilter 成功");
             } catch (e) {
-              console.error("%c[Super-preloader] %c执行 documentFilter 错误 %o %s", debugStyle, "", e, SSS.a_documentFilter.toString());
+              logger.error("执行 documentFilter 错误", e, SSS.a_documentFilter.toString());
             }
           }
 
@@ -3682,11 +3663,11 @@ axios.defaults.adapter = adapter;
           const pageElements = getAllElements(SSS.a_pageElement, false, doc, win, nextlink);
           const ii = pageElements.length;
           if (ii <= 0) {
-            console.error("获取下一页的主要内容失败", SSS.a_pageElement);
+            logger.error("获取下一页的主要内容失败", SSS.a_pageElement);
             removeL();
             return;
           } else {
-            debug("%c[Super-preloader] %c获取下一页的主要内容成功 %o", debugStyle, "", pageElements);
+            logger.debug("获取下一页的主要内容成功", pageElements);
           }
 
           // 提前查找下一页链接，后面再赋值
@@ -3798,9 +3779,9 @@ axios.defaults.adapter = adapter;
           if (SSS.filter && typeof SSS.filter === "function") {
             try {
               SSS.filter(pageElements);
-              debug("%c[Super-preloader] %c执行 filter(pages) 成功", debugStyle, "");
+              logger.debug("执行 filter(pages) 成功");
             } catch (e) {
-              console.error("%c[Super-preloader] %c执行 filter(pages) 错误 %o %e", debugStyle, "", e, SSS.filter.toString());
+              logger.error("执行 filter(pages) 错误", e, SSS.filter.toString());
             }
           }
 
@@ -3859,7 +3840,7 @@ axios.defaults.adapter = adapter;
           }
 
           if (paged >= SSS.a_maxpage) {
-            debug("%c[Super-preloader] %c到达所设定的最大翻页数", debugStyle, "", SSS.a_maxpage);
+            logger.debug(`到达所设定的最大翻页数 ${SSS.a_maxpage}`);
             notice("<b>状态</b>:" + '到达所设定的最大翻页数:<b style="color:red">' + SSS.a_maxpage + "</b>");
             removeL();
             return;
@@ -3886,7 +3867,7 @@ axios.defaults.adapter = adapter;
               }
             }
           } else {
-            console.error("%c[Super-preloader] %c没有找到下一页链接%o", debugStyle, "", SSS.nextLink);
+            logger.error("没有找到下一页链接", SSS.nextLink);
             removeL();
           }
         }
@@ -4092,53 +4073,47 @@ axios.defaults.adapter = adapter;
             document.body.appendChild(iframe);
           }
         } else {
-          GM.xmlHttpRequest({
-            method: "GET",
-            url: nextlink,
-            overrideMimeType: "text/html; charset=" + document.characterSet,
-            onload: function(req) {
-              const str = req.responseText;
-              const doc = createDocumentByString(str);
-              if (!doc) {
-                console.error("%c[Super-preloader] %c文档对象创建失败!", debugStyle, "");
-                return;
-              }
-
-              if (SSS.lazyImgSrc) {
-                handleLazyImgSrc(SSS.lazyImgSrc, doc);
-              }
-
-              const images = doc.images;
-              const isl = images.length;
-              var img;
-              const iarray = [];
-              var i;
-              const existSRC = {};
-              var isrc;
-              for (i = isl - 1; i >= 0; i--) {
-                isrc = images[i].getAttribute("src");
-                if (!isrc || existSRC[isrc]) {
-                  continue;
-                } else {
-                  existSRC[isrc] = true;
-                }
-                img = document.createElement("img");
-                img.src = isrc;
-                iarray.push(img);
-              }
-              if (SSS.viewcontent) {
-                const containter = cContainer();
-                const div = containter.div;
-                i = iarray.length;
-                containter.div2.innerHTML = "预读取图片张数: " + "<b>" + i + "</b>" + "<br />" + "预读网址: " + "<b>" + nextlink + "</b>";
-                for (i -= 1; i >= 0; i--) {
-                  div.appendChild(iarray[i]);
-                }
-              }
-              floatWO.updateColor("prefetcher");
-              floatWO.loadedIcon("show");
-              floatWO.CmodeIcon("hide");
+          axios.get(nextlink).then((res) => {
+            const doc = createDocumentByString(res.responseText);
+            if (!doc) {
+              logger.error("文档对象创建失败!");
+              return;
             }
+
+            if (SSS.lazyImgSrc) {
+              handleLazyImgSrc(SSS.lazyImgSrc, doc);
+            }
+
+            const images = doc.images;
+            const isl = images.length;
+            var img;
+            const iarray = [];
+            var i;
+            const existSRC = {};
+            var isrc;
+            for (i = isl - 1; i >= 0; i--) {
+              isrc = images[i].getAttribute("src");
+              if (!isrc || existSRC[isrc]) {
+                continue;
+              } else {
+                existSRC[isrc] = true;
+              }
+              img = document.createElement("img");
+              img.src = isrc;
+              iarray.push(img);
+            }
+            if (SSS.viewcontent) {
+              const containter = cContainer();
+              const div = containter.div;
+              i = iarray.length;
+              containter.div2.innerHTML = "预读取图片张数: " + "<b>" + i + "</b>" + "<br />" + "预读网址: " + "<b>" + nextlink + "</b>";
+              for (i -= 1; i >= 0; i--) {
+                div.appendChild(iarray[i]);
+              }
+            }
+            floatWO.updateColor("prefetcher");
+            floatWO.loadedIcon("show");
+            floatWO.CmodeIcon("hide");
           });
         }
       }
@@ -4148,7 +4123,7 @@ axios.defaults.adapter = adapter;
       // 分析黑名单
       const blackList_re = new RegExp(blackList.map(wildcardToRegExpStr).join("|"));
       if (blackList_re.test(url)) {
-        debug("%c[Super-preloader] %c匹配黑名单，js执行终止", debugStyle, "");
+        logger.debug("匹配黑名单，js执行终止");
         return;
       }
 
@@ -4158,11 +4133,11 @@ axios.defaults.adapter = adapter;
           return x[1] && x[2].test(url);
         });
         if (isReturn) {
-          debug("%c[Super-preloader] %curl为:%s的页面为非顶层窗口,JS执行终止", debugStyle, "", url);
+          logger.debug(`url为:${url}的页面为非顶层窗口,JS执行终止`);
           return;
         }
       }
-      debug("%c[Super-preloader] %curl为:%s的页面,JS加载成功", debugStyle, "", url);
+      logger.debug(`url为:${url}的页面,JS加载成功`);
 
       // 第一阶段..分析高级模式..
       SITEINFO = SITEINFO.concat(SITEINFO_json, SITEINFO_TP, SITEINFO_comp);
@@ -4184,11 +4159,10 @@ axios.defaults.adapter = adapter;
         const ii = SITEINFO.length;
 
         if (i8n() === "zh_CN") {
-          debug("%c[Super-preloader] %c高级规则数目:%i", debugStyle, "", ii);
-          debug("%c[Super-preloader] %c规则数 > %i 来自其他来源, 比如: wedata.net", debugStyle, "", ii - SITEINFO_json.length);
+          logger.debug(`高级规则数目:${ii}`);
+          logger.debug(`规则数 > ${ii - SITEINFO_json.length} 来自其他来源, 比如: wedata.net`);
         } else {
-          debug("%c[Super-preloader] %cNumber of advanced rules:%i", debugStyle, "", ii);
-          debug("%c[Super-preloader] %cRules with ID > %i 来自其他来源, 比如: wedata.net", debugStyle, "", ii - SITEINFO_json.length);
+          logger.debug(`Number of advanced rules:${ii}`);
         }
 
         for (var i = 0; i < ii; i++) {
@@ -4196,26 +4170,26 @@ axios.defaults.adapter = adapter;
           Rurl = toRE(SII.url);
           if (Rurl.test(url)) {
             if (i8n() === "zh_CN") {
-              debug("%c[Super-preloader] %c找到当前站点规则:%o", debugStyle, "", SII);
-              debug("%c[Super-preloader] %c规则ID: %i", debugStyle, "", i + 1);
+              logger.debug("找到当前站点规则:", SII);
+              logger.debug(`规则ID: ${i + 1}`);
             } else {
-              debug("[Super-preloader] %cFind rule for this website:%o", debugStyle, "", SII);
-              debug("%c[Super-preloader] %cRule ID: %i", debugStyle, "", i + 1);
+              logger.debug("Find rule for this website:", SII);
+              logger.debug(`Rule ID: ${i + 1}`);
             }
 
             // 运行规则的 startFilter
             if (SII.autopager && SII.autopager.startFilter) {
               try {
                 SII.autopager.startFilter(document, window);
-                debug("%c[Super-preloader] %c执行 startFilter 成功", debugStyle, "");
+                logger.debug("执行 startFilter 成功");
               } catch (e) {
-                console.error("%c[Super-preloader] %c执行 startFilter 错误 %o", debugStyle, "", e);
+                logger.error("执行 startFilter 错误", e);
               }
             }
 
             nextlink = getElement(SII.nextLink || "auto;");
             if (!nextlink) {
-              console.warn("%c[Super-preloader] %c无法找到下一页链接,继续查找其他规则,跳过规则:%o", debugStyle, "", SII);
+              logger.warn("无法找到下一页链接,继续查找其他规则,跳过规则:", SII);
               continue;
             }
             // 如果匹配到的下一页链接和当前页一致，继续查找下一条规则
@@ -4306,7 +4280,7 @@ axios.defaults.adapter = adapter;
             const pageElement = getElement(SSS.a_pageElement);
             if (!pageElement || (Array.isArray(pageElement) && pageElement.length === 0)) {
               nextlink = null;
-              console.error("%c[Super-preloader] %c无法找到内容,跳过规则:%o %s", debugStyle, "", SII, "继续查找其他规则");
+              logger.error("无法找到内容,跳过规则:", SII, "继续查找其他规则");
               continue;
             }
 
@@ -4316,10 +4290,10 @@ axios.defaults.adapter = adapter;
         }
 
         if (!SSS.hasRule) {
-          console.warn("%c[Super-preloader] %c未找到合适的高级规则,开始自动匹配.", debugStyle, "");
+          logger.warn("未找到合适的高级规则,开始自动匹配.");
           // 自动搜索.
           if (!autoMatch.keyMatch) {
-            debug("%c[Super-preloader] %c自动匹配功能被禁用了.", debugStyle, "");
+            logger.debug("自动匹配功能被禁用了.");
           } else {
             nextlink = autoGetLink();
             // alert(nextlink);
@@ -4352,18 +4326,18 @@ axios.defaults.adapter = adapter;
           SSS.lazyImgSrc = prefs.lazyImgSrc;
         }
 
-        debug("%c[Super-preloader] %c搜索高级规则和自动匹配过程总耗时:%ims", debugStyle, "", new Date() - startTime);
+        logger.debug(`搜索高级规则和自动匹配过程总耗时:${new Date() - startTime}ms`);
       };
 
       findCurSiteInfo();
 
       // 上下页都没有找到啊
       if (!nextlink && !prelink) {
-        console.warn("%c[Super-preloader] %c未找到相关链接, JS执行停止. 共耗时:%ims", debugStyle, "", new Date() - startTime);
+        logger.warn(`未找到相关链接, JS执行停止. 共耗时:${new Date() - startTime}ms`);
         return;
       } else {
-        debug("%c[Super-preloader] %c上一页链接:%o", debugStyle, "", prelink);
-        debug("%c[Super-preloader] %c下一页链接:%o", debugStyle, "", nextlink);
+        logger.debug("上一页链接:", prelink);
+        logger.debug("下一页链接:", nextlink);
         nextlink = nextlink ? nextlink.href || nextlink : undefined;
         prelink = prelink ? prelink.href || prelink : undefined;
       }
@@ -4379,7 +4353,7 @@ axios.defaults.adapter = adapter;
       };
 
       if (prefs.arrowKeyPage) {
-        debug("%c[Super-preloader] %c添加键盘左右方向键翻页监听.", debugStyle, "");
+        logger.debug("添加键盘左右方向键翻页监听.");
         document.addEventListener(
           "keyup",
           function(e) {
@@ -4407,7 +4381,7 @@ axios.defaults.adapter = adapter;
       }
 
       // 监听下一页事件.
-      debug("%c[Super-preloader] %c添加鼠标手势翻页监听", debugStyle, "");
+      logger.debug("添加鼠标手势翻页监听");
       document.addEventListener(
         "superPreloader.go",
         function() {
@@ -4427,15 +4401,15 @@ axios.defaults.adapter = adapter;
 
       // 没找到下一页的链接
       if (!nextlink) {
-        console.error("%c[Super-preloader] %c下一页链接不存在,JS无法继续.", debugStyle, "");
-        debug("%c[Super-preloader] %c全部过程耗时:%ims", debugStyle, "", new Date() - startTime);
+        logger.error("下一页链接不存在,JS无法继续.");
+        logger.debug(`全部过程耗时:${new Date() - startTime}ms`);
 
         return;
       }
 
       // 载入设置..
       const loadLocalSetting = function() {
-        debug("%c[Super-preloader] %c加载设置", debugStyle, "");
+        logger.debug("加载设置");
         var savedValue = getValue("spfwset");
         if (savedValue) {
           try {
@@ -4479,24 +4453,24 @@ axios.defaults.adapter = adapter;
       }
 
       if (prefs.floatWindow) {
-        debug("%c[Super-preloader] %c创建悬浮窗", debugStyle, "");
+        logger.debug("创建悬浮窗");
         floatWindow(SSS);
       }
 
       if (!SSS.enable) {
-        console.warn("%c[Super-preloader] %c本规则被关闭,脚本执行停止", debugStyle, "");
-        debug("%c[Super-preloader] %c全部过程耗时:%ims", debugStyle, "", new Date() - startTime);
+        logger.warn("本规则被关闭,脚本执行停止");
+        logger.debug(`全部过程耗时:${new Date() - startTime}ms`);
 
         return;
       }
-      debug("%c[Super-preloader] %c全部过程耗时:%ims", debugStyle, "", new Date() - startTime);
+      logger.debug(`全部过程耗时:${new Date() - startTime}ms`);
 
       // 预读或者翻页.
       if (SSS.a_enable) {
-        debug("%c[Super-preloader] %c初始化,翻页模式.", debugStyle, "");
+        logger.debug("初始化,翻页模式.");
         autopager(SSS, floatWO);
       } else {
-        debug("%c[Super-preloader] %c初始化,预读模式.", debugStyle, "");
+        logger.debug("初始化,预读模式.");
         prefetcher(SSS, floatWO);
       }
 
@@ -4600,17 +4574,13 @@ axios.defaults.adapter = adapter;
 
           // 3个条件:http协议链接,非跳到当前页面的链接,非跨域
           if (/^https?:/i.test(ahref) && ahref.replace(/#.*$/, "") != curLHref && ahref.match(/https?:\/\/([^\/]+)/)[1] == _domain_port) {
-            if (xbug) {
-              debug((type == "pre" ? "上一页" : "下一页") + "匹配到的关键字为:", atext);
-            }
+            logger.debug(type == "pre" ? "上一页" : "下一页" + "匹配到的关键字为:", atext);
             return a; // 返回对象A
             // return ahref;
           }
         }
 
-        if (xbug) {
-          debug("%c[Super-preloader] %c全文档链接数量:%i", debugStyle, "", alllinksl);
-        }
+        logger.debug(`全文档链接数量:${alllinksl}`);
 
         for (i = 0; i < alllinksl; i++) {
           if (_nextlink && _prelink) break;
@@ -4754,7 +4724,7 @@ axios.defaults.adapter = adapter;
             }
           }
         }
-        debug("%c[Super-preloader] %c搜索链接数量:%i 耗时:%ims ", debugStyle, "", i, new Date() - startTime);
+        logger.debug(`搜索链接数量:${i} 耗时:${new Date() - startTime}ms`);
 
         if (!autoGetLink.checked) {
           // 只在第一次检测的时候,抛出上一页链接.
@@ -4940,77 +4910,10 @@ axios.defaults.adapter = adapter;
     }
   });
 
-  // ----------------------------------
-
-  var isUpdating = true;
-
-  function checkUpdate(button) {
-    if (isUpdating) {
-      return;
-    }
-
-    button.innerHTML = "正在更新中...";
-    button.disabled = "disabled";
-
-    const reset = function() {
-      isUpdating = false;
-      button.innerHTML = "马上更新";
-      button.disabled = "";
-    };
-
-    GM.xmlHttpRequest({
-      method: "GET",
-      url: scriptInfo.metaUrl,
-      onload: function(response) {
-        const txt = response.responseText;
-        const curVersion = scriptInfo.version;
-        var latestVersion = txt.match(/@\s*version\s*([\d\.]+)\s*/i);
-        if (latestVersion) {
-          latestVersion = latestVersion[1];
-        } else {
-          alert("解析版本号错误");
-          return;
-        }
-
-        // 对比版本号
-        var needUpdate;
-        const latestVersions = latestVersion.split(".");
-        const lVLength = latestVersions.length;
-        const currentVersion = curVersion.split(".");
-        const cVLength = currentVersion.length;
-        var lV_x;
-        var cV_x;
-        for (var i = 0; i < lVLength; i++) {
-          lV_x = Number(latestVersions[i]);
-          cV_x = i >= cVLength ? 0 : Number(currentVersion[i]);
-          if (lV_x > cV_x) {
-            needUpdate = true;
-            break;
-          } else if (lV_x < cV_x) {
-            break;
-          }
-        }
-
-        if (needUpdate) {
-          alert("本脚本从版本 " + scriptInfo.version + "  更新到了版本 " + latestVersion + ".\n请点击脚本主页进行安装");
-          document.getElementById("sp-prefs-homepageURL").boxShadow = "0 0 2px 2px #FF5555";
-        }
-
-        reset();
-      }
-    });
-
-    setTimeout(reset, 30 * 1000);
-  }
-
-  // ----------------------------------
-  // main.js
-
   // ------------------------下面的不要管他-----------------
   /// ////////////////////////////////////////////////////////////////
 
   const C = console;
-  var debug = function() {};
   // 变量
   var isHashchangeSite = false;
 
@@ -5416,7 +5319,7 @@ axios.defaults.adapter = adapter;
       const result = doc.evaluate(xpath, contextNode, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
       return result.singleNodeValue;
     } catch (err) {
-      console.error("%c[Super-preloader]%c%s%o", debugStyle, "", "Invalid xpath: ", xpath);
+      logger.error(`Invalid xpath: ${xpath}`);
       return undefined;
     }
   }
@@ -5539,7 +5442,7 @@ axios.defaults.adapter = adapter;
   function createDocumentByString(str) {
     // string转为DOM
     if (!str) {
-      console.error("%c[Super-preloader] %c没有找到要转成DOM的字符串", debugStyle, "");
+      logger.error("没有找到要转成DOM的字符串");
       return;
     }
     if (document.documentElement.nodeName != "HTML") {
@@ -5586,9 +5489,6 @@ axios.defaults.adapter = adapter;
       child = bchilds[i];
       if (headChildNames[child.nodeName]) body.removeChild(child);
     }
-    // alert(doc.documentElement.innerHTML);
-    // debug(doc);
-    // debug(doc.documentElement.innerHTML);
     return doc;
   }
 
@@ -5751,25 +5651,6 @@ axios.defaults.adapter = adapter;
     return hasMissing;
   }
 
-  function addStyle(aCss, aId, doc) {
-    doc = doc || document;
-    var head = doc.getElementsByTagName("head")[0];
-    if (!head) {
-      head = doc.documentElement;
-    }
-    var style = doc.createElement("style");
-    if (aId) {
-      style.setAttribute("id", aId);
-    }
-    style.setAttribute("type", "text/css");
-    style.textContent = aCss;
-    if (head) {
-      return head.appendChild(style);
-    } else {
-      return null;
-    }
-  }
-
   function i8n() {
     if (userLang.indexOf("zh") !== -1 || prefs.ChineseUI) {
       return "zh_CN";
@@ -5829,7 +5710,7 @@ axios.defaults.adapter = adapter;
       var emoji = parseInt(unifiedValue, 16);
       return String.fromCodePoint(emoji);
     } else {
-      console.error("Shame on your browser!");
+      logger.error("Shame on your browser!");
       return "";
     }
   }
