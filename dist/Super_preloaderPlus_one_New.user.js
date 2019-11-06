@@ -9,7 +9,7 @@
 // @author       Mach6
 // @contributers YFdyh000, suchunchen
 // @thanksto     ywzhaiqi, NLF
-// @version      6.6.77
+// @version      6.6.78
 // @license      GPL-3.0
 // @update       2019/10/6
 // @homepageURL  https://github.com/machsix/Super-preloader
@@ -1221,6 +1221,22 @@ axios.defaults.adapter = adapter;
     },
     autopager: {
       pageElement: '//div[@class="rank-body"]'
+    }
+  }, {
+    name: "rushi.net",
+    url: "^https?://www.rushi.net/Home/Works",
+    nextLink: "css;.gopage .next-btn",
+    // 或者//div[@class='gopage']//a[contains(@class,'next-btn')]
+    autopager: {
+      pageElement: "css;.work_list_line",
+      startFilter: function startFilter(doc) {
+        var firstDiv = document.querySelector(".hot-company-job");
+
+        if (firstDiv) {
+          firstDiv.parentNode.removeChild(firstDiv);
+        }
+      },
+      documentFilter: "startFilter"
     }
   }, {
     name: "优书-书单|评论",
@@ -11916,7 +11932,7 @@ module.exports = {
 /* 39 */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"name\":\"super-preloader\",\"version\":\"6.6.77\",\"description\":\"Super-preloader\",\"main\":\"dist/Super_preloaderPlus_one_New.user.js\",\"directories\":{\"doc\":\"docs\"},\"scripts\":{\"lint\":\"eslint dist/*.json src/**/*.js .ci/*.js docs/**/*.js\",\"format\":\"prettier --ignore-path=.eslintignore --write dist/*.json src/**/*.js .ci/*.js docs/**/*.{js,md}\",\"format:check\":\"prettier --ignore-path=.eslintignore --check dist/*.json src/**/*/js .ci/*.js docs/**/*.{js,md}\",\"format:staged\":\"pretty-quick --staged --ignore-path=.eslintignore --write dist/*.{js,json} .ci/*.js docs/**/*.{js,md}\",\"test\":\"npm run lint && npm run format:check\",\"dev\":\"webpack-dev-server --color\",\"build\":\"webpack\",\"preversion\":\"npm run test\",\"version\":\"npm run build  && git add dist/*.js\",\"postversion\":\"git add package.json package-lock.json\",\"docs:dev\":\"vuepress dev docs\",\"docs:build\":\"vuepress build docs\",\"docs:publish\":\"npm run docs:build && .ci/gen_ghpage.sh\"},\"husky\":{\"hooks\":{\"pre-commit\":\"npm --no-git-tag-version version patch\"}},\"repository\":{\"type\":\"git\",\"url\":\"git+https://github.com/machsix/Super-preloader.git\"},\"keywords\":[\"userscript\"],\"author\":\"Mach6\",\"license\":\"GPL-3.0\",\"bugs\":{\"url\":\"https://github.com/machsix/Super-preloader/issues\"},\"homepage\":\"https://github.com/machsix/Super-preloader\",\"devDependencies\":{\"@babel/core\":\"^7.6.4\",\"@babel/preset-env\":\"^7.6.3\",\"@vuepress/plugin-back-to-top\":\"1.0.4\",\"@vuepress/plugin-google-analytics\":\"1.2.0\",\"@vuepress/plugin-pwa\":\"1.0.4\",\"axios\":\"^0.19.0\",\"babel-eslint\":\"^10.0.3\",\"babel-loader\":\"^8.0.6\",\"eslint\":\"^6.6.0\",\"eslint-config-prettier\":\"6.2.0\",\"eslint-plugin-compat\":\"3.3.0\",\"eslint-plugin-json\":\"1.4.0\",\"eslint-plugin-prettier\":\"3.1.0\",\"husky\":\"3.0.9\",\"prettier\":\"1.18.2\",\"pretty-quick\":\"1.11.1\",\"underscore\":\"^1.9.1\",\"vuepress\":\"1.2.0\",\"webpack\":\"^4.41.2\",\"webpack-cli\":\"^3.3.10\",\"webpack-dev-server\":\"^3.9.0\",\"webpack-inject-plugin\":\"^1.5.3\"},\"dependencies\":{}}");
+module.exports = JSON.parse("{\"name\":\"super-preloader\",\"version\":\"6.6.78\",\"description\":\"Super-preloader\",\"main\":\"dist/Super_preloaderPlus_one_New.user.js\",\"directories\":{\"doc\":\"docs\"},\"scripts\":{\"lint\":\"eslint dist/*.json src/**/*.js .ci/*.js docs/**/*.js\",\"format\":\"prettier --ignore-path=.eslintignore --write dist/*.json src/**/*.js .ci/*.js docs/**/*.{js,md}\",\"format:check\":\"prettier --ignore-path=.eslintignore --check dist/*.json src/**/*/js .ci/*.js docs/**/*.{js,md}\",\"format:staged\":\"pretty-quick --staged --ignore-path=.eslintignore --write dist/*.{js,json} .ci/*.js docs/**/*.{js,md}\",\"test\":\"npm run lint && npm run format:check\",\"dev\":\"webpack-dev-server --color\",\"build\":\"webpack\",\"preversion\":\"npm run test\",\"version\":\"npm run build  && git add dist/*.js\",\"postversion\":\"git add package.json package-lock.json\",\"docs:dev\":\"vuepress dev docs\",\"docs:build\":\"vuepress build docs\",\"docs:publish\":\"npm run docs:build && .ci/gen_ghpage.sh\"},\"husky\":{\"hooks\":{\"pre-commit\":\"npm --no-git-tag-version version patch\"}},\"repository\":{\"type\":\"git\",\"url\":\"git+https://github.com/machsix/Super-preloader.git\"},\"keywords\":[\"userscript\"],\"author\":\"Mach6\",\"license\":\"GPL-3.0\",\"bugs\":{\"url\":\"https://github.com/machsix/Super-preloader/issues\"},\"homepage\":\"https://github.com/machsix/Super-preloader\",\"devDependencies\":{\"@babel/core\":\"^7.6.4\",\"@babel/preset-env\":\"^7.6.3\",\"@vuepress/plugin-back-to-top\":\"1.0.4\",\"@vuepress/plugin-google-analytics\":\"1.2.0\",\"@vuepress/plugin-pwa\":\"1.0.4\",\"axios\":\"^0.19.0\",\"babel-eslint\":\"^10.0.3\",\"babel-loader\":\"^8.0.6\",\"eslint\":\"^6.6.0\",\"eslint-config-prettier\":\"6.2.0\",\"eslint-plugin-compat\":\"3.3.0\",\"eslint-plugin-json\":\"1.4.0\",\"eslint-plugin-prettier\":\"3.1.0\",\"husky\":\"3.0.9\",\"prettier\":\"1.18.2\",\"pretty-quick\":\"1.11.1\",\"underscore\":\"^1.9.1\",\"vuepress\":\"1.2.0\",\"webpack\":\"^4.41.2\",\"webpack-cli\":\"^3.3.10\",\"webpack-dev-server\":\"^3.9.0\",\"webpack-inject-plugin\":\"^1.5.3\"},\"dependencies\":{}}");
 
 /***/ })
 /******/ ]);

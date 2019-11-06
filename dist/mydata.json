@@ -2167,12 +2167,18 @@
     }
   },
   {
+    "name": "lowendtalk.com",
+    "url": "^https?://www.lowendtalk.com",
+    "nextLink": "css;.Next.Pager-nav",
+    "pageElement": "css;ul.Discussions, ul.Comments"
+  },
+  {
     "name": "zd423",
-    "url": "^https?://www\\.zdfans\\.com/",
+    "url": "^https?://www\\.zdfans\\.cn/",
     "exampleUrl": "http://www.zdfans.com/",
-    "nextLink": "//div[@class=\"paging\"]/a[text()=\"下一页\"]",
+    "nextLink": "//div[@class='pagination']/a[@class='next']",
     "autopager": {
-      "pageElement": "//div[@class=\"wrapper\"]/div[@class=\"content-wrap\"]/div[@class=\"content column2\"]/ul[@class=\"excerpt\"]"
+      "pageElement": "css;#post_container .post"
     }
   },
   {
