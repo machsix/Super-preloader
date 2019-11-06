@@ -2168,17 +2168,25 @@
   },
   {
     "name": "lowendtalk.com",
-    "url": "^https?://www.lowendtalk.com",
+    "url": "^https?://www\\.lowendtalk\\.com",
     "nextLink": "css;.Next.Pager-nav",
     "pageElement": "css;ul.Discussions, ul.Comments"
   },
   {
     "name": "zd423",
-    "url": "^https?://www\\.zdfans\\.cn/",
+    "url": "^https?://www\\.zdfans\\.cn",
     "exampleUrl": "http://www.zdfans.com/",
     "nextLink": "//div[@class='pagination']/a[@class='next']",
+    "pageElement": "css;#post_container .post"
+  },
+  {
+    "name": "a2zapk.com",
+    "url": "^https?://a2zapk\\.com",
+    "exampleUrl": "https://a2zapk.com/Apps/Tools/page/1/",
+    "nextLink": "//div[@class='PagesPar']//a[text()='Next']",
     "autopager": {
-      "pageElement": "css;#post_container .post"
+      "pageElement": "css;.LeftSection .AppCont",
+      "relatedObj": true
     }
   },
   {
