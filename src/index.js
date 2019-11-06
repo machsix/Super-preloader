@@ -3,7 +3,9 @@
 /* eslint-disable no-empty */
 
 const _ = require("underscore");
-const axios = require("./lib/axios");
+const axios = require("axios");
+const adapter = require("./lib/axios-userscript-adapter");
+axios.defaults.adapter = adapter;
 
 (function() {
   const scriptInfo = {
@@ -1671,7 +1673,7 @@ const axios = require("./lib/axios");
         return new Promise(
           function(resolve, reject) {
             axios
-              .get(this.provider[i].url[iurl], {noCache: true})
+              .get(this.provider[i].url[iurl], {nocache: true})
               .then(
                 function(res) {
                   try {
@@ -1713,10 +1715,10 @@ const axios = require("./lib/axios");
       return new Promise(
         function(resolve, reject) {
           axios
-            .get(this.provider[i].detailUrl, {noCache: true})
+            .get(this.provider[i].detailUrl, {nocache: true})
             .then(
               function(res) {
-                const detail = JSON.parse(res.responseText);
+                const detail = res.data;
                 const ruleLastUpdate = new Date(detail.updated_at);
                 if (_force || ruleLastUpdate > _lastUpdate || this.rule[i].length === 0) {
                   // download rule for:
