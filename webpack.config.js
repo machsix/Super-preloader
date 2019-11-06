@@ -14,32 +14,7 @@ const scriptInfo = {
   greasyfork: "https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new"
 };
 
-module.exports = {
-  mode: "none",
-  entry: {
-    [scriptInfo.name]: "./src/index.js"
-  },
-  output: {
-    filename: "[name].user.js",
-    path: path.resolve(__dirname, "dist")
-  },
-  module: {
-    rules: [
-      {
-        test: /\.m?js$/,
-        exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: "babel-loader",
-          options: {
-            presets: ["@babel/preset-env"]
-          }
-        }
-      }
-    ]
-  },
-  plugins: [
-    new webpack.BannerPlugin({
-      banner: `// ==UserScript==
+const METADATA = `// ==UserScript==
 // @name         ${scriptInfo.name}
 // @name:zh-CN   ${scriptInfo["name-CN"]}
 // @name:zh-TW   ${scriptInfo["name-CN"]}
@@ -48,7 +23,6 @@ module.exports = {
 // @description:zh-CN  预读+翻页..全加速你的浏览体验
 // @description:zh-TW  预读+翻页..全加速你的浏览体验
 // @author       ${scriptInfo.author}
-// @update       ${scriptInfo.lastUpdate}
 // @contributers YFdyh000, suchunchen
 // @thanksto     ywzhaiqi, NLF
 // @version      ${scriptInfo.version}
@@ -104,7 +78,34 @@ module.exports = {
 // @exclude      http*://ad.doubleclick.net/*
 // @exclude      http*://ad.agrantsem.com/*
 // ==/UserScript==
-`,
+`;
+
+module.exports = {
+  mode: "none",
+  entry: {
+    [scriptInfo.name]: "./src/index.js"
+  },
+  output: {
+    filename: "[name].user.js",
+    path: path.resolve(__dirname, "dist")
+  },
+  module: {
+    rules: [
+      {
+        test: /\.m?js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env"]
+          }
+        }
+      }
+    ]
+  },
+  plugins: [
+    new webpack.BannerPlugin({
+      banner: METADATA,
       entryOnly: true,
       raw: true
     })

@@ -7,12 +7,11 @@
 // @description:zh-CN  预读+翻页..全加速你的浏览体验
 // @description:zh-TW  预读+翻页..全加速你的浏览体验
 // @author       Mach6
-// @update       Wed, 06 Nov 2019 02:01:25 GMT
 // @contributers YFdyh000, suchunchen
 // @thanksto     ywzhaiqi, NLF
 // @version      6.6.70
 // @license      GPL-3.0
-// @update       Wed, 06 Nov 2019 02:01:25 GMT
+// @update       Wed, 06 Nov 2019 06:15:55 GMT
 // @homepageURL  https://github.com/machsix/Super-preloader
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
 // @contributionURL https://ko-fi.com/machsix
