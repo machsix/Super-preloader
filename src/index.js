@@ -1000,6 +1000,22 @@ axios.defaults.adapter = adapter;
       }
     },
     {
+      name: "rushi.net",
+      url: "^https?://www.rushi.net/Home/Works",
+      nextLink: "css;.gopage .next-btn",
+      // 或者//div[@class='gopage']//a[contains(@class,'next-btn')]
+      autopager: {
+        pageElement: "css;.work_list_line",
+        startFilter: (doc) => {
+          const firstDiv = document.querySelector(".hot-company-job");
+          if (firstDiv) {
+            firstDiv.parentNode.removeChild(firstDiv);
+          }
+        },
+        documentFilter: "startFilter"
+      }
+    },
+    {
       name: "优书-书单|评论",
       url: /^https?:\/\/www\.yousuu\.com\/(comments|booklist)/i,
       nextLink: function(doc, win, cplink) {
