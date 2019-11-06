@@ -1,6 +1,6 @@
 {
   "name": "super-preloader",
-  "version": "6.6.71",
+  "version": "6.6.77",
   "description": "Super-preloader",
   "main": "dist/Super_preloaderPlus_one_New.user.js",
   "directories": {
@@ -14,13 +14,16 @@
     "test": "npm run lint && npm run format:check",
     "dev": "webpack-dev-server --color",
     "build": "webpack",
+    "preversion": "npm run test",
+    "version": "npm run build  && git add dist/*.js",
+    "postversion": "git add package.json package-lock.json",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "docs:publish": "npm run docs:build && .ci/gen_ghpage.sh"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run build && npm run test && git add dist/*.js"
+      "pre-commit": "npm --no-git-tag-version version patch"
     }
   },
   "repository": {

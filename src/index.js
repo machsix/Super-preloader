@@ -3192,8 +3192,8 @@ axios.defaults.adapter = adapter;
         var iframe;
         var messageR;
 
-        function iframeLoaded(e) {
-          const iframe = e.currentTarget;
+        function iframeLoaded(event) {
+          const iframe = event.currentTarget;
           // alert(this.contentDocument.body)
           const body = iframe.contentDocument.body;
           if (body && body.firstChild) {
@@ -3238,7 +3238,7 @@ axios.defaults.adapter = adapter;
               const messagehandler = function(e) {
                 if (!messageR && e.data == "superpreloader-iframe:DOMLoaded") {
                   messageR = true;
-                  iframeLoaded.call(i);
+                  iframeLoaded.call(i, {currentTarget: i});
                   if (SSS.a_newIframe) {
                     window.removeEventListener("message", messagehandler, false);
                   }
