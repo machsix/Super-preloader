@@ -1113,10 +1113,10 @@
     }
   },
   {
-    "name": "光华，cmct，chd，皇后，hd86，khdbits，hdsky，hdvnbits，hd-sportbits，tccf，皇后mv，mt，hd4fans，hdhc，发烧友，tlfbits，joyhd，蚂蚁pt，清影pt，北邮人，u2",
-    "url": "^https?://(?:bt\\.upc\\.edu|hdcmct|chdbits|open|hd86|khdbits|hdsky|hdvnbits|hd-sportbits|et8|mv\\.open|tp\\.m-team|www\\.hd4fans|www\\.hdhc|www\\.pt|pt\\.eastgame|www\\.joyhd|ipv6\\.antsoul|ipv4\\.antsoul|pt\\.hit\\.edu|bt\\.byr|u2\\.dmhy)\\.(net|cn|org|com|cd|cc|me|cm)/",
+    "name": "NexusPHP PT",
+    "url": "^https?://(?:bt\\.upc\\.edu|hdcmct|springsunday|chdbits|open|hd86|khdbits|hdsky|hdvnbits|hd-sportbits|et8|mv\\.open|pter|pt\\.m-team|www\\.hd4fans|www\\.hdhc|www\\.pt|pt\\.eastgame|www\\.joyhd|ipv6\\.antsoul|ipv4\\.antsoul|pt\\.hit\\.edu|bt\\.byr|u2\\.dmhy)\\.(net|cn|org|com|cd|cc|me|cm|club)/",
     "exampleUrl": "http://hdcmct.org/torrents.php",
-    "nextLink": "//b[@title=\"Alt+Pagedown\"]/parent::a",
+    "nextLink": "//b[contains(text(),'下一页') or contains(text(),'Next') or contains(text(),'下一頁')]/parent::a",
     "autopager": {
       "pageElement": "//table[@class=\"torrents\"]"
     }
