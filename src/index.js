@@ -159,7 +159,7 @@ axios.defaults.adapter = adapter;
     factoryCheck: true,
     disappearDelay: -1 //暂停翻页状态栏disappearDelay ms后消失, -1为不消失
   };
-  var prefs = prefsFactory;
+  let prefs = prefsFactory;
 
   /// ///////////////////////---------------规则-------////////////////
   // 高级规则的一些默认设置..如果你不知道是什么..请务必不要修改(删除)它.此修改会影响到所有高级规则...
@@ -2094,9 +2094,6 @@ axios.defaults.adapter = adapter;
     );
     const setup = function() {
       const d = document;
-      const on = function(node, e, f) {
-        node.addEventListener(e, f, false);
-      };
 
       const $ = function(s) {
         return d.getElementById("sp-prefs-" + s);
@@ -2175,7 +2172,7 @@ axios.defaults.adapter = adapter;
                                        <div><textarea id="sp-prefs-custom_siteinfo" placeholder="自定义站点规则"></textarea></div>\
                                    </li>\
                                </ul>\
-                           <div><button id="sp-prefs-ok" style="width:150px;">确定</button><button id="sp-prefs-cancel" style="width:150px;">取消</button></div>';
+                           <div><button id="sp-prefs-ok" style="width:100px;">确定</button><button id="sp-prefs-cancel" style="width:100px;">取消</button><button id="sp-prefs-reset" style="width:100px;">重置</button></div>';
       } else {
         div.innerHTML =
           "\
@@ -2217,7 +2214,7 @@ axios.defaults.adapter = adapter;
                                        <div><textarea id="sp-prefs-custom_siteinfo" placeholder="Custom rules"></textarea></div>\
                                    </lhttps://greasyfork.org/en/scripts/33522-super-preloaderplus-one-newi>\
                                </ul>\
-                           <div><button id="sp-prefs-ok" style="width:150px;">OK</button><button id="sp-prefs-cancel" style="width:150px;">Cancel</button></div>';
+                           <div><button id="sp-prefs-ok" style="width:100px;">OK</button><button id="sp-prefs-cancel" style="width:100px;">Cancel</button><button id="sp-prefs-reset" style="width:100px;">Reset</button></div>';
       }
       div = null;
 
@@ -2227,6 +2224,10 @@ axios.defaults.adapter = adapter;
         }
         const div = $("setup");
         div.parentNode.removeChild(div);
+      };
+
+      const on = (node, e, f) => {
+        node.addEventListener(e, f, false);
       };
 
       on($("ok"), "click", function() {
@@ -2247,6 +2248,15 @@ axios.defaults.adapter = adapter;
         autoMatch.useiframe = SITEINFO_D.useiframe;
 
         Promise.all([GM.setValue("prefs", JSON.stringify(prefs)), GM.setValue("SITEINFO_D", JSON.stringify(SITEINFO_D)), GM.setValue("autoMatch", JSON.stringify(autoMatch))]).then(function(values) {
+          SP.loadSetting();
+          close();
+          location.reload();
+        });
+      });
+
+      on($("reset"), "click", () => {
+        prefs = prefsFactory;
+        GM.setValue("prefs", JSON.stringify(prefs)).then(() => {
           SP.loadSetting();
           close();
           location.reload();

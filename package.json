@@ -1,6 +1,6 @@
 {
   "name": "super-preloader",
-  "version": "6.6.80",
+  "version": "6.6.81",
   "description": "Super-preloader",
   "main": "dist/Super_preloaderPlus_one_New.user.js",
   "directories": {
