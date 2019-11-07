@@ -9,9 +9,9 @@
 // @author       Mach6
 // @contributers YFdyh000, suchunchen
 // @thanksto     ywzhaiqi, NLF
-// @version      6.6.80
+// @version      6.6.81
 // @license      GPL-3.0
-// @update       2019/10/6
+// @update       2019/10/7
 // @homepageURL  https://github.com/machsix/Super-preloader
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
 // @contributionURL https://ko-fi.com/machsix
@@ -2179,10 +2179,6 @@ axios.defaults.adapter = adapter;
     var setup = function setup() {
       var d = document;
 
-      var on = function on(node, e, f) {
-        node.addEventListener(e, f, false);
-      };
-
       var $ = function $(s) {
         return d.getElementById("sp-prefs-" + s);
       };
@@ -2242,7 +2238,7 @@ axios.defaults.adapter = adapter;
                                        <div><textarea id="sp-prefs-custom_siteinfo" placeholder="自定义站点规则"></textarea></div>\
                                    </li>\
                                </ul>\
-                           <div><button id="sp-prefs-ok" style="width:150px;">确定</button><button id="sp-prefs-cancel" style="width:150px;">取消</button></div>';
+                           <div><button id="sp-prefs-ok" style="width:100px;">确定</button><button id="sp-prefs-cancel" style="width:100px;">取消</button><button id="sp-prefs-reset" style="width:100px;">重置</button></div>';
       } else {
         div.innerHTML = "\
                            <div>Super_preloaderPlus_one_New Settings</div>\
@@ -2268,7 +2264,7 @@ axios.defaults.adapter = adapter;
                                        <div><textarea id="sp-prefs-custom_siteinfo" placeholder="Custom rules"></textarea></div>\
                                    </lhttps://greasyfork.org/en/scripts/33522-super-preloaderplus-one-newi>\
                                </ul>\
-                           <div><button id="sp-prefs-ok" style="width:150px;">OK</button><button id="sp-prefs-cancel" style="width:150px;">Cancel</button></div>';
+                           <div><button id="sp-prefs-ok" style="width:100px;">OK</button><button id="sp-prefs-cancel" style="width:100px;">Cancel</button><button id="sp-prefs-reset" style="width:100px;">Reset</button></div>';
       }
 
       div = null;
@@ -2280,6 +2276,10 @@ axios.defaults.adapter = adapter;
 
         var div = $("setup");
         div.parentNode.removeChild(div);
+      };
+
+      var on = function on(node, e, f) {
+        node.addEventListener(e, f, false);
       };
 
       on($("ok"), "click", function () {
@@ -2297,6 +2297,14 @@ axios.defaults.adapter = adapter;
         SITEINFO_D.autopager.force_enable = !!$("SITEINFO_D-a_force_enable").checked;
         autoMatch.useiframe = SITEINFO_D.useiframe;
         Promise.all([GM.setValue("prefs", JSON.stringify(prefs)), GM.setValue("SITEINFO_D", JSON.stringify(SITEINFO_D)), GM.setValue("autoMatch", JSON.stringify(autoMatch))]).then(function (values) {
+          SP.loadSetting();
+          close();
+          location.reload();
+        });
+      });
+      on($("reset"), "click", function () {
+        prefs = prefsFactory;
+        GM.setValue("prefs", JSON.stringify(prefs)).then(function () {
           SP.loadSetting();
           close();
           location.reload();
@@ -11835,7 +11843,7 @@ var SCRIPT_INFO = {
   author: pkg.author,
   version: pkg.version,
   license: pkg.license,
-  changeLog: "Webpack",
+  changelog: "Webpack",
   greasyfork: "https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new",
   updateTime: `${now.getFullYear()}/${now.getMonth()}/${now.getDate()}`,
   homepageURL: "https://github.com/machsix/Super-preloader"
@@ -11932,7 +11940,7 @@ module.exports = {
 /* 39 */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"name\":\"super-preloader\",\"version\":\"6.6.80\",\"description\":\"Super-preloader\",\"main\":\"dist/Super_preloaderPlus_one_New.user.js\",\"directories\":{\"doc\":\"docs\"},\"scripts\":{\"lint\":\"eslint dist/*.json src/**/*.js .ci/*.js docs/**/*.js\",\"format\":\"prettier --ignore-path=.eslintignore --write dist/*.json src/**/*.js .ci/*.js docs/**/*.{js,md}\",\"format:check\":\"prettier --ignore-path=.eslintignore --check dist/*.json src/**/*/js .ci/*.js docs/**/*.{js,md}\",\"format:staged\":\"pretty-quick --staged --ignore-path=.eslintignore --write dist/*.{js,json} .ci/*.js docs/**/*.{js,md}\",\"test\":\"npm run lint && npm run format:check\",\"dev\":\"webpack-dev-server --color\",\"build\":\"webpack\",\"preversion\":\"npm run test\",\"version\":\"npm run build  && git add dist/*.js\",\"postversion\":\"git add package.json package-lock.json\",\"docs:dev\":\"vuepress dev docs\",\"docs:build\":\"vuepress build docs\",\"docs:publish\":\"npm run docs:build && .ci/gen_ghpage.sh\"},\"husky\":{\"hooks\":{\"pre-commit\":\"npm --no-git-tag-version version patch\"}},\"repository\":{\"type\":\"git\",\"url\":\"git+https://github.com/machsix/Super-preloader.git\"},\"keywords\":[\"userscript\"],\"author\":\"Mach6\",\"license\":\"GPL-3.0\",\"bugs\":{\"url\":\"https://github.com/machsix/Super-preloader/issues\"},\"homepage\":\"https://github.com/machsix/Super-preloader\",\"devDependencies\":{\"@babel/core\":\"^7.6.4\",\"@babel/preset-env\":\"^7.6.3\",\"@vuepress/plugin-back-to-top\":\"1.0.4\",\"@vuepress/plugin-google-analytics\":\"1.2.0\",\"@vuepress/plugin-pwa\":\"1.0.4\",\"axios\":\"^0.19.0\",\"babel-eslint\":\"^10.0.3\",\"babel-loader\":\"^8.0.6\",\"eslint\":\"^6.6.0\",\"eslint-config-prettier\":\"6.2.0\",\"eslint-plugin-compat\":\"3.3.0\",\"eslint-plugin-json\":\"1.4.0\",\"eslint-plugin-prettier\":\"3.1.0\",\"husky\":\"3.0.9\",\"prettier\":\"1.18.2\",\"pretty-quick\":\"1.11.1\",\"underscore\":\"^1.9.1\",\"vuepress\":\"1.2.0\",\"webpack\":\"^4.41.2\",\"webpack-cli\":\"^3.3.10\",\"webpack-dev-server\":\"^3.9.0\",\"webpack-inject-plugin\":\"^1.5.3\"},\"dependencies\":{}}");
+module.exports = JSON.parse("{\"name\":\"super-preloader\",\"version\":\"6.6.81\",\"description\":\"Super-preloader\",\"main\":\"dist/Super_preloaderPlus_one_New.user.js\",\"directories\":{\"doc\":\"docs\"},\"scripts\":{\"lint\":\"eslint dist/*.json src/**/*.js .ci/*.js docs/**/*.js\",\"format\":\"prettier --ignore-path=.eslintignore --write dist/*.json src/**/*.js .ci/*.js docs/**/*.{js,md}\",\"format:check\":\"prettier --ignore-path=.eslintignore --check dist/*.json src/**/*/js .ci/*.js docs/**/*.{js,md}\",\"format:staged\":\"pretty-quick --staged --ignore-path=.eslintignore --write dist/*.{js,json} .ci/*.js docs/**/*.{js,md}\",\"test\":\"npm run lint && npm run format:check\",\"dev\":\"webpack-dev-server --color\",\"build\":\"webpack\",\"preversion\":\"npm run test\",\"version\":\"npm run build  && git add dist/*.js\",\"postversion\":\"git add package.json package-lock.json\",\"docs:dev\":\"vuepress dev docs\",\"docs:build\":\"vuepress build docs\",\"docs:publish\":\"npm run docs:build && .ci/gen_ghpage.sh\"},\"husky\":{\"hooks\":{\"pre-commit\":\"npm --no-git-tag-version version patch\"}},\"repository\":{\"type\":\"git\",\"url\":\"git+https://github.com/machsix/Super-preloader.git\"},\"keywords\":[\"userscript\"],\"author\":\"Mach6\",\"license\":\"GPL-3.0\",\"bugs\":{\"url\":\"https://github.com/machsix/Super-preloader/issues\"},\"homepage\":\"https://github.com/machsix/Super-preloader\",\"devDependencies\":{\"@babel/core\":\"^7.6.4\",\"@babel/preset-env\":\"^7.6.3\",\"@vuepress/plugin-back-to-top\":\"1.0.4\",\"@vuepress/plugin-google-analytics\":\"1.2.0\",\"@vuepress/plugin-pwa\":\"1.0.4\",\"axios\":\"^0.19.0\",\"babel-eslint\":\"^10.0.3\",\"babel-loader\":\"^8.0.6\",\"eslint\":\"^6.6.0\",\"eslint-config-prettier\":\"6.2.0\",\"eslint-plugin-compat\":\"3.3.0\",\"eslint-plugin-json\":\"1.4.0\",\"eslint-plugin-prettier\":\"3.1.0\",\"husky\":\"3.0.9\",\"prettier\":\"1.18.2\",\"pretty-quick\":\"1.11.1\",\"underscore\":\"^1.9.1\",\"vuepress\":\"1.2.0\",\"webpack\":\"^4.41.2\",\"webpack-cli\":\"^3.3.10\",\"webpack-dev-server\":\"^3.9.0\",\"webpack-inject-plugin\":\"^1.5.3\"},\"dependencies\":{}}");
 
 /***/ })
 /******/ ]);
