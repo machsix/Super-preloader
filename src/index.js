@@ -2,14 +2,12 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-empty */
 
+require("module-alias");
 const _ = require("underscore");
-const axios = require("axios");
-const adapter = require("./lib/axios-userscript-adapter");
-const GME = require("./lib/gm-enhanced");
-const logger = require("./lib/logger");
+const axios = require("@/axios");
+const GME = require("@/gm-enhanced");
+const logger = require("@/logger");
 const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
-
-axios.defaults.adapter = adapter;
 
 (function() {
   const scriptInfo = SCRIPT_INFO;
@@ -157,7 +155,8 @@ axios.defaults.adapter = adapter;
     ChineseUI: false,
     dblclick_pause: false,
     factoryCheck: true,
-    disappearDelay: -1 //暂停翻页状态栏disappearDelay ms后消失, -1为不消失
+    disappearDelay: -1, //暂停翻页状态栏disappearDelay ms后消失, -1为不消失
+    numOfRule: 4308
   };
   let prefs = prefsFactory;
 
@@ -183,8 +182,7 @@ axios.defaults.adapter = adapter;
       separatorReal: true, // 显示真实的页数
       reload: false, // 强制重载iframe
       sandbox: false // Iframe sandbox 选项
-    },
-    numOfRule: 4308
+    }
   };
 
   // 在以下网站上允许在非顶层窗口上加载JS..比如猫扑之类的框架集网页.
@@ -2153,7 +2151,7 @@ axios.defaults.adapter = adapter;
           scriptInfo.changelog +
           "</b></li>\
                                    <li>规则数目: <b>" +
-          SITEINFO_D.numOfRule +
+          prefs.numOfRule +
           "</b> 下次更新时间: <b>" +
           jsonRule.info.expire.toDateString() +
           '</b> <button id="sp-prefs-updaterule">更新规则</button></li>\
@@ -2195,7 +2193,7 @@ axios.defaults.adapter = adapter;
           scriptInfo.changelog +
           "</b></li>\
                                    <li>Number of Rules: <b>" +
-          SITEINFO_D.numOfRule +
+          prefs.numOfRule +
           "</b> Next update: <b>" +
           jsonRule.info.expire.toDateString() +
           '</b> <button id="sp-prefs-updaterule">Update rules</button></li>\
@@ -4167,9 +4165,9 @@ axios.defaults.adapter = adapter;
 
       // 第一阶段..分析高级模式..
       SITEINFO = SITEINFO.concat(SITEINFO_json, SITEINFO_TP, SITEINFO_comp);
-      if (!SITEINFO_D.numOfRule || SITEINFO_D.numOfRule != SITEINFO.length) {
-        SITEINFO_D.numOfRule = SITEINFO.length;
-        GM.setValue("SITEINFO_D", JSON.stringify(SITEINFO_D));
+      if (!prefs.numOfRule || prefs.numOfRule != SITEINFO.length) {
+        prefs.numOfRule = SITEINFO.length;
+        GM.setValue("prefs", JSON.stringify(prefs));
       }
 
       // 重要的变量两枚.

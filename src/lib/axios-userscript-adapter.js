@@ -60,7 +60,6 @@ module.exports = (config) =>
       var responseHeaders = "responseHeaders" in resp ? parseHeaders(resp.responseHeaders) : null;
       var responseData = !config.responseType || config.responseType === "text" ? resp.responseText : resp.response;
       var response = {
-        responseText: resp.responseText,
         data: responseData,
         // IE sends 1223 instead of 204 (https://github.com/mzabriskie/axios/issues/201)
         status: resp.status === 1223 ? 204 : resp.status,
