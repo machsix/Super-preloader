@@ -11,6 +11,11 @@ module.exports = {
     filename: "[name].user.js",
     path: path.resolve(__dirname, "dist")
   },
+  resolve: {
+    alias: {
+      "@lib": path.resolve(__dirname, "src/lib")
+    }
+  },
   module: {
     rules: [
       {

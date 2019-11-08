@@ -11,7 +11,7 @@
 // @thanksto     ywzhaiqi, NLF
 // @version      6.6.81
 // @license      GPL-3.0
-// @update       2019/10/7
+// @update       2019/11/8
 // @homepageURL  https://github.com/machsix/Super-preloader
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
 // @contributionURL https://ko-fi.com/machsix
@@ -162,17 +162,13 @@ var _ = __webpack_require__(1);
 
 var axios = __webpack_require__(4);
 
-var adapter = __webpack_require__(31);
+var GME = __webpack_require__(37);
 
-var GME = __webpack_require__(36);
+var logger = __webpack_require__(38);
 
-var logger = __webpack_require__(37);
-
-var _require = __webpack_require__(38),
+var _require = __webpack_require__(39),
     SCRIPT_INFO = _require.SCRIPT_INFO,
     NOTIFICATION = _require.NOTIFICATION;
-
-axios.defaults.adapter = adapter;
 
 (function () {
   var scriptInfo = SCRIPT_INFO;
@@ -342,8 +338,9 @@ axios.defaults.adapter = adapter;
     ChineseUI: false,
     dblclick_pause: false,
     factoryCheck: true,
-    disappearDelay: -1 //暂停翻页状态栏disappearDelay ms后消失, -1为不消失
-
+    disappearDelay: -1,
+    //暂停翻页状态栏disappearDelay ms后消失, -1为不消失
+    numOfRule: 4308
   };
   var prefs = prefsFactory; /// ///////////////////////---------------规则-------////////////////
   // 高级规则的一些默认设置..如果你不知道是什么..请务必不要修改(删除)它.此修改会影响到所有高级规则...
@@ -384,8 +381,7 @@ axios.defaults.adapter = adapter;
       // 强制重载iframe
       sandbox: false // Iframe sandbox 选项
 
-    },
-    numOfRule: 4308
+    }
   }; // 在以下网站上允许在非顶层窗口上加载JS..比如猫扑之类的框架集网页.
 
   var DIExclude = [["猫扑帖子", true, /^https?:\/\/dzh\.mop\.com\/[a-z]{3,6}\/\d{8}\/.*\.shtml$/i], ["铁血社区", true, /^https?:\/\/bbs\.tiexue\.net\/.*\.html$/i], ["铁血社区-2", true, /^https?:\/\/bbs\.qichelian\.com\/bbsqcl\.php\?fid/i], // 像 http://so.baiduyun.me/ 内嵌的百度、Google 框架
@@ -2222,7 +2218,7 @@ axios.defaults.adapter = adapter;
                                        <a id="sp-prefs-homepageURL-feedback" target="_blank" href="' + scriptInfo.homepageURL + "/feedback" + '"/> 反馈规则 </a>\
                                    </li>\
                                    <li>维护者: <b><a href="https://greasyfork.org/en/users/32861-mach6">Mach6</a></b>   更新日志: <b>' + scriptInfo.changelog + "</b></li>\
-                                   <li>规则数目: <b>" + SITEINFO_D.numOfRule + "</b> 下次更新时间: <b>" + jsonRule.info.expire.toDateString() + '</b> <button id="sp-prefs-updaterule">更新规则</button></li>\
+                                   <li>规则数目: <b>" + prefs.numOfRule + "</b> 下次更新时间: <b>" + jsonRule.info.expire.toDateString() + '</b> <button id="sp-prefs-updaterule">更新规则</button></li>\
                                    <li><input type="checkbox" id="sp-prefs-debug" /> 调试模式</li>\
                                    <li><input title="强制开启中文界面" type="checkbox" id="sp-prefs-ChineseUI" /> 中文界面</li>\
                                    <li><input type="checkbox" id="sp-prefs-enableHistory" /> 添加下一页到历史记录</li>\
@@ -2248,7 +2244,7 @@ axios.defaults.adapter = adapter;
                                        <a id="sp-prefs-homepageURL-feedback" target="_blank" href="' + scriptInfo.homepageURL + "/feedback" + '"/> Feedback </a>\
                                    </li>\
                                    <li>Maintainer: <b><a href="https://greasyfork.org/en/users/32861-mach6">Mach6</a></b>  Changelog: <b>' + scriptInfo.changelog + "</b></li>\
-                                   <li>Number of Rules: <b>" + SITEINFO_D.numOfRule + "</b> Next update: <b>" + jsonRule.info.expire.toDateString() + '</b> <button id="sp-prefs-updaterule">Update rules</button></li>\
+                                   <li>Number of Rules: <b>" + prefs.numOfRule + "</b> Next update: <b>" + jsonRule.info.expire.toDateString() + '</b> <button id="sp-prefs-updaterule">Update rules</button></li>\
                                    <li><input type="checkbox" id="sp-prefs-debug" /> Debug mode</li>\
                                    <li><input type="checkbox"  tile="English/Chinese UI" id="sp-prefs-ChineseUI" /> Chinese UI</li>\
                                    <li><input type="checkbox" id="sp-prefs-enableHistory" /> Add next page to history</li>\
@@ -4224,9 +4220,9 @@ axios.defaults.adapter = adapter;
 
       SITEINFO = SITEINFO.concat(SITEINFO_json, SITEINFO_TP, SITEINFO_comp);
 
-      if (!SITEINFO_D.numOfRule || SITEINFO_D.numOfRule != SITEINFO.length) {
-        SITEINFO_D.numOfRule = SITEINFO.length;
-        GM.setValue("SITEINFO_D", JSON.stringify(SITEINFO_D));
+      if (!prefs.numOfRule || prefs.numOfRule != SITEINFO.length) {
+        prefs.numOfRule = SITEINFO.length;
+        GM.setValue("prefs", JSON.stringify(prefs));
       } // 重要的变量两枚.
 
 
@@ -7701,20 +7697,31 @@ module.exports = function(module) {
 /* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(5);
+var axios = __webpack_require__(5);
+
+var adapter = __webpack_require__(32);
+
+axios.defaults.adapter = adapter;
+module.exports = axios;
 
 /***/ }),
 /* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
+module.exports = __webpack_require__(6);
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 
 
-var utils = __webpack_require__(6);
-var bind = __webpack_require__(7);
-var Axios = __webpack_require__(9);
-var mergeConfig = __webpack_require__(27);
-var defaults = __webpack_require__(15);
+var utils = __webpack_require__(7);
+var bind = __webpack_require__(8);
+var Axios = __webpack_require__(10);
+var mergeConfig = __webpack_require__(28);
+var defaults = __webpack_require__(16);
 
 /**
  * Create an instance of Axios
@@ -7747,15 +7754,15 @@ axios.create = function create(instanceConfig) {
 };
 
 // Expose Cancel & CancelToken
-axios.Cancel = __webpack_require__(28);
-axios.CancelToken = __webpack_require__(29);
-axios.isCancel = __webpack_require__(14);
+axios.Cancel = __webpack_require__(29);
+axios.CancelToken = __webpack_require__(30);
+axios.isCancel = __webpack_require__(15);
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(30);
+axios.spread = __webpack_require__(31);
 
 module.exports = axios;
 
@@ -7764,14 +7771,14 @@ module.exports.default = axios;
 
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var bind = __webpack_require__(7);
-var isBuffer = __webpack_require__(8);
+var bind = __webpack_require__(8);
+var isBuffer = __webpack_require__(9);
 
 /*global toString:true*/
 
@@ -8105,7 +8112,7 @@ module.exports = {
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8123,7 +8130,7 @@ module.exports = function bind(fn, thisArg) {
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports) {
 
 /*!
@@ -8140,17 +8147,17 @@ module.exports = function isBuffer (obj) {
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(6);
-var buildURL = __webpack_require__(10);
-var InterceptorManager = __webpack_require__(11);
-var dispatchRequest = __webpack_require__(12);
-var mergeConfig = __webpack_require__(27);
+var utils = __webpack_require__(7);
+var buildURL = __webpack_require__(11);
+var InterceptorManager = __webpack_require__(12);
+var dispatchRequest = __webpack_require__(13);
+var mergeConfig = __webpack_require__(28);
 
 /**
  * Create a new instance of Axios
@@ -8233,13 +8240,13 @@ module.exports = Axios;
 
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(6);
+var utils = __webpack_require__(7);
 
 function encode(val) {
   return encodeURIComponent(val).
@@ -8311,13 +8318,13 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(6);
+var utils = __webpack_require__(7);
 
 function InterceptorManager() {
   this.handlers = [];
@@ -8370,18 +8377,18 @@ module.exports = InterceptorManager;
 
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(6);
-var transformData = __webpack_require__(13);
-var isCancel = __webpack_require__(14);
-var defaults = __webpack_require__(15);
-var isAbsoluteURL = __webpack_require__(25);
-var combineURLs = __webpack_require__(26);
+var utils = __webpack_require__(7);
+var transformData = __webpack_require__(14);
+var isCancel = __webpack_require__(15);
+var defaults = __webpack_require__(16);
+var isAbsoluteURL = __webpack_require__(26);
+var combineURLs = __webpack_require__(27);
 
 /**
  * Throws a `Cancel` if cancellation has been requested.
@@ -8463,13 +8470,13 @@ module.exports = function dispatchRequest(config) {
 
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(6);
+var utils = __webpack_require__(7);
 
 /**
  * Transform the data for a request or a response
@@ -8490,7 +8497,7 @@ module.exports = function transformData(data, headers, fns) {
 
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8502,14 +8509,14 @@ module.exports = function isCancel(value) {
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
-var utils = __webpack_require__(6);
-var normalizeHeaderName = __webpack_require__(17);
+var utils = __webpack_require__(7);
+var normalizeHeaderName = __webpack_require__(18);
 
 var DEFAULT_CONTENT_TYPE = {
   'Content-Type': 'application/x-www-form-urlencoded'
@@ -8526,10 +8533,10 @@ function getDefaultAdapter() {
   // Only Node.JS has a process variable that is of [[Class]] process
   if (typeof process !== 'undefined' && Object.prototype.toString.call(process) === '[object process]') {
     // For node use HTTP adapter
-    adapter = __webpack_require__(18);
+    adapter = __webpack_require__(19);
   } else if (typeof XMLHttpRequest !== 'undefined') {
     // For browsers use XHR adapter
-    adapter = __webpack_require__(18);
+    adapter = __webpack_require__(19);
   }
   return adapter;
 }
@@ -8605,10 +8612,10 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(16)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(17)))
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -8798,13 +8805,13 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(6);
+var utils = __webpack_require__(7);
 
 module.exports = function normalizeHeaderName(headers, normalizedName) {
   utils.forEach(headers, function processHeader(value, name) {
@@ -8817,18 +8824,18 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(6);
-var settle = __webpack_require__(19);
-var buildURL = __webpack_require__(10);
-var parseHeaders = __webpack_require__(22);
-var isURLSameOrigin = __webpack_require__(23);
-var createError = __webpack_require__(20);
+var utils = __webpack_require__(7);
+var settle = __webpack_require__(20);
+var buildURL = __webpack_require__(11);
+var parseHeaders = __webpack_require__(23);
+var isURLSameOrigin = __webpack_require__(24);
+var createError = __webpack_require__(21);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -8920,7 +8927,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(24);
+      var cookies = __webpack_require__(25);
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -8998,13 +9005,13 @@ module.exports = function xhrAdapter(config) {
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var createError = __webpack_require__(20);
+var createError = __webpack_require__(21);
 
 /**
  * Resolve or reject a Promise based on response status.
@@ -9030,13 +9037,13 @@ module.exports = function settle(resolve, reject, response) {
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var enhanceError = __webpack_require__(21);
+var enhanceError = __webpack_require__(22);
 
 /**
  * Create an Error with the specified message, config, error code, request and response.
@@ -9055,7 +9062,7 @@ module.exports = function createError(message, config, code, request, response) 
 
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9104,13 +9111,13 @@ module.exports = function enhanceError(error, config, code, request, response) {
 
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(6);
+var utils = __webpack_require__(7);
 
 // Headers whose duplicates are ignored by node
 // c.f. https://nodejs.org/api/http.html#http_message_headers
@@ -9164,13 +9171,13 @@ module.exports = function parseHeaders(headers) {
 
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(6);
+var utils = __webpack_require__(7);
 
 module.exports = (
   utils.isStandardBrowserEnv() ?
@@ -9239,13 +9246,13 @@ module.exports = (
 
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(6);
+var utils = __webpack_require__(7);
 
 module.exports = (
   utils.isStandardBrowserEnv() ?
@@ -9299,7 +9306,7 @@ module.exports = (
 
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9320,7 +9327,7 @@ module.exports = function isAbsoluteURL(url) {
 
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9341,13 +9348,13 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(6);
+var utils = __webpack_require__(7);
 
 /**
  * Config-specific merge-function which creates a new config-object
@@ -9399,7 +9406,7 @@ module.exports = function mergeConfig(config1, config2) {
 
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9425,13 +9432,13 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var Cancel = __webpack_require__(28);
+var Cancel = __webpack_require__(29);
 
 /**
  * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -9489,7 +9496,7 @@ module.exports = CancelToken;
 
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9523,21 +9530,21 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// 'use strict'
 // modified from https://github.com/Trim21/axios-userscript-adapter
-var _require = __webpack_require__(6),
+var _require = __webpack_require__(7),
     isFormData = _require.isFormData;
 
-var settle = __webpack_require__(19);
+var settle = __webpack_require__(20);
 
-var buildURL = __webpack_require__(10);
+var buildURL = __webpack_require__(11);
 
-var parseHeaders = __webpack_require__(22);
+var parseHeaders = __webpack_require__(23);
 
-var createError = __webpack_require__(20);
+var createError = __webpack_require__(21);
 
 var btoa;
 
@@ -9596,7 +9603,6 @@ module.exports = function (config) {
       var responseHeaders = "responseHeaders" in resp ? parseHeaders(resp.responseHeaders) : null;
       var responseData = !config.responseType || config.responseType === "text" ? resp.responseText : resp.response;
       var response = {
-        responseText: resp.responseText,
         data: responseData,
         // IE sends 1223 instead of 204 (https://github.com/mzabriskie/axios/issues/201)
         status: resp.status === 1223 ? 204 : resp.status,
@@ -9633,10 +9639,10 @@ module.exports = function (config) {
     });
   });
 };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(32).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(33).Buffer))
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9650,9 +9656,9 @@ module.exports = function (config) {
 
 
 
-var base64 = __webpack_require__(33)
-var ieee754 = __webpack_require__(34)
-var isArray = __webpack_require__(35)
+var base64 = __webpack_require__(34)
+var ieee754 = __webpack_require__(35)
+var isArray = __webpack_require__(36)
 
 exports.Buffer = Buffer
 exports.SlowBuffer = SlowBuffer
@@ -11433,7 +11439,7 @@ function isnan (val) {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(2)))
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11592,7 +11598,7 @@ function fromByteArray (uint8) {
 
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports) {
 
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
@@ -11682,7 +11688,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
 
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports) {
 
 var toString = {}.toString;
@@ -11693,7 +11699,7 @@ module.exports = Array.isArray || function (arr) {
 
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports) {
 
 var addStyle = function addStyle(aCss, aId, doc) {
@@ -11727,7 +11733,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
@@ -11827,10 +11833,10 @@ Object.keys(BROWSER_LEVEL).forEach(function (key) {
 module.exports = logger;
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var pkg = __webpack_require__(39); // Information of script
+var pkg = __webpack_require__(40); // Information of script
 
 
 var now = new Date();
@@ -11845,7 +11851,7 @@ var SCRIPT_INFO = {
   license: pkg.license,
   changelog: "Webpack",
   greasyfork: "https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new",
-  updateTime: `${now.getFullYear()}/${now.getMonth()}/${now.getDate()}`,
+  updateTime: `${now.getFullYear()}/${now.getMonth() + 1}/${now.getDate()}`,
   homepageURL: "https://github.com/machsix/Super-preloader"
 };
 SCRIPT_INFO.downloadURL = `${SCRIPT_INFO.greasyfork}/code/${SCRIPT_INFO.name}.user.js`;
@@ -11937,10 +11943,10 @@ module.exports = {
 };
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"name\":\"super-preloader\",\"version\":\"6.6.81\",\"description\":\"Super-preloader\",\"main\":\"dist/Super_preloaderPlus_one_New.user.js\",\"directories\":{\"doc\":\"docs\"},\"scripts\":{\"lint\":\"eslint dist/*.json src/**/*.js .ci/*.js docs/**/*.js\",\"format\":\"prettier --ignore-path=.eslintignore --write dist/*.json src/**/*.js .ci/*.js docs/**/*.{js,md}\",\"format:check\":\"prettier --ignore-path=.eslintignore --check dist/*.json src/**/*/js .ci/*.js docs/**/*.{js,md}\",\"format:staged\":\"pretty-quick --staged --ignore-path=.eslintignore --write dist/*.{js,json} .ci/*.js docs/**/*.{js,md}\",\"test\":\"npm run lint && npm run format:check\",\"dev\":\"webpack-dev-server --color\",\"build\":\"webpack\",\"preversion\":\"npm run test\",\"version\":\"npm run build  && git add dist/*.js\",\"postversion\":\"git add package.json package-lock.json\",\"docs:dev\":\"vuepress dev docs\",\"docs:build\":\"vuepress build docs\",\"docs:publish\":\"npm run docs:build && .ci/gen_ghpage.sh\"},\"husky\":{\"hooks\":{\"pre-commit\":\"npm --no-git-tag-version version patch\"}},\"repository\":{\"type\":\"git\",\"url\":\"git+https://github.com/machsix/Super-preloader.git\"},\"keywords\":[\"userscript\"],\"author\":\"Mach6\",\"license\":\"GPL-3.0\",\"bugs\":{\"url\":\"https://github.com/machsix/Super-preloader/issues\"},\"homepage\":\"https://github.com/machsix/Super-preloader\",\"devDependencies\":{\"@babel/core\":\"^7.6.4\",\"@babel/preset-env\":\"^7.6.3\",\"@vuepress/plugin-back-to-top\":\"1.0.4\",\"@vuepress/plugin-google-analytics\":\"1.2.0\",\"@vuepress/plugin-pwa\":\"1.0.4\",\"axios\":\"^0.19.0\",\"babel-eslint\":\"^10.0.3\",\"babel-loader\":\"^8.0.6\",\"eslint\":\"^6.6.0\",\"eslint-config-prettier\":\"6.2.0\",\"eslint-plugin-compat\":\"3.3.0\",\"eslint-plugin-json\":\"1.4.0\",\"eslint-plugin-prettier\":\"3.1.0\",\"husky\":\"3.0.9\",\"prettier\":\"1.18.2\",\"pretty-quick\":\"1.11.1\",\"underscore\":\"^1.9.1\",\"vuepress\":\"1.2.0\",\"webpack\":\"^4.41.2\",\"webpack-cli\":\"^3.3.10\",\"webpack-dev-server\":\"^3.9.0\",\"webpack-inject-plugin\":\"^1.5.3\"},\"dependencies\":{}}");
+module.exports = JSON.parse("{\"name\":\"super-preloader\",\"version\":\"6.6.81\",\"description\":\"Super-preloader\",\"main\":\"dist/Super_preloaderPlus_one_New.user.js\",\"author\":\"Mach6\",\"license\":\"GPL-3.0\",\"bugs\":{\"url\":\"https://github.com/machsix/Super-preloader/issues\"},\"homepage\":\"https://github.com/machsix/Super-preloader\",\"directories\":{\"doc\":\"docs\"},\"repository\":{\"type\":\"git\",\"url\":\"git+https://github.com/machsix/Super-preloader.git\"},\"scripts\":{\"lint\":\"eslint dist/*.json src/*.js src/**/*.js .ci/*.js docs/**/*.js\",\"format\":\"prettier --ignore-path=.eslintignore --write dist/*.json src/*.js src/**/*.js .ci/*.js docs/**/*.{js,md}\",\"format:check\":\"prettier --ignore-path=.eslintignore --check dist/*.json src/*.js src/**/*/js .ci/*.js docs/**/*.{js,md}\",\"format:staged\":\"pretty-quick --staged --ignore-path=.eslintignore --write dist/*.{js,json} .ci/*.js docs/**/*.{js,md}\",\"test\":\"npm run lint && npm run format:check\",\"dev\":\"webpack-dev-server --color\",\"build\":\"webpack\",\"preversion\":\"npm run test\",\"version\":\"npm run build  && git add dist/*.js\",\"postversion\":\"git add package.json package-lock.json\",\"docs:dev\":\"vuepress dev docs\",\"docs:build\":\"vuepress build docs\",\"docs:publish\":\"npm run docs:build && .ci/gen_ghpage.sh\"},\"husky\":{\"hooks\":{\"pre-commit\":\"npm --no-git-tag-version version patch\"}},\"_moduleAliases\":{\"@\":\"src/lib\"},\"keywords\":[\"userscript\"],\"devDependencies\":{\"vuepress\":\"1.2.0\",\"@vuepress/plugin-back-to-top\":\"1.0.4\",\"@vuepress/plugin-google-analytics\":\"1.2.0\",\"@vuepress/plugin-pwa\":\"1.0.4\"},\"dependencies\":{\"@babel/core\":\"^7.6.4\",\"@babel/preset-env\":\"^7.6.3\",\"axios\":\"^0.19.0\",\"babel-eslint\":\"^10.0.3\",\"babel-loader\":\"^8.0.6\",\"eslint\":\"^6.6.0\",\"eslint-config-prettier\":\"6.2.0\",\"eslint-plugin-compat\":\"3.3.0\",\"eslint-plugin-json\":\"1.4.0\",\"eslint-plugin-prettier\":\"3.1.0\",\"husky\":\"3.0.9\",\"prettier\":\"1.18.2\",\"pretty-quick\":\"1.11.1\",\"underscore\":\"^1.9.1\",\"webpack\":\"^4.41.2\",\"webpack-cli\":\"^3.3.10\",\"webpack-dev-server\":\"^3.9.0\",\"webpack-inject-plugin\":\"^1.5.3\"}}");
 
 /***/ })
 /******/ ]);

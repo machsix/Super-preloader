@@ -1,6 +1,6 @@
 const _ = require("underscore");
-const logger = require("@/logger");
-const axios = require("@/axios");
+const logger = require("@lib/logger");
+const axios = require("@lib/axios");
 
 // Definiation of provider
 class RuleProvider {
