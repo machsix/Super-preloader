@@ -3,8 +3,18 @@
   "version": "6.6.81",
   "description": "Super-preloader",
   "main": "dist/Super_preloaderPlus_one_New.user.js",
+  "author": "Mach6",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/machsix/Super-preloader/issues"
+  },
+  "homepage": "https://github.com/machsix/Super-preloader",
   "directories": {
     "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/machsix/Super-preloader.git"
   },
   "scripts": {
     "lint": "eslint dist/*.json src/**/*.js .ci/*.js docs/**/*.js",
@@ -26,25 +36,21 @@
       "pre-commit": "npm --no-git-tag-version version patch"
     }
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/machsix/Super-preloader.git"
+  "_moduleAliases": {
+    "@": "src/lib"
   },
   "keywords": [
     "userscript"
   ],
-  "author": "Mach6",
-  "license": "GPL-3.0",
-  "bugs": {
-    "url": "https://github.com/machsix/Super-preloader/issues"
-  },
-  "homepage": "https://github.com/machsix/Super-preloader",
   "devDependencies": {
-    "@babel/core": "^7.6.4",
-    "@babel/preset-env": "^7.6.3",
+    "vuepress": "1.2.0",
     "@vuepress/plugin-back-to-top": "1.0.4",
     "@vuepress/plugin-google-analytics": "1.2.0",
-    "@vuepress/plugin-pwa": "1.0.4",
+    "@vuepress/plugin-pwa": "1.0.4"
+  },
+  "dependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
     "axios": "^0.19.0",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
@@ -54,14 +60,13 @@
     "eslint-plugin-json": "1.4.0",
     "eslint-plugin-prettier": "3.1.0",
     "husky": "3.0.9",
+    "module-alias": "^2.2.2",
     "prettier": "1.18.2",
     "pretty-quick": "1.11.1",
     "underscore": "^1.9.1",
-    "vuepress": "1.2.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.9.0",
     "webpack-inject-plugin": "^1.5.3"
-  },
-  "dependencies": {}
+  }
 }
