@@ -1,0 +1,12 @@
+root = true
+
+[*]
+indent_style = space
+indent_size = 2
+trim_trailing_whitespace = true
+charset = utf-8
+insert_final_newline = true
+end_of_line = lf
+# editorconfig-tools is unable to ignore longs strings or urls
+max_line_length = off
+insert_final_newline = true

@@ -17,9 +17,9 @@
     "url": "git+https://github.com/machsix/Super-preloader.git"
   },
   "scripts": {
-    "lint": "eslint dist/*.json src/**/*.js .ci/*.js docs/**/*.js",
-    "format": "prettier --ignore-path=.eslintignore --write dist/*.json src/**/*.js .ci/*.js docs/**/*.{js,md}",
-    "format:check": "prettier --ignore-path=.eslintignore --check dist/*.json src/**/*/js .ci/*.js docs/**/*.{js,md}",
+    "lint": "eslint dist/*.json src/*.js src/**/*.js .ci/*.js docs/**/*.js",
+    "format": "prettier --ignore-path=.eslintignore --write dist/*.json src/*.js src/**/*.js .ci/*.js docs/**/*.{js,md}",
+    "format:check": "prettier --ignore-path=.eslintignore --check dist/*.json src/*.js src/**/*/js .ci/*.js docs/**/*.{js,md}",
     "format:staged": "pretty-quick --staged --ignore-path=.eslintignore --write dist/*.{js,json} .ci/*.js docs/**/*.{js,md}",
     "test": "npm run lint && npm run format:check",
     "dev": "webpack-dev-server --color",
