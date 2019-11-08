@@ -2,11 +2,10 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-empty */
 
-require("module-alias");
 const _ = require("underscore");
-const axios = require("@/axios");
-const GME = require("@/gm-enhanced");
-const logger = require("@/logger");
+const axios = require("@lib/axios");
+const GME = require("@lib/gm-enhanced");
+const logger = require("@lib/logger");
 const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
 
 (function() {
