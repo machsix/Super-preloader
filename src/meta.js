@@ -15,7 +15,9 @@ const SCRIPT_INFO = {
   changelog: "Webpack",
   greasyfork: "https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new",
   updateTime: `${now.getFullYear()}/${now.getMonth() + 1}/${now.getDate()}`,
-  homepageURL: "https://github.com/machsix/Super-preloader"
+  homepageURL: "https://github.com/machsix/Super-preloader",
+  // rewrite storage for these versions
+  rewriteStorage: ["6.6.83"]
 };
 
 SCRIPT_INFO.downloadURL = `${SCRIPT_INFO.greasyfork}/code/${SCRIPT_INFO.name}.user.js`;
@@ -31,7 +33,7 @@ const NOTIFICATION = {
   image: SCRIPT_INFO.icon,
   onload: function() {},
   // eslint-disable-next-line no-unused-vars
-  show: (oldversion) => false
+  show: (oldVersion, newVersion) => true
 };
 
 // Meta for userscript

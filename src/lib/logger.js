@@ -28,7 +28,7 @@ const logFormat = (...args) => {
 
 const logger = {
   levels: BROWSER_LEVEL,
-  loglevel: BROWSER_LEVEL.WARN,
+  loglevel: BROWSER_LEVEL.INFO,
   enableDebug(i = false) {
     if (i) {
       this.loglevel = BROWSER_LEVEL.DEBUG;
