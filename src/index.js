@@ -2,10 +2,13 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-empty */
 
+require("babel-polyfill");
 const _ = require("underscore");
 const axios = require("@lib/axios");
 const GME = require("@lib/gm-enhanced");
 const logger = require("@lib/logger");
+const jsonRule = require("@lib/json-rule");
+const compareVersions = require("compare-versions");
 const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
 
 (function() {
@@ -158,11 +161,12 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
     numOfRule: 4308
   };
   let prefs = prefsFactory;
+  let myOldVersion = "1.0.0";
 
   /// ///////////////////////---------------规则-------////////////////
   // 高级规则的一些默认设置..如果你不知道是什么..请务必不要修改(删除)它.此修改会影响到所有高级规则...
   // (Default settings)
-  var SITEINFO_D = {
+  const SITEINFO_DFactory = {
     enable: true, // 启用
     useiframe: false, // (预读)是否使用iframe..
     viewcontent: false, // 查看预读的内容,显示在页面的最下方.
@@ -183,6 +187,7 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
       sandbox: false // Iframe sandbox 选项
     }
   };
+  let SITEINFO_D = SITEINFO_DFactory;
 
   // 在以下网站上允许在非顶层窗口上加载JS..比如猫扑之类的框架集网页.
   const DIExclude = [
@@ -1227,7 +1232,6 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
           if (pageSelect) {
             const s2os = pageSelect.options;
             const s2osl = s2os.length;
-            // alert(s2.selectedIndex);
             if (pageSelect.selectedIndex == s2osl - 1) return true;
           }
         }
@@ -1594,210 +1598,6 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
 
   //  ///////// ----- Rules obtained from online json files -------///////////
   var SITEINFO_json = [];
-  const jsonRule = {
-    info: {
-      expire: new Date("1992-05-15"),
-      updatePeriodInDay: 1 // json rules are update everyday
-    },
-    rule: [[], []], // length should be the same as this.provider
-    /**
-     * import string into data
-     * @param {object} jsonRuleInfo GM saved info
-     * @param {object} jsonRule GM saved rules
-     * @returns {void}
-     */
-    importData: function(jsonRuleInfo, jsonRule) {
-      const _jsonRuleInfo = JSON.parse(jsonRuleInfo);
-      this.info.expire = new Date(_jsonRuleInfo.expire);
-      this.info.updatePeriodInDay = _jsonRuleInfo.updatePeriodInDay;
-      this.rule = JSON.parse(jsonRule);
-    },
-    saveData: function(withRule, updatePeriodInDay) {
-      const promise = [];
-      if (withRule) {
-        promise.push(GM.setValue("SITEINFO_json", JSON.stringify(this.rule)));
-      }
-      const _updatePeriodInDay = typeof updatePeriodInDay === "undefined" ? this.info.updatePeriodInDay : updatePeriodInDay;
-      const today = new Date();
-      this.info.expire = new Date(today.getTime() + _updatePeriodInDay * 24 * 60 * 60 * 1000);
-      promise.push(GM.setValue("jsonRuleInfo", JSON.stringify(this.info)));
-      return Promise.all(promise);
-    },
-    exportRule: function() {
-      return _.flatten(this.rule);
-    },
-    provider: [
-      {
-        name: "machsix.github.io",
-        url: ["https://machsix.github.io/Super-preloader/mydata.json", "https://cdn.jsdelivr.net/gh/machsix/Super-preloader/dist/mydata.json"],
-        detailUrl: "https://machsix.github.io/Super-preloader/mydata_detail.json",
-        ruleParser: function(responseText) {
-          return JSON.parse(responseText);
-        }
-      },
-      {
-        name: "wedata.net",
-        url: ["http://wedata.net/databases/AutoPagerize/items.json", "https://super-preloader.netlify.com/wedata.json"],
-        detailUrl: "http://wedata.net/databases/AutoPagerize.json",
-        ruleParser: function(responseText) {
-          return JSON.parse(responseText)
-            .filter(function(i) {
-              const nameFilter = ["Generic Posts Rule", "hAtom"];
-              for (var j = 0; j < nameFilter.length; j++) {
-                if (nameFilter[j].indexOf(i.name) >= 0) {
-                  return false;
-                }
-              }
-              return true;
-            })
-            .map(function(i) {
-              i.data.name = i.name;
-              i.data.source = "wedata.net";
-              return i.data;
-            });
-        }
-      }
-    ],
-    /**
-     * Download rule from provider[i]
-     * @param {number} i provider[i]
-     * @returns {promise} the downloaded rule
-     */
-    downloadRule: function(i) {
-      const createRequest = function(iurl) {
-        return new Promise(
-          function(resolve, reject) {
-            axios
-              .get(this.provider[i].url[iurl], {nocache: true})
-              .then(
-                function(res) {
-                  try {
-                    const rule = this.provider[i].ruleParser(res.responseText);
-                    logger.warn(`[UpdateRule] ${this.provider[i].name} [Status] Success`);
-                    resolve(rule);
-                  } catch (error) {
-                    logger.error(`[UpdateRule] ${this.provider[i].name} [Status] Fail to parse`);
-                    reject(error);
-                  }
-                }.bind(this)
-              )
-              .catch(
-                function(error) {
-                  if (iurl < this.provider[i].url.length) {
-                    return createRequest(iurl + 1);
-                  } else {
-                    logger.error(`[Update Rule] ${this.provider[i].name} [Status] Fail to download`);
-                    reject(error);
-                  }
-                }.bind(this)
-              );
-          }.bind(this)
-        );
-      }.bind(this);
-      return createRequest(0);
-    },
-    /**
-     * update rule for a specific index
-     * @param {number} i index of provider
-     * @param {boolean} force whether to forcely update
-     * @param {Object} lastUpdate override this.data.expire
-     * @returns {void}
-     */
-    updateRule: function(i, force, lastUpdate) {
-      // update rule[i] if we don't have rule for it
-      const _force = typeof force !== "undefined" ? this.rule[i].length < 1 || force : this.rule[i].length < 1 || false;
-      const _lastUpdate = typeof lastUpdate !== "undefined" ? lastUpdate : this.info.expire;
-      return new Promise(
-        function(resolve, reject) {
-          axios
-            .get(this.provider[i].detailUrl, {nocache: true})
-            .then(
-              function(res) {
-                const detail = res.data;
-                const ruleLastUpdate = new Date(detail.updated_at);
-                if (_force || ruleLastUpdate > _lastUpdate || this.rule[i].length === 0) {
-                  // download rule for:
-                  // 1. forced update
-                  // 2. rule is updated
-                  // 3. rule is empty
-                  this.downloadRule(i)
-                    .then(function(rule) {
-                      resolve(rule);
-                    })
-                    .catch(function(error) {
-                      reject(error);
-                    });
-                } else {
-                  logger.log(`[UpdateRule] ${this.provider[i].name} [Status] No need to update`);
-                  resolve(this.rule[i]);
-                }
-              }.bind(this)
-            )
-            .catch(
-              function(error) {
-                logger.error(`[UpdateRule] ${this.provider[i].name} [Status] Fail to fetch detail`);
-                reject(error);
-              }.bind(this)
-            );
-        }.bind(this)
-      );
-    },
-    /**
-     * update all rules
-     * @param {force} force force update rule
-     * @return {promise/val} the resolved rules
-     */
-    updateAllRules: function(force) {
-      const _force = this.rule.length !== this.provider.length ? true : !!force;
-      const today = new Date();
-
-      if (_force || today > this.info.expire) {
-        const reflect = function(promise) {
-          return promise.then(
-            function(v) {
-              return {v: v, status: "resolved"};
-            },
-            function(e) {
-              return {e: e, status: "rejected"};
-            }
-          );
-        };
-
-        // update rule if we have mismatched rule and provider
-        return Promise.all(
-          this.provider.map(
-            function(val, i) {
-              return reflect(this.updateRule(i, _force));
-            }.bind(this)
-          )
-        ).then(
-          function(v) {
-            var s = true;
-            this.rule = v.map(function(val, index) {
-              if (val.status === "resolved") {
-                return val.v;
-              } else {
-                s = false;
-                return [];
-              }
-            });
-
-            if (s) {
-              // although it returns a promise, we don't need to wait for it
-              this.saveData(true);
-            } else {
-              this.saveData(true, -1);
-            }
-            return Promise.resolve(this.exportRule());
-          }.bind(this)
-        );
-      } else {
-        this.saveData(false);
-        logger.debug("[Rule] Next update at:" + this.info.expire.toISOString());
-        return Promise.resolve(this.exportRule());
-      }
-    }
-  };
 
   //  ///////// ----- End of Rules obtained from online json files -------///////////
 
@@ -1831,7 +1631,7 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
   // 当没有找到规则的时候,进入自动搜索模式.
   // 在没有高级规则的网站上.的一些设置..
   // (Default settings)
-  var autoMatch = {
+  const autoMatchFactory = {
     keyMatch: true, // 是否启用关键字匹配
     cases: false, // 关键字区分大小写....
     digitalCheck: true, // 对数字连接进行检测,从中找出下一页的链接
@@ -1880,6 +1680,7 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
       separator: true // 显示翻页导航..(推荐显示.)..
     }
   };
+  let autoMatch = autoMatchFactory;
 
   // 上一页关键字
   var prePageKey = [
@@ -2027,57 +1828,56 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
 
   // ------------------------下面的不要管他-----------------
   /// ////////////////////////////////////////////////////////////////
-  Promise.all([
-    GM.getValue("prefs", JSON.stringify(prefsFactory)),
-    GM.getValue("SITEINFO_D", JSON.stringify(SITEINFO_D)),
-    GM.getValue("autoMatch", JSON.stringify(autoMatch)),
-    GM.getValue("jsonRuleInfo", JSON.stringify(jsonRule.info)),
-    GM.getValue("SITEINFO_json", JSON.stringify(jsonRule.rule)),
-    GM.getValue("version", "1.0.00")
-  ]).then(function(values) {
-    // retrieve settings
-    prefs = JSON.parse(values[0]);
-    SITEINFO_D = JSON.parse(values[1]);
-    autoMatch = JSON.parse(values[2]);
+  // eslint-disable-next-line prettier/prettier
+  Promise.all([GM.getValue("prefs", prefsFactory), GM.getValue("SITEINFO_D", SITEINFO_DFactory), GM.getValue("autoMatch", autoMatchFactory), GM.getValue("version", myOldVersion), jsonRule.loadDB()]).then(function(values) {
+    [prefs, SITEINFO_D, autoMatch, myOldVersion] = values;
+    if (_.isString(prefs)) prefs = JSON.parse(prefs);
+    logger.enableDebug(prefs.debug ? prefs.debug : true);
+    if (_.isString(SITEINFO_D)) SITEINFO_D = JSON.parse(SITEINFO_D);
+    if (_.isString(autoMatch)) autoMatch = JSON.parse(autoMatch);
+    SITEINFO_json = jsonRule.getRule();
 
-    // import jsonRule to its handler
-    jsonRule.importData(values[3], values[4]);
-    SITEINFO_json = jsonRule.exportRule();
-
+    const preSPinit = [];
     // check the consistency of script settings
-    const myVersion = values[5];
-    if (versionCompare(myVersion, scriptInfo.version) < 0) {
+    if (compareVersions(myOldVersion, scriptInfo.version) < 0) {
       // update rule if the script is upgraded or it is installed for the first time
       if (upgradeNotification) {
-        if (upgradeNotification.show(myVersion)) {
+        if (upgradeNotification.show(myOldVersion, scriptInfo.version)) {
           if (i8n() === "zh_CN") {
-            const text = "脚本从 v" + myVersion + " 升级到 v" + scriptInfo.version + "。 ";
+            const text = "脚本从 v" + myOldVersion + " 升级到 v" + scriptInfo.version + "。 ";
             // eslint-disable-next-line no-undef
             GM_notification(text + upgradeNotification.text.zh_CN, upgradeNotification.title, upgradeNotification.image, upgradeNotification.onload);
           } else {
-            const text = "Script is upgraded from v" + myVersion + " to v" + scriptInfo.version + ". ";
+            const text = "Script is upgraded from v" + myOldVersion + " to v" + scriptInfo.version + ". ";
             // eslint-disable-next-line no-undef
             GM_notification(text + upgradeNotification.text.en_US, upgradeNotification.title, upgradeNotification.image, upgradeNotification.onload);
           }
         }
       }
-      jsonRule.info.expire = new Date("1992-05-15");
-      GM.setValue("version", scriptInfo.version);
-      prefs.factoryCheck = true;
-    } else if (versionCompare(myVersion, scriptInfo.version) > 0) {
-      // downgrade
-      GM.setValue("version", scriptInfo.version);
-    }
-    if (prefs.factoryCheck === true || prefs.factoryCheck === undefined) {
-      var hasMissing = assignMissingProperty(prefsFactory, prefs);
-      if (hasMissing) {
-        logger.debug("Old prefs:", prefs);
-      }
-      prefs.factoryCheck = false;
-      GM.setValue("prefs", JSON.stringify(prefs));
     }
 
-    logger.enableDebug(prefs.debug || false);
+    if (compareVersions(myOldVersion, scriptInfo.version) !== 0) {
+      prefs.factoryCheck = true;
+      preSPinit.push(jsonRule.updateRule(true)); // rule is always updated after upgrade
+      preSPinit.push(GM.setValue("version", scriptInfo.version));
+      logger.info(`[UpdateCheck] version is updated ${myOldVersion} => ${scriptInfo.version}`);
+    } else {
+      preSPinit.push(jsonRule.updateRule());
+    }
+
+    if (prefs.factoryCheck === true || prefs.factoryCheck === undefined) {
+      const hasMissing = assignMissingProperty(prefsFactory, prefs);
+      if (hasMissing) {
+        logger.info("[UpdateCheck] prefs is updated", prefs);
+      }
+      prefs.factoryCheck = false;
+      preSPinit.push(GM.setValue("prefs", prefs));
+      if (scriptInfo.rewriteStorage.includes(scriptInfo.version)) {
+        preSPinit.push(GM.setValue("SITEINFO_D", SITEINFO_D));
+        preSPinit.push(GM.setValue("autoMatch", autoMatch));
+        logger.info("[UpdateCheck] Storage is rewritten");
+      }
+    }
 
     // 黑名单,网站正则..
     var blackList = [
@@ -2152,7 +1952,7 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
                                    <li>规则数目: <b>" +
           prefs.numOfRule +
           "</b> 下次更新时间: <b>" +
-          jsonRule.info.expire.toDateString() +
+          jsonRule.expire.toDateString() +
           '</b> <button id="sp-prefs-updaterule">更新规则</button></li>\
                                    <li><input type="checkbox" id="sp-prefs-debug" /> 调试模式</li>\
                                    <li><input title="强制开启中文界面" type="checkbox" id="sp-prefs-ChineseUI" /> 中文界面</li>\
@@ -2194,7 +1994,7 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
                                    <li>Number of Rules: <b>" +
           prefs.numOfRule +
           "</b> Next update: <b>" +
-          jsonRule.info.expire.toDateString() +
+          jsonRule.expire.toDateString() +
           '</b> <button id="sp-prefs-updaterule">Update rules</button></li>\
                                    <li><input type="checkbox" id="sp-prefs-debug" /> Debug mode</li>\
                                    <li><input type="checkbox"  tile="English/Chinese UI" id="sp-prefs-ChineseUI" /> Chinese UI</li>\
@@ -2244,7 +2044,7 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
 
         autoMatch.useiframe = SITEINFO_D.useiframe;
 
-        Promise.all([GM.setValue("prefs", JSON.stringify(prefs)), GM.setValue("SITEINFO_D", JSON.stringify(SITEINFO_D)), GM.setValue("autoMatch", JSON.stringify(autoMatch))]).then(function(values) {
+        Promise.all([GM.setValue("prefs", prefs), GM.setValue("SITEINFO_D", SITEINFO_D), GM.setValue("autoMatch", autoMatch)]).then(function(values) {
           SP.loadSetting();
           close();
           location.reload();
@@ -2253,7 +2053,7 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
 
       on($("reset"), "click", () => {
         prefs = prefsFactory;
-        GM.setValue("prefs", JSON.stringify(prefs)).then(() => {
+        GM.setValue("prefs", prefs).then(() => {
           SP.loadSetting();
           close();
           location.reload();
@@ -2262,8 +2062,8 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
 
       on($("updaterule"), "click", function() {
         $("updaterule").innerHTML = "Updating...";
-        jsonRule.updateAllRules(true).then(function(val) {
-          SITEINFO_json = val;
+        jsonRule.updateRule(true).then(() => {
+          SITEINFO_json = jsonRule.getRule();
           SP.loadSetting();
           close();
           location.reload();
@@ -2306,8 +2106,6 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
           return toRE(x.url).test(locationHref);
         });
 
-        // update json rule
-        const p2 = jsonRule.updateAllRules();
         if (hashSite) {
           isHashchangeSite = true;
           hashchangeTimer = hashSite.timer;
@@ -2315,14 +2113,11 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
           const p1 = new Promise(function(resolve, reject) {
             setTimeout(resolve, hashchangeTimer);
           });
-          Promise.all([p1, p2]).then(function(values) {
+          p1.then(function(values) {
             init(window, document);
           });
         } else {
-          p2.then(function(values) {
-            SITEINFO_json = values;
-            init(window, document);
-          });
+          init(window, document);
         }
 
         // 分辨率 高度 > 宽度 的是手机
@@ -2366,7 +2161,10 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
     };
 
     logger.debug("Entrypoint");
-    SP.spinit();
+    Promise.all(preSPinit).then(() => {
+      SITEINFO_json = jsonRule.getRule();
+      SP.spinit();
+    });
 
     function init(window, document) {
       const startTime = new Date();
@@ -2709,9 +2507,7 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
               value.a_ipages = [gl(a_ipages_0), isNaN(t_a_ipages_1) ? SSS.a_ipages[1] : t_a_ipages_1 >= 1 ? t_a_ipages_1 : 1];
               value.a_separator = gl(a_separator);
             }
-            // alert(xToString(value));
             SSS.savedValue[SSS.sedValueIndex] = value;
-            // alert(xToString(SSS.savedValue));
             saveValue("spfwset", xToString(SSS.savedValue));
             if (e.shiftKey ? !prefs.FW_RAS : prefs.FW_RAS) {
               // 按住shift键,执行反向操作.
@@ -2983,7 +2779,6 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
 
         function transition() {
           const y = Math.ceil(TweenF(t, b, c, d));
-          // alert(y);
           window.scroll(x, y);
           if (t < d) {
             t++;
@@ -2996,16 +2791,13 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
       function sepHandler(e) {
         e.stopPropagation();
         const div = e.currentTarget;
-        // alert(div);
         const target = e.target;
-        // alert(target);
 
         function getRelativeDiv(which) {
           var id = div.id;
           id = id.replace(/(sp-separator-)(.+)/, function(a, b, c) {
             return b + String(Number(c) + (which == "pre" ? -1 : 1));
           });
-          // alert(id);
           return id ? document.getElementById(id) : null;
         }
 
@@ -3137,7 +2929,7 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
         var doc, win;
 
         function XHRLoaded(res) {
-          const str = res.responseText;
+          const str = res.data;
           doc = win = createDocumentByString(str);
 
           if (!doc) {
@@ -3217,7 +3009,6 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
 
         function iframeLoaded(event) {
           const iframe = event.currentTarget;
-          // alert(this.contentDocument.body)
           const body = iframe.contentDocument.body;
           if (body && body.firstChild) {
             setTimeout(function() {
@@ -3426,7 +3217,6 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
             const spage = function() {
               if (doc) {
                 const value = getInputValue();
-                // alert(value);
                 ipagesmode = true;
                 ipagesnumber = value + paged;
                 insertedIntoDoc();
@@ -3435,7 +3225,6 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
             input.addEventListener(
               "keyup",
               function(e) {
-                // alert(e.keyCode);
                 if (e.keyCode == 13) {
                   // 回车
                   spage();
@@ -3720,7 +3509,6 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
 
           if (SSS.filter && typeof SSS.filter === "string") {
             // 功能未完善.
-            // alert(SSS.filter);
             var nodes = [];
             try {
               nodes = getAllElements(SSS.filter, fragment);
@@ -3824,11 +3612,9 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
           if (SSS.a_replaceE) {
             const oldE = getAllElements(SSS.a_replaceE);
             const oldE_lt = oldE.length;
-            // alert(oldE_lt);
             if (oldE_lt > 0) {
               const newE = getAllElements(SSS.a_replaceE, false, doc, win);
               const newE_lt = newE.length;
-              // alert(newE_lt);
               if (newE_lt == oldE_lt) {
                 // 替换
                 var oldE_x, newE_x;
@@ -4097,7 +3883,7 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
           }
         } else {
           axios.get(nextlink).then((res) => {
-            const doc = createDocumentByString(res.responseText);
+            const doc = createDocumentByString(res.data);
             if (!doc) {
               logger.error("文档对象创建失败!");
               return;
@@ -4166,7 +3952,7 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
       SITEINFO = SITEINFO.concat(SITEINFO_json, SITEINFO_TP, SITEINFO_comp);
       if (!prefs.numOfRule || prefs.numOfRule != SITEINFO.length) {
         prefs.numOfRule = SITEINFO.length;
-        GM.setValue("prefs", JSON.stringify(prefs));
+        GM.setValue("prefs", prefs);
       }
 
       // 重要的变量两枚.
@@ -4230,10 +4016,8 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
               }
             }
 
-            // alert(prelink);
             SSS = {};
             SSS.Rurl = String(Rurl);
-            // alert(SSS.Rurl);
             SSS.nextLink = SII.nextLink || "auto;";
             SSS.viewcontent = SII.viewcontent;
             SSS.enable = SII.enable === undefined ? SITEINFO_D.enable : SII.enable;
@@ -4266,7 +4050,6 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
               SSS.a_newIframe = SIIA.newIframe === undefined ? SIIAD.newIframe : SIIA.newIframe;
               SSS.a_iloaded = SIIA.iloaded === undefined ? SIIAD.iloaded : SIIA.iloaded;
               SSS.a_itimeout = SIIA.itimeout === undefined ? SIIAD.itimeout : SIIA.itimeout;
-              // alert(SSS.a_itimeout);
               SSS.a_remain = SIIA.remain === undefined ? SIIAD.remain : SIIA.remain;
               SSS.a_maxpage = SIIA.maxpage === undefined ? SIIAD.maxpage : SIIA.maxpage;
               SSS.a_separator = SIIA.separator === undefined ? SIIAD.separator : SIIA.separator;
@@ -4319,12 +4102,10 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
             logger.debug("自动匹配功能被禁用了.");
           } else {
             nextlink = autoGetLink();
-            // alert(nextlink);
             if (nextlink) {
               // 强制模式.
               const FA = autoMatch.FA;
               SSS.Rurl = window.localStorage ? "am:" + (url.match(/^https?:\/\/[^:]*\//i) || [])[0] : "am:automatch";
-              // alert(SSS.Rurl);
               SSS.enable = true;
               SSS.nextLink = "auto;";
               SSS.viewcontent = autoMatch.viewcontent;
@@ -4455,7 +4236,6 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
               break;
             }
           }
-          // alert(i);
           SSS.sedValueIndex = i;
         } else {
           SSS.savedValue = [];
@@ -4544,7 +4324,6 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
 
         if (doc == document) {
           // 当前文档,只检查一次.
-          // alert(nextlink);
           if (docChecked) return nextlink;
           docChecked = true;
         }
@@ -4619,7 +4398,6 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
                 // 是不是纯数字
                 // debug(numtext);
                 numtext = numtext[1];
-                // alert(numtext);
                 aP = a;
                 initSD = 0;
 
@@ -4634,7 +4412,6 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
                       preS2 = aP.previousElementSibling;
                     }
                     initSD++;
-                    // alert('initSD: '+initSD);
                   }
                   searchedD = initSD > 0;
 
@@ -4646,22 +4423,16 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
                       pSNText = preS2 ? preS2.textContent.match(DCRE) : "";
                       preSS = preS2;
                     }
-                    // alert(previousS);
                     if (pSNText) {
                       pSNText = pSNText[1];
-                      // debug(pSNText)
-                      // alert(pSNText)
                       if (_Number(pSNText) == _Number(numtext) - 1) {
-                        // alert(searchedD);
                         nodeType = preSS.nodeType;
-                        // alert(nodeType);
                         if (
                           nodeType == 3 ||
                           (nodeType == 1 &&
                             (searchedD ? _getAllElementsByXpath("./descendant-or-self::a[@href]", preSS, doc).snapshotLength === 0 : !preSS.hasAttribute("href") || _getFullHref(preSS.getAttribute("href")) == curLHref))
                         ) {
                           _nextlink = finalCheck(a, "next");
-                          // alert(_nextlink);
                         }
                         continue;
                       }
@@ -4680,7 +4451,6 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
                       nextS2 = a.nextElementSibling;
                     }
                     initSD++;
-                    // alert('initSD: '+initSD);
                   }
                   searchedD = initSD > 0;
 
@@ -4692,21 +4462,16 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
                       nSNText = nextS2 ? nextS2.textContent.match(DCRE) : "";
                       nextSS = nextS2;
                     }
-                    // alert(nextS);
                     if (nSNText) {
                       nSNText = nSNText[1];
-                      // alert(pSNText)
                       if (_Number(nSNText) == _Number(numtext) + 1) {
-                        // alert(searchedD);
                         nodeType = nextSS.nodeType;
-                        // alert(nodeType);
                         if (
                           nodeType == 3 ||
                           (nodeType == 1 &&
                             (searchedD ? _getAllElementsByXpath("./descendant-or-self::a[@href]", nextSS, doc).snapshotLength === 0 : !nextSS.hasAttribute("href") || _getFullHref(nextSS.getAttribute("href")) == curLHref))
                         ) {
                           _prelink = finalCheck(a, "pre");
-                          // alert(_prelink);
                         }
                       }
                     }
@@ -4755,7 +4520,6 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
           autoGetLink.checked = true;
         }
 
-        // alert(_nextlink);
         return _nextlink;
       }
 
@@ -4799,15 +4563,12 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
 
           plwords = RE_maxPrefix > 0 ? "[" + (RE_enable_a ? strMTE(RE_character_a.join("")) : ".") + "]{0," + RE_maxPrefix + "}" : "";
           plwords = "^\\s*" + plwords;
-          // alert(plwords);
           slwords = RE_maxSubfix > 0 ? "[" + (RE_enable_b ? strMTE(RE_character_b.join("")) : ".") + "]{0," + RE_maxSubfix + "}" : "";
           slwords = slwords + "\\s*$";
-          // alert(slwords);
           rep = prefs.cases ? "" : "i";
 
           for (var i = 0; i < pageKeyLength; i++) {
             pageKey[i] = new RegExp(plwords + strMTE(pageKey[i]) + slwords, rep);
-            // alert(pageKey[i]);
           }
           return pageKey;
         }
@@ -4971,7 +4732,6 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
       }
       return str;
     }
-    // alert(getHref(_cplink))
 
     var sa = obj.startAfter;
     const saType = typeof sa;
@@ -4986,11 +4746,9 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
         _cplink = getHref(_cplink);
         index = _cplink.indexOf(sa);
         if (index == -1) return;
-        // alert(index);
       }
     } else {
       const tsa = _cplink.match(sa);
-      // alert(sa);
       if (!tsa) {
         _cplink = getHref(_cplink);
         sa = (_cplink.match(sa) || [])[0];
@@ -5000,8 +4758,6 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
       } else {
         sa = tsa[0];
         index = _cplink.indexOf(sa);
-        // alert(index)
-        // alert(tsa.index)
       }
     }
 
@@ -5015,7 +4771,6 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
       if (b >= max || b < min) return a;
       return b + c;
     });
-    // alert(aStr+nbStr);
     if (nbStr !== bStr) {
       var ilresult;
       try {
@@ -5412,7 +5167,6 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
             }
           }
         }
-        // alert(ret)
         return unique(ret);
       } else if (x.item) {
         // nodelist or HTMLcollection
@@ -5518,14 +5272,12 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
   // 从相对路径的a.href获取完全的href值.
   function getFullHref(href) {
     if (typeof href !== "string") href = href.getAttribute("href");
-    // alert(href);
     // if(href.search(/^https?:/)==0)return href;//http打头,不一定就是完整的href;
     var a = getFullHref.a;
     if (!a) {
       getFullHref.a = a = document.createElement("a");
     }
     a.href = href;
-    // alert(a.href);
     return a.href;
   }
 
@@ -5611,7 +5363,6 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
             case "Boolean":
               return Str(x);
             default:
-              // alert(x.constructor);//漏了什么类型么?
               break;
           }
           break;
@@ -5680,52 +5431,6 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
     } else {
       return "en_US";
     }
-  }
-
-  //Function to compare two version strings https://gist.github.com/TheDistantSea/8021359
-  function versionCompare(v1, v2, options) {
-    var lexicographical = options && options.lexicographical,
-      zeroExtend = options && options.zeroExtend,
-      v1parts = v1.split("."),
-      v2parts = v2.split(".");
-
-    function isValidPart(x) {
-      return (lexicographical ? /^\d+[A-Za-z]*$/ : /^\d+$/).test(x);
-    }
-
-    if (!v1parts.every(isValidPart) || !v2parts.every(isValidPart)) {
-      return NaN;
-    }
-
-    if (zeroExtend) {
-      while (v1parts.length < v2parts.length) v1parts.push("0");
-      while (v2parts.length < v1parts.length) v2parts.push("0");
-    }
-
-    if (!lexicographical) {
-      v1parts = v1parts.map(Number);
-      v2parts = v2parts.map(Number);
-    }
-
-    for (var i = 0; i < v1parts.length; ++i) {
-      if (v2parts.length == i) {
-        return 1;
-      }
-
-      if (v1parts[i] == v2parts[i]) {
-        continue;
-      } else if (v1parts[i] > v2parts[i]) {
-        return 1;
-      } else {
-        return -1;
-      }
-    }
-
-    if (v1parts.length != v2parts.length) {
-      return -1;
-    }
-
-    return 0;
   }
 
   function emoji(unifiedValue) {

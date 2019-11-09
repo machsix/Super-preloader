@@ -5,7 +5,7 @@ const {SCRIPT_INFO, METADATA} = require("./src/meta");
 module.exports = {
   mode: "none",
   entry: {
-    [SCRIPT_INFO.name]: "./src/index.js"
+    [SCRIPT_INFO.name]: ["babel-polyfill", "./src/index.js"]
   },
   output: {
     filename: "[name].user.js",
