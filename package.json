@@ -1,6 +1,6 @@
 {
   "name": "super-preloader",
-  "version": "6.7.0",
+  "version": "6.8.0",
   "description": "Super-preloader",
   "main": "dist/Super_preloaderPlus_one_New.user.js",
   "author": "Mach6",
@@ -18,9 +18,9 @@
   },
   "scripts": {
     "lint": "eslint \"dist/*.json\" \"src/**/*.js\" \".ci/*.js\"",
-    "format": "prettier --ignore-path=.eslintignore --write \"dist/*.json\" \"src/**.js\" \".ci/*.js\" \"docs/**/*.{js,md}\"",
-    "format:check": "prettier --ignore-path=.eslintignore --check \"dist/*.json\" \"src/**.js\" \".ci/*.js\" \"docs/**/*.{js,md}\"",
-    "format:staged": "pretty-quick --staged --ignore-path=.eslintignore --write \"dist/*.json\" \"src/**.js\" \".ci/*.js\" \"docs/**/*.{js,md}\"",
+    "format": "prettier --write \"dist/*.json\" \"src/**.js\" \".ci/*.js\" \"docs/**/*.{js,md}\"",
+    "format:check": "prettier --check --loglevel debug \"dist/*.json\" \"src/**.js\" \".ci/*.js\" \"docs/**/*.{js,md}\"",
+    "format:staged": "pretty-quick --verbose --staged --write \"dist/*.json\" \"src/**.js\" \".ci/*.js\" \"docs/**/*.{js,md}\"",
     "test": "npm run lint && npm run format:staged",
     "dev": "webpack-dev-server --color",
     "build": "webpack",

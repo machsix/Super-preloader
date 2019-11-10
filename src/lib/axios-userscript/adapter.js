@@ -44,7 +44,7 @@ module.exports = (config) =>
       requestHeaders.Authorization = "Basic " + btoa(username + ":" + password);
     }
 
-    // No cache cache
+    // No cache
     if (config.hasOwnProperty("nocache") && config.nocache === true) {
       if (config.hasOwnProperty("params")) {
         config.params.timestamp = new Date().getTime();
@@ -53,14 +53,69 @@ module.exports = (config) =>
       }
     }
 
-    // Send the request
-    // Listen for ready state
-    const onload = (resp) => {
+    if (config.cancelToken) {
+      // Handle cancellation
+      config.cancelToken.promise.then(function onCanceled(cancel) {
+        reject(cancel);
+        // Clean up request
+      });
+    }
+
+    const resConfig = {
+      method: config.method.toUpperCase(),
+      url: buildURL(config.url, config.params, config.paramsSerializer),
+      headers: requestHeaders,
+      data: requestData,
+      timeout: config.timeout,
+      ontimeout: () => {
+        reject(createError("timeout of " + config.timeout + "ms exceeded", config, "ECONNABORTED"));
+      },
+      onload: undefined,
+      onerror: () => {
+        // Real errors are hidden from us by the browser
+        // onerror should only fire if it's a network error
+        reject(createError("Network Error", config));
+      }
+    };
+
+    // handle binary response
+    resConfig.binary = false;
+    if (config.hasOwnProperty("responseType")) {
+      // ViolentMonkey supports: text, json, blob, arraybuffer, document
+      // TamperMonkey supports: json, blob, arraybuffer
+      // GreaseMonkey doesn't support this argument
+      resConfig.responseType = config.responseType;
+      if (config.responseType === "blob" || config.responseType === "arraybuffer") {
+        // GreaseMonkey compatibility
+        resConfig.binary = true;
+      }
+    }
+
+    // let GM.xmlHttpRequest handle charset
+    // axios default adaptor has a bug
+    //   + https://github.com/axios/axios/issues/907
+    //   + https://github.com/axios/axios/issues/332
+    resConfig.overrideMimeType = undefined;
+    if (!resConfig.binary) {
+      let charset;
+      if (config.overrideMimeType) {
+        resConfig.overrideMimeType = config.overrideMimeType;
+        charset = /charset=(.*)$/i.exec(config.overrideMimeType);
+        if (charset[1]) {
+          charset = charset[1].toUpperCase();
+        }
+      }
+      if (config.charset) {
+        charset = config.charset;
+        resConfig.overrideMimeType = `text/html; charset=${config.charset}`;
+      }
+    }
+
+    resConfig.onload = (resp) => {
       // Prepare the response
-      var responseHeaders = "responseHeaders" in resp ? parseHeaders(resp.responseHeaders) : null;
-      var responseData = !config.responseType || config.responseType === "text" ? resp.responseText : resp.response;
-      var response = {
-        data: responseData,
+      const responseHeaders = "responseHeaders" in resp ? parseHeaders(resp.responseHeaders) : null;
+      const response = {
+        data: resp.responseText,
         // IE sends 1223 instead of 204 (https://github.com/mzabriskie/axios/issues/201)
         status: resp.status === 1223 ? 204 : resp.status,
         statusText: resp.status === 1223 ? "No Content" : resp.statusText,
@@ -71,28 +126,5 @@ module.exports = (config) =>
       settle(resolve, reject, response);
     };
 
-    if (config.cancelToken) {
-      // Handle cancellation
-      config.cancelToken.promise.then(function onCanceled(cancel) {
-        reject(cancel);
-        // Clean up request
-      });
-    }
-
-    GM.xmlHttpRequest({
-      method: config.method.toUpperCase(),
-      url: buildURL(config.url, config.params, config.paramsSerializer),
-      headers: requestHeaders,
-      data: requestData,
-      timeout: config.timeout,
-      ontimeout: () => {
-        reject(createError("timeout of " + config.timeout + "ms exceeded", config, "ECONNABORTED"));
-      },
-      onload: onload,
-      onerror: () => {
-        // Real errors are hidden from us by the browser
-        // onerror should only fire if it's a network error
-        reject(createError("Network Error", config));
-      }
-    });
+    GM.xmlHttpRequest(resConfig);
   });
