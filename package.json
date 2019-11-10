@@ -55,7 +55,7 @@
     "babel-polyfill": "^6.26.0",
     "compare-versions": "^3.5.1",
     "eslint": "^6.6.0",
-    "eslint-config-prettier": "6.2.0",
+    "eslint-config-prettier": "6.5.0",
     "eslint-plugin-compat": "3.3.0",
     "eslint-plugin-json": "1.4.0",
     "eslint-plugin-prettier": "3.1.0",
