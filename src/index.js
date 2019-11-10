@@ -13,6 +13,7 @@ const logger = require("@lib/logger");
 const jsonRule = require("@lib/json-rule");
 const compareVersions = require("compare-versions");
 const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
+const elementReady = require("@lib/element-ready");
 
 (function() {
   // use charset from currentDocument
@@ -33,15 +34,6 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
   const ChangeIframeSites = [/^https?:\/\/www\.930mh\.com/i];
 
   function CheckIframe() {
-    for (var i = 0; i < ChangeIframeSites.length; i++) {
-      if (toRE(ChangeIframeSites[i]).test(window.location.href)) {
-        try {
-          return window.self !== window.top;
-        } catch (e) {
-          return true;
-        }
-      }
-    }
     if (window.name === "superpreloader-iframe") {
       return true;
     } else {
@@ -49,80 +41,63 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
     }
   }
 
-  // Website which uses lazyload feature [url, xpath, timeout]
-  // the script does the following:
-  //    1. wait for another timeout ms
-  //    2. wait change of xpath
-
-  const LazyLoadSites = [
-    {
-      url: /^https?:\/\/www\.flickr\.com\/photos\/[^\/]+\/favorites(?:[\/?#]|$)/i,
-      // target of mutation
-      target: '//div[@role="main"]/div[contains(@class,"photo-list-view")]',
-      mutationParser: function(mutation, ncheck) {
-        if (mutation.type == "childList") {
-          if (mutation.addedNodes) {
-            for (var i = 0; i < mutation.addedNodes.length; i++) {
-              if (mutation.addedNodes[i].className.indexOf("photo-view") != -1) {
-                ncheck = ncheck + 1;
-                break;
-              }
-            }
-            window.scroll(window.scrollX, 99999);
-          }
-        }
-        return ncheck;
-      },
-      node_check_time: 2
-    }
-  ];
-
-  // 如果是取出下一页使用的iframe window
+  // how to trigger lazy_load
+  // https://wiki.greasespot.net/Generate_Click_Events
   if (CheckIframe()) {
     // 搜狗,iframe里面怎么不加载js啊?
     // 去掉了原版的另一种方法，因为新版本 chrome 已经支持。旧版本 chrome iframe里面 无法访问window.parent,返回undefined
-    const domloaded = function() {
-      // 滚动到底部,针对,某些使用滚动事件加载图片的网站.
-      var targetNode;
-      var LLS;
-      for (var i = 0; i < LazyLoadSites.length; i++) {
-        if (toRE(LazyLoadSites[i].url).test(window.location.href)) {
-          // Select the node that will be observed for mutations
-          targetNode = getElementByXpath(LazyLoadSites[i].target, document, document);
-          LLS = LazyLoadSites[i];
-          break;
-        }
-      }
-
-      if (targetNode) {
-        var num_node_check = 0;
-        // Callback function to execute when mutations are observed
-        const callback = function(mutationsList, observer) {
-          for (var i = 0; i < mutationsList.length; i++) {
-            num_node_check = LLS.mutationParser(mutationsList[i], num_node_check);
-            if (num_node_check == LLS.node_check_time) {
-              observer.disconnect();
-              window.parent.postMessage("superpreloader-iframe:DOMLoaded", "*");
-            }
-          }
-        };
-        const observer_lazyload = new MutationObserver(callback);
-        // Start observing the target node for configured mutations
-        observer_lazyload.observe(targetNode, {
-          childList: true
-        });
-        window.scroll(window.scrollX, 99999);
-      } else {
-        window.scroll(window.scrollX, 99999);
+    const domLoaded = function() {
+      //window.scroll(window.scrollX, 99999);
+      const mutationObserver = window.frameElement ? JSON.parse(window.frameElement.getAttribute("mutationObserver")) : null;
+      if (!mutationObserver) {
         window.parent.postMessage("superpreloader-iframe:DOMLoaded", "*");
+      } else {
+        const observers = mutationObserver.observers;
+
+        let p = [];
+        if (observers) {
+          ["attributes", "addedNodes", "removedNodes"].forEach((key) => {
+            const el = getAllElements(observers[key]);
+            if (el.length > 0) {
+              if (mutationObserver.relatedObj) {
+                //el.forEach((x) => {
+                //  p.push(elementReady(x, key));
+                //});
+                p.push(elementReady(el[el.length - 1], key));
+                el[0].scrollIntoView();
+                el[el.length - 1].scrollIntoView();
+              } else {
+                p.push(elementReady(el[el.length - 1], key));
+              }
+            }
+          });
+        }
+        if (p) {
+          p = Promise.all(p);
+        } else {
+          p = Promise.resolve(undefined);
+        }
+        const timeout = mutationObserver.timeout && 0;
+        setTimeout(() => {
+          p.then((values) => {
+            console.log(values);
+            if (values) {
+              values.forEach(({element, type, mutationList, observer}) => {
+                observer.disconnect();
+              });
+            }
+            //window.scrollTo(0, scrollLocation);
+            window.parent.postMessage("superpreloader-iframe:DOMLoaded", "*");
+          });
+        }, timeout);
       }
     };
-    if (window.opera) {
-      document.addEventListener("DOMContentLoaded", domloaded, false);
-    } else {
-      domloaded();
-    }
 
+    if (window.opera) {
+      document.addEventListener("DOMContentLoaded", domLoaded, false);
+    } else {
+      domLoaded();
+    }
     return;
   }
 
@@ -675,6 +650,27 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
           const pager = doc.querySelector("#pageNum");
           if (pager) {
             pager.style.display = "none";
+          }
+        }
+      }
+    },
+    {
+      name: "bilibili",
+      url: "^https?://(search\\.bilibili\\.com|space\\.bilibili\\.com/)",
+      nextLink: {
+        startAfter: "&page=",
+        mFails: ["re;^https?://.*", "&page=1"],
+        inc: 1
+      },
+      autopager: {
+        enable: false,
+        remain: 0.001,
+        useiframe: true,
+        pageElement: "//li[contains(@class,'video-item')]/parent::*",
+        mutationObserver: {
+          relatedObj: "css;.page-wrap",
+          observers: {
+            attributes: "css;li.video-item  .lazy-img img" // the node to monitor change of attributes
           }
         }
       }
@@ -2893,7 +2889,7 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
           return;
         }
         if (window.navigator.language != "en") {
-          logger.debug("Language: %s", window.navigator.language);
+          logger.debug("Language: ", window.navigator.language);
         }
 
         if (pageElement === undefined) {
@@ -3034,6 +3030,7 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
         function iframeRequest(link) {
           messageR = false;
           if (SSS.a_newIframe || !iframe) {
+            let insertLoc = null;
             const i = document.createElement("iframe");
             iframe = i;
             i.name = "superpreloader-iframe";
@@ -3049,6 +3046,17 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
               i.sandbox = SSS.a_sandbox;
             }
             i.src = link;
+            if (SSS.a_mutationObserver) {
+              i.setAttribute("mutationObserver", JSON.stringify(SSS.a_mutationObserver));
+              if (SSS.a_mutationObserver.relatedObj) {
+                insertLoc = getAllElements(SSS.a_mutationObserver.relatedObj);
+                if (insertLoc.length > 0) {
+                  insertLoc = insertLoc[0];
+                } else {
+                  insertLoc = null;
+                }
+              }
+            }
             if (SSS.a_iloaded) {
               i.addEventListener("load", iframeLoaded, false);
               remove.push(function() {
@@ -3069,7 +3077,11 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
                 window.removeEventListener("message", messagehandler, false);
               });
             }
-            document.body.appendChild(i);
+            if (insertLoc) {
+              insertLoc.parentNode.insertBefore(i, insertLoc);
+            } else {
+              document.body.appendChild(i);
+            }
           } else {
             iframe.src = link;
             iframe.contentDocument.location.replace(link);
@@ -4044,14 +4056,11 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
               SSS.a_manualA = SIIA.manualA === undefined ? SIIAD.manualA : SIIA.manualA;
               SSS.a_enable = SIIA.enable === undefined ? SIIAD.enable : SIIA.enable;
               if (SIIA.useiframe === undefined) {
-                if (SII.useiframe === undefined) {
-                  SSS.a_useiframe = SIIAD.useiframe;
-                } else {
-                  SSS.a_useiframe = SII.useiframe;
-                }
+                SSS.a_useiframe = SII.useiframe;
               } else {
                 SSS.a_useiframe = SIIA.useiframe;
               }
+              SSS.a_mutationObserver = SSS.a_useiframe ? (SIIA.mutationObserver === undefined ? null : SIIA.mutationObserver) : null;
               SSS.a_newIframe = SIIA.newIframe === undefined ? SIIAD.newIframe : SIIA.newIframe;
               SSS.a_iloaded = SIIA.iloaded === undefined ? SIIAD.iloaded : SIIA.iloaded;
               SSS.a_itimeout = SIIA.itimeout === undefined ? SIIAD.itimeout : SIIA.itimeout;
