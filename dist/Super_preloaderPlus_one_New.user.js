@@ -9,7 +9,7 @@
 // @author       Mach6
 // @contributers YFdyh000, suchunchen
 // @thanksto     ywzhaiqi, NLF
-// @version      6.8.1
+// @version      6.8.2
 // @license      GPL-3.0
 // @update       2019/11/10
 // @homepageURL  https://github.com/machsix/Super-preloader
@@ -194,6 +194,8 @@ var _require = __webpack_require__(377),
     SCRIPT_INFO = _require.SCRIPT_INFO,
     NOTIFICATION = _require.NOTIFICATION;
 
+var elementReady = __webpack_require__(379);
+
 (function () {
   // use charset from currentDocument
   var axios = _axios.create({
@@ -213,97 +215,79 @@ var _require = __webpack_require__(377),
   var ChangeIframeSites = [/^https?:\/\/www\.930mh\.com/i];
 
   function CheckIframe() {
-    for (var i = 0; i < ChangeIframeSites.length; i++) {
-      if (toRE(ChangeIframeSites[i]).test(window.location.href)) {
-        try {
-          return window.self !== window.top;
-        } catch (e) {
-          return true;
-        }
-      }
-    }
-
     if (window.name === "superpreloader-iframe") {
       return true;
     } else {
       return false;
     }
-  } // Website which uses lazyload feature [url, xpath, timeout]
-  // the script does the following:
-  //    1. wait for another timeout ms
-  //    2. wait change of xpath
+  } // how to trigger lazy_load
+  // https://wiki.greasespot.net/Generate_Click_Events
 
-
-  var LazyLoadSites = [{
-    url: /^https?:\/\/www\.flickr\.com\/photos\/[^\/]+\/favorites(?:[\/?#]|$)/i,
-    // target of mutation
-    target: '//div[@role="main"]/div[contains(@class,"photo-list-view")]',
-    mutationParser: function mutationParser(mutation, ncheck) {
-      if (mutation.type == "childList") {
-        if (mutation.addedNodes) {
-          for (var i = 0; i < mutation.addedNodes.length; i++) {
-            if (mutation.addedNodes[i].className.indexOf("photo-view") != -1) {
-              ncheck = ncheck + 1;
-              break;
-            }
-          }
-
-          window.scroll(window.scrollX, 99999);
-        }
-      }
-
-      return ncheck;
-    },
-    node_check_time: 2
-  }]; // 如果是取出下一页使用的iframe window
 
   if (CheckIframe()) {
     // 搜狗,iframe里面怎么不加载js啊?
     // 去掉了原版的另一种方法，因为新版本 chrome 已经支持。旧版本 chrome iframe里面 无法访问window.parent,返回undefined
-    var domloaded = function domloaded() {
-      // 滚动到底部,针对,某些使用滚动事件加载图片的网站.
-      var targetNode;
-      var LLS;
+    var domLoaded = function domLoaded() {
+      //window.scroll(window.scrollX, 99999);
+      var mutationObserver = window.frameElement ? JSON.parse(window.frameElement.getAttribute("mutationObserver")) : null;
 
-      for (var i = 0; i < LazyLoadSites.length; i++) {
-        if (toRE(LazyLoadSites[i].url).test(window.location.href)) {
-          // Select the node that will be observed for mutations
-          targetNode = getElementByXpath(LazyLoadSites[i].target, document, document);
-          LLS = LazyLoadSites[i];
-          break;
-        }
-      }
-
-      if (targetNode) {
-        var num_node_check = 0; // Callback function to execute when mutations are observed
-
-        var callback = function callback(mutationsList, observer) {
-          for (var i = 0; i < mutationsList.length; i++) {
-            num_node_check = LLS.mutationParser(mutationsList[i], num_node_check);
-
-            if (num_node_check == LLS.node_check_time) {
-              observer.disconnect();
-              window.parent.postMessage("superpreloader-iframe:DOMLoaded", "*");
-            }
-          }
-        };
-
-        var observer_lazyload = new MutationObserver(callback); // Start observing the target node for configured mutations
-
-        observer_lazyload.observe(targetNode, {
-          childList: true
-        });
-        window.scroll(window.scrollX, 99999);
-      } else {
-        window.scroll(window.scrollX, 99999);
+      if (!mutationObserver) {
         window.parent.postMessage("superpreloader-iframe:DOMLoaded", "*");
+      } else {
+        var observers = mutationObserver.observers;
+        var p = [];
+
+        if (observers) {
+          ["attributes", "addedNodes", "removedNodes"].forEach(function (key) {
+            var el = getAllElements(observers[key]);
+
+            if (el.length > 0) {
+              if (mutationObserver.relatedObj) {
+                //el.forEach((x) => {
+                //  p.push(elementReady(x, key));
+                //});
+                p.push(elementReady(el[el.length - 1], key));
+                el[0].scrollIntoView();
+                el[el.length - 1].scrollIntoView();
+              } else {
+                p.push(elementReady(el[el.length - 1], key));
+              }
+            }
+          });
+        }
+
+        if (p) {
+          p = Promise.all(p);
+        } else {
+          p = Promise.resolve(undefined);
+        }
+
+        var timeout = mutationObserver.timeout && 0;
+        setTimeout(function () {
+          p.then(function (values) {
+            console.log(values);
+
+            if (values) {
+              values.forEach(function (_ref) {
+                var element = _ref.element,
+                    type = _ref.type,
+                    mutationList = _ref.mutationList,
+                    observer = _ref.observer;
+                observer.disconnect();
+              });
+            } //window.scrollTo(0, scrollLocation);
+
+
+            window.parent.postMessage("superpreloader-iframe:DOMLoaded", "*");
+          });
+        }, timeout);
       }
     };
 
     if (window.opera) {
-      document.addEventListener("DOMContentLoaded", domloaded, false);
+      document.addEventListener("DOMContentLoaded", domLoaded, false);
     } else {
-      domloaded();
+      domLoaded();
     }
 
     return;
@@ -899,6 +883,27 @@ var _require = __webpack_require__(377),
 
         if (pager) {
           pager.style.display = "none";
+        }
+      }
+    }
+  }, {
+    name: "bilibili",
+    url: "^https?://(search\\.bilibili\\.com|space\\.bilibili\\.com/)",
+    nextLink: {
+      startAfter: "&page=",
+      mFails: ["re;^https?://.*", "&page=1"],
+      inc: 1
+    },
+    autopager: {
+      enable: false,
+      remain: 0.001,
+      useiframe: true,
+      pageElement: "//li[contains(@class,'video-item')]/parent::*",
+      mutationObserver: {
+        relatedObj: "css;.page-wrap",
+        observers: {
+          attributes: "css;li.video-item  .lazy-img img" // the node to monitor change of attributes
+
         }
       }
     }
@@ -2977,7 +2982,7 @@ var _require = __webpack_require__(377),
         }
 
         if (window.navigator.language != "en") {
-          logger.debug("Language: %s", window.navigator.language);
+          logger.debug("Language: ", window.navigator.language);
         }
 
         if (pageElement === undefined) {
@@ -3129,6 +3134,7 @@ var _require = __webpack_require__(377),
           messageR = false;
 
           if (SSS.a_newIframe || !iframe) {
+            var insertLoc = null;
             var i = document.createElement("iframe");
             iframe = i;
             i.name = "superpreloader-iframe";
@@ -3146,6 +3152,20 @@ var _require = __webpack_require__(377),
             }
 
             i.src = link;
+
+            if (SSS.a_mutationObserver) {
+              i.setAttribute("mutationObserver", JSON.stringify(SSS.a_mutationObserver));
+
+              if (SSS.a_mutationObserver.relatedObj) {
+                insertLoc = getAllElements(SSS.a_mutationObserver.relatedObj);
+
+                if (insertLoc.length > 0) {
+                  insertLoc = insertLoc[0];
+                } else {
+                  insertLoc = null;
+                }
+              }
+            }
 
             if (SSS.a_iloaded) {
               i.addEventListener("load", iframeLoaded, false);
@@ -3172,7 +3192,11 @@ var _require = __webpack_require__(377),
               });
             }
 
-            document.body.appendChild(i);
+            if (insertLoc) {
+              insertLoc.parentNode.insertBefore(i, insertLoc);
+            } else {
+              document.body.appendChild(i);
+            }
           } else {
             iframe.src = link;
             iframe.contentDocument.location.replace(link);
@@ -4146,15 +4170,12 @@ var _require = __webpack_require__(377),
               SSS.a_enable = SIIA.enable === undefined ? SIIAD.enable : SIIA.enable;
 
               if (SIIA.useiframe === undefined) {
-                if (SII.useiframe === undefined) {
-                  SSS.a_useiframe = SIIAD.useiframe;
-                } else {
-                  SSS.a_useiframe = SII.useiframe;
-                }
+                SSS.a_useiframe = SII.useiframe;
               } else {
                 SSS.a_useiframe = SIIA.useiframe;
               }
 
+              SSS.a_mutationObserver = SSS.a_useiframe ? SIIA.mutationObserver === undefined ? null : SIIA.mutationObserver : null;
               SSS.a_newIframe = SIIA.newIframe === undefined ? SIIAD.newIframe : SIIA.newIframe;
               SSS.a_iloaded = SIIA.iloaded === undefined ? SIIAD.iloaded : SIIA.iloaded;
               SSS.a_itimeout = SIIA.itimeout === undefined ? SIIAD.itimeout : SIIA.itimeout;
@@ -21895,7 +21916,39 @@ module.exports = {
 /* 378 */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"name\":\"super-preloader\",\"version\":\"6.8.1\",\"description\":\"Super-preloader\",\"main\":\"dist/Super_preloaderPlus_one_New.user.js\",\"author\":\"Mach6\",\"license\":\"GPL-3.0\",\"bugs\":{\"url\":\"https://github.com/machsix/Super-preloader/issues\"},\"homepage\":\"https://github.com/machsix/Super-preloader\",\"directories\":{\"doc\":\"docs\"},\"repository\":{\"type\":\"git\",\"url\":\"git+https://github.com/machsix/Super-preloader.git\"},\"scripts\":{\"lint\":\"eslint \\\"dist/*.json\\\" \\\"src/**/*.js\\\" \\\".ci/*.js\\\"\",\"format\":\"prettier --write \\\"dist/*.json\\\" \\\"src/**.js\\\" \\\".ci/*.js\\\" \\\"docs/**/*.{js,md}\\\"\",\"format:check\":\"prettier --check --loglevel debug \\\"dist/*.json\\\" \\\"src/**.js\\\" \\\".ci/*.js\\\" \\\"docs/**/*.{js,md}\\\"\",\"format:staged\":\"pretty-quick --verbose --staged --write \\\"dist/*.json\\\" \\\"src/**.js\\\" \\\".ci/*.js\\\" \\\"docs/**/*.{js,md}\\\"\",\"test\":\"npm run lint && npm run format:staged\",\"dev\":\"webpack-dev-server --color\",\"build\":\"webpack\",\"docs:dev\":\"vuepress dev docs\",\"docs:build\":\"vuepress build docs\",\"docs:publish\":\"npm run docs:build && .ci/gen_ghpage.sh\",\"preversion\":\"npm run test\",\"version\":\"npm run build  && git add dist/*.js && git add dist/*.json\",\"postversion\":\"git add package.json package-lock.json\",\"publish\":\"npm --no-git-tag-version version minor\"},\"husky\":{\"hooks\":{\"pre-commit\":\"npm run test\"}},\"keywords\":[\"userscript\"],\"devDependencies\":{\"vuepress\":\"1.2.0\",\"@vuepress/plugin-back-to-top\":\"1.2.0\",\"@vuepress/plugin-google-analytics\":\"1.2.0\",\"@vuepress/plugin-pwa\":\"1.2.0\"},\"dependencies\":{\"@babel/core\":\"7.7.2\",\"@babel/preset-env\":\"7.7.1\",\"axios\":\"0.19.0\",\"babel-eslint\":\"10.0.3\",\"babel-loader\":\"8.0.6\",\"babel-polyfill\":\"6.26.0\",\"compare-versions\":\"3.5.1\",\"eslint\":\"6.6.0\",\"eslint-config-prettier\":\"6.5.0\",\"eslint-plugin-compat\":\"3.3.0\",\"eslint-plugin-json\":\"2.0.1\",\"eslint-plugin-prettier\":\"3.1.1\",\"husky\":\"3.0.9\",\"prettier\":\"1.19.1\",\"pretty-quick\":\"2.0.1\",\"underscore\":\"1.9.1\",\"webpack\":\"4.41.2\",\"webpack-cli\":\"3.3.10\",\"webpack-dev-server\":\"3.9.0\",\"webpack-inject-plugin\":\"1.5.3\"}}");
+module.exports = JSON.parse("{\"name\":\"super-preloader\",\"version\":\"6.8.2\",\"description\":\"Super-preloader\",\"main\":\"dist/Super_preloaderPlus_one_New.user.js\",\"author\":\"Mach6\",\"license\":\"GPL-3.0\",\"bugs\":{\"url\":\"https://github.com/machsix/Super-preloader/issues\"},\"homepage\":\"https://github.com/machsix/Super-preloader\",\"directories\":{\"doc\":\"docs\"},\"repository\":{\"type\":\"git\",\"url\":\"git+https://github.com/machsix/Super-preloader.git\"},\"scripts\":{\"lint\":\"eslint \\\"dist/*.json\\\" \\\"src/**/*.js\\\" \\\".ci/*.js\\\"\",\"format\":\"prettier --write \\\"dist/*.json\\\" \\\"src/**.js\\\" \\\".ci/*.js\\\" \\\"docs/**/*.{js,md}\\\"\",\"format:check\":\"prettier --check --loglevel debug \\\"dist/*.json\\\" \\\"src/**.js\\\" \\\".ci/*.js\\\" \\\"docs/**/*.{js,md}\\\"\",\"format:staged\":\"pretty-quick --verbose --staged --write \\\"dist/*.json\\\" \\\"src/**.js\\\" \\\".ci/*.js\\\" \\\"docs/**/*.{js,md}\\\"\",\"test\":\"npm run lint && npm run format:staged\",\"dev\":\"webpack-dev-server --color\",\"build\":\"webpack\",\"docs:dev\":\"vuepress dev docs\",\"docs:build\":\"vuepress build docs\",\"docs:publish\":\"npm run docs:build && .ci/gen_ghpage.sh\",\"preversion\":\"npm run test\",\"version\":\"npm run build  && git add dist/*.js && git add dist/*.json\",\"postversion\":\"git add package.json package-lock.json\",\"publish\":\"npm --no-git-tag-version version minor\"},\"husky\":{\"hooks\":{\"pre-commit\":\"npm run test\"}},\"keywords\":[\"userscript\"],\"devDependencies\":{\"vuepress\":\"1.2.0\",\"@vuepress/plugin-back-to-top\":\"1.2.0\",\"@vuepress/plugin-google-analytics\":\"1.2.0\",\"@vuepress/plugin-pwa\":\"1.2.0\"},\"dependencies\":{\"@babel/core\":\"7.7.2\",\"@babel/preset-env\":\"7.7.1\",\"axios\":\"0.19.0\",\"babel-eslint\":\"10.0.3\",\"babel-loader\":\"8.0.6\",\"babel-polyfill\":\"6.26.0\",\"compare-versions\":\"3.5.1\",\"eslint\":\"6.6.0\",\"eslint-config-prettier\":\"6.5.0\",\"eslint-plugin-compat\":\"3.3.0\",\"eslint-plugin-json\":\"2.0.1\",\"eslint-plugin-prettier\":\"3.1.1\",\"husky\":\"3.0.9\",\"prettier\":\"1.19.1\",\"pretty-quick\":\"2.0.1\",\"underscore\":\"1.9.1\",\"webpack\":\"4.41.2\",\"webpack-cli\":\"3.3.10\",\"webpack-dev-server\":\"3.9.0\",\"webpack-inject-plugin\":\"1.5.3\"}}");
+
+/***/ }),
+/* 379 */
+/***/ (function(module, exports) {
+
+/**
+ * Waits for an element satisfying selector to exist, then resolves promise with the element.
+ * Useful for resolving race conditions.
+ *
+ * @param {object} element dom element
+ * @param {string} type type of observer
+ * @returns {Promise} promise when observed
+ */
+function elementReady(element, type) {
+  var config = type === "attributes" ? {
+    attributes: true
+  } : {
+    childList: true
+  };
+  return new Promise(function (resolve) {
+    new MutationObserver(function (mutationList, observer) {
+      resolve({
+        element: element,
+        type: type,
+        mutationList: mutationList,
+        observer: observer
+      });
+    }).observe(element, config);
+  });
+}
+
+module.exports = elementReady;
 
 /***/ })
 /******/ ]);

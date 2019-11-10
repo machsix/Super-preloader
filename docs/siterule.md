@@ -159,6 +159,33 @@ sidebarDepth: 3
 - **default**: `99`
 - **description**: 最多翻页次数
 
+### mutationObserver
+
+iframe 监听选项，用来控制主页面和 iframe 之间的通讯，一个例子
+
+```js
+{
+  timeout: 1000,
+  observers: {
+    attributes: "//div[@class='x']",   // the node to monitor change of attributes
+    addedNodes: "//div[@class='x']",   // the node to monitor MutationRecord.addedNodes
+    removedNodes: "//div[@class='x']"  // the node to monitor MutationRecord.removedNodes
+  }
+}
+```
+
+timeout:
+
+- **type**: `Int` <Jbadge/>
+- **default**: null
+- **description**: 延迟通讯时间
+
+observer:
+
+- **type**: `Array` <Jbadge/>
+- **default**: null
+- **description**: mutationObserver 监控的 element 的 selector
+
 ### ipages
 
 - **type**: `Array` <Jbadge/>
