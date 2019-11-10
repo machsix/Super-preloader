@@ -4,7 +4,7 @@
 
 require("babel-polyfill");
 const _ = require("underscore");
-const axios = require("@lib/axios");
+const _axios = require("@lib/axios-userscript");
 const GME = require("@lib/gm-enhanced");
 const logger = require("@lib/logger");
 const jsonRule = require("@lib/json-rule");
@@ -12,6 +12,9 @@ const compareVersions = require("compare-versions");
 const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
 
 (function() {
+  // use charset from currentDocument
+  const axios = _axios.create({charset: document.characterSet});
+
   const scriptInfo = SCRIPT_INFO;
   const upgradeNotification = NOTIFICATION;
   shim_GM_notification();
@@ -1844,11 +1847,11 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
       if (upgradeNotification) {
         if (upgradeNotification.show(myOldVersion, scriptInfo.version)) {
           if (i8n() === "zh_CN") {
-            const text = "脚本从 v" + myOldVersion + " 升级到 v" + scriptInfo.version + "。 ";
+            const text = SCRIPT_INFO["name-CN"] + " 从 v" + myOldVersion + " 升级到 v" + scriptInfo.version + "。 ";
             // eslint-disable-next-line no-undef
             GM_notification(text + upgradeNotification.text.zh_CN, upgradeNotification.title, upgradeNotification.image, upgradeNotification.onload);
           } else {
-            const text = "Script is upgraded from v" + myOldVersion + " to v" + scriptInfo.version + ". ";
+            const text = SCRIPT_INFO.name + " is upgraded from v" + myOldVersion + " to v" + scriptInfo.version + ". ";
             // eslint-disable-next-line no-undef
             GM_notification(text + upgradeNotification.text.en_US, upgradeNotification.title, upgradeNotification.image, upgradeNotification.onload);
           }
@@ -3085,7 +3088,6 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
             iframeRequest(nextlink);
           } else {
             const reqConf = {
-              overrideMimeType: "text/html; charset=" + document.characterSet,
               headers: SSS.a_headers ? SSS.a_headers : {Referer: cplink}
             };
             axios
@@ -4697,7 +4699,6 @@ const {SCRIPT_INFO, NOTIFICATION} = require("./meta");
   // ------------------------下面的不要管他-----------------
   /// ////////////////////////////////////////////////////////////////
 
-  const C = console;
   // 变量
   var isHashchangeSite = false;
 

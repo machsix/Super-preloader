@@ -26,8 +26,8 @@ SCRIPT_INFO.metaURL = `${SCRIPT_INFO.greasyfork}/code/${SCRIPT_INFO.name}.meta.j
 // New notification to send
 const NOTIFICATION = {
   text: {
-    zh_CN: "感谢首位捐助者 loveqianool o(*￣▽￣*)ブ",
-    en_US: "Thanks to the first donor: loveqianool!"
+    zh_CN: "脚本重构中，欢迎反馈bug! 首次安装请耐心等待页面刷新",
+    en_US: "The script is under refactoring. You're welcome to report bug! Please wait for the page to refresh"
   },
   title: SCRIPT_INFO.name,
   image: SCRIPT_INFO.icon,
