@@ -1,6 +1,6 @@
 {
   "name": "super-preloader",
-  "version": "6.8.2",
+  "version": "6.8.3",
   "description": "Super-preloader",
   "main": "dist/Super_preloaderPlus_one_New.user.js",
   "author": "Mach6",
@@ -30,6 +30,7 @@
     "preversion": "npm run test",
     "version": "npm run build  && git add dist/*.js && git add dist/*.json",
     "postversion": "git add package.json package-lock.json",
+    "publish:patch": "npm --no-git-tag-version version patch",
     "publish": "npm --no-git-tag-version version minor"
   },
   "husky": {
