@@ -2,7 +2,10 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-empty */
 
-require("babel-polyfill");
+if (!window._babelPolyfill && !global._babelPolyfill) {
+  // eslint-disable-next-line global-require
+  require("babel-polyfill");
+}
 const _ = require("underscore");
 const _axios = require("@lib/axios-userscript");
 const GME = require("@lib/gm-enhanced");
