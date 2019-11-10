@@ -1833,10 +1833,13 @@ const elementReady = require("@lib/element-ready");
   // eslint-disable-next-line prettier/prettier
   Promise.all([GM.getValue("prefs", prefsFactory), GM.getValue("SITEINFO_D", SITEINFO_DFactory), GM.getValue("autoMatch", autoMatchFactory), GM.getValue("version", myOldVersion), jsonRule.loadDB()]).then(function(values) {
     [prefs, SITEINFO_D, autoMatch, myOldVersion] = values;
-    if (_.isString(prefs)) prefs = JSON.parse(prefs);
+
+    if (compareVersions(myOldVersion, scriptInfo.rewriteStorage) === -1) {
+      if (_.isString(prefs)) prefs = JSON.parse(prefs);
+      if (_.isString(SITEINFO_D)) SITEINFO_D = JSON.parse(SITEINFO_D);
+      if (_.isString(autoMatch)) autoMatch = JSON.parse(autoMatch);
+    }
     logger.enableDebug(prefs.debug ? prefs.debug : true);
-    if (_.isString(SITEINFO_D)) SITEINFO_D = JSON.parse(SITEINFO_D);
-    if (_.isString(autoMatch)) autoMatch = JSON.parse(autoMatch);
     SITEINFO_json = jsonRule.getRule();
 
     const preSPinit = [];
@@ -1860,13 +1863,12 @@ const elementReady = require("@lib/element-ready");
 
     if (compareVersions(myOldVersion, scriptInfo.version) !== 0) {
       prefs.factoryCheck = true;
-      preSPinit.push(jsonRule.updateRule(true)); // rule is always updated after upgrade
+      // preSPinit.push(jsonRule.updateRule(true)); // rule is always updated after upgrade
       preSPinit.push(GM.setValue("version", scriptInfo.version));
       logger.info(`[UpdateCheck] version is updated ${myOldVersion} => ${scriptInfo.version}`);
-    } else {
-      preSPinit.push(jsonRule.updateRule());
     }
 
+    let forceJsonUpdate = false;
     if (prefs.factoryCheck === true || prefs.factoryCheck === undefined) {
       const hasMissing = assignMissingProperty(prefsFactory, prefs);
       if (hasMissing) {
@@ -1874,12 +1876,14 @@ const elementReady = require("@lib/element-ready");
       }
       prefs.factoryCheck = false;
       preSPinit.push(GM.setValue("prefs", prefs));
-      if (scriptInfo.rewriteStorage.includes(scriptInfo.version)) {
+      if (compareVersions(myOldVersion, scriptInfo.rewriteStorage) === -1) {
         preSPinit.push(GM.setValue("SITEINFO_D", SITEINFO_D));
         preSPinit.push(GM.setValue("autoMatch", autoMatch));
+        forceJsonUpdate = true;
         logger.info("[UpdateCheck] Storage is rewritten");
       }
     }
+    preSPinit.push(jsonRule.updateRule(forceJsonUpdate));
 
     // 黑名单,网站正则..
     var blackList = [

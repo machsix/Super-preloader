@@ -9,7 +9,7 @@
 // @author       Mach6
 // @contributers YFdyh000, suchunchen
 // @thanksto     ywzhaiqi, NLF
-// @version      6.8.2
+// @version      6.8.3
 // @license      GPL-3.0
 // @update       2019/11/10
 // @homepageURL  https://github.com/machsix/Super-preloader
@@ -1962,10 +1962,14 @@ var elementReady = __webpack_require__(379);
     SITEINFO_D = _values[1];
     autoMatch = _values[2];
     myOldVersion = _values[3];
-    if (_.isString(prefs)) prefs = JSON.parse(prefs);
+
+    if (compareVersions(myOldVersion, scriptInfo.rewriteStorage) === -1) {
+      if (_.isString(prefs)) prefs = JSON.parse(prefs);
+      if (_.isString(SITEINFO_D)) SITEINFO_D = JSON.parse(SITEINFO_D);
+      if (_.isString(autoMatch)) autoMatch = JSON.parse(autoMatch);
+    }
+
     logger.enableDebug(prefs.debug ? prefs.debug : true);
-    if (_.isString(SITEINFO_D)) SITEINFO_D = JSON.parse(SITEINFO_D);
-    if (_.isString(autoMatch)) autoMatch = JSON.parse(autoMatch);
     SITEINFO_json = jsonRule.getRule();
     var preSPinit = []; // check the consistency of script settings
 
@@ -1988,14 +1992,13 @@ var elementReady = __webpack_require__(379);
     }
 
     if (compareVersions(myOldVersion, scriptInfo.version) !== 0) {
-      prefs.factoryCheck = true;
-      preSPinit.push(jsonRule.updateRule(true)); // rule is always updated after upgrade
+      prefs.factoryCheck = true; // preSPinit.push(jsonRule.updateRule(true)); // rule is always updated after upgrade
 
       preSPinit.push(GM.setValue("version", scriptInfo.version));
       logger.info(`[UpdateCheck] version is updated ${myOldVersion} => ${scriptInfo.version}`);
-    } else {
-      preSPinit.push(jsonRule.updateRule());
     }
+
+    var forceJsonUpdate = false;
 
     if (prefs.factoryCheck === true || prefs.factoryCheck === undefined) {
       var hasMissing = assignMissingProperty(prefsFactory, prefs);
@@ -2007,13 +2010,15 @@ var elementReady = __webpack_require__(379);
       prefs.factoryCheck = false;
       preSPinit.push(GM.setValue("prefs", prefs));
 
-      if (scriptInfo.rewriteStorage.includes(scriptInfo.version)) {
+      if (compareVersions(myOldVersion, scriptInfo.rewriteStorage) === -1) {
         preSPinit.push(GM.setValue("SITEINFO_D", SITEINFO_D));
         preSPinit.push(GM.setValue("autoMatch", autoMatch));
+        forceJsonUpdate = true;
         logger.info("[UpdateCheck] Storage is rewritten");
       }
-    } // 黑名单,网站正则..
+    }
 
+    preSPinit.push(jsonRule.updateRule(forceJsonUpdate)); // 黑名单,网站正则..
 
     var blackList = [// 例子
       // 'http://*.douban.com/*',
@@ -21804,7 +21809,9 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 /* 377 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var pkg = __webpack_require__(378); // Information of script
+var pkg = __webpack_require__(378);
+
+var compareVersions = __webpack_require__(376); // Information of script
 
 
 var now = new Date();
@@ -21822,7 +21829,7 @@ var SCRIPT_INFO = {
   updateTime: `${now.getFullYear()}/${now.getMonth() + 1}/${now.getDate()}`,
   homepageURL: "https://github.com/machsix/Super-preloader",
   // rewrite storage for these versions
-  rewriteStorage: ["6.6.83"]
+  rewriteStorage: "6.6.83"
 };
 SCRIPT_INFO.downloadURL = `${SCRIPT_INFO.greasyfork}/code/${SCRIPT_INFO.name}.user.js`;
 SCRIPT_INFO.metaURL = `${SCRIPT_INFO.greasyfork}/code/${SCRIPT_INFO.name}.meta.js`; // New notification to send
@@ -21837,7 +21844,7 @@ var NOTIFICATION = {
   onload: function onload() {},
   // eslint-disable-next-line no-unused-vars
   show: function show(oldVersion, newVersion) {
-    return true;
+    return compareVersions(oldVersion, SCRIPT_INFO.rewriteStorage) === -1;
   }
 }; // Meta for userscript
 
@@ -21916,7 +21923,7 @@ module.exports = {
 /* 378 */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"name\":\"super-preloader\",\"version\":\"6.8.2\",\"description\":\"Super-preloader\",\"main\":\"dist/Super_preloaderPlus_one_New.user.js\",\"author\":\"Mach6\",\"license\":\"GPL-3.0\",\"bugs\":{\"url\":\"https://github.com/machsix/Super-preloader/issues\"},\"homepage\":\"https://github.com/machsix/Super-preloader\",\"directories\":{\"doc\":\"docs\"},\"repository\":{\"type\":\"git\",\"url\":\"git+https://github.com/machsix/Super-preloader.git\"},\"scripts\":{\"lint\":\"eslint \\\"dist/*.json\\\" \\\"src/**/*.js\\\" \\\".ci/*.js\\\"\",\"format\":\"prettier --write \\\"dist/*.json\\\" \\\"src/**.js\\\" \\\".ci/*.js\\\" \\\"docs/**/*.{js,md}\\\"\",\"format:check\":\"prettier --check --loglevel debug \\\"dist/*.json\\\" \\\"src/**.js\\\" \\\".ci/*.js\\\" \\\"docs/**/*.{js,md}\\\"\",\"format:staged\":\"pretty-quick --verbose --staged --write \\\"dist/*.json\\\" \\\"src/**.js\\\" \\\".ci/*.js\\\" \\\"docs/**/*.{js,md}\\\"\",\"test\":\"npm run lint && npm run format:staged\",\"dev\":\"webpack-dev-server --color\",\"build\":\"webpack\",\"docs:dev\":\"vuepress dev docs\",\"docs:build\":\"vuepress build docs\",\"docs:publish\":\"npm run docs:build && .ci/gen_ghpage.sh\",\"preversion\":\"npm run test\",\"version\":\"npm run build  && git add dist/*.js && git add dist/*.json\",\"postversion\":\"git add package.json package-lock.json\",\"publish\":\"npm --no-git-tag-version version minor\"},\"husky\":{\"hooks\":{\"pre-commit\":\"npm run test\"}},\"keywords\":[\"userscript\"],\"devDependencies\":{\"vuepress\":\"1.2.0\",\"@vuepress/plugin-back-to-top\":\"1.2.0\",\"@vuepress/plugin-google-analytics\":\"1.2.0\",\"@vuepress/plugin-pwa\":\"1.2.0\"},\"dependencies\":{\"@babel/core\":\"7.7.2\",\"@babel/preset-env\":\"7.7.1\",\"axios\":\"0.19.0\",\"babel-eslint\":\"10.0.3\",\"babel-loader\":\"8.0.6\",\"babel-polyfill\":\"6.26.0\",\"compare-versions\":\"3.5.1\",\"eslint\":\"6.6.0\",\"eslint-config-prettier\":\"6.5.0\",\"eslint-plugin-compat\":\"3.3.0\",\"eslint-plugin-json\":\"2.0.1\",\"eslint-plugin-prettier\":\"3.1.1\",\"husky\":\"3.0.9\",\"prettier\":\"1.19.1\",\"pretty-quick\":\"2.0.1\",\"underscore\":\"1.9.1\",\"webpack\":\"4.41.2\",\"webpack-cli\":\"3.3.10\",\"webpack-dev-server\":\"3.9.0\",\"webpack-inject-plugin\":\"1.5.3\"}}");
+module.exports = JSON.parse("{\"name\":\"super-preloader\",\"version\":\"6.8.3\",\"description\":\"Super-preloader\",\"main\":\"dist/Super_preloaderPlus_one_New.user.js\",\"author\":\"Mach6\",\"license\":\"GPL-3.0\",\"bugs\":{\"url\":\"https://github.com/machsix/Super-preloader/issues\"},\"homepage\":\"https://github.com/machsix/Super-preloader\",\"directories\":{\"doc\":\"docs\"},\"repository\":{\"type\":\"git\",\"url\":\"git+https://github.com/machsix/Super-preloader.git\"},\"scripts\":{\"lint\":\"eslint \\\"dist/*.json\\\" \\\"src/**/*.js\\\" \\\".ci/*.js\\\"\",\"format\":\"prettier --write \\\"dist/*.json\\\" \\\"src/**.js\\\" \\\".ci/*.js\\\" \\\"docs/**/*.{js,md}\\\"\",\"format:check\":\"prettier --check --loglevel debug \\\"dist/*.json\\\" \\\"src/**.js\\\" \\\".ci/*.js\\\" \\\"docs/**/*.{js,md}\\\"\",\"format:staged\":\"pretty-quick --verbose --staged --write \\\"dist/*.json\\\" \\\"src/**.js\\\" \\\".ci/*.js\\\" \\\"docs/**/*.{js,md}\\\"\",\"test\":\"npm run lint && npm run format:staged\",\"dev\":\"webpack-dev-server --color\",\"build\":\"webpack\",\"docs:dev\":\"vuepress dev docs\",\"docs:build\":\"vuepress build docs\",\"docs:publish\":\"npm run docs:build && .ci/gen_ghpage.sh\",\"preversion\":\"npm run test\",\"version\":\"npm run build  && git add dist/*.js && git add dist/*.json\",\"postversion\":\"git add package.json package-lock.json\",\"publish:patch\":\"npm --no-git-tag-version version patch\",\"publish\":\"npm --no-git-tag-version version minor\"},\"husky\":{\"hooks\":{\"pre-commit\":\"npm run test\"}},\"keywords\":[\"userscript\"],\"devDependencies\":{\"vuepress\":\"1.2.0\",\"@vuepress/plugin-back-to-top\":\"1.2.0\",\"@vuepress/plugin-google-analytics\":\"1.2.0\",\"@vuepress/plugin-pwa\":\"1.2.0\"},\"dependencies\":{\"@babel/core\":\"7.7.2\",\"@babel/preset-env\":\"7.7.1\",\"axios\":\"0.19.0\",\"babel-eslint\":\"10.0.3\",\"babel-loader\":\"8.0.6\",\"babel-polyfill\":\"6.26.0\",\"compare-versions\":\"3.5.1\",\"eslint\":\"6.6.0\",\"eslint-config-prettier\":\"6.5.0\",\"eslint-plugin-compat\":\"3.3.0\",\"eslint-plugin-json\":\"2.0.1\",\"eslint-plugin-prettier\":\"3.1.1\",\"husky\":\"3.0.9\",\"prettier\":\"1.19.1\",\"pretty-quick\":\"2.0.1\",\"underscore\":\"1.9.1\",\"webpack\":\"4.41.2\",\"webpack-cli\":\"3.3.10\",\"webpack-dev-server\":\"3.9.0\",\"webpack-inject-plugin\":\"1.5.3\"}}");
 
 /***/ }),
 /* 379 */
