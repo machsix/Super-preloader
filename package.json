@@ -58,7 +58,7 @@
     "eslint-config-prettier": "6.5.0",
     "eslint-plugin-compat": "3.3.0",
     "eslint-plugin-json": "1.4.0",
-    "eslint-plugin-prettier": "3.1.0",
+    "eslint-plugin-prettier": "3.1.1",
     "husky": "3.0.9",
     "loglevel": "^1.6.6",
     "prettier": "1.18.2",
