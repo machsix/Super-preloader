@@ -1,8 +1,6 @@
 {
-  "extends": [
-    "config:base"
-  ],
-  "timezone": "America/New_York",
+  "extends": ["config:base"],
+  "automerge": true,
   "schedule": "every weekend",
   "separateMajorMinor": false
 }
