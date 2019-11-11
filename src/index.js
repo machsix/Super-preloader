@@ -652,27 +652,27 @@ const elementReady = require("@lib/element-ready");
         }
       }
     },
-    {
-      name: "bilibili",
-      url: "^https?://(search\\.bilibili\\.com|space\\.bilibili\\.com/)",
-      nextLink: {
-        startAfter: "&page=",
-        mFails: ["re;^https?://.*", "&page=1"],
-        inc: 1
-      },
-      autopager: {
-        enable: false,
-        remain: 0.001,
-        useiframe: true,
-        pageElement: "//li[contains(@class,'video-item')]/parent::*",
-        mutationObserver: {
-          relatedObj: "css;.page-wrap",
-          observers: {
-            attributes: "css;li.video-item  .lazy-img img" // the node to monitor change of attributes
-          }
-        }
-      }
-    },
+    // {
+    //   name: "bilibili",
+    //   url: "^https?://(search\\.bilibili\\.com|space\\.bilibili\\.com/)",
+    //   nextLink: {
+    //     startAfter: "&page=",
+    //     mFails: ["re;^https?://.*", "&page=1"],
+    //     inc: 1
+    //   },
+    //   autopager: {
+    //     enable: false,
+    //     remain: 0.001,
+    //     useiframe: true,
+    //     pageElement: "//li[contains(@class,'video-item')]/parent::*",
+    //     mutationObserver: {
+    //       relatedObj: "css;.page-wrap",
+    //       observers: {
+    //         attributes: "css;li.video-item  .lazy-img img" // the node to monitor change of attributes
+    //       }
+    //     }
+    //   }
+    // },
     {
       name: "电玩巴士 - 图文",
       url: "^https?://pc\\.tgbus\\.com/.*\\d+/$",
