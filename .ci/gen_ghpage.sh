@@ -5,8 +5,7 @@ REPO_DIR=${1:-`pwd`}
 DOCS_DIR=${REPO_DIR}/docs/.vuepress/dist
 
 # strip json database and add it to gh-pages
-DB=("${REPO_DIR}/dist/mydata.json"
-    "${REPO_DIR}/dist/mydata_dev.json")
+DB=("${REPO_DIR}/dist/mydata.json")
 
 cd ${REPO_DIR}/.ci
 for jsDB in ${DB[@]}; do
