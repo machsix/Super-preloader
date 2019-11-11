@@ -2,10 +2,8 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-empty */
 
-if (!window._babelPolyfill && !global._babelPolyfill) {
-  // eslint-disable-next-line global-require
-  require("babel-polyfill");
-}
+require("core-js/stable");
+require("regenerator-runtime/runtime");
 const _ = require("underscore");
 const _axios = require("@lib/axios-userscript");
 const GME = require("@lib/gm-enhanced");
