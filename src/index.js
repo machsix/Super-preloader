@@ -652,6 +652,20 @@ const elementReady = require("@lib/element-ready");
         }
       }
     },
+    {
+      name: "yuyouge.com",
+      url: "^https?://www\\.yuyouge\\.com",
+      nextLink: "auto;",
+      pageElement: "//article/div[@id='h1']|//article/div[@id='txtContent']",
+      documentFilter: function documentFilter(doc) {
+        const style = document.querySelector("#txtContent").getAttribute("style");
+        const cls = document.querySelector("#txtContent").getAttribute("class");
+        [].forEach.call(doc.querySelectorAll("#txtContent"), function(div) {
+          div.setAttribute("style", style);
+          div.setAttribute("class", cls);
+        });
+      }
+    },
     // {
     //   name: "bilibili",
     //   url: "^https?://(search\\.bilibili\\.com|space\\.bilibili\\.com/)",
@@ -2084,7 +2098,7 @@ const elementReady = require("@lib/element-ready");
       $("SITEINFO_D-useiframe").checked = SITEINFO_D.useiframe;
       $("SITEINFO_D-a_enable").checked = SITEINFO_D.autopager.enable;
       $("arrowKeyPage").checked = prefs.arrowKeyPage;
-      // $('SITEINFO_D-a_force_enable').checked = SITEINFO_D.autopager.force_enable;
+      $("SITEINFO_D-a_force_enable").checked = SITEINFO_D.autopager.force_enable;
       $("excludes").value = prefs.excludes;
       $("custom_siteinfo").value = prefs.custom_siteinfo;
     };
