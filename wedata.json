@@ -19840,13 +19840,13 @@
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "name": "ZDNet Japan",
   "data": {
-    "exampleUrl": "https://japan.zdnet.com/sp/ziddy/20197967/\r\nhttps://japan.zdnet.com/sp/enterprise-trend/35011766/\r\nhttps://japan.zdnet.com/sp/10things/20379662/\r\nhttps://japan.zdnet.com/cio/sp_09bpm/20392596/\r\nhttps://japan.zdnet.com/os/analysis/35002007/",
+    "exampleUrl": "https://japan.zdnet.com/sp/ziddy/20197967/\r\nhttps://japan.zdnet.com/sp/enterprise-trend/35011766/\r\n",
     "nextLink": "//a[@id='script_pagination_next' or @class='mediaNext noluke']",
     "url": "^https://japan\\.zdnet\\.com/",
-    "pageElement": "//div[@class='article_body' or @class='story_photoreport' or @class='article_contents']"
+    "pageElement": "//div[@class='article_body' or @class='story_photoreport' or @class='article-contents']"
   },
   "created_at": "2014-09-09T15:49:10+09:00",
-  "updated_at": "2019-11-01T10:44:00+09:00"
+  "updated_at": "2019-11-15T11:09:42+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/76302",

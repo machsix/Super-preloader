@@ -1,14 +1,11 @@
 {
-  "created_by": "swdyh",
-  "required_keys": "url nextLink pageElement",
   "description": "このデータベースはAutoPagerizeというuserscriptから利用するためのものです。\r\nAutoPagerizeではWebページのurl、次のリンクを指すXPath、ページ要素を指すXPathなどをこのデータベースで共有し、\r\n様々なサイトでの自動ページ継ぎ足しを実現しています。\r\n\r\nAutoPagerizeについての詳細は、こちらを参照してください。\r\nhttp://userscripts.org/scripts/show/8551\r\n",
-  "resource_url": "http://wedata.net/databases/AutoPagerize",
+  "permit_other_keys": true,
   "name": "AutoPagerize",
-  "created_at": "2008-04-16T12:35:15+09:00",
-  "updated_at": "2019-11-01T10:44:00+09:00",
+  "created_by": "swdyh",
   "optional_keys": "exampleUrl insertBefore",
-  "permit_other_keys": true
-}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<
+  "resource_url": "http://wedata.net/databases/AutoPagerize",
+  "required_keys": "url nextLink pageElement",
+  "created_at": "2008-04-16T12:35:15+09:00",
+  "updated_at": "2019-11-15T11:09:43+09:00"
+}
