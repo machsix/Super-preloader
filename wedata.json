@@ -1,5 +1,20 @@
 [
 {
+  "resource_url": "http://wedata.net/items/82316",
+  "name": "iporn tv",
+  "data": {
+    "url": "^https?://iporntv\\.net/",
+    "pageElement": "//div[@class='mainbox']",
+    "exampleUrl": "http://iporntv.net/straight",
+    "insertBefore": "",
+    "nextLink": "//a[@class='now']/following-sibling::a"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "unknown10'",
+  "created_at": "2019-11-16T18:49:17+09:00",
+  "updated_at": "2019-11-16T18:49:17+09:00"
+},
+{
   "created_by": "KAWASAKICHIRO",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "name": "参議院サイト内検索",
