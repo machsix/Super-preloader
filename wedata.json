@@ -1,5 +1,65 @@
 [
 {
+  "resource_url": "http://wedata.net/items/82323",
+  "name": "佐賀新聞",
+  "data": {
+    "url": "^https://www\\.saga-s\\.co\\.jp/(?:(?:sub)?category|feature)/",
+    "pageElement": "//div[contains(concat(' ',@class,' '),' article ')]",
+    "exampleUrl": "https://www.saga-s.co.jp/category/news-original\r\nhttps://www.saga-s.co.jp/subcategory/%E4%B9%9D%E5%B7%9E%E6%96%B0%E5%B9%B9%E7%B7%9A\r\nhttps://www.saga-s.co.jp/feature/sagantosu",
+    "insertBefore": "",
+    "nextLink": "//span[@class='current']/following-sibling::a"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m_",
+  "created_at": "2019-11-21T21:02:42+09:00",
+  "updated_at": "2019-11-21T21:02:42+09:00"
+},
+{
+  "name": "soolide",
+  "data": {
+    "url": "^https://www\\.soolide\\.com/",
+    "pageElement": "//div[contains(concat(' ',@class,' '),' entry-content ')]",
+    "exampleUrl": "https://www.soolide.com/ja/29739",
+    "insertBefore": "",
+    "nextLink": "//a[contains(concat(' ',@class,' '),' next ')]"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m_",
+  "resource_url": "http://wedata.net/items/82322",
+  "created_at": "2019-11-21T21:01:20+09:00",
+  "updated_at": "2019-11-21T21:01:20+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/82318",
+  "name": "camsoda",
+  "data": {
+    "url": "^https?:\\/\\/(www\\.)?camsoda.com",
+    "pageElement": "//*[@id=\"browse-content\"]",
+    "exampleUrl": "https://www.camsoda.com/free-cams/women?p=3",
+    "insertBefore": "",
+    "nextLink": "//*[@id=\"browse-content\"]/div/center/ul/li[@class=\"pagination-next\"]/a"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "abrinizzze",
+  "created_at": "2019-11-18T17:12:34+09:00",
+  "updated_at": "2019-11-18T17:12:34+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/82317",
+  "name": "TheNetline",
+  "data": {
+    "url": "^https://thenetline\\.com/",
+    "pageElement": "id('articlesMR')/article|//div[@class='category-list']/article",
+    "exampleUrl": "https://thenetline.com/ https://thenetline.com/peoples/ https://thenetline.com/category/tv-shows/",
+    "insertBefore": "",
+    "nextLink": "//link[@rel='next']|//li[@class='active']/following-sibling::li[1]/a"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "Tanookirby",
+  "created_at": "2019-11-18T08:27:39+09:00",
+  "updated_at": "2019-11-18T08:27:39+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/82316",
   "name": "iporn tv",
   "data": {
