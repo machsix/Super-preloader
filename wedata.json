@@ -1,5 +1,33 @@
 [
 {
+  "resource_url": "http://wedata.net/items/85156",
+  "name": "URBAN LIFE METRO",
+  "data": {
+    "url": "^https://urbanlife\\.tokyo/post/",
+    "pageElement": "//div[@class=\"col__under-wrap\"]/br[@class=\"wp_social_bookmarking_light_clear\"]/following-sibling::*[following-sibling::div[@class=\"wp_social_bookmarking_light\"]]",
+    "exampleUrl": "https://urbanlife.tokyo/post/24614/2/",
+    "nextLink": "//p/a[@class=\"detail__more-btn\"]"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m_",
+  "created_at": "2019-11-27T16:15:47+09:00",
+  "updated_at": "2019-11-27T16:29:03+09:00"
+},
+{
+  "name": "postfun",
+  "data": {
+    "url": "^https?://(www\\.)?postfun\\.com",
+    "pageElement": "//*[@class='inner-entry-content cf'] ",
+    "exampleUrl": "https://www.postfun.com/jp/incredible/tennessee-family-found-this-inside-wall/3/",
+    "nextLink": "id('next-button')/a"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "kkairri_jawp",
+  "resource_url": "http://wedata.net/items/83160",
+  "created_at": "2019-11-24T14:38:38+09:00",
+  "updated_at": "2019-11-25T03:02:26+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/82323",
   "name": "佐賀新聞",
   "data": {
