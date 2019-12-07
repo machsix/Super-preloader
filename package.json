@@ -56,7 +56,7 @@
     "babel-eslint": "10.0.3",
     "babel-loader": "8.0.6",
     "compare-versions": "3.5.1",
-    "core-js": "3.4.5",
+    "core-js": "3.4.7",
     "eslint": "6.7.0",
     "eslint-config-prettier": "6.7.0",
     "eslint-plugin-compat": "3.3.0",
