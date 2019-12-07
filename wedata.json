@@ -1,5 +1,48 @@
 [
 {
+  "resource_url": "http://wedata.net/items/85161",
+  "name": "THE DIGEST",
+  "data": {
+    "url": "^https://thedigestweb\\.com/",
+    "pageElement": "//section[@class=\"c-pager-area\"]/preceding-sibling::node()",
+    "exampleUrl": "https://thedigestweb.com/baseball/detail/id=6615",
+    "insertBefore": "",
+    "nextLink": "//a[(text()=\"次\")"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "zager",
+  "created_at": "2019-12-07T10:56:27+09:00",
+  "updated_at": "2019-12-07T10:56:27+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85158",
+  "name": "The Numbers",
+  "data": {
+    "url": "^https://(www\\.)?the-numbers\\.com/",
+    "pageElement": "//table/thead[tr/th='Rank']/following-sibling::tbody/tr|id('news')/*|//tr[td/table/@class='month']",
+    "exampleUrl": "https://www.the-numbers.com/box-office-records/domestic/all-movies/cumulative/all-time/401 https://www.the-numbers.com/news/ https://www.the-numbers.com/box-office/1977 https://www.the-numbers.com/box-office-records/domestic/all-movies/cumulative/released-in-2019 https://www.the-numbers.com/box-office-records/worldwide/all-movies/cumulative/released-in-2019 https://www.the-numbers.com/box-office-records/worldwide/all-movies/cumulative/released-in-2019",
+    "nextLink": "//div[@class='pagination']/a[@class='active']/following-sibling::a[1]|//td[@class='previous']/a[//h1[starts-with(.,'The Numbers News')]]|//td[@align='right']/a[1][//h1[contains(.,'Calendar')]]"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "Tanookirby",
+  "created_at": "2019-12-01T05:50:26+09:00",
+  "updated_at": "2019-12-01T05:54:23+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85157",
+  "name": "Wikimedia Commons - Special:ListFiles",
+  "data": {
+    "url": "^https?://commons\\.wikimedia\\.org/(wiki/|w/index\\.php\\?.*?title=)Special:ListFiles",
+    "pageElement": "//table[@class='mw-datatable listfiles'] ",
+    "exampleUrl": "https://commons.wikimedia.org/wiki/Special:ListFiles/%E8%BB%BD%E5%BF%AB\r\nhttps://commons.wikimedia.org/w/index.php?title=Special:ListFiles&user=%E8%BB%BD%E5%BF%AB",
+    "nextLink": "//span[contains(@class,\"TablePager_nav\")]/span[last()-1]/a[@href]"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "kkairri_jawp",
+  "created_at": "2019-11-30T14:37:04+09:00",
+  "updated_at": "2019-12-02T12:22:27+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/85156",
   "name": "URBAN LIFE METRO",
   "data": {
@@ -1112,16 +1155,16 @@
 {
   "resource_url": "http://wedata.net/items/82171",
   "name": "eiga.com 上映中",
-  "created_by": "t_f_m",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-05-31T11:24:43+09:00",
   "data": {
-    "exampleUrl": "https://eiga.com/now/",
     "url": "^https://eiga\\.com/now/",
-    "pageElement": "id('now_movies')/div[@class='m_unit']",
-    "nextLink": "//a[@rel='next']"
+    "pageElement": "//section/div[@class='list-block']",
+    "exampleUrl": "https://eiga.com/now/",
+    "nextLink": "//a[contains(concat(' ',@class,' '),' next ')]"
   },
-  "created_at": "2019-05-30T18:44:39+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m",
+  "created_at": "2019-05-30T18:44:39+09:00",
+  "updated_at": "2019-12-01T04:31:50+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/82169",
@@ -22242,18 +22285,18 @@
   "created_at": "2014-04-12T06:23:43+09:00"
 },
 {
-  "resource_url": "http://wedata.net/items/74716",
-  "name": "boxoffice.com",
-  "created_by": "Tanookirby",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2016-04-12T07:34:58+09:00",
+  "name": "Boxoffice",
   "data": {
-    "exampleUrl": "http://pro.boxoffice.com/category/newsanalysis/",
-    "url": "http://pro\\.boxoffice\\.com/",
-    "pageElement": "id('main')/div/div",
-    "nextLink": "//a[@class='next page-numbers']"
+    "url": "^https://(www\\.)?boxofficepro\\.com/",
+    "pageElement": "//article",
+    "exampleUrl": "https://www.boxofficepro.com/category/newsanalysis/",
+    "nextLink": "//link[@rel='next']"
   },
-  "created_at": "2014-04-12T03:13:13+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "Tanookirby",
+  "resource_url": "http://wedata.net/items/74716",
+  "created_at": "2014-04-12T03:13:13+09:00",
+  "updated_at": "2019-12-02T10:49:46+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/74712",
