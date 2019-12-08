@@ -1,13 +1,13 @@
 {
   "plugins": [
-    "lodash"
+    "lodash",
+    "@babel/plugin-transform-runtime"
   ],
   "presets": [
     [
       "@babel/preset-env",
       {
         "useBuiltIns": "entry",
-        "modules": "commonjs",
         "debug": true,
         "corejs": 3
       }
