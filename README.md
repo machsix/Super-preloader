@@ -1,16 +1,28 @@
-![icon!](https://machsix.github.io/Super-preloader/logo.png)
+![icon](https://machsix.github.io/Super-preloader/logo.png)
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors) &nbsp; [![Build Status](https://travis-ci.org/machsix/Super-preloader.svg?branch=master)](https://travis-ci.org/machsix/Super-preloader) [![Netlify Status](https://api.netlify.com/api/v1/badges/9c4dac1a-823b-4bb7-9760-57895931fc16/deploy-status)](https://app.netlify.com/sites/super-preloader/deploys) <a href='https://ko-fi.com/X8X6UEPM' target='_blank'><img height='36' style='border:0px;height:28px;' src='https://az743702.vo.msecnd.net/cdn/kofi5.png?v=2' border='0' alt='Buy Me a Coffee' /></a>
+[![Build Status](https://travis-ci.org/machsix/Super-preloader.svg?branch=master)](https://travis-ci.org/machsix/Super-preloader) [![Netlify Status](https://api.netlify.com/api/v1/badges/9c4dac1a-823b-4bb7-9760-57895931fc16/deploy-status)](https://app.netlify.com/sites/super-preloader/deploys) <a href='https://ko-fi.com/X8X6UEPM' target='_blank'><img height='36' style='border:0px;height:28px;' src='https://az743702.vo.msecnd.net/cdn/kofi5.png?v=2' border='0' alt='Buy Me a Coffee' /></a>
 
 # Super-preloader
 
 ## Installation and Document
 
-[Document on Github Page](https://machsix.github.io/Super-preloader/)
+| Document                                                                                                                                                                                             | Installation                                                                                                                                                                                                                                                                                      |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <img height="40" width="40" onclick="window.open(https://super-preloader.netlify.com/)" src="https://simpleicons.org/icons/netlify.svg" /> [Netlify](https://super-preloader.netlify.com/)           | <img height="40" width="40" onclick="window.open(https://super-preloader.netlify.com/)" src="https://greasyfork.org/assets/blacklogo96-e0c2c76180916332b7516ad47e1e206b42d131d36ff4afe98da3b1ba61fd5d6c.png" /> [greasyfork](https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new) |
+| <img height="40" width="40" onclick="window.open(https://machsix.github.io/Super-preloader/)" src="https://simpleicons.org/icons/github.svg" /> [Github](https://machsix.github.io/Super-preloader/) | <img height="40" width="40" onclick="window.open(https://machsix.github.io/Super-preloader/)" src="https://simpleicons.org/icons/github.svg" /> [Github](https://machsix.github.io/Super-preloader/Super_preloaderPlus_one_New.user.js)                                                           |
 
-[Document on Netlify](https://super-preloader.netlify.com/)
+## Compatibility
 
-[Install from greasyfork](https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new)
+| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="48px" height="48px" />](http://godban.github.io/browsers-support-badges/)<br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="48px" height="48px" />](http://godban.github.io/browsers-support-badges/)<br>Chrome | [<img src="https://edgetipscdn.microsoft.com/insider-site/images/logo-dev.f87ac296.png" alt="Microsoft Edge Dev" width="48px" height="48px" />](http://godban.github.io/browsers-support-badges/)<br>Microsoft Edge |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| > 47                                                                                                                                                                                                             | > 45                                                                                                                                                                                                         | Dev Channel                                                                                                                                                                                                         |
+
+Script is tested under:
+
+- Firefox latest + Violentmonkey
+- Microsoft Edge Dev + Tampermonkey
+- Waterfox 56.3 + Greasemonkey 4.9
+- Chrome 48 + Tampermonkey
 
 ## Introduction
 
