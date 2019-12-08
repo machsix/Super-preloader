@@ -23,14 +23,6 @@ module.exports = {
         exclude: /(node_modules|bower_components)/,
         use: {
           loader: "babel-loader",
-          options: {
-            plugins: ["lodash", "@babel/plugin-transform-runtime"],
-            presets: [
-              [
-                "@babel/preset-env"
-              ]
-            ]
-          }
         }
       }
     ]
