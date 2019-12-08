@@ -9,7 +9,12 @@
       {
         "useBuiltIns": "entry",
         "debug": true,
-        "corejs": 3
+        "corejs": 3,
+        "exclude": [
+          "es.promise",
+          "^\\w+\\.math\\..*",
+          "^esnext.*"
+        ]
       }
     ]
   ]

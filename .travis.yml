@@ -7,7 +7,7 @@ install:
   - npm ci
 script:
   - npm run test
-  - npm run build
+  - npm run build:prod
   - npm run docs:publish
 deploy:
   provider: pages

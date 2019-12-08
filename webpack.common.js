@@ -3,6 +3,7 @@ const webpack = require("webpack");
 const {METADATA, SCRIPT_INFO} = require("./src/meta");
 
 module.exports = {
+  stats: "errors-only",
   mode: "none",
   entry: {
     [SCRIPT_INFO.name]: ["./src/index.js"]
@@ -22,21 +23,17 @@ module.exports = {
         test: /\.m?js$/,
         exclude: /(node_modules|bower_components)/,
         use: {
-          loader: "babel-loader",
+          loader: "babel-loader"
         }
       }
     ]
   },
+  // https://github.com/webpack/webpack-cli/issues/312#issuecomment-409027910
   plugins: [
     new webpack.BannerPlugin({
       banner: METADATA,
       entryOnly: true,
       raw: true
     })
-  ],
-  devServer: {
-    contentBase: path.join(__dirname, "dist"),
-    compress: false,
-    port: 8080
-  }
+  ]
 };
