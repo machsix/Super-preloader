@@ -1,5 +1,5 @@
 import _ from "lodash";
-import lowercaseKeys from "lowercase-keys";
+import lowercaseKeys from "@lib/lowercaseKeys";
 import querystring from "querystring";
 import urlencode from "urlencode";
 
