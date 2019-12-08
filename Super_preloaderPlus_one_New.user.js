@@ -1,24 +1,94 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-empty */
+// ==UserScript==
+// @name         Super_preloaderPlus_one_New
+// @name:zh-CN   Super_preloaderPlus_one_改
+// @name:zh-TW   Super_preloaderPlus_one_改
+// @namespace    https://github.com/machsix
+// @description  Preload and Autopager
+// @description:zh-cn  预读+翻页..全加速你的浏览体验
+// @description:zh-TW  预读+翻页..全加速你的浏览体验
+// @author       Mach6
+// @contributers YFdyh000, suchunchen
+// @thanksto     ywzhaiqi, NLF
+// @version      6.6.66
+// @license      GPL-3.0-or-later
+// @homepageURL  https://github.com/machsix/Super-preloader
+// @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
+// @contributionURL https://ko-fi.com/machsix
+// @icon         data:image/png;base64,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
+// @require      https://greasyfork.org/scripts/373124-gm4-polyfill-mach6-legacy/code/gm4-polyfill-mach6-legacy.js?version=635792
+// @grant        GM.getValue
+// @grant        GM_getValue
+// @grant        GM.setValue
+// @grant        GM_setValue
+// @grant        GM.notification
+// @grant        GM_notification
+// @grant        GM.xmlHttpRequest
+// @grant        GM_xmlhttpRequest
+// @grant        GM.info
+// @grant        GM_info
+// @grant        GM_registerMenuCommand
+// @connect      wedata.net
+// @connect      github.io
+// @include      http*
+// @exclude      http*://mail.google.com/*
+// @exclude      http*://maps.google*
+// @exclude      http*://www.google.com/reader*
+// @exclude      http*://www.google.com/calendar*
+// @exclude      https://docs.google.com/*
+// @exclude      http*://app.yinxiang.com/*
+// @exclude      http*://www.dropbox.com/*
+// @exclude      http*://www.toodledo.com/*
+// @exclude      http://cloud.feedly.com/*
+// @exclude      http://weibo.com/*
+// @exclude      http://w.qq.com/*
+// @exclude      http://web2.qq.com/*
+// @exclude      http://openapi.qzone.qq.com/*
+// @exclude      http://*cloud.vip.xunlei.com/*
+// @exclude      http*://www.wumii.com/*
+// @exclude      http://pan.baidu.com/*
+// @exclude      http://yun.baidu.com/*
+// @exclude      http://www.cnbeta.com/*
+// @exclude      http://www.youku.com/
+// @exclude      http://v.youku.com/*
+// @exclude      http://www.iqiyi.com/*
+// @exclude      http://www.duokan.com/reader/*
+// @exclude      https://www.kohls.com/*
+// @exclude      http://list.jd.com/*
+// @exclude      http*://eclick.baidu.com/*
+// @exclude      http*://googleads.g.doubleclick.net/*
+// @exclude      http*://pos.baidu.com/*
+// @exclude      http*://tpc.googlesyndication.com/*
+// @exclude      http*://ad.doubleclick.net/*
+// @exclude      http*://ad.agrantsem.com/*
 
-import "core-js";
-import "regenerator-runtime/runtime";
-import {NOTIFICATION, SCRIPT_INFO} from "./meta";
-import _ from "lodash";
-import {addStyle} from "@lib/gm-enhanced";
-import compareVersions from "compare-versions";
-import elementReady from "@lib/element-ready";
-import gotStock from "@lib/got";
-import jsonRule from "@lib/json-rule";
-import logger from "@lib/logger";
-
+// ==/UserScript==
 (function() {
-  // use charset from currentDocument
-  const got = gotStock.create({encoding: document.characterSet});
+  const scriptInfo = {
+    name: "Super_preloaderPlus_one_New",
+    version: GM.info.script.version,
+    updateTime: "2019/09/03",
+    changelog: "Rules",
+    homepageURL: "https://github.com/machsix/Super-preloader",
+    downloadUrl: "https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.user.js",
+    metaUrl: "https://greasyfork.org/scripts/33522-super-preloaderplus-one-new/code/Super_preloaderPlus_one_New.meta.js"
+  };
 
-  const scriptInfo = SCRIPT_INFO;
-  const upgradeNotification = NOTIFICATION;
+  const upgradeNotification = {
+    text: {
+      zh_CN: "感谢首位捐助者 loveqianool o(*￣▽￣*)ブ",
+      en_US: "Thanks to the first donor: loveqianool!"
+    },
+    title: scriptInfo.name,
+    image:
+      "data:image/png;base64,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",
+    onload: function() {},
+    show: function(oldversion) {
+      return false;
+    }
+  };
   shim_GM_notification();
 
   // ----------------------------------
@@ -32,6 +102,15 @@ import logger from "@lib/logger";
   const ChangeIframeSites = [/^https?:\/\/www\.930mh\.com/i];
 
   function CheckIframe() {
+    for (var i = 0; i < ChangeIframeSites.length; i++) {
+      if (toRE(ChangeIframeSites[i]).test(window.location.href)) {
+        try {
+          return window.self !== window.top;
+        } catch (e) {
+          return true;
+        }
+      }
+    }
     if (window.name === "superpreloader-iframe") {
       return true;
     } else {
@@ -39,67 +118,85 @@ import logger from "@lib/logger";
     }
   }
 
-  // how to trigger lazy_load
-  // https://wiki.greasespot.net/Generate_Click_Events
+  // Website which uses lazyload feature [url, xpath, timeout]
+  // the script does the following:
+  //    1. wait for another timeout ms
+  //    2. wait change of xpath
+
+  const LazyLoadSites = [
+    {
+      url: /^https?:\/\/www\.flickr\.com\/photos\/[^\/]+\/favorites(?:[\/?#]|$)/i,
+      // target of mutation
+      target: '//div[@role="main"]/div[contains(@class,"photo-list-view")]',
+      mutationParser: function(mutation, ncheck) {
+        if (mutation.type == "childList") {
+          if (mutation.addedNodes) {
+            for (var i = 0; i < mutation.addedNodes.length; i++) {
+              if (mutation.addedNodes[i].className.indexOf("photo-view") != -1) {
+                ncheck = ncheck + 1;
+                break;
+              }
+            }
+            window.scroll(window.scrollX, 99999);
+          }
+        }
+        return ncheck;
+      },
+      node_check_time: 2
+    }
+  ];
+
+  // 如果是取出下一页使用的iframe window
   if (CheckIframe()) {
     // 搜狗,iframe里面怎么不加载js啊?
     // 去掉了原版的另一种方法，因为新版本 chrome 已经支持。旧版本 chrome iframe里面 无法访问window.parent,返回undefined
-    const domLoaded = function() {
-      //window.scroll(window.scrollX, 99999);
-      const mutationObserver = window.frameElement ? JSON.parse(window.frameElement.getAttribute("mutationObserver")) : null;
-      if (!mutationObserver) {
-        window.parent.postMessage("superpreloader-iframe:DOMLoaded", "*");
-      } else {
-        const observers = mutationObserver.observers;
+    const domloaded = function() {
+      // 滚动到底部,针对,某些使用滚动事件加载图片的网站.
+      var targetNode;
+      var LLS;
+      for (var i = 0; i < LazyLoadSites.length; i++) {
+        if (toRE(LazyLoadSites[i].url).test(window.location.href)) {
+          // Select the node that will be observed for mutations
+          targetNode = getElementByXpath(LazyLoadSites[i].target, document, document);
+          LLS = LazyLoadSites[i];
+          break;
+        }
+      }
 
-        let p = [];
-        if (observers) {
-          ["attributes", "addedNodes", "removedNodes"].forEach((key) => {
-            const el = getAllElements(observers[key]);
-            if (el.length > 0) {
-              if (mutationObserver.relatedObj) {
-                //el.forEach((x) => {
-                //  p.push(elementReady(x, key));
-                //});
-                p.push(elementReady(el[el.length - 1], key));
-                el[0].scrollIntoView();
-                el[el.length - 1].scrollIntoView();
-              } else {
-                p.push(elementReady(el[el.length - 1], key));
-              }
+      if (targetNode) {
+        var num_node_check = 0;
+        // Callback function to execute when mutations are observed
+        const callback = function(mutationsList, observer) {
+          for (var i = 0; i < mutationsList.length; i++) {
+            num_node_check = LLS.mutationParser(mutationsList[i], num_node_check);
+            if (num_node_check == LLS.node_check_time) {
+              observer.disconnect();
+              window.parent.postMessage("superpreloader-iframe:DOMLoaded", "*");
             }
-          });
-        }
-        if (p) {
-          p = Promise.all(p);
-        } else {
-          p = Promise.resolve(undefined);
-        }
-        const timeout = mutationObserver.timeout && 0;
-        setTimeout(() => {
-          p.then((values) => {
-            console.log(values);
-            if (values) {
-              values.forEach(({element, type, mutationList, observer}) => {
-                observer.disconnect();
-              });
-            }
-            //window.scrollTo(0, scrollLocation);
-            window.parent.postMessage("superpreloader-iframe:DOMLoaded", "*");
-          });
-        }, timeout);
+          }
+        };
+        const observer_lazyload = new MutationObserver(callback);
+        // Start observing the target node for configured mutations
+        observer_lazyload.observe(targetNode, {
+          childList: true
+        });
+        window.scroll(window.scrollX, 99999);
+      } else {
+        window.scroll(window.scrollX, 99999);
+        window.parent.postMessage("superpreloader-iframe:DOMLoaded", "*");
       }
     };
-
     if (window.opera) {
-      document.addEventListener("DOMContentLoaded", domLoaded, false);
+      document.addEventListener("DOMContentLoaded", domloaded, false);
     } else {
-      domLoaded();
+      domloaded();
     }
+
     return;
   }
 
   /// //////////////////设置(请注意开关的缩进关系..子开关一般在父开关为true的时候才会生效.)//////////////////////
+  const debugStyle = "color:#02A9DE";
   const userLang = navigator.language || navigator.userLanguage;
   // (Default settings)
   const prefsFactory = {
@@ -136,16 +233,14 @@ import logger from "@lib/logger";
     ChineseUI: false,
     dblclick_pause: false,
     factoryCheck: true,
-    disappearDelay: -1, //暂停翻页状态栏disappearDelay ms后消失, -1为不消失
-    numOfRule: 4308
+    disappearDelay: -1 //暂停翻页状态栏disappearDelay ms后消失, -1为不消失
   };
-  let prefs = prefsFactory;
-  let myOldVersion = "1.0.0";
+  var prefs = prefsFactory;
 
   /// ///////////////////////---------------规则-------////////////////
   // 高级规则的一些默认设置..如果你不知道是什么..请务必不要修改(删除)它.此修改会影响到所有高级规则...
   // (Default settings)
-  const SITEINFO_DFactory = {
+  var SITEINFO_D = {
     enable: true, // 启用
     useiframe: false, // (预读)是否使用iframe..
     viewcontent: false, // 查看预读的内容,显示在页面的最下方.
@@ -164,9 +259,9 @@ import logger from "@lib/logger";
       separatorReal: true, // 显示真实的页数
       reload: false, // 强制重载iframe
       sandbox: false // Iframe sandbox 选项
-    }
+    },
+    numOfRule: 4308
   };
-  let SITEINFO_D = SITEINFO_DFactory;
 
   // 在以下网站上允许在非顶层窗口上加载JS..比如猫扑之类的框架集网页.
   const DIExclude = [
@@ -653,41 +748,6 @@ import logger from "@lib/logger";
       }
     },
     {
-      name: "yuyouge.com",
-      url: "^https?://www\\.yuyouge\\.com",
-      nextLink: "auto;",
-      pageElement: "//article/div[@id='h1']|//article/div[@id='txtContent']",
-      documentFilter: function documentFilter(doc) {
-        const style = document.querySelector("#txtContent").getAttribute("style");
-        const cls = document.querySelector("#txtContent").getAttribute("class");
-        [].forEach.call(doc.querySelectorAll("#txtContent"), function(div) {
-          div.setAttribute("style", style);
-          div.setAttribute("class", cls);
-        });
-      }
-    },
-    // {
-    //   name: "bilibili",
-    //   url: "^https?://(search\\.bilibili\\.com|space\\.bilibili\\.com/)",
-    //   nextLink: {
-    //     startAfter: "&page=",
-    //     mFails: ["re;^https?://.*", "&page=1"],
-    //     inc: 1
-    //   },
-    //   autopager: {
-    //     enable: false,
-    //     remain: 0.001,
-    //     useiframe: true,
-    //     pageElement: "//li[contains(@class,'video-item')]/parent::*",
-    //     mutationObserver: {
-    //       relatedObj: "css;.page-wrap",
-    //       observers: {
-    //         attributes: "css;li.video-item  .lazy-img img" // the node to monitor change of attributes
-    //       }
-    //     }
-    //   }
-    // },
-    {
       name: "电玩巴士 - 图文",
       url: "^https?://pc\\.tgbus\\.com/.*\\d+/$",
       exampleUrl: "http://pc.tgbus.com/tuwen_180/88983/",
@@ -1016,22 +1076,6 @@ import logger from "@lib/logger";
       }
     },
     {
-      name: "rushi.net",
-      url: "^https?://www.rushi.net/Home/Works",
-      nextLink: "css;.gopage .next-btn",
-      // 或者//div[@class='gopage']//a[contains(@class,'next-btn')]
-      autopager: {
-        pageElement: "css;.work_list_line",
-        startFilter: (doc) => {
-          const firstDiv = document.querySelector(".hot-company-job");
-          if (firstDiv) {
-            firstDiv.parentNode.removeChild(firstDiv);
-          }
-        },
-        documentFilter: "startFilter"
-      }
-    },
-    {
       name: "优书-书单|评论",
       url: /^https?:\/\/www\.yousuu\.com\/(comments|booklist)/i,
       nextLink: function(doc, win, cplink) {
@@ -1246,6 +1290,7 @@ import logger from "@lib/logger";
           if (pageSelect) {
             const s2os = pageSelect.options;
             const s2osl = s2os.length;
+            // alert(s2.selectedIndex);
             if (pageSelect.selectedIndex == s2osl - 1) return true;
           }
         }
@@ -1610,8 +1655,266 @@ import logger from "@lib/logger";
     }
   ];
 
+  const axios = (function() {
+    /**
+     * axios-like library for Greasemonkey
+     * @param {string} method "GET"/"POST"
+     * @param {string} url requested url
+     * @param {object} conf Greasemonkey request configuration
+     * @returns {promise} reponse is resolved
+     */
+    const axios = function(method, url, conf) {
+      return new Promise(function(resolve, reject) {
+        const req = {
+          url: url,
+          method: method,
+          timeout: 60000,
+          onload: function(res) {
+            resolve(res);
+          },
+          onerror: function(err) {
+            reject(err);
+          },
+          ontimeout: function(err) {
+            reject(err);
+          }
+        };
+        const acceptedConf = ["binary", "context", "data", "headers", "method", "overrideMimeType", "password", "timeout", "upload", "url", "usr"];
+        if (conf) {
+          for (var prop in conf) {
+            if (acceptedConf.indexOf(prop) > -1) {
+              req[prop] = conf[prop];
+            }
+          }
+          if (conf.noCache === true) {
+            req.url += "?_" + new Date().getTime();
+          }
+        }
+        GM.xmlHttpRequest(req);
+      });
+    };
+
+    axios.get = function(url, conf) {
+      return axios("GET", url, conf);
+    };
+
+    axios.post = function(url, data, conf) {
+      if (!conf) {
+        conf = {data: data};
+      } else {
+        conf.data = data;
+      }
+      return axios("POST", url, conf);
+    };
+    return axios;
+  })();
+
   //  ///////// ----- Rules obtained from online json files -------///////////
   var SITEINFO_json = [];
+  const jsonRule = {
+    info: {
+      expire: new Date("1992-05-15"),
+      updatePeriodInDay: 1 // json rules are update everyday
+    },
+    rule: [[], []], // length should be the same as this.provider
+    /**
+     * import string into data
+     * @param {object} jsonRuleInfo GM saved info
+     * @param {object} jsonRule GM saved rules
+     * @returns {void}
+     */
+    importData: function(jsonRuleInfo, jsonRule) {
+      const _jsonRuleInfo = JSON.parse(jsonRuleInfo);
+      this.info.expire = new Date(_jsonRuleInfo.expire);
+      this.info.updatePeriodInDay = _jsonRuleInfo.updatePeriodInDay;
+      this.rule = JSON.parse(jsonRule);
+    },
+    saveData: function(withRule, updatePeriodInDay) {
+      const promise = [];
+      if (withRule) {
+        promise.push(GM.setValue("SITEINFO_json", JSON.stringify(this.rule)));
+      }
+      const _updatePeriodInDay = typeof updatePeriodInDay === "undefined" ? this.info.updatePeriodInDay : updatePeriodInDay;
+      const today = new Date();
+      this.info.expire = new Date(today.getTime() + _updatePeriodInDay * 24 * 60 * 60 * 1000);
+      promise.push(GM.setValue("jsonRuleInfo", JSON.stringify(this.info)));
+      return Promise.all(promise);
+    },
+    exportRule: function() {
+      return _.flat(this.rule);
+    },
+    provider: [
+      {
+        name: "machsix.github.io",
+        url: ["https://machsix.github.io/Super-preloader/mydata.json", "https://cdn.jsdelivr.net/gh/machsix/Super-preloader/dist/mydata.json"],
+        detailUrl: "https://machsix.github.io/Super-preloader/mydata_detail.json",
+        ruleParser: function(responseText) {
+          return JSON.parse(responseText);
+        }
+      },
+      {
+        name: "wedata.net",
+        url: ["http://wedata.net/databases/AutoPagerize/items.json", "https://super-preloader.netlify.com/wedata.json"],
+        detailUrl: "http://wedata.net/databases/AutoPagerize.json",
+        ruleParser: function(responseText) {
+          return JSON.parse(responseText)
+            .filter(function(i) {
+              const nameFilter = ["Generic Posts Rule", "hAtom"];
+              for (var j = 0; j < nameFilter.length; j++) {
+                if (nameFilter[j].indexOf(i.name) >= 0) {
+                  return false;
+                }
+              }
+              return true;
+            })
+            .map(function(i) {
+              i.data.name = i.name;
+              i.data.source = "wedata.net";
+              return i.data;
+            });
+        }
+      }
+    ],
+    /**
+     * Download rule from provider[i]
+     * @param {number} i provider[i]
+     * @returns {promise} the downloaded rule
+     */
+    downloadRule: function(i) {
+      const createRequest = function(iurl) {
+        return new Promise(
+          function(resolve, reject) {
+            axios
+              .get(this.provider[i].url[iurl], {noCache: true})
+              .then(
+                function(res) {
+                  try {
+                    const rule = this.provider[i].ruleParser(res.responseText);
+                    console.warn("%c[Super-preloader] %c[UpdateRule] %s [Status] %s ", debugStyle, "", this.provider[i].name, "Success");
+                    resolve(rule);
+                  } catch (error) {
+                    console.error("%c[Super-preloader] %c[UpdateRule] %s [Status] %s ", debugStyle, "", this.provider[i].name, "Fail to parse");
+                    reject(error);
+                  }
+                }.bind(this)
+              )
+              .catch(
+                function(error) {
+                  if (iurl < this.provider[i].url.length) {
+                    return createRequest(iurl + 1);
+                  } else {
+                    console.error("%c[Super-preloader] %c[UpdateRule] %s [Status] %s ", debugStyle, "", this.provider[i].name, "Fail to download");
+                    reject(error);
+                  }
+                }.bind(this)
+              );
+          }.bind(this)
+        );
+      }.bind(this);
+      return createRequest(0);
+    },
+    /**
+     * update rule for a specific index
+     * @param {number} i index of provider
+     * @param {boolean} force whether to forcely update
+     * @param {Object} lastUpdate override this.data.expire
+     * @returns {void}
+     */
+    updateRule: function(i, force, lastUpdate) {
+      // update rule[i] if we don't have rule for it
+      const _force = typeof force !== "undefined" ? this.rule[i].length < 1 || force : this.rule[i].length < 1 || false;
+      const _lastUpdate = typeof lastUpdate !== "undefined" ? lastUpdate : this.info.expire;
+      return new Promise(
+        function(resolve, reject) {
+          axios
+            .get(this.provider[i].detailUrl, {noCache: true})
+            .then(
+              function(res) {
+                const detail = JSON.parse(res.responseText);
+                const ruleLastUpdate = new Date(detail.updated_at);
+                if (_force || ruleLastUpdate > _lastUpdate || this.rule[i].length === 0) {
+                  // download rule for:
+                  // 1. forced update
+                  // 2. rule is updated
+                  // 3. rule is empty
+                  this.downloadRule(i)
+                    .then(function(rule) {
+                      resolve(rule);
+                    })
+                    .catch(function(error) {
+                      reject(error);
+                    });
+                } else {
+                  debug("%c[Super-preloader] %c[UpdateRule] %s [Status] %s ", debugStyle, "", this.provider[i].name, "No need to update");
+                  resolve(this.rule[i]);
+                }
+              }.bind(this)
+            )
+            .catch(
+              function(error) {
+                console.error("%c[Super-preloader] %c[UpdateRule] %s [Status] %s ", debugStyle, "", this.provider[i].name, "Fail to fetch detail");
+                reject(error);
+              }.bind(this)
+            );
+        }.bind(this)
+      );
+    },
+    /**
+     * update all rules
+     * @param {force} force force update rule
+     * @return {promise/val} the resolved rules
+     */
+    updateAllRules: function(force) {
+      const _force = this.rule.length !== this.provider.length ? true : !!force;
+      const today = new Date();
+
+      if (_force || today > this.info.expire) {
+        const reflect = function(promise) {
+          return promise.then(
+            function(v) {
+              return {v: v, status: "resolved"};
+            },
+            function(e) {
+              return {e: e, status: "rejected"};
+            }
+          );
+        };
+
+        // update rule if we have mismatched rule and provider
+        return Promise.all(
+          this.provider.map(
+            function(val, i) {
+              return reflect(this.updateRule(i, _force));
+            }.bind(this)
+          )
+        ).then(
+          function(v) {
+            var s = true;
+            this.rule = v.map(function(val, index) {
+              if (val.status === "resolved") {
+                return val.v;
+              } else {
+                s = false;
+                return [];
+              }
+            });
+
+            if (s) {
+              // although it returns a promise, we don't need to wait for it
+              this.saveData(true);
+            } else {
+              this.saveData(true, -1);
+            }
+            return Promise.resolve(this.exportRule());
+          }.bind(this)
+        );
+      } else {
+        this.saveData(false);
+        debug("%c[Super-preloader] %c[Rule] Next update at: %s", debugStyle, "", this.info.expire.toISOString());
+        return Promise.resolve(this.exportRule());
+      }
+    }
+  };
 
   //  ///////// ----- End of Rules obtained from online json files -------///////////
 
@@ -1645,7 +1948,7 @@ import logger from "@lib/logger";
   // 当没有找到规则的时候,进入自动搜索模式.
   // 在没有高级规则的网站上.的一些设置..
   // (Default settings)
-  const autoMatchFactory = {
+  var autoMatch = {
     keyMatch: true, // 是否启用关键字匹配
     cases: false, // 关键字区分大小写....
     digitalCheck: true, // 对数字连接进行检测,从中找出下一页的链接
@@ -1694,7 +1997,6 @@ import logger from "@lib/logger";
       separator: true // 显示翻页导航..(推荐显示.)..
     }
   };
-  let autoMatch = autoMatchFactory;
 
   // 上一页关键字
   var prePageKey = [
@@ -1842,61 +2144,58 @@ import logger from "@lib/logger";
 
   // ------------------------下面的不要管他-----------------
   /// ////////////////////////////////////////////////////////////////
-  // eslint-disable-next-line prettier/prettier
-  Promise.all([GM.getValue("prefs", prefsFactory), GM.getValue("SITEINFO_D", SITEINFO_DFactory), GM.getValue("autoMatch", autoMatchFactory), GM.getValue("version", myOldVersion), jsonRule.loadDB()]).then(function(values) {
-    [prefs, SITEINFO_D, autoMatch, myOldVersion] = values;
+  Promise.all([
+    GM.getValue("prefs", JSON.stringify(prefsFactory)),
+    GM.getValue("SITEINFO_D", JSON.stringify(SITEINFO_D)),
+    GM.getValue("autoMatch", JSON.stringify(autoMatch)),
+    GM.getValue("jsonRuleInfo", JSON.stringify(jsonRule.info)),
+    GM.getValue("SITEINFO_json", JSON.stringify(jsonRule.rule)),
+    GM.getValue("version", "1.0.00")
+  ]).then(function(values) {
+    // retrieve settings
+    prefs = JSON.parse(values[0]);
+    SITEINFO_D = JSON.parse(values[1]);
+    autoMatch = JSON.parse(values[2]);
 
-    if (compareVersions(myOldVersion, scriptInfo.rewriteStorage) === -1) {
-      if (_.isString(prefs)) prefs = JSON.parse(prefs);
-      if (_.isString(SITEINFO_D)) SITEINFO_D = JSON.parse(SITEINFO_D);
-      if (_.isString(autoMatch)) autoMatch = JSON.parse(autoMatch);
-    }
-    logger.enableDebug(prefs.debug ? prefs.debug : true);
-    SITEINFO_json = jsonRule.getRule();
+    // import jsonRule to its handler
+    jsonRule.importData(values[3], values[4]);
+    SITEINFO_json = jsonRule.exportRule();
 
-    const preSPinit = [];
     // check the consistency of script settings
-    if (compareVersions(myOldVersion, scriptInfo.version) < 0) {
+    const myVersion = values[5];
+    if (versionCompare(myVersion, scriptInfo.version) < 0) {
       // update rule if the script is upgraded or it is installed for the first time
       if (upgradeNotification) {
-        if (upgradeNotification.show(myOldVersion, scriptInfo.version)) {
+        if (upgradeNotification.show(myVersion)) {
           if (i8n() === "zh_CN") {
-            const text = SCRIPT_INFO["name-CN"] + " 从 v" + myOldVersion + " 升级到 v" + scriptInfo.version + "。 ";
+            const text = "脚本从 v" + myVersion + " 升级到 v" + scriptInfo.version + "。 ";
             // eslint-disable-next-line no-undef
             GM_notification(text + upgradeNotification.text.zh_CN, upgradeNotification.title, upgradeNotification.image, upgradeNotification.onload);
           } else {
-            const text = SCRIPT_INFO.name + " is upgraded from v" + myOldVersion + " to v" + scriptInfo.version + ". ";
+            const text = "Script is upgraded from v" + myVersion + " to v" + scriptInfo.version + ". ";
             // eslint-disable-next-line no-undef
             GM_notification(text + upgradeNotification.text.en_US, upgradeNotification.title, upgradeNotification.image, upgradeNotification.onload);
           }
         }
       }
-    }
-
-    if (compareVersions(myOldVersion, scriptInfo.version) !== 0) {
+      jsonRule.info.expire = new Date("1992-05-15");
+      GM.setValue("version", scriptInfo.version);
       prefs.factoryCheck = true;
-      // preSPinit.push(jsonRule.updateRule(true)); // rule is always updated after upgrade
-      preSPinit.push(GM.setValue("version", scriptInfo.version));
-      logger.info(`[UpdateCheck] version is updated ${myOldVersion} => ${scriptInfo.version}`);
+    } else if (versionCompare(myVersion, scriptInfo.version) > 0) {
+      // downgrade
+      GM.setValue("version", scriptInfo.version);
     }
-
-    let forceJsonUpdate = false;
     if (prefs.factoryCheck === true || prefs.factoryCheck === undefined) {
-      const hasMissing = assignMissingProperty(prefsFactory, prefs);
+      var hasMissing = assignMissingProperty(prefsFactory, prefs);
       if (hasMissing) {
-        logger.info("[UpdateCheck] prefs is updated", prefs);
+        debug("%c[Super-preloader] %cOld prefs: %o", debugStyle, "", prefs);
       }
       prefs.factoryCheck = false;
-      preSPinit.push(GM.setValue("prefs", prefs));
-      if (compareVersions(myOldVersion, scriptInfo.rewriteStorage) === -1) {
-        preSPinit.push(GM.setValue("SITEINFO_D", SITEINFO_D));
-        preSPinit.push(GM.setValue("autoMatch", autoMatch));
-        forceJsonUpdate = true;
-        logger.info("[UpdateCheck] Storage is rewritten");
-      }
+      GM.setValue("prefs", JSON.stringify(prefs));
     }
-    preSPinit.push(jsonRule.updateRule(forceJsonUpdate));
 
+    var xbug = prefs.debug || false;
+    debug = xbug ? console.log.bind(console) : function() {};
     // 黑名单,网站正则..
     var blackList = [
       // 例子
@@ -1909,6 +2208,9 @@ import logger from "@lib/logger";
     );
     const setup = function() {
       const d = document;
+      const on = function(node, e, f) {
+        node.addEventListener(e, f, false);
+      };
 
       const $ = function(s) {
         return d.getElementById("sp-prefs-" + s);
@@ -1968,9 +2270,9 @@ import logger from "@lib/logger";
           scriptInfo.changelog +
           "</b></li>\
                                    <li>规则数目: <b>" +
-          prefs.numOfRule +
+          SITEINFO_D.numOfRule +
           "</b> 下次更新时间: <b>" +
-          jsonRule.expire.toDateString() +
+          jsonRule.info.expire.toDateString() +
           '</b> <button id="sp-prefs-updaterule">更新规则</button></li>\
                                    <li><input type="checkbox" id="sp-prefs-debug" /> 调试模式</li>\
                                    <li><input title="强制开启中文界面" type="checkbox" id="sp-prefs-ChineseUI" /> 中文界面</li>\
@@ -1987,7 +2289,7 @@ import logger from "@lib/logger";
                                        <div><textarea id="sp-prefs-custom_siteinfo" placeholder="自定义站点规则"></textarea></div>\
                                    </li>\
                                </ul>\
-                           <div><button id="sp-prefs-ok" style="width:100px;">确定</button><button id="sp-prefs-cancel" style="width:100px;">取消</button><button id="sp-prefs-reset" style="width:100px;">重置</button></div>';
+                           <div><button id="sp-prefs-ok" style="width:150px;">确定</button><button id="sp-prefs-cancel" style="width:150px;">取消</button></div>';
       } else {
         div.innerHTML =
           "\
@@ -2010,9 +2312,9 @@ import logger from "@lib/logger";
           scriptInfo.changelog +
           "</b></li>\
                                    <li>Number of Rules: <b>" +
-          prefs.numOfRule +
+          SITEINFO_D.numOfRule +
           "</b> Next update: <b>" +
-          jsonRule.expire.toDateString() +
+          jsonRule.info.expire.toDateString() +
           '</b> <button id="sp-prefs-updaterule">Update rules</button></li>\
                                    <li><input type="checkbox" id="sp-prefs-debug" /> Debug mode</li>\
                                    <li><input type="checkbox"  tile="English/Chinese UI" id="sp-prefs-ChineseUI" /> Chinese UI</li>\
@@ -2029,7 +2331,7 @@ import logger from "@lib/logger";
                                        <div><textarea id="sp-prefs-custom_siteinfo" placeholder="Custom rules"></textarea></div>\
                                    </lhttps://greasyfork.org/en/scripts/33522-super-preloaderplus-one-newi>\
                                </ul>\
-                           <div><button id="sp-prefs-ok" style="width:100px;">OK</button><button id="sp-prefs-cancel" style="width:100px;">Cancel</button><button id="sp-prefs-reset" style="width:100px;">Reset</button></div>';
+                           <div><button id="sp-prefs-ok" style="width:150px;">OK</button><button id="sp-prefs-cancel" style="width:150px;">Cancel</button></div>';
       }
       div = null;
 
@@ -2041,16 +2343,11 @@ import logger from "@lib/logger";
         div.parentNode.removeChild(div);
       };
 
-      const on = (node, e, f) => {
-        node.addEventListener(e, f, false);
-      };
-
       on($("ok"), "click", function() {
         prefs.ChineseUI = !!$("ChineseUI").checked;
         // document.getElementById('sp-fw-container').innerHTML = floatWindowUI();
         prefs.custom_siteinfo = $("custom_siteinfo").value;
-        prefs.debug = !!$("debug").checked;
-        logger.enableDebug(prefs.debug);
+        prefs.debug = xbug = !!$("debug").checked;
         prefs.enableHistory = !!$("enableHistory").checked;
         prefs.dblclick_pause = !!$("dblclick_pause").checked;
         prefs.excludes = $("excludes").value;
@@ -2062,16 +2359,8 @@ import logger from "@lib/logger";
 
         autoMatch.useiframe = SITEINFO_D.useiframe;
 
-        Promise.all([GM.setValue("prefs", prefs), GM.setValue("SITEINFO_D", SITEINFO_D), GM.setValue("autoMatch", autoMatch)]).then(function(values) {
-          SP.loadSetting();
-          close();
-          location.reload();
-        });
-      });
-
-      on($("reset"), "click", () => {
-        prefs = prefsFactory;
-        GM.setValue("prefs", prefs).then(() => {
+        Promise.all([GM.setValue("prefs", JSON.stringify(prefs)), GM.setValue("SITEINFO_D", JSON.stringify(SITEINFO_D)), GM.setValue("autoMatch", JSON.stringify(autoMatch))]).then(function(values) {
+          debug = xbug ? console.log.bind(console) : function() {};
           SP.loadSetting();
           close();
           location.reload();
@@ -2080,8 +2369,8 @@ import logger from "@lib/logger";
 
       on($("updaterule"), "click", function() {
         $("updaterule").innerHTML = "Updating...";
-        jsonRule.updateRule(true).then(() => {
-          SITEINFO_json = jsonRule.getRule();
+        jsonRule.updateAllRules(true).then(function(val) {
+          SITEINFO_json = val;
           SP.loadSetting();
           close();
           location.reload();
@@ -2090,7 +2379,7 @@ import logger from "@lib/logger";
 
       on($("cancel"), "click", close);
 
-      $("debug").checked = logger.getLevel() === logger.levels.DEBUG;
+      $("debug").checked = xbug;
       $("ChineseUI").checked = prefs.ChineseUI;
       $("enableHistory").checked = prefs.enableHistory;
       // $('forceTargetWindow').checked = prefs.forceTargetWindow;
@@ -2098,7 +2387,7 @@ import logger from "@lib/logger";
       $("SITEINFO_D-useiframe").checked = SITEINFO_D.useiframe;
       $("SITEINFO_D-a_enable").checked = SITEINFO_D.autopager.enable;
       $("arrowKeyPage").checked = prefs.arrowKeyPage;
-      $("SITEINFO_D-a_force_enable").checked = SITEINFO_D.autopager.force_enable;
+      // $('SITEINFO_D-a_force_enable').checked = SITEINFO_D.autopager.force_enable;
       $("excludes").value = prefs.excludes;
       $("custom_siteinfo").value = prefs.custom_siteinfo;
     };
@@ -2124,18 +2413,23 @@ import logger from "@lib/logger";
           return toRE(x.url).test(locationHref);
         });
 
+        // update json rule
+        const p2 = jsonRule.updateAllRules();
         if (hashSite) {
           isHashchangeSite = true;
           hashchangeTimer = hashSite.timer;
-          logger.debug("当前是页面不刷新的站点", hashSite);
+          debug("%c[Super-preloader]当前是页面不刷新的站点 %o", debugStyle, "", hashSite);
           const p1 = new Promise(function(resolve, reject) {
             setTimeout(resolve, hashchangeTimer);
           });
-          p1.then(function(values) {
+          Promise.all([p1, p2]).then(function(values) {
             init(window, document);
           });
         } else {
-          init(window, document);
+          p2.then(function(values) {
+            SITEINFO_json = values;
+            init(window, document);
+          });
         }
 
         // 分辨率 高度 > 宽度 的是手机
@@ -2164,7 +2458,8 @@ import logger from "@lib/logger";
           try {
             infos = new Function("", "return " + prefs.custom_siteinfo)();
           } catch (e) {
-            logger.error("自定义站点规则错误", prefs.custom_siteinfo);
+            console.error("自定义站点规则错误", prefs.custom_siteinfo);
+            // alert('自定义站点规则错误');
           }
 
           if (_.isArray(infos)) {
@@ -2178,11 +2473,8 @@ import logger from "@lib/logger";
       }
     };
 
-    logger.debug("Entrypoint");
-    Promise.all(preSPinit).then(() => {
-      SITEINFO_json = jsonRule.getRule();
-      SP.spinit();
-    });
+    debug("%c[Super-preloader] %cEntrypoint", debugStyle, "");
+    SP.spinit();
 
     function init(window, document) {
       const startTime = new Date();
@@ -2465,8 +2757,8 @@ import logger from "@lib/logger";
         const a_starti = $("sp-fw-a_starti"); // 开始立即翻页
         a_starti.addEventListener(
           "click",
-          function(e) {
-            if (e.currentTarget.disabled) return;
+          function() {
+            if (this.disabled) return;
             var value = Number(a_ipages_1.value);
             if (isNaN(value) || value <= 0) {
               value = SSS.a_ipages[1];
@@ -2525,7 +2817,9 @@ import logger from "@lib/logger";
               value.a_ipages = [gl(a_ipages_0), isNaN(t_a_ipages_1) ? SSS.a_ipages[1] : t_a_ipages_1 >= 1 ? t_a_ipages_1 : 1];
               value.a_separator = gl(a_separator);
             }
+            // alert(xToString(value));
             SSS.savedValue[SSS.sedValueIndex] = value;
+            // alert(xToString(SSS.savedValue));
             saveValue("spfwset", xToString(SSS.savedValue));
             if (e.shiftKey ? !prefs.FW_RAS : prefs.FW_RAS) {
               // 按住shift键,执行反向操作.
@@ -2797,6 +3091,7 @@ import logger from "@lib/logger";
 
         function transition() {
           const y = Math.ceil(TweenF(t, b, c, d));
+          // alert(y);
           window.scroll(x, y);
           if (t < d) {
             t++;
@@ -2808,14 +3103,17 @@ import logger from "@lib/logger";
 
       function sepHandler(e) {
         e.stopPropagation();
-        const div = e.currentTarget;
+        const div = this;
+        // alert(div);
         const target = e.target;
+        // alert(target);
 
         function getRelativeDiv(which) {
           var id = div.id;
           id = id.replace(/(sp-separator-)(.+)/, function(a, b, c) {
             return b + String(Number(c) + (which == "pre" ? -1 : 1));
           });
+          // alert(id);
           return id ? document.getElementById(id) : null;
         }
 
@@ -2898,23 +3196,23 @@ import logger from "@lib/logger";
         }
 
         if (insertPoint) {
-          logger.log("验证是否能找到插入位置节点:成功", insertPoint);
+          debug("%c[Super-preloader] %c验证是否能找到插入位置节点:成功,%o", debugStyle, "", insertPoint);
         } else {
-          logger.error("验证是否能找到插入位置节点:失败  JS执行终止", SSS.a_HT_insert ? SSS.a_HT_insert[0] : "");
+          console.error("%c[Super-preloader] %c验证是否能找到插入位置节点:失败 %o JS执行终止", debugStyle, "", SSS.a_HT_insert ? SSS.a_HT_insert[0] : "");
           floatWO.updateColor("Astop");
           return;
         }
         if (window.navigator.language != "en") {
-          logger.debug("Language: ", window.navigator.language);
+          debug("%c[Super-preloader] %cLanguage: %s", debugStyle, "", window.navigator.language);
         }
 
         if (pageElement === undefined) {
           pageElement = getAllElements(SSS.a_pageElement);
         }
         if (pageElement.length > 0) {
-          logger.debug("验证是否能找到主要元素:成功", pageElement);
+          debug("%c[Super-preloader] %c验证是否能找到主要元素:成功,%o", debugStyle, "", pageElement);
         } else {
-          logger.error("验证是否能找到主要元素:失败", SSS.a_pageElement);
+          console.error("%c[Super-preloader] %c验证是否能找到主要元素:失败,%o", debugStyle, "", SSS.a_pageElement);
           floatWO.updateColor("Astop");
           return;
         }
@@ -2947,11 +3245,11 @@ import logger from "@lib/logger";
         var doc, win;
 
         function XHRLoaded(res) {
-          const str = res.data;
+          const str = res.responseText;
           doc = win = createDocumentByString(str);
 
           if (!doc) {
-            logger.error("文档对象创建失败");
+            console.error("%c[Super-preloader] %c文档对象创建失败", debugStyle, "");
             removeL();
             return;
           }
@@ -2963,13 +3261,13 @@ import logger from "@lib/logger";
         }
 
         function XHRNotLoaded(res) {
-          logger.error("XHR is failed to be loaded");
-          logger.error(res);
+          console.error("XHR is failed to be loaded");
+          console.error(res);
           removeL();
         }
 
         function removeL(isRemoveAddPage) {
-          logger.debug("移除各种事件监听");
+          debug("%c[Super-preloader] %c移除各种事件监听", debugStyle, "");
           floatWO.updateColor("Astop");
           const _remove = remove;
           for (var i = 0, ii = _remove.length; i < ii; i++) {
@@ -3007,11 +3305,11 @@ import logger from "@lib/logger";
         if (isHashchangeSite && !hashchangeAdded) {
           window.addEventListener("hashchange", onhashChange, false);
           hashchangeAdded = true;
-          logger.debug("成功添加 hashchange 事件");
+          debug("%c[Super-preloader] %c成功添加 hashchange 事件", debugStyle, "");
         }
 
         function onhashChange(event) {
-          logger.debug("触发 Hashchang 事件");
+          debug("%c[Super-preloader] %c触发 Hashchang 事件", debugStyle, "");
           removeL(true);
 
           setTimeout(function() {
@@ -3025,8 +3323,9 @@ import logger from "@lib/logger";
         var iframe;
         var messageR;
 
-        function iframeLoaded(event) {
-          const iframe = event.currentTarget;
+        function iframeLoaded() {
+          const iframe = this;
+          // alert(this.contentDocument.body)
           const body = iframe.contentDocument.body;
           if (body && body.firstChild) {
             setTimeout(function() {
@@ -3046,7 +3345,6 @@ import logger from "@lib/logger";
         function iframeRequest(link) {
           messageR = false;
           if (SSS.a_newIframe || !iframe) {
-            let insertLoc = null;
             const i = document.createElement("iframe");
             iframe = i;
             i.name = "superpreloader-iframe";
@@ -3062,17 +3360,6 @@ import logger from "@lib/logger";
               i.sandbox = SSS.a_sandbox;
             }
             i.src = link;
-            if (SSS.a_mutationObserver) {
-              i.setAttribute("mutationObserver", JSON.stringify(SSS.a_mutationObserver));
-              if (SSS.a_mutationObserver.relatedObj) {
-                insertLoc = getAllElements(SSS.a_mutationObserver.relatedObj);
-                if (insertLoc.length > 0) {
-                  insertLoc = insertLoc[0];
-                } else {
-                  insertLoc = null;
-                }
-              }
-            }
             if (SSS.a_iloaded) {
               i.addEventListener("load", iframeLoaded, false);
               remove.push(function() {
@@ -3082,7 +3369,7 @@ import logger from "@lib/logger";
               const messagehandler = function(e) {
                 if (!messageR && e.data == "superpreloader-iframe:DOMLoaded") {
                   messageR = true;
-                  iframeLoaded.call(i, {currentTarget: i});
+                  iframeLoaded.call(i);
                   if (SSS.a_newIframe) {
                     window.removeEventListener("message", messagehandler, false);
                   }
@@ -3093,11 +3380,7 @@ import logger from "@lib/logger";
                 window.removeEventListener("message", messagehandler, false);
               });
             }
-            if (insertLoc) {
-              insertLoc.parentNode.insertBefore(i, insertLoc);
-            } else {
-              document.body.appendChild(i);
-            }
+            document.body.appendChild(i);
           } else {
             iframe.src = link;
             iframe.contentDocument.location.replace(link);
@@ -3114,18 +3397,19 @@ import logger from "@lib/logger";
           floatWO.updateColor("loading");
           floatWO.CmodeIcon("show");
 
-          logger.debug("获取下一页", SSS.a_useiframe ? "(iframe方式)" : "(XHR方式)", nextlink);
+          debug("%c[Super-preloader] %c获取下一页 %o %o", debugStyle, "", SSS.a_useiframe ? "(iframe方式)" : "(XHR方式)", nextlink);
           if (SSS.a_useiframe) {
             iframeRequest(nextlink);
           } else {
             const reqConf = {
+              overrideMimeType: "text/html; charset=" + document.characterSet,
               headers: SSS.a_headers ? SSS.a_headers : {Referer: cplink}
             };
-            got
+            axios
               .get(nextlink, reqConf)
               .then(function(res) {
                 if (res.finalUrl === cplink) {
-                  logger.debug("最终地址相同");
+                  debug("%c[Super-preloader] %c最终地址相同", debugStyle, "");
                   XHRNotLoaded(res);
                 } else {
                   XHRLoaded(res);
@@ -3134,7 +3418,7 @@ import logger from "@lib/logger";
               .catch(function(res) {
                 XHRNotLoaded(res);
               });
-            logger.debug("读取完成");
+            debug("%c[Super-preloader] %c读取完成", debugStyle, "");
           }
         }
 
@@ -3250,6 +3534,7 @@ import logger from "@lib/logger";
             const spage = function() {
               if (doc) {
                 const value = getInputValue();
+                // alert(value);
                 ipagesmode = true;
                 ipagesnumber = value + paged;
                 insertedIntoDoc();
@@ -3258,6 +3543,7 @@ import logger from "@lib/logger";
             input.addEventListener(
               "keyup",
               function(e) {
+                // alert(e.keyCode);
                 if (e.keyCode == 13) {
                   // 回车
                   spage();
@@ -3320,11 +3606,11 @@ import logger from "@lib/logger";
           working = true;
           if (SSS.a_manualA && !ipagesmode) {
             // 显示手动翻页触发条.
-            logger.debug("手动拼接");
+            debug("%c[Super-preloader] %c手动拼接", debugStyle, "");
             manualAdiv();
           } else {
             // 直接拼接.
-            logger.debug("直接拼接");
+            debug("%c[Super-preloader] %c直接拼接", debugStyle, "");
             insertedIntoDoc();
           }
         }
@@ -3489,16 +3775,16 @@ import logger from "@lib/logger";
 
         function insertedIntoDoc() {
           if (!doc) {
-            logger.error("No document");
+            console.error("%c[Super-preloader]%c %s", debugStyle, "", "没有找到doc");
             return;
           }
 
           if (SSS.a_documentFilter) {
             try {
               SSS.a_documentFilter(doc, nextlink);
-              logger.debug("执行 documentFilter 成功");
+              debug("%c[Super-preloader] %c执行 documentFilter 成功", debugStyle, "");
             } catch (e) {
-              logger.error("执行 documentFilter 错误", e, SSS.a_documentFilter.toString());
+              console.error("%c[Super-preloader] %c执行 documentFilter 错误 %o %s", debugStyle, "", e, SSS.a_documentFilter.toString());
             }
           }
 
@@ -3508,11 +3794,11 @@ import logger from "@lib/logger";
           const pageElements = getAllElements(SSS.a_pageElement, false, doc, win, nextlink);
           const ii = pageElements.length;
           if (ii <= 0) {
-            logger.error("获取下一页的主要内容失败", SSS.a_pageElement);
+            console.error("获取下一页的主要内容失败", SSS.a_pageElement);
             removeL();
             return;
           } else {
-            logger.debug("获取下一页的主要内容成功", pageElements);
+            debug("%c[Super-preloader] %c获取下一页的主要内容成功 %o", debugStyle, "", pageElements);
           }
 
           // 提前查找下一页链接，后面再赋值
@@ -3542,6 +3828,7 @@ import logger from "@lib/logger";
 
           if (SSS.filter && typeof SSS.filter === "string") {
             // 功能未完善.
+            // alert(SSS.filter);
             var nodes = [];
             try {
               nodes = getAllElements(SSS.filter, fragment);
@@ -3623,9 +3910,9 @@ import logger from "@lib/logger";
           if (SSS.filter && typeof SSS.filter === "function") {
             try {
               SSS.filter(pageElements);
-              logger.debug("执行 filter(pages) 成功");
+              debug("%c[Super-preloader] %c执行 filter(pages) 成功", debugStyle, "");
             } catch (e) {
-              logger.error("执行 filter(pages) 错误", e, SSS.filter.toString());
+              console.error("%c[Super-preloader] %c执行 filter(pages) 错误 %o %e", debugStyle, "", e, SSS.filter.toString());
             }
           }
 
@@ -3645,9 +3932,11 @@ import logger from "@lib/logger";
           if (SSS.a_replaceE) {
             const oldE = getAllElements(SSS.a_replaceE);
             const oldE_lt = oldE.length;
+            // alert(oldE_lt);
             if (oldE_lt > 0) {
               const newE = getAllElements(SSS.a_replaceE, false, doc, win);
               const newE_lt = newE.length;
+              // alert(newE_lt);
               if (newE_lt == oldE_lt) {
                 // 替换
                 var oldE_x, newE_x;
@@ -3682,7 +3971,7 @@ import logger from "@lib/logger";
           }
 
           if (paged >= SSS.a_maxpage) {
-            logger.debug(`到达所设定的最大翻页数 ${SSS.a_maxpage}`);
+            debug("%c[Super-preloader] %c到达所设定的最大翻页数", debugStyle, "", SSS.a_maxpage);
             notice("<b>状态</b>:" + '到达所设定的最大翻页数:<b style="color:red">' + SSS.a_maxpage + "</b>");
             removeL();
             return;
@@ -3709,7 +3998,7 @@ import logger from "@lib/logger";
               }
             }
           } else {
-            logger.error("没有找到下一页链接", SSS.nextLink);
+            console.error("%c[Super-preloader] %c没有找到下一页链接%o", debugStyle, "", SSS.nextLink);
             removeL();
           }
         }
@@ -3891,13 +4180,13 @@ import logger from "@lib/logger";
             ";
           iframe.addEventListener(
             "load",
-            function(e) {
-              const body = e.currentTarget.contentDocument.body;
+            function() {
+              const body = this.contentDocument.body;
               if (body && body.firstChild) {
                 floatWO.updateColor("prefetcher");
                 floatWO.CmodeIcon("hide");
                 floatWO.loadedIcon("show");
-                e.currentTarget.removeEventListener("load", arguments.callee, false);
+                this.removeEventListener("load", arguments.callee, false);
 
                 if (SSS.lazyImgSrc) {
                   handleLazyImgSrc(SSS.lazyImgSrc, body);
@@ -3915,47 +4204,53 @@ import logger from "@lib/logger";
             document.body.appendChild(iframe);
           }
         } else {
-          got.get(nextlink).then((res) => {
-            const doc = createDocumentByString(res.data);
-            if (!doc) {
-              logger.error("文档对象创建失败!");
-              return;
-            }
-
-            if (SSS.lazyImgSrc) {
-              handleLazyImgSrc(SSS.lazyImgSrc, doc);
-            }
-
-            const images = doc.images;
-            const isl = images.length;
-            var img;
-            const iarray = [];
-            var i;
-            const existSRC = {};
-            var isrc;
-            for (i = isl - 1; i >= 0; i--) {
-              isrc = images[i].getAttribute("src");
-              if (!isrc || existSRC[isrc]) {
-                continue;
-              } else {
-                existSRC[isrc] = true;
+          GM.xmlHttpRequest({
+            method: "GET",
+            url: nextlink,
+            overrideMimeType: "text/html; charset=" + document.characterSet,
+            onload: function(req) {
+              const str = req.responseText;
+              const doc = createDocumentByString(str);
+              if (!doc) {
+                console.error("%c[Super-preloader] %c文档对象创建失败!", debugStyle, "");
+                return;
               }
-              img = document.createElement("img");
-              img.src = isrc;
-              iarray.push(img);
-            }
-            if (SSS.viewcontent) {
-              const containter = cContainer();
-              const div = containter.div;
-              i = iarray.length;
-              containter.div2.innerHTML = "预读取图片张数: " + "<b>" + i + "</b>" + "<br />" + "预读网址: " + "<b>" + nextlink + "</b>";
-              for (i -= 1; i >= 0; i--) {
-                div.appendChild(iarray[i]);
+
+              if (SSS.lazyImgSrc) {
+                handleLazyImgSrc(SSS.lazyImgSrc, doc);
               }
+
+              const images = doc.images;
+              const isl = images.length;
+              var img;
+              const iarray = [];
+              var i;
+              const existSRC = {};
+              var isrc;
+              for (i = isl - 1; i >= 0; i--) {
+                isrc = images[i].getAttribute("src");
+                if (!isrc || existSRC[isrc]) {
+                  continue;
+                } else {
+                  existSRC[isrc] = true;
+                }
+                img = document.createElement("img");
+                img.src = isrc;
+                iarray.push(img);
+              }
+              if (SSS.viewcontent) {
+                const containter = cContainer();
+                const div = containter.div;
+                i = iarray.length;
+                containter.div2.innerHTML = "预读取图片张数: " + "<b>" + i + "</b>" + "<br />" + "预读网址: " + "<b>" + nextlink + "</b>";
+                for (i -= 1; i >= 0; i--) {
+                  div.appendChild(iarray[i]);
+                }
+              }
+              floatWO.updateColor("prefetcher");
+              floatWO.loadedIcon("show");
+              floatWO.CmodeIcon("hide");
             }
-            floatWO.updateColor("prefetcher");
-            floatWO.loadedIcon("show");
-            floatWO.CmodeIcon("hide");
           });
         }
       }
@@ -3965,7 +4260,7 @@ import logger from "@lib/logger";
       // 分析黑名单
       const blackList_re = new RegExp(blackList.map(wildcardToRegExpStr).join("|"));
       if (blackList_re.test(url)) {
-        logger.debug("匹配黑名单，js执行终止");
+        debug("%c[Super-preloader] %c匹配黑名单，js执行终止", debugStyle, "");
         return;
       }
 
@@ -3975,17 +4270,17 @@ import logger from "@lib/logger";
           return x[1] && x[2].test(url);
         });
         if (isReturn) {
-          logger.debug(`url为:${url}的页面为非顶层窗口,JS执行终止`);
+          debug("%c[Super-preloader] %curl为:%s的页面为非顶层窗口,JS执行终止", debugStyle, "", url);
           return;
         }
       }
-      logger.debug(`url为:${url}的页面,JS加载成功`);
+      debug("%c[Super-preloader] %curl为:%s的页面,JS加载成功", debugStyle, "", url);
 
       // 第一阶段..分析高级模式..
       SITEINFO = SITEINFO.concat(SITEINFO_json, SITEINFO_TP, SITEINFO_comp);
-      if (!prefs.numOfRule || prefs.numOfRule != SITEINFO.length) {
-        prefs.numOfRule = SITEINFO.length;
-        GM.setValue("prefs", prefs);
+      if (!SITEINFO_D.numOfRule || SITEINFO_D.numOfRule != SITEINFO.length) {
+        SITEINFO_D.numOfRule = SITEINFO.length;
+        GM.setValue("SITEINFO_D", JSON.stringify(SITEINFO_D));
       }
 
       // 重要的变量两枚.
@@ -4001,10 +4296,11 @@ import logger from "@lib/logger";
         const ii = SITEINFO.length;
 
         if (i8n() === "zh_CN") {
-          logger.debug(`高级规则数目:${ii}`);
-          logger.debug(`规则数 > ${ii - SITEINFO_json.length} 来自其他来源, 比如: wedata.net`);
+          debug("%c[Super-preloader] %c高级规则数目:%i", debugStyle, "", ii);
+          debug("%c[Super-preloader] %c规则数 > %i 来自其他来源, 比如: wedata.net", debugStyle, "", ii - SITEINFO_json.length);
         } else {
-          logger.debug(`Number of advanced rules:${ii}`);
+          debug("%c[Super-preloader] %cNumber of advanced rules:%i", debugStyle, "", ii);
+          debug("%c[Super-preloader] %cRules with ID > %i 来自其他来源, 比如: wedata.net", debugStyle, "", ii - SITEINFO_json.length);
         }
 
         for (var i = 0; i < ii; i++) {
@@ -4012,26 +4308,26 @@ import logger from "@lib/logger";
           Rurl = toRE(SII.url);
           if (Rurl.test(url)) {
             if (i8n() === "zh_CN") {
-              logger.debug("找到当前站点规则:", SII);
-              logger.debug(`规则ID: ${i + 1}`);
+              debug("%c[Super-preloader] %c找到当前站点规则:%o", debugStyle, "", SII);
+              debug("%c[Super-preloader] %c规则ID: %i", debugStyle, "", i + 1);
             } else {
-              logger.debug("Find rule for this website:", SII);
-              logger.debug(`Rule ID: ${i + 1}`);
+              debug("[Super-preloader] %cFind rule for this website:%o", debugStyle, "", SII);
+              debug("%c[Super-preloader] %cRule ID: %i", debugStyle, "", i + 1);
             }
 
             // 运行规则的 startFilter
             if (SII.autopager && SII.autopager.startFilter) {
               try {
                 SII.autopager.startFilter(document, window);
-                logger.debug("执行 startFilter 成功");
+                debug("%c[Super-preloader] %c执行 startFilter 成功", debugStyle, "");
               } catch (e) {
-                logger.error("执行 startFilter 错误", e);
+                console.error("%c[Super-preloader] %c执行 startFilter 错误 %o", debugStyle, "", e);
               }
             }
 
             nextlink = getElement(SII.nextLink || "auto;");
             if (!nextlink) {
-              logger.warn("无法找到下一页链接,继续查找其他规则,跳过规则:", SII);
+              console.warn("%c[Super-preloader] %c无法找到下一页链接,继续查找其他规则,跳过规则:%o", debugStyle, "", SII);
               continue;
             }
             // 如果匹配到的下一页链接和当前页一致，继续查找下一条规则
@@ -4049,8 +4345,10 @@ import logger from "@lib/logger";
               }
             }
 
+            // alert(prelink);
             SSS = {};
             SSS.Rurl = String(Rurl);
+            // alert(SSS.Rurl);
             SSS.nextLink = SII.nextLink || "auto;";
             SSS.viewcontent = SII.viewcontent;
             SSS.enable = SII.enable === undefined ? SITEINFO_D.enable : SII.enable;
@@ -4072,14 +4370,18 @@ import logger from "@lib/logger";
               SSS.a_manualA = SIIA.manualA === undefined ? SIIAD.manualA : SIIA.manualA;
               SSS.a_enable = SIIA.enable === undefined ? SIIAD.enable : SIIA.enable;
               if (SIIA.useiframe === undefined) {
-                SSS.a_useiframe = SII.useiframe;
+                if (SII.useiframe === undefined) {
+                  SSS.a_useiframe = SIIAD.useiframe;
+                } else {
+                  SSS.a_useiframe = SII.useiframe;
+                }
               } else {
                 SSS.a_useiframe = SIIA.useiframe;
               }
-              SSS.a_mutationObserver = SSS.a_useiframe ? (SIIA.mutationObserver === undefined ? null : SIIA.mutationObserver) : null;
               SSS.a_newIframe = SIIA.newIframe === undefined ? SIIAD.newIframe : SIIA.newIframe;
               SSS.a_iloaded = SIIA.iloaded === undefined ? SIIAD.iloaded : SIIA.iloaded;
               SSS.a_itimeout = SIIA.itimeout === undefined ? SIIAD.itimeout : SIIA.itimeout;
+              // alert(SSS.a_itimeout);
               SSS.a_remain = SIIA.remain === undefined ? SIIAD.remain : SIIA.remain;
               SSS.a_maxpage = SIIA.maxpage === undefined ? SIIAD.maxpage : SIIA.maxpage;
               SSS.a_separator = SIIA.separator === undefined ? SIIAD.separator : SIIA.separator;
@@ -4116,7 +4418,7 @@ import logger from "@lib/logger";
             const pageElement = getElement(SSS.a_pageElement);
             if (!pageElement || (Array.isArray(pageElement) && pageElement.length === 0)) {
               nextlink = null;
-              logger.error("无法找到内容,跳过规则:", SII, "继续查找其他规则");
+              console.error("%c[Super-preloader] %c无法找到内容,跳过规则:%o %s", debugStyle, "", SII, "继续查找其他规则");
               continue;
             }
 
@@ -4126,16 +4428,18 @@ import logger from "@lib/logger";
         }
 
         if (!SSS.hasRule) {
-          logger.warn("未找到合适的高级规则,开始自动匹配.");
+          console.warn("%c[Super-preloader] %c未找到合适的高级规则,开始自动匹配.", debugStyle, "");
           // 自动搜索.
           if (!autoMatch.keyMatch) {
-            logger.debug("自动匹配功能被禁用了.");
+            debug("%c[Super-preloader] %c自动匹配功能被禁用了.", debugStyle, "");
           } else {
             nextlink = autoGetLink();
+            // alert(nextlink);
             if (nextlink) {
               // 强制模式.
               const FA = autoMatch.FA;
               SSS.Rurl = window.localStorage ? "am:" + (url.match(/^https?:\/\/[^:]*\//i) || [])[0] : "am:automatch";
+              // alert(SSS.Rurl);
               SSS.enable = true;
               SSS.nextLink = "auto;";
               SSS.viewcontent = autoMatch.viewcontent;
@@ -4160,18 +4464,18 @@ import logger from "@lib/logger";
           SSS.lazyImgSrc = prefs.lazyImgSrc;
         }
 
-        logger.debug(`搜索高级规则和自动匹配过程总耗时:${new Date() - startTime}ms`);
+        debug("%c[Super-preloader] %c搜索高级规则和自动匹配过程总耗时:%ims", debugStyle, "", new Date() - startTime);
       };
 
       findCurSiteInfo();
 
       // 上下页都没有找到啊
       if (!nextlink && !prelink) {
-        logger.warn(`未找到相关链接, JS执行停止. 共耗时:${new Date() - startTime}ms`);
+        console.warn("%c[Super-preloader] %c未找到相关链接, JS执行停止. 共耗时:%ims", debugStyle, "", new Date() - startTime);
         return;
       } else {
-        logger.debug("上一页链接:", prelink);
-        logger.debug("下一页链接:", nextlink);
+        debug("%c[Super-preloader] %c上一页链接:%o", debugStyle, "", prelink);
+        debug("%c[Super-preloader] %c下一页链接:%o", debugStyle, "", nextlink);
         nextlink = nextlink ? nextlink.href || nextlink : undefined;
         prelink = prelink ? prelink.href || prelink : undefined;
       }
@@ -4187,7 +4491,7 @@ import logger from "@lib/logger";
       };
 
       if (prefs.arrowKeyPage) {
-        logger.debug("添加键盘左右方向键翻页监听.");
+        debug("%c[Super-preloader] %c添加键盘左右方向键翻页监听.", debugStyle, "");
         document.addEventListener(
           "keyup",
           function(e) {
@@ -4215,7 +4519,7 @@ import logger from "@lib/logger";
       }
 
       // 监听下一页事件.
-      logger.debug("添加鼠标手势翻页监听");
+      debug("%c[Super-preloader] %c添加鼠标手势翻页监听", debugStyle, "");
       document.addEventListener(
         "superPreloader.go",
         function() {
@@ -4235,15 +4539,15 @@ import logger from "@lib/logger";
 
       // 没找到下一页的链接
       if (!nextlink) {
-        logger.error("下一页链接不存在,JS无法继续.");
-        logger.debug(`全部过程耗时:${new Date() - startTime}ms`);
+        console.error("%c[Super-preloader] %c下一页链接不存在,JS无法继续.", debugStyle, "");
+        debug("%c[Super-preloader] %c全部过程耗时:%ims", debugStyle, "", new Date() - startTime);
 
         return;
       }
 
       // 载入设置..
       const loadLocalSetting = function() {
-        logger.debug("加载设置");
+        debug("%c[Super-preloader] %c加载设置", debugStyle, "");
         var savedValue = getValue("spfwset");
         if (savedValue) {
           try {
@@ -4266,6 +4570,7 @@ import logger from "@lib/logger";
               break;
             }
           }
+          // alert(i);
           SSS.sedValueIndex = i;
         } else {
           SSS.savedValue = [];
@@ -4286,24 +4591,24 @@ import logger from "@lib/logger";
       }
 
       if (prefs.floatWindow) {
-        logger.debug("创建悬浮窗");
+        debug("%c[Super-preloader] %c创建悬浮窗", debugStyle, "");
         floatWindow(SSS);
       }
 
       if (!SSS.enable) {
-        logger.warn("本规则被关闭,脚本执行停止");
-        logger.debug(`全部过程耗时:${new Date() - startTime}ms`);
+        console.warn("%c[Super-preloader] %c本规则被关闭,脚本执行停止", debugStyle, "");
+        debug("%c[Super-preloader] %c全部过程耗时:%ims", debugStyle, "", new Date() - startTime);
 
         return;
       }
-      logger.debug(`全部过程耗时:${new Date() - startTime}ms`);
+      debug("%c[Super-preloader] %c全部过程耗时:%ims", debugStyle, "", new Date() - startTime);
 
       // 预读或者翻页.
       if (SSS.a_enable) {
-        logger.debug("初始化,翻页模式.");
+        debug("%c[Super-preloader] %c初始化,翻页模式.", debugStyle, "");
         autopager(SSS, floatWO);
       } else {
-        logger.debug("初始化,预读模式.");
+        debug("%c[Super-preloader] %c初始化,预读模式.", debugStyle, "");
         prefetcher(SSS, floatWO);
       }
 
@@ -4354,6 +4659,7 @@ import logger from "@lib/logger";
 
         if (doc == document) {
           // 当前文档,只检查一次.
+          // alert(nextlink);
           if (docChecked) return nextlink;
           docChecked = true;
         }
@@ -4406,13 +4712,17 @@ import logger from "@lib/logger";
 
           // 3个条件:http协议链接,非跳到当前页面的链接,非跨域
           if (/^https?:/i.test(ahref) && ahref.replace(/#.*$/, "") != curLHref && ahref.match(/https?:\/\/([^\/]+)/)[1] == _domain_port) {
-            logger.debug(type == "pre" ? "上一页" : "下一页" + "匹配到的关键字为:", atext);
+            if (xbug) {
+              debug((type == "pre" ? "上一页" : "下一页") + "匹配到的关键字为:", atext);
+            }
             return a; // 返回对象A
             // return ahref;
           }
         }
 
-        logger.debug(`全文档链接数量:${alllinksl}`);
+        if (xbug) {
+          debug("%c[Super-preloader] %c全文档链接数量:%i", debugStyle, "", alllinksl);
+        }
 
         for (i = 0; i < alllinksl; i++) {
           if (_nextlink && _prelink) break;
@@ -4428,6 +4738,7 @@ import logger from "@lib/logger";
                 // 是不是纯数字
                 // debug(numtext);
                 numtext = numtext[1];
+                // alert(numtext);
                 aP = a;
                 initSD = 0;
 
@@ -4442,6 +4753,7 @@ import logger from "@lib/logger";
                       preS2 = aP.previousElementSibling;
                     }
                     initSD++;
+                    // alert('initSD: '+initSD);
                   }
                   searchedD = initSD > 0;
 
@@ -4453,16 +4765,22 @@ import logger from "@lib/logger";
                       pSNText = preS2 ? preS2.textContent.match(DCRE) : "";
                       preSS = preS2;
                     }
+                    // alert(previousS);
                     if (pSNText) {
                       pSNText = pSNText[1];
+                      // debug(pSNText)
+                      // alert(pSNText)
                       if (_Number(pSNText) == _Number(numtext) - 1) {
+                        // alert(searchedD);
                         nodeType = preSS.nodeType;
+                        // alert(nodeType);
                         if (
                           nodeType == 3 ||
                           (nodeType == 1 &&
                             (searchedD ? _getAllElementsByXpath("./descendant-or-self::a[@href]", preSS, doc).snapshotLength === 0 : !preSS.hasAttribute("href") || _getFullHref(preSS.getAttribute("href")) == curLHref))
                         ) {
                           _nextlink = finalCheck(a, "next");
+                          // alert(_nextlink);
                         }
                         continue;
                       }
@@ -4481,6 +4799,7 @@ import logger from "@lib/logger";
                       nextS2 = a.nextElementSibling;
                     }
                     initSD++;
+                    // alert('initSD: '+initSD);
                   }
                   searchedD = initSD > 0;
 
@@ -4492,16 +4811,21 @@ import logger from "@lib/logger";
                       nSNText = nextS2 ? nextS2.textContent.match(DCRE) : "";
                       nextSS = nextS2;
                     }
+                    // alert(nextS);
                     if (nSNText) {
                       nSNText = nSNText[1];
+                      // alert(pSNText)
                       if (_Number(nSNText) == _Number(numtext) + 1) {
+                        // alert(searchedD);
                         nodeType = nextSS.nodeType;
+                        // alert(nodeType);
                         if (
                           nodeType == 3 ||
                           (nodeType == 1 &&
                             (searchedD ? _getAllElementsByXpath("./descendant-or-self::a[@href]", nextSS, doc).snapshotLength === 0 : !nextSS.hasAttribute("href") || _getFullHref(nextSS.getAttribute("href")) == curLHref))
                         ) {
                           _prelink = finalCheck(a, "pre");
+                          // alert(_prelink);
                         }
                       }
                     }
@@ -4542,7 +4866,7 @@ import logger from "@lib/logger";
             }
           }
         }
-        logger.debug(`搜索链接数量:${i} 耗时:${new Date() - startTime}ms`);
+        debug("%c[Super-preloader] %c搜索链接数量:%i 耗时:%ims ", debugStyle, "", i, new Date() - startTime);
 
         if (!autoGetLink.checked) {
           // 只在第一次检测的时候,抛出上一页链接.
@@ -4550,6 +4874,7 @@ import logger from "@lib/logger";
           autoGetLink.checked = true;
         }
 
+        // alert(_nextlink);
         return _nextlink;
       }
 
@@ -4593,12 +4918,15 @@ import logger from "@lib/logger";
 
           plwords = RE_maxPrefix > 0 ? "[" + (RE_enable_a ? strMTE(RE_character_a.join("")) : ".") + "]{0," + RE_maxPrefix + "}" : "";
           plwords = "^\\s*" + plwords;
+          // alert(plwords);
           slwords = RE_maxSubfix > 0 ? "[" + (RE_enable_b ? strMTE(RE_character_b.join("")) : ".") + "]{0," + RE_maxSubfix + "}" : "";
           slwords = slwords + "\\s*$";
+          // alert(slwords);
           rep = prefs.cases ? "" : "i";
 
           for (var i = 0; i < pageKeyLength; i++) {
             pageKey[i] = new RegExp(plwords + strMTE(pageKey[i]) + slwords, rep);
+            // alert(pageKey[i]);
           }
           return pageKey;
         }
@@ -4724,9 +5052,77 @@ import logger from "@lib/logger";
     }
   });
 
+  // ----------------------------------
+
+  var isUpdating = true;
+
+  function checkUpdate(button) {
+    if (isUpdating) {
+      return;
+    }
+
+    button.innerHTML = "正在更新中...";
+    button.disabled = "disabled";
+
+    const reset = function() {
+      isUpdating = false;
+      button.innerHTML = "马上更新";
+      button.disabled = "";
+    };
+
+    GM.xmlHttpRequest({
+      method: "GET",
+      url: scriptInfo.metaUrl,
+      onload: function(response) {
+        const txt = response.responseText;
+        const curVersion = scriptInfo.version;
+        var latestVersion = txt.match(/@\s*version\s*([\d\.]+)\s*/i);
+        if (latestVersion) {
+          latestVersion = latestVersion[1];
+        } else {
+          alert("解析版本号错误");
+          return;
+        }
+
+        // 对比版本号
+        var needUpdate;
+        const latestVersions = latestVersion.split(".");
+        const lVLength = latestVersions.length;
+        const currentVersion = curVersion.split(".");
+        const cVLength = currentVersion.length;
+        var lV_x;
+        var cV_x;
+        for (var i = 0; i < lVLength; i++) {
+          lV_x = Number(latestVersions[i]);
+          cV_x = i >= cVLength ? 0 : Number(currentVersion[i]);
+          if (lV_x > cV_x) {
+            needUpdate = true;
+            break;
+          } else if (lV_x < cV_x) {
+            break;
+          }
+        }
+
+        if (needUpdate) {
+          alert("本脚本从版本 " + scriptInfo.version + "  更新到了版本 " + latestVersion + ".\n请点击脚本主页进行安装");
+          document.getElementById("sp-prefs-homepageURL").boxShadow = "0 0 2px 2px #FF5555";
+        }
+
+        reset();
+      }
+    });
+
+    setTimeout(reset, 30 * 1000);
+  }
+
+  // ----------------------------------
+  // main.js
+
   // ------------------------下面的不要管他-----------------
   /// ////////////////////////////////////////////////////////////////
 
+  const C = console;
+  var debug = function() {};
   // 变量
   var isHashchangeSite = false;
 
@@ -4761,6 +5157,7 @@ import logger from "@lib/logger";
       }
       return str;
     }
+    // alert(getHref(_cplink))
 
     var sa = obj.startAfter;
     const saType = typeof sa;
@@ -4775,9 +5172,11 @@ import logger from "@lib/logger";
         _cplink = getHref(_cplink);
         index = _cplink.indexOf(sa);
         if (index == -1) return;
+        // alert(index);
       }
     } else {
       const tsa = _cplink.match(sa);
+      // alert(sa);
       if (!tsa) {
         _cplink = getHref(_cplink);
         sa = (_cplink.match(sa) || [])[0];
@@ -4787,6 +5186,8 @@ import logger from "@lib/logger";
       } else {
         sa = tsa[0];
         index = _cplink.indexOf(sa);
+        // alert(index)
+        // alert(tsa.index)
       }
     }
 
@@ -4800,6 +5201,7 @@ import logger from "@lib/logger";
       if (b >= max || b < min) return a;
       return b + c;
     });
+    // alert(aStr+nbStr);
     if (nbStr !== bStr) {
       var ilresult;
       try {
@@ -4809,6 +5211,59 @@ import logger from "@lib/logger";
       return aStr + nbStr;
     }
   }
+
+  // underscore library, requires ECMAScript 5
+  const _ = (function() {
+    const nativeIsArray = Array.isArray;
+    const _ = function(obj) {
+      if (obj instanceof _) return obj;
+      if (!(this instanceof _)) return new _(obj);
+      this._wrapped = obj;
+    };
+
+    const toString = Object.prototype.toString;
+
+    _.isArray =
+      nativeIsArray ||
+      function(obj) {
+        return toString.call(obj) == "[object Array]";
+      };
+
+    _.isFunction = function(obj) {
+      return !!(obj && obj.constructor && obj.call && obj.apply);
+    };
+
+    ["Arguments", "Function", "String", "Number", "Date", "RegExp"].forEach(function(name) {
+      _["is" + name] = function(obj) {
+        return toString.call(obj) == "[object " + name + "]";
+      };
+    });
+
+    // Return the first value which passes a truth test. Aliased as `detect`.
+    _.find = function(obj, iterator, context) {
+      var result;
+      obj.some(function(value, index, array) {
+        if (iterator.call(context, value, index, array)) {
+          result = value;
+          return true;
+        }
+      });
+      return result;
+    };
+
+    _.filter = function(obj, predicate) {
+      return [].filter.apply(obj, [predicate]);
+    };
+
+    _.flat = function(obj) {
+      return [].concat.apply([], obj);
+    };
+
+    _.has = function(obj, key) {
+      return obj ? hasOwnProperty.call(obj, key) : false;
+    };
+    return _;
+  })();
 
   /* jshint ignore:start */
   // 动画库
@@ -5126,7 +5581,7 @@ import logger from "@lib/logger";
       const result = doc.evaluate(xpath, contextNode, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
       return result.singleNodeValue;
     } catch (err) {
-      logger.error(`Invalid xpath: ${xpath}`);
+      console.error("%c[Super-preloader]%c%s%o", debugStyle, "", "Invalid xpath: ", xpath);
       return undefined;
     }
   }
@@ -5196,6 +5651,7 @@ import logger from "@lib/logger";
             }
           }
         }
+        // alert(ret)
         return unique(ret);
       } else if (x.item) {
         // nodelist or HTMLcollection
@@ -5248,7 +5704,7 @@ import logger from "@lib/logger";
   function createDocumentByString(str) {
     // string转为DOM
     if (!str) {
-      logger.error("没有找到要转成DOM的字符串");
+      console.error("%c[Super-preloader] %c没有找到要转成DOM的字符串", debugStyle, "");
       return;
     }
     if (document.documentElement.nodeName != "HTML") {
@@ -5295,18 +5751,23 @@ import logger from "@lib/logger";
       child = bchilds[i];
       if (headChildNames[child.nodeName]) body.removeChild(child);
     }
+    // alert(doc.documentElement.innerHTML);
+    // debug(doc);
+    // debug(doc.documentElement.innerHTML);
     return doc;
   }
 
   // 从相对路径的a.href获取完全的href值.
   function getFullHref(href) {
     if (typeof href !== "string") href = href.getAttribute("href");
+    // alert(href);
     // if(href.search(/^https?:/)==0)return href;//http打头,不一定就是完整的href;
     var a = getFullHref.a;
     if (!a) {
       getFullHref.a = a = document.createElement("a");
     }
     a.href = href;
+    // alert(a.href);
     return a.href;
   }
 
@@ -5392,6 +5853,7 @@ import logger from "@lib/logger";
             case "Boolean":
               return Str(x);
             default:
+              // alert(x.constructor);//漏了什么类型么?
               break;
           }
           break;
@@ -5454,6 +5916,25 @@ import logger from "@lib/logger";
     return hasMissing;
   }
 
+  function addStyle(aCss, aId, doc) {
+    doc = doc || document;
+    var head = doc.getElementsByTagName("head")[0];
+    if (!head) {
+      head = doc.documentElement;
+    }
+    var style = doc.createElement("style");
+    if (aId) {
+      style.setAttribute("id", aId);
+    }
+    style.setAttribute("type", "text/css");
+    style.textContent = aCss;
+    if (head) {
+      return head.appendChild(style);
+    } else {
+      return null;
+    }
+  }
+
   function i8n() {
     if (userLang.indexOf("zh") !== -1 || prefs.ChineseUI) {
       return "zh_CN";
@@ -5462,12 +5943,58 @@ import logger from "@lib/logger";
     }
   }
 
+  //Function to compare two version strings https://gist.github.com/TheDistantSea/8021359
+  function versionCompare(v1, v2, options) {
+    var lexicographical = options && options.lexicographical,
+      zeroExtend = options && options.zeroExtend,
+      v1parts = v1.split("."),
+      v2parts = v2.split(".");
+
+    function isValidPart(x) {
+      return (lexicographical ? /^\d+[A-Za-z]*$/ : /^\d+$/).test(x);
+    }
+
+    if (!v1parts.every(isValidPart) || !v2parts.every(isValidPart)) {
+      return NaN;
+    }
+
+    if (zeroExtend) {
+      while (v1parts.length < v2parts.length) v1parts.push("0");
+      while (v2parts.length < v1parts.length) v2parts.push("0");
+    }
+
+    if (!lexicographical) {
+      v1parts = v1parts.map(Number);
+      v2parts = v2parts.map(Number);
+    }
+
+    for (var i = 0; i < v1parts.length; ++i) {
+      if (v2parts.length == i) {
+        return 1;
+      }
+
+      if (v1parts[i] == v2parts[i]) {
+        continue;
+      } else if (v1parts[i] > v2parts[i]) {
+        return 1;
+      } else {
+        return -1;
+      }
+    }
+
+    if (v1parts.length != v2parts.length) {
+      return -1;
+    }
+
+    return 0;
+  }
+
   function emoji(unifiedValue) {
     if (String.fromCodePoint) {
       var emoji = parseInt(unifiedValue, 16);
       return String.fromCodePoint(emoji);
     } else {
-      logger.error("Shame on your browser!");
+      console.error("Shame on your browser!");
       return "";
     }
   }
@@ -5488,6 +6015,7 @@ import logger from "@lib/logger";
           // eslint-disable-next-line no-useless-return
           return;
         } else {
+          // eslint-disable-next-line compat/compat
           Notification.requestPermission(function(permission) {
             console.log("New permission: ", permission);
             checkPermission();

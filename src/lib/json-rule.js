@@ -1,11 +1,13 @@
-const _ = require("underscore");
-const logger = require("@lib/logger");
-const axios = require("@lib/axios-userscript");
+import _ from "lodash";
+import gotStock from "@lib/got";
+import logger from "@lib/logger";
+
+const got = gotStock.create({cache: false});
 
 // Definition of provider
 class RuleProvider {
   /**
-   *
+   * Constructor of a rule provider
    * @param {string} name Identifier of rule provider
    * @param {array} url URL to fetch rule
    * @param {string} detailUrl URL to fetch rule detail
@@ -19,7 +21,7 @@ class RuleProvider {
     if (_.isFunction(ruleParser)) {
       this.ruleParser = ruleParser;
     } else {
-      this.ruleParser = (res) => res.data;
+      this.ruleParser = (res) => JSON.parse(res.data);
     }
   }
 
@@ -41,7 +43,7 @@ class RuleProvider {
     for (const url of this.url) {
       try {
         // eslint-disable-next-line no-await-in-loop
-        const res = await axios.get(url, {nocache: true});
+        const res = await got.get(url);
         rule = this.ruleParser(res);
         logger.log(`[DownloadRule] ${this.name} from ${url} [Status] Success`);
         break;
@@ -66,7 +68,7 @@ class RuleProvider {
   async updateRule(lastUpdate) {
     let res = null;
     try {
-      res = await axios.get(this.detailUrl, {nocache: true});
+      res = await got.get(this.detailUrl);
     } catch (error) {
       logger.error(`[UpdateRule] ${this.name} [Status] ${error}`);
       // mimic Promise.allSettled
@@ -113,8 +115,9 @@ const p = [MyData, WeData];
  * Module to handle json doc
  * @module jsonRule
  */
-module.exports = {
-  provider: p,
+export default {
+  providers: p,
+  RuleProvider,
   rule: p.map(() => []),
   expire: oldDay,
   updatePeriodInDay: 1,
@@ -158,7 +161,7 @@ module.exports = {
     const lastUpdate = new Date(+this.expire - this.updatePeriodInDay * 24 * 60 * 60 * 1000);
     const today = new Date();
     if (today > this.expire) {
-      const promises = this.provider.map((x) => x.updateRule(lastUpdate));
+      const promises = this.providers.map((x) => x.updateRule(lastUpdate));
       await Promise.all(promises).then((values) => {
         const status = values.map(({status}) => status === "fulfilled" || false);
         if (status.every((x) => x)) {
@@ -176,4 +179,4 @@ module.exports = {
       logger.log(`[UpdateRule] Next update at: ${this.expire}`);
     }
   }
-};
+}

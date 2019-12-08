@@ -20,4 +20,4 @@ function elementReady(element, type) {
   });
 }
 
-module.exports = elementReady;
+export default elementReady;

@@ -1,4 +1,4 @@
-const _ = require("underscore");
+import _ from "lodash";
 const BROWSER_LEVEL = {DEBUG: 0, INFO: 1, LOG: 2, WARN: 3, ERROR: 4};
 const LEVEL_NUM = Object.keys(BROWSER_LEVEL).map((x) => BROWSER_LEVEL[x]);
 const PREFIX = "[Super-preloader]";
@@ -61,4 +61,4 @@ Object.keys(BROWSER_LEVEL).forEach((key) => {
   };
 });
 
-module.exports = logger;
+export default logger;

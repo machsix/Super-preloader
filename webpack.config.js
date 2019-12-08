@@ -1,6 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
-const {SCRIPT_INFO, METADATA} = require("./src/meta");
+const {METADATA, SCRIPT_INFO} = require("./src/meta");
 
 module.exports = {
   mode: "none",
@@ -24,16 +24,10 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
+            plugins: ["lodash", "@babel/plugin-transform-runtime"],
             presets: [
               [
-                "@babel/preset-env",
-                {
-                  targets: {
-                    chrome: "45"
-                  },
-                  useBuiltIns: "entry",
-                  corejs: 3
-                }
+                "@babel/preset-env"
               ]
             ]
           }

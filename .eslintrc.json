@@ -7,11 +7,10 @@
   },
   "extends": ["eslint:recommended", "prettier"],
   "parserOptions": {
-    "ecmaVersion": 6,
+    "ecmaVersion": 9,
     "sourceType": "module"
   },
-  "parser": "babel-eslint",
-  "plugins": ["compat", "json", "prettier"],
+  "plugins": ["json", "prettier"],
   "rules": {
     "accessor-pairs": "error",
     "array-bracket-newline": "off",
@@ -33,7 +32,6 @@
     "comma-style": ["error", "last"],
     "complexity": "off",
     "computed-property-spacing": ["error", "never"],
-    "compat/compat": "error",
     "consistent-return": "off",
     "consistent-this": "off",
     "curly": "off",
