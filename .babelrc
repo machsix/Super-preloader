@@ -1,9 +1,14 @@
 {
+  "plugins": [
+    "lodash"
+  ],
   "presets": [
     [
       "@babel/preset-env",
       {
         "useBuiltIns": "entry",
+        "modules": "commonjs",
+        "debug": true,
         "corejs": 3
       }
     ]

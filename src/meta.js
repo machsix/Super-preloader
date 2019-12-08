@@ -1,4 +1,4 @@
-const pkg = require("../package.json");
+const pkg = require("../package.json"); // this feature is provided by webpack json-loader
 const compareVersions = require("compare-versions");
 
 // Information of script
@@ -104,8 +104,4 @@ const METADATA = `// ==UserScript==
 // ==/UserScript==
 `;
 
-module.exports = {
-  SCRIPT_INFO,
-  NOTIFICATION,
-  METADATA
-};
+module.exports = {NOTIFICATION, METADATA, SCRIPT_INFO};

@@ -1,4 +1,4 @@
-const addStyle = (aCss, aId, doc) => {
+export function addStyle(aCss, aId, doc) {
   doc = doc || document;
   let head = doc.getElementsByTagName("head");
   if (!head) {
@@ -17,8 +17,4 @@ const addStyle = (aCss, aId, doc) => {
   } else {
     return null;
   }
-};
-
-module.exports = {
-  addStyle
-};
+}

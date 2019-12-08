@@ -3,7 +3,7 @@ import lowercaseKeys from "lowercase-keys";
 import querystring from "querystring";
 import urlencode from "urlencode";
 
-_.isNullOrUndefined = (x) => _.isUndefined(x) || _.isNull(x);
+const isNullOrUndefined = (x) => _.isUndefined(x) || _.isNull(x);
 
 const defaults = {
   options: {
@@ -11,7 +11,7 @@ const defaults = {
     retry: 0,
     headers: {},
     stream: false,
-    cache: false,
+    cache: true,
     dnsCache: false,
     encoding: "utf-8",
     prefixUrl: "",
@@ -36,7 +36,7 @@ const defaults = {
 function normalizeArguments(options, thisDefaults = defaults) {
   const keyNotMerge = [];
   // `options.headers`
-  if (!_.isNullOrUndefined(options.headers) && _.isString(options.headers)) {
+  if (!isNullOrUndefined(options.headers) && _.isString(options.headers)) {
     try {
       options.headers = JSON.parse(options.headers);
     } catch (error) {
@@ -44,7 +44,7 @@ function normalizeArguments(options, thisDefaults = defaults) {
       delete options.headers;
     }
   }
-  if (!_.isNullOrUndefined(options.headers)) {
+  if (!isNullOrUndefined(options.headers)) {
     options.headers = lowercaseKeys(options.headers);
     const {headers} = options;
     if (headers) {
@@ -59,7 +59,7 @@ function normalizeArguments(options, thisDefaults = defaults) {
   keyNotMerge.push("headers");
 
   // `options.prefixUrl`
-  if (!_.isNullOrUndefined(options.prefixUrl)) {
+  if (!isNullOrUndefined(options.prefixUrl)) {
     try {
       options.prefixUrl = options.prefixUrl.toString();
       if (!options.prefixUrl.endsWith("/")) {
@@ -104,7 +104,7 @@ function normalizeArguments(options, thisDefaults = defaults) {
   // merge with thisDefaults
   for (const key in thisDefaults.options) {
     if (!(key in keyNotMerge)) {
-      if (_.isNullOrUndefined(options[key])) {
+      if (isNullOrUndefined(options[key])) {
         options[key] = thisDefaults.options[key];
       }
     }
@@ -138,7 +138,7 @@ function gotopt2gmopt(options) {
     config.overrideMimeType = `text/html; charset=${options.encoding}`;
   }
   // process `options.searchParams`
-  if (!_.isNullOrUndefined(options.searchParams)) {
+  if (!isNullOrUndefined(options.searchParams)) {
     config.url += `?${querystring.stringify(options.searchParams, null, null, (x) => urlencode(x, options.encoding))}`;
   }
   return config;
@@ -152,7 +152,7 @@ function gotopt2gmopt(options) {
  */
 function parseArgument(url, optionsIn) {
   let gotOptions = {...optionsIn}; // shadow copy
-  if (_.isNullOrUndefined(optionsIn)) {
+  if (isNullOrUndefined(optionsIn)) {
     if (_.isObject(url)) {
       gotOptions = {...url};
     }
@@ -189,6 +189,8 @@ function create(thisDefaults) {
         // convert XMLHttpRequest response to Node.js HTTP response
         // Note: retryCount is added manually
         const nodeResponse = {
+          data: xmlResponse.responseText,
+          body: xmlResponse.responseText,
           statusCode: xmlResponse.status,
           statusMessage: xmlResponse.statusText,
           method: gotOptions.method,
