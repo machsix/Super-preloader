@@ -1,4 +1,5 @@
 import _ from "lodash";
+import logger from "@lib/logger";
 import lowercaseKeys from "@lib/lowercaseKeys";
 import querystring from "querystring";
 import urlencode from "urlencode";
@@ -6,25 +7,24 @@ import urlencode from "urlencode";
 const isNullOrUndefined = (x) => _.isUndefined(x) || _.isNull(x);
 
 const defaults = {
-  options: {
-    method: "GET",
-    retry: 0,
-    headers: {},
-    stream: false,
-    cache: true,
-    dnsCache: false,
-    encoding: "utf-8",
-    prefixUrl: "",
-    timeout: 0, // wait forever
-    searchParams: {}, // queryString for get
-    body: null, // post body
-    data: null, // equivalent to body
-    // additional options from GM.xmlHttpRequest
-    binary: false,
-    user: null,
-    password: null,
-    context: null
-  }
+  method: "GET",
+  retry: 0,
+  headers: {},
+  stream: false,
+  cache: true,
+  dnsCache: false,
+  encoding: null,
+  prefixUrl: "",
+  timeout: 0, // wait forever
+  searchParams: {}, // queryString for get
+  body: null, // post body
+  data: null, // equivalent to body
+  // additional options from GM.xmlHttpRequest
+  binary: false,
+  user: null,
+  password: null,
+  context: null,
+  html: false // set to true to overrideMimeType = `text/html`;
 };
 
 /**
@@ -78,6 +78,17 @@ function normalizeArguments(options, thisDefaults = defaults) {
     options.timeout = parseInt(options.timeout);
   }
 
+  // `options.html` and `options.encoding`
+  if (options.hasOwnProperty("html")) {
+    if (options.html) {
+      options.binary = false;
+    }
+  } else {
+    options.html = thisDefaults.html;
+  }
+  keyNotMerge.push("encoding");
+  keyNotMerge.push("html");
+
   // `options.searchParams` , searchParams must be encoded in "utf8"
   if (options.searchParams) {
     if (_.isString(options.searchParams)) {
@@ -102,10 +113,10 @@ function normalizeArguments(options, thisDefaults = defaults) {
   }
 
   // merge with thisDefaults
-  for (const key in thisDefaults.options) {
+  for (const key in thisDefaults) {
     if (!(key in keyNotMerge)) {
       if (isNullOrUndefined(options[key])) {
-        options[key] = thisDefaults.options[key];
+        options[key] = thisDefaults[key];
       }
     }
   }
@@ -134,7 +145,7 @@ function gotopt2gmopt(options) {
     config.url = options.prefixUrl + options.url;
   }
   // process `options.encoding`
-  if (!options.binary && options.encoding !== defaults.options.encoding) {
+  if (options.html && _.isString(options.encoding)) {
     config.overrideMimeType = `text/html; charset=${options.encoding}`;
   }
   // process `options.searchParams`
@@ -182,6 +193,7 @@ function create(thisDefaults) {
 
     // got => gm
     const gmOptions = gotopt2gmopt(gotOptions);
+    logger.debug("GM_xmlhttpRequest", gmOptions);
 
     // helper functions
     const genCallback = (executor, name, retryCount) =>

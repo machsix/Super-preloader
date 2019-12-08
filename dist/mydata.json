@@ -1497,11 +1497,12 @@
   },
   {
     "name": "pcdvd论坛",
-    "url": "^https?://(?:www|forum)\\.pcdvd\\.com\\.tw/showthread\\.php\\?",
+    "url": "^https?://(?:(?:www|forum)\\.)?pcdvd\\.com\\.tw/showthread\\.php\\?",
     "exampleUrl": "https://www.pcdvd.com.tw/showthread.php?t=1144412",
     "nextLink": "(//div[@class=\"pagenav\"]//a[text()=\"下一頁\"])[1]",
     "autopager": {
-      "pageElement": "id(\"posts\") | id(\"posts\")/following-sibling::div[@align=\"center\"][position() < last()]"
+      "pageElement": "id(\"posts\") | id(\"posts\")/following-sibling::div[@align=\"center\"][position() < last()]",
+      "relatedObj": true
     }
   },
   {

@@ -17,8 +17,10 @@ import logger from "@lib/logger";
 (function() {
   gm4polyfill(window);
   // use charset from currentDocument
-  const got = gotStock.create({encoding: document.characterSet});
-
+  const got = gotStock.create({
+    html: true,
+    encoding: document.characterSet
+  });
   const scriptInfo = SCRIPT_INFO;
   const upgradeNotification = NOTIFICATION;
   shim_GM_notification();
@@ -1845,7 +1847,8 @@ import logger from "@lib/logger";
   // ------------------------下面的不要管他-----------------
   /// ////////////////////////////////////////////////////////////////
   // eslint-disable-next-line prettier/prettier
-  Promise.all([GM.getValue("prefs", prefsFactory), GM.getValue("SITEINFO_D", SITEINFO_DFactory), GM.getValue("autoMatch", autoMatchFactory), GM.getValue("version", myOldVersion), jsonRule.loadDB()]).then(function(values) {
+  Promise.all([GM.getValue("prefs", prefsFactory), GM.getValue("SITEINFO_D", SITEINFO_DFactory), GM.getValue("autoMatch", autoMatchFactory), GM.getValue("version", myOldVersion), jsonRule.loadDB()])
+    .then(function(values) {
       [prefs, SITEINFO_D, autoMatch, myOldVersion] = values;
 
       if (compareVersions(myOldVersion, scriptInfo.rewriteStorage) === -1) {

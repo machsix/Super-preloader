@@ -179,4 +179,4 @@ export default {
       logger.log(`[UpdateRule] Next update at: ${this.expire}`);
     }
   }
-}
+};
