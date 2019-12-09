@@ -6,13 +6,13 @@
 // import "regenerator-runtime/runtime";
 import {NOTIFICATION, SCRIPT_INFO} from "./meta";
 import _ from "lodash";
-import {addStyle} from "@lib/gm-enhanced";
+import {addStyle} from "utils/gm-enhanced";
 import compareVersions from "compare-versions";
-import elementReady from "@lib/element-ready";
-import gm4polyfill from "@lib/gm4-polyfill";
-import gotStock from "@lib/got";
-import jsonRule from "@lib/json-rule";
-import logger from "@lib/logger";
+import elementReady from "utils/element-ready";
+import gm4polyfill from "utils/gm4-polyfill";
+import gotStock from "utils/got";
+import jsonRule from "utils/json-rule";
+import logger from "utils/logger";
 
 (function() {
   gm4polyfill(window);
