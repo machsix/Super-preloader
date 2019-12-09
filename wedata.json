@@ -1,5 +1,50 @@
 [
 {
+  "resource_url": "http://wedata.net/items/85164",
+  "name": "家庭画報.com",
+  "data": {
+    "url": "^https://www\\.kateigaho\\.com/",
+    "pageElement": "//div[@class=\"article_detail\"]/div[@class=\"txt\"]",
+    "exampleUrl": "https://www.kateigaho.com/migaku/biyou/64165/\r\nhttps://www.kateigaho.com/food/temiyage/40183/",
+    "insertBefore": "",
+    "nextLink": "//div[@class=\"btn_next\"]/a"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m_",
+  "created_at": "2019-12-09T20:54:33+09:00",
+  "updated_at": "2019-12-09T20:54:33+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85163",
+  "name": "tenki.jp 地域検索",
+  "data": {
+    "url": "^https://tenki\\.jp/search/",
+    "pageElement": "//section/div[@class=\"search-entry-data-wrap\"]/p",
+    "exampleUrl": "https://tenki.jp/search/?keyword=%E6%96%B0%E5%AE%BF%E5%8C%BA",
+    "insertBefore": "",
+    "nextLink": "//ul[contains(concat(\" \",@class,\" \"),\" pager-entries \")]/li[@class=\"selected\"]/following-sibling::li/a"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m_",
+  "created_at": "2019-12-09T20:36:28+09:00",
+  "updated_at": "2019-12-09T20:36:28+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85162",
+  "name": "CiNii ncid",
+  "data": {
+    "url": "^https://ci\\.nii\\.ac\\.jp/ncid/",
+    "pageElement": "//div[contains(concat(\" \",@class,\" \"),\" listContainer \")]/ul/li",
+    "exampleUrl": "https://ci.nii.ac.jp/ncid/BN00368295",
+    "insertBefore": "",
+    "nextLink": "//a[@rel=\"next\"]"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m_",
+  "created_at": "2019-12-09T20:23:38+09:00",
+  "updated_at": "2019-12-09T20:23:38+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/85161",
   "name": "THE DIGEST",
   "data": {
@@ -47488,18 +47533,18 @@
   "created_at": "2009-06-15T06:02:23+09:00"
 },
 {
+  "resource_url": "http://wedata.net/items/29118",
   "name": "CiNii",
-  "updated_at": "2009-06-13T00:02:36+09:00",
-  "created_by": "TakiTake",
-  "resource_url": "http:\/\/wedata.net\/items\/29118",
-  "database_resource_url": "http:\/\/wedata.net\/databases\/AutoPagerize",
   "data": {
-    "pageElement": "\/\/form[@name=\"articlelist\"]",
-    "url": "^http:\/\/ci\\.nii\\.ac\\.jp\/search",
-    "nextLink": "\/\/a[@rel=\"next\"]",
-    "exampleUrl": "http:\/\/ci.nii.ac.jp\/search?q=javascript&range=2&count=20&sortorder=1"
+    "url": "^https://ci\\.nii\\.ac\\.jp/search",
+    "pageElement": "//form[@name=\"articlelist\"]",
+    "exampleUrl": "https://ci.nii.ac.jp/search?q=javascript&range=2&count=20&sortorder=1",
+    "nextLink": "//a[contains(concat(\" \",@rel,\" \"),\" next \")]"
   },
-  "created_at": "2009-06-12T23:57:28+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "TakiTake",
+  "created_at": "2009-06-12T23:57:28+09:00",
+  "updated_at": "2019-12-09T20:19:58+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/29111",
