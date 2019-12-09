@@ -2,7 +2,18 @@
   "name": "super-preloader",
   "version": "6.9.0",
   "description": "Super-preloader",
-  "main": "dist/Super_preloaderPlus_one_New.user.js",
+  "browser": "dist/Super_preloaderPlus_one_New.user.js",
+  "target": {
+    "browser": {
+      "engines": {
+        "browsers": ["> 1%", "not dead"]
+      }
+    }
+  },
+  "source": "./src/index.js",
+  "alias": {
+    "lib": "./src/lib"
+  },
   "author": "Mach6",
   "license": "GPL-3.0",
   "bugs": {
@@ -22,9 +33,7 @@
     "format:check": "prettier --check --loglevel debug \"dist/*.json\" \"src/**/*.js\" \".ci/*.js\" \"docs/**/*.{js,md}\"",
     "format:staged": "pretty-quick --verbose --staged --write \"dist/*.json\" \"src/**/*.js\" \".ci/*.js\" \"docs/**/*.{js,md}\"",
     "test": "npm run lint && npm run format:staged",
-    "dev": "webpack-dev-server --color --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js",
-    "build:dev": "webpack --config webpack.dev.js",
+    "build": "parcel build src/index2.js --no-source-maps --no-cache --target browser",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "docs:publish": "npm run docs:build && .ci/gen_ghpage.sh",
@@ -67,15 +76,11 @@
     "lodash": "4.17.15",
     "lodash-webpack-plugin": "0.11.5",
     "loglevel": "1.6.6",
+    "parcel": "^2.0.0-alpha.3.2",
     "prettier": "1.19.1",
     "pretty-quick": "2.0.1",
     "regenerator-runtime": "0.13.3",
     "terser-webpack-plugin": "2.2.2",
-    "urlencode": "1.1.0",
-    "webpack": "4.41.2",
-    "webpack-cli": "3.3.10",
-    "webpack-dev-server": "3.9.0",
-    "webpack-inject-plugin": "1.5.3",
-    "webpack-merge": "4.2.2"
+    "urlencode": "1.1.0"
   }
 }

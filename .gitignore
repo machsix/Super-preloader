@@ -84,3 +84,6 @@ docs/.vuepress/dist
 
 # DynamoDB Local files
 .dynamodb/
+
+# Parcel
+.parcel-cache/

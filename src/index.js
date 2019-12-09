@@ -2,17 +2,17 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-empty */
 
-import "core-js";
+import "core-js/stable";
 import "regenerator-runtime/runtime";
 import {NOTIFICATION, SCRIPT_INFO} from "./meta";
 import _ from "lodash";
-import {addStyle} from "@lib/gm-enhanced";
+import {addStyle} from "lib/gm-enhanced";
 import compareVersions from "compare-versions";
-import elementReady from "@lib/element-ready";
-import gm4polyfill from "@lib/gm4-polyfill";
-import gotStock from "@lib/got";
-import jsonRule from "@lib/json-rule";
-import logger from "@lib/logger";
+import elementReady from "lib/element-ready";
+import gm4polyfill from "lib/gm4-polyfill";
+import gotStock from "lib/got";
+import jsonRule from "lib/json-rule";
+import logger from "lib/logger";
 
 (function() {
   gm4polyfill(window);

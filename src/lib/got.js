@@ -1,6 +1,6 @@
 import _ from "lodash";
-import logger from "@lib/logger";
-import lowercaseKeys from "@lib/lowercaseKeys";
+import logger from "lib/logger";
+import lowercaseKeys from "lib/lowercaseKeys";
 import querystring from "querystring";
 import urlencode from "urlencode";
 
