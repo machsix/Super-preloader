@@ -31,6 +31,3 @@ cp wedata.json          ${DOCS_DIR}/wedata.json || true
 cp wedata_detail.json   ${DOCS_DIR}/wedata_detail.json || true
 curl http://wedata.net/databases/AutoPagerize/items_all.json -X GET -H 'Content-Type: application/json'  -o ${DOCS_DIR}/wedata.json
 curl http://wedata.net/databases/AutoPagerize.json -X GET -H 'Content-Type: application/json' -o ${DOCS_DIR}/wedata_detail.json
-
-# copy the production buil
-cp -af ${REPO_DIR}/dist/Super_preloaderPlus_one_New.user.js ${DOCS_DIR}/

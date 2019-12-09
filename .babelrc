@@ -7,14 +7,9 @@
     [
       "@babel/preset-env",
       {
-        "useBuiltIns": "entry",
+        "useBuiltIns": "usage",
         "debug": true,
-        "corejs": 3,
-        "exclude": [
-          "es.promise",
-          "^\\w+\\.math\\..*",
-          "^esnext.*"
-        ]
+        "corejs": 3
       }
     ]
   ]
