@@ -1,6 +1,6 @@
 import _ from "lodash";
-import gotStock from "@lib/got";
-import logger from "@lib/logger";
+import gotStock from "utils/got";
+import logger from "utils/logger";
 
 const got = gotStock.create({cache: false});
 
