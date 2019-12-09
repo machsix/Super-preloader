@@ -2,8 +2,8 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-empty */
 
-import "core-js";
-import "regenerator-runtime/runtime";
+// import "core-js";
+// import "regenerator-runtime/runtime";
 import {NOTIFICATION, SCRIPT_INFO} from "./meta";
 import _ from "lodash";
 import {addStyle} from "@lib/gm-enhanced";
