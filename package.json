@@ -3,11 +3,10 @@
   "version": "6.9.0",
   "description": "Super-preloader",
   "browser": "dist/Super_preloaderPlus_one_New.user.js",
-  "target": {
+  "targets": {
     "browser": {
-      "engines": {
-        "browsers": ["> 1%", "not dead"]
-      }
+      "isLibrary": false,
+      "includeNodeModules": true
     }
   },
   "source": "./src/index.js",
@@ -33,7 +32,7 @@
     "format:check": "prettier --check --loglevel debug \"dist/*.json\" \"src/**/*.js\" \".ci/*.js\" \"docs/**/*.{js,md}\"",
     "format:staged": "pretty-quick --verbose --staged --write \"dist/*.json\" \"src/**/*.js\" \".ci/*.js\" \"docs/**/*.{js,md}\"",
     "test": "npm run lint && npm run format:staged",
-    "build": "parcel build src/index2.js --no-source-maps --no-cache --target browser",
+    "build": "parcel build src/index.js --no-source-maps --no-cache --target browser",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "docs:publish": "npm run docs:build && .ci/gen_ghpage.sh",
