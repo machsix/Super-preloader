@@ -3,3 +3,4 @@
 docs/.vuepress/dist
 .vscode
 dist/Super_preloaderPlus_one_New.user.js
+src/utils/gm4-polyfill.js

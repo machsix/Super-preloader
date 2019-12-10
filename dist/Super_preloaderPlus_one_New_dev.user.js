@@ -9,7 +9,7 @@
 // @author       Mach6
 // @contributers YFdyh000, suchunchen
 // @thanksto     ywzhaiqi, NLF
-// @version      6.10.0
+// @version      6.10.1
 // @license      GPL-3.0
 // @update       2019/12/10
 // @homepageURL  https://github.com/machsix/Super-preloader
@@ -209,7 +209,7 @@
       // import "regenerator-runtime/runtime";
 
       (function() {
-        Object(utils_gm4_polyfill__WEBPACK_IMPORTED_MODULE_14__["default"])(window); // use charset from currentDocument
+        utils_gm4_polyfill__WEBPACK_IMPORTED_MODULE_14__["default"].call(window); // use charset from currentDocument
 
         var got = utils_got__WEBPACK_IMPORTED_MODULE_15__["default"].create({
           html: true,
@@ -12253,7 +12253,7 @@
     /* 226 */
     /***/ function(module) {
       module.exports = JSON.parse(
-        '{"name":"super-preloader","version":"6.10.0","description":"Super-preloader","main":"dist/Super_preloaderPlus_one_New.user.js","author":"Mach6","license":"GPL-3.0","bugs":{"url":"https://github.com/machsix/Super-preloader/issues"},"homepage":"https://github.com/machsix/Super-preloader","directories":{"doc":"docs"},"repository":{"type":"git","url":"git+https://github.com/machsix/Super-preloader.git"},"scripts":{"lint":"eslint \\"dist/*.json\\" \\"src/**/*.js\\" \\"ci/*.js\\"","format":"prettier --write \\"dist/*.json\\" \\"src/**/*.js\\" \\".ci/*.js\\" \\"docs/**/*.{js,md}\\"","format:check":"prettier --check --loglevel debug \\"dist/*.json\\" \\"src/**/*.js\\" \\"ci/*.js\\" \\"docs/**/*.{js,md}\\"","format:staged":"pretty-quick --verbose --staged --write \\"dist/*.json\\" \\"src/**/*.js\\" \\"ci/*.js\\" \\"docs/**/*.{js,md}\\"","test":"npm run lint && npm run format:staged","dev":"webpack-dev-server --color --config webpack.dev.js","build":"webpack --no-cache --debug --config webpack.prod.js","build:dev":"webpack --config webpack.dev.js","docs:dev":"vuepress dev docs","docs:build":"vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh","preversion":"npm run test","version":"npm run build  && npm run build:dev && git add dist/*.js && git add dist/*.json","postversion":"git add package.json package-lock.json","publish:patch":"npm --no-git-tag-version version patch","publish":"npm --no-git-tag-version version minor"},"husky":{"hooks":{"pre-commit":"npm run test"}},"keywords":["userscript"],"devDependencies":{"@vue/babel-preset-app":"4.1.1","@vuepress/plugin-back-to-top":"1.2.0","@vuepress/plugin-google-analytics":"1.2.0","@vuepress/plugin-pwa":"1.2.0","vuepress":"1.2.0"},"dependencies":{"@babel/cli":"7.7.5","@babel/core":"7.7.5","@babel/plugin-transform-runtime":"7.7.6","@babel/preset-env":"7.7.6","@babel/runtime-corejs2":"^7.7.6","babel-loader":"8.0.6","babel-plugin-lodash":"3.3.4","compare-versions":"3.5.1","eslint":"6.7.2","eslint-config-prettier":"6.7.0","eslint-plugin-json":"2.0.1","eslint-plugin-prettier":"3.1.1","husky":"3.1.0","lodash":"4.17.15","lodash-webpack-plugin":"0.11.5","prettier":"1.19.1","pretty-quick":"2.0.1","terser-webpack-plugin":"2.2.2","urlencode":"1.1.0","webpack":"4.41.2","webpack-cli":"3.3.10","webpack-dev-server":"3.9.0","webpack-merge":"4.2.2","yargs":"^15.0.2"}}'
+        '{"name":"super-preloader","version":"6.10.1","description":"Super-preloader","main":"dist/Super_preloaderPlus_one_New.user.js","author":"Mach6","license":"GPL-3.0","bugs":{"url":"https://github.com/machsix/Super-preloader/issues"},"homepage":"https://github.com/machsix/Super-preloader","directories":{"doc":"docs"},"repository":{"type":"git","url":"git+https://github.com/machsix/Super-preloader.git"},"scripts":{"lint":"eslint \\"dist/*.json\\" \\"src/**/*.js\\" \\"ci/*.js\\"","format":"prettier --write \\"dist/*.json\\" \\"src/**/*.js\\" \\".ci/*.js\\" \\"docs/**/*.{js,md}\\"","format:check":"prettier --check --loglevel debug \\"dist/*.json\\" \\"src/**/*.js\\" \\"ci/*.js\\" \\"docs/**/*.{js,md}\\"","format:staged":"pretty-quick --verbose --staged --write \\"dist/*.json\\" \\"src/**/*.js\\" \\"ci/*.js\\" \\"docs/**/*.{js,md}\\"","test":"npm run lint && npm run format:staged","dev":"webpack-dev-server --color --config webpack.dev.js","build":"webpack --no-cache --debug --config webpack.prod.js","build:dev":"webpack --config webpack.dev.js","docs:dev":"vuepress dev docs","docs:build":"vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh","preversion":"npm run test","version":"npm run build  && npm run build:dev && git add dist/*.js && git add dist/*.json","postversion":"git add package.json package-lock.json","publish:patch":"npm --no-git-tag-version version patch","publish":"npm --no-git-tag-version version minor"},"husky":{"hooks":{"pre-commit":"npm run test"}},"keywords":["userscript"],"devDependencies":{"@vue/babel-preset-app":"4.1.1","@vuepress/plugin-back-to-top":"1.2.0","@vuepress/plugin-google-analytics":"1.2.0","@vuepress/plugin-pwa":"1.2.0","vuepress":"1.2.0"},"dependencies":{"@babel/cli":"7.7.5","@babel/core":"7.7.5","@babel/plugin-transform-runtime":"7.7.6","@babel/preset-env":"7.7.6","@babel/runtime-corejs2":"^7.7.6","babel-loader":"8.0.6","babel-plugin-lodash":"3.3.4","compare-versions":"3.5.1","eslint":"6.7.2","eslint-config-prettier":"6.7.0","eslint-plugin-json":"2.0.1","eslint-plugin-prettier":"3.1.1","husky":"3.1.0","lodash":"4.17.15","lodash-webpack-plugin":"0.11.5","prettier":"1.19.1","pretty-quick":"2.0.1","terser-webpack-plugin":"2.2.2","urlencode":"1.1.0","webpack":"4.41.2","webpack-cli":"3.3.10","webpack-dev-server":"3.9.0","webpack-merge":"4.2.2","yargs":"^15.0.2"}}'
       );
 
       /***/
@@ -12448,16 +12448,24 @@
       __webpack_require__.r(__webpack_exports__);
       /* harmony import */ var _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(80);
       /* harmony import */ var _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(_babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_0__);
-      /* harmony import */ var _babel_runtime_corejs2_core_js_object_entries__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(231);
-      /* harmony import */ var _babel_runtime_corejs2_core_js_object_entries__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/ __webpack_require__.n(_babel_runtime_corejs2_core_js_object_entries__WEBPACK_IMPORTED_MODULE_1__);
+      /* harmony import */ var _babel_runtime_corejs2_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(30);
+      /* harmony import */ var _babel_runtime_corejs2_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/ __webpack_require__.n(_babel_runtime_corejs2_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__);
+      /* harmony import */ var _babel_runtime_corejs2_core_js_object_entries__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(231);
+      /* harmony import */ var _babel_runtime_corejs2_core_js_object_entries__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/ __webpack_require__.n(_babel_runtime_corejs2_core_js_object_entries__WEBPACK_IMPORTED_MODULE_2__);
 
-      /* harmony default export */ __webpack_exports__["default"] = function(win) {
-        if (typeof win.GM == "undefined") {
-          win.GM = {};
+      /**
+       * @this window
+       * @returns {null} null
+       */
+      function gm4polyfill() {
+        var _this = this;
+
+        if (typeof GM == "undefined") {
+          this.GM = {};
         }
 
-        if (typeof win.GM_registerMenuCommand == "undefined") {
-          win.GM_registerMenuCommand = function(caption, commandFunc, accessKey) {
+        if (typeof GM_registerMenuCommand == "undefined") {
+          this.GM_registerMenuCommand = function(caption, commandFunc, accessKey) {
             if (!document.body) {
               if (document.readyState === "loading" && document.documentElement && document.documentElement.localName === "html") {
                 new MutationObserver(function(mutations, observer) {
@@ -12493,8 +12501,8 @@
           };
         }
 
-        if (typeof win.GM_getResourceText == "undefined") {
-          win.GM_getResourceText = function(aRes) {
+        if (typeof GM_getResourceText == "undefined") {
+          this.GM_getResourceText = function(aRes) {
             return GM.getResourceUrl(aRes)
               .then(function(url) {
                 return fetch(url);
@@ -12509,20 +12517,21 @@
           };
         }
 
-        _babel_runtime_corejs2_core_js_object_entries__WEBPACK_IMPORTED_MODULE_1___default()({
+        _babel_runtime_corejs2_core_js_object_entries__WEBPACK_IMPORTED_MODULE_2___default()({
           log: console.log.bind(console),
           // Pale Moon compatibility.  See #13.
-          info: win.GM_info
-        }).forEach(function(values) {
-          var newKey = values[0];
-          var old = values[1];
+          info: GM_info
+        }).forEach(function(_ref) {
+          var _ref2 = _babel_runtime_corejs2_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_ref, 2),
+            newKey = _ref2[0],
+            old = _ref2[1];
 
-          if (old && typeof win.GM[newKey] == "undefined") {
-            win.GM[newKey] = old;
+          if (old && typeof GM[newKey] == "undefined") {
+            GM[newKey] = old;
           }
         });
 
-        _babel_runtime_corejs2_core_js_object_entries__WEBPACK_IMPORTED_MODULE_1___default()({
+        _babel_runtime_corejs2_core_js_object_entries__WEBPACK_IMPORTED_MODULE_2___default()({
           GM_deleteValue: "deleteValue",
           GM_getResourceURL: "getResourceUrl",
           GM_getValue: "getValue",
@@ -12534,32 +12543,41 @@
           GM_setValue: "setValue",
           GM_xmlhttpRequest: "xmlHttpRequest",
           GM_getResourceText: "getResourceText"
-        }).forEach(
-          function(values) {
-            var oldKey = values[0];
-            var newKey = values[1];
-            var old = this[oldKey];
+        }).forEach(function(_ref3) {
+          var _ref4 = _babel_runtime_corejs2_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_ref3, 2),
+            oldKey = _ref4[0],
+            newKey = _ref4[1];
 
-            if (old && typeof GM[newKey] == "undefined") {
+          var old = _this[oldKey];
+
+          if (typeof GM[newKey] == "undefined") {
+            if (typeof old === "function") {
               GM[newKey] = function() {
+                var _this2 = this;
+
                 for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
                   args[_key] = arguments[_key];
                 }
 
-                return new _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_0___default.a(
-                  function(resolve, reject) {
-                    try {
-                      resolve(old.apply(this, args));
-                    } catch (e) {
-                      reject(e);
-                    }
-                  }.bind(this)
-                );
+                return new _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_0___default.a(function(resolve, reject) {
+                  try {
+                    resolve(old.apply(_this2, args));
+                  } catch (e) {
+                    reject(e);
+                  }
+                });
               };
+            } else if (eval(`typeof ${oldKey} === "function"`)) {
+              // dirty hack for GM3 because it doesn't export GM API to window
+              GM[newKey] = new Function("arg1", "arg2", "return new Promise(function(resolve,reject){try {resolve(" + oldKey + "(arg1,arg2));} catch (e) {reject(e);}});"); // es5 syntax only, because babel couldn't handle this
+
+              console.warn("[Super-preloader] GM3 polyfill");
             }
-          }.bind(win)
-        );
-      };
+          }
+        });
+      }
+
+      /* harmony default export */ __webpack_exports__["default"] = gm4polyfill;
 
       /***/
     },
