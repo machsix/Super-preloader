@@ -3120,6 +3120,15 @@
     }
   },
   {
+    "name": "Danbooru-Mach6",
+    "url": "^https?://danbooru\\.donmai\\.us",
+    "exampleUrl": "https://danbooru.donmai.us/posts?page=2&tags=haruna_%28kantai_collection%29",
+    "nextLink": "//a[contains(@*,'next')]",
+    "pageElement": "//div[@id='posts'] | //div[starts-with(@id,'a-')]/*[@class='striped' or (contains(@class,'post') and not(contains(@class,'posts'))) or self::section and count(@*)=0]",
+    "useiframe": true,
+    "category": "NSFW"
+  },
+  {
     "name": "动漫屋",
     "url": "^https?://(www|tel)\\.dm5\\.com/.+",
     "category": ["anime"],
