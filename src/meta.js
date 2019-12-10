@@ -27,14 +27,14 @@ SCRIPT_INFO.metaURL = `${SCRIPT_INFO.greasyfork}/code/${SCRIPT_INFO.name}.meta.j
 // New notification to send
 const NOTIFICATION = {
   text: {
-    zh_CN: "脚本重构中，欢迎反馈bug! 首次安装请耐心等待页面刷新",
-    en_US: "The script is under refactoring. You're welcome to report bug! Please wait for the page to refresh"
+    zh_CN: "脚本重构基本完成，如遇问题，欢迎反馈!",
+    en_US: "Refactoring is basically finished. Please provide feedback if you meet any issue!"
   },
   title: SCRIPT_INFO.name,
   image: SCRIPT_INFO.icon,
   onload: function() {},
   // eslint-disable-next-line no-unused-vars
-  show: (oldVersion, newVersion) => compareVersions(oldVersion, SCRIPT_INFO.rewriteStorage) === -1
+  show: (oldVersion, newVersion) => compareVersions(newVersion, "6.10.0") === 0
 };
 
 // Meta for userscript

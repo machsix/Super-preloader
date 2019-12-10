@@ -1,6 +1,6 @@
 {
   "name": "super-preloader",
-  "version": "6.9.2",
+  "version": "6.10.0",
   "description": "Super-preloader",
   "main": "dist/Super_preloaderPlus_one_New.user.js",
   "author": "Mach6",
@@ -54,7 +54,7 @@
     "@babel/core": "7.7.5",
     "@babel/plugin-transform-runtime": "7.7.6",
     "@babel/preset-env": "7.7.6",
-    "@babel/runtime-corejs3": "7.7.6",
+    "@babel/runtime-corejs2": "^7.7.6",
     "babel-loader": "8.0.6",
     "babel-plugin-lodash": "3.3.4",
     "compare-versions": "3.5.1",
