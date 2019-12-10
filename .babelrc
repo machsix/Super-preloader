@@ -1,18 +1,20 @@
 {
   "plugins": [
     "lodash",
-    "@babel/plugin-transform-runtime"
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "corejs": 3,
+        "regenerator": true,
+        "proposals": false
+      }
+    ]
   ],
   "presets": [
     [
       "@babel/preset-env",
       {
-        "useBuiltIns": "usage",
-        "debug": true,
-        "corejs": 3,
-        "exclude": [
-          "es.promise"
-        ]
+        "debug": true
       }
     ]
   ]
