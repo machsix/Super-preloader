@@ -2081,17 +2081,16 @@
 {
   "resource_url": "http://wedata.net/items/82096",
   "name": "ジモティ",
-  "created_by": "t_f_m",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-03-13T21:02:01+09:00",
   "data": {
-    "exampleUrl": "https://jmty.jp/tokyo/sale-bik/g-1504",
     "url": "^https://jmty\\.jp/",
-    "pageElement": "//ul[@class=\"list_sale\"]/li",
-    "insertBefore": "",
+    "pageElement": "//ul/li[@class=\"p-articles-list-item\"]",
+    "exampleUrl": "https://jmty.jp/tokyo/sale-bik/g-1504\r\nhttps://jmty.jp/kanagawa/est-all/g-all/a-309-yokosuka",
     "nextLink": "//a[@rel=\"next\"]"
   },
-  "created_at": "2019-03-13T21:02:01+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m",
+  "created_at": "2019-03-13T21:02:01+09:00",
+  "updated_at": "2019-12-10T16:17:25+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/82095",
