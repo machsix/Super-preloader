@@ -31,6 +31,7 @@ const gitLog = function(obj, repoDir, magicKey) {
     }
   }
   strLogFormat = strLogFormat.slice(0, strLogFormat.length - 3) + `%n}${magicKey}`;
+  // default: --pretty=format:{%n  "commit": "%H",%n  "abbreviated_commit": "%h",%n  "date": "%cD",%n  "committer": "%cn",%n  "author_date": "%aD",%n  "author": "%an"%n}^^
 
   args.push(`--pretty=format:${strLogFormat}`);
 

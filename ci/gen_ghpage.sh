@@ -1,20 +1,27 @@
 #!/usr/bin/env bash
-set +e
+set -e
 
+# !Run from the root of the repository
 REPO_DIR=${1:-`pwd`}
 DOCS_DIR=${REPO_DIR}/docs/.vuepress/dist
+UPDATE_FLAG=""
+if [[ $TRAVIS_COMMIT_MESSAGE == *"[UPDATE]"* ]]; then
+  echo -e "\e[1m\e[41m\e[97mMandatory Update\e[0m"
+  UPDATE_FLAG="--update"
+fi
 
-# strip json database and add it to gh-pages
+
+# Step 1 : strip json database and add it to gh-pages
+echo -e "\e[1m\e[44m\e[97mStep 1: rewrite and minimize database\e[0m"
 DB=("${REPO_DIR}/dist/mydata.json")
-
-cd ${REPO_DIR}/.ci
+cd ${REPO_DIR}/ci
 for jsDB in ${DB[@]}; do
   if [ -f $jsDB ]; then
     DB_FILE=`basename $jsDB`
     DB_DIR=`dirname $jsDB`
     jdDBDetail="${DB_DIR}/${DB_FILE%.*}_detail.json"
 
-    node write_mydata.js $jsDB
+    node rewrite_db.js $jsDB ${UPDATE_FLAG}
 
     cp ${jsDB}         ${DOCS_DIR}/
     cp ${jdDBDetail}   ${DOCS_DIR}/
