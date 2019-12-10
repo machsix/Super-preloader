@@ -27,7 +27,7 @@ self.addEventListener('message', (event) => {
 self.__precacheManifest = [
   {
     "url": "404.html",
-    "revision": "db8a666d47d44cd0ffffe5a9391d7027"
+    "revision": "f2595f417cd34d4dc42c2e7859ff33d2"
   },
   {
     "url": "assets/css/0.styles.10897501.css",
@@ -114,24 +114,24 @@ self.__precacheManifest = [
     "revision": "e514ce8c8658c29b9e516867595f20a0"
   },
   {
-    "url": "assets/js/app.5601b15e.js",
-    "revision": "3b46393076a5e12a994ca3a59b10ee12"
+    "url": "assets/js/app.5f6c2677.js",
+    "revision": "01e8b290026cc473fca588417bf170a3"
   },
   {
     "url": "compatibility.html",
-    "revision": "00b843dfa296ff636e6a8265a43cb9e4"
+    "revision": "6004c2d49fbdfd7c3b578a827ab682a0"
   },
   {
     "url": "database.html",
-    "revision": "d91d19a279dbbd7bea2b9905e73ac34a"
+    "revision": "5b7abe39ec18ba97ca57025f42c617bd"
   },
   {
     "url": "example.html",
-    "revision": "56c105c508b739f2786a8c4967b3ef98"
+    "revision": "cbfa4ba68b8dea5600d025abc2f1179f"
   },
   {
     "url": "faq.html",
-    "revision": "413c2e135e459b121da517b1f76e5d3b"
+    "revision": "8cf5e9ba27d8217626982bdd6ff65dd8"
   },
   {
     "url": "image/example/baidu.png",
@@ -151,7 +151,7 @@ self.__precacheManifest = [
   },
   {
     "url": "index.html",
-    "revision": "8a03171653de8dd255fbcdeec221798e"
+    "revision": "e11abfa70265e480bfaf0db5154460b4"
   },
   {
     "url": "logo.png",
@@ -159,35 +159,35 @@ self.__precacheManifest = [
   },
   {
     "url": "siterule.html",
-    "revision": "676c91d3786931b2ca04d9f13f9cf8fb"
+    "revision": "b0464acbb053d5c4edee5c2122d3a0a7"
   },
   {
     "url": "zh-cn/compatibility.html",
-    "revision": "000ec88f6b37dc9186fcd60c5b23f93f"
+    "revision": "9f874a4f390e9a1b68aba5fb79bc9874"
   },
   {
     "url": "zh-cn/database.html",
-    "revision": "fa50105000c6fa0ba6211b93fea6e8b4"
+    "revision": "14c1702bf671153f36e370e6410947b7"
   },
   {
     "url": "zh-cn/develop.html",
-    "revision": "49b678aeee83f0599d7fa8d35a659e38"
+    "revision": "fc0e096c5f0c3ed3bca1e71250948c58"
   },
   {
     "url": "zh-cn/example.html",
-    "revision": "0bfff8cd2cf1dd2fed15e7add4a9dcaa"
+    "revision": "3e1fdd693dc576574a113b1f557af8fb"
   },
   {
     "url": "zh-cn/faq.html",
-    "revision": "b3c507d735bc254711c3fea392645437"
+    "revision": "a2249b854ed82dab6f0727375e2fb011"
   },
   {
     "url": "zh-cn/index.html",
-    "revision": "2ecfc825ecdf98e34abeee89e14cccf5"
+    "revision": "2ceb71be6d58d2de442974b4bfed4b8d"
   },
   {
     "url": "zh-cn/siterule.html",
-    "revision": "3b32cac752d52d7e1851bfd91c13ac73"
+    "revision": "83bb99fe42a9ca6f201f5cd9d000d263"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});

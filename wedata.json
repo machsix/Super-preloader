@@ -1,5 +1,20 @@
 [
 {
+  "resource_url": "http://wedata.net/items/85165",
+  "name": "小説の冷凍庫",
+  "data": {
+    "url": "^https?://dyreitou\\.com/",
+    "pageElement": "//article[contains(concat(\" \",@class,\" \"),\" hentry \")]",
+    "exampleUrl": "http://dyreitou.com/%e5%be%8c%e6%97%a5%e8%ab%87%e2%91%a7",
+    "insertBefore": "",
+    "nextLink": "//a[@rel=\"next\"]"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m_",
+  "created_at": "2019-12-10T21:12:32+09:00",
+  "updated_at": "2019-12-10T21:12:32+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/85164",
   "name": "家庭画報.com",
   "data": {
