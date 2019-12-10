@@ -12,11 +12,11 @@ module.exports = {
   },
   locales: {
     "/": {
-      lang: "zh-CN",
+      lang: "en-US",
       title: "Super-preloader"
     },
-    "/en/": {
-      lang: "en-US",
+    "/zh-cn/": {
+      lang: "zh-CN",
       title: "Super-preloader"
     }
   },
@@ -37,7 +37,7 @@ module.exports = {
     editLinks: true,
     docsDir: "docs",
     locales: {
-      "/": {
+      "/zh-cn/": {
         lang: "zh-CN",
         label: "中文",
         editLinkText: "在 GitHub 上编辑此页",
@@ -45,11 +45,11 @@ module.exports = {
         nav: [
           {
             text: "介绍",
-            link: "/"
+            link: "/zh-cn/"
           }
         ],
         sidebar: {
-          "/": [
+          "/zh-cn/": [
             {
               title: "介绍",
               collapsable: false,
@@ -68,7 +68,7 @@ module.exports = {
           ]
         }
       },
-      "/en/": {
+      "/": {
         lang: "en-US",
         label: "English",
         editLinkText: "Edit this page on GitHub",
@@ -76,18 +76,18 @@ module.exports = {
         nav: [
           {
             text: "Introduction",
-            link: "/en/"
+            link: "/"
           }
         ],
         sidebar: {
-          "/en/": [
+          "/": [
             {
               title: "Introduction",
               collapsable: false,
-              children: [["", "Intoduction"], "example", "compatibility", "database"]
+              children: [["", "Introduction"], "example", "compatibility", "database"]
             },
             {
-              title: "Deveopment",
+              title: "Development",
               collapsable: false,
               children: ["siterule"]
             },
