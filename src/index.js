@@ -15,7 +15,7 @@ import jsonRule from "utils/json-rule";
 import logger from "utils/logger";
 
 (function() {
-  gm4polyfill(window);
+  gm4polyfill.call(window);
   // use charset from currentDocument
   const got = gotStock.create({
     html: true,
