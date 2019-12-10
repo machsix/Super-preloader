@@ -22361,16 +22361,16 @@
 {
   "resource_url": "http://wedata.net/items/74711",
   "name": "Real Sound｜リアルサウンド",
-  "created_by": "raimon49",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2018-12-08T16:45:48+09:00",
   "data": {
-    "exampleUrl": "https://realsound.jp/2014/04/post-393.html\r\nhttps://realsound.jp/category/interview",
     "url": "^https?://realsound\\.jp/",
-    "pageElement": "id(\"entryBody\") | //div[@class=\"entryList\"]",
+    "pageElement": "//div[@class=\"entry-body-wrapper\"] | //main/article[@class=\"entry-summary\"]",
+    "exampleUrl": "https://realsound.jp/2014/04/post-393.html\r\nhttps://realsound.jp/category/interview\r\nhttps://realsound.jp/tech/2019/12/post-457436_2.html",
     "nextLink": "//link[@rel=\"next\"]"
   },
-  "created_at": "2014-04-10T23:40:55+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "raimon49",
+  "created_at": "2014-04-10T23:40:55+09:00",
+  "updated_at": "2019-12-10T15:48:21+09:00"
 },
 {
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
