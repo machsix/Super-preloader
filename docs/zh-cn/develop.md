@@ -15,13 +15,17 @@
 
 > PR 请使用`fix`, `fea`, `feature` 或`core`的前缀
 
-当前需求主要列在[issue](https://github.com/machsix/Super-preloader/issues)和[project](https://github.com/machsix/Super-preloader/projects)中。
+- 当前需求主要列在[issue](https://github.com/machsix/Super-preloader/issues)和[project](https://github.com/machsix/Super-preloader/projects)中。
 
-目前的主要需求包括：
+- 目前的主要需求包括：
 
-1. 固化`Super_preloaderPlus_one_New.user.js`
-2. 将脚本分拆为函数，同时将规则从脚本中提取到`mydata.json`
-3. 使用 ES8 重写`Super_preloaderPlus_one_ES8.user.js`
+  ~~+ 固化`Super_preloaderPlus_one_New.user.js`~~
+
+  ~~+ 将脚本分拆为函数，同时将规则从脚本中提取到`mydata.json`~~
+
+  ~~+ 使用 ES8 重写`Super_preloaderPlus_one_ES8.user.js`~~
+
+  - Beautify UI and use HTML template (maybe [mustache-loader](https://github.com/deepsweet/mustache-loader), `vue` is too big for such a tiny script)
 
 ## 规则的添加及修复
 

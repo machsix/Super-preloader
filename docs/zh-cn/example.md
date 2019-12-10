@@ -1,6 +1,6 @@
-# Example
+# 例子
 
-## Search Engine
+## 搜索引擎
 
 ### Google:
 
@@ -10,7 +10,7 @@
 
 <img :src="$withBase('/image/example/baidu.png')" alt="Baidu">
 
-## Manga
+## 漫画
 
 ### XKCD:
 
