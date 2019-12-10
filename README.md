@@ -25,7 +25,7 @@
   - Chrome 48 + Tampermonkey
 
 - Known issue:
-  - Firefox < 62 + Tampermonkey is incompatible with the script
+  - Firefox < 62 + Tampermonkey is incompatible with the script < v6.9.3 because of incompatability between Tampermonkey and core-js@3 because https://github.com/Tampermonkey/tampermonkey/issues/834 . The solution is to bundle it with core-js@2.
 
 ## Introduction
 
