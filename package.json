@@ -67,7 +67,7 @@
     "lodash-webpack-plugin": "0.11.5",
     "prettier": "1.19.1",
     "pretty-quick": "2.0.1",
-    "terser-webpack-plugin": "2.2.2",
+    "terser-webpack-plugin": "2.3.0",
     "urlencode": "1.1.0",
     "webpack": "4.41.2",
     "webpack-cli": "3.3.10",
