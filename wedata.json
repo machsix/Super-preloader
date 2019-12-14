@@ -60,21 +60,6 @@
   "updated_at": "2019-12-09T20:23:38+09:00"
 },
 {
-  "resource_url": "http://wedata.net/items/85161",
-  "name": "THE DIGEST",
-  "data": {
-    "url": "^https://thedigestweb\\.com/",
-    "pageElement": "//section[@class=\"c-pager-area\"]/preceding-sibling::node()",
-    "exampleUrl": "https://thedigestweb.com/baseball/detail/id=6615",
-    "insertBefore": "",
-    "nextLink": "//a[(text()=\"次\")"
-  },
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "created_by": "zager",
-  "created_at": "2019-12-07T10:56:27+09:00",
-  "updated_at": "2019-12-07T10:56:27+09:00"
-},
-{
   "resource_url": "http://wedata.net/items/85158",
   "name": "The Numbers",
   "data": {
