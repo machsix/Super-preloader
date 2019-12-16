@@ -9,13 +9,11 @@ import _ from "lodash";
 import {addStyle} from "utils/gm-enhanced";
 import compareVersions from "compare-versions";
 import elementReady from "utils/element-ready";
-import gm4polyfill from "utils/gm4-polyfill";
 import gotStock from "utils/got";
 import jsonRule from "utils/json-rule";
 import logger from "utils/logger";
 
 (function() {
-  gm4polyfill.call(window);
   // use charset from currentDocument
   const got = gotStock.create({
     html: true,
@@ -23,7 +21,6 @@ import logger from "utils/logger";
   });
   const scriptInfo = SCRIPT_INFO;
   const upgradeNotification = NOTIFICATION;
-  shim_GM_notification();
 
   // ----------------------------------
   // rule.js
@@ -1865,15 +1862,22 @@ import logger from "utils/logger";
         // update rule if the script is upgraded or it is installed for the first time
         if (upgradeNotification) {
           if (upgradeNotification.show(myOldVersion, scriptInfo.version)) {
-            if (i8n() === "zh_CN") {
-              const text = SCRIPT_INFO["name-CN"] + " 从 v" + myOldVersion + " 升级到 v" + scriptInfo.version + "。 ";
-              // eslint-disable-next-line no-undef
-              GM_notification(text + upgradeNotification.text.zh_CN, upgradeNotification.title, upgradeNotification.image, upgradeNotification.onload);
-            } else {
-              const text = SCRIPT_INFO.name + " is upgraded from v" + myOldVersion + " to v" + scriptInfo.version + ". ";
-              // eslint-disable-next-line no-undef
-              GM_notification(text + upgradeNotification.text.en_US, upgradeNotification.title, upgradeNotification.image, upgradeNotification.onload);
+            const opts = {
+              text: "",
+              title: upgradeNotification.title,
+              image: upgradeNotification.image,
+              onload: upgradeNotification.onload
+            };
+            switch (i8n()) {
+              case "zh-CN":
+                opts.text = SCRIPT_INFO["name-CN"] + " 从 v" + myOldVersion + " 升级到 v" + scriptInfo.version + "。 ";
+                break;
+
+              default:
+                opts.text = SCRIPT_INFO.name + " is upgraded from v" + myOldVersion + " to v" + scriptInfo.version + ". ";
+                break;
             }
+            GM.notification(opts);
           }
         }
       }
@@ -3126,6 +3130,7 @@ import logger from "utils/logger";
               const reqConf = {
                 headers: SSS.a_headers ? SSS.a_headers : {Referer: cplink}
               };
+              reqConf.headers.Cookie = document.cookie;
               got
                 .get(nextlink, reqConf)
                 .then(function(res) {
@@ -3920,7 +3925,11 @@ import logger from "utils/logger";
               document.body.appendChild(iframe);
             }
           } else {
-            got.get(nextlink).then((res) => {
+            const reqConf = {
+              headers: SSS.a_headers ? SSS.a_headers : {Referer: cplink}
+            };
+            reqConf.headers.Cookie = document.cookie;
+            got.get(nextlink, reqConf).then((res) => {
               const doc = createDocumentByString(res.data);
               if (!doc) {
                 logger.error("文档对象创建失败!");
@@ -5478,50 +5487,5 @@ import logger from "utils/logger";
       logger.error("Shame on your browser!");
       return "";
     }
-  }
-
-  // https://gist.github.com/cking/aa1787207596261eaf69d79d983f6f49
-  function shim_GM_notification() {
-    if (typeof GM_notification === "function") {
-      return;
-    }
-    window.GM_notification = function(ntcOptions) {
-      checkPermission();
-
-      function checkPermission() {
-        if (Notification.permission === "granted") {
-          fireNotice();
-        } else if (Notification.permission === "denied") {
-          alert("User has denied notifications for this page/site!");
-          // eslint-disable-next-line no-useless-return
-          return;
-        } else {
-          Notification.requestPermission(function(permission) {
-            console.log("New permission: ", permission);
-            checkPermission();
-          });
-        }
-      }
-
-      function fireNotice() {
-        if (!ntcOptions.title) {
-          console.log("Title is required for notification");
-          return;
-        }
-        if (ntcOptions.text && !ntcOptions.body) {
-          ntcOptions.body = ntcOptions.text;
-        }
-        var ntfctn = new Notification(ntcOptions.title, ntcOptions);
-
-        if (ntcOptions.onclick) {
-          ntfctn.onclick = ntcOptions.onclick;
-        }
-        if (ntcOptions.timeout) {
-          setTimeout(function() {
-            ntfctn.close();
-          }, ntcOptions.timeout);
-        }
-      }
-    };
   }
 })();

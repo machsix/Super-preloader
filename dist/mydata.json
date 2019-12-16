@@ -3821,6 +3821,17 @@
     "pageElement": "//table[@class=\"lista2t\"]/tbody/tr[td/@class=\"lista\"]"
   },
   {
+    "name": "hpjav.tv",
+    "url": "^https?://(www\\.)?hpjav\\.tv",
+    "nextLink": "//ul[@class='pagination']/li[@class='active']/following-sibling::li/a",
+    "category": ["JAV", "nsfw"],
+    "autopager": {
+      "useiframe": true,
+      "pageElement": "//div[@class='post-list']"
+    },
+    "exampleUrl": "https://hpjav.tv/tw/category/censored"
+  },
+  {
     "name": "models",
     "url": "^https?://([^.]+.)?models.com/models/",
     "nextLink": "(//ul[@id=\"tabnavB\"]/li)[last()]/a",
