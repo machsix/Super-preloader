@@ -24,7 +24,9 @@ const defaults = {
   user: null,
   password: null,
   context: null,
-  html: false // set to true to overrideMimeType = `text/html`;
+  html: false, // set to true to overrideMimeType = `text/html`;
+  noHeader: false,
+  cookie: null
 };
 
 /**
@@ -120,6 +122,15 @@ function normalizeArguments(options, thisDefaults = defaults) {
       }
     }
   }
+
+  // `options.cookie`
+  if (!isNullOrUndefined(options.cookie) && _.isString(options.cookie)) {
+    if (options.hasOwnProperty("headers")) {
+      options.headers.cookie = options.cookie;
+    } else {
+      options.headers = {cookie: options.cookie};
+    }
+  }
   return options;
 }
 
@@ -136,7 +147,7 @@ function gotopt2gmopt(options) {
   });
 
   // delete headers if it's empty
-  if (_.isEmpty(config.headers)) {
+  if (_.isEmpty(config.headers) || options.noHeader) {
     delete config.headers;
   }
 

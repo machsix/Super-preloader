@@ -4,6 +4,7 @@
 
 // import "core-js";
 // import "regenerator-runtime/runtime";
+import {IS_FIREFOX, SCRIPT_HANDLER} from "utils/detect";
 import {NOTIFICATION, SCRIPT_INFO} from "./meta";
 import _ from "lodash";
 import {addStyle} from "utils/gm-enhanced";
@@ -15,10 +16,23 @@ import logger from "utils/logger";
 
 (function() {
   // use charset from currentDocument
-  const got = gotStock.create({
+  const gotConfig = {
     html: true,
     encoding: document.characterSet
-  });
+  };
+
+  if (IS_FIREFOX && SCRIPT_HANDLER !== "Greasemonkey") {
+    gotConfig.cookie = document.cookie;
+  }
+  console.debug(`Script Manager: ${SCRIPT_HANDLER}`);
+  console.debug(`IS_FIREFOX: ${IS_FIREFOX}`);
+  // TODO:
+  // if (IS_FIREFOX && SCRIPT_HANDLER !== "Violentmonkey") {
+  //   gotConfig.withCredentials = true;
+  //   // https://github.com/violentmonkey/violentmonkey/pull/743
+  // }
+  const got = gotStock.create(gotConfig);
+
   const scriptInfo = SCRIPT_INFO;
   const upgradeNotification = NOTIFICATION;
 
@@ -3130,7 +3144,6 @@ import logger from "utils/logger";
               const reqConf = {
                 headers: SSS.a_headers ? SSS.a_headers : {Referer: cplink}
               };
-              reqConf.headers.Cookie = document.cookie;
               got
                 .get(nextlink, reqConf)
                 .then(function(res) {
@@ -3928,7 +3941,6 @@ import logger from "utils/logger";
             const reqConf = {
               headers: SSS.a_headers ? SSS.a_headers : {Referer: cplink}
             };
-            reqConf.headers.Cookie = document.cookie;
             got.get(nextlink, reqConf).then((res) => {
               const doc = createDocumentByString(res.data);
               if (!doc) {
