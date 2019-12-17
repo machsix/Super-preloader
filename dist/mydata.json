@@ -1118,6 +1118,7 @@
     "exampleUrl": "http://hdcmct.org/torrents.php",
     "nextLink": "//b[contains(text(),'下一页') or contains(text(),'Next') or contains(text(),'下一頁')]/parent::a",
     "autopager": {
+      "useiframe": true,
       "pageElement": "//table[@class=\"torrents\"]"
     }
   },
@@ -1134,7 +1135,7 @@
     "name": "- hdchina 高清影音人士的分享乐园",
     "url": "^https?://hdchina\\.org",
     "exampleUrl": "http://hdchina.org",
-    "nextLink": "//b[contains(text(), \"下一页\")]/parent::a",
+    "nextLink": "(//ul[@class='pagination']/li[@class='active']/following-sibling::li/a)[1]",
     "autopager": {
       "pageElement": "//table[@class=\"torrent_list\"]"
     }
