@@ -26,7 +26,8 @@ const defaults = {
   context: null,
   html: false, // set to true to overrideMimeType = `text/html`;
   noHeader: false,
-  cookie: null
+  cookie: null,
+  withCredentials: true
 };
 
 /**
@@ -142,7 +143,7 @@ function normalizeArguments(options, thisDefaults = defaults) {
  */
 function gotopt2gmopt(options) {
   const config = {};
-  ["method", "url", "timeout", "headers", "binary", "user", "password", "context"].forEach((key) => {
+  ["method", "url", "timeout", "headers", "binary", "user", "password", "context", "withCredentials"].forEach((key) => {
     config[key] = options[key];
   });
 
@@ -197,7 +198,7 @@ function create(thisDefaults) {
    * @returns {promise} promise of get
    */
   const request = (optionsIn) => {
-    let gotOptions = {...optionsIn}; // make a shadow copys
+    let gotOptions = {...optionsIn}; // make a shadow copy
 
     // merge parameter
     gotOptions = normalizeArguments(gotOptions, request.defaults);
@@ -251,7 +252,11 @@ function create(thisDefaults) {
     });
   };
 
-  request.defaults = thisDefaults;
+  request.defaults = {};
+  // eslint-disable-next-line guard-for-in
+  for (const key in defaults) {
+    request.defaults[key] = isNullOrUndefined(thisDefaults[key]) ? defaults[key] : thisDefaults[key];
+  }
 
   request.get = function(url, optionsIn) {
     const options = parseArgument(url, optionsIn);
