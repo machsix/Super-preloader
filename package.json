@@ -43,7 +43,6 @@
     "userscript"
   ],
   "devDependencies": {
-    "@vue/babel-preset-app": "4.1.1",
     "@vuepress/plugin-back-to-top": "1.2.0",
     "@vuepress/plugin-google-analytics": "1.2.0",
     "@vuepress/plugin-pwa": "1.2.0",
