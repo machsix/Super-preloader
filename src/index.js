@@ -1864,7 +1864,6 @@ import logger from "utils/logger";
   Promise.all([GM.getValue("prefs", prefsFactory), GM.getValue("SITEINFO_D", SITEINFO_DFactory), GM.getValue("autoMatch", autoMatchFactory), GM.getValue("version", myOldVersion), jsonRule.loadDB()])
     .then(function(values) {
       [prefs, SITEINFO_D, autoMatch, myOldVersion] = values;
-      console.log(myOldVersion);
 
       if (compareVersions(myOldVersion, scriptInfo.rewriteStorage) === -1) {
         if (_.isString(prefs)) prefs = JSON.parse(prefs);

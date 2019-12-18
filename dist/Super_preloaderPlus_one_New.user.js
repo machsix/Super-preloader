@@ -3538,7 +3538,7 @@
                 _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_6___default.a.all([ GM.getValue("prefs", prefsFactory), GM.getValue("SITEINFO_D", SITEINFO_DFactory), GM.getValue("autoMatch", autoMatchFactory), GM.getValue("version", myOldVersion), utils_json_rule__WEBPACK_IMPORTED_MODULE_16__.a.loadDB() ]).then((function(values) {
                     var _values = _babel_runtime_corejs2_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_3___default()(values, 4);
                     prefs = _values[0], SITEINFO_D = _values[1], autoMatch = _values[2], myOldVersion = _values[3], 
-                    console.log(myOldVersion), -1 === compare_versions__WEBPACK_IMPORTED_MODULE_13___default()(myOldVersion, scriptInfo.rewriteStorage) && (lodash_isString__WEBPACK_IMPORTED_MODULE_9___default()(prefs) && (prefs = JSON.parse(prefs)), 
+                    -1 === compare_versions__WEBPACK_IMPORTED_MODULE_13___default()(myOldVersion, scriptInfo.rewriteStorage) && (lodash_isString__WEBPACK_IMPORTED_MODULE_9___default()(prefs) && (prefs = JSON.parse(prefs)), 
                     lodash_isString__WEBPACK_IMPORTED_MODULE_9___default()(SITEINFO_D) && (SITEINFO_D = JSON.parse(SITEINFO_D)), 
                     lodash_isString__WEBPACK_IMPORTED_MODULE_9___default()(autoMatch) && (autoMatch = JSON.parse(autoMatch))), 
                     void 0 !== prefs.debug && utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.setLevel(prefs.debug ? "debug" : "info"), 
