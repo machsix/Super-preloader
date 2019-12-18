@@ -103,15 +103,7 @@ function normalizeArguments(options, thisDefaults = defaults) {
   } else {
     options.searchParams = {};
   }
-
-  // `options.cache`
-  if (_.isBoolean(options.cache) && !options.cache) {
-    options.searchParams.timestamp = new Date().getTime();
-  } else {
-    options.cache = false;
-  }
   keyNotMerge.push("searchParams");
-  keyNotMerge.push("cache");
 
   // `options.body` => `options.data`
   if (options.body) {
@@ -142,9 +134,18 @@ function normalizeArguments(options, thisDefaults = defaults) {
     }
   }
 
-  if (options.noHeader) {
+  if (options.noHeader || _.isEmpty(options.headers)) {
     delete options.headers;
   }
+
+  // `options.cache`
+  if (_.isBoolean(options.cache) && !options.cache) {
+    options.searchParams.timestamp = new Date().getTime();
+  }
+  if (_.isEmpty(options.searchParams)) {
+    delete options.searchParams;
+  }
+
   return options;
 }
 
@@ -156,7 +157,7 @@ function normalizeArguments(options, thisDefaults = defaults) {
  */
 function gotopt2gmopt(options) {
   const config = {};
-  ["method", "url", "timeout", "headers", "binary", "user", "password", "context", "withCredentials"].forEach((key) => {
+  ["method", "url", "timeout", "headers", "binary", "user", "password", "context", "withCredentials", "data"].forEach((key) => {
     if (!isNullOrUndefined(options[key])) {
       config[key] = options[key];
     }
@@ -172,9 +173,7 @@ function gotopt2gmopt(options) {
   }
   // process `options.searchParams`
   if (!isNullOrUndefined(options.searchParams)) {
-    if (!_.isEmpty(options.searchParams)) {
-      config.url += `?${querystring.stringify(options.searchParams, null, null, (x) => urlencode(x, options.encoding))}`;
-    }
+    config.url += `?${querystring.stringify(options.searchParams, null, null, (x) => urlencode(x, options.encoding))}`;
   }
   return config;
 }

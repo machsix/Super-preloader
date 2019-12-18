@@ -9,7 +9,7 @@
 // @author       Mach6
 // @contributers YFdyh000, suchunchen
 // @thanksto     ywzhaiqi, NLF
-// @version      6.10.5
+// @version      6.10.6
 // @license      GPL-3.0
 // @update       2019/12/18
 // @homepageURL  https://github.com/machsix/Super-preloader
@@ -12277,7 +12277,7 @@
     /* 227 */
     /***/ function(module) {
       module.exports = JSON.parse(
-        '{"name":"super-preloader","version":"6.10.5","description":"Super-preloader","main":"dist/Super_preloaderPlus_one_New.user.js","author":"Mach6","license":"GPL-3.0","bugs":{"url":"https://github.com/machsix/Super-preloader/issues"},"homepage":"https://github.com/machsix/Super-preloader","directories":{"doc":"docs"},"repository":{"type":"git","url":"git+https://github.com/machsix/Super-preloader.git"},"scripts":{"lint":"eslint \\"dist/*.json\\" \\"src/**/*.js\\" \\"ci/*.js\\"","format":"prettier --write \\"dist/*.json\\" \\"src/**/*.js\\" \\".ci/*.js\\" \\"docs/**/*.{js,md}\\"","format:check":"prettier --check --loglevel debug \\"dist/*.json\\" \\"src/**/*.js\\" \\"ci/*.js\\" \\"docs/**/*.{js,md}\\"","format:staged":"pretty-quick --verbose --staged --write \\"dist/*.json\\" \\"src/**/*.js\\" \\"ci/*.js\\" \\"docs/**/*.{js,md}\\"","test":"npm run lint && npm run format:staged","dev":"webpack-dev-server --color --config webpack.dev.js","build":"webpack --no-cache --debug --config webpack.prod.js","build:dev":"webpack --config webpack.dev.js","docs:dev":"vuepress dev docs","docs:build":"vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh","preversion":"npm run test && npm run docs:build","version":"npm run build  && npm run build:dev && git add dist/*.js && git add dist/*.json","postversion":"git add package.json package-lock.json","publish:patch":"npm --no-git-tag-version version patch","publish":"npm --no-git-tag-version version minor"},"husky":{"hooks":{"pre-commit":"npm run test"}},"keywords":["userscript"],"devDependencies":{"@vuepress/plugin-back-to-top":"1.2.0","@vuepress/plugin-google-analytics":"1.2.0","@vuepress/plugin-pwa":"1.2.0","vuepress":"1.2.0"},"dependencies":{"@babel/cli":"7.7.5","@babel/core":"7.7.5","@babel/plugin-transform-runtime":"7.7.6","@babel/preset-env":"7.7.6","@babel/runtime-corejs2":"7.7.6","babel-loader":"8.0.6","babel-plugin-lodash":"3.3.4","compare-versions":"3.5.1","eslint":"6.7.2","eslint-config-prettier":"6.7.0","eslint-plugin-json":"2.0.1","eslint-plugin-prettier":"3.1.2","husky":"3.1.0","lodash":"4.17.15","lodash-webpack-plugin":"0.11.5","loglevel":"1.6.6","prettier":"1.19.1","pretty-quick":"2.0.1","string-replace-loader":"2.2.0","terser-webpack-plugin":"2.3.1","urlencode":"1.1.0","webpack":"4.41.3","webpack-cli":"3.3.10","webpack-dev-server":"3.10.0","webpack-merge":"4.2.2","yargs":"^15.0.2"}}'
+        '{"name":"super-preloader","version":"6.10.6","description":"Super-preloader","main":"dist/Super_preloaderPlus_one_New.user.js","author":"Mach6","license":"GPL-3.0","bugs":{"url":"https://github.com/machsix/Super-preloader/issues"},"homepage":"https://github.com/machsix/Super-preloader","directories":{"doc":"docs"},"repository":{"type":"git","url":"git+https://github.com/machsix/Super-preloader.git"},"scripts":{"lint":"eslint \\"dist/*.json\\" \\"src/**/*.js\\" \\"ci/*.js\\"","format":"prettier --write \\"dist/*.json\\" \\"src/**/*.js\\" \\".ci/*.js\\" \\"docs/**/*.{js,md}\\"","format:check":"prettier --check --loglevel debug \\"dist/*.json\\" \\"src/**/*.js\\" \\"ci/*.js\\" \\"docs/**/*.{js,md}\\"","format:staged":"pretty-quick --verbose --staged --write \\"dist/*.json\\" \\"src/**/*.js\\" \\"ci/*.js\\" \\"docs/**/*.{js,md}\\"","test":"npm run lint && npm run format:staged","dev":"webpack-dev-server --color --config webpack.dev.js","build":"webpack --no-cache --debug --config webpack.prod.js","build:dev":"webpack --config webpack.dev.js","docs:dev":"vuepress dev docs","docs:build":"vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh","preversion":"npm run test && npm run docs:build","version":"npm run build  && npm run build:dev && git add dist/*.js && git add dist/*.json","postversion":"git add package.json package-lock.json","publish:patch":"npm --no-git-tag-version version patch","publish":"npm --no-git-tag-version version minor"},"husky":{"hooks":{"pre-commit":"npm run test"}},"keywords":["userscript"],"devDependencies":{"@vuepress/plugin-back-to-top":"1.2.0","@vuepress/plugin-google-analytics":"1.2.0","@vuepress/plugin-pwa":"1.2.0","vuepress":"1.2.0"},"dependencies":{"@babel/cli":"7.7.5","@babel/core":"7.7.5","@babel/plugin-transform-runtime":"7.7.6","@babel/preset-env":"7.7.6","@babel/runtime-corejs2":"7.7.6","babel-loader":"8.0.6","babel-plugin-lodash":"3.3.4","compare-versions":"3.5.1","eslint":"6.7.2","eslint-config-prettier":"6.7.0","eslint-plugin-json":"2.0.1","eslint-plugin-prettier":"3.1.2","husky":"3.1.0","lodash":"4.17.15","lodash-webpack-plugin":"0.11.5","loglevel":"1.6.6","prettier":"1.19.1","pretty-quick":"2.0.1","string-replace-loader":"2.2.0","terser-webpack-plugin":"2.3.1","urlencode":"1.1.0","webpack":"4.41.3","webpack-cli":"3.3.10","webpack-dev-server":"3.10.0","webpack-merge":"4.2.2","yargs":"^15.0.2"}}'
       );
 
       /***/
@@ -12671,16 +12671,9 @@
           }
         } else {
           options.searchParams = {};
-        } // `options.cache`
-
-        if (lodash_isBoolean__WEBPACK_IMPORTED_MODULE_13___default()(options.cache) && !options.cache) {
-          options.searchParams.timestamp = new Date().getTime();
-        } else {
-          options.cache = false;
         }
 
-        keyNotMerge.push("searchParams");
-        keyNotMerge.push("cache"); // `options.body` => `options.data`
+        keyNotMerge.push("searchParams"); // `options.body` => `options.data`
 
         if (options.body) {
           options.data = options.body;
@@ -12711,8 +12704,16 @@
           }
         }
 
-        if (options.noHeader) {
+        if (options.noHeader || lodash_isEmpty__WEBPACK_IMPORTED_MODULE_14___default()(options.headers)) {
           delete options.headers;
+        } // `options.cache`
+
+        if (lodash_isBoolean__WEBPACK_IMPORTED_MODULE_13___default()(options.cache) && !options.cache) {
+          options.searchParams.timestamp = new Date().getTime();
+        }
+
+        if (lodash_isEmpty__WEBPACK_IMPORTED_MODULE_14___default()(options.searchParams)) {
+          delete options.searchParams;
         }
 
         return options;
@@ -12726,7 +12727,7 @@
 
       function gotopt2gmopt(options) {
         var config = {};
-        ["method", "url", "timeout", "headers", "binary", "user", "password", "context", "withCredentials"].forEach(function(key) {
+        ["method", "url", "timeout", "headers", "binary", "user", "password", "context", "withCredentials", "data"].forEach(function(key) {
           if (!isNullOrUndefined(options[key])) {
             config[key] = options[key];
           }
@@ -12741,11 +12742,9 @@
         } // process `options.searchParams`
 
         if (!isNullOrUndefined(options.searchParams)) {
-          if (!lodash_isEmpty__WEBPACK_IMPORTED_MODULE_14___default()(options.searchParams)) {
-            config.url += `?${querystring__WEBPACK_IMPORTED_MODULE_20___default.a.stringify(options.searchParams, null, null, function(x) {
-              return urlencode__WEBPACK_IMPORTED_MODULE_21___default()(x, options.encoding);
-            })}`;
-          }
+          config.url += `?${querystring__WEBPACK_IMPORTED_MODULE_20___default.a.stringify(options.searchParams, null, null, function(x) {
+            return urlencode__WEBPACK_IMPORTED_MODULE_21___default()(x, options.encoding);
+          })}`;
         }
 
         return config;

@@ -9,7 +9,7 @@
 // @author       Mach6
 // @contributers YFdyh000, suchunchen
 // @thanksto     ywzhaiqi, NLF
-// @version      6.10.5
+// @version      6.10.6
 // @license      GPL-3.0
 // @update       2019/12/18
 // @homepageURL  https://github.com/machsix/Super-preloader
@@ -118,7 +118,7 @@
 }, function(e, t, r) {
     e.exports = r(167);
 }, function(e, t, r) {
-    var n = r(4), a = r(1), i = r(41), o = r(19), s = r(22), $export = function(e, t, r) {
+    var n = r(4), a = r(1), i = r(42), o = r(19), s = r(22), $export = function(e, t, r) {
         var c, u, l, p = e & $export.F, f = e & $export.G, d = e & $export.S, h = e & $export.P, _ = e & $export.B, m = e & $export.W, g = f ? a : a[t] || (a[t] = {}), b = g.prototype, v = f ? n : d ? n[t] : (n[t] || {}).prototype;
         for (c in f && (r = t), r) (u = !p && v && void 0 !== v[c]) && s(g, c) || (l = u ? v[c] : r[c], 
         g[c] = f && "function" != typeof v[c] ? r[c] : _ && u ? i(l, n) : m && v[c] == l ? function(e) {
@@ -151,7 +151,7 @@
     var r = Array.isArray;
     e.exports = r;
 }, function(e, t, r) {
-    var n = r(67)("wks"), a = r(44), i = r(4).Symbol, o = "function" == typeof i;
+    var n = r(67)("wks"), a = r(45), i = r(4).Symbol, o = "function" == typeof i;
     (e.exports = function(e) {
         return n[e] || (n[e] = o && i[e] || (o ? i : a)("Symbol." + e));
     }).store = n;
@@ -191,7 +191,7 @@
     };
 }, function(e, t, r) {
     "use strict";
-    var n = r(39), a = r.n(n), i = r(56), o = r.n(i), s = r(31), c = r.n(s), u = r(32), l = r.n(u), p = r(33), f = r.n(p), d = r(57), h = r.n(d), _ = r(7), m = r.n(_), g = r(18), b = r.n(g), v = r(2), y = r.n(v), w = r(58), x = r.n(w), E = r(11), S = r.n(E), A = r(85), O = r.n(A), I = r(138), P = r.n(I), k = r(8), C = r.n(k), B = r(55), T = r.n(B), M = r(5), D = r.n(M), L = r(60), R = r(0);
+    var n = r(39), a = r.n(n), i = r(57), o = r.n(i), s = r(31), c = r.n(s), u = r(32), l = r.n(u), p = r(33), f = r.n(p), d = r(58), h = r.n(d), _ = r(7), m = r.n(_), g = r(18), b = r.n(g), v = r(2), y = r.n(v), w = r(59), x = r.n(w), E = r(11), S = r.n(E), A = r(85), O = r.n(A), I = r(138), P = r.n(I), k = r(8), C = r.n(k), B = r(56), T = r.n(B), M = r(5), D = r.n(M), L = r(61), R = r(0);
     function ownKeys(e, t) {
         var r = h()(e);
         if (f.a) {
@@ -471,7 +471,7 @@
         return "value" in r && (e[t] = r.value), e;
     };
 }, function(e, t, r) {
-    var n = r(96), a = r(43);
+    var n = r(96), a = r(44);
     e.exports = function(e) {
         return n(a(e));
     };
@@ -687,7 +687,18 @@
         SCRIPT_INFO: o
     };
 }, function(e, t, r) {
-    var n = r(42);
+    var n = r(121), a = r(123), i = r(52), o = r(5), s = r(78), c = r(75), u = r(122), l = r(76), p = "[object Map]", f = "[object Set]", d = Object.prototype.hasOwnProperty;
+    e.exports = function isEmpty(e) {
+        if (null == e) return !0;
+        if (s(e) && (o(e) || "string" == typeof e || "function" == typeof e.splice || c(e) || l(e) || i(e))) return !e.length;
+        var t = a(e);
+        if (t == p || t == f) return !e.size;
+        if (u(e)) return !n(e).length;
+        for (var r in e) if (d.call(e, r)) return !1;
+        return !0;
+    };
+}, function(e, t, r) {
+    var n = r(43);
     e.exports = function(e, t, r) {
         if (n(e), void 0 === t) return e;
         switch (r) {
@@ -734,7 +745,7 @@
         });
     };
 }, function(e, t, r) {
-    var n = r(43);
+    var n = r(44);
     e.exports = function(e) {
         return Object(n(e));
     };
@@ -777,7 +788,7 @@
         return "symbol" == typeof e || a(e) && n(e) == i;
     };
 }, function(e, t, r) {
-    var n = r(52), a = 1 / 0;
+    var n = r(53), a = 1 / 0;
     e.exports = function toKey(e) {
         if ("string" == typeof e || n(e)) return e;
         var t = e + "";
@@ -810,7 +821,7 @@
     e.exports = r(285);
 }, function(e, t, r) {
     "use strict";
-    var n = r(39), a = r.n(n), i = r(56), o = r.n(i), s = r(31), c = r.n(s), u = r(32), l = r.n(u), p = r(33), f = r.n(p), d = r(57), h = r.n(d), _ = r(2), m = r.n(_), g = r(135), b = r.n(g), v = r(7), y = r.n(v), w = r(58), x = r.n(w), E = r(18), S = r.n(E), A = r(59), O = r.n(A), I = r(30), P = r.n(I), k = r(89), C = r.n(k), B = r(61), T = r.n(B), M = r(8), D = r.n(M), L = r(90), R = r.n(L), U = r(91), j = r.n(U), N = r(0), lowercaseKeys = function(e) {
+    var n = r(39), a = r.n(n), i = r(57), o = r.n(i), s = r(31), c = r.n(s), u = r(32), l = r.n(u), p = r(33), f = r.n(p), d = r(58), h = r.n(d), _ = r(2), m = r.n(_), g = r(135), b = r.n(g), v = r(7), y = r.n(v), w = r(59), x = r.n(w), E = r(18), S = r.n(E), A = r(60), O = r.n(A), I = r(30), P = r.n(I), k = r(89), C = r.n(k), B = r(41), T = r.n(B), M = r(8), D = r.n(M), L = r(90), R = r.n(L), U = r(91), j = r.n(U), N = r(0), lowercaseKeys = function(e) {
         for (var t = {}, r = 0, n = O()(e); r < n.length; r++) {
             var a = S()(n[r], 2), i = a[0], o = a[1];
             t[i.toLowerCase()] = o;
@@ -870,10 +881,10 @@
         var t = function request(e) {
             var t = _objectSpread({}, e), r = function gotopt2gmopt(e) {
                 var t = {};
-                return [ "method", "url", "timeout", "headers", "binary", "user", "password", "context", "withCredentials" ].forEach((function(r) {
+                return [ "method", "url", "timeout", "headers", "binary", "user", "password", "context", "withCredentials", "data" ].forEach((function(r) {
                     q(e[r]) || (t[r] = e[r]);
                 })), e.prefixUrl && (t.url = e.prefixUrl + e.url), e.html && D()(e.encoding) && (t.overrideMimeType = `text/html; charset=${e.encoding}`), 
-                q(e.searchParams) || T()(e.searchParams) || (t.url += `?${W.a.stringify(e.searchParams, null, null, (function(t) {
+                q(e.searchParams) || (t.url += `?${W.a.stringify(e.searchParams, null, null, (function(t) {
                     return z()(t, e.encoding);
                 }))}`), t;
             }(t = function normalizeArguments(e) {
@@ -900,12 +911,12 @@
                 for (var u in e.method = e.method.toUpperCase(), e.timeout && (e.timeout = y()(e.timeout)), 
                 e.hasOwnProperty("html") ? e.html && (e.binary = !1) : e.html = t.html, r.push("encoding"), 
                 r.push("html"), e.searchParams ? D()(e.searchParams) && (e.searchParams = W.a.parse(e.querystring)) : e.searchParams = {}, 
-                C()(e.cache) && !e.cache ? e.searchParams.timestamp = (new Date).getTime() : e.cache = !1, 
-                r.push("searchParams"), r.push("cache"), e.body && (e.data = e.body), t) u in r || q(e[u]) && (e[u] = t[u]);
+                r.push("searchParams"), e.body && (e.data = e.body), t) u in r || q(e[u]) && (e[u] = t[u]);
                 return q(e.cookie) || (C()(e.cookie) && e.cookie && (e.cookie = document.cookie), 
                 D()(e.cookie) && (e.hasOwnProperty("headers") ? e.headers.cookie = e.cookie : e.headers = {
                     cookie: e.cookie
-                })), e.noHeader && delete e.headers, e;
+                })), (e.noHeader || T()(e.headers)) && delete e.headers, C()(e.cache) && !e.cache && (e.searchParams.timestamp = (new Date).getTime()), 
+                T()(e.searchParams) && delete e.searchParams, e;
             }(t, request.defaults));
             N.a.debug("[Super-preloader]", "GM_xmlhttpRequest", r);
             var n = function genCallback(e, r, n) {
@@ -952,17 +963,6 @@
     }(G);
     t.a = H;
 }, function(e, t, r) {
-    var n = r(121), a = r(123), i = r(51), o = r(5), s = r(78), c = r(75), u = r(122), l = r(76), p = "[object Map]", f = "[object Set]", d = Object.prototype.hasOwnProperty;
-    e.exports = function isEmpty(e) {
-        if (null == e) return !0;
-        if (s(e) && (o(e) || "string" == typeof e || "function" == typeof e.splice || c(e) || l(e) || i(e))) return !e.length;
-        var t = a(e);
-        if (t == p || t == f) return !e.size;
-        if (u(e)) return !n(e).length;
-        for (var r in e) if (d.call(e, r)) return !1;
-        return !0;
-    };
-}, function(e, t, r) {
     var n = r(20), a = r(4).document, i = n(a) && n(a.createElement);
     e.exports = function(e) {
         return i ? a.createElement(e) : {};
@@ -989,7 +989,7 @@
         p && !p[o] && a(p, o, u), i[u] = i.Array;
     }
 }, function(e, t, r) {
-    var n = r(67)("keys"), a = r(44);
+    var n = r(67)("keys"), a = r(45);
     e.exports = function(e) {
         return n[e] || (n[e] = a(e));
     };
@@ -1033,7 +1033,7 @@
     };
 }, function(e, t, r) {
     "use strict";
-    var n = r(42);
+    var n = r(43);
     function PromiseCapability(e) {
         var t, r;
         this.promise = new e((function(e, n) {
@@ -1077,12 +1077,12 @@
         return "number" == typeof e && e > -1 && e % 1 == 0 && e <= r;
     };
 }, function(e, t, r) {
-    var n = r(55), a = r(77);
+    var n = r(56), a = r(77);
     e.exports = function isArrayLike(e) {
         return null != e && a(e.length) && !n(e);
     };
 }, function(e, t, r) {
-    var n = r(5), a = r(52), i = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/, o = /^\w*$/;
+    var n = r(5), a = r(53), i = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/, o = /^\w*$/;
     e.exports = function isKey(e, t) {
         if (n(e)) return !1;
         var r = typeof e;
@@ -1848,7 +1848,7 @@
     };
 }, function(e, t, r) {
     "use strict";
-    var n = r(36), a = r(3), i = r(98), o = r(19), s = r(26), c = r(152), u = r(45), l = r(154), p = r(6)("iterator"), f = !([].keys && "next" in [].keys()), returnThis = function() {
+    var n = r(36), a = r(3), i = r(98), o = r(19), s = r(26), c = r(152), u = r(46), l = r(154), p = r(6)("iterator"), f = !([].keys && "next" in [].keys()), returnThis = function() {
         return this;
     };
     e.exports = function(e, t, r, d, h, _, m) {
@@ -1926,13 +1926,13 @@
 }, function(e, t) {
     e.exports = "\t\n\v\f\r   ᠎             　\u2028\u2029\ufeff";
 }, function(e, t, r) {
-    var n = r(12), a = r(42), i = r(6)("species");
+    var n = r(12), a = r(43), i = r(6)("species");
     e.exports = function(e, t) {
         var r, o = n(e).constructor;
         return void 0 === o || null == (r = n(o)[i]) ? t : a(r);
     };
 }, function(e, t, r) {
-    var n, a, i, o = r(41), s = r(174), c = r(103), u = r(62), l = r(4), p = l.process, f = l.setImmediate, d = l.clearImmediate, h = l.MessageChannel, _ = l.Dispatch, m = 0, g = {}, run = function() {
+    var n, a, i, o = r(42), s = r(174), c = r(103), u = r(62), l = r(4), p = l.process, f = l.setImmediate, d = l.clearImmediate, h = l.MessageChannel, _ = l.Dispatch, m = 0, g = {}, run = function() {
         var e = +this;
         if (g.hasOwnProperty(e)) {
             var t = g[e];
@@ -1991,7 +1991,7 @@
         return "function" == typeof e ? e : null == e ? i : "object" == typeof e ? o(e) ? a(e[0], e[1]) : n(e) : s(e);
     };
 }, function(e, t, r) {
-    var n = r(47), a = r(190), i = r(191), o = r(192), s = r(193), c = r(194);
+    var n = r(48), a = r(190), i = r(191), o = r(192), s = r(193), c = r(194);
     function Stack(e) {
         var t = this.__data__ = new n(e);
         this.size = t.size;
@@ -2140,7 +2140,7 @@
         };
     };
 }, function(e, t, r) {
-    var n = r(127), a = r(53);
+    var n = r(127), a = r(54);
     e.exports = function baseGet(e, t) {
         for (var r = 0, i = (t = n(t, e)).length; null != e && r < i; ) e = e[a(t[r++])];
         return r && r == i ? e : void 0;
@@ -2445,7 +2445,7 @@
 }, function(module, __webpack_exports__, __webpack_require__) {
     "use strict";
     __webpack_require__.r(__webpack_exports__);
-    var _babel_runtime_corejs2_core_js_string_from_code_point__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(86), _babel_runtime_corejs2_core_js_string_from_code_point__WEBPACK_IMPORTED_MODULE_0___default = __webpack_require__.n(_babel_runtime_corejs2_core_js_string_from_code_point__WEBPACK_IMPORTED_MODULE_0__), _babel_runtime_corejs2_core_js_array_is_array__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(84), _babel_runtime_corejs2_core_js_array_is_array__WEBPACK_IMPORTED_MODULE_1___default = __webpack_require__.n(_babel_runtime_corejs2_core_js_array_is_array__WEBPACK_IMPORTED_MODULE_1__), _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(133), _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_2___default = __webpack_require__.n(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_2__), _babel_runtime_corejs2_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(18), _babel_runtime_corejs2_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_3___default = __webpack_require__.n(_babel_runtime_corejs2_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_3__), _babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(7), _babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_4___default = __webpack_require__.n(_babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_4__), _babel_runtime_corejs2_core_js_date_now__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(134), _babel_runtime_corejs2_core_js_date_now__WEBPACK_IMPORTED_MODULE_5___default = __webpack_require__.n(_babel_runtime_corejs2_core_js_date_now__WEBPACK_IMPORTED_MODULE_5__), _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(2), _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_6___default = __webpack_require__.n(_babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_6__), lodash_isArray__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(5), lodash_isArray__WEBPACK_IMPORTED_MODULE_7___default = __webpack_require__.n(lodash_isArray__WEBPACK_IMPORTED_MODULE_7__), lodash_find__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(87), lodash_find__WEBPACK_IMPORTED_MODULE_8___default = __webpack_require__.n(lodash_find__WEBPACK_IMPORTED_MODULE_8__), lodash_isString__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(8), lodash_isString__WEBPACK_IMPORTED_MODULE_9___default = __webpack_require__.n(lodash_isString__WEBPACK_IMPORTED_MODULE_9__), utils_detect__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(10), _meta__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(40), _meta__WEBPACK_IMPORTED_MODULE_11___default = __webpack_require__.n(_meta__WEBPACK_IMPORTED_MODULE_11__), utils_gm_enhanced__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(25), compare_versions__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(17), compare_versions__WEBPACK_IMPORTED_MODULE_13___default = __webpack_require__.n(compare_versions__WEBPACK_IMPORTED_MODULE_13__), utils_element_ready__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(88), utils_got__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(60), utils_json_rule__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(13), utils_logger__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(0);
+    var _babel_runtime_corejs2_core_js_string_from_code_point__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(86), _babel_runtime_corejs2_core_js_string_from_code_point__WEBPACK_IMPORTED_MODULE_0___default = __webpack_require__.n(_babel_runtime_corejs2_core_js_string_from_code_point__WEBPACK_IMPORTED_MODULE_0__), _babel_runtime_corejs2_core_js_array_is_array__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(84), _babel_runtime_corejs2_core_js_array_is_array__WEBPACK_IMPORTED_MODULE_1___default = __webpack_require__.n(_babel_runtime_corejs2_core_js_array_is_array__WEBPACK_IMPORTED_MODULE_1__), _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(133), _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_2___default = __webpack_require__.n(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_2__), _babel_runtime_corejs2_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(18), _babel_runtime_corejs2_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_3___default = __webpack_require__.n(_babel_runtime_corejs2_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_3__), _babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(7), _babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_4___default = __webpack_require__.n(_babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_4__), _babel_runtime_corejs2_core_js_date_now__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(134), _babel_runtime_corejs2_core_js_date_now__WEBPACK_IMPORTED_MODULE_5___default = __webpack_require__.n(_babel_runtime_corejs2_core_js_date_now__WEBPACK_IMPORTED_MODULE_5__), _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(2), _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_6___default = __webpack_require__.n(_babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_6__), lodash_isArray__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(5), lodash_isArray__WEBPACK_IMPORTED_MODULE_7___default = __webpack_require__.n(lodash_isArray__WEBPACK_IMPORTED_MODULE_7__), lodash_find__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(87), lodash_find__WEBPACK_IMPORTED_MODULE_8___default = __webpack_require__.n(lodash_find__WEBPACK_IMPORTED_MODULE_8__), lodash_isString__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(8), lodash_isString__WEBPACK_IMPORTED_MODULE_9___default = __webpack_require__.n(lodash_isString__WEBPACK_IMPORTED_MODULE_9__), utils_detect__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(10), _meta__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(40), _meta__WEBPACK_IMPORTED_MODULE_11___default = __webpack_require__.n(_meta__WEBPACK_IMPORTED_MODULE_11__), utils_gm_enhanced__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(25), compare_versions__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(17), compare_versions__WEBPACK_IMPORTED_MODULE_13___default = __webpack_require__.n(compare_versions__WEBPACK_IMPORTED_MODULE_13__), utils_element_ready__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(88), utils_got__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(61), utils_json_rule__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(13), utils_logger__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(0);
     !function() {
         utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.setLevel("debug");
         var gotConfig = {
@@ -4906,7 +4906,7 @@
     };
 }, function(e, t, r) {
     "use strict";
-    var n = r(99), a = r(34), i = r(45), o = {};
+    var n = r(99), a = r(34), i = r(46), o = {};
     r(19)(o, r(6)("iterator"), (function() {
         return this;
     })), e.exports = function(e, t, r) {
@@ -4926,12 +4926,12 @@
         };
     };
 }, function(e, t, r) {
-    var n = r(22), a = r(46), i = r(66)("IE_PROTO"), o = Object.prototype;
+    var n = r(22), a = r(47), i = r(66)("IE_PROTO"), o = Object.prototype;
     e.exports = Object.getPrototypeOf || function(e) {
         return e = a(e), n(e, i) ? e[i] : "function" == typeof e.constructor && e instanceof e.constructor ? e.constructor.prototype : e instanceof Object ? o : null;
     };
 }, function(e, t, r) {
-    var n = r(64), a = r(43);
+    var n = r(64), a = r(44);
     e.exports = function(e) {
         return function(t, r) {
             var i, o, s = String(a(t)), c = n(r), u = s.length;
@@ -4973,7 +4973,7 @@
         return n(r, t >>> 0 || (o.test(r) ? 16 : 10));
     } : n;
 }, function(e, t, r) {
-    var n = r(3), a = r(43), i = r(21), o = r(105), s = "[" + o + "]", c = RegExp("^" + s + s + "*"), u = RegExp(s + s + "*$"), exporter = function(e, t, r) {
+    var n = r(3), a = r(44), i = r(21), o = r(105), s = "[" + o + "]", c = RegExp("^" + s + s + "*"), u = RegExp(s + s + "*$"), exporter = function(e, t, r) {
         var a = {}, s = i((function() {
             return !!o[e]() || "​" != "​"[e]();
         })), c = a[e] = s ? t(l) : o[e];
@@ -4996,7 +4996,7 @@
     r(168), r(69), r(65), r(169), r(180), r(181), e.exports = r(1).Promise;
 }, function(e, t) {}, function(e, t, r) {
     "use strict";
-    var n, a, i, o, s = r(36), c = r(4), u = r(41), l = r(70), p = r(3), f = r(20), d = r(42), h = r(170), _ = r(171), m = r(106), g = r(107).set, b = r(175)(), v = r(71), y = r(108), w = r(176), x = r(109), E = c.TypeError, S = c.process, A = S && S.versions, O = A && A.v8 || "", I = c.Promise, P = "process" == l(S), empty = function() {}, k = a = v.f, C = !!function() {
+    var n, a, i, o, s = r(36), c = r(4), u = r(42), l = r(70), p = r(3), f = r(20), d = r(43), h = r(170), _ = r(171), m = r(106), g = r(107).set, b = r(175)(), v = r(71), y = r(108), w = r(176), x = r(109), E = c.TypeError, S = c.process, A = S && S.versions, O = A && A.v8 || "", I = c.Promise, P = "process" == l(S), empty = function() {}, k = a = v.f, C = !!function() {
         try {
             var e = I.resolve(1), t = (e.constructor = {})[r(6)("species")] = function(e) {
                 e(empty, empty);
@@ -5099,7 +5099,7 @@
         return e === I || e === o ? new i(e) : a(e);
     }), p(p.G + p.W + p.F * !C, {
         Promise: I
-    }), r(45)(I, "Promise"), r(178)("Promise"), o = r(1).Promise, p(p.S + p.F * !C, "Promise", {
+    }), r(46)(I, "Promise"), r(178)("Promise"), o = r(1).Promise, p(p.S + p.F * !C, "Promise", {
         reject: function reject(e) {
             var t = k(this);
             return (0, t.reject)(e), t.promise;
@@ -5138,7 +5138,7 @@
         return e;
     };
 }, function(e, t, r) {
-    var n = r(41), a = r(172), i = r(173), o = r(12), s = r(102), c = r(104), u = {}, l = {};
+    var n = r(42), a = r(172), i = r(173), o = r(12), s = r(102), c = r(104), u = {}, l = {};
     (t = e.exports = function(e, t, r, p, f) {
         var d, h, _, m, g = f ? function() {
             return e;
@@ -5345,31 +5345,31 @@
         this.__data__ = [], this.size = 0;
     };
 }, function(e, t, r) {
-    var n = r(48), a = Array.prototype.splice;
+    var n = r(49), a = Array.prototype.splice;
     e.exports = function listCacheDelete(e) {
         var t = this.__data__, r = n(t, e);
         return !(r < 0) && (r == t.length - 1 ? t.pop() : a.call(t, r, 1), --this.size, 
         !0);
     };
 }, function(e, t, r) {
-    var n = r(48);
+    var n = r(49);
     e.exports = function listCacheGet(e) {
         var t = this.__data__, r = n(t, e);
         return r < 0 ? void 0 : t[r][1];
     };
 }, function(e, t, r) {
-    var n = r(48);
+    var n = r(49);
     e.exports = function listCacheHas(e) {
         return n(this.__data__, e) > -1;
     };
 }, function(e, t, r) {
-    var n = r(48);
+    var n = r(49);
     e.exports = function listCacheSet(e, t) {
         var r = this.__data__, a = n(r, e);
         return a < 0 ? (++this.size, r.push([ e, t ])) : r[a][1] = t, this;
     };
 }, function(e, t, r) {
-    var n = r(47);
+    var n = r(48);
     e.exports = function stackClear() {
         this.__data__ = new n, this.size = 0;
     };
@@ -5387,7 +5387,7 @@
         return this.__data__.has(e);
     };
 }, function(e, t, r) {
-    var n = r(47), a = r(72), i = r(73), o = 200;
+    var n = r(48), a = r(72), i = r(73), o = 200;
     e.exports = function stackSet(e, t) {
         var r = this.__data__;
         if (r instanceof n) {
@@ -5398,7 +5398,7 @@
         return r.set(e, t), this.size = r.size, this;
     };
 }, function(e, t, r) {
-    var n = r(55), a = r(198), i = r(30), o = r(115), s = /^\[object .+?Constructor\]$/, c = Function.prototype, u = Object.prototype, l = c.toString, p = u.hasOwnProperty, f = RegExp("^" + l.call(p).replace(/[\\^$.*+?()[\]{}|]/g, "\\$&").replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, "$1.*?") + "$");
+    var n = r(56), a = r(198), i = r(30), o = r(115), s = /^\[object .+?Constructor\]$/, c = Function.prototype, u = Object.prototype, l = c.toString, p = u.hasOwnProperty, f = RegExp("^" + l.call(p).replace(/[\\^$.*+?()[\]{}|]/g, "\\$&").replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, "$1.*?") + "$");
     e.exports = function baseIsNative(e) {
         return !(!i(e) || a(e)) && (n(e) ? f : s).test(o(e));
     };
@@ -5431,7 +5431,7 @@
         return null == e ? void 0 : e[t];
     };
 }, function(e, t, r) {
-    var n = r(202), a = r(47), i = r(72);
+    var n = r(202), a = r(48), i = r(72);
     e.exports = function mapCacheClear() {
         this.size = 0, this.__data__ = {
             hash: new n,
@@ -5451,7 +5451,7 @@
     Hash.prototype.clear = n, Hash.prototype.delete = a, Hash.prototype.get = i, Hash.prototype.has = o, 
     Hash.prototype.set = s, e.exports = Hash;
 }, function(e, t, r) {
-    var n = r(49);
+    var n = r(50);
     e.exports = function hashClear() {
         this.__data__ = n ? n(null) : {}, this.size = 0;
     };
@@ -5461,7 +5461,7 @@
         return this.size -= t ? 1 : 0, t;
     };
 }, function(e, t, r) {
-    var n = r(49), a = "__lodash_hash_undefined__", i = Object.prototype.hasOwnProperty;
+    var n = r(50), a = "__lodash_hash_undefined__", i = Object.prototype.hasOwnProperty;
     e.exports = function hashGet(e) {
         var t = this.__data__;
         if (n) {
@@ -5471,19 +5471,19 @@
         return i.call(t, e) ? t[e] : void 0;
     };
 }, function(e, t, r) {
-    var n = r(49), a = Object.prototype.hasOwnProperty;
+    var n = r(50), a = Object.prototype.hasOwnProperty;
     e.exports = function hashHas(e) {
         var t = this.__data__;
         return n ? void 0 !== t[e] : a.call(t, e);
     };
 }, function(e, t, r) {
-    var n = r(49), a = "__lodash_hash_undefined__";
+    var n = r(50), a = "__lodash_hash_undefined__";
     e.exports = function hashSet(e, t) {
         var r = this.__data__;
         return this.size += this.has(e) ? 0 : 1, r[e] = n && void 0 === t ? a : t, this;
     };
 }, function(e, t, r) {
-    var n = r(50);
+    var n = r(51);
     e.exports = function mapCacheDelete(e) {
         var t = n(this, e).delete(e);
         return this.size -= t ? 1 : 0, t;
@@ -5494,17 +5494,17 @@
         return "string" == t || "number" == t || "symbol" == t || "boolean" == t ? "__proto__" !== e : null === e;
     };
 }, function(e, t, r) {
-    var n = r(50);
+    var n = r(51);
     e.exports = function mapCacheGet(e) {
         return n(this, e).get(e);
     };
 }, function(e, t, r) {
-    var n = r(50);
+    var n = r(51);
     e.exports = function mapCacheHas(e) {
         return n(this, e).has(e);
     };
 }, function(e, t, r) {
-    var n = r(50);
+    var n = r(51);
     e.exports = function mapCacheSet(e, t) {
         var r = n(this, e), a = r.size;
         return r.set(e, t), this.size += r.size == a ? 0 : 1, this;
@@ -5669,7 +5669,7 @@
         return [];
     };
 }, function(e, t, r) {
-    var n = r(230), a = r(51), i = r(5), o = r(75), s = r(120), c = r(76), u = Object.prototype.hasOwnProperty;
+    var n = r(230), a = r(52), i = r(5), o = r(75), s = r(120), c = r(76), u = Object.prototype.hasOwnProperty;
     e.exports = function arrayLikeKeys(e, t) {
         var r = i(e), l = !r && a(e), p = !r && !l && o(e), f = !r && !l && !p && c(e), d = r || l || p || f, h = d ? n(e.length, String) : [], _ = h.length;
         for (var m in e) !t && !u.call(e, m) || d && ("length" == m || p && ("offset" == m || "parent" == m) || f && ("buffer" == m || "byteLength" == m || "byteOffset" == m) || s(m, _)) || h.push(m);
@@ -5743,7 +5743,7 @@
         return t;
     };
 }, function(e, t, r) {
-    var n = r(116), a = r(244), i = r(251), o = r(79), s = r(124), c = r(125), u = r(53), l = 1, p = 2;
+    var n = r(116), a = r(244), i = r(251), o = r(79), s = r(124), c = r(125), u = r(54), l = 1, p = 2;
     e.exports = function baseMatchesProperty(e, t) {
         return o(e) && s(t) ? c(u(e), t) : function(r) {
             var o = a(r, e);
@@ -5791,7 +5791,7 @@
         return null == e ? "" : n(e);
     };
 }, function(e, t, r) {
-    var n = r(37), a = r(250), i = r(5), o = r(52), s = 1 / 0, c = n ? n.prototype : void 0, u = c ? c.toString : void 0;
+    var n = r(37), a = r(250), i = r(5), o = r(53), s = 1 / 0, c = n ? n.prototype : void 0, u = c ? c.toString : void 0;
     e.exports = function baseToString(e) {
         if ("string" == typeof e) return e;
         if (i(e)) return a(e, baseToString) + "";
@@ -5814,7 +5814,7 @@
         return null != e && t in Object(e);
     };
 }, function(e, t, r) {
-    var n = r(127), a = r(51), i = r(5), o = r(120), s = r(77), c = r(53);
+    var n = r(127), a = r(52), i = r(5), o = r(120), s = r(77), c = r(54);
     e.exports = function hasPath(e, t, r) {
         for (var u = -1, l = (t = n(t, e)).length, p = !1; ++u < l; ) {
             var f = c(t[u]);
@@ -5828,7 +5828,7 @@
         return e;
     };
 }, function(e, t, r) {
-    var n = r(256), a = r(257), i = r(79), o = r(53);
+    var n = r(256), a = r(257), i = r(79), o = r(54);
     e.exports = function property(e) {
         return i(e) ? n(o(e)) : a(e);
     };
@@ -5870,7 +5870,7 @@
         return e ? (e = n(e)) === a || e === -a ? (e < 0 ? -1 : 1) * i : e == e ? e : 0 : 0 === e ? e : 0;
     };
 }, function(e, t, r) {
-    var n = r(30), a = r(52), i = NaN, o = /^\s+|\s+$/g, s = /^[-+]0x[0-9a-f]+$/i, c = /^0b[01]+$/i, u = /^0o[0-7]+$/i, l = parseInt;
+    var n = r(30), a = r(53), i = NaN, o = /^\s+|\s+$/g, s = /^[-+]0x[0-9a-f]+$/i, c = /^0b[01]+$/i, u = /^0o[0-7]+$/i, l = parseInt;
     e.exports = function toNumber(e) {
         if ("number" == typeof e) return e;
         if (a(e)) return i;
@@ -5884,7 +5884,7 @@
         return r || u.test(e) ? l(e.slice(2), r ? 2 : 8) : s.test(e) ? i : +e;
     };
 }, function(e) {
-    e.exports = JSON.parse('{"name":"super-preloader","version":"6.10.5","description":"Super-preloader","main":"dist/Super_preloaderPlus_one_New.user.js","author":"Mach6","license":"GPL-3.0","bugs":{"url":"https://github.com/machsix/Super-preloader/issues"},"homepage":"https://github.com/machsix/Super-preloader","directories":{"doc":"docs"},"repository":{"type":"git","url":"git+https://github.com/machsix/Super-preloader.git"},"scripts":{"lint":"eslint \\"dist/*.json\\" \\"src/**/*.js\\" \\"ci/*.js\\"","format":"prettier --write \\"dist/*.json\\" \\"src/**/*.js\\" \\".ci/*.js\\" \\"docs/**/*.{js,md}\\"","format:check":"prettier --check --loglevel debug \\"dist/*.json\\" \\"src/**/*.js\\" \\"ci/*.js\\" \\"docs/**/*.{js,md}\\"","format:staged":"pretty-quick --verbose --staged --write \\"dist/*.json\\" \\"src/**/*.js\\" \\"ci/*.js\\" \\"docs/**/*.{js,md}\\"","test":"npm run lint && npm run format:staged","dev":"webpack-dev-server --color --config webpack.dev.js","build":"webpack --no-cache --debug --config webpack.prod.js","build:dev":"webpack --config webpack.dev.js","docs:dev":"vuepress dev docs","docs:build":"vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh","preversion":"npm run test && npm run docs:build","version":"npm run build  && npm run build:dev && git add dist/*.js && git add dist/*.json","postversion":"git add package.json package-lock.json","publish:patch":"npm --no-git-tag-version version patch","publish":"npm --no-git-tag-version version minor"},"husky":{"hooks":{"pre-commit":"npm run test"}},"keywords":["userscript"],"devDependencies":{"@vuepress/plugin-back-to-top":"1.2.0","@vuepress/plugin-google-analytics":"1.2.0","@vuepress/plugin-pwa":"1.2.0","vuepress":"1.2.0"},"dependencies":{"@babel/cli":"7.7.5","@babel/core":"7.7.5","@babel/plugin-transform-runtime":"7.7.6","@babel/preset-env":"7.7.6","@babel/runtime-corejs2":"7.7.6","babel-loader":"8.0.6","babel-plugin-lodash":"3.3.4","compare-versions":"3.5.1","eslint":"6.7.2","eslint-config-prettier":"6.7.0","eslint-plugin-json":"2.0.1","eslint-plugin-prettier":"3.1.2","husky":"3.1.0","lodash":"4.17.15","lodash-webpack-plugin":"0.11.5","loglevel":"1.6.6","prettier":"1.19.1","pretty-quick":"2.0.1","string-replace-loader":"2.2.0","terser-webpack-plugin":"2.3.1","urlencode":"1.1.0","webpack":"4.41.3","webpack-cli":"3.3.10","webpack-dev-server":"3.10.0","webpack-merge":"4.2.2","yargs":"^15.0.2"}}');
+    e.exports = JSON.parse('{"name":"super-preloader","version":"6.10.6","description":"Super-preloader","main":"dist/Super_preloaderPlus_one_New.user.js","author":"Mach6","license":"GPL-3.0","bugs":{"url":"https://github.com/machsix/Super-preloader/issues"},"homepage":"https://github.com/machsix/Super-preloader","directories":{"doc":"docs"},"repository":{"type":"git","url":"git+https://github.com/machsix/Super-preloader.git"},"scripts":{"lint":"eslint \\"dist/*.json\\" \\"src/**/*.js\\" \\"ci/*.js\\"","format":"prettier --write \\"dist/*.json\\" \\"src/**/*.js\\" \\".ci/*.js\\" \\"docs/**/*.{js,md}\\"","format:check":"prettier --check --loglevel debug \\"dist/*.json\\" \\"src/**/*.js\\" \\"ci/*.js\\" \\"docs/**/*.{js,md}\\"","format:staged":"pretty-quick --verbose --staged --write \\"dist/*.json\\" \\"src/**/*.js\\" \\"ci/*.js\\" \\"docs/**/*.{js,md}\\"","test":"npm run lint && npm run format:staged","dev":"webpack-dev-server --color --config webpack.dev.js","build":"webpack --no-cache --debug --config webpack.prod.js","build:dev":"webpack --config webpack.dev.js","docs:dev":"vuepress dev docs","docs:build":"vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh","preversion":"npm run test && npm run docs:build","version":"npm run build  && npm run build:dev && git add dist/*.js && git add dist/*.json","postversion":"git add package.json package-lock.json","publish:patch":"npm --no-git-tag-version version patch","publish":"npm --no-git-tag-version version minor"},"husky":{"hooks":{"pre-commit":"npm run test"}},"keywords":["userscript"],"devDependencies":{"@vuepress/plugin-back-to-top":"1.2.0","@vuepress/plugin-google-analytics":"1.2.0","@vuepress/plugin-pwa":"1.2.0","vuepress":"1.2.0"},"dependencies":{"@babel/cli":"7.7.5","@babel/core":"7.7.5","@babel/plugin-transform-runtime":"7.7.6","@babel/preset-env":"7.7.6","@babel/runtime-corejs2":"7.7.6","babel-loader":"8.0.6","babel-plugin-lodash":"3.3.4","compare-versions":"3.5.1","eslint":"6.7.2","eslint-config-prettier":"6.7.0","eslint-plugin-json":"2.0.1","eslint-plugin-prettier":"3.1.2","husky":"3.1.0","lodash":"4.17.15","lodash-webpack-plugin":"0.11.5","loglevel":"1.6.6","prettier":"1.19.1","pretty-quick":"2.0.1","string-replace-loader":"2.2.0","terser-webpack-plugin":"2.3.1","urlencode":"1.1.0","webpack":"4.41.3","webpack-cli":"3.3.10","webpack-dev-server":"3.10.0","webpack-merge":"4.2.2","yargs":"^15.0.2"}}');
 }, function(e, t, r) {
     r(265);
     var n = r(1).Object;
@@ -5918,7 +5918,7 @@
         }
     });
 }, function(e, t, r) {
-    var n = r(80), a = r(54), i = r(12), o = r(4).Reflect;
+    var n = r(80), a = r(55), i = r(12), o = r(4).Reflect;
     e.exports = o && o.ownKeys || function ownKeys(e) {
         var t = n.f(i(e)), r = a.f;
         return r ? t.concat(r(e)) : t;
@@ -5946,7 +5946,7 @@
     r(275), e.exports = r(1).Object.getOwnPropertySymbols;
 }, function(e, t, r) {
     "use strict";
-    var n = r(4), a = r(22), i = r(9), o = r(3), s = r(98), c = r(276).KEY, u = r(21), l = r(67), p = r(45), f = r(44), d = r(6), h = r(129), _ = r(277), m = r(278), g = r(95), b = r(12), v = r(20), y = r(46), w = r(15), x = r(63), E = r(34), S = r(99), A = r(279), O = r(81), I = r(54), P = r(14), k = r(27), C = O.f, B = P.f, T = A.f, M = n.Symbol, D = n.JSON, L = D && D.stringify, R = d("_hidden"), U = d("toPrimitive"), j = {}.propertyIsEnumerable, N = l("symbol-registry"), F = l("symbols"), W = l("op-symbols"), K = Object.prototype, z = "function" == typeof M && !!I.f, q = n.QObject, G = !q || !q.prototype || !q.prototype.findChild, H = i && u((function() {
+    var n = r(4), a = r(22), i = r(9), o = r(3), s = r(98), c = r(276).KEY, u = r(21), l = r(67), p = r(46), f = r(45), d = r(6), h = r(129), _ = r(277), m = r(278), g = r(95), b = r(12), v = r(20), y = r(47), w = r(15), x = r(63), E = r(34), S = r(99), A = r(279), O = r(81), I = r(55), P = r(14), k = r(27), C = O.f, B = P.f, T = A.f, M = n.Symbol, D = n.JSON, L = D && D.stringify, R = d("_hidden"), U = d("toPrimitive"), j = {}.propertyIsEnumerable, N = l("symbol-registry"), F = l("symbols"), W = l("op-symbols"), K = Object.prototype, z = "function" == typeof M && !!I.f, q = n.QObject, G = !q || !q.prototype || !q.prototype.findChild, H = i && u((function() {
         return 7 != S(B({}, "a", {
             get: function() {
                 return B(this, "a", {
@@ -6054,7 +6054,7 @@
     }), M.prototype[U] || r(19)(M.prototype, U, M.prototype.valueOf), p(M, "Symbol"), 
     p(Math, "Math", !0), p(n.JSON, "JSON", !0);
 }, function(e, t, r) {
-    var n = r(44)("meta"), a = r(20), i = r(22), o = r(14).f, s = 0, c = Object.isExtensible || function() {
+    var n = r(45)("meta"), a = r(20), i = r(22), o = r(14).f, s = 0, c = Object.isExtensible || function() {
         return !0;
     }, u = !r(21)((function() {
         return c(Object.preventExtensions({}));
@@ -6098,7 +6098,7 @@
         });
     };
 }, function(e, t, r) {
-    var n = r(27), a = r(54), i = r(38);
+    var n = r(27), a = r(55), i = r(38);
     e.exports = function(e) {
         var t = n(e), r = a.f;
         if (r) for (var o, s = r(e), c = i.f, u = 0; s.length > u; ) c.call(e, o = s[u++]) && t.push(o);
@@ -6118,7 +6118,7 @@
 }, function(e, t, r) {
     r(281), e.exports = r(1).Object.keys;
 }, function(e, t, r) {
-    var n = r(46), a = r(27);
+    var n = r(47), a = r(27);
     r(128)("keys", (function() {
         return function keys(e) {
             return a(n(e));
@@ -6133,7 +6133,7 @@
     });
 }, function(e, t, r) {
     "use strict";
-    var n = r(9), a = r(27), i = r(54), o = r(38), s = r(46), c = r(96), u = Object.assign;
+    var n = r(9), a = r(27), i = r(55), o = r(38), s = r(47), c = r(96), u = Object.assign;
     e.exports = !u || r(21)((function() {
         var e = {}, t = {}, r = Symbol(), n = "abcdefghijklmnopqrst";
         return e[r] = 7, n.split("").forEach((function(e) {
@@ -8004,7 +8004,7 @@
         return o;
     };
 }, function(e, t, r) {
-    var n = r(37), a = r(51), i = r(5), o = n ? n.isConcatSpreadable : void 0;
+    var n = r(37), a = r(52), i = r(5), o = n ? n.isConcatSpreadable : void 0;
     e.exports = function isFlattenable(e) {
         return i(e) || a(e) || !!(o && e && e[o]);
     };
