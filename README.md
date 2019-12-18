@@ -32,28 +32,44 @@
 
 A gm script for auto loading paginated web pages. It will join pages together based on the rules.
 
-The script is forked from https://greasyfork.org/en/scripts/10433-super-preloaderplus-one.
-Thanks for the original author [swdyh](https://github.com/swdyh) && [ywzhaiqi](https://github.com/ywzhaiqi/userscript/tree/master/scripts/Super_preloaderPlus) && NLF
-swdyh is still actively improving [rules](http://wedata.net/databases/AutoPagerize/items) and developping the extension version,[AutoPagerize](https://addons.mozilla.org/en-US/firefox/addon/autopagerize/).
+The script is forked from https://greasyfork.org/en/scripts/10433-super-preloaderplus-one. However, it is refactored since v6.8.xx. Now we are embracing new techniques by using ES6 and webpack to pack the script.
+
+Thanks for the original author [swdyh](https://github.com/swdyh) && [ywzhaiqi](https://github.com/ywzhaiqi/userscript/tree/master/scripts/Super_preloaderPlus) && NLF. swdyh is still actively improving [rules](http://wedata.net/databases/AutoPagerize/items) and developping the extension version,[AutoPagerize](https://addons.mozilla.org/en-US/firefox/addon/autopagerize/).
 
 This userscript exists because someone needs to maintain the rules for Chinese and English users since swdyh's rules are mainly for Japanese websites. Don't be afraid of the fact that most feedbacks are in Chinese. I would like to add rules for English users if I could. Feel free to leave feedback.
 
-Please leave feedback at [Greasefork page](https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new)
+Please leave feedback at [Greasefork page](https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new) or Github issue
 
 ## Development Guide
 
-I appreciate anyone who is interested in devoting their time to the development. We currently have two verions of the code. The `ES8` branch is in active development. As the name suggests, I will gradually abandon the further development of the code style code.
+I appreciate anyone who is interested in devoting their time to the development. You can contribute by either **writing rules** or **improving the script**.
 
-To take part into the development, you need to:
+### To write rules
 
-1. Be familiar with `javascript`, `xpath/css selector` and `node js`
-2. Install modules by `yarn`
-3. Make your modifications
-4. Run `yarn test` to check bugs
-5. Run `yarn run format` to format the code based on our code style
-6. Commit and submit pull request!
+1. Check the [Document](https://machsix.github.io/Super-preloader/) and learn the structure of the rule
+2. Modify file `dist/mydata.json` for simple json rules
+3. Modify file `src/index.js` for complex js rules
 
-Check more at [Complete Document](https://machsix.github.io/Super-preloader/)
+### To improve the script
+
+0. Get familiar with `javascript`, `xpath/css selector` and `node js`
+1. Clone the whole repo and install modules by `npm install`
+1. Make your modifications
+1. Run `npm run test` to do a static check
+1. Run `npm run dev` to launch `webpack-dev-server` and install the script from [http://localhost:8081/Super_preloaderPlus_one_New_dev.user.js](http://localhost:8081/Super_preloaderPlus_one_New_dev.user.js).
+1. Test the script. You need to make sure functions like updating rules work and the script works on the following websites
+   - https://www.google.com Regular XHR fetch
+   - https://www.pcdvd.com.tw Website using non utf-8 charset
+   - https://idope.se/torrent-list/transformer/?p=3 Website using iframe
+1. Run `npm run publish:patch` to bump up the version
+1. Commit and submit pull request!
+
+Note:
+
+1. You shouldn't commit changes of `package.json`, `package-lock.json`, and `.eslintrc.json`.
+2. I won't check the PR until travis ci test passes. You can simulate travis ci test locally by running `npm run:test` and `npm run docs:build`.
+
+Check more at [Document](https://machsix.github.io/Super-preloader/)
 
 ## Contributers
 
@@ -63,7 +79,7 @@ Check more at [Complete Document](https://machsix.github.io/Super-preloader/)
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+<!--This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!-->
 
 ## Donation
 
