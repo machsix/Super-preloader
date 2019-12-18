@@ -2,3 +2,5 @@
 docs/.vuepress/dist
 .vscode
 dist/Super_preloaderPlus_one_New.user.js
+dist/Super_preloaderPlus_one_New_dev.user.js
+

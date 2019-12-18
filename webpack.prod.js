@@ -13,7 +13,8 @@ module.exports = merge(common, {
           output: {
             beautify: true,
             preamble: METADATA
-          }
+          },
+          keep_fnames: true
         },
         extractComments: false
       })

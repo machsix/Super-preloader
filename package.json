@@ -1,6 +1,6 @@
 {
   "name": "super-preloader",
-  "version": "6.10.4",
+  "version": "6.10.5",
   "description": "Super-preloader",
   "main": "dist/Super_preloaderPlus_one_New.user.js",
   "author": "Mach6",
@@ -72,7 +72,7 @@
     "urlencode": "1.1.0",
     "webpack": "4.41.3",
     "webpack-cli": "3.3.10",
-    "webpack-dev-server": "3.9.0",
+    "webpack-dev-server": "3.10.0",
     "webpack-merge": "4.2.2",
     "yargs": "^15.0.2"
   }

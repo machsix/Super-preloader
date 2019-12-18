@@ -45,7 +45,7 @@ class RuleProvider {
         // eslint-disable-next-line no-await-in-loop
         const res = await got.get(url);
         rule = this.ruleParser(res);
-        logger.log(`[DownloadRule] ${this.name} from ${url} [Status] Success`);
+        logger.info(`[DownloadRule] ${this.name} from ${url} [Status] Success`);
         break;
       } catch (error) {
         logger.error(`[DownloadRule] ${this.name} from ${url} [Status] ${error}`);
@@ -80,13 +80,13 @@ class RuleProvider {
     if (lastUpdate < ruleLastUpdate || this.rule.length < 1) {
       try {
         const rule = await this.downloadRule();
-        logger.log(`[UpdateRule] ${this.name} [Status] Success`);
+        logger.info(`[UpdateRule] ${this.name} [Status] Success`);
         this.rule = rule;
       } catch (error) {
         return {status: "rejected", reason: error};
       }
     } else {
-      logger.log(`[UpdateRule] ${this.name} [Status] No need to update`);
+      logger.info(`[UpdateRule] ${this.name} [Status] No need to update`);
     }
     return {status: "fulfilled", value: this.rule};
   }
@@ -167,7 +167,7 @@ export default {
         if (status.every((x) => x)) {
           this.rule = values.map(({value}) => (value ? value : this.rule));
           this.expire = new Date(+today + this.updatePeriodInDay * 24 * 60 * 60 * 1000);
-          logger.log(`[UpdateRule] Next update at: ${this.expire}`);
+          logger.info(`[UpdateRule] Next update at: ${this.expire}`);
           this.saveDB();
         } else {
           this.expire = today;
@@ -176,7 +176,7 @@ export default {
         }
       });
     } else {
-      logger.log(`[UpdateRule] Next update at: ${this.expire}`);
+      logger.info(`[UpdateRule] Next update at: ${this.expire}`);
     }
   }
 };

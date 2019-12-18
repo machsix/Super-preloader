@@ -1872,7 +1872,7 @@ import logger from "utils/logger";
         if (_.isString(autoMatch)) autoMatch = JSON.parse(autoMatch);
       }
       if (typeof prefs.debug !== "undefined") {
-        logger.setLevel(prefs.debug ? "debug" : "warn");
+        logger.setLevel(prefs.debug ? "debug" : "info");
       }
       SITEINFO_json = jsonRule.getRule();
 
@@ -2929,7 +2929,7 @@ import logger from "utils/logger";
           }
 
           if (insertPoint) {
-            logger.log("验证是否能找到插入位置节点:成功", insertPoint);
+            logger.debug("验证是否能找到插入位置节点:成功", insertPoint);
           } else {
             logger.error("验证是否能找到插入位置节点:失败  JS执行终止", SSS.a_HT_insert ? SSS.a_HT_insert[0] : "");
             floatWO.updateColor("Astop");
