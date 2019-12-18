@@ -26,8 +26,8 @@ const defaults = {
   context: null,
   html: false, // set to true to overrideMimeType = `text/html`;
   noHeader: false,
-  cookie: null,
-  withCredentials: true
+  cookie: null, // true: document.cookie, string: specific cookie
+  withCredentials: true // VM for cross domain cookie https://github.com/violentmonkey/violentmonkey/issues/761
 };
 
 /**
@@ -47,7 +47,7 @@ function normalizeArguments(options, thisDefaults = defaults) {
       delete options.headers;
     }
   }
-  if (!isNullOrUndefined(options.headers)) {
+  if (!isNullOrUndefined(options.headers) && !_.isEmpty(options.headers)) {
     options.headers = lowercaseKeys(options.headers);
     const {headers} = options;
     if (headers) {
@@ -58,7 +58,10 @@ function normalizeArguments(options, thisDefaults = defaults) {
       }
     }
   }
-  options.headers = {...options.headers, ...thisDefaults.headers};
+  options.headers = {...thisDefaults.headers, ...options.headers};
+  if (_.isEmpty(options.headers)) {
+    delete options.headers;
+  }
   keyNotMerge.push("headers");
 
   // `options.prefixUrl`
@@ -124,13 +127,23 @@ function normalizeArguments(options, thisDefaults = defaults) {
     }
   }
 
-  // `options.cookie`
-  if (!isNullOrUndefined(options.cookie) && _.isString(options.cookie)) {
-    if (options.hasOwnProperty("headers")) {
-      options.headers.cookie = options.cookie;
-    } else {
-      options.headers = {cookie: options.cookie};
+  // `options.cookie`, dirty fix for TM and VM on Firefox
+  // TODO: remove when TM and VM releases new version
+  if (!isNullOrUndefined(options.cookie)) {
+    if (_.isBoolean(options.cookie) && options.cookie) {
+      options.cookie = document.cookie;
     }
+    if (_.isString(options.cookie)) {
+      if (options.hasOwnProperty("headers")) {
+        options.headers.cookie = options.cookie;
+      } else {
+        options.headers = {cookie: options.cookie};
+      }
+    }
+  }
+
+  if (options.noHeader) {
+    delete options.headers;
   }
   return options;
 }
@@ -144,13 +157,10 @@ function normalizeArguments(options, thisDefaults = defaults) {
 function gotopt2gmopt(options) {
   const config = {};
   ["method", "url", "timeout", "headers", "binary", "user", "password", "context", "withCredentials"].forEach((key) => {
-    config[key] = options[key];
+    if (!isNullOrUndefined(options[key])) {
+      config[key] = options[key];
+    }
   });
-
-  // delete headers if it's empty
-  if (_.isEmpty(config.headers) || options.noHeader) {
-    delete config.headers;
-  }
 
   // process `options.prefixUrl`
   if (options.prefixUrl) {
@@ -162,7 +172,9 @@ function gotopt2gmopt(options) {
   }
   // process `options.searchParams`
   if (!isNullOrUndefined(options.searchParams)) {
-    config.url += `?${querystring.stringify(options.searchParams, null, null, (x) => urlencode(x, options.encoding))}`;
+    if (!_.isEmpty(options.searchParams)) {
+      config.url += `?${querystring.stringify(options.searchParams, null, null, (x) => urlencode(x, options.encoding))}`;
+    }
   }
   return config;
 }

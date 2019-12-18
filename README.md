@@ -26,7 +26,7 @@
 
 - Known issue:
   - ~~Firefox < 62 + Tampermonkey is incompatible with the script < v6.9.3 because of incompatability between Tampermonkey and core-js@3 because https://github.com/Tampermonkey/tampermonkey/issues/834 . The solution is to bundle it with core-js@2.~~
-  - Except GM4, all other userscript manger don't send `cookie` for `xhr` request. VM fixes this in PR: [https://github.com/violentmonkey/violentmonkey/pull/743](https://github.com/violentmonkey/violentmonkey/pull/743), which is not released yet. I currently add `document.cookie` manually to the header, which has some limitations.
+  - Except GM4, all other userscript manger don't send `cookie` for `xhr` request. VM fixes this in PR: [https://github.com/violentmonkey/violentmonkey/pull/743](https://github.com/violentmonkey/violentmonkey/pull/743), which is not released yet. I currently add `document.cookie` manually to the header, which has some limitations. -- Dec 18th 2019
 
 ## Introduction
 

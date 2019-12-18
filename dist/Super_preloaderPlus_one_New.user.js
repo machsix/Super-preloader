@@ -9,9 +9,9 @@
 // @author       Mach6
 // @contributers YFdyh000, suchunchen
 // @thanksto     ywzhaiqi, NLF
-// @version      6.10.3
+// @version      6.10.4
 // @license      GPL-3.0
-// @update       2019/12/16
+// @update       2019/12/18
 // @homepageURL  https://github.com/machsix/Super-preloader
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
 // @contributionURL https://ko-fi.com/machsix
@@ -108,56 +108,17 @@
     }, r.p = "", r(r.s = 139);
 }([ function(e, t, r) {
     "use strict";
-    var n = r(12), a = r.n(n), i = r(16), o = r.n(i), s = r(136), c = r.n(s), u = r(2), l = r.n(u), p = {
-        DEBUG: 0,
-        INFO: 1,
-        LOG: 2,
-        WARN: 3,
-        ERROR: 4
-    }, f = o()(p).map((function(e) {
-        return p[e];
-    })), d = function() {
-        for (var e = [ "%c[Super-preloader]" ], t = [ "color:#02A9DE" ], r = function(e) {
-            return l()(e) ? [ "%c%s", "" ] : [ "%c%o", "" ];
-        }, n = arguments.length, i = new Array(n), o = 0; o < n; o++) i[o] = arguments[o];
-        for (var s = 0, c = i; s < c.length; s++) {
-            var u = c[s], p = r(u), f = a()(p, 2), d = f[0], h = f[1];
-            e.push(d), t.push(h), t.push(u);
-        }
-        return [ e.join(" "), ...t ];
-    }, h = {
-        levels: p,
-        loglevel: p.INFO,
-        enableDebug() {
-            arguments.length > 0 && void 0 !== arguments[0] && arguments[0] && (this.loglevel = p.DEBUG);
-        },
-        getLevel() {
-            return this.loglevel;
-        },
-        setLevel(e) {
-            c()(e) ? this.loglevel = e : l()(e) && o()(p).includes(e.toUpperCase()) ? this.loglevel = p[e.toUpperCase()] : this.loglevel = p.WARN;
-        },
-        _log: function(e) {
-            return e >= this.loglevel ? console[o()(p)[f.indexOf(e)].toLowerCase()] : function() {};
-        }
-    };
-    o()(p).forEach((function(e) {
-        h[e.toLowerCase()] = function() {
-            this._log(p[e]).apply(console, d(...arguments));
-        };
-    })), t.a = h;
+    var n = r(136), a = n.noConflict();
+    t.a = a;
 }, function(e, t) {
     var r = e.exports = {
         version: "2.6.11"
     };
     "number" == typeof __e && (__e = r);
 }, function(e, t, r) {
-    var n = r(18), a = r(5), i = r(19), o = "[object String]";
-    e.exports = function(e) {
-        return "string" == typeof e || !a(e) && i(e) && n(e) == o;
-    };
+    e.exports = r(167);
 }, function(e, t, r) {
-    var n = r(4), a = r(1), i = r(42), o = r(20), s = r(23), c = function(e, t, r) {
+    var n = r(4), a = r(1), i = r(41), o = r(19), s = r(22), c = function(e, t, r) {
         var u, l, p, f = e & c.F, d = e & c.G, h = e & c.S, _ = e & c.P, m = e & c.B, g = e & c.W, b = d ? a : a[t] || (a[t] = {}), v = b.prototype, y = d ? n : h ? n[t] : (n[t] || {}).prototype;
         for (u in d && (r = t), r) (l = !f && y && void 0 !== y[u]) && s(b, u) || (p = l ? y[u] : r[u], 
         b[u] = d && "function" != typeof y[u] ? r[u] : m && l ? i(p, n) : g && y[u] == p ? function(e) {
@@ -189,16 +150,19 @@
     var r = Array.isArray;
     e.exports = r;
 }, function(e, t, r) {
-    e.exports = r(167);
-}, function(e, t, r) {
-    var n = r(66)("wks"), a = r(45), i = r(4).Symbol, o = "function" == typeof i;
+    var n = r(67)("wks"), a = r(44), i = r(4).Symbol, o = "function" == typeof i;
     (e.exports = function(e) {
         return n[e] || (n[e] = o && i[e] || (o ? i : a)("Symbol." + e));
     }).store = n;
 }, function(e, t, r) {
     e.exports = r(161);
 }, function(e, t, r) {
-    e.exports = !r(22)((function() {
+    var n = r(23), a = r(5), i = r(24), o = "[object String]";
+    e.exports = function(e) {
+        return "string" == typeof e || !a(e) && i(e) && n(e) == o;
+    };
+}, function(e, t, r) {
+    e.exports = !r(21)((function() {
         return 7 != Object.defineProperty({}, "a", {
             get: function() {
                 return 7;
@@ -206,40 +170,27 @@
         }).a;
     }));
 }, function(e, t, r) {
+    "use strict";
+    r.d(t, "a", (function() {
+        return n;
+    })), r.d(t, "b", (function() {
+        return i;
+    }));
+    var n = navigator.userAgent.toLowerCase().includes("firefox"), a = GM.info || GM_info, i = {
+        name: a.scriptHandler,
+        version: a.version
+    };
+}, function(e, t, r) {
     e.exports = r(313);
 }, function(e, t, r) {
-    var n = r(21);
+    var n = r(20);
     e.exports = function(e) {
         if (!n(e)) throw TypeError(e + " is not an object!");
         return e;
     };
 }, function(e, t, r) {
-    var n = r(146), a = r(147), i = r(160);
-    e.exports = function(e, t) {
-        return n(e) || a(e, t) || i();
-    };
-}, function(e, t, r) {
-    var n = r(11), a = r(91), i = r(62), o = Object.defineProperty;
-    t.f = r(9) ? Object.defineProperty : function(e, t, r) {
-        if (n(e), t = i(t, !0), n(r), a) try {
-            return o(e, t, r);
-        } catch (e) {}
-        if ("get" in r || "set" in r) throw TypeError("Accessors not supported!");
-        return "value" in r && (e[t] = r.value), e;
-    };
-}, function(e, t, r) {
-    var n = r(94), a = r(44);
-    e.exports = function(e) {
-        return n(a(e));
-    };
-}, function(e, t, r) {
-    var n = r(111), a = "object" == typeof self && self && self.Object === Object && self, i = n || a || Function("return this")();
-    e.exports = i;
-}, function(e, t, r) {
-    e.exports = r(280);
-}, function(e, t, r) {
     "use strict";
-    var n = r(39), a = r.n(n), i = r(57), o = r.n(i), s = r(31), c = r.n(s), u = r(32), l = r.n(u), p = r(33), f = r.n(p), d = r(16), h = r.n(d), _ = r(8), m = r.n(_), g = r(12), b = r.n(g), v = r(6), y = r.n(v), w = r(58), x = r.n(w), E = r(10), A = r.n(E), S = r(84), O = r.n(S), P = r(138), k = r.n(P), I = r(2), T = r.n(I), C = r(56), M = r.n(C), D = r(5), L = r.n(D), B = r(60), R = r(0);
+    var n = r(39), a = r.n(n), i = r(56), o = r.n(i), s = r(31), c = r.n(s), u = r(32), l = r.n(u), p = r(33), f = r.n(p), d = r(57), h = r.n(d), _ = r(7), m = r.n(_), g = r(18), b = r.n(g), v = r(2), y = r.n(v), w = r(58), x = r.n(w), E = r(11), S = r.n(E), A = r(85), O = r.n(A), P = r(138), k = r.n(P), I = r(8), T = r.n(I), M = r(55), C = r.n(M), D = r(5), L = r.n(D), B = r(60), R = r(0);
     function j(e, t) {
         var r = h()(e);
         if (f.a) {
@@ -257,7 +208,7 @@
         constructor(e, t, r) {
             var n = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : null;
             this.name = e, this.url = L()(t) ? t : [ t ], this.detailUrl = r, this.rule = [], 
-            M()(n) ? this.ruleParser = n : this.ruleParser = function(e) {
+            C()(n) ? this.ruleParser = n : this.ruleParser = function(e) {
                 return JSON.parse(e.data);
             };
         }
@@ -269,7 +220,7 @@
         }
         downloadRule() {
             var e, t, r, n, a, i, o, s, c, u = this;
-            return A.a.async((function(l) {
+            return S.a.async((function(l) {
                 for (;;) switch (l.prev = l.next) {
                   case 0:
                     e = [], t = null, r = !0, n = !1, a = void 0, l.prev = 5, i = O()(u.url);
@@ -279,14 +230,14 @@
                         l.next = 25;
                         break;
                     }
-                    return s = o.value, l.prev = 9, l.next = 12, A.a.awrap(U.get(s));
+                    return s = o.value, l.prev = 9, l.next = 12, S.a.awrap(U.get(s));
 
                   case 12:
                     return c = l.sent, e = u.ruleParser(c), R.a.log(`[DownloadRule] ${u.name} from ${s} [Status] Success`), 
                     l.abrupt("break", 25);
 
                   case 18:
-                    l.prev = 18, l.t0 = l.catch(9), R.a.error(`[DownloadRule] ${u.name} from ${s} [Status] ${l.t0}`), 
+                    l.prev = 18, l.t0 = l.catch(9), R.a.error("[Super-preloader] " + `[DownloadRule] ${u.name} from ${s} [Status] ${l.t0}`), 
                     t = l.t0;
 
                   case 22:
@@ -334,17 +285,17 @@
         }
         updateRule(e) {
             var t, r, n, a, i = this;
-            return A.a.async((function(o) {
+            return S.a.async((function(o) {
                 for (;;) switch (o.prev = o.next) {
                   case 0:
-                    return t = null, o.prev = 1, o.next = 4, A.a.awrap(U.get(i.detailUrl));
+                    return t = null, o.prev = 1, o.next = 4, S.a.awrap(U.get(i.detailUrl));
 
                   case 4:
                     t = o.sent, o.next = 11;
                     break;
 
                   case 7:
-                    return o.prev = 7, o.t0 = o.catch(1), R.a.error(`[UpdateRule] ${i.name} [Status] ${o.t0}`), 
+                    return o.prev = 7, o.t0 = o.catch(1), R.a.error("[Super-preloader] " + `[UpdateRule] ${i.name} [Status] ${o.t0}`), 
                     o.abrupt("return", {
                         status: "rejected",
                         reason: o.t0
@@ -355,7 +306,7 @@
                         o.next = 27;
                         break;
                     }
-                    return o.prev = 14, o.next = 17, A.a.awrap(i.downloadRule());
+                    return o.prev = 14, o.next = 17, S.a.awrap(i.downloadRule());
 
                   case 17:
                     a = o.sent, R.a.log(`[UpdateRule] ${i.name} [Status] Success`), i.rule = a, o.next = 25;
@@ -436,10 +387,10 @@
         },
         saveDB() {
             var e, t = arguments, r = this;
-            return A.a.async((function(n) {
+            return S.a.async((function(n) {
                 for (;;) switch (n.prev = n.next) {
                   case 0:
-                    return e = !(t.length > 0 && void 0 !== t[0]) || t[0], n.next = 3, A.a.awrap(GM.setValue("jsonRuleInfo", {
+                    return e = !(t.length > 0 && void 0 !== t[0]) || t[0], n.next = 3, S.a.awrap(GM.setValue("jsonRuleInfo", {
                         expire: r.expire,
                         updatePeriodInDay: r.updatePeriodInDay
                     }));
@@ -449,7 +400,7 @@
                         n.next = 6;
                         break;
                     }
-                    return n.next = 6, A.a.awrap(GM.setValue("SITEINFO_json", r.rule));
+                    return n.next = 6, S.a.awrap(GM.setValue("SITEINFO_json", r.rule));
 
                   case 6:
                   case "end":
@@ -459,7 +410,7 @@
         },
         updateRule() {
             var e, t, r, n = arguments, a = this;
-            return A.a.async((function(i) {
+            return S.a.async((function(i) {
                 for (;;) switch (i.prev = i.next) {
                   case 0:
                     if (n.length > 0 && void 0 !== n[0] && n[0] && a.resetExpire(), e = new Date(+a.expire - 24 * a.updatePeriodInDay * 60 * 60 * 1e3), 
@@ -469,7 +420,7 @@
                     }
                     return r = a.providers.map((function(t) {
                         return t.updateRule(e);
-                    })), i.next = 8, A.a.awrap(y.a.all(r).then((function(e) {
+                    })), i.next = 8, S.a.awrap(y.a.all(r).then((function(e) {
                         e.map((function(e) {
                             return "fulfilled" === e.status || !1;
                         })).every((function(e) {
@@ -478,7 +429,7 @@
                             var t = e.value;
                             return t || a.rule;
                         })), a.expire = new Date(+t + 24 * a.updatePeriodInDay * 60 * 60 * 1e3), R.a.log(`[UpdateRule] Next update at: ${a.expire}`), 
-                        a.saveDB()) : (a.expire = t, R.a.error("[UpdateRule] Fail"), a.saveDB(!1));
+                        a.saveDB()) : (a.expire = t, R.a.error("[Super-preloader] [UpdateRule] Fail"), a.saveDB(!1));
                     })));
 
                   case 8:
@@ -496,93 +447,22 @@
         }
     };
 }, function(e, t, r) {
-    var n = r(37), a = r(196), i = r(197), o = "[object Null]", s = "[object Undefined]", c = n ? n.toStringTag : void 0;
-    e.exports = function(e) {
-        return null == e ? void 0 === e ? s : o : c && c in Object(e) ? a(e) : i(e);
-    };
-}, function(e, t) {
-    e.exports = function(e) {
-        return null != e && "object" == typeof e;
-    };
-}, function(e, t, r) {
-    var n = r(13), a = r(34);
-    e.exports = r(9) ? function(e, t, r) {
-        return n.f(e, t, a(1, r));
-    } : function(e, t, r) {
-        return e[t] = r, e;
-    };
-}, function(e, t) {
-    e.exports = function(e) {
-        return "object" == typeof e ? null !== e : "function" == typeof e;
-    };
-}, function(e, t) {
-    e.exports = function(e) {
-        try {
-            return !!e();
-        } catch (e) {
-            return !0;
-        }
-    };
-}, function(e, t) {
-    var r = {}.hasOwnProperty;
-    e.exports = function(e, t) {
-        return r.call(e, t);
-    };
-}, function(e, t, r) {
-    "use strict";
-    function n(e, t, r) {
-        var n = (r = r || document).getElementsByTagName("head");
-        n = n ? n[0] : r.documentElement;
-        var a = r.createElement("style");
-        return t && a.setAttribute("id", t), a.setAttribute("type", "text/css"), a.textContent = e, 
-        n ? n.appendChild(a) : null;
-    }
-    r.d(t, "a", (function() {
-        return n;
-    }));
-}, function(e, t) {
-    e.exports = {};
-}, function(e, t, r) {
-    var n = r(99), a = r(67);
-    e.exports = Object.keys || function(e) {
-        return n(e, a);
-    };
-}, function(e, t, r) {
-    var n = r(195), a = r(200);
-    e.exports = function(e, t) {
-        var r = a(e, t);
-        return n(r) ? r : void 0;
-    };
-}, function(e, t, r) {
-    "use strict";
-    (function(t) {
-        var n, a = r(81), i = a.Buffer, o = {};
-        for (n in a) a.hasOwnProperty(n) && "SlowBuffer" !== n && "Buffer" !== n && (o[n] = a[n]);
-        var s = o.Buffer = {};
-        for (n in i) i.hasOwnProperty(n) && "allocUnsafe" !== n && "allocUnsafeSlow" !== n && (s[n] = i[n]);
-        if (o.Buffer.prototype = i.prototype, s.from && s.from !== Uint8Array.from || (s.from = function(e, t, r) {
-            if ("number" == typeof e) throw new TypeError('The "value" argument must not be of type number. Received type ' + typeof e);
-            if (e && void 0 === e.length) throw new TypeError("The first argument must be one of type string, Buffer, ArrayBuffer, Array, or Array-like Object. Received type " + typeof e);
-            return i(e, t, r);
-        }), s.alloc || (s.alloc = function(e, t, r) {
-            if ("number" != typeof e) throw new TypeError('The "size" argument must be of type number. Received type ' + typeof e);
-            if (e < 0 || e >= 2 * (1 << 30)) throw new RangeError('The value "' + e + '" is invalid for option "size"');
-            var n = i(e);
-            return t && 0 !== t.length ? "string" == typeof r ? n.fill(t, r) : n.fill(t) : n.fill(0), 
-            n;
-        }), !o.kStringMaxLength) try {
-            o.kStringMaxLength = t.binding("buffer").kStringMaxLength;
+    var n = r(12), a = r(93), i = r(63), o = Object.defineProperty;
+    t.f = r(9) ? Object.defineProperty : function(e, t, r) {
+        if (n(e), t = i(t, !0), n(r), a) try {
+            return o(e, t, r);
         } catch (e) {}
-        o.constants || (o.constants = {
-            MAX_LENGTH: o.kMaxLength
-        }, o.kStringMaxLength && (o.constants.MAX_STRING_LENGTH = o.kStringMaxLength)), 
-        e.exports = o;
-    }).call(this, r(128));
-}, function(e, t) {
-    e.exports = function(e) {
-        var t = typeof e;
-        return null != e && ("object" == t || "function" == t);
+        if ("get" in r || "set" in r) throw TypeError("Accessors not supported!");
+        return "value" in r && (e[t] = r.value), e;
     };
+}, function(e, t, r) {
+    var n = r(96), a = r(43);
+    e.exports = function(e) {
+        return n(a(e));
+    };
+}, function(e, t, r) {
+    var n = r(113), a = "object" == typeof self && self && self.Object === Object && self, i = n || a || Function("return this")();
+    e.exports = i;
 }, function(e, t, r) {
     var n, a, i;
     a = [], void 0 === (i = "function" == typeof (n = function() {
@@ -634,6 +514,99 @@
         }, a;
     }) ? n.apply(t, a) : n) || (e.exports = i);
 }, function(e, t, r) {
+    var n = r(146), a = r(147), i = r(160);
+    e.exports = function(e, t) {
+        return n(e) || a(e, t) || i();
+    };
+}, function(e, t, r) {
+    var n = r(14), a = r(34);
+    e.exports = r(9) ? function(e, t, r) {
+        return n.f(e, t, a(1, r));
+    } : function(e, t, r) {
+        return e[t] = r, e;
+    };
+}, function(e, t) {
+    e.exports = function(e) {
+        return "object" == typeof e ? null !== e : "function" == typeof e;
+    };
+}, function(e, t) {
+    e.exports = function(e) {
+        try {
+            return !!e();
+        } catch (e) {
+            return !0;
+        }
+    };
+}, function(e, t) {
+    var r = {}.hasOwnProperty;
+    e.exports = function(e, t) {
+        return r.call(e, t);
+    };
+}, function(e, t, r) {
+    var n = r(37), a = r(196), i = r(197), o = "[object Null]", s = "[object Undefined]", c = n ? n.toStringTag : void 0;
+    e.exports = function(e) {
+        return null == e ? void 0 === e ? s : o : c && c in Object(e) ? a(e) : i(e);
+    };
+}, function(e, t) {
+    e.exports = function(e) {
+        return null != e && "object" == typeof e;
+    };
+}, function(e, t, r) {
+    "use strict";
+    function n(e, t, r) {
+        var n = (r = r || document).getElementsByTagName("head");
+        n = n ? n[0] : r.documentElement;
+        var a = r.createElement("style");
+        return t && a.setAttribute("id", t), a.setAttribute("type", "text/css"), a.textContent = e, 
+        n ? n.appendChild(a) : null;
+    }
+    r.d(t, "a", (function() {
+        return n;
+    }));
+}, function(e, t) {
+    e.exports = {};
+}, function(e, t, r) {
+    var n = r(101), a = r(68);
+    e.exports = Object.keys || function(e) {
+        return n(e, a);
+    };
+}, function(e, t, r) {
+    var n = r(195), a = r(200);
+    e.exports = function(e, t) {
+        var r = a(e, t);
+        return n(r) ? r : void 0;
+    };
+}, function(e, t, r) {
+    "use strict";
+    (function(t) {
+        var n, a = r(82), i = a.Buffer, o = {};
+        for (n in a) a.hasOwnProperty(n) && "SlowBuffer" !== n && "Buffer" !== n && (o[n] = a[n]);
+        var s = o.Buffer = {};
+        for (n in i) i.hasOwnProperty(n) && "allocUnsafe" !== n && "allocUnsafeSlow" !== n && (s[n] = i[n]);
+        if (o.Buffer.prototype = i.prototype, s.from && s.from !== Uint8Array.from || (s.from = function(e, t, r) {
+            if ("number" == typeof e) throw new TypeError('The "value" argument must not be of type number. Received type ' + typeof e);
+            if (e && void 0 === e.length) throw new TypeError("The first argument must be one of type string, Buffer, ArrayBuffer, Array, or Array-like Object. Received type " + typeof e);
+            return i(e, t, r);
+        }), s.alloc || (s.alloc = function(e, t, r) {
+            if ("number" != typeof e) throw new TypeError('The "size" argument must be of type number. Received type ' + typeof e);
+            if (e < 0 || e >= 2 * (1 << 30)) throw new RangeError('The value "' + e + '" is invalid for option "size"');
+            var n = i(e);
+            return t && 0 !== t.length ? "string" == typeof r ? n.fill(t, r) : n.fill(t) : n.fill(0), 
+            n;
+        }), !o.kStringMaxLength) try {
+            o.kStringMaxLength = t.binding("buffer").kStringMaxLength;
+        } catch (e) {}
+        o.constants || (o.constants = {
+            MAX_LENGTH: o.kMaxLength
+        }, o.kStringMaxLength && (o.constants.MAX_STRING_LENGTH = o.kStringMaxLength)), 
+        e.exports = o;
+    }).call(this, r(130));
+}, function(e, t) {
+    e.exports = function(e) {
+        var t = typeof e;
+        return null != e && ("object" == t || "function" == t);
+    };
+}, function(e, t, r) {
     e.exports = r(268);
 }, function(e, t, r) {
     e.exports = r(272);
@@ -656,22 +629,14 @@
 }, function(e, t) {
     e.exports = !0;
 }, function(e, t, r) {
-    var n = r(15).Symbol;
+    var n = r(16).Symbol;
     e.exports = n;
 }, function(e, t) {
     t.f = {}.propertyIsEnumerable;
 }, function(e, t, r) {
     e.exports = r(264);
 }, function(e, t, r) {
-    "use strict";
-    r.d(t, "a", (function() {
-        return n;
-    })), r.d(t, "b", (function() {
-        return a;
-    }));
-    var n = navigator.userAgent.toLowerCase().includes("firefox"), a = GM.info.scriptHandler || GM_info.scriptHandler;
-}, function(e, t, r) {
-    var n = r(263), a = r(30), i = new Date, o = {
+    var n = r(263), a = r(17), i = new Date, o = {
         name: "Super_preloaderPlus_one_New",
         shortname: "Super-preloader",
         "name-CN": "Super_preloaderPlus_one_改",
@@ -705,7 +670,7 @@
         SCRIPT_INFO: o
     };
 }, function(e, t, r) {
-    var n = r(43);
+    var n = r(42);
     e.exports = function(e, t, r) {
         if (n(e), void 0 === t) return e;
         switch (r) {
@@ -744,7 +709,7 @@
         return "Symbol(".concat(void 0 === e ? "" : e, ")_", (++r + n).toString(36));
     };
 }, function(e, t, r) {
-    var n = r(13).f, a = r(23), i = r(7)("toStringTag");
+    var n = r(14).f, a = r(22), i = r(6)("toStringTag");
     e.exports = function(e, t, r) {
         e && !a(e = r ? e : e.prototype, i) && n(e, i, {
             configurable: !0,
@@ -752,7 +717,7 @@
         });
     };
 }, function(e, t, r) {
-    var n = r(44);
+    var n = r(43);
     e.exports = function(e) {
         return Object(n(e));
     };
@@ -768,13 +733,13 @@
     c.prototype.clear = n, c.prototype.delete = a, c.prototype.get = i, c.prototype.has = o, 
     c.prototype.set = s, e.exports = c;
 }, function(e, t, r) {
-    var n = r(110);
+    var n = r(112);
     e.exports = function(e, t) {
         for (var r = e.length; r--; ) if (n(e[r][0], t)) return r;
         return -1;
     };
 }, function(e, t, r) {
-    var n = r(27)(Object, "create");
+    var n = r(28)(Object, "create");
     e.exports = n;
 }, function(e, t, r) {
     var n = r(209);
@@ -783,19 +748,19 @@
         return n(t) ? r["string" == typeof t ? "string" : "hash"] : r.map;
     };
 }, function(e, t, r) {
-    var n = r(231), a = r(19), i = Object.prototype, o = i.hasOwnProperty, s = i.propertyIsEnumerable, c = n(function() {
+    var n = r(231), a = r(24), i = Object.prototype, o = i.hasOwnProperty, s = i.propertyIsEnumerable, c = n(function() {
         return arguments;
     }()) ? n : function(e) {
         return a(e) && o.call(e, "callee") && !s.call(e, "callee");
     };
     e.exports = c;
 }, function(e, t, r) {
-    var n = r(18), a = r(19), i = "[object Symbol]";
+    var n = r(23), a = r(24), i = "[object Symbol]";
     e.exports = function(e) {
         return "symbol" == typeof e || a(e) && n(e) == i;
     };
 }, function(e, t, r) {
-    var n = r(53), a = 1 / 0;
+    var n = r(52), a = 1 / 0;
     e.exports = function(e) {
         if ("string" == typeof e || n(e)) return e;
         var t = e + "";
@@ -804,7 +769,7 @@
 }, function(e, t) {
     t.f = Object.getOwnPropertySymbols;
 }, function(e, t, r) {
-    var n = r(18), a = r(29), i = "[object AsyncFunction]", o = "[object Function]", s = "[object GeneratorFunction]", c = "[object Proxy]";
+    var n = r(23), a = r(30), i = "[object AsyncFunction]", o = "[object Function]", s = "[object GeneratorFunction]", c = "[object Proxy]";
     e.exports = function(e) {
         if (!a(e)) return !1;
         var t = n(e);
@@ -812,6 +777,8 @@
     };
 }, function(e, t, r) {
     e.exports = r(266);
+}, function(e, t, r) {
+    e.exports = r(280);
 }, function(e, t, r) {
     var n = r(39);
     e.exports = function(e, t, r) {
@@ -826,13 +793,13 @@
     e.exports = r(285);
 }, function(e, t, r) {
     "use strict";
-    var n = r(39), a = r.n(n), i = r(57), o = r.n(i), s = r(31), c = r.n(s), u = r(32), l = r.n(u), p = r(33), f = r.n(p), d = r(16), h = r.n(d), _ = r(6), m = r.n(_), g = r(133), b = r.n(g), v = r(8), y = r.n(v), w = r(58), x = r.n(w), E = r(12), A = r.n(E), S = r(59), O = r.n(S), P = r(29), k = r.n(P), I = r(134), T = r.n(I), C = r(135), M = r.n(C), D = r(2), L = r.n(D), B = r(88), R = r.n(B), j = r(89), U = r.n(j), N = r(0), F = function(e) {
+    var n = r(39), a = r.n(n), i = r(56), o = r.n(i), s = r(31), c = r.n(s), u = r(32), l = r.n(u), p = r(33), f = r.n(p), d = r(57), h = r.n(d), _ = r(2), m = r.n(_), g = r(135), b = r.n(g), v = r(7), y = r.n(v), w = r(58), x = r.n(w), E = r(18), S = r.n(E), A = r(59), O = r.n(A), P = r(30), k = r.n(P), I = r(89), T = r.n(I), M = r(61), C = r.n(M), D = r(8), L = r.n(D), B = r(90), R = r.n(B), j = r(91), U = r.n(j), N = r(0), F = function(e) {
         for (var t = {}, r = 0, n = O()(e); r < n.length; r++) {
-            var a = A()(n[r], 2), i = a[0], o = a[1];
+            var a = S()(n[r], 2), i = a[0], o = a[1];
             t[i.toLowerCase()] = o;
         }
         return t;
-    }, W = r(90), K = r.n(W), z = r(137), q = r.n(z);
+    }, W = r(92), K = r.n(W), z = r(137), q = r.n(z);
     function G(e, t) {
         var r = h()(e);
         if (f.a) {
@@ -875,7 +842,8 @@
         context: null,
         html: !1,
         noHeader: !1,
-        cookie: null
+        cookie: null,
+        withCredentials: !0
     };
     function J(e, t) {
         var r = Y({}, t);
@@ -891,15 +859,16 @@
                 } catch (t) {
                     console.error(`[Super-preloader] [got] header: ${e.headers} error: ${t}`), delete e.headers;
                 }
-                if (!H(e.headers)) {
+                if (!H(e.headers) && !C()(e.headers)) {
                     e.headers = F(e.headers);
                     var n = e.headers;
                     if (n) for (var a = 0, i = O()(n); a < i.length; a++) {
-                        var o = A()(i[a], 2), s = o[0], c = o[1];
+                        var o = S()(i[a], 2), s = o[0], c = o[1];
                         (R()(c) || U()(c)) && delete n[s];
                     }
                 }
-                if (e.headers = Y({}, e.headers, {}, t.headers), r.push("headers"), !H(e.prefixUrl)) try {
+                if (e.headers = Y({}, t.headers, {}, e.headers), C()(e.headers) && delete e.headers, 
+                r.push("headers"), !H(e.prefixUrl)) try {
                     e.prefixUrl = e.prefixUrl.toString(), e.prefixUrl.endsWith("/") || (e.prefixUrl += "/");
                 } catch (t) {
                     delete e.prefixUrl;
@@ -907,20 +876,20 @@
                 for (var u in e.method = e.method.toUpperCase(), e.timeout && (e.timeout = y()(e.timeout)), 
                 e.hasOwnProperty("html") ? e.html && (e.binary = !1) : e.html = t.html, r.push("encoding"), 
                 r.push("html"), e.searchParams ? L()(e.searchParams) && (e.searchParams = K.a.parse(e.querystring)) : e.searchParams = {}, 
-                M()(e.cache) && !e.cache ? e.searchParams.timestamp = (new Date).getTime() : e.cache = !1, 
+                T()(e.cache) && !e.cache ? e.searchParams.timestamp = (new Date).getTime() : e.cache = !1, 
                 r.push("searchParams"), r.push("cache"), e.body && (e.data = e.body), t) u in r || H(e[u]) && (e[u] = t[u]);
-                return !H(e.cookie) && L()(e.cookie) && (e.hasOwnProperty("headers") ? e.headers.cookie = e.cookie : e.headers = {
+                return H(e.cookie) || (T()(e.cookie) && e.cookie && (e.cookie = document.cookie), 
+                L()(e.cookie) && (e.hasOwnProperty("headers") ? e.headers.cookie = e.cookie : e.headers = {
                     cookie: e.cookie
-                }), e;
+                })), e.noHeader && delete e.headers, e;
             }(r, e.defaults);
-            var n, a, i = (n = r, a = {}, [ "method", "url", "timeout", "headers", "binary", "user", "password", "context" ].forEach((function(e) {
-                a[e] = n[e];
-            })), (T()(a.headers) || n.noHeader) && delete a.headers, n.prefixUrl && (a.url = n.prefixUrl + n.url), 
-            n.html && L()(n.encoding) && (a.overrideMimeType = `text/html; charset=${n.encoding}`), 
-            H(n.searchParams) || (a.url += `?${K.a.stringify(n.searchParams, null, null, (function(e) {
+            var n, a, i = (n = r, a = {}, [ "method", "url", "timeout", "headers", "binary", "user", "password", "context", "withCredentials" ].forEach((function(e) {
+                H(n[e]) || (a[e] = n[e]);
+            })), n.prefixUrl && (a.url = n.prefixUrl + n.url), n.html && L()(n.encoding) && (a.overrideMimeType = `text/html; charset=${n.encoding}`), 
+            H(n.searchParams) || C()(n.searchParams) || (a.url += `?${K.a.stringify(n.searchParams, null, null, (function(e) {
                 return q()(e, n.encoding);
             }))}`), a);
-            N.a.debug("GM_xmlhttpRequest", i);
+            N.a.debug("[Super-preloader] GM_xmlhttpRequest", i);
             var o = function(e, t, n) {
                 return function(a) {
                     var i = {
@@ -954,7 +923,8 @@
                 }(0);
             }));
         };
-        return r.defaults = t, r.get = function(e, t) {
+        for (var n in r.defaults = {}, V) r.defaults[n] = H(t[n]) ? V[n] : t[n];
+        return r.get = function(e, t) {
             var r = J(e, t);
             return r.method = "GET", this(r);
         }, r.post = function(e, t) {
@@ -964,12 +934,23 @@
     }(V);
     t.a = X;
 }, function(e, t, r) {
-    var n = r(21), a = r(4).document, i = n(a) && n(a.createElement);
+    var n = r(121), a = r(123), i = r(51), o = r(5), s = r(78), c = r(75), u = r(122), l = r(76), p = "[object Map]", f = "[object Set]", d = Object.prototype.hasOwnProperty;
+    e.exports = function(e) {
+        if (null == e) return !0;
+        if (s(e) && (o(e) || "string" == typeof e || "function" == typeof e.splice || c(e) || l(e) || i(e))) return !e.length;
+        var t = a(e);
+        if (t == p || t == f) return !e.size;
+        if (u(e)) return !n(e).length;
+        for (var r in e) if (d.call(e, r)) return !1;
+        return !0;
+    };
+}, function(e, t, r) {
+    var n = r(20), a = r(4).document, i = n(a) && n(a.createElement);
     e.exports = function(e) {
         return i ? a.createElement(e) : {};
     };
 }, function(e, t, r) {
-    var n = r(21);
+    var n = r(20);
     e.exports = function(e, t) {
         if (!n(e)) return e;
         var r, a;
@@ -985,12 +966,12 @@
     };
 }, function(e, t, r) {
     r(149);
-    for (var n = r(4), a = r(20), i = r(25), o = r(7)("toStringTag"), s = "CSSRuleList,CSSStyleDeclaration,CSSValueList,ClientRectList,DOMRectList,DOMStringList,DOMTokenList,DataTransferItemList,FileList,HTMLAllCollection,HTMLCollection,HTMLFormElement,HTMLSelectElement,MediaList,MimeTypeArray,NamedNodeMap,NodeList,PaintRequestList,Plugin,PluginArray,SVGLengthList,SVGNumberList,SVGPathSegList,SVGPointList,SVGStringList,SVGTransformList,SourceBufferList,StyleSheetList,TextTrackCueList,TextTrackList,TouchList".split(","), c = 0; c < s.length; c++) {
+    for (var n = r(4), a = r(19), i = r(26), o = r(6)("toStringTag"), s = "CSSRuleList,CSSStyleDeclaration,CSSValueList,ClientRectList,DOMRectList,DOMStringList,DOMTokenList,DataTransferItemList,FileList,HTMLAllCollection,HTMLCollection,HTMLFormElement,HTMLSelectElement,MediaList,MimeTypeArray,NamedNodeMap,NodeList,PaintRequestList,Plugin,PluginArray,SVGLengthList,SVGNumberList,SVGPathSegList,SVGPointList,SVGStringList,SVGTransformList,SourceBufferList,StyleSheetList,TextTrackCueList,TextTrackList,TouchList".split(","), c = 0; c < s.length; c++) {
         var u = s[c], l = n[u], p = l && l.prototype;
         p && !p[o] && a(p, o, u), i[u] = i.Array;
     }
 }, function(e, t, r) {
-    var n = r(66)("keys"), a = r(45);
+    var n = r(67)("keys"), a = r(44);
     e.exports = function(e) {
         return n[e] || (n[e] = a(e));
     };
@@ -1008,7 +989,7 @@
 }, function(e, t, r) {
     "use strict";
     var n = r(155)(!0);
-    r(95)(String, "String", (function(e) {
+    r(97)(String, "String", (function(e) {
         this._t = String(e), this._i = 0;
     }), (function() {
         var e, t = this._t, r = this._i;
@@ -1021,7 +1002,7 @@
         });
     }));
 }, function(e, t, r) {
-    var n = r(35), a = r(7)("toStringTag"), i = "Arguments" == n(function() {
+    var n = r(35), a = r(6)("toStringTag"), i = "Arguments" == n(function() {
         return arguments;
     }());
     e.exports = function(e) {
@@ -1034,7 +1015,7 @@
     };
 }, function(e, t, r) {
     "use strict";
-    var n = r(43);
+    var n = r(42);
     function a(e) {
         var t, r;
         this.promise = new e((function(e, n) {
@@ -1046,7 +1027,7 @@
         return new a(e);
     };
 }, function(e, t, r) {
-    var n = r(27)(r(15), "Map");
+    var n = r(28)(r(16), "Map");
     e.exports = n;
 }, function(e, t, r) {
     var n = r(201), a = r(208), i = r(210), o = r(211), s = r(212);
@@ -1060,15 +1041,15 @@
     c.prototype.clear = n, c.prototype.delete = a, c.prototype.get = i, c.prototype.has = o, 
     c.prototype.set = s, e.exports = c;
 }, function(e, t, r) {
-    var n = r(229), a = r(119), i = r(77);
+    var n = r(229), a = r(121), i = r(78);
     e.exports = function(e) {
         return i(e) ? n(e) : a(e);
     };
 }, function(e, t, r) {
     (function(e) {
-        var n = r(15), a = r(232), i = t && !t.nodeType && t, o = i && "object" == typeof e && e && !e.nodeType && e, s = o && o.exports === i ? n.Buffer : void 0, c = (s ? s.isBuffer : void 0) || a;
+        var n = r(16), a = r(232), i = t && !t.nodeType && t, o = i && "object" == typeof e && e && !e.nodeType && e, s = o && o.exports === i ? n.Buffer : void 0, c = (s ? s.isBuffer : void 0) || a;
         e.exports = c;
-    }).call(this, r(117)(e));
+    }).call(this, r(119)(e));
 }, function(e, t, r) {
     var n = r(233), a = r(234), i = r(235), o = i && i.isTypedArray, s = o ? a(o) : n;
     e.exports = s;
@@ -1078,24 +1059,24 @@
         return "number" == typeof e && e > -1 && e % 1 == 0 && e <= r;
     };
 }, function(e, t, r) {
-    var n = r(56), a = r(76);
+    var n = r(55), a = r(77);
     e.exports = function(e) {
         return null != e && a(e.length) && !n(e);
     };
 }, function(e, t, r) {
-    var n = r(5), a = r(53), i = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/, o = /^\w*$/;
+    var n = r(5), a = r(52), i = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/, o = /^\w*$/;
     e.exports = function(e, t) {
         if (n(e)) return !1;
         var r = typeof e;
         return !("number" != r && "symbol" != r && "boolean" != r && null != e && !a(e)) || (o.test(e) || !i.test(e) || null != t && e in Object(t));
     };
 }, function(e, t, r) {
-    var n = r(99), a = r(67).concat("length", "prototype");
+    var n = r(101), a = r(68).concat("length", "prototype");
     t.f = Object.getOwnPropertyNames || function(e) {
         return n(e, a);
     };
 }, function(e, t, r) {
-    var n = r(38), a = r(34), i = r(14), o = r(62), s = r(23), c = r(91), u = Object.getOwnPropertyDescriptor;
+    var n = r(38), a = r(34), i = r(15), o = r(63), s = r(22), c = r(93), u = Object.getOwnPropertyDescriptor;
     t.f = r(9) ? u : function(e, t) {
         if (e = i(e), t = o(t, !0), c) try {
             return u(e, t);
@@ -1228,13 +1209,13 @@
                 return I(this, t, r);
 
               case "base64":
-                return S(this, t, r);
+                return A(this, t, r);
 
               case "ucs2":
               case "ucs-2":
               case "utf16le":
               case "utf-16le":
-                return C(this, t, r);
+                return M(this, t, r);
 
               default:
                 if (n) throw new TypeError("Unknown encoding: " + e);
@@ -1311,14 +1292,14 @@
         function E(e, t, r, n) {
             return z(K(t), e, r, n);
         }
-        function A(e, t, r, n) {
+        function S(e, t, r, n) {
             return z(function(e, t) {
                 for (var r, n, a, i = [], o = 0; o < e.length && !((t -= 2) < 0); ++o) r = e.charCodeAt(o), 
                 n = r >> 8, a = r % 256, i.push(a), i.push(n);
                 return i;
             }(t, e.length - r), e, r, n);
         }
-        function S(e, t, r) {
+        function A(e, t, r) {
             return 0 === t && r === e.length ? n.fromByteArray(e) : n.fromByteArray(e.slice(t, r));
         }
         function O(e, t, r) {
@@ -1499,7 +1480,7 @@
               case "ucs-2":
               case "utf16le":
               case "utf-16le":
-                return A(this, e, t, r);
+                return S(this, e, t, r);
 
               default:
                 if (i) throw new TypeError("Unknown encoding: " + n);
@@ -1530,11 +1511,11 @@
             for (var a = "", i = t; i < r; ++i) a += F(e[i]);
             return a;
         }
-        function C(e, t, r) {
+        function M(e, t, r) {
             for (var n = e.slice(t, r), a = "", i = 0; i < n.length; i += 2) a += String.fromCharCode(n[i] + 256 * n[i + 1]);
             return a;
         }
-        function M(e, t, r) {
+        function C(e, t, r) {
             if (e % 1 != 0 || e < 0) throw new RangeError("offset is not uint");
             if (e + t > r) throw new RangeError("Trying to access beyond buffer length");
         }
@@ -1571,53 +1552,53 @@
             }
             return r;
         }, c.prototype.readUIntLE = function(e, t, r) {
-            e |= 0, t |= 0, r || M(e, t, this.length);
+            e |= 0, t |= 0, r || C(e, t, this.length);
             for (var n = this[e], a = 1, i = 0; ++i < t && (a *= 256); ) n += this[e + i] * a;
             return n;
         }, c.prototype.readUIntBE = function(e, t, r) {
-            e |= 0, t |= 0, r || M(e, t, this.length);
+            e |= 0, t |= 0, r || C(e, t, this.length);
             for (var n = this[e + --t], a = 1; t > 0 && (a *= 256); ) n += this[e + --t] * a;
             return n;
         }, c.prototype.readUInt8 = function(e, t) {
-            return t || M(e, 1, this.length), this[e];
+            return t || C(e, 1, this.length), this[e];
         }, c.prototype.readUInt16LE = function(e, t) {
-            return t || M(e, 2, this.length), this[e] | this[e + 1] << 8;
+            return t || C(e, 2, this.length), this[e] | this[e + 1] << 8;
         }, c.prototype.readUInt16BE = function(e, t) {
-            return t || M(e, 2, this.length), this[e] << 8 | this[e + 1];
+            return t || C(e, 2, this.length), this[e] << 8 | this[e + 1];
         }, c.prototype.readUInt32LE = function(e, t) {
-            return t || M(e, 4, this.length), (this[e] | this[e + 1] << 8 | this[e + 2] << 16) + 16777216 * this[e + 3];
+            return t || C(e, 4, this.length), (this[e] | this[e + 1] << 8 | this[e + 2] << 16) + 16777216 * this[e + 3];
         }, c.prototype.readUInt32BE = function(e, t) {
-            return t || M(e, 4, this.length), 16777216 * this[e] + (this[e + 1] << 16 | this[e + 2] << 8 | this[e + 3]);
+            return t || C(e, 4, this.length), 16777216 * this[e] + (this[e + 1] << 16 | this[e + 2] << 8 | this[e + 3]);
         }, c.prototype.readIntLE = function(e, t, r) {
-            e |= 0, t |= 0, r || M(e, t, this.length);
+            e |= 0, t |= 0, r || C(e, t, this.length);
             for (var n = this[e], a = 1, i = 0; ++i < t && (a *= 256); ) n += this[e + i] * a;
             return n >= (a *= 128) && (n -= Math.pow(2, 8 * t)), n;
         }, c.prototype.readIntBE = function(e, t, r) {
-            e |= 0, t |= 0, r || M(e, t, this.length);
+            e |= 0, t |= 0, r || C(e, t, this.length);
             for (var n = t, a = 1, i = this[e + --n]; n > 0 && (a *= 256); ) i += this[e + --n] * a;
             return i >= (a *= 128) && (i -= Math.pow(2, 8 * t)), i;
         }, c.prototype.readInt8 = function(e, t) {
-            return t || M(e, 1, this.length), 128 & this[e] ? -1 * (255 - this[e] + 1) : this[e];
+            return t || C(e, 1, this.length), 128 & this[e] ? -1 * (255 - this[e] + 1) : this[e];
         }, c.prototype.readInt16LE = function(e, t) {
-            t || M(e, 2, this.length);
+            t || C(e, 2, this.length);
             var r = this[e] | this[e + 1] << 8;
             return 32768 & r ? 4294901760 | r : r;
         }, c.prototype.readInt16BE = function(e, t) {
-            t || M(e, 2, this.length);
+            t || C(e, 2, this.length);
             var r = this[e + 1] | this[e] << 8;
             return 32768 & r ? 4294901760 | r : r;
         }, c.prototype.readInt32LE = function(e, t) {
-            return t || M(e, 4, this.length), this[e] | this[e + 1] << 8 | this[e + 2] << 16 | this[e + 3] << 24;
+            return t || C(e, 4, this.length), this[e] | this[e + 1] << 8 | this[e + 2] << 16 | this[e + 3] << 24;
         }, c.prototype.readInt32BE = function(e, t) {
-            return t || M(e, 4, this.length), this[e] << 24 | this[e + 1] << 16 | this[e + 2] << 8 | this[e + 3];
+            return t || C(e, 4, this.length), this[e] << 24 | this[e + 1] << 16 | this[e + 2] << 8 | this[e + 3];
         }, c.prototype.readFloatLE = function(e, t) {
-            return t || M(e, 4, this.length), a.read(this, e, !0, 23, 4);
+            return t || C(e, 4, this.length), a.read(this, e, !0, 23, 4);
         }, c.prototype.readFloatBE = function(e, t) {
-            return t || M(e, 4, this.length), a.read(this, e, !1, 23, 4);
+            return t || C(e, 4, this.length), a.read(this, e, !1, 23, 4);
         }, c.prototype.readDoubleLE = function(e, t) {
-            return t || M(e, 8, this.length), a.read(this, e, !0, 52, 8);
+            return t || C(e, 8, this.length), a.read(this, e, !0, 52, 8);
         }, c.prototype.readDoubleBE = function(e, t) {
-            return t || M(e, 8, this.length), a.read(this, e, !1, 52, 8);
+            return t || C(e, 8, this.length), a.read(this, e, !1, 52, 8);
         }, c.prototype.writeUIntLE = function(e, t, r, n) {
             (e = +e, t |= 0, r |= 0, n) || D(this, e, t, r, Math.pow(2, 8 * r) - 1, 0);
             var a = 1, i = 0;
@@ -1775,7 +1756,7 @@
             for (var a = 0; a < n && !(a + r >= t.length || a >= e.length); ++a) t[a + r] = e[a];
             return a;
         }
-    }).call(this, r(112));
+    }).call(this, r(114));
 }, function(e) {
     e.exports = JSON.parse('[["0","\\u0000",127,"€"],["8140","丂丄丅丆丏丒丗丟丠両丣並丩丮丯丱丳丵丷丼乀乁乂乄乆乊乑乕乗乚乛乢乣乤乥乧乨乪",5,"乲乴",9,"乿",6,"亇亊"],["8180","亐亖亗亙亜亝亞亣亪亯亰亱亴亶亷亸亹亼亽亾仈仌仏仐仒仚仛仜仠仢仦仧仩仭仮仯仱仴仸仹仺仼仾伀伂",6,"伋伌伒",4,"伜伝伡伣伨伩伬伭伮伱伳伵伷伹伻伾",4,"佄佅佇",5,"佒佔佖佡佢佦佨佪佫佭佮佱佲併佷佸佹佺佽侀侁侂侅來侇侊侌侎侐侒侓侕侖侘侙侚侜侞侟価侢"],["8240","侤侫侭侰",4,"侶",8,"俀俁係俆俇俈俉俋俌俍俒",4,"俙俛俠俢俤俥俧俫俬俰俲俴俵俶俷俹俻俼俽俿",11],["8280","個倎倐們倓倕倖倗倛倝倞倠倢倣値倧倫倯",10,"倻倽倿偀偁偂偄偅偆偉偊偋偍偐",4,"偖偗偘偙偛偝",7,"偦",5,"偭",8,"偸偹偺偼偽傁傂傃傄傆傇傉傊傋傌傎",20,"傤傦傪傫傭",4,"傳",6,"傼"],["8340","傽",17,"僐",5,"僗僘僙僛",10,"僨僩僪僫僯僰僱僲僴僶",4,"僼",9,"儈"],["8380","儉儊儌",5,"儓",13,"儢",28,"兂兇兊兌兎兏児兒兓兗兘兙兛兝",4,"兣兤兦內兩兪兯兲兺兾兿冃冄円冇冊冋冎冏冐冑冓冔冘冚冝冞冟冡冣冦",4,"冭冮冴冸冹冺冾冿凁凂凃凅凈凊凍凎凐凒",5],["8440","凘凙凚凜凞凟凢凣凥",5,"凬凮凱凲凴凷凾刄刅刉刋刌刏刐刓刔刕刜刞刟刡刢刣別刦刧刪刬刯刱刲刴刵刼刾剄",5,"剋剎剏剒剓剕剗剘"],["8480","剙剚剛剝剟剠剢剣剤剦剨剫剬剭剮剰剱剳",9,"剾劀劃",4,"劉",6,"劑劒劔",6,"劜劤劥劦劧劮劯劰労",9,"勀勁勂勄勅勆勈勊勌勍勎勏勑勓勔動勗務",5,"勠勡勢勣勥",10,"勱",7,"勻勼勽匁匂匃匄匇匉匊匋匌匎"],["8540","匑匒匓匔匘匛匜匞匟匢匤匥匧匨匩匫匬匭匯",9,"匼匽區卂卄卆卋卌卍卐協単卙卛卝卥卨卪卬卭卲卶卹卻卼卽卾厀厁厃厇厈厊厎厏"],["8580","厐",4,"厖厗厙厛厜厞厠厡厤厧厪厫厬厭厯",6,"厷厸厹厺厼厽厾叀參",4,"収叏叐叒叓叕叚叜叝叞叡叢叧叴叺叾叿吀吂吅吇吋吔吘吙吚吜吢吤吥吪吰吳吶吷吺吽吿呁呂呄呅呇呉呌呍呎呏呑呚呝",4,"呣呥呧呩",7,"呴呹呺呾呿咁咃咅咇咈咉咊咍咑咓咗咘咜咞咟咠咡"],["8640","咢咥咮咰咲咵咶咷咹咺咼咾哃哅哊哋哖哘哛哠",4,"哫哬哯哰哱哴",5,"哻哾唀唂唃唄唅唈唊",4,"唒唓唕",5,"唜唝唞唟唡唥唦"],["8680","唨唩唫唭唲唴唵唶唸唹唺唻唽啀啂啅啇啈啋",4,"啑啒啓啔啗",4,"啝啞啟啠啢啣啨啩啫啯",5,"啹啺啽啿喅喆喌喍喎喐喒喓喕喖喗喚喛喞喠",6,"喨",8,"喲喴営喸喺喼喿",4,"嗆嗇嗈嗊嗋嗎嗏嗐嗕嗗",4,"嗞嗠嗢嗧嗩嗭嗮嗰嗱嗴嗶嗸",4,"嗿嘂嘃嘄嘅"],["8740","嘆嘇嘊嘋嘍嘐",7,"嘙嘚嘜嘝嘠嘡嘢嘥嘦嘨嘩嘪嘫嘮嘯嘰嘳嘵嘷嘸嘺嘼嘽嘾噀",11,"噏",4,"噕噖噚噛噝",4],["8780","噣噥噦噧噭噮噯噰噲噳噴噵噷噸噹噺噽",7,"嚇",6,"嚐嚑嚒嚔",14,"嚤",10,"嚰",6,"嚸嚹嚺嚻嚽",12,"囋",8,"囕囖囘囙囜団囥",5,"囬囮囯囲図囶囷囸囻囼圀圁圂圅圇國",6],["8840","園",9,"圝圞圠圡圢圤圥圦圧圫圱圲圴",4,"圼圽圿坁坃坄坅坆坈坉坋坒",4,"坘坙坢坣坥坧坬坮坰坱坲坴坵坸坹坺坽坾坿垀"],["8880","垁垇垈垉垊垍",4,"垔",6,"垜垝垞垟垥垨垪垬垯垰垱垳垵垶垷垹",8,"埄",6,"埌埍埐埑埓埖埗埛埜埞埡埢埣埥",7,"埮埰埱埲埳埵埶執埻埼埾埿堁堃堄堅堈堉堊堌堎堏堐堒堓堔堖堗堘堚堛堜堝堟堢堣堥",4,"堫",4,"報堲堳場堶",7],["8940","堾",5,"塅",6,"塎塏塐塒塓塕塖塗塙",4,"塟",5,"塦",4,"塭",16,"塿墂墄墆墇墈墊墋墌"],["8980","墍",4,"墔",4,"墛墜墝墠",7,"墪",17,"墽墾墿壀壂壃壄壆",10,"壒壓壔壖",13,"壥",5,"壭壯壱売壴壵壷壸壺",7,"夃夅夆夈",4,"夎夐夑夒夓夗夘夛夝夞夠夡夢夣夦夨夬夰夲夳夵夶夻"],["8a40","夽夾夿奀奃奅奆奊奌奍奐奒奓奙奛",4,"奡奣奤奦",12,"奵奷奺奻奼奾奿妀妅妉妋妌妎妏妐妑妔妕妘妚妛妜妝妟妠妡妢妦"],["8a80","妧妬妭妰妱妳",5,"妺妼妽妿",6,"姇姈姉姌姍姎姏姕姖姙姛姞",4,"姤姦姧姩姪姫姭",11,"姺姼姽姾娀娂娊娋娍娎娏娐娒娔娕娖娗娙娚娛娝娞娡娢娤娦娧娨娪",6,"娳娵娷",4,"娽娾娿婁",4,"婇婈婋",9,"婖婗婘婙婛",5],["8b40","婡婣婤婥婦婨婩婫",8,"婸婹婻婼婽婾媀",17,"媓",6,"媜",13,"媫媬"],["8b80","媭",4,"媴媶媷媹",4,"媿嫀嫃",5,"嫊嫋嫍",4,"嫓嫕嫗嫙嫚嫛嫝嫞嫟嫢嫤嫥嫧嫨嫪嫬",4,"嫲",22,"嬊",11,"嬘",25,"嬳嬵嬶嬸",7,"孁",6],["8c40","孈",7,"孒孖孞孠孡孧孨孫孭孮孯孲孴孶孷學孹孻孼孾孿宂宆宊宍宎宐宑宒宔宖実宧宨宩宬宭宮宯宱宲宷宺宻宼寀寁寃寈寉寊寋寍寎寏"],["8c80","寑寔",8,"寠寢寣實寧審",4,"寯寱",6,"寽対尀専尃尅將專尋尌對導尐尒尓尗尙尛尞尟尠尡尣尦尨尩尪尫尭尮尯尰尲尳尵尶尷屃屄屆屇屌屍屒屓屔屖屗屘屚屛屜屝屟屢層屧",6,"屰屲",6,"屻屼屽屾岀岃",4,"岉岊岋岎岏岒岓岕岝",4,"岤",4],["8d40","岪岮岯岰岲岴岶岹岺岻岼岾峀峂峃峅",5,"峌",5,"峓",5,"峚",6,"峢峣峧峩峫峬峮峯峱",9,"峼",4],["8d80","崁崄崅崈",5,"崏",4,"崕崗崘崙崚崜崝崟",4,"崥崨崪崫崬崯",4,"崵",7,"崿",7,"嵈嵉嵍",10,"嵙嵚嵜嵞",10,"嵪嵭嵮嵰嵱嵲嵳嵵",12,"嶃",21,"嶚嶛嶜嶞嶟嶠"],["8e40","嶡",21,"嶸",12,"巆",6,"巎",12,"巜巟巠巣巤巪巬巭"],["8e80","巰巵巶巸",4,"巿帀帄帇帉帊帋帍帎帒帓帗帞",7,"帨",4,"帯帰帲",4,"帹帺帾帿幀幁幃幆",5,"幍",6,"幖",4,"幜幝幟幠幣",14,"幵幷幹幾庁庂広庅庈庉庌庍庎庒庘庛庝庡庢庣庤庨",4,"庮",4,"庴庺庻庼庽庿",6],["8f40","廆廇廈廋",5,"廔廕廗廘廙廚廜",11,"廩廫",8,"廵廸廹廻廼廽弅弆弇弉弌弍弎弐弒弔弖弙弚弜弝弞弡弢弣弤"],["8f80","弨弫弬弮弰弲",6,"弻弽弾弿彁",14,"彑彔彙彚彛彜彞彟彠彣彥彧彨彫彮彯彲彴彵彶彸彺彽彾彿徃徆徍徎徏徑従徔徖徚徛徝從徟徠徢",5,"復徫徬徯",5,"徶徸徹徺徻徾",4,"忇忈忊忋忎忓忔忕忚忛応忞忟忢忣忥忦忨忩忬忯忰忲忳忴忶忷忹忺忼怇"],["9040","怈怉怋怌怐怑怓怗怘怚怞怟怢怣怤怬怭怮怰",4,"怶",4,"怽怾恀恄",6,"恌恎恏恑恓恔恖恗恘恛恜恞恟恠恡恥恦恮恱恲恴恵恷恾悀"],["9080","悁悂悅悆悇悈悊悋悎悏悐悑悓悕悗悘悙悜悞悡悢悤悥悧悩悪悮悰悳悵悶悷悹悺悽",7,"惇惈惉惌",4,"惒惓惔惖惗惙惛惞惡",4,"惪惱惲惵惷惸惻",4,"愂愃愄愅愇愊愋愌愐",4,"愖愗愘愙愛愜愝愞愡愢愥愨愩愪愬",18,"慀",6],["9140","慇慉態慍慏慐慒慓慔慖",6,"慞慟慠慡慣慤慥慦慩",6,"慱慲慳慴慶慸",18,"憌憍憏",4,"憕"],["9180","憖",6,"憞",8,"憪憫憭",9,"憸",5,"憿懀懁懃",4,"應懌",4,"懓懕",16,"懧",13,"懶",8,"戀",5,"戇戉戓戔戙戜戝戞戠戣戦戧戨戩戫戭戯戰戱戲戵戶戸",4,"扂扄扅扆扊"],["9240","扏扐払扖扗扙扚扜",6,"扤扥扨扱扲扴扵扷扸扺扻扽抁抂抃抅抆抇抈抋",5,"抔抙抜抝択抣抦抧抩抪抭抮抯抰抲抳抴抶抷抸抺抾拀拁"],["9280","拃拋拏拑拕拝拞拠拡拤拪拫拰拲拵拸拹拺拻挀挃挄挅挆挊挋挌挍挏挐挒挓挔挕挗挘挙挜挦挧挩挬挭挮挰挱挳",5,"挻挼挾挿捀捁捄捇捈捊捑捒捓捔捖",7,"捠捤捥捦捨捪捫捬捯捰捲捳捴捵捸捹捼捽捾捿掁掃掄掅掆掋掍掑掓掔掕掗掙",6,"採掤掦掫掯掱掲掵掶掹掻掽掿揀"],["9340","揁揂揃揅揇揈揊揋揌揑揓揔揕揗",6,"揟揢揤",4,"揫揬揮揯揰揱揳揵揷揹揺揻揼揾搃搄搆",4,"損搎搑搒搕",5,"搝搟搢搣搤"],["9380","搥搧搨搩搫搮",5,"搵",4,"搻搼搾摀摂摃摉摋",6,"摓摕摖摗摙",4,"摟",7,"摨摪摫摬摮",9,"摻",6,"撃撆撈",8,"撓撔撗撘撚撛撜撝撟",4,"撥撦撧撨撪撫撯撱撲撳撴撶撹撻撽撾撿擁擃擄擆",6,"擏擑擓擔擕擖擙據"],["9440","擛擜擝擟擠擡擣擥擧",24,"攁",7,"攊",7,"攓",4,"攙",8],["9480","攢攣攤攦",4,"攬攭攰攱攲攳攷攺攼攽敀",4,"敆敇敊敋敍敎敐敒敓敔敗敘敚敜敟敠敡敤敥敧敨敩敪敭敮敯敱敳敵敶數",14,"斈斉斊斍斎斏斒斔斕斖斘斚斝斞斠斢斣斦斨斪斬斮斱",7,"斺斻斾斿旀旂旇旈旉旊旍旐旑旓旔旕旘",7,"旡旣旤旪旫"],["9540","旲旳旴旵旸旹旻",4,"昁昄昅昇昈昉昋昍昐昑昒昖昗昘昚昛昜昞昡昢昣昤昦昩昪昫昬昮昰昲昳昷",4,"昽昿晀時晄",6,"晍晎晐晑晘"],["9580","晙晛晜晝晞晠晢晣晥晧晩",4,"晱晲晳晵晸晹晻晼晽晿暀暁暃暅暆暈暉暊暋暍暎暏暐暒暓暔暕暘",4,"暞",8,"暩",4,"暯",4,"暵暶暷暸暺暻暼暽暿",25,"曚曞",7,"曧曨曪",5,"曱曵曶書曺曻曽朁朂會"],["9640","朄朅朆朇朌朎朏朑朒朓朖朘朙朚朜朞朠",5,"朧朩朮朰朲朳朶朷朸朹朻朼朾朿杁杄杅杇杊杋杍杒杔杕杗",4,"杝杢杣杤杦杧杫杬杮東杴杶"],["9680","杸杹杺杻杽枀枂枃枅枆枈枊枌枍枎枏枑枒枓枔枖枙枛枟枠枡枤枦枩枬枮枱枲枴枹",7,"柂柅",9,"柕柖柗柛柟柡柣柤柦柧柨柪柫柭柮柲柵",7,"柾栁栂栃栄栆栍栐栒栔栕栘",4,"栞栟栠栢",6,"栫",6,"栴栵栶栺栻栿桇桋桍桏桒桖",5],["9740","桜桝桞桟桪桬",7,"桵桸",8,"梂梄梇",7,"梐梑梒梔梕梖梘",9,"梣梤梥梩梪梫梬梮梱梲梴梶梷梸"],["9780","梹",6,"棁棃",5,"棊棌棎棏棐棑棓棔棖棗棙棛",4,"棡棢棤",9,"棯棲棳棴棶棷棸棻棽棾棿椀椂椃椄椆",4,"椌椏椑椓",11,"椡椢椣椥",7,"椮椯椱椲椳椵椶椷椸椺椻椼椾楀楁楃",16,"楕楖楘楙楛楜楟"],["9840","楡楢楤楥楧楨楩楪楬業楯楰楲",4,"楺楻楽楾楿榁榃榅榊榋榌榎",5,"榖榗榙榚榝",9,"榩榪榬榮榯榰榲榳榵榶榸榹榺榼榽"],["9880","榾榿槀槂",7,"構槍槏槑槒槓槕",5,"槜槝槞槡",11,"槮槯槰槱槳",9,"槾樀",9,"樋",11,"標",5,"樠樢",5,"権樫樬樭樮樰樲樳樴樶",6,"樿",4,"橅橆橈",7,"橑",6,"橚"],["9940","橜",4,"橢橣橤橦",10,"橲",6,"橺橻橽橾橿檁檂檃檅",8,"檏檒",4,"檘",7,"檡",5],["9980","檧檨檪檭",114,"欥欦欨",6],["9a40","欯欰欱欳欴欵欶欸欻欼欽欿歀歁歂歄歅歈歊歋歍",11,"歚",7,"歨歩歫",13,"歺歽歾歿殀殅殈"],["9a80","殌殎殏殐殑殔殕殗殘殙殜",4,"殢",7,"殫",7,"殶殸",6,"毀毃毄毆",4,"毌毎毐毑毘毚毜",4,"毢",7,"毬毭毮毰毱毲毴毶毷毸毺毻毼毾",6,"氈",4,"氎氒気氜氝氞氠氣氥氫氬氭氱氳氶氷氹氺氻氼氾氿汃汄汅汈汋",4,"汑汒汓汖汘"],["9b40","汙汚汢汣汥汦汧汫",4,"汱汳汵汷汸決汻汼汿沀沄沇沊沋沍沎沑沒沕沖沗沘沚沜沝沞沠沢沨沬沯沰沴沵沶沷沺泀況泂泃泆泇泈泋泍泎泏泑泒泘"],["9b80","泙泚泜泝泟泤泦泧泩泬泭泲泴泹泿洀洂洃洅洆洈洉洊洍洏洐洑洓洔洕洖洘洜洝洟",5,"洦洨洩洬洭洯洰洴洶洷洸洺洿浀浂浄浉浌浐浕浖浗浘浛浝浟浡浢浤浥浧浨浫浬浭浰浱浲浳浵浶浹浺浻浽",4,"涃涄涆涇涊涋涍涏涐涒涖",4,"涜涢涥涬涭涰涱涳涴涶涷涹",5,"淁淂淃淈淉淊"],["9c40","淍淎淏淐淒淓淔淕淗淚淛淜淟淢淣淥淧淨淩淪淭淯淰淲淴淵淶淸淺淽",7,"渆渇済渉渋渏渒渓渕渘渙減渜渞渟渢渦渧渨渪測渮渰渱渳渵"],["9c80","渶渷渹渻",7,"湅",7,"湏湐湑湒湕湗湙湚湜湝湞湠",10,"湬湭湯",14,"満溁溂溄溇溈溊",4,"溑",6,"溙溚溛溝溞溠溡溣溤溦溨溩溫溬溭溮溰溳溵溸溹溼溾溿滀滃滄滅滆滈滉滊滌滍滎滐滒滖滘滙滛滜滝滣滧滪",5],["9d40","滰滱滲滳滵滶滷滸滺",7,"漃漄漅漇漈漊",4,"漐漑漒漖",9,"漡漢漣漥漦漧漨漬漮漰漲漴漵漷",6,"漿潀潁潂"],["9d80","潃潄潅潈潉潊潌潎",9,"潙潚潛潝潟潠潡潣潤潥潧",5,"潯潰潱潳潵潶潷潹潻潽",6,"澅澆澇澊澋澏",12,"澝澞澟澠澢",4,"澨",10,"澴澵澷澸澺",5,"濁濃",5,"濊",6,"濓",10,"濟濢濣濤濥"],["9e40","濦",7,"濰",32,"瀒",7,"瀜",6,"瀤",6],["9e80","瀫",9,"瀶瀷瀸瀺",17,"灍灎灐",13,"灟",11,"灮灱灲灳灴灷灹灺灻災炁炂炃炄炆炇炈炋炌炍炏炐炑炓炗炘炚炛炞",12,"炰炲炴炵炶為炾炿烄烅烆烇烉烋",12,"烚"],["9f40","烜烝烞烠烡烢烣烥烪烮烰",6,"烸烺烻烼烾",10,"焋",4,"焑焒焔焗焛",10,"焧",7,"焲焳焴"],["9f80","焵焷",13,"煆煇煈煉煋煍煏",12,"煝煟",4,"煥煩",4,"煯煰煱煴煵煶煷煹煻煼煾",5,"熅",4,"熋熌熍熎熐熑熒熓熕熖熗熚",4,"熡",6,"熩熪熫熭",5,"熴熶熷熸熺",8,"燄",9,"燏",4],["a040","燖",9,"燡燢燣燤燦燨",5,"燯",9,"燺",11,"爇",19],["a080","爛爜爞",9,"爩爫爭爮爯爲爳爴爺爼爾牀",6,"牉牊牋牎牏牐牑牓牔牕牗牘牚牜牞牠牣牤牥牨牪牫牬牭牰牱牳牴牶牷牸牻牼牽犂犃犅",4,"犌犎犐犑犓",11,"犠",11,"犮犱犲犳犵犺",6,"狅狆狇狉狊狋狌狏狑狓狔狕狖狘狚狛"],["a1a1","　、。·ˉˇ¨〃々—～‖…‘’“”〔〕〈",7,"〖〗【】±×÷∶∧∨∑∏∪∩∈∷√⊥∥∠⌒⊙∫∮≡≌≈∽∝≠≮≯≤≥∞∵∴♂♀°′″℃＄¤￠￡‰§№☆★○●◎◇◆□■△▲※→←↑↓〓"],["a2a1","ⅰ",9],["a2b1","⒈",19,"⑴",19,"①",9],["a2e5","㈠",9],["a2f1","Ⅰ",11],["a3a1","！＂＃￥％",88,"￣"],["a4a1","ぁ",82],["a5a1","ァ",85],["a6a1","Α",16,"Σ",6],["a6c1","α",16,"σ",6],["a6e0","︵︶︹︺︿﹀︽︾﹁﹂﹃﹄"],["a6ee","︻︼︷︸︱"],["a6f4","︳︴"],["a7a1","А",5,"ЁЖ",25],["a7d1","а",5,"ёж",25],["a840","ˊˋ˙–―‥‵℅℉↖↗↘↙∕∟∣≒≦≧⊿═",35,"▁",6],["a880","█",7,"▓▔▕▼▽◢◣◤◥☉⊕〒〝〞"],["a8a1","āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜüêɑ"],["a8bd","ńň"],["a8c0","ɡ"],["a8c5","ㄅ",36],["a940","〡",8,"㊣㎎㎏㎜㎝㎞㎡㏄㏎㏑㏒㏕︰￢￤"],["a959","℡㈱"],["a95c","‐"],["a960","ー゛゜ヽヾ〆ゝゞ﹉",9,"﹔﹕﹖﹗﹙",8],["a980","﹢",4,"﹨﹩﹪﹫"],["a996","〇"],["a9a4","─",75],["aa40","狜狝狟狢",5,"狪狫狵狶狹狽狾狿猀猂猄",5,"猋猌猍猏猐猑猒猔猘猙猚猟猠猣猤猦猧猨猭猯猰猲猳猵猶猺猻猼猽獀",8],["aa80","獉獊獋獌獎獏獑獓獔獕獖獘",7,"獡",10,"獮獰獱"],["ab40","獲",11,"獿",4,"玅玆玈玊玌玍玏玐玒玓玔玕玗玘玙玚玜玝玞玠玡玣",5,"玪玬玭玱玴玵玶玸玹玼玽玾玿珁珃",4],["ab80","珋珌珎珒",6,"珚珛珜珝珟珡珢珣珤珦珨珪珫珬珮珯珰珱珳",4],["ac40","珸",10,"琄琇琈琋琌琍琎琑",8,"琜",5,"琣琤琧琩琫琭琯琱琲琷",4,"琽琾琿瑀瑂",11],["ac80","瑎",6,"瑖瑘瑝瑠",12,"瑮瑯瑱",4,"瑸瑹瑺"],["ad40","瑻瑼瑽瑿璂璄璅璆璈璉璊璌璍璏璑",10,"璝璟",7,"璪",15,"璻",12],["ad80","瓈",9,"瓓",8,"瓝瓟瓡瓥瓧",6,"瓰瓱瓲"],["ae40","瓳瓵瓸",6,"甀甁甂甃甅",7,"甎甐甒甔甕甖甗甛甝甞甠",4,"甦甧甪甮甴甶甹甼甽甿畁畂畃畄畆畇畉畊畍畐畑畒畓畕畖畗畘"],["ae80","畝",7,"畧畨畩畫",6,"畳畵當畷畺",4,"疀疁疂疄疅疇"],["af40","疈疉疊疌疍疎疐疓疕疘疛疜疞疢疦",4,"疭疶疷疺疻疿痀痁痆痋痌痎痏痐痑痓痗痙痚痜痝痟痠痡痥痩痬痭痮痯痲痳痵痶痷痸痺痻痽痾瘂瘄瘆瘇"],["af80","瘈瘉瘋瘍瘎瘏瘑瘒瘓瘔瘖瘚瘜瘝瘞瘡瘣瘧瘨瘬瘮瘯瘱瘲瘶瘷瘹瘺瘻瘽癁療癄"],["b040","癅",6,"癎",5,"癕癗",4,"癝癟癠癡癢癤",6,"癬癭癮癰",7,"癹発發癿皀皁皃皅皉皊皌皍皏皐皒皔皕皗皘皚皛"],["b080","皜",7,"皥",8,"皯皰皳皵",9,"盀盁盃啊阿埃挨哎唉哀皑癌蔼矮艾碍爱隘鞍氨安俺按暗岸胺案肮昂盎凹敖熬翱袄傲奥懊澳芭捌扒叭吧笆八疤巴拔跋靶把耙坝霸罢爸白柏百摆佰败拜稗斑班搬扳般颁板版扮拌伴瓣半办绊邦帮梆榜膀绑棒磅蚌镑傍谤苞胞包褒剥"],["b140","盄盇盉盋盌盓盕盙盚盜盝盞盠",4,"盦",7,"盰盳盵盶盷盺盻盽盿眀眂眃眅眆眊県眎",10,"眛眜眝眞眡眣眤眥眧眪眫"],["b180","眬眮眰",4,"眹眻眽眾眿睂睄睅睆睈",7,"睒",7,"睜薄雹保堡饱宝抱报暴豹鲍爆杯碑悲卑北辈背贝钡倍狈备惫焙被奔苯本笨崩绷甭泵蹦迸逼鼻比鄙笔彼碧蓖蔽毕毙毖币庇痹闭敝弊必辟壁臂避陛鞭边编贬扁便变卞辨辩辫遍标彪膘表鳖憋别瘪彬斌濒滨宾摈兵冰柄丙秉饼炳"],["b240","睝睞睟睠睤睧睩睪睭",11,"睺睻睼瞁瞂瞃瞆",5,"瞏瞐瞓",11,"瞡瞣瞤瞦瞨瞫瞭瞮瞯瞱瞲瞴瞶",4],["b280","瞼瞾矀",12,"矎",8,"矘矙矚矝",4,"矤病并玻菠播拨钵波博勃搏铂箔伯帛舶脖膊渤泊驳捕卜哺补埠不布步簿部怖擦猜裁材才财睬踩采彩菜蔡餐参蚕残惭惨灿苍舱仓沧藏操糙槽曹草厕策侧册测层蹭插叉茬茶查碴搽察岔差诧拆柴豺搀掺蝉馋谗缠铲产阐颤昌猖"],["b340","矦矨矪矯矰矱矲矴矵矷矹矺矻矼砃",5,"砊砋砎砏砐砓砕砙砛砞砠砡砢砤砨砪砫砮砯砱砲砳砵砶砽砿硁硂硃硄硆硈硉硊硋硍硏硑硓硔硘硙硚"],["b380","硛硜硞",11,"硯",7,"硸硹硺硻硽",6,"场尝常长偿肠厂敞畅唱倡超抄钞朝嘲潮巢吵炒车扯撤掣彻澈郴臣辰尘晨忱沉陈趁衬撑称城橙成呈乘程惩澄诚承逞骋秤吃痴持匙池迟弛驰耻齿侈尺赤翅斥炽充冲虫崇宠抽酬畴踌稠愁筹仇绸瞅丑臭初出橱厨躇锄雏滁除楚"],["b440","碄碅碆碈碊碋碏碐碒碔碕碖碙碝碞碠碢碤碦碨",7,"碵碶碷碸確碻碼碽碿磀磂磃磄磆磇磈磌磍磎磏磑磒磓磖磗磘磚",9],["b480","磤磥磦磧磩磪磫磭",4,"磳磵磶磸磹磻",5,"礂礃礄礆",6,"础储矗搐触处揣川穿椽传船喘串疮窗幢床闯创吹炊捶锤垂春椿醇唇淳纯蠢戳绰疵茨磁雌辞慈瓷词此刺赐次聪葱囱匆从丛凑粗醋簇促蹿篡窜摧崔催脆瘁粹淬翠村存寸磋撮搓措挫错搭达答瘩打大呆歹傣戴带殆代贷袋待逮"],["b540","礍",5,"礔",9,"礟",4,"礥",14,"礵",4,"礽礿祂祃祄祅祇祊",8,"祔祕祘祙祡祣"],["b580","祤祦祩祪祫祬祮祰",6,"祹祻",4,"禂禃禆禇禈禉禋禌禍禎禐禑禒怠耽担丹单郸掸胆旦氮但惮淡诞弹蛋当挡党荡档刀捣蹈倒岛祷导到稻悼道盗德得的蹬灯登等瞪凳邓堤低滴迪敌笛狄涤翟嫡抵底地蒂第帝弟递缔颠掂滇碘点典靛垫电佃甸店惦奠淀殿碉叼雕凋刁掉吊钓调跌爹碟蝶迭谍叠"],["b640","禓",6,"禛",11,"禨",10,"禴",4,"禼禿秂秄秅秇秈秊秌秎秏秐秓秔秖秗秙",5,"秠秡秢秥秨秪"],["b680","秬秮秱",6,"秹秺秼秾秿稁稄稅稇稈稉稊稌稏",4,"稕稖稘稙稛稜丁盯叮钉顶鼎锭定订丢东冬董懂动栋侗恫冻洞兜抖斗陡豆逗痘都督毒犊独读堵睹赌杜镀肚度渡妒端短锻段断缎堆兑队对墩吨蹲敦顿囤钝盾遁掇哆多夺垛躲朵跺舵剁惰堕蛾峨鹅俄额讹娥恶厄扼遏鄂饿恩而儿耳尔饵洱二"],["b740","稝稟稡稢稤",14,"稴稵稶稸稺稾穀",5,"穇",9,"穒",4,"穘",16],["b780","穩",6,"穱穲穳穵穻穼穽穾窂窅窇窉窊窋窌窎窏窐窓窔窙窚窛窞窡窢贰发罚筏伐乏阀法珐藩帆番翻樊矾钒繁凡烦反返范贩犯饭泛坊芳方肪房防妨仿访纺放菲非啡飞肥匪诽吠肺废沸费芬酚吩氛分纷坟焚汾粉奋份忿愤粪丰封枫蜂峰锋风疯烽逢冯缝讽奉凤佛否夫敷肤孵扶拂辐幅氟符伏俘服"],["b840","窣窤窧窩窪窫窮",4,"窴",10,"竀",10,"竌",9,"竗竘竚竛竜竝竡竢竤竧",5,"竮竰竱竲竳"],["b880","竴",4,"竻竼竾笀笁笂笅笇笉笌笍笎笐笒笓笖笗笘笚笜笝笟笡笢笣笧笩笭浮涪福袱弗甫抚辅俯釜斧脯腑府腐赴副覆赋复傅付阜父腹负富讣附妇缚咐噶嘎该改概钙盖溉干甘杆柑竿肝赶感秆敢赣冈刚钢缸肛纲岗港杠篙皋高膏羔糕搞镐稿告哥歌搁戈鸽胳疙割革葛格蛤阁隔铬个各给根跟耕更庚羹"],["b940","笯笰笲笴笵笶笷笹笻笽笿",5,"筆筈筊筍筎筓筕筗筙筜筞筟筡筣",10,"筯筰筳筴筶筸筺筼筽筿箁箂箃箄箆",6,"箎箏"],["b980","箑箒箓箖箘箙箚箛箞箟箠箣箤箥箮箯箰箲箳箵箶箷箹",7,"篂篃範埂耿梗工攻功恭龚供躬公宫弓巩汞拱贡共钩勾沟苟狗垢构购够辜菇咕箍估沽孤姑鼓古蛊骨谷股故顾固雇刮瓜剐寡挂褂乖拐怪棺关官冠观管馆罐惯灌贯光广逛瑰规圭硅归龟闺轨鬼诡癸桂柜跪贵刽辊滚棍锅郭国果裹过哈"],["ba40","篅篈築篊篋篍篎篏篐篒篔",4,"篛篜篞篟篠篢篣篤篧篨篩篫篬篭篯篰篲",4,"篸篹篺篻篽篿",7,"簈簉簊簍簎簐",5,"簗簘簙"],["ba80","簚",4,"簠",5,"簨簩簫",12,"簹",5,"籂骸孩海氦亥害骇酣憨邯韩含涵寒函喊罕翰撼捍旱憾悍焊汗汉夯杭航壕嚎豪毫郝好耗号浩呵喝荷菏核禾和何合盒貉阂河涸赫褐鹤贺嘿黑痕很狠恨哼亨横衡恒轰哄烘虹鸿洪宏弘红喉侯猴吼厚候后呼乎忽瑚壶葫胡蝴狐糊湖"],["bb40","籃",9,"籎",36,"籵",5,"籾",9],["bb80","粈粊",6,"粓粔粖粙粚粛粠粡粣粦粧粨粩粫粬粭粯粰粴",4,"粺粻弧虎唬护互沪户花哗华猾滑画划化话槐徊怀淮坏欢环桓还缓换患唤痪豢焕涣宦幻荒慌黄磺蝗簧皇凰惶煌晃幌恍谎灰挥辉徽恢蛔回毁悔慧卉惠晦贿秽会烩汇讳诲绘荤昏婚魂浑混豁活伙火获或惑霍货祸击圾基机畸稽积箕"],["bc40","粿糀糂糃糄糆糉糋糎",6,"糘糚糛糝糞糡",6,"糩",5,"糰",7,"糹糺糼",13,"紋",5],["bc80","紑",14,"紡紣紤紥紦紨紩紪紬紭紮細",6,"肌饥迹激讥鸡姬绩缉吉极棘辑籍集及急疾汲即嫉级挤几脊己蓟技冀季伎祭剂悸济寄寂计记既忌际妓继纪嘉枷夹佳家加荚颊贾甲钾假稼价架驾嫁歼监坚尖笺间煎兼肩艰奸缄茧检柬碱硷拣捡简俭剪减荐槛鉴践贱见键箭件"],["bd40","紷",54,"絯",7],["bd80","絸",32,"健舰剑饯渐溅涧建僵姜将浆江疆蒋桨奖讲匠酱降蕉椒礁焦胶交郊浇骄娇嚼搅铰矫侥脚狡角饺缴绞剿教酵轿较叫窖揭接皆秸街阶截劫节桔杰捷睫竭洁结解姐戒藉芥界借介疥诫届巾筋斤金今津襟紧锦仅谨进靳晋禁近烬浸"],["be40","継",12,"綧",6,"綯",42],["be80","線",32,"尽劲荆兢茎睛晶鲸京惊精粳经井警景颈静境敬镜径痉靖竟竞净炯窘揪究纠玖韭久灸九酒厩救旧臼舅咎就疚鞠拘狙疽居驹菊局咀矩举沮聚拒据巨具距踞锯俱句惧炬剧捐鹃娟倦眷卷绢撅攫抉掘倔爵觉决诀绝均菌钧军君峻"],["bf40","緻",62],["bf80","縺縼",4,"繂",4,"繈",21,"俊竣浚郡骏喀咖卡咯开揩楷凯慨刊堪勘坎砍看康慷糠扛抗亢炕考拷烤靠坷苛柯棵磕颗科壳咳可渴克刻客课肯啃垦恳坑吭空恐孔控抠口扣寇枯哭窟苦酷库裤夸垮挎跨胯块筷侩快宽款匡筐狂框矿眶旷况亏盔岿窥葵奎魁傀"],["c040","繞",35,"纃",23,"纜纝纞"],["c080","纮纴纻纼绖绤绬绹缊缐缞缷缹缻",6,"罃罆",9,"罒罓馈愧溃坤昆捆困括扩廓阔垃拉喇蜡腊辣啦莱来赖蓝婪栏拦篮阑兰澜谰揽览懒缆烂滥琅榔狼廊郎朗浪捞劳牢老佬姥酪烙涝勒乐雷镭蕾磊累儡垒擂肋类泪棱楞冷厘梨犁黎篱狸离漓理李里鲤礼莉荔吏栗丽厉励砾历利傈例俐"],["c140","罖罙罛罜罝罞罠罣",4,"罫罬罭罯罰罳罵罶罷罸罺罻罼罽罿羀羂",7,"羋羍羏",4,"羕",4,"羛羜羠羢羣羥羦羨",6,"羱"],["c180","羳",4,"羺羻羾翀翂翃翄翆翇翈翉翋翍翏",4,"翖翗翙",5,"翢翣痢立粒沥隶力璃哩俩联莲连镰廉怜涟帘敛脸链恋炼练粮凉梁粱良两辆量晾亮谅撩聊僚疗燎寥辽潦了撂镣廖料列裂烈劣猎琳林磷霖临邻鳞淋凛赁吝拎玲菱零龄铃伶羚凌灵陵岭领另令溜琉榴硫馏留刘瘤流柳六龙聋咙笼窿"],["c240","翤翧翨翪翫翬翭翯翲翴",6,"翽翾翿耂耇耈耉耊耎耏耑耓耚耛耝耞耟耡耣耤耫",5,"耲耴耹耺耼耾聀聁聄聅聇聈聉聎聏聐聑聓聕聖聗"],["c280","聙聛",13,"聫",5,"聲",11,"隆垄拢陇楼娄搂篓漏陋芦卢颅庐炉掳卤虏鲁麓碌露路赂鹿潞禄录陆戮驴吕铝侣旅履屡缕虑氯律率滤绿峦挛孪滦卵乱掠略抡轮伦仑沦纶论萝螺罗逻锣箩骡裸落洛骆络妈麻玛码蚂马骂嘛吗埋买麦卖迈脉瞒馒蛮满蔓曼慢漫"],["c340","聾肁肂肅肈肊肍",5,"肔肕肗肙肞肣肦肧肨肬肰肳肵肶肸肹肻胅胇",4,"胏",6,"胘胟胠胢胣胦胮胵胷胹胻胾胿脀脁脃脄脅脇脈脋"],["c380","脌脕脗脙脛脜脝脟",12,"脭脮脰脳脴脵脷脹",4,"脿谩芒茫盲氓忙莽猫茅锚毛矛铆卯茂冒帽貌贸么玫枚梅酶霉煤没眉媒镁每美昧寐妹媚门闷们萌蒙檬盟锰猛梦孟眯醚靡糜迷谜弥米秘觅泌蜜密幂棉眠绵冕免勉娩缅面苗描瞄藐秒渺庙妙蔑灭民抿皿敏悯闽明螟鸣铭名命谬摸"],["c440","腀",5,"腇腉腍腎腏腒腖腗腘腛",4,"腡腢腣腤腦腨腪腫腬腯腲腳腵腶腷腸膁膃",4,"膉膋膌膍膎膐膒",5,"膙膚膞",4,"膤膥"],["c480","膧膩膫",7,"膴",5,"膼膽膾膿臄臅臇臈臉臋臍",6,"摹蘑模膜磨摩魔抹末莫墨默沫漠寞陌谋牟某拇牡亩姆母墓暮幕募慕木目睦牧穆拿哪呐钠那娜纳氖乃奶耐奈南男难囊挠脑恼闹淖呢馁内嫩能妮霓倪泥尼拟你匿腻逆溺蔫拈年碾撵捻念娘酿鸟尿捏聂孽啮镊镍涅您柠狞凝宁"],["c540","臔",14,"臤臥臦臨臩臫臮",4,"臵",5,"臽臿舃與",4,"舎舏舑舓舕",5,"舝舠舤舥舦舧舩舮舲舺舼舽舿"],["c580","艀艁艂艃艅艆艈艊艌艍艎艐",7,"艙艛艜艝艞艠",7,"艩拧泞牛扭钮纽脓浓农弄奴努怒女暖虐疟挪懦糯诺哦欧鸥殴藕呕偶沤啪趴爬帕怕琶拍排牌徘湃派攀潘盘磐盼畔判叛乓庞旁耪胖抛咆刨炮袍跑泡呸胚培裴赔陪配佩沛喷盆砰抨烹澎彭蓬棚硼篷膨朋鹏捧碰坯砒霹批披劈琵毗"],["c640","艪艫艬艭艱艵艶艷艸艻艼芀芁芃芅芆芇芉芌芐芓芔芕芖芚芛芞芠芢芣芧芲芵芶芺芻芼芿苀苂苃苅苆苉苐苖苙苚苝苢苧苨苩苪苬苭苮苰苲苳苵苶苸"],["c680","苺苼",4,"茊茋茍茐茒茓茖茘茙茝",9,"茩茪茮茰茲茷茻茽啤脾疲皮匹痞僻屁譬篇偏片骗飘漂瓢票撇瞥拼频贫品聘乒坪苹萍平凭瓶评屏坡泼颇婆破魄迫粕剖扑铺仆莆葡菩蒲埔朴圃普浦谱曝瀑期欺栖戚妻七凄漆柒沏其棋奇歧畦崎脐齐旗祈祁骑起岂乞企启契砌器气迄弃汽泣讫掐"],["c740","茾茿荁荂荄荅荈荊",4,"荓荕",4,"荝荢荰",6,"荹荺荾",6,"莇莈莊莋莌莍莏莐莑莔莕莖莗莙莚莝莟莡",6,"莬莭莮"],["c780","莯莵莻莾莿菂菃菄菆菈菉菋菍菎菐菑菒菓菕菗菙菚菛菞菢菣菤菦菧菨菫菬菭恰洽牵扦钎铅千迁签仟谦乾黔钱钳前潜遣浅谴堑嵌欠歉枪呛腔羌墙蔷强抢橇锹敲悄桥瞧乔侨巧鞘撬翘峭俏窍切茄且怯窃钦侵亲秦琴勤芹擒禽寝沁青轻氢倾卿清擎晴氰情顷请庆琼穷秋丘邱球求囚酋泅趋区蛆曲躯屈驱渠"],["c840","菮華菳",4,"菺菻菼菾菿萀萂萅萇萈萉萊萐萒",5,"萙萚萛萞",5,"萩",7,"萲",5,"萹萺萻萾",7,"葇葈葉"],["c880","葊",6,"葒",4,"葘葝葞葟葠葢葤",4,"葪葮葯葰葲葴葷葹葻葼取娶龋趣去圈颧权醛泉全痊拳犬券劝缺炔瘸却鹊榷确雀裙群然燃冉染瓤壤攘嚷让饶扰绕惹热壬仁人忍韧任认刃妊纫扔仍日戎茸蓉荣融熔溶容绒冗揉柔肉茹蠕儒孺如辱乳汝入褥软阮蕊瑞锐闰润若弱撒洒萨腮鳃塞赛三叁"],["c940","葽",4,"蒃蒄蒅蒆蒊蒍蒏",7,"蒘蒚蒛蒝蒞蒟蒠蒢",12,"蒰蒱蒳蒵蒶蒷蒻蒼蒾蓀蓂蓃蓅蓆蓇蓈蓋蓌蓎蓏蓒蓔蓕蓗"],["c980","蓘",4,"蓞蓡蓢蓤蓧",4,"蓭蓮蓯蓱",10,"蓽蓾蔀蔁蔂伞散桑嗓丧搔骚扫嫂瑟色涩森僧莎砂杀刹沙纱傻啥煞筛晒珊苫杉山删煽衫闪陕擅赡膳善汕扇缮墒伤商赏晌上尚裳梢捎稍烧芍勺韶少哨邵绍奢赊蛇舌舍赦摄射慑涉社设砷申呻伸身深娠绅神沈审婶甚肾慎渗声生甥牲升绳"],["ca40","蔃",8,"蔍蔎蔏蔐蔒蔔蔕蔖蔘蔙蔛蔜蔝蔞蔠蔢",8,"蔭",9,"蔾",4,"蕄蕅蕆蕇蕋",10],["ca80","蕗蕘蕚蕛蕜蕝蕟",4,"蕥蕦蕧蕩",8,"蕳蕵蕶蕷蕸蕼蕽蕿薀薁省盛剩胜圣师失狮施湿诗尸虱十石拾时什食蚀实识史矢使屎驶始式示士世柿事拭誓逝势是嗜噬适仕侍释饰氏市恃室视试收手首守寿授售受瘦兽蔬枢梳殊抒输叔舒淑疏书赎孰熟薯暑曙署蜀黍鼠属术述树束戍竖墅庶数漱"],["cb40","薂薃薆薈",6,"薐",10,"薝",6,"薥薦薧薩薫薬薭薱",5,"薸薺",6,"藂",6,"藊",4,"藑藒"],["cb80","藔藖",5,"藝",6,"藥藦藧藨藪",14,"恕刷耍摔衰甩帅栓拴霜双爽谁水睡税吮瞬顺舜说硕朔烁斯撕嘶思私司丝死肆寺嗣四伺似饲巳松耸怂颂送宋讼诵搜艘擞嗽苏酥俗素速粟僳塑溯宿诉肃酸蒜算虽隋随绥髓碎岁穗遂隧祟孙损笋蓑梭唆缩琐索锁所塌他它她塔"],["cc40","藹藺藼藽藾蘀",4,"蘆",10,"蘒蘓蘔蘕蘗",15,"蘨蘪",13,"蘹蘺蘻蘽蘾蘿虀"],["cc80","虁",11,"虒虓處",4,"虛虜虝號虠虡虣",7,"獭挞蹋踏胎苔抬台泰酞太态汰坍摊贪瘫滩坛檀痰潭谭谈坦毯袒碳探叹炭汤塘搪堂棠膛唐糖倘躺淌趟烫掏涛滔绦萄桃逃淘陶讨套特藤腾疼誊梯剔踢锑提题蹄啼体替嚏惕涕剃屉天添填田甜恬舔腆挑条迢眺跳贴铁帖厅听烃"],["cd40","虭虯虰虲",6,"蚃",6,"蚎",4,"蚔蚖",5,"蚞",4,"蚥蚦蚫蚭蚮蚲蚳蚷蚸蚹蚻",4,"蛁蛂蛃蛅蛈蛌蛍蛒蛓蛕蛖蛗蛚蛜"],["cd80","蛝蛠蛡蛢蛣蛥蛦蛧蛨蛪蛫蛬蛯蛵蛶蛷蛺蛻蛼蛽蛿蜁蜄蜅蜆蜋蜌蜎蜏蜐蜑蜔蜖汀廷停亭庭挺艇通桐酮瞳同铜彤童桶捅筒统痛偷投头透凸秃突图徒途涂屠土吐兔湍团推颓腿蜕褪退吞屯臀拖托脱鸵陀驮驼椭妥拓唾挖哇蛙洼娃瓦袜歪外豌弯湾玩顽丸烷完碗挽晚皖惋宛婉万腕汪王亡枉网往旺望忘妄威"],["ce40","蜙蜛蜝蜟蜠蜤蜦蜧蜨蜪蜫蜬蜭蜯蜰蜲蜳蜵蜶蜸蜹蜺蜼蜽蝀",6,"蝊蝋蝍蝏蝐蝑蝒蝔蝕蝖蝘蝚",5,"蝡蝢蝦",7,"蝯蝱蝲蝳蝵"],["ce80","蝷蝸蝹蝺蝿螀螁螄螆螇螉螊螌螎",4,"螔螕螖螘",6,"螠",4,"巍微危韦违桅围唯惟为潍维苇萎委伟伪尾纬未蔚味畏胃喂魏位渭谓尉慰卫瘟温蚊文闻纹吻稳紊问嗡翁瓮挝蜗涡窝我斡卧握沃巫呜钨乌污诬屋无芜梧吾吴毋武五捂午舞伍侮坞戊雾晤物勿务悟误昔熙析西硒矽晰嘻吸锡牺"],["cf40","螥螦螧螩螪螮螰螱螲螴螶螷螸螹螻螼螾螿蟁",4,"蟇蟈蟉蟌",4,"蟔",6,"蟜蟝蟞蟟蟡蟢蟣蟤蟦蟧蟨蟩蟫蟬蟭蟯",9],["cf80","蟺蟻蟼蟽蟿蠀蠁蠂蠄",5,"蠋",7,"蠔蠗蠘蠙蠚蠜",4,"蠣稀息希悉膝夕惜熄烯溪汐犀檄袭席习媳喜铣洗系隙戏细瞎虾匣霞辖暇峡侠狭下厦夏吓掀锨先仙鲜纤咸贤衔舷闲涎弦嫌显险现献县腺馅羡宪陷限线相厢镶香箱襄湘乡翔祥详想响享项巷橡像向象萧硝霄削哮嚣销消宵淆晓"],["d040","蠤",13,"蠳",5,"蠺蠻蠽蠾蠿衁衂衃衆",5,"衎",5,"衕衖衘衚",6,"衦衧衪衭衯衱衳衴衵衶衸衹衺"],["d080","衻衼袀袃袆袇袉袊袌袎袏袐袑袓袔袕袗",4,"袝",4,"袣袥",5,"小孝校肖啸笑效楔些歇蝎鞋协挟携邪斜胁谐写械卸蟹懈泄泻谢屑薪芯锌欣辛新忻心信衅星腥猩惺兴刑型形邢行醒幸杏性姓兄凶胸匈汹雄熊休修羞朽嗅锈秀袖绣墟戌需虚嘘须徐许蓄酗叙旭序畜恤絮婿绪续轩喧宣悬旋玄"],["d140","袬袮袯袰袲",4,"袸袹袺袻袽袾袿裀裃裄裇裈裊裋裌裍裏裐裑裓裖裗裚",4,"裠裡裦裧裩",6,"裲裵裶裷裺裻製裿褀褁褃",5],["d180","褉褋",4,"褑褔",4,"褜",4,"褢褣褤褦褧褨褩褬褭褮褯褱褲褳褵褷选癣眩绚靴薛学穴雪血勋熏循旬询寻驯巡殉汛训讯逊迅压押鸦鸭呀丫芽牙蚜崖衙涯雅哑亚讶焉咽阉烟淹盐严研蜒岩延言颜阎炎沿奄掩眼衍演艳堰燕厌砚雁唁彦焰宴谚验殃央鸯秧杨扬佯疡羊洋阳氧仰痒养样漾邀腰妖瑶"],["d240","褸",8,"襂襃襅",24,"襠",5,"襧",19,"襼"],["d280","襽襾覀覂覄覅覇",26,"摇尧遥窑谣姚咬舀药要耀椰噎耶爷野冶也页掖业叶曳腋夜液一壹医揖铱依伊衣颐夷遗移仪胰疑沂宜姨彝椅蚁倚已乙矣以艺抑易邑屹亿役臆逸肄疫亦裔意毅忆义益溢诣议谊译异翼翌绎茵荫因殷音阴姻吟银淫寅饮尹引隐"],["d340","覢",30,"觃觍觓觔觕觗觘觙觛觝觟觠觡觢觤觧觨觩觪觬觭觮觰觱觲觴",6],["d380","觻",4,"訁",5,"計",21,"印英樱婴鹰应缨莹萤营荧蝇迎赢盈影颖硬映哟拥佣臃痈庸雍踊蛹咏泳涌永恿勇用幽优悠忧尤由邮铀犹油游酉有友右佑釉诱又幼迂淤于盂榆虞愚舆余俞逾鱼愉渝渔隅予娱雨与屿禹宇语羽玉域芋郁吁遇喻峪御愈欲狱育誉"],["d440","訞",31,"訿",8,"詉",21],["d480","詟",25,"詺",6,"浴寓裕预豫驭鸳渊冤元垣袁原援辕园员圆猿源缘远苑愿怨院曰约越跃钥岳粤月悦阅耘云郧匀陨允运蕴酝晕韵孕匝砸杂栽哉灾宰载再在咱攒暂赞赃脏葬遭糟凿藻枣早澡蚤躁噪造皂灶燥责择则泽贼怎增憎曾赠扎喳渣札轧"],["d540","誁",7,"誋",7,"誔",46],["d580","諃",32,"铡闸眨栅榨咋乍炸诈摘斋宅窄债寨瞻毡詹粘沾盏斩辗崭展蘸栈占战站湛绽樟章彰漳张掌涨杖丈帐账仗胀瘴障招昭找沼赵照罩兆肇召遮折哲蛰辙者锗蔗这浙珍斟真甄砧臻贞针侦枕疹诊震振镇阵蒸挣睁征狰争怔整拯正政"],["d640","諤",34,"謈",27],["d680","謤謥謧",30,"帧症郑证芝枝支吱蜘知肢脂汁之织职直植殖执值侄址指止趾只旨纸志挚掷至致置帜峙制智秩稚质炙痔滞治窒中盅忠钟衷终种肿重仲众舟周州洲诌粥轴肘帚咒皱宙昼骤珠株蛛朱猪诸诛逐竹烛煮拄瞩嘱主著柱助蛀贮铸筑"],["d740","譆",31,"譧",4,"譭",25],["d780","讇",24,"讬讱讻诇诐诪谉谞住注祝驻抓爪拽专砖转撰赚篆桩庄装妆撞壮状椎锥追赘坠缀谆准捉拙卓桌琢茁酌啄着灼浊兹咨资姿滋淄孜紫仔籽滓子自渍字鬃棕踪宗综总纵邹走奏揍租足卒族祖诅阻组钻纂嘴醉最罪尊遵昨左佐柞做作坐座"],["d840","谸",8,"豂豃豄豅豈豊豋豍",7,"豖豗豘豙豛",5,"豣",6,"豬",6,"豴豵豶豷豻",6,"貃貄貆貇"],["d880","貈貋貍",6,"貕貖貗貙",20,"亍丌兀丐廿卅丕亘丞鬲孬噩丨禺丿匕乇夭爻卮氐囟胤馗毓睾鼗丶亟鼐乜乩亓芈孛啬嘏仄厍厝厣厥厮靥赝匚叵匦匮匾赜卦卣刂刈刎刭刳刿剀剌剞剡剜蒯剽劂劁劐劓冂罔亻仃仉仂仨仡仫仞伛仳伢佤仵伥伧伉伫佞佧攸佚佝"],["d940","貮",62],["d980","賭",32,"佟佗伲伽佶佴侑侉侃侏佾佻侪佼侬侔俦俨俪俅俚俣俜俑俟俸倩偌俳倬倏倮倭俾倜倌倥倨偾偃偕偈偎偬偻傥傧傩傺僖儆僭僬僦僮儇儋仝氽佘佥俎龠汆籴兮巽黉馘冁夔勹匍訇匐凫夙兕亠兖亳衮袤亵脔裒禀嬴蠃羸冫冱冽冼"],["da40","贎",14,"贠赑赒赗赟赥赨赩赪赬赮赯赱赲赸",8,"趂趃趆趇趈趉趌",4,"趒趓趕",9,"趠趡"],["da80","趢趤",12,"趲趶趷趹趻趽跀跁跂跅跇跈跉跊跍跐跒跓跔凇冖冢冥讠讦讧讪讴讵讷诂诃诋诏诎诒诓诔诖诘诙诜诟诠诤诨诩诮诰诳诶诹诼诿谀谂谄谇谌谏谑谒谔谕谖谙谛谘谝谟谠谡谥谧谪谫谮谯谲谳谵谶卩卺阝阢阡阱阪阽阼陂陉陔陟陧陬陲陴隈隍隗隰邗邛邝邙邬邡邴邳邶邺"],["db40","跕跘跙跜跠跡跢跥跦跧跩跭跮跰跱跲跴跶跼跾",6,"踆踇踈踋踍踎踐踑踒踓踕",7,"踠踡踤",4,"踫踭踰踲踳踴踶踷踸踻踼踾"],["db80","踿蹃蹅蹆蹌",4,"蹓",5,"蹚",11,"蹧蹨蹪蹫蹮蹱邸邰郏郅邾郐郄郇郓郦郢郜郗郛郫郯郾鄄鄢鄞鄣鄱鄯鄹酃酆刍奂劢劬劭劾哿勐勖勰叟燮矍廴凵凼鬯厶弁畚巯坌垩垡塾墼壅壑圩圬圪圳圹圮圯坜圻坂坩垅坫垆坼坻坨坭坶坳垭垤垌垲埏垧垴垓垠埕埘埚埙埒垸埴埯埸埤埝"],["dc40","蹳蹵蹷",4,"蹽蹾躀躂躃躄躆躈",6,"躑躒躓躕",6,"躝躟",11,"躭躮躰躱躳",6,"躻",7],["dc80","軃",10,"軏",21,"堋堍埽埭堀堞堙塄堠塥塬墁墉墚墀馨鼙懿艹艽艿芏芊芨芄芎芑芗芙芫芸芾芰苈苊苣芘芷芮苋苌苁芩芴芡芪芟苄苎芤苡茉苷苤茏茇苜苴苒苘茌苻苓茑茚茆茔茕苠苕茜荑荛荜茈莒茼茴茱莛荞茯荏荇荃荟荀茗荠茭茺茳荦荥"],["dd40","軥",62],["dd80","輤",32,"荨茛荩荬荪荭荮莰荸莳莴莠莪莓莜莅荼莶莩荽莸荻莘莞莨莺莼菁萁菥菘堇萘萋菝菽菖萜萸萑萆菔菟萏萃菸菹菪菅菀萦菰菡葜葑葚葙葳蒇蒈葺蒉葸萼葆葩葶蒌蒎萱葭蓁蓍蓐蓦蒽蓓蓊蒿蒺蓠蒡蒹蒴蒗蓥蓣蔌甍蔸蓰蔹蔟蔺"],["de40","轅",32,"轪辀辌辒辝辠辡辢辤辥辦辧辪辬辭辮辯農辳辴辵辷辸辺辻込辿迀迃迆"],["de80","迉",4,"迏迒迖迗迚迠迡迣迧迬迯迱迲迴迵迶迺迻迼迾迿逇逈逌逎逓逕逘蕖蔻蓿蓼蕙蕈蕨蕤蕞蕺瞢蕃蕲蕻薤薨薇薏蕹薮薜薅薹薷薰藓藁藜藿蘧蘅蘩蘖蘼廾弈夼奁耷奕奚奘匏尢尥尬尴扌扪抟抻拊拚拗拮挢拶挹捋捃掭揶捱捺掎掴捭掬掊捩掮掼揲揸揠揿揄揞揎摒揆掾摅摁搋搛搠搌搦搡摞撄摭撖"],["df40","這逜連逤逥逧",5,"逰",4,"逷逹逺逽逿遀遃遅遆遈",4,"過達違遖遙遚遜",5,"遤遦遧適遪遫遬遯",4,"遶",6,"遾邁"],["df80","還邅邆邇邉邊邌",4,"邒邔邖邘邚邜邞邟邠邤邥邧邨邩邫邭邲邷邼邽邿郀摺撷撸撙撺擀擐擗擤擢攉攥攮弋忒甙弑卟叱叽叩叨叻吒吖吆呋呒呓呔呖呃吡呗呙吣吲咂咔呷呱呤咚咛咄呶呦咝哐咭哂咴哒咧咦哓哔呲咣哕咻咿哌哙哚哜咩咪咤哝哏哞唛哧唠哽唔哳唢唣唏唑唧唪啧喏喵啉啭啁啕唿啐唼"],["e040","郂郃郆郈郉郋郌郍郒郔郕郖郘郙郚郞郟郠郣郤郥郩郪郬郮郰郱郲郳郵郶郷郹郺郻郼郿鄀鄁鄃鄅",19,"鄚鄛鄜"],["e080","鄝鄟鄠鄡鄤",10,"鄰鄲",6,"鄺",8,"酄唷啖啵啶啷唳唰啜喋嗒喃喱喹喈喁喟啾嗖喑啻嗟喽喾喔喙嗪嗷嗉嘟嗑嗫嗬嗔嗦嗝嗄嗯嗥嗲嗳嗌嗍嗨嗵嗤辔嘞嘈嘌嘁嘤嘣嗾嘀嘧嘭噘嘹噗嘬噍噢噙噜噌噔嚆噤噱噫噻噼嚅嚓嚯囔囗囝囡囵囫囹囿圄圊圉圜帏帙帔帑帱帻帼"],["e140","酅酇酈酑酓酔酕酖酘酙酛酜酟酠酦酧酨酫酭酳酺酻酼醀",4,"醆醈醊醎醏醓",6,"醜",5,"醤",5,"醫醬醰醱醲醳醶醷醸醹醻"],["e180","醼",10,"釈釋釐釒",9,"針",8,"帷幄幔幛幞幡岌屺岍岐岖岈岘岙岑岚岜岵岢岽岬岫岱岣峁岷峄峒峤峋峥崂崃崧崦崮崤崞崆崛嵘崾崴崽嵬嵛嵯嵝嵫嵋嵊嵩嵴嶂嶙嶝豳嶷巅彳彷徂徇徉後徕徙徜徨徭徵徼衢彡犭犰犴犷犸狃狁狎狍狒狨狯狩狲狴狷猁狳猃狺"],["e240","釦",62],["e280","鈥",32,"狻猗猓猡猊猞猝猕猢猹猥猬猸猱獐獍獗獠獬獯獾舛夥飧夤夂饣饧",5,"饴饷饽馀馄馇馊馍馐馑馓馔馕庀庑庋庖庥庠庹庵庾庳赓廒廑廛廨廪膺忄忉忖忏怃忮怄忡忤忾怅怆忪忭忸怙怵怦怛怏怍怩怫怊怿怡恸恹恻恺恂"],["e340","鉆",45,"鉵",16],["e380","銆",7,"銏",24,"恪恽悖悚悭悝悃悒悌悛惬悻悱惝惘惆惚悴愠愦愕愣惴愀愎愫慊慵憬憔憧憷懔懵忝隳闩闫闱闳闵闶闼闾阃阄阆阈阊阋阌阍阏阒阕阖阗阙阚丬爿戕氵汔汜汊沣沅沐沔沌汨汩汴汶沆沩泐泔沭泷泸泱泗沲泠泖泺泫泮沱泓泯泾"],["e440","銨",5,"銯",24,"鋉",31],["e480","鋩",32,"洹洧洌浃浈洇洄洙洎洫浍洮洵洚浏浒浔洳涑浯涞涠浞涓涔浜浠浼浣渚淇淅淞渎涿淠渑淦淝淙渖涫渌涮渫湮湎湫溲湟溆湓湔渲渥湄滟溱溘滠漭滢溥溧溽溻溷滗溴滏溏滂溟潢潆潇漤漕滹漯漶潋潴漪漉漩澉澍澌潸潲潼潺濑"],["e540","錊",51,"錿",10],["e580","鍊",31,"鍫濉澧澹澶濂濡濮濞濠濯瀚瀣瀛瀹瀵灏灞宀宄宕宓宥宸甯骞搴寤寮褰寰蹇謇辶迓迕迥迮迤迩迦迳迨逅逄逋逦逑逍逖逡逵逶逭逯遄遑遒遐遨遘遢遛暹遴遽邂邈邃邋彐彗彖彘尻咫屐屙孱屣屦羼弪弩弭艴弼鬻屮妁妃妍妩妪妣"],["e640","鍬",34,"鎐",27],["e680","鎬",29,"鏋鏌鏍妗姊妫妞妤姒妲妯姗妾娅娆姝娈姣姘姹娌娉娲娴娑娣娓婀婧婊婕娼婢婵胬媪媛婷婺媾嫫媲嫒嫔媸嫠嫣嫱嫖嫦嫘嫜嬉嬗嬖嬲嬷孀尕尜孚孥孳孑孓孢驵驷驸驺驿驽骀骁骅骈骊骐骒骓骖骘骛骜骝骟骠骢骣骥骧纟纡纣纥纨纩"],["e740","鏎",7,"鏗",54],["e780","鐎",32,"纭纰纾绀绁绂绉绋绌绐绔绗绛绠绡绨绫绮绯绱绲缍绶绺绻绾缁缂缃缇缈缋缌缏缑缒缗缙缜缛缟缡",6,"缪缫缬缭缯",4,"缵幺畿巛甾邕玎玑玮玢玟珏珂珑玷玳珀珉珈珥珙顼琊珩珧珞玺珲琏琪瑛琦琥琨琰琮琬"],["e840","鐯",14,"鐿",43,"鑬鑭鑮鑯"],["e880","鑰",20,"钑钖钘铇铏铓铔铚铦铻锜锠琛琚瑁瑜瑗瑕瑙瑷瑭瑾璜璎璀璁璇璋璞璨璩璐璧瓒璺韪韫韬杌杓杞杈杩枥枇杪杳枘枧杵枨枞枭枋杷杼柰栉柘栊柩枰栌柙枵柚枳柝栀柃枸柢栎柁柽栲栳桠桡桎桢桄桤梃栝桕桦桁桧桀栾桊桉栩梵梏桴桷梓桫棂楮棼椟椠棹"],["e940","锧锳锽镃镈镋镕镚镠镮镴镵長",7,"門",42],["e980","閫",32,"椤棰椋椁楗棣椐楱椹楠楂楝榄楫榀榘楸椴槌榇榈槎榉楦楣楹榛榧榻榫榭槔榱槁槊槟榕槠榍槿樯槭樗樘橥槲橄樾檠橐橛樵檎橹樽樨橘橼檑檐檩檗檫猷獒殁殂殇殄殒殓殍殚殛殡殪轫轭轱轲轳轵轶轸轷轹轺轼轾辁辂辄辇辋"],["ea40","闌",27,"闬闿阇阓阘阛阞阠阣",6,"阫阬阭阯阰阷阸阹阺阾陁陃陊陎陏陑陒陓陖陗"],["ea80","陘陙陚陜陝陞陠陣陥陦陫陭",4,"陳陸",12,"隇隉隊辍辎辏辘辚軎戋戗戛戟戢戡戥戤戬臧瓯瓴瓿甏甑甓攴旮旯旰昊昙杲昃昕昀炅曷昝昴昱昶昵耆晟晔晁晏晖晡晗晷暄暌暧暝暾曛曜曦曩贲贳贶贻贽赀赅赆赈赉赇赍赕赙觇觊觋觌觎觏觐觑牮犟牝牦牯牾牿犄犋犍犏犒挈挲掰"],["eb40","隌階隑隒隓隕隖隚際隝",9,"隨",7,"隱隲隴隵隷隸隺隻隿雂雃雈雊雋雐雑雓雔雖",9,"雡",6,"雫"],["eb80","雬雭雮雰雱雲雴雵雸雺電雼雽雿霂霃霅霊霋霌霐霑霒霔霕霗",4,"霝霟霠搿擘耄毪毳毽毵毹氅氇氆氍氕氘氙氚氡氩氤氪氲攵敕敫牍牒牖爰虢刖肟肜肓肼朊肽肱肫肭肴肷胧胨胩胪胛胂胄胙胍胗朐胝胫胱胴胭脍脎胲胼朕脒豚脶脞脬脘脲腈腌腓腴腙腚腱腠腩腼腽腭腧塍媵膈膂膑滕膣膪臌朦臊膻"],["ec40","霡",8,"霫霬霮霯霱霳",4,"霺霻霼霽霿",18,"靔靕靗靘靚靜靝靟靣靤靦靧靨靪",7],["ec80","靲靵靷",4,"靽",7,"鞆",4,"鞌鞎鞏鞐鞓鞕鞖鞗鞙",4,"臁膦欤欷欹歃歆歙飑飒飓飕飙飚殳彀毂觳斐齑斓於旆旄旃旌旎旒旖炀炜炖炝炻烀炷炫炱烨烊焐焓焖焯焱煳煜煨煅煲煊煸煺熘熳熵熨熠燠燔燧燹爝爨灬焘煦熹戾戽扃扈扉礻祀祆祉祛祜祓祚祢祗祠祯祧祺禅禊禚禧禳忑忐"],["ed40","鞞鞟鞡鞢鞤",6,"鞬鞮鞰鞱鞳鞵",46],["ed80","韤韥韨韮",4,"韴韷",23,"怼恝恚恧恁恙恣悫愆愍慝憩憝懋懑戆肀聿沓泶淼矶矸砀砉砗砘砑斫砭砜砝砹砺砻砟砼砥砬砣砩硎硭硖硗砦硐硇硌硪碛碓碚碇碜碡碣碲碹碥磔磙磉磬磲礅磴礓礤礞礴龛黹黻黼盱眄眍盹眇眈眚眢眙眭眦眵眸睐睑睇睃睚睨"],["ee40","頏",62],["ee80","顎",32,"睢睥睿瞍睽瞀瞌瞑瞟瞠瞰瞵瞽町畀畎畋畈畛畲畹疃罘罡罟詈罨罴罱罹羁罾盍盥蠲钅钆钇钋钊钌钍钏钐钔钗钕钚钛钜钣钤钫钪钭钬钯钰钲钴钶",4,"钼钽钿铄铈",6,"铐铑铒铕铖铗铙铘铛铞铟铠铢铤铥铧铨铪"],["ef40","顯",5,"颋颎颒颕颙颣風",37,"飏飐飔飖飗飛飜飝飠",4],["ef80","飥飦飩",30,"铩铫铮铯铳铴铵铷铹铼铽铿锃锂锆锇锉锊锍锎锏锒",4,"锘锛锝锞锟锢锪锫锩锬锱锲锴锶锷锸锼锾锿镂锵镄镅镆镉镌镎镏镒镓镔镖镗镘镙镛镞镟镝镡镢镤",8,"镯镱镲镳锺矧矬雉秕秭秣秫稆嵇稃稂稞稔"],["f040","餈",4,"餎餏餑",28,"餯",26],["f080","饊",9,"饖",12,"饤饦饳饸饹饻饾馂馃馉稹稷穑黏馥穰皈皎皓皙皤瓞瓠甬鸠鸢鸨",4,"鸲鸱鸶鸸鸷鸹鸺鸾鹁鹂鹄鹆鹇鹈鹉鹋鹌鹎鹑鹕鹗鹚鹛鹜鹞鹣鹦",6,"鹱鹭鹳疒疔疖疠疝疬疣疳疴疸痄疱疰痃痂痖痍痣痨痦痤痫痧瘃痱痼痿瘐瘀瘅瘌瘗瘊瘥瘘瘕瘙"],["f140","馌馎馚",10,"馦馧馩",47],["f180","駙",32,"瘛瘼瘢瘠癀瘭瘰瘿瘵癃瘾瘳癍癞癔癜癖癫癯翊竦穸穹窀窆窈窕窦窠窬窨窭窳衤衩衲衽衿袂袢裆袷袼裉裢裎裣裥裱褚裼裨裾裰褡褙褓褛褊褴褫褶襁襦襻疋胥皲皴矜耒耔耖耜耠耢耥耦耧耩耨耱耋耵聃聆聍聒聩聱覃顸颀颃"],["f240","駺",62],["f280","騹",32,"颉颌颍颏颔颚颛颞颟颡颢颥颦虍虔虬虮虿虺虼虻蚨蚍蚋蚬蚝蚧蚣蚪蚓蚩蚶蛄蚵蛎蚰蚺蚱蚯蛉蛏蚴蛩蛱蛲蛭蛳蛐蜓蛞蛴蛟蛘蛑蜃蜇蛸蜈蜊蜍蜉蜣蜻蜞蜥蜮蜚蜾蝈蜴蜱蜩蜷蜿螂蜢蝽蝾蝻蝠蝰蝌蝮螋蝓蝣蝼蝤蝙蝥螓螯螨蟒"],["f340","驚",17,"驲骃骉骍骎骔骕骙骦骩",6,"骲骳骴骵骹骻骽骾骿髃髄髆",4,"髍髎髏髐髒體髕髖髗髙髚髛髜"],["f380","髝髞髠髢髣髤髥髧髨髩髪髬髮髰",8,"髺髼",6,"鬄鬅鬆蟆螈螅螭螗螃螫蟥螬螵螳蟋蟓螽蟑蟀蟊蟛蟪蟠蟮蠖蠓蟾蠊蠛蠡蠹蠼缶罂罄罅舐竺竽笈笃笄笕笊笫笏筇笸笪笙笮笱笠笥笤笳笾笞筘筚筅筵筌筝筠筮筻筢筲筱箐箦箧箸箬箝箨箅箪箜箢箫箴篑篁篌篝篚篥篦篪簌篾篼簏簖簋"],["f440","鬇鬉",5,"鬐鬑鬒鬔",10,"鬠鬡鬢鬤",10,"鬰鬱鬳",7,"鬽鬾鬿魀魆魊魋魌魎魐魒魓魕",5],["f480","魛",32,"簟簪簦簸籁籀臾舁舂舄臬衄舡舢舣舭舯舨舫舸舻舳舴舾艄艉艋艏艚艟艨衾袅袈裘裟襞羝羟羧羯羰羲籼敉粑粝粜粞粢粲粼粽糁糇糌糍糈糅糗糨艮暨羿翎翕翥翡翦翩翮翳糸絷綦綮繇纛麸麴赳趄趔趑趱赧赭豇豉酊酐酎酏酤"],["f540","魼",62],["f580","鮻",32,"酢酡酰酩酯酽酾酲酴酹醌醅醐醍醑醢醣醪醭醮醯醵醴醺豕鹾趸跫踅蹙蹩趵趿趼趺跄跖跗跚跞跎跏跛跆跬跷跸跣跹跻跤踉跽踔踝踟踬踮踣踯踺蹀踹踵踽踱蹉蹁蹂蹑蹒蹊蹰蹶蹼蹯蹴躅躏躔躐躜躞豸貂貊貅貘貔斛觖觞觚觜"],["f640","鯜",62],["f680","鰛",32,"觥觫觯訾謦靓雩雳雯霆霁霈霏霎霪霭霰霾龀龃龅",5,"龌黾鼋鼍隹隼隽雎雒瞿雠銎銮鋈錾鍪鏊鎏鐾鑫鱿鲂鲅鲆鲇鲈稣鲋鲎鲐鲑鲒鲔鲕鲚鲛鲞",5,"鲥",4,"鲫鲭鲮鲰",7,"鲺鲻鲼鲽鳄鳅鳆鳇鳊鳋"],["f740","鰼",62],["f780","鱻鱽鱾鲀鲃鲄鲉鲊鲌鲏鲓鲖鲗鲘鲙鲝鲪鲬鲯鲹鲾",4,"鳈鳉鳑鳒鳚鳛鳠鳡鳌",4,"鳓鳔鳕鳗鳘鳙鳜鳝鳟鳢靼鞅鞑鞒鞔鞯鞫鞣鞲鞴骱骰骷鹘骶骺骼髁髀髅髂髋髌髑魅魃魇魉魈魍魑飨餍餮饕饔髟髡髦髯髫髻髭髹鬈鬏鬓鬟鬣麽麾縻麂麇麈麋麒鏖麝麟黛黜黝黠黟黢黩黧黥黪黯鼢鼬鼯鼹鼷鼽鼾齄"],["f840","鳣",62],["f880","鴢",32],["f940","鵃",62],["f980","鶂",32],["fa40","鶣",62],["fa80","鷢",32],["fb40","鸃",27,"鸤鸧鸮鸰鸴鸻鸼鹀鹍鹐鹒鹓鹔鹖鹙鹝鹟鹠鹡鹢鹥鹮鹯鹲鹴",9,"麀"],["fb80","麁麃麄麅麆麉麊麌",5,"麔",8,"麞麠",5,"麧麨麩麪"],["fc40","麫",8,"麵麶麷麹麺麼麿",4,"黅黆黇黈黊黋黌黐黒黓黕黖黗黙黚點黡黣黤黦黨黫黬黭黮黰",8,"黺黽黿",6],["fc80","鼆",4,"鼌鼏鼑鼒鼔鼕鼖鼘鼚",5,"鼡鼣",8,"鼭鼮鼰鼱"],["fd40","鼲",4,"鼸鼺鼼鼿",4,"齅",10,"齒",38],["fd80","齹",5,"龁龂龍",11,"龜龝龞龡",4,"郎凉秊裏隣"],["fe40","兀嗀﨎﨏﨑﨓﨔礼﨟蘒﨡﨣﨤﨧﨨﨩"]]');
 }, function(e, t, r) {
@@ -1789,7 +1770,7 @@
     e.exports = n;
 }, function(e, t, r) {
     "use strict";
-    var n = r(6), a = r.n(n);
+    var n = r(2), a = r.n(n);
     t.a = function(e, t) {
         var r = "attributes" === t ? {
             attributes: !0
@@ -1807,6 +1788,11 @@
             })).observe(e, r);
         }));
     };
+}, function(e, t, r) {
+    var n = r(23), a = r(24), i = "[object Boolean]";
+    e.exports = function(e) {
+        return !0 === e || !1 === e || a(e) && n(e) == i;
+    };
 }, function(e, t) {
     e.exports = function(e) {
         return null === e;
@@ -1819,15 +1805,15 @@
     "use strict";
     t.decode = t.parse = r(288), t.encode = t.stringify = r(289);
 }, function(e, t, r) {
-    e.exports = !r(9) && !r(22)((function() {
-        return 7 != Object.defineProperty(r(61)("div"), "a", {
+    e.exports = !r(9) && !r(21)((function() {
+        return 7 != Object.defineProperty(r(62)("div"), "a", {
             get: function() {
                 return 7;
             }
         }).a;
     }));
 }, function(e, t, r) {
-    var n = r(63), a = Math.max, i = Math.min;
+    var n = r(64), a = Math.max, i = Math.min;
     e.exports = function(e, t) {
         return (e = n(e)) < 0 ? a(e + t, 0) : i(e, t);
     };
@@ -1843,13 +1829,13 @@
     };
 }, function(e, t, r) {
     "use strict";
-    var n = r(36), a = r(3), i = r(96), o = r(20), s = r(25), c = r(152), u = r(46), l = r(154), p = r(7)("iterator"), f = !([].keys && "next" in [].keys()), d = function() {
+    var n = r(36), a = r(3), i = r(98), o = r(19), s = r(26), c = r(152), u = r(45), l = r(154), p = r(6)("iterator"), f = !([].keys && "next" in [].keys()), d = function() {
         return this;
     };
     e.exports = function(e, t, r, h, _, m, g) {
         c(r, t, h);
         var b, v, y, w = function(e) {
-            if (!f && e in S) return S[e];
+            if (!f && e in A) return A[e];
             switch (e) {
               case "keys":
               case "values":
@@ -1860,24 +1846,24 @@
             return function() {
                 return new r(this, e);
             };
-        }, x = t + " Iterator", E = "values" == _, A = !1, S = e.prototype, O = S[p] || S["@@iterator"] || _ && S[_], P = O || w(_), k = _ ? E ? w("entries") : P : void 0, I = "Array" == t && S.entries || O;
+        }, x = t + " Iterator", E = "values" == _, S = !1, A = e.prototype, O = A[p] || A["@@iterator"] || _ && A[_], P = O || w(_), k = _ ? E ? w("entries") : P : void 0, I = "Array" == t && A.entries || O;
         if (I && (y = l(I.call(new e))) !== Object.prototype && y.next && (u(y, x, !0), 
-        n || "function" == typeof y[p] || o(y, p, d)), E && O && "values" !== O.name && (A = !0, 
+        n || "function" == typeof y[p] || o(y, p, d)), E && O && "values" !== O.name && (S = !0, 
         P = function() {
             return O.call(this);
-        }), n && !g || !f && !A && S[p] || o(S, p, P), s[t] = P, s[x] = d, _) if (b = {
+        }), n && !g || !f && !S && A[p] || o(A, p, P), s[t] = P, s[x] = d, _) if (b = {
             values: E ? P : w("values"),
             keys: m ? P : w("keys"),
             entries: k
-        }, g) for (v in b) v in S || i(S, v, b[v]); else a(a.P + a.F * (f || A), t, b);
+        }, g) for (v in b) v in A || i(A, v, b[v]); else a(a.P + a.F * (f || S), t, b);
         return b;
     };
 }, function(e, t, r) {
-    e.exports = r(20);
+    e.exports = r(19);
 }, function(e, t, r) {
-    var n = r(11), a = r(98), i = r(67), o = r(65)("IE_PROTO"), s = function() {}, c = function() {
-        var e, t = r(61)("iframe"), n = i.length;
-        for (t.style.display = "none", r(101).appendChild(t), t.src = "javascript:", (e = t.contentWindow.document).open(), 
+    var n = r(12), a = r(100), i = r(68), o = r(66)("IE_PROTO"), s = function() {}, c = function() {
+        var e, t = r(62)("iframe"), n = i.length;
+        for (t.style.display = "none", r(103).appendChild(t), t.src = "javascript:", (e = t.contentWindow.document).open(), 
         e.write("<script>document.F=Object<\/script>"), e.close(), c = e.F; n--; ) delete c.prototype[i[n]];
         return c();
     };
@@ -1887,14 +1873,14 @@
         void 0 === t ? r : a(r, t);
     };
 }, function(e, t, r) {
-    var n = r(13), a = r(11), i = r(26);
+    var n = r(14), a = r(12), i = r(27);
     e.exports = r(9) ? Object.defineProperties : function(e, t) {
         a(e);
         for (var r, o = i(t), s = o.length, c = 0; s > c; ) n.f(e, r = o[c++], t[r]);
         return e;
     };
 }, function(e, t, r) {
-    var n = r(23), a = r(14), i = r(153)(!1), o = r(65)("IE_PROTO");
+    var n = r(22), a = r(15), i = r(153)(!1), o = r(66)("IE_PROTO");
     e.exports = function(e, t) {
         var r, s = a(e), c = 0, u = [];
         for (r in s) r != o && n(s, r) && u.push(r);
@@ -1902,7 +1888,7 @@
         return u;
     };
 }, function(e, t, r) {
-    var n = r(63), a = Math.min;
+    var n = r(64), a = Math.min;
     e.exports = function(e) {
         return e > 0 ? a(n(e), 9007199254740991) : 0;
     };
@@ -1910,20 +1896,20 @@
     var n = r(4).document;
     e.exports = n && n.documentElement;
 }, function(e, t, r) {
-    var n = r(69), a = r(7)("iterator"), i = r(25);
+    var n = r(70), a = r(6)("iterator"), i = r(26);
     e.exports = r(1).getIteratorMethod = function(e) {
         if (null != e) return e[a] || e["@@iterator"] || i[n(e)];
     };
 }, function(e, t) {
     e.exports = "\t\n\v\f\r   ᠎             　\u2028\u2029\ufeff";
 }, function(e, t, r) {
-    var n = r(11), a = r(43), i = r(7)("species");
+    var n = r(12), a = r(42), i = r(6)("species");
     e.exports = function(e, t) {
         var r, o = n(e).constructor;
         return void 0 === o || null == (r = n(o)[i]) ? t : a(r);
     };
 }, function(e, t, r) {
-    var n, a, i, o = r(42), s = r(174), c = r(101), u = r(61), l = r(4), p = l.process, f = l.setImmediate, d = l.clearImmediate, h = l.MessageChannel, _ = l.Dispatch, m = 0, g = {}, b = function() {
+    var n, a, i, o = r(41), s = r(174), c = r(103), u = r(62), l = r(4), p = l.process, f = l.setImmediate, d = l.clearImmediate, h = l.MessageChannel, _ = l.Dispatch, m = 0, g = {}, b = function() {
         var e = +this;
         if (g.hasOwnProperty(e)) {
             var t = g[e];
@@ -1970,7 +1956,7 @@
         }
     };
 }, function(e, t, r) {
-    var n = r(11), a = r(21), i = r(70);
+    var n = r(12), a = r(20), i = r(71);
     e.exports = function(e, t) {
         if (n(e), a(t) && t.constructor === e) return t;
         var r = i.f(e);
@@ -1982,7 +1968,7 @@
         return "function" == typeof e ? e : null == e ? i : "object" == typeof e ? o(e) ? a(e[0], e[1]) : n(e) : s(e);
     };
 }, function(e, t, r) {
-    var n = r(48), a = r(190), i = r(191), o = r(192), s = r(193), c = r(194);
+    var n = r(47), a = r(190), i = r(191), o = r(192), s = r(193), c = r(194);
     function u(e) {
         var t = this.__data__ = new n(e);
         this.size = t.size;
@@ -1997,7 +1983,7 @@
     (function(t) {
         var r = "object" == typeof t && t && t.Object === Object && t;
         e.exports = r;
-    }).call(this, r(112));
+    }).call(this, r(114));
 }, function(e, t) {
     var r;
     r = function() {
@@ -2023,7 +2009,7 @@
         return "";
     };
 }, function(e, t, r) {
-    var n = r(213), a = r(19);
+    var n = r(213), a = r(24);
     e.exports = function e(t, r, i, o, s) {
         return t === r || (null == t || null == r || !a(t) && !a(r) ? t != t && r != r : n(t, r, i, o, e, s));
     };
@@ -2084,7 +2070,7 @@
         return !!(t = null == t ? r : t) && ("number" == a || "symbol" != a && n.test(e)) && e > -1 && e % 1 == 0 && e < t;
     };
 }, function(e, t, r) {
-    var n = r(120), a = r(236), i = Object.prototype.hasOwnProperty;
+    var n = r(122), a = r(236), i = Object.prototype.hasOwnProperty;
     e.exports = function(e) {
         if (!n(e)) return a(e);
         var t = [];
@@ -2098,7 +2084,7 @@
         return e === ("function" == typeof t && t.prototype || r);
     };
 }, function(e, t, r) {
-    var n = r(238), a = r(71), i = r(239), o = r(240), s = r(241), c = r(18), u = r(113), l = u(n), p = u(a), f = u(i), d = u(o), h = u(s), _ = c;
+    var n = r(238), a = r(72), i = r(239), o = r(240), s = r(241), c = r(23), u = r(115), l = u(n), p = u(a), f = u(i), d = u(o), h = u(s), _ = c;
     (n && "[object DataView]" != _(new n(new ArrayBuffer(1))) || a && "[object Map]" != _(new a) || i && "[object Promise]" != _(i.resolve()) || o && "[object Set]" != _(new o) || s && "[object WeakMap]" != _(new s)) && (_ = function(e) {
         var t = c(e), r = "[object Object]" == t ? e.constructor : void 0, n = r ? u(r) : "";
         if (n) switch (n) {
@@ -2120,7 +2106,7 @@
         return t;
     }), e.exports = _;
 }, function(e, t, r) {
-    var n = r(29);
+    var n = r(30);
     e.exports = function(e) {
         return e == e && !n(e);
     };
@@ -2131,18 +2117,18 @@
         };
     };
 }, function(e, t, r) {
-    var n = r(125), a = r(54);
+    var n = r(127), a = r(53);
     e.exports = function(e, t) {
         for (var r = 0, i = (t = n(t, e)).length; null != e && r < i; ) e = e[a(t[r++])];
         return r && r == i ? e : void 0;
     };
 }, function(e, t, r) {
-    var n = r(5), a = r(78), i = r(245), o = r(248);
+    var n = r(5), a = r(79), i = r(245), o = r(248);
     e.exports = function(e, t) {
         return n(e) ? e : a(e, t) ? [ e ] : i(o(e));
     };
 }, function(e, t, r) {
-    var n = r(3), a = r(1), i = r(22);
+    var n = r(3), a = r(1), i = r(21);
     e.exports = function(e, t) {
         var r = (a.Object || {})[e] || Object[e], o = {};
         o[e] = t(r), n(n.S + n.F * i((function() {
@@ -2150,7 +2136,7 @@
         })), "Object", o);
     };
 }, function(e, t, r) {
-    t.f = r(7);
+    t.f = r(6);
 }, function(e, t) {
     var r, n, a = e.exports = {};
     function i() {
@@ -2246,26 +2232,105 @@
 }, function(e, t, r) {
     e.exports = r(282);
 }, function(e, t, r) {
-    var n = r(119), a = r(121), i = r(52), o = r(5), s = r(77), c = r(74), u = r(120), l = r(75), p = "[object Map]", f = "[object Set]", d = Object.prototype.hasOwnProperty;
-    e.exports = function(e) {
-        if (null == e) return !0;
-        if (s(e) && (o(e) || "string" == typeof e || "function" == typeof e.splice || c(e) || l(e) || i(e))) return !e.length;
-        var t = a(e);
-        if (t == p || t == f) return !e.size;
-        if (u(e)) return !n(e).length;
-        for (var r in e) if (d.call(e, r)) return !1;
-        return !0;
-    };
-}, function(e, t, r) {
-    var n = r(18), a = r(19), i = "[object Boolean]";
-    e.exports = function(e) {
-        return !0 === e || !1 === e || a(e) && n(e) == i;
-    };
-}, function(e, t, r) {
-    var n = r(18), a = r(19), i = "[object Number]";
-    e.exports = function(e) {
-        return "number" == typeof e || a(e) && n(e) == i;
-    };
+    var n, a;
+    !function(i, o) {
+        "use strict";
+        void 0 === (a = "function" == typeof (n = function() {
+            var e = function() {}, t = "undefined", r = typeof window !== t && /Trident\/|MSIE /.test(window.navigator.userAgent), n = [ "trace", "debug", "info", "warn", "error" ];
+            function a(e, t) {
+                var r = e[t];
+                if ("function" == typeof r.bind) return r.bind(e);
+                try {
+                    return Function.prototype.bind.call(r, e);
+                } catch (t) {
+                    return function() {
+                        return Function.prototype.apply.apply(r, [ e, arguments ]);
+                    };
+                }
+            }
+            function i() {
+                console.log && (console.log.apply ? console.log.apply(console, arguments) : Function.prototype.apply.apply(console.log, [ console, arguments ])), 
+                console.trace && console.trace();
+            }
+            function o(t, r) {
+                for (var a = 0; a < n.length; a++) {
+                    var i = n[a];
+                    this[i] = a < t ? e : this.methodFactory(i, t, r);
+                }
+                this.log = this.debug;
+            }
+            function s(e, r, n) {
+                return function() {
+                    typeof console !== t && (o.call(this, r, n), this[e].apply(this, arguments));
+                };
+            }
+            function c(n, o, c) {
+                return function(n) {
+                    return "debug" === n && (n = "log"), typeof console !== t && ("trace" === n && r ? i : void 0 !== console[n] ? a(console, n) : void 0 !== console.log ? a(console, "log") : e);
+                }(n) || s.apply(this, arguments);
+            }
+            function u(e, r, a) {
+                var i, s = this, u = "loglevel";
+                function l() {
+                    var e;
+                    if (typeof window !== t) {
+                        try {
+                            e = window.localStorage[u];
+                        } catch (e) {}
+                        if (typeof e === t) try {
+                            var r = window.document.cookie, n = r.indexOf(encodeURIComponent(u) + "=");
+                            -1 !== n && (e = /^([^;]+)/.exec(r.slice(n))[1]);
+                        } catch (e) {}
+                        return void 0 === s.levels[e] && (e = void 0), e;
+                    }
+                }
+                e && (u += ":" + e), s.name = e, s.levels = {
+                    TRACE: 0,
+                    DEBUG: 1,
+                    INFO: 2,
+                    WARN: 3,
+                    ERROR: 4,
+                    SILENT: 5
+                }, s.methodFactory = a || c, s.getLevel = function() {
+                    return i;
+                }, s.setLevel = function(r, a) {
+                    if ("string" == typeof r && void 0 !== s.levels[r.toUpperCase()] && (r = s.levels[r.toUpperCase()]), 
+                    !("number" == typeof r && r >= 0 && r <= s.levels.SILENT)) throw "log.setLevel() called with invalid level: " + r;
+                    if (i = r, !1 !== a && function(e) {
+                        var r = (n[e] || "silent").toUpperCase();
+                        if (typeof window !== t) {
+                            try {
+                                return void (window.localStorage[u] = r);
+                            } catch (e) {}
+                            try {
+                                window.document.cookie = encodeURIComponent(u) + "=" + r + ";";
+                            } catch (e) {}
+                        }
+                    }(r), o.call(s, r, e), typeof console === t && r < s.levels.SILENT) return "No console available for logging";
+                }, s.setDefaultLevel = function(e) {
+                    l() || s.setLevel(e, !1);
+                }, s.enableAll = function(e) {
+                    s.setLevel(s.levels.TRACE, e);
+                }, s.disableAll = function(e) {
+                    s.setLevel(s.levels.SILENT, e);
+                };
+                var p = l();
+                null == p && (p = null == r ? "WARN" : r), s.setLevel(p, !1);
+            }
+            var l = new u, p = {};
+            l.getLogger = function(e) {
+                if ("string" != typeof e || "" === e) throw new TypeError("You must supply a name when creating a logger.");
+                var t = p[e];
+                return t || (t = p[e] = new u(e, l.getLevel(), l.methodFactory)), t;
+            };
+            var f = typeof window !== t ? window.log : void 0;
+            return l.noConflict = function() {
+                return typeof window !== t && window.log === l && (window.log = f), l;
+            }, l.getLoggers = function() {
+                return p;
+            }, l;
+        }) ? n.call(t, r, t, e) : n) || (e.exports = a);
+    }();
 }, function(e, t, r) {
     "use strict";
     (function(t) {
@@ -2343,7 +2408,7 @@
             }
             return a;
         }, e.exports.stringify = u;
-    }).call(this, r(81).Buffer);
+    }).call(this, r(82).Buffer);
 }, function(e, t, r) {
     var n = r(314);
     e.exports = function(e) {
@@ -2354,15 +2419,18 @@
 }, function(module, __webpack_exports__, __webpack_require__) {
     "use strict";
     __webpack_require__.r(__webpack_exports__);
-    var _babel_runtime_corejs2_core_js_string_from_code_point__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(85), _babel_runtime_corejs2_core_js_string_from_code_point__WEBPACK_IMPORTED_MODULE_0___default = __webpack_require__.n(_babel_runtime_corejs2_core_js_string_from_code_point__WEBPACK_IMPORTED_MODULE_0__), _babel_runtime_corejs2_core_js_array_is_array__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(83), _babel_runtime_corejs2_core_js_array_is_array__WEBPACK_IMPORTED_MODULE_1___default = __webpack_require__.n(_babel_runtime_corejs2_core_js_array_is_array__WEBPACK_IMPORTED_MODULE_1__), _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(131), _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_2___default = __webpack_require__.n(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_2__), _babel_runtime_corejs2_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(12), _babel_runtime_corejs2_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_3___default = __webpack_require__.n(_babel_runtime_corejs2_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_3__), _babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(8), _babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_4___default = __webpack_require__.n(_babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_4__), _babel_runtime_corejs2_core_js_date_now__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(132), _babel_runtime_corejs2_core_js_date_now__WEBPACK_IMPORTED_MODULE_5___default = __webpack_require__.n(_babel_runtime_corejs2_core_js_date_now__WEBPACK_IMPORTED_MODULE_5__), _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(6), _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_6___default = __webpack_require__.n(_babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_6__), lodash_isArray__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(5), lodash_isArray__WEBPACK_IMPORTED_MODULE_7___default = __webpack_require__.n(lodash_isArray__WEBPACK_IMPORTED_MODULE_7__), lodash_find__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(86), lodash_find__WEBPACK_IMPORTED_MODULE_8___default = __webpack_require__.n(lodash_find__WEBPACK_IMPORTED_MODULE_8__), lodash_isString__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(2), lodash_isString__WEBPACK_IMPORTED_MODULE_9___default = __webpack_require__.n(lodash_isString__WEBPACK_IMPORTED_MODULE_9__), utils_detect__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(40), _meta__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(41), _meta__WEBPACK_IMPORTED_MODULE_11___default = __webpack_require__.n(_meta__WEBPACK_IMPORTED_MODULE_11__), utils_gm_enhanced__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(24), compare_versions__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(30), compare_versions__WEBPACK_IMPORTED_MODULE_13___default = __webpack_require__.n(compare_versions__WEBPACK_IMPORTED_MODULE_13__), utils_element_ready__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(87), utils_got__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(60), utils_json_rule__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(17), utils_logger__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(0);
+    var _babel_runtime_corejs2_core_js_string_from_code_point__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(86), _babel_runtime_corejs2_core_js_string_from_code_point__WEBPACK_IMPORTED_MODULE_0___default = __webpack_require__.n(_babel_runtime_corejs2_core_js_string_from_code_point__WEBPACK_IMPORTED_MODULE_0__), _babel_runtime_corejs2_core_js_array_is_array__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(84), _babel_runtime_corejs2_core_js_array_is_array__WEBPACK_IMPORTED_MODULE_1___default = __webpack_require__.n(_babel_runtime_corejs2_core_js_array_is_array__WEBPACK_IMPORTED_MODULE_1__), _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(133), _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_2___default = __webpack_require__.n(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_2__), _babel_runtime_corejs2_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(18), _babel_runtime_corejs2_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_3___default = __webpack_require__.n(_babel_runtime_corejs2_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_3__), _babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(7), _babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_4___default = __webpack_require__.n(_babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_4__), _babel_runtime_corejs2_core_js_date_now__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(134), _babel_runtime_corejs2_core_js_date_now__WEBPACK_IMPORTED_MODULE_5___default = __webpack_require__.n(_babel_runtime_corejs2_core_js_date_now__WEBPACK_IMPORTED_MODULE_5__), _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(2), _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_6___default = __webpack_require__.n(_babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_6__), lodash_isArray__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(5), lodash_isArray__WEBPACK_IMPORTED_MODULE_7___default = __webpack_require__.n(lodash_isArray__WEBPACK_IMPORTED_MODULE_7__), lodash_find__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(87), lodash_find__WEBPACK_IMPORTED_MODULE_8___default = __webpack_require__.n(lodash_find__WEBPACK_IMPORTED_MODULE_8__), lodash_isString__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(8), lodash_isString__WEBPACK_IMPORTED_MODULE_9___default = __webpack_require__.n(lodash_isString__WEBPACK_IMPORTED_MODULE_9__), utils_detect__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(10), _meta__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(40), _meta__WEBPACK_IMPORTED_MODULE_11___default = __webpack_require__.n(_meta__WEBPACK_IMPORTED_MODULE_11__), utils_gm_enhanced__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(25), compare_versions__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(17), compare_versions__WEBPACK_IMPORTED_MODULE_13___default = __webpack_require__.n(compare_versions__WEBPACK_IMPORTED_MODULE_13__), utils_element_ready__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(88), utils_got__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(60), utils_json_rule__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(13), utils_logger__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(0);
     !function() {
+        utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.setLevel("debug");
         var gotConfig = {
             html: !0,
             encoding: document.characterSet
         };
-        utils_detect__WEBPACK_IMPORTED_MODULE_10__.a && "Greasemonkey" !== utils_detect__WEBPACK_IMPORTED_MODULE_10__.b && (gotConfig.cookie = document.cookie), 
-        console.debug(`Script Manager: ${utils_detect__WEBPACK_IMPORTED_MODULE_10__.b}`), 
-        console.debug(`IS_FIREFOX: ${utils_detect__WEBPACK_IMPORTED_MODULE_10__.a}`);
+        utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("[Super-preloader] " + `Script Manager: ${utils_detect__WEBPACK_IMPORTED_MODULE_10__.b.name}  v${utils_detect__WEBPACK_IMPORTED_MODULE_10__.b.version}`), 
+        utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("[Super-preloader] " + `IS_FIREFOX: ${utils_detect__WEBPACK_IMPORTED_MODULE_10__.a}`), 
+        utils_detect__WEBPACK_IMPORTED_MODULE_10__.a && ("Violentmonkey" === utils_detect__WEBPACK_IMPORTED_MODULE_10__.b.name && compare_versions__WEBPACK_IMPORTED_MODULE_13___default()(utils_detect__WEBPACK_IMPORTED_MODULE_10__.b.version, "2.12.3") <= 0 || "Tampermonkey" === utils_detect__WEBPACK_IMPORTED_MODULE_10__.b.name && compare_versions__WEBPACK_IMPORTED_MODULE_13___default()(utils_detect__WEBPACK_IMPORTED_MODULE_10__.b.version, "4.9.6095") <= 0) && (utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.warn("[Super-preloader] " + `${utils_detect__WEBPACK_IMPORTED_MODULE_10__.b.name}  v${utils_detect__WEBPACK_IMPORTED_MODULE_10__.b.version} has a flaw on Firefox, which may affect this script`), 
+        utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.warn("[Super-preloader] Check https://github.com/Tampermonkey/tampermonkey/issues/786 and https://github.com/violentmonkey/violentmonkey/issues/606 to learn more"), 
+        gotConfig.cookie = !0);
         var got = utils_got__WEBPACK_IMPORTED_MODULE_15__.a.create(gotConfig), scriptInfo = _meta__WEBPACK_IMPORTED_MODULE_11__.SCRIPT_INFO, upgradeNotification = _meta__WEBPACK_IMPORTED_MODULE_11__.NOTIFICATION;
         if ("mynovelreader-iframe" !== window.name) {
             var ChangeIframeSites = [ /^https?:\/\/www\.930mh\.com/i ];
@@ -2411,7 +2479,7 @@
                     arrowKeyPage: !1,
                     sepStartN: 2,
                     forceTargetWindow: !0,
-                    debug: !1,
+                    debug: !0,
                     enableHistory: !1,
                     autoGetPreLink: !1,
                     excludes: "",
@@ -3444,13 +3512,13 @@
                 _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_6___default.a.all([ GM.getValue("prefs", prefsFactory), GM.getValue("SITEINFO_D", SITEINFO_DFactory), GM.getValue("autoMatch", autoMatchFactory), GM.getValue("version", myOldVersion), utils_json_rule__WEBPACK_IMPORTED_MODULE_16__.a.loadDB() ]).then((function(values) {
                     var _values = _babel_runtime_corejs2_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_3___default()(values, 4);
                     prefs = _values[0], SITEINFO_D = _values[1], autoMatch = _values[2], myOldVersion = _values[3], 
-                    -1 === compare_versions__WEBPACK_IMPORTED_MODULE_13___default()(myOldVersion, scriptInfo.rewriteStorage) && (lodash_isString__WEBPACK_IMPORTED_MODULE_9___default()(prefs) && (prefs = JSON.parse(prefs)), 
+                    console.log(myOldVersion), -1 === compare_versions__WEBPACK_IMPORTED_MODULE_13___default()(myOldVersion, scriptInfo.rewriteStorage) && (lodash_isString__WEBPACK_IMPORTED_MODULE_9___default()(prefs) && (prefs = JSON.parse(prefs)), 
                     lodash_isString__WEBPACK_IMPORTED_MODULE_9___default()(SITEINFO_D) && (SITEINFO_D = JSON.parse(SITEINFO_D)), 
                     lodash_isString__WEBPACK_IMPORTED_MODULE_9___default()(autoMatch) && (autoMatch = JSON.parse(autoMatch))), 
-                    utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.enableDebug(!prefs.debug || prefs.debug), 
+                    void 0 !== prefs.debug && utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.setLevel(prefs.debug ? "debug" : "warn"), 
                     SITEINFO_json = utils_json_rule__WEBPACK_IMPORTED_MODULE_16__.a.getRule();
                     var preSPinit = [];
-                    if (compare_versions__WEBPACK_IMPORTED_MODULE_13___default()(myOldVersion, scriptInfo.version) < 0 && upgradeNotification && upgradeNotification.show(myOldVersion, scriptInfo.version)) {
+                    if (compare_versions__WEBPACK_IMPORTED_MODULE_13___default()(myOldVersion, scriptInfo.version) < 0 && upgradeNotification && (upgradeNotification.show(myOldVersion, scriptInfo.version) || 0 === compare_versions__WEBPACK_IMPORTED_MODULE_13___default()(myOldVersion, "1.0.0"))) {
                         var opts = {
                             text: "",
                             title: upgradeNotification.title,
@@ -3468,13 +3536,13 @@
                         GM.notification(opts);
                     }
                     0 !== compare_versions__WEBPACK_IMPORTED_MODULE_13___default()(myOldVersion, scriptInfo.version) && (prefs.factoryCheck = !0, 
-                    preSPinit.push(GM.setValue("version", scriptInfo.version)), utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.info(`[UpdateCheck] version is updated ${myOldVersion} => ${scriptInfo.version}`));
+                    preSPinit.push(GM.setValue("version", scriptInfo.version)), utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.info("[Super-preloader] " + `[UpdateCheck] version is updated ${myOldVersion} => ${scriptInfo.version}`));
                     var forceJsonUpdate = !1;
                     if (!0 === prefs.factoryCheck || void 0 === prefs.factoryCheck) {
                         var hasMissing = assignMissingProperty(prefsFactory, prefs);
-                        hasMissing && utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.info("[UpdateCheck] prefs is updated", prefs), 
+                        hasMissing && utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.info("[Super-preloader] [UpdateCheck] prefs is updated", prefs), 
                         prefs.factoryCheck = !1, preSPinit.push(GM.setValue("prefs", prefs)), -1 === compare_versions__WEBPACK_IMPORTED_MODULE_13___default()(myOldVersion, scriptInfo.rewriteStorage) && (preSPinit.push(GM.setValue("SITEINFO_D", SITEINFO_D)), 
-                        preSPinit.push(GM.setValue("autoMatch", autoMatch)), forceJsonUpdate = !0, utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.info("[UpdateCheck] Storage is rewritten"));
+                        preSPinit.push(GM.setValue("autoMatch", autoMatch)), forceJsonUpdate = !0, utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.info("[Super-preloader] [UpdateCheck] Storage is rewritten"));
                     }
                     preSPinit.push(utils_json_rule__WEBPACK_IMPORTED_MODULE_16__.a.updateRule(forceJsonUpdate));
                     var blackList = [];
@@ -3498,7 +3566,7 @@
                             };
                             i(t("ok"), "click", (function() {
                                 prefs.ChineseUI = !!t("ChineseUI").checked, prefs.custom_siteinfo = t("custom_siteinfo").value, 
-                                prefs.debug = !!t("debug").checked, utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.enableDebug(prefs.debug), 
+                                prefs.debug = !!t("debug").checked, prefs.debug && utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.setLevel("debug"), 
                                 prefs.enableHistory = !!t("enableHistory").checked, prefs.dblclick_pause = !!t("dblclick_pause").checked, 
                                 prefs.excludes = t("excludes").value, prefs.arrowKeyPage = !!t("arrowKeyPage").checked, 
                                 SITEINFO_D.useiframe = !!t("SITEINFO_D-useiframe").checked, SITEINFO_D.autopager.enable = !!t("SITEINFO_D-a_enable").checked, 
@@ -3507,7 +3575,7 @@
                                     SP.loadSetting(), a(), location.reload();
                                 }));
                             })), i(t("reset"), "click", (function() {
-                                prefs = prefsFactory, GM.setValue("prefs", prefs).then((function() {
+                                prefs = prefsFactory, _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_6___default.a.all([ GM.setValue("prefs", prefsFactory), GM.setValue("SITEINFO_D", SITEINFO_DFactory), GM.setValue("version", "1.0.0") ], utils_json_rule__WEBPACK_IMPORTED_MODULE_16__.a.updateRule(!0)).then((function() {
                                     SP.loadSetting(), a(), location.reload();
                                 }));
                             })), i(t("updaterule"), "click", (function() {
@@ -3529,7 +3597,7 @@
                                 var e = location.href, t = lodash_find__WEBPACK_IMPORTED_MODULE_8___default()(HashchangeSites, (function(t) {
                                     return toRE(t.url).test(e);
                                 }));
-                                if (t) isHashchangeSite = !0, hashchangeTimer = t.timer, utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("当前是页面不刷新的站点", t), 
+                                if (t) isHashchangeSite = !0, hashchangeTimer = t.timer, utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("[Super-preloader] 当前是页面不刷新的站点", t), 
                                 new _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_6___default.a((function(e, t) {
                                     setTimeout(e, hashchangeTimer);
                                 })).then((function(e) {
@@ -3548,7 +3616,7 @@
                                 try {
                                     e = new Function("", "return " + prefs.custom_siteinfo)();
                                 } catch (e) {
-                                    utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.error("自定义站点规则错误", prefs.custom_siteinfo);
+                                    utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.error("[Super-preloader] 自定义站点规则错误", prefs.custom_siteinfo);
                                 }
                                 lodash_isArray__WEBPACK_IMPORTED_MODULE_7___default()(e) && (SITEINFO = e.concat(SITEINFO));
                             }();
@@ -3585,9 +3653,9 @@
                             u.style.backgroundColor = FWKG_color.dot;
                             var l = r("sp-fw-cur-mode");
                             l.style.backgroundColor = e.a_enable ? FWKG_color.autopager : FWKG_color.prefetcher;
-                            var p = r("sp-fw-a_enable"), f = r("sp-fw-autopager-field"), d = r("sp-fw-useiframe"), h = r("sp-fw-viewcontent"), _ = r("sp-fw-a_useiframe"), m = r("sp-fw-a_iloaded"), g = r("sp-fw-a_itimeout"), b = r("sp-fw-a_manualA"), v = r("sp-fw-a_remain"), y = r("sp-fw-a_maxpage"), w = r("sp-fw-a_separator"), x = r("sp-fw-a_ipages_0"), E = r("sp-fw-a_ipages_1"), A = r("sp-fw-a_force"), S = r("sp-fw-a_newIframe");
-                            S.addEventListener("click", (function() {
-                                _.checked = S.checked;
+                            var p = r("sp-fw-a_enable"), f = r("sp-fw-autopager-field"), d = r("sp-fw-useiframe"), h = r("sp-fw-viewcontent"), _ = r("sp-fw-a_useiframe"), m = r("sp-fw-a_iloaded"), g = r("sp-fw-a_itimeout"), b = r("sp-fw-a_manualA"), v = r("sp-fw-a_remain"), y = r("sp-fw-a_maxpage"), w = r("sp-fw-a_separator"), x = r("sp-fw-a_ipages_0"), E = r("sp-fw-a_ipages_1"), S = r("sp-fw-a_force"), A = r("sp-fw-a_newIframe");
+                            A.addEventListener("click", (function() {
+                                _.checked = A.checked;
                             }), !1);
                             var O = r("sp-fw-a_starti");
                             O.addEventListener("click", (function(t) {
@@ -3621,8 +3689,8 @@
                                     }
                                 }
                                 if (void 0 !== e.a_enable) {
-                                    r.a_enable = n(p), r.a_useiframe = n(_), r.a_newIframe = n(S), r.a_iloaded = n(m), 
-                                    r.a_manualA = n(b), r.a_force = n(A);
+                                    r.a_enable = n(p), r.a_useiframe = n(_), r.a_newIframe = n(A), r.a_iloaded = n(m), 
+                                    r.a_manualA = n(b), r.a_force = n(S);
                                     var a = n(g);
                                     r.a_itimeout = isNaN(a) ? e.a_itimeout : a >= 0 ? a : 0;
                                     var i = n(v);
@@ -3637,9 +3705,9 @@
                                     location.reload();
                                 }), 1);
                             }), !1), void 0 === e.a_enable ? (p.disabled = !0, f.style.display = "none") : (k(p, e.a_enable), 
-                            k(_, e.a_useiframe), k(S, e.a_newIframe), k(m, e.a_iloaded), k(g, e.a_itimeout), 
-                            k(b, e.a_manualA), k(A, e.a_force), k(v, e.a_remain), k(y, e.a_maxpage), k(w, e.a_separator), 
-                            k(x, e.a_ipages[0]), k(E, e.a_ipages[1])), e.a_enable || (O.disabled = !0), e.hasRule || (A.disabled = !0), 
+                            k(_, e.a_useiframe), k(A, e.a_newIframe), k(m, e.a_iloaded), k(g, e.a_itimeout), 
+                            k(b, e.a_manualA), k(S, e.a_force), k(v, e.a_remain), k(y, e.a_maxpage), k(w, e.a_separator), 
+                            k(x, e.a_ipages[0]), k(E, e.a_ipages[1])), e.a_enable || (O.disabled = !0), e.hasRule || (S.disabled = !0), 
                             k(d, e.useiframe), k(h, e.viewcontent), k(P, e.enable);
                             var I = {
                                 loading: "读取中状态",
@@ -3662,22 +3730,22 @@
                                     l.style.display = "show" == e ? "block" : "none";
                                 }
                             };
-                            var T = _babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_4___default()(prefs.FW_offset[0], 10), C = _babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_4___default()(prefs.FW_offset[1], 10), M = prefs.FW_position;
-                            switch (t.style.position = "fixed", M) {
+                            var T = _babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_4___default()(prefs.FW_offset[0], 10), M = _babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_4___default()(prefs.FW_offset[1], 10), C = prefs.FW_position;
+                            switch (t.style.position = "fixed", C) {
                               case 1:
-                                t.style.top = T + "px", t.style.left = C + "px";
+                                t.style.top = T + "px", t.style.left = M + "px";
                                 break;
 
                               case 2:
-                                t.style.top = T + "px", t.style.right = C + "px";
+                                t.style.top = T + "px", t.style.right = M + "px";
                                 break;
 
                               case 3:
-                                t.style.bottom = T + "px", t.style.right = C + "px";
+                                t.style.bottom = T + "px", t.style.right = M + "px";
                                 break;
 
                               case 4:
-                                t.style.bottom = T + "px", t.style.left = C + "px";
+                                t.style.bottom = T + "px", t.style.left = M + "px";
                             }
                         }
                         function floatWindowUI() {
@@ -3742,17 +3810,18 @@
                                 }
                                 a = -1;
                             }
-                            if (!r) return utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.error("验证是否能找到插入位置节点:失败  JS执行终止", e.a_HT_insert ? e.a_HT_insert[0] : ""), 
+                            if (!r) return utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.error("[Super-preloader] 验证是否能找到插入位置节点:失败  JS执行终止", e.a_HT_insert ? e.a_HT_insert[0] : ""), 
                             void t.updateColor("Astop");
-                            if (utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.log("验证是否能找到插入位置节点:成功", r), "en" != window.navigator.language && utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("Language: ", window.navigator.language), 
-                            void 0 === n && (n = getAllElements(e.a_pageElement)), !(n.length > 0)) return utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.error("验证是否能找到主要元素:失败", e.a_pageElement), 
+                            if (utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.log("验证是否能找到插入位置节点:成功", r), "en" != window.navigator.language && utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("[Super-preloader] Language: ", window.navigator.language), 
+                            void 0 === n && (n = getAllElements(e.a_pageElement)), !(n.length > 0)) return utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.error("[Super-preloader] 验证是否能找到主要元素:失败", e.a_pageElement), 
                             void t.updateColor("Astop");
                             function d(e) {
-                                utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.error("XHR is failed to be loaded"), 
-                                utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.error(e), h();
+                                utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.error("[Super-preloader] XHR is failed to be loaded"), 
+                                utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.error("[Super-preloader] " + e), h();
                             }
                             function h(e) {
-                                utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("移除各种事件监听"), t.updateColor("Astop");
+                                utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("[Super-preloader] 移除各种事件监听"), 
+                                t.updateColor("Astop");
                                 for (var n = remove, i = 0, o = n.length; i < o; i++) n[i]();
                                 if (e) {
                                     var s = document.querySelector(".sp-separator");
@@ -3777,7 +3846,7 @@
                                 }), e.a_itimeout);
                             }
                             function m() {
-                                if (p = !0, t.updateColor("loading"), t.CmodeIcon("show"), utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("获取下一页", e.a_useiframe ? "(iframe方式)" : "(XHR方式)", nextlink), 
+                                if (p = !0, t.updateColor("loading"), t.CmodeIcon("show"), utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("[Super-preloader] 获取下一页", e.a_useiframe ? "(iframe方式)" : "(XHR方式)", nextlink), 
                                 e.a_useiframe) !function(t) {
                                     if (l = !1, e.a_newIframe || !u) {
                                         var r = null, n = document.createElement("iframe");
@@ -3806,19 +3875,20 @@
                                         }
                                     };
                                     got.get(nextlink, r).then((function(e) {
-                                        e.finalUrl === cplink ? (utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("最终地址相同"), 
+                                        e.finalUrl === cplink ? (utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("[Super-preloader] 最终地址相同"), 
                                         d(e)) : function(e) {
                                             var r = e.data;
-                                            if (!(s = c = createDocumentByString(r))) return utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.error("文档对象创建失败"), 
+                                            if (!(s = c = createDocumentByString(r))) return utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.error("[Super-preloader] 文档对象创建失败"), 
                                             void h();
                                             t.updateColor("autopager"), t.CmodeIcon("hide"), t.loadedIcon("show"), p = !1, z();
                                         }(e);
                                     })).catch((function(e) {
                                         d(e);
-                                    })), utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("读取完成");
+                                    })), utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("[Super-preloader] 读取完成");
                                 }
                             }
-                            utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("验证是否能找到主要元素:成功", n), e.a_stylish && Object(utils_gm_enhanced__WEBPACK_IMPORTED_MODULE_12__.a)(e.a_stylish, "Super_preloader-style"), 
+                            utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("[Super-preloader] 验证是否能找到主要元素:成功", n), 
+                            e.a_stylish && Object(utils_gm_enhanced__WEBPACK_IMPORTED_MODULE_12__.a)(e.a_stylish, "Super_preloader-style"), 
                             2 != a && (i = r.parentNode), -1 == a || 1 == a ? o = function(e) {
                                 return i.insertBefore(e, r);
                             } : 2 == a ? o = function(e) {
@@ -3826,10 +3896,11 @@
                             } : 0 == a && (o = function(e) {
                                 return i.insertBefore(e, r.nextSibling);
                             }), isHashchangeSite && !hashchangeAdded && (window.addEventListener("hashchange", (function(r) {
-                                utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("触发 Hashchang 事件"), h(!0), setTimeout((function() {
+                                utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("[Super-preloader] 触发 Hashchang 事件"), 
+                                h(!0), setTimeout((function() {
                                     nextlink = getFullHref(nextlink = getElement(e.nextLink || "auto;")), autopager(e, t);
                                 }), hashchangeTimer);
-                            }), !1), hashchangeAdded = !0, utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("成功添加 hashchange 事件"));
+                            }), !1), hashchangeAdded = !0, utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("[Super-preloader] 成功添加 hashchange 事件"));
                             var g, b, v = e.a_ipages[0], y = e.a_ipages[1], w = nullFn, x = nullFn;
                             function E() {
                                 if (!g) {
@@ -3856,7 +3927,7 @@
                                                 var e = Number(n.value);
                                                 return (isNaN(e) || e < 1) && (e = 1, n.value = 1), e;
                                             }();
-                                            v = !0, y = e + T, C();
+                                            v = !0, y = e + T, M();
                                         }
                                     };
                                     n.addEventListener("keyup", (function(e) {
@@ -3877,19 +3948,19 @@
                                 o(g), g.style.display = "block";
                             }
                             prefs.Aplus ? (x = m, m()) : (w = m, v && m());
-                            var A = [ !1 ], S = prefs.sepStartN, O = sep_icons, P = S;
+                            var S = [ !1 ], A = prefs.sepStartN, O = sep_icons, P = A;
                             var k, I, T = 0;
-                            function C() {
+                            function M() {
                                 if (s) {
                                     if (e.a_documentFilter) try {
-                                        e.a_documentFilter(s, nextlink), utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("执行 documentFilter 成功");
+                                        e.a_documentFilter(s, nextlink), utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("[Super-preloader] 执行 documentFilter 成功");
                                     } catch (t) {
-                                        utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.error("执行 documentFilter 错误", t, e.a_documentFilter.toString());
+                                        utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.error("[Super-preloader] 执行 documentFilter 错误", t, e.a_documentFilter.toString());
                                     }
                                     var n = getElementByCSS("title", s).textContent, a = document.createDocumentFragment(), i = getAllElements(e.a_pageElement, !1, s, c, nextlink), u = i.length;
-                                    if (u <= 0) return utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.error("获取下一页的主要内容失败", e.a_pageElement), 
+                                    if (u <= 0) return utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.error("[Super-preloader] 获取下一页的主要内容失败", e.a_pageElement), 
                                     void h();
-                                    utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("获取下一页的主要内容成功", i);
+                                    utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("[Super-preloader] 获取下一页的主要内容成功", i);
                                     var l = cplink;
                                     cplink = nextlink;
                                     var f, d, _, w, E = getElement(e.nextLink, !1, s, c);
@@ -3906,7 +3977,7 @@
                                     prefs.forceTargetWindow) Array.prototype.slice.call(a.querySelectorAll('a[href]:not([href^="mailto:"]):not([href^="javascript:"]):not([href^="#"])')).forEach((function(e) {
                                         e.setAttribute("target", "_blank"), "atarget(this)" == e.getAttribute("onclick") && e.removeAttribute("onclick");
                                     }));
-                                    var C = function(t, r, n) {
+                                    var M = function(t, r, n) {
                                         var a = document.createElement("div");
                                         if (e.a_separator) {
                                             b || (b = Object(utils_gm_enhanced__WEBPACK_IMPORTED_MODULE_12__.a)("                        div.sp-separator{                            line-height:1.8!important;                            opacity:1!important;                            position:relative!important;                            float:none!important;                            top:0!important;                            left:0!important;                            min-width:366px;                            width:auto;                            text-align:center!important;                            font-size:14px!important;                            display:block!important;                            padding:3px 0!important;                            margin:5px 10px 8px;                            clear:both!important;                            border-style: solid!important;                            border-color: #cccccc!important;                            border-width: 1px;!important;                            -moz-border-radius:30px!important;                            border-radius:30px!important;                            background-color:#FFFFFF!important;                        }                        div.sp-separator:hover {                            box-shadow: 0 0 11px rgba(33,33,33,.2);                         }                        div.sp-separator img{                            vertical-align:middle!important;                            cursor:pointer!important;                            padding:0!important;                            margin:0 5px!important;                            border:none!important;                            display:inline-block!important;                            float:none!important;                            width: auto;                            height: auto;                        }                        div.sp-separator a.sp-sp-nextlink{                            margin:0 20px 0 -6px!important;                            display:inline!important;                            text-shadow:#fff 0 1px 0!important;                            background:none!important;                            color:#595959!important;                        }                        div.sp-separator span.sp-span-someinfo{                            position:absolute!important;                            right:16px!important;                            bottom:1px!important;                            font-size:10px!important;                            text-shadow:white 0 1px 0!important;                            color:#5A5A5A!important;                            font-style:italic!important;                            z-index:-1!important;                            background:none!important;                        }                    ")), 
@@ -3924,7 +3995,7 @@
                                                 alt: "去到顶部",
                                                 title: "去到顶部"
                                             })), a.appendChild($C("img", {
-                                                src: P == S ? O.pre_gray : O.pre,
+                                                src: P == A ? O.pre_gray : O.pre,
                                                 class: "sp-sp-gopre",
                                                 title: "上滚一页"
                                             }));
@@ -3933,7 +4004,7 @@
                                                 class: "sp-sp-gonext",
                                                 title: "下滚一页"
                                             });
-                                            2 == A.length && A.shift(), A.push(o), a.appendChild(o), a.appendChild($C("img", {
+                                            2 == S.length && S.shift(), S.push(o), a.appendChild(o), a.appendChild($C("img", {
                                                 src: O.bottom,
                                                 class: "sp-sp-gobottom",
                                                 alt: "去到底部",
@@ -3943,15 +4014,15 @@
                                             }, prefs.someValue)), P += 1;
                                         } else a.style.cssText = "                    height:0!important;                    width:0!important;                    margin:0!important;                    padding:0!important;                    border:none!important;                    clear:both!important;                    display:block!important;                    visibility:hidden!important;                ";
                                         return a;
-                                    }(l, cplink, nextlink), M = C, D = 0;
-                                    if (void 0 !== e.a_sepdivDom && "function" == typeof e.a_sepdivDom) M = e.a_sepdivDom(s, C); else if (i[0] && "TR" === i[0].tagName && "TR" === i[i.length - 1].tagName) {
+                                    }(l, cplink, nextlink), C = M, D = 0;
+                                    if (void 0 !== e.a_sepdivDom && "function" == typeof e.a_sepdivDom) C = e.a_sepdivDom(s, M); else if (i[0] && "TR" === i[0].tagName && "TR" === i[i.length - 1].tagName) {
                                         var L = getAllElements("child::tr[1]/child::*[self::td or self::th]", r.parentNode);
                                         for (0 == L.length && (L = getAllElements("child::*[self::td or self::th]", i[0])), 
                                         f = 0, D = 0; f < L.length; f++) D += _babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_4___default()(L[f].getAttribute("colspan"), 10) || 1;
                                         var B = s.createElement("td");
-                                        B.appendChild(C);
+                                        B.appendChild(M);
                                         var R = s.createElement("tr");
-                                        B.setAttribute("colspan", D), R.appendChild(B), M = R;
+                                        B.setAttribute("colspan", D), R.appendChild(B), C = R;
                                     } else if (i[0] && "TBODY" === i[0].tagName && "TBODY" === i[i.length - 1].tagName) {
                                         var j = i[i.length - 1].getElementsByTagName("tr");
                                         if (j) {
@@ -3959,13 +4030,13 @@
                                             var U = s.createElement("tbody"), N = $C("td", {
                                                 colspan: D
                                             }), F = s.createElement("tr");
-                                            N.appendChild(C), F.appendChild(N), U.appendChild(F), M = U;
+                                            N.appendChild(M), F.appendChild(N), U.appendChild(F), C = U;
                                         }
                                     }
-                                    if (a.insertBefore(M, a.firstChild), o(a), e.filter && "function" == typeof e.filter) try {
-                                        e.filter(i), utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("执行 filter(pages) 成功");
+                                    if (a.insertBefore(C, a.firstChild), o(a), e.filter && "function" == typeof e.filter) try {
+                                        e.filter(i), utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("[Super-preloader] 执行 filter(pages) 成功");
                                     } catch (t) {
-                                        utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.error("执行 filter(pages) 错误", t, e.filter.toString());
+                                        utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.error("[Super-preloader] 执行 filter(pages) 错误", t, e.filter.toString());
                                     }
                                     if (w && setTimeout((function() {
                                         var e, t, r, n = w;
@@ -3982,24 +4053,24 @@
                                         }
                                     }
                                     T += 1, v && T >= y && (v = !1), t.loadedIcon("hide"), g && (g.style.display = "none"), 
-                                    A[0] && (A[0].src = O.next);
+                                    S[0] && (S[0].src = O.next);
                                     var H = document.createEvent("Event");
                                     if (H.initEvent("Super_preloaderPageLoaded", !0, !1), document.dispatchEvent(H), 
                                     prefs.enableHistory) try {
                                         window.history.pushState(null, n, cplink);
                                     } catch (e) {}
-                                    if (T >= e.a_maxpage) return utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug(`到达所设定的最大翻页数 ${e.a_maxpage}`), 
+                                    if (T >= e.a_maxpage) return utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("[Super-preloader] " + `到达所设定的最大翻页数 ${e.a_maxpage}`), 
                                     notice('<b>状态</b>:到达所设定的最大翻页数:<b style="color:red">' + e.a_maxpage + "</b>"), void h();
                                     var V = function(e) {
                                         setTimeout(e, 199);
                                     };
-                                    nextlink ? (s = c = null, v ? e.a_useiframe ? V(m) : m() : (p = !1, e.a_useiframe ? V(x) : x())) : (utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.error("没有找到下一页链接", e.nextLink), 
+                                    nextlink ? (s = c = null, v ? e.a_useiframe ? V(m) : m() : (p = !1, e.a_useiframe ? V(x) : x())) : (utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.error("[Super-preloader] 没有找到下一页链接", e.nextLink), 
                                     h());
-                                } else utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.error("No document");
+                                } else utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.error("[Super-preloader] No document");
                             }
                             e.a_relatedObj && (lodash_isArray__WEBPACK_IMPORTED_MODULE_7___default()(e.a_relatedObj) ? (k = e.a_relatedObj[0], 
                             I = e.a_relatedObj[1]) : (k = e.a_pageElement, I = "bottom"));
-                            var M, D = !1;
+                            var C, D = !1;
                             if (prefs.pauseA) {
                                 var L, B = [ "target", "shiftKey", "ctrlKey", "altKey" ], R = prefs.mouseA ? "mousedown" : "dblclick", j = B[prefs.Pbutton[0]], U = B[prefs.Pbutton[1]], N = B[prefs.Pbutton[2]], F = function() {
                                     D = !D, prefs.stop_ipage && (v = !1), D ? (t.updateColor("Apause"), "zh_CN" === i8n() ? notice('<b>状态</b>:自动翻页<span style="color:red!important;"><b> 暂停</b></span>.', prefs.disappearDelay) : notice('<b>Status</b>:Autopagger<span style="color:red!important;"><b> Pause</b></span>.', prefs.disappearDelay)) : (t.updateColor("autopager"), 
@@ -4020,18 +4091,19 @@
                                 !D && !p && (t = cplink || void 0, r = window.scrollY, n = window.innerHeight, a = getLastElement(k, t), 
                                 i = a && 1 == a.nodeType ? a.getBoundingClientRect()[I] + r : Math.max(document.documentElement.scrollHeight, document.body.scrollHeight), 
                                 o = 0, null != e.a_excludeElement && (o = getLastElement(e.a_excludeElement, t).offsetHeight), 
-                                (i - r - n - o) / n <= e.a_remain || v) && (s ? (p = !0, e.a_manualA && !v ? (utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("手动拼接"), 
-                                E()) : (utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("直接拼接"), C())) : w());
+                                (i - r - n - o) / n <= e.a_remain || v) && (s ? (p = !0, e.a_manualA && !v ? (utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("[Super-preloader] 手动拼接"), 
+                                E()) : (utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("[Super-preloader] 直接拼接"), 
+                                M())) : w());
                             }
                             function q() {
-                                clearTimeout(M), M = setTimeout(z, 100);
+                                clearTimeout(C), C = setTimeout(z, 100);
                             }
                             window.addEventListener("scroll", q, !1), remove.push((function() {
                                 window.removeEventListener("scroll", q, !1);
                             })), autoPO = {
                                 startipages: function(t) {
                                     t > 0 && (v = !0, notice("<b>状态</b>:当前已翻页数量:<b>" + T + '</b>,连续翻页到第<b style="color:red!important;">' + (y = t + T) + "</b>页."), 
-                                    e.a_manualA && C(), z());
+                                    e.a_manualA && M(), z());
                                 }
                             };
                         }
@@ -4079,37 +4151,38 @@
                                             o -= 1; o >= 0; o--) f.appendChild(u[o]);
                                         }
                                         t.updateColor("prefetcher"), t.loadedIcon("show"), t.CmodeIcon("hide");
-                                    } else utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.error("文档对象创建失败!");
+                                    } else utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.error("[Super-preloader] 文档对象创建失败!");
                                 }));
                             }
                         }
                         var blackList_re = new RegExp(blackList.map(wildcardToRegExpStr).join("|"));
-                        if (blackList_re.test(url)) utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("匹配黑名单，js执行终止"); else {
+                        if (blackList_re.test(url)) utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("[Super-preloader] 匹配黑名单，js执行终止"); else {
                             if (prefs.DisableI && window.self != window.parent) {
                                 var isReturn = !lodash_find__WEBPACK_IMPORTED_MODULE_8___default()(DIExclude, (function(e) {
                                     return e[1] && e[2].test(url);
                                 }));
-                                if (isReturn) return void utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug(`url为:${url}的页面为非顶层窗口,JS执行终止`);
+                                if (isReturn) return void utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("[Super-preloader] " + `url为:${url}的页面为非顶层窗口,JS执行终止`);
                             }
                             var nextlink, prelink;
-                            utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug(`url为:${url}的页面,JS加载成功`), SITEINFO = SITEINFO.concat(SITEINFO_json, SITEINFO_TP, SITEINFO_comp), 
-                            prefs.numOfRule && prefs.numOfRule == SITEINFO.length || (prefs.numOfRule = SITEINFO.length, 
+                            utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("[Super-preloader] " + `url为:${url}的页面,JS加载成功`), 
+                            SITEINFO = SITEINFO.concat(SITEINFO_json, SITEINFO_TP, SITEINFO_comp), prefs.numOfRule && prefs.numOfRule == SITEINFO.length || (prefs.numOfRule = SITEINFO.length, 
                             GM.setValue("prefs", prefs));
                             var SSS = {}, findCurSiteInfo = function() {
                                 var e, t = SITEINFO_D.autopager, r = SITEINFO.length;
-                                "zh_CN" === i8n() ? (utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug(`高级规则数目:${r}`), 
-                                utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug(`规则数 > ${r - SITEINFO_json.length} 来自其他来源, 比如: wedata.net`)) : utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug(`Number of advanced rules:${r}`);
+                                "zh_CN" === i8n() ? (utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("[Super-preloader] " + `高级规则数目:${r}`), 
+                                utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("[Super-preloader] " + `规则数 > ${r - SITEINFO_json.length} 来自其他来源, 比如: wedata.net`)) : utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("[Super-preloader] " + `Number of advanced rules:${r}`);
                                 var n = function() {
                                     var r = SITEINFO[a];
                                     if ((e = toRE(r.url)).test(url)) {
-                                        if ("zh_CN" === i8n() ? (utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("找到当前站点规则:", r), 
-                                        utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug(`规则ID: ${a + 1}`)) : (utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("Find rule for this website:", r), 
-                                        utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug(`Rule ID: ${a + 1}`)), r.autopager && r.autopager.startFilter) try {
-                                            r.autopager.startFilter(document, window), utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("执行 startFilter 成功");
+                                        if ("zh_CN" === i8n() ? (utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("[Super-preloader] 找到当前站点规则:", r), 
+                                        utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("[Super-preloader] " + `规则ID: ${a + 1}`)) : (utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("[Super-preloader] Find rule for this website:", r), 
+                                        utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("[Super-preloader] " + `Rule ID: ${a + 1}`)), 
+                                        r.autopager && r.autopager.startFilter) try {
+                                            r.autopager.startFilter(document, window), utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("[Super-preloader] 执行 startFilter 成功");
                                         } catch (e) {
-                                            utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.error("执行 startFilter 错误", e);
+                                            utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.error("[Super-preloader] 执行 startFilter 错误", e);
                                         }
-                                        if (!(nextlink = getElement(r.nextLink || "auto;"))) return utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.warn("无法找到下一页链接,继续查找其他规则,跳过规则:", r), 
+                                        if (!(nextlink = getElement(r.nextLink || "auto;"))) return utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.warn("[Super-preloader] 无法找到下一页链接,继续查找其他规则,跳过规则:", r), 
                                         "continue";
                                         if (getFullHref(nextlink) == document.location.href) return nextlink = null, "continue";
                                         r.preLink && "auto;" != r.preLink ? prelink = getElement(r.preLink) : prefs.autoGetPreLink && getElement("auto;"), 
@@ -4139,7 +4212,7 @@
                                         }
                                         var i = getElement(SSS.a_pageElement);
                                         return !i || _babel_runtime_corejs2_core_js_array_is_array__WEBPACK_IMPORTED_MODULE_1___default()(i) && 0 === i.length ? (nextlink = null, 
-                                        utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.error("无法找到内容,跳过规则:", r, "继续查找其他规则"), 
+                                        utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.error("[Super-preloader] 无法找到内容,跳过规则:", r, "继续查找其他规则"), 
                                         "continue") : (SSS.hasRule = !0, "break");
                                     }
                                 };
@@ -4152,7 +4225,7 @@
                                         break e;
                                     }
                                 }
-                                if (!SSS.hasRule) if (utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.warn("未找到合适的高级规则,开始自动匹配."), 
+                                if (!SSS.hasRule) if (utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.warn("[Super-preloader] 未找到合适的高级规则,开始自动匹配."), 
                                 autoMatch.keyMatch) {
                                     if (nextlink = autoGetLink()) {
                                         var i = autoMatch.FA;
@@ -4163,11 +4236,12 @@
                                         SSS.a_iloaded = i.iloaded, SSS.a_itimeout = i.itimeout, SSS.a_remain = i.remain, 
                                         SSS.a_maxpage = i.maxpage, SSS.a_separator = i.separator, SSS.a_ipages = i.ipages;
                                     }
-                                } else utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("自动匹配功能被禁用了.");
-                                SSS.lazyImgSrc || (SSS.lazyImgSrc = prefs.lazyImgSrc), utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug(`搜索高级规则和自动匹配过程总耗时:${new Date - startTime}ms`);
+                                } else utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("[Super-preloader] 自动匹配功能被禁用了.");
+                                SSS.lazyImgSrc || (SSS.lazyImgSrc = prefs.lazyImgSrc), utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("[Super-preloader] " + `搜索高级规则和自动匹配过程总耗时:${new Date - startTime}ms`);
                             };
                             if (findCurSiteInfo(), nextlink || prelink) {
-                                utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("上一页链接:", prelink), utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("下一页链接:", nextlink), 
+                                utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("[Super-preloader] 上一页链接:", prelink), 
+                                utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("[Super-preloader] 下一页链接:", nextlink), 
                                 nextlink = nextlink ? nextlink.href || nextlink : void 0, prelink = prelink ? prelink.href || prelink : void 0;
                                 var superPreloader = {
                                     go: function() {
@@ -4177,7 +4251,7 @@
                                         prelink || getElement("auto;"), prelink && (window.location.href = prelink);
                                     }
                                 };
-                                if (prefs.arrowKeyPage && (utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("添加键盘左右方向键翻页监听."), 
+                                if (prefs.arrowKeyPage && (utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("[Super-preloader] 添加键盘左右方向键翻页监听."), 
                                 document.addEventListener("keyup", (function(e) {
                                     var t = e.target.nodeName;
                                     if (("BODY" == t || "HTML" == t) && !(e.ctrlKey || e.shiftKey || e.altKey || e.metaKey)) switch (e.keyCode) {
@@ -4188,14 +4262,15 @@
                                       case 39:
                                         superPreloader.go();
                                     }
-                                }), !1)), utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("添加鼠标手势翻页监听"), document.addEventListener("superPreloader.go", (function() {
+                                }), !1)), utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("[Super-preloader] 添加鼠标手势翻页监听"), 
+                                document.addEventListener("superPreloader.go", (function() {
                                     superPreloader.go();
                                 }), !1), document.addEventListener("superPreloader.back", (function() {
                                     superPreloader.back();
-                                }), !1), !nextlink) return utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.error("下一页链接不存在,JS无法继续."), 
-                                void utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug(`全部过程耗时:${new Date - startTime}ms`);
+                                }), !1), !nextlink) return utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.error("[Super-preloader] 下一页链接不存在,JS无法继续."), 
+                                void utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("[Super-preloader] " + `全部过程耗时:${new Date - startTime}ms`);
                                 var loadLocalSetting = function loadLocalSetting() {
-                                    utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("加载设置");
+                                    utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("[Super-preloader] 加载设置");
                                     var savedValue = getValue("spfwset");
                                     if (savedValue) try {
                                         savedValue = eval(savedValue);
@@ -4215,14 +4290,14 @@
                                     } else SSS.savedValue = [], SSS.sedValueIndex = 0;
                                 }, docChecked;
                                 if (loadLocalSetting(), SSS.hasRule || (SSS.a_force = !0), SSS.a_force && (SSS.a_pageElement = "//body/*", 
-                                SSS.a_HT_insert = void 0, SSS.a_relatedObj = void 0), prefs.floatWindow && (utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("创建悬浮窗"), 
-                                floatWindow(SSS)), !SSS.enable) return utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.warn("本规则被关闭,脚本执行停止"), 
-                                void utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug(`全部过程耗时:${new Date - startTime}ms`);
-                                utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug(`全部过程耗时:${new Date - startTime}ms`), 
-                                SSS.a_enable ? (utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("初始化,翻页模式."), 
-                                autopager(SSS, floatWO)) : (utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("初始化,预读模式."), 
+                                SSS.a_HT_insert = void 0, SSS.a_relatedObj = void 0), prefs.floatWindow && (utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("[Super-preloader] 创建悬浮窗"), 
+                                floatWindow(SSS)), !SSS.enable) return utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.warn("[Super-preloader] 本规则被关闭,脚本执行停止"), 
+                                void utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("[Super-preloader] " + `全部过程耗时:${new Date - startTime}ms`);
+                                utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("[Super-preloader] " + `全部过程耗时:${new Date - startTime}ms`), 
+                                SSS.a_enable ? (utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("[Super-preloader] 初始化,翻页模式."), 
+                                autopager(SSS, floatWO)) : (utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("[Super-preloader] 初始化,预读模式."), 
                                 prefetcher(SSS, floatWO));
-                            } else utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.warn(`未找到相关链接, JS执行停止. 共耗时:${new Date - startTime}ms`);
+                            } else utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.warn("[Super-preloader] " + `未找到相关链接, JS执行停止. 共耗时:${new Date - startTime}ms`);
                         }
                         function getElement(e, t, r, n) {
                             var a, i = cplink;
@@ -4242,29 +4317,30 @@
                                 }
                                 var n, a, i = prePageKey, o = nextPageKey, s = nextPageKey.length, c = prePageKey.length, u = getFullHref, l = getAllElementsByXpath, p = Number, f = domain_port, d = e.links, h = d.length, _ = cplink;
                                 autoGetLink.checked ? a = !0 : (n = nextlink, a = prelink);
-                                var m, g, b, v, y, w, x, E, A, S, O, P, k, I, T, C, M, D, L, B, R, j, U = autoMatch.digitalCheck, N = /^\s*\D{0,1}(\d+)\D{0,1}\s*$/;
-                                for (utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug(`全文档链接数量:${h}`), m = 0; m < h && (!n || !a); m++) if (g = d[m]) {
+                                var m, g, b, v, y, w, x, E, S, A, O, P, k, I, T, M, C, D, L, B, R, j, U = autoMatch.digitalCheck, N = /^\s*\D{0,1}(\d+)\D{0,1}\s*$/;
+                                for (utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("[Super-preloader] " + `全文档链接数量:${h}`), 
+                                m = 0; m < h && (!n || !a); m++) if (g = d[m]) {
                                     if (b = g.textContent) {
                                         if (U && (v = b.match(N))) {
                                             if (v = v[1], y = g, w = 0, !n) {
                                                 for (x = g.previousSibling, E = g.previousElementSibling; !x && !E && w < 1; ) (y = y.parentNode) && (x = y.previousSibling, 
                                                 E = y.previousElementSibling), w++;
-                                                if (A = w > 0, (x || E) && ((S = x ? x.textContent.match(N) : "") ? O = x : (S = E ? E.textContent.match(N) : "", 
-                                                O = E), S && p(S = S[1]) == p(v) - 1)) {
-                                                    (3 == (P = O.nodeType) || 1 == P && (A ? 0 === l("./descendant-or-self::a[@href]", O, e).snapshotLength : !O.hasAttribute("href") || u(O.getAttribute("href")) == _)) && (n = F(g, "next"));
+                                                if (S = w > 0, (x || E) && ((A = x ? x.textContent.match(N) : "") ? O = x : (A = E ? E.textContent.match(N) : "", 
+                                                O = E), A && p(A = A[1]) == p(v) - 1)) {
+                                                    (3 == (P = O.nodeType) || 1 == P && (S ? 0 === l("./descendant-or-self::a[@href]", O, e).snapshotLength : !O.hasAttribute("href") || u(O.getAttribute("href")) == _)) && (n = F(g, "next"));
                                                     continue;
                                                 }
                                             }
                                             if (!a) {
                                                 for (k = g.nextSibling, I = g.nextElementSibling; !k && !I && w < 1; ) (y = y.parentNode) && (k = g.nextSibling, 
                                                 I = g.nextElementSibling), w++;
-                                                A = w > 0, (k || I) && ((T = k ? k.textContent.match(N) : "") ? C = k : (T = I ? I.textContent.match(N) : "", 
-                                                C = I), T && p(T = T[1]) == p(v) + 1 && (3 == (P = C.nodeType) || 1 == P && (A ? 0 === l("./descendant-or-self::a[@href]", C, e).snapshotLength : !C.hasAttribute("href") || u(C.getAttribute("href")) == _)) && (a = F(g, "pre")));
+                                                S = w > 0, (k || I) && ((T = k ? k.textContent.match(N) : "") ? M = k : (T = I ? I.textContent.match(N) : "", 
+                                                M = I), T && p(T = T[1]) == p(v) + 1 && (3 == (P = M.nodeType) || 1 == P && (S ? 0 === l("./descendant-or-self::a[@href]", M, e).snapshotLength : !M.hasAttribute("href") || u(M.getAttribute("href")) == _)) && (a = F(g, "pre")));
                                             }
                                             continue;
                                         }
                                     } else b = g.title;
-                                    if (!b) for (D = 0, L = (M = g.getElementsByTagName("img")).length; D < L && (B = M[D], 
+                                    if (!b) for (D = 0, L = (C = g.getElementsByTagName("img")).length; D < L && (B = C[D], 
                                     !(b = B.alt || B.title)); D++) ;
                                     if (b) {
                                         if (!n) {
@@ -4280,12 +4356,12 @@
                                         }
                                     }
                                 }
-                                return utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug(`搜索链接数量:${m} 耗时:${new Date - r}ms`), 
+                                return utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("[Super-preloader] " + `搜索链接数量:${m} 耗时:${new Date - r}ms`), 
                                 autoGetLink.checked || (prelink = a, autoGetLink.checked = !0), n;
                             }
                             function F(e, t) {
                                 var r = e.getAttribute("href");
-                                return "#" == r ? null : (r = u(r), /^https?:/i.test(r) && r.replace(/#.*$/, "") != _ && r.match(/https?:\/\/([^\/]+)/)[1] == f ? (utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("pre" == t ? "上一页" : "下一页匹配到的关键字为:", b), 
+                                return "#" == r ? null : (r = u(r), /^https?:/i.test(r) && r.replace(/#.*$/, "") != _ && r.match(/https?:\/\/([^\/]+)/)[1] == f ? (utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("[Super-preloader] " + t == "pre" ? "上一页" : "下一页匹配到的关键字为:", b), 
                                 e) : void 0);
                             }
                         }
@@ -4324,7 +4400,8 @@
                         return s ? "zh_CN" === i8n() ? i[1] - i[0] > 1 ? o = ' [ 实际：第 <span style="' + sep_icons.text_span_style + '">' + i[0] + " - " + i[1] + "</span> 项 ]" : i[1] - i[0] == 1 ? o = ' [ 实际：第 <span style="' + sep_icons.text_span_style + '">' + i[0] + "</span> 页 ]" : 0 === (0 === i[0] && i[1]) && (o = ' [ <span style="' + sep_icons.text_span_style + '">实际网页结束</span> ]') : i[1] - i[0] > 1 ? o = ' [ Actual elements/pages: <span style="' + sep_icons.text_span_style + '">' + i[0] + " - " + i[1] + "</span> ]" : i[1] - i[0] == 1 ? o = ' [ Actual elements/pages: <span style="' + sep_icons.text_span_style + '">' + i[0] + "</span> ]" : 0 === (0 === i[0] && i[1]) && (o = ' [ <span style="' + sep_icons.text_span_style + '">Actual elements ends</span> ]') : o = "", 
                         o || "";
                     }
-                    utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("Entrypoint"), _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_6___default.a.all(preSPinit).then((function() {
+                    utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.debug("[Super-preloader] Entrypoint"), 
+                    _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_6___default.a.all(preSPinit).then((function() {
                         SITEINFO_json = utils_json_rule__WEBPACK_IMPORTED_MODULE_16__.a.getRule(), SP.spinit();
                     }));
                 })).catch((function(e) {
@@ -4548,7 +4625,7 @@
             try {
                 return r.evaluate(e, t, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
             } catch (t) {
-                return void utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.error(`Invalid xpath: ${e}`);
+                return void utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.error("[Super-preloader] " + `Invalid xpath: ${e}`);
             }
         }
         function getAllElementsByXpath(e, t, r) {
@@ -4619,7 +4696,7 @@
                     }, o = t.body, s = o.childNodes, c = s.length - 1; c >= 0; c--) i[(a = s[c]).nodeName] && o.removeChild(a);
                     return t;
                 }
-            } else utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.error("没有找到要转成DOM的字符串");
+            } else utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.error("[Super-preloader] 没有找到要转成DOM的字符串");
         }
         function getFullHref(e) {
             "string" != typeof e && (e = e.getAttribute("href"));
@@ -4722,14 +4799,14 @@
                 var t = _babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_4___default()(e, 16);
                 return _babel_runtime_corejs2_core_js_string_from_code_point__WEBPACK_IMPORTED_MODULE_0___default()(t);
             }
-            return utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.error("Shame on your browser!"), 
+            return utils_logger__WEBPACK_IMPORTED_MODULE_17__.a.error("[Super-preloader] Shame on your browser!"), 
             "";
         }
     }();
 }, function(e, t, r) {
     r(142), e.exports = r(1).String.fromCodePoint;
 }, function(e, t, r) {
-    var n = r(3), a = r(92), i = String.fromCharCode, o = String.fromCodePoint;
+    var n = r(3), a = r(94), i = String.fromCharCode, o = String.fromCodePoint;
     n(n.S + n.F * (!!o && 1 != o.length), "String", {
         fromCodePoint: function(e) {
             for (var t, r = [], n = arguments.length, o = 0; n > o; ) {
@@ -4744,7 +4821,7 @@
 }, function(e, t, r) {
     var n = r(3);
     n(n.S, "Array", {
-        isArray: r(93)
+        isArray: r(95)
     });
 }, function(e, t, r) {
     var n = r(1), a = n.JSON || (n.JSON = {
@@ -4754,12 +4831,12 @@
         return a.stringify.apply(a, arguments);
     };
 }, function(e, t, r) {
-    var n = r(83);
+    var n = r(84);
     e.exports = function(e) {
         if (n(e)) return e;
     };
 }, function(e, t, r) {
-    var n = r(84), a = r(157);
+    var n = r(85), a = r(157);
     e.exports = function(e, t) {
         if (a(Object(e)) || "[object Arguments]" === Object.prototype.toString.call(e)) {
             var r = [], i = !0, o = !1, s = void 0;
@@ -4778,11 +4855,11 @@
         }
     };
 }, function(e, t, r) {
-    r(64), r(68), e.exports = r(156);
+    r(65), r(69), e.exports = r(156);
 }, function(e, t, r) {
     "use strict";
-    var n = r(150), a = r(151), i = r(25), o = r(14);
-    e.exports = r(95)(Array, "Array", (function(e, t) {
+    var n = r(150), a = r(151), i = r(26), o = r(15);
+    e.exports = r(97)(Array, "Array", (function(e, t) {
         this._t = o(e), this._i = 0, this._k = t;
     }), (function() {
         var e = this._t, t = this._k, r = this._i++;
@@ -4799,8 +4876,8 @@
     };
 }, function(e, t, r) {
     "use strict";
-    var n = r(97), a = r(34), i = r(46), o = {};
-    r(20)(o, r(7)("iterator"), (function() {
+    var n = r(99), a = r(34), i = r(45), o = {};
+    r(19)(o, r(6)("iterator"), (function() {
         return this;
     })), e.exports = function(e, t, r) {
         e.prototype = n(o, {
@@ -4808,7 +4885,7 @@
         }), i(e, t + " Iterator");
     };
 }, function(e, t, r) {
-    var n = r(14), a = r(100), i = r(92);
+    var n = r(15), a = r(102), i = r(94);
     e.exports = function(e) {
         return function(t, r, o) {
             var s, c = n(t), u = a(c.length), l = i(o, u);
@@ -4819,12 +4896,12 @@
         };
     };
 }, function(e, t, r) {
-    var n = r(23), a = r(47), i = r(65)("IE_PROTO"), o = Object.prototype;
+    var n = r(22), a = r(46), i = r(66)("IE_PROTO"), o = Object.prototype;
     e.exports = Object.getPrototypeOf || function(e) {
         return e = a(e), n(e, i) ? e[i] : "function" == typeof e.constructor && e instanceof e.constructor ? e.constructor.prototype : e instanceof Object ? o : null;
     };
 }, function(e, t, r) {
-    var n = r(63), a = r(44);
+    var n = r(64), a = r(43);
     e.exports = function(e) {
         return function(t, r) {
             var i, o, s = String(a(t)), c = n(r), u = s.length;
@@ -4832,7 +4909,7 @@
         };
     };
 }, function(e, t, r) {
-    var n = r(11), a = r(102);
+    var n = r(12), a = r(104);
     e.exports = r(1).getIterator = function(e) {
         var t = a(e);
         if ("function" != typeof t) throw TypeError(e + " is not iterable!");
@@ -4841,9 +4918,9 @@
 }, function(e, t, r) {
     e.exports = r(158);
 }, function(e, t, r) {
-    r(64), r(68), e.exports = r(159);
+    r(65), r(69), e.exports = r(159);
 }, function(e, t, r) {
-    var n = r(69), a = r(7)("iterator"), i = r(25);
+    var n = r(70), a = r(6)("iterator"), i = r(26);
     e.exports = r(1).isIterable = function(e) {
         var t = Object(e);
         return void 0 !== t[a] || "@@iterator" in t || i.hasOwnProperty(n(t));
@@ -4860,13 +4937,13 @@
         parseInt: a
     });
 }, function(e, t, r) {
-    var n = r(4).parseInt, a = r(164).trim, i = r(103), o = /^[-+]?0[xX]/;
+    var n = r(4).parseInt, a = r(164).trim, i = r(105), o = /^[-+]?0[xX]/;
     e.exports = 8 !== n(i + "08") || 22 !== n(i + "0x16") ? function(e, t) {
         var r = a(String(e), 3);
         return n(r, t >>> 0 || (o.test(r) ? 16 : 10));
     } : n;
 }, function(e, t, r) {
-    var n = r(3), a = r(44), i = r(22), o = r(103), s = "[" + o + "]", c = RegExp("^" + s + s + "*"), u = RegExp(s + s + "*$"), l = function(e, t, r) {
+    var n = r(3), a = r(43), i = r(21), o = r(105), s = "[" + o + "]", c = RegExp("^" + s + s + "*"), u = RegExp(s + s + "*$"), l = function(e, t, r) {
         var a = {}, s = i((function() {
             return !!o[e]() || "​" != "​"[e]();
         })), c = a[e] = s ? t(p) : o[e];
@@ -4886,17 +4963,17 @@
         }
     });
 }, function(e, t, r) {
-    r(168), r(68), r(64), r(169), r(180), r(181), e.exports = r(1).Promise;
+    r(168), r(69), r(65), r(169), r(180), r(181), e.exports = r(1).Promise;
 }, function(e, t) {}, function(e, t, r) {
     "use strict";
-    var n, a, i, o, s = r(36), c = r(4), u = r(42), l = r(69), p = r(3), f = r(21), d = r(43), h = r(170), _ = r(171), m = r(104), g = r(105).set, b = r(175)(), v = r(70), y = r(106), w = r(176), x = r(107), E = c.TypeError, A = c.process, S = A && A.versions, O = S && S.v8 || "", P = c.Promise, k = "process" == l(A), I = function() {}, T = a = v.f, C = !!function() {
+    var n, a, i, o, s = r(36), c = r(4), u = r(41), l = r(70), p = r(3), f = r(20), d = r(42), h = r(170), _ = r(171), m = r(106), g = r(107).set, b = r(175)(), v = r(71), y = r(108), w = r(176), x = r(109), E = c.TypeError, S = c.process, A = S && S.versions, O = A && A.v8 || "", P = c.Promise, k = "process" == l(S), I = function() {}, T = a = v.f, M = !!function() {
         try {
-            var e = P.resolve(1), t = (e.constructor = {})[r(7)("species")] = function(e) {
+            var e = P.resolve(1), t = (e.constructor = {})[r(6)("species")] = function(e) {
                 e(I, I);
             };
             return (k || "function" == typeof PromiseRejectionEvent) && e.then(I) instanceof t && 0 !== O.indexOf("6.6") && -1 === w.indexOf("Chrome/66");
         } catch (e) {}
-    }(), M = function(e) {
+    }(), C = function(e) {
         var t;
         return !(!f(e) || "function" != typeof (t = e.then)) && t;
     }, D = function(e, t) {
@@ -4908,7 +4985,7 @@
                     var r, i, o, s = a ? t.ok : t.fail, c = t.resolve, u = t.reject, l = t.domain;
                     try {
                         s ? (a || (2 == e._h && R(e), e._h = 1), !0 === s ? r = n : (l && l.enter(), r = s(n), 
-                        l && (l.exit(), o = !0)), r === t.promise ? u(E("Promise-chain cycle")) : (i = M(r)) ? i.call(r, c, u) : c(r)) : u(n);
+                        l && (l.exit(), o = !0)), r === t.promise ? u(E("Promise-chain cycle")) : (i = C(r)) ? i.call(r, c, u) : c(r)) : u(n);
                     } catch (e) {
                         l && !o && l.exit(), u(e);
                     }
@@ -4920,7 +4997,7 @@
         g.call(c, (function() {
             var t, r, n, a = e._v, i = B(e);
             if (i && (t = y((function() {
-                k ? A.emit("unhandledRejection", a, e) : (r = c.onunhandledrejection) ? r({
+                k ? S.emit("unhandledRejection", a, e) : (r = c.onunhandledrejection) ? r({
                     promise: e,
                     reason: a
                 }) : (n = c.console) && n.error && n.error("Unhandled promise rejection", a);
@@ -4931,7 +5008,7 @@
     }, R = function(e) {
         g.call(c, (function() {
             var t;
-            k ? A.emit("rejectionHandled", e) : (t = c.onrejectionhandled) && t({
+            k ? S.emit("rejectionHandled", e) : (t = c.onrejectionhandled) && t({
                 promise: e,
                 reason: e._v
             });
@@ -4946,7 +5023,7 @@
             r._d = !0, r = r._w || r;
             try {
                 if (r === e) throw E("Promise can't be resolved itself");
-                (t = M(e)) ? b((function() {
+                (t = C(e)) ? b((function() {
                     var n = {
                         _w: r,
                         _d: !1
@@ -4965,7 +5042,7 @@
             }
         }
     };
-    C || (P = function(e) {
+    M || (P = function(e) {
         h(this, P, "Promise", "_h"), d(e), n.call(this);
         try {
             e(u(U, this, 1), u(j, this, 1));
@@ -4979,7 +5056,7 @@
         then: function(e, t) {
             var r = T(m(this, P));
             return r.ok = "function" != typeof e || e, r.fail = "function" == typeof t && t, 
-            r.domain = k ? A.domain : void 0, this._c.push(r), this._a && this._a.push(r), this._s && D(this, !1), 
+            r.domain = k ? S.domain : void 0, this._c.push(r), this._a && this._a.push(r), this._s && D(this, !1), 
             r.promise;
         },
         catch: function(e) {
@@ -4990,18 +5067,18 @@
         this.promise = e, this.resolve = u(U, e, 1), this.reject = u(j, e, 1);
     }, v.f = T = function(e) {
         return e === P || e === o ? new i(e) : a(e);
-    }), p(p.G + p.W + p.F * !C, {
+    }), p(p.G + p.W + p.F * !M, {
         Promise: P
-    }), r(46)(P, "Promise"), r(178)("Promise"), o = r(1).Promise, p(p.S + p.F * !C, "Promise", {
+    }), r(45)(P, "Promise"), r(178)("Promise"), o = r(1).Promise, p(p.S + p.F * !M, "Promise", {
         reject: function(e) {
             var t = T(this);
             return (0, t.reject)(e), t.promise;
         }
-    }), p(p.S + p.F * (s || !C), "Promise", {
+    }), p(p.S + p.F * (s || !M), "Promise", {
         resolve: function(e) {
             return x(s && this === o ? P : this, e);
         }
-    }), p(p.S + p.F * !(C && r(179)((function(e) {
+    }), p(p.S + p.F * !(M && r(179)((function(e) {
         P.all(e).catch(I);
     }))), "Promise", {
         all: function(e) {
@@ -5031,7 +5108,7 @@
         return e;
     };
 }, function(e, t, r) {
-    var n = r(42), a = r(172), i = r(173), o = r(11), s = r(100), c = r(102), u = {}, l = {};
+    var n = r(41), a = r(172), i = r(173), o = r(12), s = r(102), c = r(104), u = {}, l = {};
     (t = e.exports = function(e, t, r, p, f) {
         var d, h, _, m, g = f ? function() {
             return e;
@@ -5042,7 +5119,7 @@
         } else for (_ = g.call(e); !(h = _.next()).done; ) if ((m = a(_, b, h.value, t)) === u || m === l) return m;
     }).BREAK = u, t.RETURN = l;
 }, function(e, t, r) {
-    var n = r(11);
+    var n = r(12);
     e.exports = function(e, t, r, a) {
         try {
             return a ? t(n(r)[0], r[1]) : t(r);
@@ -5052,7 +5129,7 @@
         }
     };
 }, function(e, t, r) {
-    var n = r(25), a = r(7)("iterator"), i = Array.prototype;
+    var n = r(26), a = r(6)("iterator"), i = Array.prototype;
     e.exports = function(e) {
         return void 0 !== e && (n.Array === e || i[a] === e);
     };
@@ -5078,7 +5155,7 @@
         return e.apply(r, t);
     };
 }, function(e, t, r) {
-    var n = r(4), a = r(105).set, i = n.MutationObserver || n.WebKitMutationObserver, o = n.process, s = n.Promise, c = "process" == r(35)(o);
+    var n = r(4), a = r(107).set, i = n.MutationObserver || n.WebKitMutationObserver, o = n.process, s = n.Promise, c = "process" == r(35)(o);
     e.exports = function() {
         var e, t, r, u = function() {
             var n, a;
@@ -5121,14 +5198,14 @@
     var n = r(4).navigator;
     e.exports = n && n.userAgent || "";
 }, function(e, t, r) {
-    var n = r(20);
+    var n = r(19);
     e.exports = function(e, t, r) {
         for (var a in t) r && e[a] ? e[a] = t[a] : n(e, a, t[a]);
         return e;
     };
 }, function(e, t, r) {
     "use strict";
-    var n = r(4), a = r(1), i = r(13), o = r(9), s = r(7)("species");
+    var n = r(4), a = r(1), i = r(14), o = r(9), s = r(6)("species");
     e.exports = function(e) {
         var t = "function" == typeof a[e] ? a[e] : n[e];
         o && t && !t[s] && i.f(t, s, {
@@ -5139,7 +5216,7 @@
         });
     };
 }, function(e, t, r) {
-    var n = r(7)("iterator"), a = !1;
+    var n = r(6)("iterator"), a = !1;
     try {
         var i = [ 7 ][n]();
         i.return = function() {
@@ -5165,7 +5242,7 @@
     };
 }, function(e, t, r) {
     "use strict";
-    var n = r(3), a = r(1), i = r(4), o = r(104), s = r(107);
+    var n = r(3), a = r(1), i = r(4), o = r(106), s = r(109);
     n(n.P + n.R, "Promise", {
         finally: function(e) {
             var t = o(this, a.Promise || i.Promise), r = "function" == typeof e;
@@ -5182,7 +5259,7 @@
     });
 }, function(e, t, r) {
     "use strict";
-    var n = r(3), a = r(70), i = r(106);
+    var n = r(3), a = r(71), i = r(108);
     n(n.S, "Promise", {
         try: function(e) {
             var t = a.f(this), r = i(e);
@@ -5190,7 +5267,7 @@
         }
     });
 }, function(e, t, r) {
-    var n = r(108), a = r(77), i = r(73);
+    var n = r(110), a = r(78), i = r(74);
     e.exports = function(e) {
         return function(t, r, o) {
             var s = Object(t);
@@ -5205,7 +5282,7 @@
         };
     };
 }, function(e, t, r) {
-    var n = r(184), a = r(242), i = r(123);
+    var n = r(184), a = r(242), i = r(125);
     e.exports = function(e) {
         var t = a(e);
         return 1 == t.length && t[0][2] ? i(t[0][0], t[0][1]) : function(r) {
@@ -5213,7 +5290,7 @@
         };
     };
 }, function(e, t, r) {
-    var n = r(109), a = r(114), i = 1, o = 2;
+    var n = r(111), a = r(116), i = 1, o = 2;
     e.exports = function(e, t, r, s) {
         var c = r.length, u = c, l = !s;
         if (null == e) return !u;
@@ -5238,31 +5315,31 @@
         this.__data__ = [], this.size = 0;
     };
 }, function(e, t, r) {
-    var n = r(49), a = Array.prototype.splice;
+    var n = r(48), a = Array.prototype.splice;
     e.exports = function(e) {
         var t = this.__data__, r = n(t, e);
         return !(r < 0) && (r == t.length - 1 ? t.pop() : a.call(t, r, 1), --this.size, 
         !0);
     };
 }, function(e, t, r) {
-    var n = r(49);
+    var n = r(48);
     e.exports = function(e) {
         var t = this.__data__, r = n(t, e);
         return r < 0 ? void 0 : t[r][1];
     };
 }, function(e, t, r) {
-    var n = r(49);
+    var n = r(48);
     e.exports = function(e) {
         return n(this.__data__, e) > -1;
     };
 }, function(e, t, r) {
-    var n = r(49);
+    var n = r(48);
     e.exports = function(e, t) {
         var r = this.__data__, a = n(r, e);
         return a < 0 ? (++this.size, r.push([ e, t ])) : r[a][1] = t, this;
     };
 }, function(e, t, r) {
-    var n = r(48);
+    var n = r(47);
     e.exports = function() {
         this.__data__ = new n, this.size = 0;
     };
@@ -5280,7 +5357,7 @@
         return this.__data__.has(e);
     };
 }, function(e, t, r) {
-    var n = r(48), a = r(71), i = r(72), o = 200;
+    var n = r(47), a = r(72), i = r(73), o = 200;
     e.exports = function(e, t) {
         var r = this.__data__;
         if (r instanceof n) {
@@ -5291,7 +5368,7 @@
         return r.set(e, t), this.size = r.size, this;
     };
 }, function(e, t, r) {
-    var n = r(56), a = r(198), i = r(29), o = r(113), s = /^\[object .+?Constructor\]$/, c = Function.prototype, u = Object.prototype, l = c.toString, p = u.hasOwnProperty, f = RegExp("^" + l.call(p).replace(/[\\^$.*+?()[\]{}|]/g, "\\$&").replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, "$1.*?") + "$");
+    var n = r(55), a = r(198), i = r(30), o = r(115), s = /^\[object .+?Constructor\]$/, c = Function.prototype, u = Object.prototype, l = c.toString, p = u.hasOwnProperty, f = RegExp("^" + l.call(p).replace(/[\\^$.*+?()[\]{}|]/g, "\\$&").replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, "$1.*?") + "$");
     e.exports = function(e) {
         return !(!i(e) || a(e)) && (n(e) ? f : s).test(o(e));
     };
@@ -5317,14 +5394,14 @@
         return !!i && i in e;
     };
 }, function(e, t, r) {
-    var n = r(15)["__core-js_shared__"];
+    var n = r(16)["__core-js_shared__"];
     e.exports = n;
 }, function(e, t) {
     e.exports = function(e, t) {
         return null == e ? void 0 : e[t];
     };
 }, function(e, t, r) {
-    var n = r(202), a = r(48), i = r(71);
+    var n = r(202), a = r(47), i = r(72);
     e.exports = function() {
         this.size = 0, this.__data__ = {
             hash: new n,
@@ -5344,7 +5421,7 @@
     c.prototype.clear = n, c.prototype.delete = a, c.prototype.get = i, c.prototype.has = o, 
     c.prototype.set = s, e.exports = c;
 }, function(e, t, r) {
-    var n = r(50);
+    var n = r(49);
     e.exports = function() {
         this.__data__ = n ? n(null) : {}, this.size = 0;
     };
@@ -5354,7 +5431,7 @@
         return this.size -= t ? 1 : 0, t;
     };
 }, function(e, t, r) {
-    var n = r(50), a = "__lodash_hash_undefined__", i = Object.prototype.hasOwnProperty;
+    var n = r(49), a = "__lodash_hash_undefined__", i = Object.prototype.hasOwnProperty;
     e.exports = function(e) {
         var t = this.__data__;
         if (n) {
@@ -5364,19 +5441,19 @@
         return i.call(t, e) ? t[e] : void 0;
     };
 }, function(e, t, r) {
-    var n = r(50), a = Object.prototype.hasOwnProperty;
+    var n = r(49), a = Object.prototype.hasOwnProperty;
     e.exports = function(e) {
         var t = this.__data__;
         return n ? void 0 !== t[e] : a.call(t, e);
     };
 }, function(e, t, r) {
-    var n = r(50), a = "__lodash_hash_undefined__";
+    var n = r(49), a = "__lodash_hash_undefined__";
     e.exports = function(e, t) {
         var r = this.__data__;
         return this.size += this.has(e) ? 0 : 1, r[e] = n && void 0 === t ? a : t, this;
     };
 }, function(e, t, r) {
-    var n = r(51);
+    var n = r(50);
     e.exports = function(e) {
         var t = n(this, e).delete(e);
         return this.size -= t ? 1 : 0, t;
@@ -5387,41 +5464,41 @@
         return "string" == t || "number" == t || "symbol" == t || "boolean" == t ? "__proto__" !== e : null === e;
     };
 }, function(e, t, r) {
-    var n = r(51);
+    var n = r(50);
     e.exports = function(e) {
         return n(this, e).get(e);
     };
 }, function(e, t, r) {
-    var n = r(51);
+    var n = r(50);
     e.exports = function(e) {
         return n(this, e).has(e);
     };
 }, function(e, t, r) {
-    var n = r(51);
+    var n = r(50);
     e.exports = function(e, t) {
         var r = n(this, e), a = r.size;
         return r.set(e, t), this.size += r.size == a ? 0 : 1, this;
     };
 }, function(e, t, r) {
-    var n = r(109), a = r(115), i = r(219), o = r(223), s = r(121), c = r(5), u = r(74), l = r(75), p = 1, f = "[object Arguments]", d = "[object Array]", h = "[object Object]", _ = Object.prototype.hasOwnProperty;
+    var n = r(111), a = r(117), i = r(219), o = r(223), s = r(123), c = r(5), u = r(75), l = r(76), p = 1, f = "[object Arguments]", d = "[object Array]", h = "[object Object]", _ = Object.prototype.hasOwnProperty;
     e.exports = function(e, t, r, m, g, b) {
-        var v = c(e), y = c(t), w = v ? d : s(e), x = y ? d : s(t), E = (w = w == f ? h : w) == h, A = (x = x == f ? h : x) == h, S = w == x;
-        if (S && u(e)) {
+        var v = c(e), y = c(t), w = v ? d : s(e), x = y ? d : s(t), E = (w = w == f ? h : w) == h, S = (x = x == f ? h : x) == h, A = w == x;
+        if (A && u(e)) {
             if (!u(t)) return !1;
             v = !0, E = !1;
         }
-        if (S && !E) return b || (b = new n), v || l(e) ? a(e, t, r, m, g, b) : i(e, t, w, r, m, g, b);
+        if (A && !E) return b || (b = new n), v || l(e) ? a(e, t, r, m, g, b) : i(e, t, w, r, m, g, b);
         if (!(r & p)) {
-            var O = E && _.call(e, "__wrapped__"), P = A && _.call(t, "__wrapped__");
+            var O = E && _.call(e, "__wrapped__"), P = S && _.call(t, "__wrapped__");
             if (O || P) {
                 var k = O ? e.value() : e, I = P ? t.value() : t;
                 return b || (b = new n), g(k, I, r, m, b);
             }
         }
-        return !!S && (b || (b = new n), o(e, t, r, m, g, b));
+        return !!A && (b || (b = new n), o(e, t, r, m, g, b));
     };
 }, function(e, t, r) {
-    var n = r(72), a = r(215), i = r(216);
+    var n = r(73), a = r(215), i = r(216);
     function o(e) {
         var t = -1, r = null == e ? 0 : e.length;
         for (this.__data__ = new n; ++t < r; ) this.add(e[t]);
@@ -5446,15 +5523,15 @@
         return e.has(t);
     };
 }, function(e, t, r) {
-    var n = r(37), a = r(220), i = r(110), o = r(115), s = r(221), c = r(222), u = 1, l = 2, p = "[object Boolean]", f = "[object Date]", d = "[object Error]", h = "[object Map]", _ = "[object Number]", m = "[object RegExp]", g = "[object Set]", b = "[object String]", v = "[object Symbol]", y = "[object ArrayBuffer]", w = "[object DataView]", x = n ? n.prototype : void 0, E = x ? x.valueOf : void 0;
-    e.exports = function(e, t, r, n, x, A, S) {
+    var n = r(37), a = r(220), i = r(112), o = r(117), s = r(221), c = r(222), u = 1, l = 2, p = "[object Boolean]", f = "[object Date]", d = "[object Error]", h = "[object Map]", _ = "[object Number]", m = "[object RegExp]", g = "[object Set]", b = "[object String]", v = "[object Symbol]", y = "[object ArrayBuffer]", w = "[object DataView]", x = n ? n.prototype : void 0, E = x ? x.valueOf : void 0;
+    e.exports = function(e, t, r, n, x, S, A) {
         switch (r) {
           case w:
             if (e.byteLength != t.byteLength || e.byteOffset != t.byteOffset) return !1;
             e = e.buffer, t = t.buffer;
 
           case y:
-            return !(e.byteLength != t.byteLength || !A(new a(e), new a(t)));
+            return !(e.byteLength != t.byteLength || !S(new a(e), new a(t)));
 
           case p:
           case f:
@@ -5474,11 +5551,11 @@
           case g:
             var P = n & u;
             if (O || (O = c), e.size != t.size && !P) return !1;
-            var k = S.get(e);
+            var k = A.get(e);
             if (k) return k == t;
-            n |= l, S.set(e, t);
-            var I = o(O(e), O(t), n, x, A, S);
-            return S.delete(e), I;
+            n |= l, A.set(e, t);
+            var I = o(O(e), O(t), n, x, S, A);
+            return A.delete(e), I;
 
           case v:
             if (E) return E.call(e) == E.call(t);
@@ -5486,7 +5563,7 @@
         return !1;
     };
 }, function(e, t, r) {
-    var n = r(15).Uint8Array;
+    var n = r(16).Uint8Array;
     e.exports = n;
 }, function(e, t) {
     e.exports = function(e) {
@@ -5531,12 +5608,12 @@
         return c.delete(e), c.delete(t), _;
     };
 }, function(e, t, r) {
-    var n = r(225), a = r(226), i = r(73);
+    var n = r(225), a = r(226), i = r(74);
     e.exports = function(e) {
         return n(e, i, a);
     };
 }, function(e, t, r) {
-    var n = r(116), a = r(5);
+    var n = r(118), a = r(5);
     e.exports = function(e, t, r) {
         var i = t(e);
         return a(e) ? i : n(i, r(e));
@@ -5561,7 +5638,7 @@
         return [];
     };
 }, function(e, t, r) {
-    var n = r(230), a = r(52), i = r(5), o = r(74), s = r(118), c = r(75), u = Object.prototype.hasOwnProperty;
+    var n = r(230), a = r(51), i = r(5), o = r(75), s = r(120), c = r(76), u = Object.prototype.hasOwnProperty;
     e.exports = function(e, t) {
         var r = i(e), l = !r && a(e), p = !r && !l && o(e), f = !r && !l && !p && c(e), d = r || l || p || f, h = d ? n(e.length, String) : [], _ = h.length;
         for (var m in e) !t && !u.call(e, m) || d && ("length" == m || p && ("offset" == m || "parent" == m) || f && ("buffer" == m || "byteLength" == m || "byteOffset" == m) || s(m, _)) || h.push(m);
@@ -5573,7 +5650,7 @@
         return n;
     };
 }, function(e, t, r) {
-    var n = r(18), a = r(19), i = "[object Arguments]";
+    var n = r(23), a = r(24), i = "[object Arguments]";
     e.exports = function(e) {
         return a(e) && n(e) == i;
     };
@@ -5582,7 +5659,7 @@
         return !1;
     };
 }, function(e, t, r) {
-    var n = r(18), a = r(76), i = r(19), o = {};
+    var n = r(23), a = r(77), i = r(24), o = {};
     o["[object Float32Array]"] = o["[object Float64Array]"] = o["[object Int8Array]"] = o["[object Int16Array]"] = o["[object Int32Array]"] = o["[object Uint8Array]"] = o["[object Uint8ClampedArray]"] = o["[object Uint16Array]"] = o["[object Uint32Array]"] = !0, 
     o["[object Arguments]"] = o["[object Array]"] = o["[object ArrayBuffer]"] = o["[object Boolean]"] = o["[object DataView]"] = o["[object Date]"] = o["[object Error]"] = o["[object Function]"] = o["[object Map]"] = o["[object Number]"] = o["[object Object]"] = o["[object RegExp]"] = o["[object Set]"] = o["[object String]"] = o["[object WeakMap]"] = !1, 
     e.exports = function(e) {
@@ -5596,14 +5673,14 @@
     };
 }, function(e, t, r) {
     (function(e) {
-        var n = r(111), a = t && !t.nodeType && t, i = a && "object" == typeof e && e && !e.nodeType && e, o = i && i.exports === a && n.process, s = function() {
+        var n = r(113), a = t && !t.nodeType && t, i = a && "object" == typeof e && e && !e.nodeType && e, o = i && i.exports === a && n.process, s = function() {
             try {
                 var e = i && i.require && i.require("util").types;
                 return e || o && o.binding && o.binding("util");
             } catch (e) {}
         }();
         e.exports = s;
-    }).call(this, r(117)(e));
+    }).call(this, r(119)(e));
 }, function(e, t, r) {
     var n = r(237)(Object.keys, Object);
     e.exports = n;
@@ -5614,19 +5691,19 @@
         };
     };
 }, function(e, t, r) {
-    var n = r(27)(r(15), "DataView");
+    var n = r(28)(r(16), "DataView");
     e.exports = n;
 }, function(e, t, r) {
-    var n = r(27)(r(15), "Promise");
+    var n = r(28)(r(16), "Promise");
     e.exports = n;
 }, function(e, t, r) {
-    var n = r(27)(r(15), "Set");
+    var n = r(28)(r(16), "Set");
     e.exports = n;
 }, function(e, t, r) {
-    var n = r(27)(r(15), "WeakMap");
+    var n = r(28)(r(16), "WeakMap");
     e.exports = n;
 }, function(e, t, r) {
-    var n = r(122), a = r(73);
+    var n = r(124), a = r(74);
     e.exports = function(e) {
         for (var t = a(e), r = t.length; r--; ) {
             var i = t[r], o = e[i];
@@ -5635,7 +5712,7 @@
         return t;
     };
 }, function(e, t, r) {
-    var n = r(114), a = r(244), i = r(251), o = r(78), s = r(122), c = r(123), u = r(54), l = 1, p = 2;
+    var n = r(116), a = r(244), i = r(251), o = r(79), s = r(124), c = r(125), u = r(53), l = 1, p = 2;
     e.exports = function(e, t) {
         return o(e) && s(t) ? c(u(e), t) : function(r) {
             var o = a(r, e);
@@ -5643,7 +5720,7 @@
         };
     };
 }, function(e, t, r) {
-    var n = r(124);
+    var n = r(126);
     e.exports = function(e, t, r) {
         var a = null == e ? void 0 : n(e, t);
         return void 0 === a ? r : a;
@@ -5665,7 +5742,7 @@
         return t;
     };
 }, function(e, t, r) {
-    var n = r(72), a = "Expected a function";
+    var n = r(73), a = "Expected a function";
     function i(e, t) {
         if ("function" != typeof e || null != t && "function" != typeof t) throw new TypeError(a);
         var r = function() {
@@ -5683,7 +5760,7 @@
         return null == e ? "" : n(e);
     };
 }, function(e, t, r) {
-    var n = r(37), a = r(250), i = r(5), o = r(53), s = 1 / 0, c = n ? n.prototype : void 0, u = c ? c.toString : void 0;
+    var n = r(37), a = r(250), i = r(5), o = r(52), s = 1 / 0, c = n ? n.prototype : void 0, u = c ? c.toString : void 0;
     e.exports = function e(t) {
         if ("string" == typeof t) return t;
         if (i(t)) return a(t, e) + "";
@@ -5706,7 +5783,7 @@
         return null != e && t in Object(e);
     };
 }, function(e, t, r) {
-    var n = r(125), a = r(52), i = r(5), o = r(118), s = r(76), c = r(54);
+    var n = r(127), a = r(51), i = r(5), o = r(120), s = r(77), c = r(53);
     e.exports = function(e, t, r) {
         for (var u = -1, l = (t = n(t, e)).length, p = !1; ++u < l; ) {
             var f = c(t[u]);
@@ -5720,7 +5797,7 @@
         return e;
     };
 }, function(e, t, r) {
-    var n = r(256), a = r(257), i = r(78), o = r(54);
+    var n = r(256), a = r(257), i = r(79), o = r(53);
     e.exports = function(e) {
         return i(e) ? n(o(e)) : a(e);
     };
@@ -5731,14 +5808,14 @@
         };
     };
 }, function(e, t, r) {
-    var n = r(124);
+    var n = r(126);
     e.exports = function(e) {
         return function(t) {
             return n(t, e);
         };
     };
 }, function(e, t, r) {
-    var n = r(259), a = r(108), i = r(260), o = Math.max;
+    var n = r(259), a = r(110), i = r(260), o = Math.max;
     e.exports = function(e, t, r) {
         var s = null == e ? 0 : e.length;
         if (!s) return -1;
@@ -5762,7 +5839,7 @@
         return e ? (e = n(e)) === a || e === -a ? (e < 0 ? -1 : 1) * i : e == e ? e : 0 : 0 === e ? e : 0;
     };
 }, function(e, t, r) {
-    var n = r(29), a = r(53), i = NaN, o = /^\s+|\s+$/g, s = /^[-+]0x[0-9a-f]+$/i, c = /^0b[01]+$/i, u = /^0o[0-7]+$/i, l = parseInt;
+    var n = r(30), a = r(52), i = NaN, o = /^\s+|\s+$/g, s = /^[-+]0x[0-9a-f]+$/i, c = /^0b[01]+$/i, u = /^0o[0-7]+$/i, l = parseInt;
     e.exports = function(e) {
         if ("number" == typeof e) return e;
         if (a(e)) return i;
@@ -5776,7 +5853,7 @@
         return r || u.test(e) ? l(e.slice(2), r ? 2 : 8) : s.test(e) ? i : +e;
     };
 }, function(e) {
-    e.exports = JSON.parse('{"name":"super-preloader","version":"6.10.3","description":"Super-preloader","main":"dist/Super_preloaderPlus_one_New.user.js","author":"Mach6","license":"GPL-3.0","bugs":{"url":"https://github.com/machsix/Super-preloader/issues"},"homepage":"https://github.com/machsix/Super-preloader","directories":{"doc":"docs"},"repository":{"type":"git","url":"git+https://github.com/machsix/Super-preloader.git"},"scripts":{"lint":"eslint \\"dist/*.json\\" \\"src/**/*.js\\" \\"ci/*.js\\"","format":"prettier --write \\"dist/*.json\\" \\"src/**/*.js\\" \\".ci/*.js\\" \\"docs/**/*.{js,md}\\"","format:check":"prettier --check --loglevel debug \\"dist/*.json\\" \\"src/**/*.js\\" \\"ci/*.js\\" \\"docs/**/*.{js,md}\\"","format:staged":"pretty-quick --verbose --staged --write \\"dist/*.json\\" \\"src/**/*.js\\" \\"ci/*.js\\" \\"docs/**/*.{js,md}\\"","test":"npm run lint && npm run format:staged","dev":"webpack-dev-server --color --config webpack.dev.js","build":"webpack --no-cache --debug --config webpack.prod.js","build:dev":"webpack --config webpack.dev.js","docs:dev":"vuepress dev docs","docs:build":"vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh","preversion":"npm run test","version":"npm run build  && npm run build:dev && git add dist/*.js && git add dist/*.json","postversion":"git add package.json package-lock.json","publish:patch":"npm --no-git-tag-version version patch","publish":"npm --no-git-tag-version version minor"},"husky":{"hooks":{"pre-commit":"npm run test"}},"keywords":["userscript"],"devDependencies":{"@vue/babel-preset-app":"4.1.1","@vuepress/plugin-back-to-top":"1.2.0","@vuepress/plugin-google-analytics":"1.2.0","@vuepress/plugin-pwa":"1.2.0","vuepress":"1.2.0"},"dependencies":{"@babel/cli":"7.7.5","@babel/core":"7.7.5","@babel/plugin-transform-runtime":"7.7.6","@babel/preset-env":"7.7.6","@babel/runtime-corejs2":"^7.7.6","babel-loader":"8.0.6","babel-plugin-lodash":"3.3.4","compare-versions":"3.5.1","eslint":"6.7.2","eslint-config-prettier":"6.7.0","eslint-plugin-json":"2.0.1","eslint-plugin-prettier":"3.1.2","husky":"3.1.0","lodash":"4.17.15","lodash-webpack-plugin":"0.11.5","prettier":"1.19.1","pretty-quick":"2.0.1","terser-webpack-plugin":"2.3.0","urlencode":"1.1.0","webpack":"4.41.2","webpack-cli":"3.3.10","webpack-dev-server":"3.9.0","webpack-merge":"4.2.2","yargs":"^15.0.2"}}');
+    e.exports = JSON.parse('{"name":"super-preloader","version":"6.10.4","description":"Super-preloader","main":"dist/Super_preloaderPlus_one_New.user.js","author":"Mach6","license":"GPL-3.0","bugs":{"url":"https://github.com/machsix/Super-preloader/issues"},"homepage":"https://github.com/machsix/Super-preloader","directories":{"doc":"docs"},"repository":{"type":"git","url":"git+https://github.com/machsix/Super-preloader.git"},"scripts":{"lint":"eslint \\"dist/*.json\\" \\"src/**/*.js\\" \\"ci/*.js\\"","format":"prettier --write \\"dist/*.json\\" \\"src/**/*.js\\" \\".ci/*.js\\" \\"docs/**/*.{js,md}\\"","format:check":"prettier --check --loglevel debug \\"dist/*.json\\" \\"src/**/*.js\\" \\"ci/*.js\\" \\"docs/**/*.{js,md}\\"","format:staged":"pretty-quick --verbose --staged --write \\"dist/*.json\\" \\"src/**/*.js\\" \\"ci/*.js\\" \\"docs/**/*.{js,md}\\"","test":"npm run lint && npm run format:staged","dev":"webpack-dev-server --color --config webpack.dev.js","build":"webpack --no-cache --debug --config webpack.prod.js","build:dev":"webpack --config webpack.dev.js","docs:dev":"vuepress dev docs","docs:build":"vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh","preversion":"npm run test && npm run docs:build","version":"npm run build  && npm run build:dev && git add dist/*.js && git add dist/*.json","postversion":"git add package.json package-lock.json","publish:patch":"npm --no-git-tag-version version patch","publish":"npm --no-git-tag-version version minor"},"husky":{"hooks":{"pre-commit":"npm run test"}},"keywords":["userscript"],"devDependencies":{"@vuepress/plugin-back-to-top":"1.2.0","@vuepress/plugin-google-analytics":"1.2.0","@vuepress/plugin-pwa":"1.2.0","vuepress":"1.2.0"},"dependencies":{"@babel/cli":"7.7.5","@babel/core":"7.7.5","@babel/plugin-transform-runtime":"7.7.6","@babel/preset-env":"7.7.6","@babel/runtime-corejs2":"7.7.6","babel-loader":"8.0.6","babel-plugin-lodash":"3.3.4","compare-versions":"3.5.1","eslint":"6.7.2","eslint-config-prettier":"6.7.0","eslint-plugin-json":"2.0.1","eslint-plugin-prettier":"3.1.2","husky":"3.1.0","lodash":"4.17.15","lodash-webpack-plugin":"0.11.5","loglevel":"1.6.6","prettier":"1.19.1","pretty-quick":"2.0.1","string-replace-loader":"2.2.0","terser-webpack-plugin":"2.3.1","urlencode":"1.1.0","webpack":"4.41.3","webpack-cli":"3.3.10","webpack-dev-server":"3.9.0","webpack-merge":"4.2.2","yargs":"^15.0.2"}}');
 }, function(e, t, r) {
     r(265);
     var n = r(1).Object;
@@ -5786,7 +5863,7 @@
 }, function(e, t, r) {
     var n = r(3);
     n(n.S + n.F * !r(9), "Object", {
-        defineProperty: r(13).f
+        defineProperty: r(14).f
     });
 }, function(e, t, r) {
     r(267);
@@ -5797,12 +5874,12 @@
 }, function(e, t, r) {
     var n = r(3);
     n(n.S + n.F * !r(9), "Object", {
-        defineProperties: r(98)
+        defineProperties: r(100)
     });
 }, function(e, t, r) {
     r(269), e.exports = r(1).Object.getOwnPropertyDescriptors;
 }, function(e, t, r) {
-    var n = r(3), a = r(270), i = r(14), o = r(80), s = r(271);
+    var n = r(3), a = r(270), i = r(15), o = r(81), s = r(271);
     n(n.S, "Object", {
         getOwnPropertyDescriptors: function(e) {
             for (var t, r, n = i(e), c = o.f, u = a(n), l = {}, p = 0; u.length > p; ) void 0 !== (r = c(n, t = u[p++])) && s(l, t, r);
@@ -5810,14 +5887,14 @@
         }
     });
 }, function(e, t, r) {
-    var n = r(79), a = r(55), i = r(11), o = r(4).Reflect;
+    var n = r(80), a = r(54), i = r(12), o = r(4).Reflect;
     e.exports = o && o.ownKeys || function(e) {
         var t = n.f(i(e)), r = a.f;
         return r ? t.concat(r(e)) : t;
     };
 }, function(e, t, r) {
     "use strict";
-    var n = r(13), a = r(34);
+    var n = r(14), a = r(34);
     e.exports = function(e, t, r) {
         t in e ? n.f(e, t, a(0, r)) : e[t] = r;
     };
@@ -5828,8 +5905,8 @@
         return n.getOwnPropertyDescriptor(e, t);
     };
 }, function(e, t, r) {
-    var n = r(14), a = r(80).f;
-    r(126)("getOwnPropertyDescriptor", (function() {
+    var n = r(15), a = r(81).f;
+    r(128)("getOwnPropertyDescriptor", (function() {
         return function(e, t) {
             return a(n(e), t);
         };
@@ -5838,19 +5915,19 @@
     r(275), e.exports = r(1).Object.getOwnPropertySymbols;
 }, function(e, t, r) {
     "use strict";
-    var n = r(4), a = r(23), i = r(9), o = r(3), s = r(96), c = r(276).KEY, u = r(22), l = r(66), p = r(46), f = r(45), d = r(7), h = r(127), _ = r(277), m = r(278), g = r(93), b = r(11), v = r(21), y = r(47), w = r(14), x = r(62), E = r(34), A = r(97), S = r(279), O = r(80), P = r(55), k = r(13), I = r(26), T = O.f, C = k.f, M = S.f, D = n.Symbol, L = n.JSON, B = L && L.stringify, R = d("_hidden"), j = d("toPrimitive"), U = {}.propertyIsEnumerable, N = l("symbol-registry"), F = l("symbols"), W = l("op-symbols"), K = Object.prototype, z = "function" == typeof D && !!P.f, q = n.QObject, G = !q || !q.prototype || !q.prototype.findChild, Y = i && u((function() {
-        return 7 != A(C({}, "a", {
+    var n = r(4), a = r(22), i = r(9), o = r(3), s = r(98), c = r(276).KEY, u = r(21), l = r(67), p = r(45), f = r(44), d = r(6), h = r(129), _ = r(277), m = r(278), g = r(95), b = r(12), v = r(20), y = r(46), w = r(15), x = r(63), E = r(34), S = r(99), A = r(279), O = r(81), P = r(54), k = r(14), I = r(27), T = O.f, M = k.f, C = A.f, D = n.Symbol, L = n.JSON, B = L && L.stringify, R = d("_hidden"), j = d("toPrimitive"), U = {}.propertyIsEnumerable, N = l("symbol-registry"), F = l("symbols"), W = l("op-symbols"), K = Object.prototype, z = "function" == typeof D && !!P.f, q = n.QObject, G = !q || !q.prototype || !q.prototype.findChild, Y = i && u((function() {
+        return 7 != S(M({}, "a", {
             get: function() {
-                return C(this, "a", {
+                return M(this, "a", {
                     value: 7
                 }).a;
             }
         })).a;
     })) ? function(e, t, r) {
         var n = T(K, t);
-        n && delete K[t], C(e, t, r), n && e !== K && C(K, t, n);
-    } : C, H = function(e) {
-        var t = F[e] = A(D.prototype);
+        n && delete K[t], M(e, t, r), n && e !== K && M(K, t, n);
+    } : M, H = function(e) {
+        var t = F[e] = S(D.prototype);
         return t._k = e, t;
     }, V = z && "symbol" == typeof D.iterator ? function(e) {
         return "symbol" == typeof e;
@@ -5858,9 +5935,9 @@
         return e instanceof D;
     }, J = function(e, t, r) {
         return e === K && J(W, t, r), b(e), t = x(t, !0), b(r), a(F, t) ? (r.enumerable ? (a(e, R) && e[R][t] && (e[R][t] = !1), 
-        r = A(r, {
+        r = S(r, {
             enumerable: E(0, !1)
-        })) : (a(e, R) || C(e, R, E(1, {})), e[R][t] = !0), Y(e, t, r)) : C(e, t, r);
+        })) : (a(e, R) || M(e, R, E(1, {})), e[R][t] = !0), Y(e, t, r)) : M(e, t, r);
     }, X = function(e, t) {
         b(e);
         for (var r, n = m(t = w(t)), a = 0, i = n.length; i > a; ) J(e, r = n[a++], t[r]);
@@ -5874,10 +5951,10 @@
             return !r || !a(F, t) || a(e, R) && e[R][t] || (r.enumerable = !0), r;
         }
     }, $ = function(e) {
-        for (var t, r = M(w(e)), n = [], i = 0; r.length > i; ) a(F, t = r[i++]) || t == R || t == c || n.push(t);
+        for (var t, r = C(w(e)), n = [], i = 0; r.length > i; ) a(F, t = r[i++]) || t == R || t == c || n.push(t);
         return n;
     }, ee = function(e) {
-        for (var t, r = e === K, n = M(r ? W : w(e)), i = [], o = 0; n.length > o; ) !a(F, t = n[o++]) || r && !a(K, t) || i.push(F[t]);
+        for (var t, r = e === K, n = C(r ? W : w(e)), i = [], o = 0; n.length > o; ) !a(F, t = n[o++]) || r && !a(K, t) || i.push(F[t]);
         return i;
     };
     z || (s((D = function() {
@@ -5891,7 +5968,7 @@
         }), H(e);
     }).prototype, "toString", (function() {
         return this._k;
-    })), O.f = Q, k.f = J, r(79).f = S.f = $, r(38).f = Z, P.f = ee, i && !r(36) && s(K, "propertyIsEnumerable", Z, !0), 
+    })), O.f = Q, k.f = J, r(80).f = A.f = $, r(38).f = Z, P.f = ee, i && !r(36) && s(K, "propertyIsEnumerable", Z, !0), 
     h.f = function(e) {
         return H(d(e));
     }), o(o.G + o.W + o.F * !z, {
@@ -5915,7 +5992,7 @@
         }
     }), o(o.S + o.F * !z, "Object", {
         create: function(e, t) {
-            return void 0 === t ? A(e) : X(A(e), t);
+            return void 0 === t ? S(e) : X(S(e), t);
         },
         defineProperty: J,
         defineProperties: X,
@@ -5942,12 +6019,12 @@
                 if ("function" == typeof r && (t = r.call(this, e, t)), !V(t)) return t;
             }), n[1] = t, B.apply(L, n);
         }
-    }), D.prototype[j] || r(20)(D.prototype, j, D.prototype.valueOf), p(D, "Symbol"), 
+    }), D.prototype[j] || r(19)(D.prototype, j, D.prototype.valueOf), p(D, "Symbol"), 
     p(Math, "Math", !0), p(n.JSON, "JSON", !0);
 }, function(e, t, r) {
-    var n = r(45)("meta"), a = r(21), i = r(23), o = r(13).f, s = 0, c = Object.isExtensible || function() {
+    var n = r(44)("meta"), a = r(20), i = r(22), o = r(14).f, s = 0, c = Object.isExtensible || function() {
         return !0;
-    }, u = !r(22)((function() {
+    }, u = !r(21)((function() {
         return c(Object.preventExtensions({}));
     })), l = function(e) {
         o(e, n, {
@@ -5981,7 +6058,7 @@
         }
     };
 }, function(e, t, r) {
-    var n = r(4), a = r(1), i = r(36), o = r(127), s = r(13).f;
+    var n = r(4), a = r(1), i = r(36), o = r(129), s = r(14).f;
     e.exports = function(e) {
         var t = a.Symbol || (a.Symbol = i ? {} : n.Symbol || {});
         "_" == e.charAt(0) || e in t || s(t, e, {
@@ -5989,14 +6066,14 @@
         });
     };
 }, function(e, t, r) {
-    var n = r(26), a = r(55), i = r(38);
+    var n = r(27), a = r(54), i = r(38);
     e.exports = function(e) {
         var t = n(e), r = a.f;
         if (r) for (var o, s = r(e), c = i.f, u = 0; s.length > u; ) c.call(e, o = s[u++]) && t.push(o);
         return t;
     };
 }, function(e, t, r) {
-    var n = r(14), a = r(79).f, i = {}.toString, o = "object" == typeof window && window && Object.getOwnPropertyNames ? Object.getOwnPropertyNames(window) : [];
+    var n = r(15), a = r(80).f, i = {}.toString, o = "object" == typeof window && window && Object.getOwnPropertyNames ? Object.getOwnPropertyNames(window) : [];
     e.exports.f = function(e) {
         return o && "[object Window]" == i.call(e) ? function(e) {
             try {
@@ -6009,8 +6086,8 @@
 }, function(e, t, r) {
     r(281), e.exports = r(1).Object.keys;
 }, function(e, t, r) {
-    var n = r(47), a = r(26);
-    r(126)("keys", (function() {
+    var n = r(46), a = r(27);
+    r(128)("keys", (function() {
         return function(e) {
             return a(n(e));
         };
@@ -6024,8 +6101,8 @@
     });
 }, function(e, t, r) {
     "use strict";
-    var n = r(9), a = r(26), i = r(55), o = r(38), s = r(47), c = r(94), u = Object.assign;
-    e.exports = !u || r(22)((function() {
+    var n = r(9), a = r(27), i = r(54), o = r(38), s = r(46), c = r(96), u = Object.assign;
+    e.exports = !u || r(21)((function() {
         var e = {}, t = {}, r = Symbol(), n = "abcdefghijklmnopqrst";
         return e[r] = 7, n.split("").forEach((function(e) {
             t[e] = e;
@@ -6045,7 +6122,7 @@
         }
     });
 }, function(e, t, r) {
-    var n = r(9), a = r(26), i = r(14), o = r(38).f;
+    var n = r(9), a = r(27), i = r(15), o = r(38).f;
     e.exports = function(e) {
         return function(t) {
             for (var r, s = i(t), c = a(s), u = c.length, l = 0, p = []; u > l; ) r = c[l++], 
@@ -6181,7 +6258,7 @@
 }, function(e, t, r) {
     "use strict";
     (function(t) {
-        var n = r(28).Buffer, a = r(294), i = e.exports;
+        var n = r(29).Buffer, a = r(294), i = e.exports;
         i.encodings = null, i.defaultCharUnicode = "�", i.defaultCharSingleByte = "?", i.encode = function(e, t, r) {
             e = "" + (e || "");
             var a = i.getEncoder(t, r), o = a.write(e), s = a.end();
@@ -6235,7 +6312,7 @@
             var s = o.split(".").map(Number);
             (s[0] > 0 || s[1] >= 10) && r(311)(i), r(312)(i);
         }
-    }).call(this, r(128));
+    }).call(this, r(130));
 }, function(e, t, r) {
     "use strict";
     function n(e, t) {
@@ -6263,7 +6340,7 @@
     }
 }, function(e, t, r) {
     "use strict";
-    var n = r(28).Buffer;
+    var n = r(29).Buffer;
     function a(e, t) {
         this.enc = e.encodingName, this.bomAware = e.bomAware, "base64" === this.enc ? this.encoder = c : "cesu8" === this.enc && (this.enc = "utf8", 
         this.encoder = u, "💩" !== n.from("eda0bdedb2a9", "hex").toString() && (this.decoder = l, 
@@ -6494,7 +6571,7 @@
         e.copy(this.lastChar, this.lastTotal - this.lastNeed, 0, e.length), this.lastNeed -= e.length;
     };
 }, function(e, t, r) {
-    var n = r(81), a = n.Buffer;
+    var n = r(82), a = n.Buffer;
     function i(e, t) {
         for (var r in e) t[r] = e[r];
     }
@@ -6519,7 +6596,7 @@
     };
 }, function(e, t, r) {
     "use strict";
-    var n = r(28).Buffer;
+    var n = r(29).Buffer;
     function a() {}
     function i() {}
     function o() {
@@ -6580,7 +6657,7 @@
     };
 }, function(e, t, r) {
     "use strict";
-    var n = r(28).Buffer;
+    var n = r(29).Buffer;
     function a(e, t) {
         this.iconv = t;
     }
@@ -6668,7 +6745,7 @@
     };
 }, function(e, t, r) {
     "use strict";
-    var n = r(28).Buffer;
+    var n = r(29).Buffer;
     function a(e, t) {
         if (!e) throw new Error("SBCS codec is called without the data.");
         if (!e.chars || 128 !== e.chars.length && 256 !== e.chars.length) throw new Error("Encoding '" + e.type + "' has incorrect 'chars' (must be of len 128 or 256)");
@@ -7289,7 +7366,7 @@
     };
 }, function(e, t, r) {
     "use strict";
-    var n = r(28).Buffer;
+    var n = r(29).Buffer;
     t._dbcs = u;
     for (var a = -1, i = -2, o = -1e3, s = new Array(256), c = 0; c < 256; c++) s[c] = a;
     function u(e, t) {
@@ -7528,13 +7605,13 @@
         cp936: {
             type: "_dbcs",
             table: function() {
-                return r(82);
+                return r(83);
             }
         },
         gbk: {
             type: "_dbcs",
             table: function() {
-                return r(82).concat(r(129));
+                return r(83).concat(r(131));
             }
         },
         xgbk: "gbk",
@@ -7542,7 +7619,7 @@
         gb18030: {
             type: "_dbcs",
             table: function() {
-                return r(82).concat(r(129));
+                return r(83).concat(r(131));
             },
             gb18030: function() {
                 return r(308);
@@ -7576,14 +7653,14 @@
         cp950: {
             type: "_dbcs",
             table: function() {
-                return r(130);
+                return r(132);
             }
         },
         big5: "big5hkscs",
         big5hkscs: {
             type: "_dbcs",
             table: function() {
-                return r(130).concat(r(310));
+                return r(132).concat(r(310));
             },
             encodeSkipVals: [ 41676 ]
         },
@@ -7618,7 +7695,7 @@
                     for (r.method = a, r.arg = i; ;) {
                         var o = r.delegate;
                         if (o) {
-                            var s = A(o, r);
+                            var s = S(o, r);
                             if (s) {
                                 if (s === h) continue;
                                 return s;
@@ -7700,11 +7777,11 @@
                 return t = t ? t.then(i, i) : i();
             };
         }
-        function A(e, r) {
+        function S(e, r) {
             var n = e.iterator[r.method];
             if (n === t) {
                 if (r.delegate = null, "throw" === r.method) {
-                    if (e.iterator.return && (r.method = "return", r.arg = t, A(e, r), "throw" === r.method)) return h;
+                    if (e.iterator.return && (r.method = "return", r.arg = t, S(e, r), "throw" === r.method)) return h;
                     r.method = "throw", r.arg = new TypeError("The iterator does not provide a 'throw' method");
                 }
                 return h;
@@ -7717,7 +7794,7 @@
             r.arg = t), r.delegate = null, h) : i : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), 
             r.delegate = null, h);
         }
-        function S(e) {
+        function A(e) {
             var t = {
                 tryLoc: e[0]
             };
@@ -7731,7 +7808,7 @@
         function P(e) {
             this.tryEntries = [ {
                 tryLoc: "root"
-            } ], e.forEach(S, this), this.reset(!0);
+            } ], e.forEach(A, this), this.reset(!0);
         }
         function k(e) {
             if (e) {
@@ -7878,7 +7955,7 @@
         Function("r", "regeneratorRuntime = r")(n);
     }
 }, function(e, t, r) {
-    var n = r(116), a = r(315);
+    var n = r(118), a = r(315);
     e.exports = function e(t, r, i, o, s) {
         var c = -1, u = t.length;
         for (i || (i = a), s || (s = []); ++c < u; ) {
@@ -7888,7 +7965,7 @@
         return s;
     };
 }, function(e, t, r) {
-    var n = r(37), a = r(52), i = r(5), o = n ? n.isConcatSpreadable : void 0;
+    var n = r(37), a = r(51), i = r(5), o = n ? n.isConcatSpreadable : void 0;
     e.exports = function(e) {
         return i(e) || a(e) || !!(o && e && e[o]);
     };

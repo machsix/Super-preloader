@@ -4,7 +4,7 @@
 
 // import "core-js";
 // import "regenerator-runtime/runtime";
-import {IS_FIREFOX, SCRIPT_HANDLER} from "utils/detect";
+import {IS_FIREFOX, SCRIPT_MANAGER} from "utils/detect";
 import {NOTIFICATION, SCRIPT_INFO} from "./meta";
 import _ from "lodash";
 import {addStyle} from "utils/gm-enhanced";
@@ -15,22 +15,25 @@ import jsonRule from "utils/json-rule";
 import logger from "utils/logger";
 
 (function() {
+  logger.setLevel("debug");
   // use charset from currentDocument
   const gotConfig = {
     html: true,
     encoding: document.characterSet
   };
+  logger.debug(`Script Manager: ${SCRIPT_MANAGER.name}  v${SCRIPT_MANAGER.version}`);
+  logger.debug(`IS_FIREFOX: ${IS_FIREFOX}`);
 
-  if (IS_FIREFOX && SCRIPT_HANDLER !== "Greasemonkey") {
-    gotConfig.cookie = document.cookie;
+  if (IS_FIREFOX) {
+    if ((SCRIPT_MANAGER.name === "Violentmonkey" && compareVersions(SCRIPT_MANAGER.version, "2.12.3") <= 0) || (SCRIPT_MANAGER.name === "Tampermonkey" && compareVersions(SCRIPT_MANAGER.version, "4.9.6095") <= 0)) {
+      // `options.cookie`, dirty fix for TM and VM on Firefox
+      // TODO: remove when TM and VM releases new version
+      logger.warn(`${SCRIPT_MANAGER.name}  v${SCRIPT_MANAGER.version} has a flaw on Firefox, which may affect this script`);
+      logger.warn("Check https://github.com/Tampermonkey/tampermonkey/issues/786 and https://github.com/violentmonkey/violentmonkey/issues/606 to learn more");
+      gotConfig.cookie = true;
+    }
   }
-  console.debug(`Script Manager: ${SCRIPT_HANDLER}`);
-  console.debug(`IS_FIREFOX: ${IS_FIREFOX}`);
-  // TODO:
-  // if (IS_FIREFOX && SCRIPT_HANDLER !== "Violentmonkey") {
-  //   gotConfig.withCredentials = true;
-  //   // https://github.com/violentmonkey/violentmonkey/pull/743
-  // }
+
   const got = gotStock.create(gotConfig);
 
   const scriptInfo = SCRIPT_INFO;
@@ -142,7 +145,7 @@ import logger from "utils/logger";
 
     // 新增或修改的
     forceTargetWindow: true, // 下一页的链接设置成在新标签页打开
-    debug: false,
+    debug: true,
     enableHistory: false, // 把下一页链接添加到历史记录
     autoGetPreLink: false, // 一开始不自动查找上一页链接，改为调用时再查找
     excludes: "",
@@ -1861,13 +1864,16 @@ import logger from "utils/logger";
   Promise.all([GM.getValue("prefs", prefsFactory), GM.getValue("SITEINFO_D", SITEINFO_DFactory), GM.getValue("autoMatch", autoMatchFactory), GM.getValue("version", myOldVersion), jsonRule.loadDB()])
     .then(function(values) {
       [prefs, SITEINFO_D, autoMatch, myOldVersion] = values;
+      console.log(myOldVersion);
 
       if (compareVersions(myOldVersion, scriptInfo.rewriteStorage) === -1) {
         if (_.isString(prefs)) prefs = JSON.parse(prefs);
         if (_.isString(SITEINFO_D)) SITEINFO_D = JSON.parse(SITEINFO_D);
         if (_.isString(autoMatch)) autoMatch = JSON.parse(autoMatch);
       }
-      logger.enableDebug(prefs.debug ? prefs.debug : true);
+      if (typeof prefs.debug !== "undefined") {
+        logger.setLevel(prefs.debug ? "debug" : "warn");
+      }
       SITEINFO_json = jsonRule.getRule();
 
       const preSPinit = [];
@@ -1875,7 +1881,7 @@ import logger from "utils/logger";
       if (compareVersions(myOldVersion, scriptInfo.version) < 0) {
         // update rule if the script is upgraded or it is installed for the first time
         if (upgradeNotification) {
-          if (upgradeNotification.show(myOldVersion, scriptInfo.version)) {
+          if (upgradeNotification.show(myOldVersion, scriptInfo.version) || compareVersions(myOldVersion, "1.0.0") === 0) {
             const opts = {
               text: "",
               title: upgradeNotification.title,
@@ -2073,7 +2079,9 @@ import logger from "utils/logger";
           // document.getElementById('sp-fw-container').innerHTML = floatWindowUI();
           prefs.custom_siteinfo = $("custom_siteinfo").value;
           prefs.debug = !!$("debug").checked;
-          logger.enableDebug(prefs.debug);
+          if (prefs.debug) {
+            logger.setLevel("debug");
+          }
           prefs.enableHistory = !!$("enableHistory").checked;
           prefs.dblclick_pause = !!$("dblclick_pause").checked;
           prefs.excludes = $("excludes").value;
@@ -2094,7 +2102,7 @@ import logger from "utils/logger";
 
         on($("reset"), "click", () => {
           prefs = prefsFactory;
-          GM.setValue("prefs", prefs).then(() => {
+          Promise.all([GM.setValue("prefs", prefsFactory), GM.setValue("SITEINFO_D", SITEINFO_DFactory), GM.setValue("version", "1.0.0")], jsonRule.updateRule(true)).then(() => {
             SP.loadSetting();
             close();
             location.reload();

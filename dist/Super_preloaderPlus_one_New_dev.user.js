@@ -9,9 +9,9 @@
 // @author       Mach6
 // @contributers YFdyh000, suchunchen
 // @thanksto     ywzhaiqi, NLF
-// @version      6.10.3
+// @version      6.10.4
 // @license      GPL-3.0
-// @update       2019/12/16
+// @update       2019/12/18
 // @homepageURL  https://github.com/machsix/Super-preloader
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
 // @contributionURL https://ko-fi.com/machsix
@@ -210,22 +210,35 @@
       // import "regenerator-runtime/runtime";
 
       (function() {
-        // use charset from currentDocument
+        utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].setLevel("debug"); // use charset from currentDocument
+
         var gotConfig = {
           html: true,
           encoding: document.characterSet
         };
+        utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug(
+          "[Super-preloader] " + `Script Manager: ${utils_detect__WEBPACK_IMPORTED_MODULE_10__["SCRIPT_MANAGER"].name}  v${utils_detect__WEBPACK_IMPORTED_MODULE_10__["SCRIPT_MANAGER"].version}`
+        );
+        utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("[Super-preloader] " + `IS_FIREFOX: ${utils_detect__WEBPACK_IMPORTED_MODULE_10__["IS_FIREFOX"]}`);
 
-        if (utils_detect__WEBPACK_IMPORTED_MODULE_10__["IS_FIREFOX"] && utils_detect__WEBPACK_IMPORTED_MODULE_10__["SCRIPT_HANDLER"] !== "Greasemonkey") {
-          gotConfig.cookie = document.cookie;
+        if (utils_detect__WEBPACK_IMPORTED_MODULE_10__["IS_FIREFOX"]) {
+          if (
+            (utils_detect__WEBPACK_IMPORTED_MODULE_10__["SCRIPT_MANAGER"].name === "Violentmonkey" &&
+              compare_versions__WEBPACK_IMPORTED_MODULE_13___default()(utils_detect__WEBPACK_IMPORTED_MODULE_10__["SCRIPT_MANAGER"].version, "2.12.3") <= 0) ||
+            (utils_detect__WEBPACK_IMPORTED_MODULE_10__["SCRIPT_MANAGER"].name === "Tampermonkey" &&
+              compare_versions__WEBPACK_IMPORTED_MODULE_13___default()(utils_detect__WEBPACK_IMPORTED_MODULE_10__["SCRIPT_MANAGER"].version, "4.9.6095") <= 0)
+          ) {
+            // `options.cookie`, dirty fix for TM and VM on Firefox
+            // TODO: remove when TM and VM releases new version
+            utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].warn(
+              "[Super-preloader] " + `${utils_detect__WEBPACK_IMPORTED_MODULE_10__["SCRIPT_MANAGER"].name}  v${utils_detect__WEBPACK_IMPORTED_MODULE_10__["SCRIPT_MANAGER"].version} has a flaw on Firefox, which may affect this script`
+            );
+            utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].warn(
+              "[Super-preloader] " + "Check https://github.com/Tampermonkey/tampermonkey/issues/786 and https://github.com/violentmonkey/violentmonkey/issues/606 to learn more"
+            );
+            gotConfig.cookie = true;
+          }
         }
-
-        console.debug(`Script Manager: ${utils_detect__WEBPACK_IMPORTED_MODULE_10__["SCRIPT_HANDLER"]}`);
-        console.debug(`IS_FIREFOX: ${utils_detect__WEBPACK_IMPORTED_MODULE_10__["IS_FIREFOX"]}`); // TODO:
-        // if (IS_FIREFOX && SCRIPT_HANDLER !== "Violentmonkey") {
-        //   gotConfig.withCredentials = true;
-        //   // https://github.com/violentmonkey/violentmonkey/pull/743
-        // }
 
         var got = utils_got__WEBPACK_IMPORTED_MODULE_15__["default"].create(gotConfig);
         var scriptInfo = _meta__WEBPACK_IMPORTED_MODULE_11__["SCRIPT_INFO"];
@@ -361,7 +374,7 @@
           // 新增或修改的
           forceTargetWindow: true,
           // 下一页的链接设置成在新标签页打开
-          debug: false,
+          debug: true,
           enableHistory: false,
           // 把下一页链接添加到历史记录
           autoGetPreLink: false,
@@ -2208,6 +2221,7 @@
             SITEINFO_D = _values[1];
             autoMatch = _values[2];
             myOldVersion = _values[3];
+            console.log(myOldVersion);
 
             if (compare_versions__WEBPACK_IMPORTED_MODULE_13___default()(myOldVersion, scriptInfo.rewriteStorage) === -1) {
               if (lodash_isString__WEBPACK_IMPORTED_MODULE_9___default()(prefs)) prefs = JSON.parse(prefs);
@@ -2215,14 +2229,17 @@
               if (lodash_isString__WEBPACK_IMPORTED_MODULE_9___default()(autoMatch)) autoMatch = JSON.parse(autoMatch);
             }
 
-            utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].enableDebug(prefs.debug ? prefs.debug : true);
+            if (typeof prefs.debug !== "undefined") {
+              utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].setLevel(prefs.debug ? "debug" : "warn");
+            }
+
             SITEINFO_json = utils_json_rule__WEBPACK_IMPORTED_MODULE_16__["default"].getRule();
             var preSPinit = []; // check the consistency of script settings
 
             if (compare_versions__WEBPACK_IMPORTED_MODULE_13___default()(myOldVersion, scriptInfo.version) < 0) {
               // update rule if the script is upgraded or it is installed for the first time
               if (upgradeNotification) {
-                if (upgradeNotification.show(myOldVersion, scriptInfo.version)) {
+                if (upgradeNotification.show(myOldVersion, scriptInfo.version) || compare_versions__WEBPACK_IMPORTED_MODULE_13___default()(myOldVersion, "1.0.0") === 0) {
                   var opts = {
                     text: "",
                     title: upgradeNotification.title,
@@ -2249,7 +2266,7 @@
               prefs.factoryCheck = true; // preSPinit.push(jsonRule.updateRule(true)); // rule is always updated after upgrade
 
               preSPinit.push(GM.setValue("version", scriptInfo.version));
-              utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].info(`[UpdateCheck] version is updated ${myOldVersion} => ${scriptInfo.version}`);
+              utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].info("[Super-preloader] " + `[UpdateCheck] version is updated ${myOldVersion} => ${scriptInfo.version}`);
             }
 
             var forceJsonUpdate = false;
@@ -2258,7 +2275,7 @@
               var hasMissing = assignMissingProperty(prefsFactory, prefs);
 
               if (hasMissing) {
-                utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].info("[UpdateCheck] prefs is updated", prefs);
+                utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].info("[Super-preloader] " + "[UpdateCheck] prefs is updated", prefs);
               }
 
               prefs.factoryCheck = false;
@@ -2268,7 +2285,7 @@
                 preSPinit.push(GM.setValue("SITEINFO_D", SITEINFO_D));
                 preSPinit.push(GM.setValue("autoMatch", autoMatch));
                 forceJsonUpdate = true;
-                utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].info("[UpdateCheck] Storage is rewritten");
+                utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].info("[Super-preloader] " + "[UpdateCheck] Storage is rewritten");
               }
             }
 
@@ -2429,7 +2446,11 @@
 
                 prefs.custom_siteinfo = $("custom_siteinfo").value;
                 prefs.debug = !!$("debug").checked;
-                utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].enableDebug(prefs.debug);
+
+                if (prefs.debug) {
+                  utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].setLevel("debug");
+                }
+
                 prefs.enableHistory = !!$("enableHistory").checked;
                 prefs.dblclick_pause = !!$("dblclick_pause").checked;
                 prefs.excludes = $("excludes").value;
@@ -2447,11 +2468,14 @@
               });
               on($("reset"), "click", function() {
                 prefs = prefsFactory;
-                GM.setValue("prefs", prefs).then(function() {
-                  SP.loadSetting();
-                  close();
-                  location.reload();
-                });
+
+                _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_6___default.a
+                  .all([GM.setValue("prefs", prefsFactory), GM.setValue("SITEINFO_D", SITEINFO_DFactory), GM.setValue("version", "1.0.0")], utils_json_rule__WEBPACK_IMPORTED_MODULE_16__["default"].updateRule(true))
+                  .then(function() {
+                    SP.loadSetting();
+                    close();
+                    location.reload();
+                  });
               });
               on($("updaterule"), "click", function() {
                 $("updaterule").innerHTML = "Updating...";
@@ -2499,7 +2523,7 @@
                 if (hashSite) {
                   isHashchangeSite = true;
                   hashchangeTimer = hashSite.timer;
-                  utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("当前是页面不刷新的站点", hashSite);
+                  utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("[Super-preloader] " + "当前是页面不刷新的站点", hashSite);
                   var p1 = new _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_6___default.a(function(resolve, reject) {
                     setTimeout(resolve, hashchangeTimer);
                   });
@@ -2538,7 +2562,7 @@
                   try {
                     infos = new Function("", "return " + prefs.custom_siteinfo)();
                   } catch (e) {
-                    utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].error("自定义站点规则错误", prefs.custom_siteinfo);
+                    utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].error("[Super-preloader] " + "自定义站点规则错误", prefs.custom_siteinfo);
                   }
 
                   if (lodash_isArray__WEBPACK_IMPORTED_MODULE_7___default()(infos)) {
@@ -2550,7 +2574,7 @@
                 loadCustomSiteInfo();
               }
             };
-            utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("Entrypoint");
+            utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("[Super-preloader] " + "Entrypoint");
 
             _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_6___default.a.all(preSPinit).then(function() {
               SITEINFO_json = utils_json_rule__WEBPACK_IMPORTED_MODULE_16__["default"].getRule();
@@ -3299,13 +3323,13 @@
                 if (insertPoint) {
                   utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].log("验证是否能找到插入位置节点:成功", insertPoint);
                 } else {
-                  utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].error("验证是否能找到插入位置节点:失败  JS执行终止", SSS.a_HT_insert ? SSS.a_HT_insert[0] : "");
+                  utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].error("[Super-preloader] " + "验证是否能找到插入位置节点:失败  JS执行终止", SSS.a_HT_insert ? SSS.a_HT_insert[0] : "");
                   floatWO.updateColor("Astop");
                   return;
                 }
 
                 if (window.navigator.language != "en") {
-                  utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("Language: ", window.navigator.language);
+                  utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("[Super-preloader] " + "Language: ", window.navigator.language);
                 }
 
                 if (pageElement === undefined) {
@@ -3313,9 +3337,9 @@
                 }
 
                 if (pageElement.length > 0) {
-                  utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("验证是否能找到主要元素:成功", pageElement);
+                  utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("[Super-preloader] " + "验证是否能找到主要元素:成功", pageElement);
                 } else {
-                  utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].error("验证是否能找到主要元素:失败", SSS.a_pageElement);
+                  utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].error("[Super-preloader] " + "验证是否能找到主要元素:失败", SSS.a_pageElement);
                   floatWO.updateColor("Astop");
                   return;
                 }
@@ -3354,7 +3378,7 @@
                   doc = win = createDocumentByString(str);
 
                   if (!doc) {
-                    utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].error("文档对象创建失败");
+                    utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].error("[Super-preloader] " + "文档对象创建失败");
                     removeL();
                     return;
                   }
@@ -3367,13 +3391,13 @@
                 }
 
                 function XHRNotLoaded(res) {
-                  utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].error("XHR is failed to be loaded");
-                  utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].error(res);
+                  utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].error("[Super-preloader] " + "XHR is failed to be loaded");
+                  utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].error("[Super-preloader] " + res);
                   removeL();
                 }
 
                 function removeL(isRemoveAddPage) {
-                  utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("移除各种事件监听");
+                  utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("[Super-preloader] " + "移除各种事件监听");
                   floatWO.updateColor("Astop");
                   var _remove = remove;
 
@@ -3418,11 +3442,11 @@
                 if (isHashchangeSite && !hashchangeAdded) {
                   window.addEventListener("hashchange", onhashChange, false);
                   hashchangeAdded = true;
-                  utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("成功添加 hashchange 事件");
+                  utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("[Super-preloader] " + "成功添加 hashchange 事件");
                 }
 
                 function onhashChange(event) {
-                  utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("触发 Hashchang 事件");
+                  utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("[Super-preloader] " + "触发 Hashchang 事件");
                   removeL(true);
                   setTimeout(function() {
                     nextlink = getElement(SSS.nextLink || "auto;");
@@ -3536,7 +3560,7 @@
                   working = true;
                   floatWO.updateColor("loading");
                   floatWO.CmodeIcon("show");
-                  utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("获取下一页", SSS.a_useiframe ? "(iframe方式)" : "(XHR方式)", nextlink);
+                  utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("[Super-preloader] " + "获取下一页", SSS.a_useiframe ? "(iframe方式)" : "(XHR方式)", nextlink);
 
                   if (SSS.a_useiframe) {
                     iframeRequest(nextlink);
@@ -3552,7 +3576,7 @@
                       .get(nextlink, reqConf)
                       .then(function(res) {
                         if (res.finalUrl === cplink) {
-                          utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("最终地址相同");
+                          utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("[Super-preloader] " + "最终地址相同");
                           XHRNotLoaded(res);
                         } else {
                           XHRLoaded(res);
@@ -3561,7 +3585,7 @@
                       .catch(function(res) {
                         XHRNotLoaded(res);
                       });
-                    utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("读取完成");
+                    utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("[Super-preloader] " + "读取完成");
                   }
                 }
 
@@ -3755,11 +3779,11 @@
 
                   if (SSS.a_manualA && !ipagesmode) {
                     // 显示手动翻页触发条.
-                    utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("手动拼接");
+                    utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("[Super-preloader] " + "手动拼接");
                     manualAdiv();
                   } else {
                     // 直接拼接.
-                    utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("直接拼接");
+                    utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("[Super-preloader] " + "直接拼接");
                     insertedIntoDoc();
                   }
                 }
@@ -3924,16 +3948,16 @@
 
                 function insertedIntoDoc() {
                   if (!doc) {
-                    utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].error("No document");
+                    utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].error("[Super-preloader] " + "No document");
                     return;
                   }
 
                   if (SSS.a_documentFilter) {
                     try {
                       SSS.a_documentFilter(doc, nextlink);
-                      utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("执行 documentFilter 成功");
+                      utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("[Super-preloader] " + "执行 documentFilter 成功");
                     } catch (e) {
-                      utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].error("执行 documentFilter 错误", e, SSS.a_documentFilter.toString());
+                      utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].error("[Super-preloader] " + "执行 documentFilter 错误", e, SSS.a_documentFilter.toString());
                     }
                   }
 
@@ -3943,11 +3967,11 @@
                   var ii = pageElements.length;
 
                   if (ii <= 0) {
-                    utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].error("获取下一页的主要内容失败", SSS.a_pageElement);
+                    utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].error("[Super-preloader] " + "获取下一页的主要内容失败", SSS.a_pageElement);
                     removeL();
                     return;
                   } else {
-                    utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("获取下一页的主要内容成功", pageElements);
+                    utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("[Super-preloader] " + "获取下一页的主要内容成功", pageElements);
                   } // 提前查找下一页链接，后面再赋值
 
                   var lastUrl = cplink;
@@ -4071,9 +4095,9 @@
                   if (SSS.filter && typeof SSS.filter === "function") {
                     try {
                       SSS.filter(pageElements);
-                      utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("执行 filter(pages) 成功");
+                      utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("[Super-preloader] " + "执行 filter(pages) 成功");
                     } catch (e) {
-                      utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].error("执行 filter(pages) 错误", e, SSS.filter.toString());
+                      utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].error("[Super-preloader] " + "执行 filter(pages) 错误", e, SSS.filter.toString());
                     }
                   }
 
@@ -4137,7 +4161,7 @@
                   }
 
                   if (paged >= SSS.a_maxpage) {
-                    utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug(`到达所设定的最大翻页数 ${SSS.a_maxpage}`);
+                    utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("[Super-preloader] " + `到达所设定的最大翻页数 ${SSS.a_maxpage}`);
                     notice("<b>状态</b>:" + '到达所设定的最大翻页数:<b style="color:red">' + SSS.a_maxpage + "</b>");
                     removeL();
                     return;
@@ -4168,7 +4192,7 @@
                       }
                     }
                   } else {
-                    utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].error("没有找到下一页链接", SSS.nextLink);
+                    utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].error("[Super-preloader] " + "没有找到下一页链接", SSS.nextLink);
                     removeL();
                   }
                 } // 返回,剩余高度是总高度的比值.
@@ -4394,7 +4418,7 @@
                     var doc = createDocumentByString(res.data);
 
                     if (!doc) {
-                      utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].error("文档对象创建失败!");
+                      utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].error("[Super-preloader] " + "文档对象创建失败!");
                       return;
                     }
 
@@ -4446,7 +4470,7 @@
               var blackList_re = new RegExp(blackList.map(wildcardToRegExpStr).join("|"));
 
               if (blackList_re.test(url)) {
-                utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("匹配黑名单，js执行终止");
+                utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("[Super-preloader] " + "匹配黑名单，js执行终止");
                 return;
               } // 是否在frame上加载..
 
@@ -4456,12 +4480,12 @@
                 });
 
                 if (isReturn) {
-                  utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug(`url为:${url}的页面为非顶层窗口,JS执行终止`);
+                  utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("[Super-preloader] " + `url为:${url}的页面为非顶层窗口,JS执行终止`);
                   return;
                 }
               }
 
-              utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug(`url为:${url}的页面,JS加载成功`); // 第一阶段..分析高级模式..
+              utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("[Super-preloader] " + `url为:${url}的页面,JS加载成功`); // 第一阶段..分析高级模式..
 
               SITEINFO = SITEINFO.concat(SITEINFO_json, SITEINFO_TP, SITEINFO_comp);
 
@@ -4481,10 +4505,10 @@
                 var ii = SITEINFO.length;
 
                 if (i8n() === "zh_CN") {
-                  utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug(`高级规则数目:${ii}`);
-                  utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug(`规则数 > ${ii - SITEINFO_json.length} 来自其他来源, 比如: wedata.net`);
+                  utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("[Super-preloader] " + `高级规则数目:${ii}`);
+                  utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("[Super-preloader] " + `规则数 > ${ii - SITEINFO_json.length} 来自其他来源, 比如: wedata.net`);
                 } else {
-                  utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug(`Number of advanced rules:${ii}`);
+                  utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("[Super-preloader] " + `Number of advanced rules:${ii}`);
                 }
 
                 var _loop2 = function _loop2() {
@@ -4493,26 +4517,26 @@
 
                   if (Rurl.test(url)) {
                     if (i8n() === "zh_CN") {
-                      utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("找到当前站点规则:", SII);
-                      utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug(`规则ID: ${i + 1}`);
+                      utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("[Super-preloader] " + "找到当前站点规则:", SII);
+                      utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("[Super-preloader] " + `规则ID: ${i + 1}`);
                     } else {
-                      utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("Find rule for this website:", SII);
-                      utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug(`Rule ID: ${i + 1}`);
+                      utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("[Super-preloader] " + "Find rule for this website:", SII);
+                      utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("[Super-preloader] " + `Rule ID: ${i + 1}`);
                     } // 运行规则的 startFilter
 
                     if (SII.autopager && SII.autopager.startFilter) {
                       try {
                         SII.autopager.startFilter(document, window);
-                        utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("执行 startFilter 成功");
+                        utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("[Super-preloader] " + "执行 startFilter 成功");
                       } catch (e) {
-                        utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].error("执行 startFilter 错误", e);
+                        utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].error("[Super-preloader] " + "执行 startFilter 错误", e);
                       }
                     }
 
                     nextlink = getElement(SII.nextLink || "auto;");
 
                     if (!nextlink) {
-                      utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].warn("无法找到下一页链接,继续查找其他规则,跳过规则:", SII);
+                      utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].warn("[Super-preloader] " + "无法找到下一页链接,继续查找其他规则,跳过规则:", SII);
                       return "continue";
                     } // 如果匹配到的下一页链接和当前页一致，继续查找下一条规则
 
@@ -4603,7 +4627,7 @@
 
                     if (!pageElement || (_babel_runtime_corejs2_core_js_array_is_array__WEBPACK_IMPORTED_MODULE_1___default()(pageElement) && pageElement.length === 0)) {
                       nextlink = null;
-                      utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].error("无法找到内容,跳过规则:", SII, "继续查找其他规则");
+                      utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].error("[Super-preloader] " + "无法找到内容,跳过规则:", SII, "继续查找其他规则");
                       return "continue";
                     }
 
@@ -4625,10 +4649,10 @@
                 }
 
                 if (!SSS.hasRule) {
-                  utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].warn("未找到合适的高级规则,开始自动匹配."); // 自动搜索.
+                  utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].warn("[Super-preloader] " + "未找到合适的高级规则,开始自动匹配."); // 自动搜索.
 
                   if (!autoMatch.keyMatch) {
-                    utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("自动匹配功能被禁用了.");
+                    utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("[Super-preloader] " + "自动匹配功能被禁用了.");
                   } else {
                     nextlink = autoGetLink();
 
@@ -4660,17 +4684,17 @@
                   SSS.lazyImgSrc = prefs.lazyImgSrc;
                 }
 
-                utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug(`搜索高级规则和自动匹配过程总耗时:${new Date() - startTime}ms`);
+                utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("[Super-preloader] " + `搜索高级规则和自动匹配过程总耗时:${new Date() - startTime}ms`);
               };
 
               findCurSiteInfo(); // 上下页都没有找到啊
 
               if (!nextlink && !prelink) {
-                utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].warn(`未找到相关链接, JS执行停止. 共耗时:${new Date() - startTime}ms`);
+                utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].warn("[Super-preloader] " + `未找到相关链接, JS执行停止. 共耗时:${new Date() - startTime}ms`);
                 return;
               } else {
-                utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("上一页链接:", prelink);
-                utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("下一页链接:", nextlink);
+                utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("[Super-preloader] " + "上一页链接:", prelink);
+                utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("[Super-preloader] " + "下一页链接:", nextlink);
                 nextlink = nextlink ? nextlink.href || nextlink : undefined;
                 prelink = prelink ? prelink.href || prelink : undefined;
               }
@@ -4686,7 +4710,7 @@
               };
 
               if (prefs.arrowKeyPage) {
-                utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("添加键盘左右方向键翻页监听.");
+                utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("[Super-preloader] " + "添加键盘左右方向键翻页监听.");
                 document.addEventListener(
                   "keyup",
                   function(e) {
@@ -4714,7 +4738,7 @@
                 );
               } // 监听下一页事件.
 
-              utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("添加鼠标手势翻页监听");
+              utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("[Super-preloader] " + "添加鼠标手势翻页监听");
               document.addEventListener(
                 "superPreloader.go",
                 function() {
@@ -4732,13 +4756,13 @@
               ); // 没找到下一页的链接
 
               if (!nextlink) {
-                utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].error("下一页链接不存在,JS无法继续.");
-                utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug(`全部过程耗时:${new Date() - startTime}ms`);
+                utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].error("[Super-preloader] " + "下一页链接不存在,JS无法继续.");
+                utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("[Super-preloader] " + `全部过程耗时:${new Date() - startTime}ms`);
                 return;
               } // 载入设置..
 
               var loadLocalSetting = function loadLocalSetting() {
-                utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("加载设置");
+                utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("[Super-preloader] " + "加载设置");
                 var savedValue = getValue("spfwset");
 
                 if (savedValue) {
@@ -4787,23 +4811,23 @@
               }
 
               if (prefs.floatWindow) {
-                utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("创建悬浮窗");
+                utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("[Super-preloader] " + "创建悬浮窗");
                 floatWindow(SSS);
               }
 
               if (!SSS.enable) {
-                utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].warn("本规则被关闭,脚本执行停止");
-                utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug(`全部过程耗时:${new Date() - startTime}ms`);
+                utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].warn("[Super-preloader] " + "本规则被关闭,脚本执行停止");
+                utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("[Super-preloader] " + `全部过程耗时:${new Date() - startTime}ms`);
                 return;
               }
 
-              utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug(`全部过程耗时:${new Date() - startTime}ms`); // 预读或者翻页.
+              utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("[Super-preloader] " + `全部过程耗时:${new Date() - startTime}ms`); // 预读或者翻页.
 
               if (SSS.a_enable) {
-                utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("初始化,翻页模式.");
+                utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("[Super-preloader] " + "初始化,翻页模式.");
                 autopager(SSS, floatWO);
               } else {
-                utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("初始化,预读模式.");
+                utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("[Super-preloader] " + "初始化,预读模式.");
                 prefetcher(SSS, floatWO);
               }
 
@@ -4911,13 +4935,13 @@
                   // 3个条件:http协议链接,非跳到当前页面的链接,非跨域
 
                   if (/^https?:/i.test(ahref) && ahref.replace(/#.*$/, "") != curLHref && ahref.match(/https?:\/\/([^\/]+)/)[1] == _domain_port) {
-                    utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug(type == "pre" ? "上一页" : "下一页" + "匹配到的关键字为:", atext);
+                    utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("[Super-preloader] " + type == "pre" ? "上一页" : "下一页" + "匹配到的关键字为:", atext);
                     return a; // 返回对象A
                     // return ahref;
                   }
                 }
 
-                utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug(`全文档链接数量:${alllinksl}`);
+                utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("[Super-preloader] " + `全文档链接数量:${alllinksl}`);
 
                 for (i = 0; i < alllinksl; i++) {
                   if (_nextlink && _prelink) break;
@@ -5074,7 +5098,7 @@
                   }
                 }
 
-                utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug(`搜索链接数量:${i} 耗时:${new Date() - startTime}ms`);
+                utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].debug("[Super-preloader] " + `搜索链接数量:${i} 耗时:${new Date() - startTime}ms`);
 
                 if (!autoGetLink.checked) {
                   // 只在第一次检测的时候,抛出上一页链接.
@@ -5679,7 +5703,7 @@
             var result = doc.evaluate(xpath, contextNode, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
             return result.singleNodeValue;
           } catch (err) {
-            utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].error(`Invalid xpath: ${xpath}`);
+            utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].error("[Super-preloader] " + `Invalid xpath: ${xpath}`);
             return undefined;
           }
         } // xpath 获取多个元素.
@@ -5812,7 +5836,7 @@
         function createDocumentByString(str) {
           // string转为DOM
           if (!str) {
-            utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].error("没有找到要转成DOM的字符串");
+            utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].error("[Super-preloader] " + "没有找到要转成DOM的字符串");
             return;
           }
 
@@ -6071,7 +6095,7 @@
 
             return _babel_runtime_corejs2_core_js_string_from_code_point__WEBPACK_IMPORTED_MODULE_0___default()(emoji);
           } else {
-            utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].error("Shame on your browser!");
+            utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].error("[Super-preloader] " + "Shame on your browser!");
             return "";
           }
         }
@@ -12124,11 +12148,15 @@
       /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IS_FIREFOX", function() {
         return IS_FIREFOX;
       });
-      /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SCRIPT_HANDLER", function() {
-        return SCRIPT_HANDLER;
+      /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SCRIPT_MANAGER", function() {
+        return SCRIPT_MANAGER;
       });
       var IS_FIREFOX = navigator.userAgent.toLowerCase().includes("firefox");
-      var SCRIPT_HANDLER = GM.info.scriptHandler || GM_info.scriptHandler;
+      var INFO = GM.info || GM_info;
+      var SCRIPT_MANAGER = {
+        name: INFO.scriptHandler,
+        version: INFO.version
+      };
 
       /***/
     },
@@ -12249,7 +12277,7 @@
     /* 227 */
     /***/ function(module) {
       module.exports = JSON.parse(
-        '{"name":"super-preloader","version":"6.10.3","description":"Super-preloader","main":"dist/Super_preloaderPlus_one_New.user.js","author":"Mach6","license":"GPL-3.0","bugs":{"url":"https://github.com/machsix/Super-preloader/issues"},"homepage":"https://github.com/machsix/Super-preloader","directories":{"doc":"docs"},"repository":{"type":"git","url":"git+https://github.com/machsix/Super-preloader.git"},"scripts":{"lint":"eslint \\"dist/*.json\\" \\"src/**/*.js\\" \\"ci/*.js\\"","format":"prettier --write \\"dist/*.json\\" \\"src/**/*.js\\" \\".ci/*.js\\" \\"docs/**/*.{js,md}\\"","format:check":"prettier --check --loglevel debug \\"dist/*.json\\" \\"src/**/*.js\\" \\"ci/*.js\\" \\"docs/**/*.{js,md}\\"","format:staged":"pretty-quick --verbose --staged --write \\"dist/*.json\\" \\"src/**/*.js\\" \\"ci/*.js\\" \\"docs/**/*.{js,md}\\"","test":"npm run lint && npm run format:staged","dev":"webpack-dev-server --color --config webpack.dev.js","build":"webpack --no-cache --debug --config webpack.prod.js","build:dev":"webpack --config webpack.dev.js","docs:dev":"vuepress dev docs","docs:build":"vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh","preversion":"npm run test","version":"npm run build  && npm run build:dev && git add dist/*.js && git add dist/*.json","postversion":"git add package.json package-lock.json","publish:patch":"npm --no-git-tag-version version patch","publish":"npm --no-git-tag-version version minor"},"husky":{"hooks":{"pre-commit":"npm run test"}},"keywords":["userscript"],"devDependencies":{"@vue/babel-preset-app":"4.1.1","@vuepress/plugin-back-to-top":"1.2.0","@vuepress/plugin-google-analytics":"1.2.0","@vuepress/plugin-pwa":"1.2.0","vuepress":"1.2.0"},"dependencies":{"@babel/cli":"7.7.5","@babel/core":"7.7.5","@babel/plugin-transform-runtime":"7.7.6","@babel/preset-env":"7.7.6","@babel/runtime-corejs2":"^7.7.6","babel-loader":"8.0.6","babel-plugin-lodash":"3.3.4","compare-versions":"3.5.1","eslint":"6.7.2","eslint-config-prettier":"6.7.0","eslint-plugin-json":"2.0.1","eslint-plugin-prettier":"3.1.2","husky":"3.1.0","lodash":"4.17.15","lodash-webpack-plugin":"0.11.5","prettier":"1.19.1","pretty-quick":"2.0.1","terser-webpack-plugin":"2.3.0","urlencode":"1.1.0","webpack":"4.41.2","webpack-cli":"3.3.10","webpack-dev-server":"3.9.0","webpack-merge":"4.2.2","yargs":"^15.0.2"}}'
+        '{"name":"super-preloader","version":"6.10.4","description":"Super-preloader","main":"dist/Super_preloaderPlus_one_New.user.js","author":"Mach6","license":"GPL-3.0","bugs":{"url":"https://github.com/machsix/Super-preloader/issues"},"homepage":"https://github.com/machsix/Super-preloader","directories":{"doc":"docs"},"repository":{"type":"git","url":"git+https://github.com/machsix/Super-preloader.git"},"scripts":{"lint":"eslint \\"dist/*.json\\" \\"src/**/*.js\\" \\"ci/*.js\\"","format":"prettier --write \\"dist/*.json\\" \\"src/**/*.js\\" \\".ci/*.js\\" \\"docs/**/*.{js,md}\\"","format:check":"prettier --check --loglevel debug \\"dist/*.json\\" \\"src/**/*.js\\" \\"ci/*.js\\" \\"docs/**/*.{js,md}\\"","format:staged":"pretty-quick --verbose --staged --write \\"dist/*.json\\" \\"src/**/*.js\\" \\"ci/*.js\\" \\"docs/**/*.{js,md}\\"","test":"npm run lint && npm run format:staged","dev":"webpack-dev-server --color --config webpack.dev.js","build":"webpack --no-cache --debug --config webpack.prod.js","build:dev":"webpack --config webpack.dev.js","docs:dev":"vuepress dev docs","docs:build":"vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh","preversion":"npm run test && npm run docs:build","version":"npm run build  && npm run build:dev && git add dist/*.js && git add dist/*.json","postversion":"git add package.json package-lock.json","publish:patch":"npm --no-git-tag-version version patch","publish":"npm --no-git-tag-version version minor"},"husky":{"hooks":{"pre-commit":"npm run test"}},"keywords":["userscript"],"devDependencies":{"@vuepress/plugin-back-to-top":"1.2.0","@vuepress/plugin-google-analytics":"1.2.0","@vuepress/plugin-pwa":"1.2.0","vuepress":"1.2.0"},"dependencies":{"@babel/cli":"7.7.5","@babel/core":"7.7.5","@babel/plugin-transform-runtime":"7.7.6","@babel/preset-env":"7.7.6","@babel/runtime-corejs2":"7.7.6","babel-loader":"8.0.6","babel-plugin-lodash":"3.3.4","compare-versions":"3.5.1","eslint":"6.7.2","eslint-config-prettier":"6.7.0","eslint-plugin-json":"2.0.1","eslint-plugin-prettier":"3.1.2","husky":"3.1.0","lodash":"4.17.15","lodash-webpack-plugin":"0.11.5","loglevel":"1.6.6","prettier":"1.19.1","pretty-quick":"2.0.1","string-replace-loader":"2.2.0","terser-webpack-plugin":"2.3.1","urlencode":"1.1.0","webpack":"4.41.3","webpack-cli":"3.3.10","webpack-dev-server":"3.9.0","webpack-merge":"4.2.2","yargs":"^15.0.2"}}'
       );
 
       /***/
@@ -12478,10 +12506,10 @@
       /* harmony import */ var _babel_runtime_corejs2_core_js_object_entries__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/ __webpack_require__.n(_babel_runtime_corejs2_core_js_object_entries__WEBPACK_IMPORTED_MODULE_11__);
       /* harmony import */ var lodash_isObject__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(132);
       /* harmony import */ var lodash_isObject__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/ __webpack_require__.n(lodash_isObject__WEBPACK_IMPORTED_MODULE_12__);
-      /* harmony import */ var lodash_isEmpty__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(271);
-      /* harmony import */ var lodash_isEmpty__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/ __webpack_require__.n(lodash_isEmpty__WEBPACK_IMPORTED_MODULE_13__);
-      /* harmony import */ var lodash_isBoolean__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(272);
-      /* harmony import */ var lodash_isBoolean__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/ __webpack_require__.n(lodash_isBoolean__WEBPACK_IMPORTED_MODULE_14__);
+      /* harmony import */ var lodash_isBoolean__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(271);
+      /* harmony import */ var lodash_isBoolean__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/ __webpack_require__.n(lodash_isBoolean__WEBPACK_IMPORTED_MODULE_13__);
+      /* harmony import */ var lodash_isEmpty__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(272);
+      /* harmony import */ var lodash_isEmpty__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/ __webpack_require__.n(lodash_isEmpty__WEBPACK_IMPORTED_MODULE_14__);
       /* harmony import */ var lodash_isString__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(224);
       /* harmony import */ var lodash_isString__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/ __webpack_require__.n(lodash_isString__WEBPACK_IMPORTED_MODULE_15__);
       /* harmony import */ var lodash_isNull__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(273);
@@ -12559,7 +12587,9 @@
         html: false,
         // set to true to overrideMimeType = `text/html`;
         noHeader: false,
-        cookie: null
+        cookie: null,
+        // true: document.cookie, string: specific cookie
+        withCredentials: true // VM for cross domain cookie https://github.com/violentmonkey/violentmonkey/issues/761
       };
       /**
        * Normalize options and merge with defaults
@@ -12581,7 +12611,7 @@
           }
         }
 
-        if (!isNullOrUndefined(options.headers)) {
+        if (!isNullOrUndefined(options.headers) && !lodash_isEmpty__WEBPACK_IMPORTED_MODULE_14___default()(options.headers)) {
           options.headers = Object(utils_lowercaseKeys__WEBPACK_IMPORTED_MODULE_19__["default"])(options.headers);
           var headers = options.headers;
 
@@ -12598,7 +12628,12 @@
           }
         }
 
-        options.headers = _objectSpread({}, options.headers, {}, thisDefaults.headers);
+        options.headers = _objectSpread({}, thisDefaults.headers, {}, options.headers);
+
+        if (lodash_isEmpty__WEBPACK_IMPORTED_MODULE_14___default()(options.headers)) {
+          delete options.headers;
+        }
+
         keyNotMerge.push("headers"); // `options.prefixUrl`
 
         if (!isNullOrUndefined(options.prefixUrl)) {
@@ -12638,7 +12673,7 @@
           options.searchParams = {};
         } // `options.cache`
 
-        if (lodash_isBoolean__WEBPACK_IMPORTED_MODULE_14___default()(options.cache) && !options.cache) {
+        if (lodash_isBoolean__WEBPACK_IMPORTED_MODULE_13___default()(options.cache) && !options.cache) {
           options.searchParams.timestamp = new Date().getTime();
         } else {
           options.cache = false;
@@ -12657,16 +12692,27 @@
               options[_key] = thisDefaults[_key];
             }
           }
-        } // `options.cookie`
+        } // `options.cookie`, dirty fix for TM and VM on Firefox
+        // TODO: remove when TM and VM releases new version
 
-        if (!isNullOrUndefined(options.cookie) && lodash_isString__WEBPACK_IMPORTED_MODULE_15___default()(options.cookie)) {
-          if (options.hasOwnProperty("headers")) {
-            options.headers.cookie = options.cookie;
-          } else {
-            options.headers = {
-              cookie: options.cookie
-            };
+        if (!isNullOrUndefined(options.cookie)) {
+          if (lodash_isBoolean__WEBPACK_IMPORTED_MODULE_13___default()(options.cookie) && options.cookie) {
+            options.cookie = document.cookie;
           }
+
+          if (lodash_isString__WEBPACK_IMPORTED_MODULE_15___default()(options.cookie)) {
+            if (options.hasOwnProperty("headers")) {
+              options.headers.cookie = options.cookie;
+            } else {
+              options.headers = {
+                cookie: options.cookie
+              };
+            }
+          }
+        }
+
+        if (options.noHeader) {
+          delete options.headers;
         }
 
         return options;
@@ -12680,13 +12726,11 @@
 
       function gotopt2gmopt(options) {
         var config = {};
-        ["method", "url", "timeout", "headers", "binary", "user", "password", "context"].forEach(function(key) {
-          config[key] = options[key];
-        }); // delete headers if it's empty
-
-        if (lodash_isEmpty__WEBPACK_IMPORTED_MODULE_13___default()(config.headers) || options.noHeader) {
-          delete config.headers;
-        } // process `options.prefixUrl`
+        ["method", "url", "timeout", "headers", "binary", "user", "password", "context", "withCredentials"].forEach(function(key) {
+          if (!isNullOrUndefined(options[key])) {
+            config[key] = options[key];
+          }
+        }); // process `options.prefixUrl`
 
         if (options.prefixUrl) {
           config.url = options.prefixUrl + options.url;
@@ -12697,9 +12741,11 @@
         } // process `options.searchParams`
 
         if (!isNullOrUndefined(options.searchParams)) {
-          config.url += `?${querystring__WEBPACK_IMPORTED_MODULE_20___default.a.stringify(options.searchParams, null, null, function(x) {
-            return urlencode__WEBPACK_IMPORTED_MODULE_21___default()(x, options.encoding);
-          })}`;
+          if (!lodash_isEmpty__WEBPACK_IMPORTED_MODULE_14___default()(options.searchParams)) {
+            config.url += `?${querystring__WEBPACK_IMPORTED_MODULE_20___default.a.stringify(options.searchParams, null, null, function(x) {
+              return urlencode__WEBPACK_IMPORTED_MODULE_21___default()(x, options.encoding);
+            })}`;
+          }
         }
 
         return config;
@@ -12739,13 +12785,13 @@
          * @returns {promise} promise of get
          */
         var request = function request(optionsIn) {
-          var gotOptions = _objectSpread({}, optionsIn); // make a shadow copys
+          var gotOptions = _objectSpread({}, optionsIn); // make a shadow copy
           // merge parameter
 
           gotOptions = normalizeArguments(gotOptions, request.defaults); // got => gm
 
           var gmOptions = gotopt2gmopt(gotOptions);
-          utils_logger__WEBPACK_IMPORTED_MODULE_18__["default"].debug("GM_xmlhttpRequest", gmOptions); // helper functions
+          utils_logger__WEBPACK_IMPORTED_MODULE_18__["default"].debug("[Super-preloader] " + "GM_xmlhttpRequest", gmOptions); // helper functions
 
           var genCallback = function genCallback(executor, name, retryCount) {
             return function(xmlResponse) {
@@ -12799,7 +12845,11 @@
           });
         };
 
-        request.defaults = thisDefaults;
+        request.defaults = {}; // eslint-disable-next-line guard-for-in
+
+        for (var key in defaults) {
+          request.defaults[key] = isNullOrUndefined(thisDefaults[key]) ? defaults[key] : thisDefaults[key];
+        }
 
         request.get = function(url, optionsIn) {
           var options = parseArgument(url, optionsIn);
@@ -13652,6 +13702,39 @@
     },
     /* 271 */
     /***/ function(module, exports, __webpack_require__) {
+      var baseGetTag = __webpack_require__(125),
+        isObjectLike = __webpack_require__(176);
+
+      /** `Object#toString` result references. */
+      var boolTag = "[object Boolean]";
+
+      /**
+       * Checks if `value` is classified as a boolean primitive or object.
+       *
+       * @static
+       * @memberOf _
+       * @since 0.1.0
+       * @category Lang
+       * @param {*} value The value to check.
+       * @returns {boolean} Returns `true` if `value` is a boolean, else `false`.
+       * @example
+       *
+       * _.isBoolean(false);
+       * // => true
+       *
+       * _.isBoolean(null);
+       * // => false
+       */
+      function isBoolean(value) {
+        return value === true || value === false || (isObjectLike(value) && baseGetTag(value) == boolTag);
+      }
+
+      module.exports = isBoolean;
+
+      /***/
+    },
+    /* 272 */
+    /***/ function(module, exports, __webpack_require__) {
       var baseKeys = __webpack_require__(186),
         getTag = __webpack_require__(191),
         isArguments = __webpack_require__(174),
@@ -13730,39 +13813,6 @@
 
       /***/
     },
-    /* 272 */
-    /***/ function(module, exports, __webpack_require__) {
-      var baseGetTag = __webpack_require__(125),
-        isObjectLike = __webpack_require__(176);
-
-      /** `Object#toString` result references. */
-      var boolTag = "[object Boolean]";
-
-      /**
-       * Checks if `value` is classified as a boolean primitive or object.
-       *
-       * @static
-       * @memberOf _
-       * @since 0.1.0
-       * @category Lang
-       * @param {*} value The value to check.
-       * @returns {boolean} Returns `true` if `value` is a boolean, else `false`.
-       * @example
-       *
-       * _.isBoolean(false);
-       * // => true
-       *
-       * _.isBoolean(null);
-       * // => false
-       */
-      function isBoolean(value) {
-        return value === true || value === false || (isObjectLike(value) && baseGetTag(value) == boolTag);
-      }
-
-      module.exports = isBoolean;
-
-      /***/
-    },
     /* 273 */
     /***/ function(module, exports) {
       /**
@@ -13821,146 +13871,269 @@
     /***/ function(module, __webpack_exports__, __webpack_require__) {
       "use strict";
       __webpack_require__.r(__webpack_exports__);
-      /* harmony import */ var _babel_runtime_corejs2_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(30);
-      /* harmony import */ var _babel_runtime_corejs2_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(_babel_runtime_corejs2_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__);
-      /* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(259);
-      /* harmony import */ var _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/ __webpack_require__.n(_babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1__);
-      /* harmony import */ var lodash_isNumber__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(276);
-      /* harmony import */ var lodash_isNumber__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/ __webpack_require__.n(lodash_isNumber__WEBPACK_IMPORTED_MODULE_2__);
-      /* harmony import */ var lodash_isString__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(224);
-      /* harmony import */ var lodash_isString__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/ __webpack_require__.n(lodash_isString__WEBPACK_IMPORTED_MODULE_3__);
+      /* harmony import */ var loglevel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(276);
+      /* harmony import */ var loglevel__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(loglevel__WEBPACK_IMPORTED_MODULE_0__);
 
-      var BROWSER_LEVEL = {
-        DEBUG: 0,
-        INFO: 1,
-        LOG: 2,
-        WARN: 3,
-        ERROR: 4
-      };
-
-      var LEVEL_NUM = _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1___default()(BROWSER_LEVEL).map(function(x) {
-        return BROWSER_LEVEL[x];
-      });
-
-      var PREFIX = "[Super-preloader]";
-      var PREFIX_STYLE = "color:#02A9DE";
-
-      var logFormat = function logFormat() {
-        var str = [`%c${PREFIX}`];
-        var extra = [PREFIX_STYLE];
-
-        var stylish = function stylish(e) {
-          if (lodash_isString__WEBPACK_IMPORTED_MODULE_3___default()(e)) {
-            return ["%c%s", ""];
-          } else {
-            return ["%c%o", ""];
-          }
-        };
-
-        for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-          args[_key] = arguments[_key];
-        }
-
-        for (var _i = 0, _args = args; _i < _args.length; _i++) {
-          var e = _args[_i];
-
-          var _stylish = stylish(e),
-            _stylish2 = _babel_runtime_corejs2_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_stylish, 2),
-            a = _stylish2[0],
-            b = _stylish2[1];
-
-          str.push(a);
-          extra.push(b);
-          extra.push(e);
-        }
-
-        return [str.join(" "), ...extra];
-      };
-
-      var logger = {
-        levels: BROWSER_LEVEL,
-        loglevel: BROWSER_LEVEL.INFO,
-
-        enableDebug() {
-          var i = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
-
-          if (i) {
-            this.loglevel = BROWSER_LEVEL.DEBUG;
-          }
-        },
-
-        getLevel() {
-          return this.loglevel;
-        },
-
-        setLevel(i) {
-          if (lodash_isNumber__WEBPACK_IMPORTED_MODULE_2___default()(i)) {
-            this.loglevel = i;
-          } else if (lodash_isString__WEBPACK_IMPORTED_MODULE_3___default()(i) && _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1___default()(BROWSER_LEVEL).includes(i.toUpperCase())) {
-            this.loglevel = BROWSER_LEVEL[i.toUpperCase()];
-          } else {
-            this.loglevel = BROWSER_LEVEL.WARN;
-          }
-        },
-
-        _log: function _log(level) {
-          if (level >= this.loglevel) {
-            return console[_babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1___default()(BROWSER_LEVEL)[LEVEL_NUM.indexOf(level)].toLowerCase()];
-          } else {
-            return function() {}; // empty function
-          }
-        }
-      };
-
-      _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1___default()(BROWSER_LEVEL).forEach(function(key) {
-        logger[key.toLowerCase()] = function() {
-          this._log(BROWSER_LEVEL[key]).apply(console, logFormat(...arguments));
-        };
-      });
-
+      var logger = loglevel__WEBPACK_IMPORTED_MODULE_0__["noConflict"]();
       /* harmony default export */ __webpack_exports__["default"] = logger;
 
       /***/
     },
     /* 276 */
     /***/ function(module, exports, __webpack_require__) {
-      var baseGetTag = __webpack_require__(125),
-        isObjectLike = __webpack_require__(176);
-
-      /** `Object#toString` result references. */
-      var numberTag = "[object Number]";
-
-      /**
-       * Checks if `value` is classified as a `Number` primitive or object.
+      var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;
+      /*
+       * loglevel - https://github.com/pimterry/loglevel
        *
-       * **Note:** To exclude `Infinity`, `-Infinity`, and `NaN`, which are
-       * classified as numbers, use the `_.isFinite` method.
-       *
-       * @static
-       * @memberOf _
-       * @since 0.1.0
-       * @category Lang
-       * @param {*} value The value to check.
-       * @returns {boolean} Returns `true` if `value` is a number, else `false`.
-       * @example
-       *
-       * _.isNumber(3);
-       * // => true
-       *
-       * _.isNumber(Number.MIN_VALUE);
-       * // => true
-       *
-       * _.isNumber(Infinity);
-       * // => true
-       *
-       * _.isNumber('3');
-       * // => false
+       * Copyright (c) 2013 Tim Perry
+       * Licensed under the MIT license.
        */
-      function isNumber(value) {
-        return typeof value == "number" || (isObjectLike(value) && baseGetTag(value) == numberTag);
-      }
+      (function(root, definition) {
+        "use strict";
+        if (true) {
+          !((__WEBPACK_AMD_DEFINE_FACTORY__ = definition),
+          (__WEBPACK_AMD_DEFINE_RESULT__ = typeof __WEBPACK_AMD_DEFINE_FACTORY__ === "function" ? __WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module) : __WEBPACK_AMD_DEFINE_FACTORY__),
+          __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+        } else {
+        }
+      })(this, function() {
+        "use strict";
 
-      module.exports = isNumber;
+        // Slightly dubious tricks to cut down minimized file size
+        var noop = function() {};
+        var undefinedType = "undefined";
+        var isIE = typeof window !== undefinedType && /Trident\/|MSIE /.test(window.navigator.userAgent);
+
+        var logMethods = ["trace", "debug", "info", "warn", "error"];
+
+        // Cross-browser bind equivalent that works at least back to IE6
+        function bindMethod(obj, methodName) {
+          var method = obj[methodName];
+          if (typeof method.bind === "function") {
+            return method.bind(obj);
+          } else {
+            try {
+              return Function.prototype.bind.call(method, obj);
+            } catch (e) {
+              // Missing bind shim or IE8 + Modernizr, fallback to wrapping
+              return function() {
+                return Function.prototype.apply.apply(method, [obj, arguments]);
+              };
+            }
+          }
+        }
+
+        // Trace() doesn't print the message in IE, so for that case we need to wrap it
+        function traceForIE() {
+          if (console.log) {
+            if (console.log.apply) {
+              console.log.apply(console, arguments);
+            } else {
+              // In old IE, native console methods themselves don't have apply().
+              Function.prototype.apply.apply(console.log, [console, arguments]);
+            }
+          }
+          if (console.trace) console.trace();
+        }
+
+        // Build the best logging method possible for this env
+        // Wherever possible we want to bind, not wrap, to preserve stack traces
+        function realMethod(methodName) {
+          if (methodName === "debug") {
+            methodName = "log";
+          }
+
+          if (typeof console === undefinedType) {
+            return false; // No method possible, for now - fixed later by enableLoggingWhenConsoleArrives
+          } else if (methodName === "trace" && isIE) {
+            return traceForIE;
+          } else if (console[methodName] !== undefined) {
+            return bindMethod(console, methodName);
+          } else if (console.log !== undefined) {
+            return bindMethod(console, "log");
+          } else {
+            return noop;
+          }
+        }
+
+        // These private functions always need `this` to be set properly
+
+        function replaceLoggingMethods(level, loggerName) {
+          /*jshint validthis:true */
+          for (var i = 0; i < logMethods.length; i++) {
+            var methodName = logMethods[i];
+            this[methodName] = i < level ? noop : this.methodFactory(methodName, level, loggerName);
+          }
+
+          // Define log.log as an alias for log.debug
+          this.log = this.debug;
+        }
+
+        // In old IE versions, the console isn't present until you first open it.
+        // We build realMethod() replacements here that regenerate logging methods
+        function enableLoggingWhenConsoleArrives(methodName, level, loggerName) {
+          return function() {
+            if (typeof console !== undefinedType) {
+              replaceLoggingMethods.call(this, level, loggerName);
+              this[methodName].apply(this, arguments);
+            }
+          };
+        }
+
+        // By default, we use closely bound real methods wherever possible, and
+        // otherwise we wait for a console to appear, and then try again.
+        function defaultMethodFactory(methodName, level, loggerName) {
+          /*jshint validthis:true */
+          return realMethod(methodName) || enableLoggingWhenConsoleArrives.apply(this, arguments);
+        }
+
+        function Logger(name, defaultLevel, factory) {
+          var self = this;
+          var currentLevel;
+          var storageKey = "loglevel";
+          if (name) {
+            storageKey += ":" + name;
+          }
+
+          function persistLevelIfPossible(levelNum) {
+            var levelName = (logMethods[levelNum] || "silent").toUpperCase();
+
+            if (typeof window === undefinedType) return;
+
+            // Use localStorage if available
+            try {
+              window.localStorage[storageKey] = levelName;
+              return;
+            } catch (ignore) {}
+
+            // Use session cookie as fallback
+            try {
+              window.document.cookie = encodeURIComponent(storageKey) + "=" + levelName + ";";
+            } catch (ignore) {}
+          }
+
+          function getPersistedLevel() {
+            var storedLevel;
+
+            if (typeof window === undefinedType) return;
+
+            try {
+              storedLevel = window.localStorage[storageKey];
+            } catch (ignore) {}
+
+            // Fallback to cookies if local storage gives us nothing
+            if (typeof storedLevel === undefinedType) {
+              try {
+                var cookie = window.document.cookie;
+                var location = cookie.indexOf(encodeURIComponent(storageKey) + "=");
+                if (location !== -1) {
+                  storedLevel = /^([^;]+)/.exec(cookie.slice(location))[1];
+                }
+              } catch (ignore) {}
+            }
+
+            // If the stored level is not valid, treat it as if nothing was stored.
+            if (self.levels[storedLevel] === undefined) {
+              storedLevel = undefined;
+            }
+
+            return storedLevel;
+          }
+
+          /*
+           *
+           * Public logger API - see https://github.com/pimterry/loglevel for details
+           *
+           */
+
+          self.name = name;
+
+          self.levels = {TRACE: 0, DEBUG: 1, INFO: 2, WARN: 3, ERROR: 4, SILENT: 5};
+
+          self.methodFactory = factory || defaultMethodFactory;
+
+          self.getLevel = function() {
+            return currentLevel;
+          };
+
+          self.setLevel = function(level, persist) {
+            if (typeof level === "string" && self.levels[level.toUpperCase()] !== undefined) {
+              level = self.levels[level.toUpperCase()];
+            }
+            if (typeof level === "number" && level >= 0 && level <= self.levels.SILENT) {
+              currentLevel = level;
+              if (persist !== false) {
+                // defaults to true
+                persistLevelIfPossible(level);
+              }
+              replaceLoggingMethods.call(self, level, name);
+              if (typeof console === undefinedType && level < self.levels.SILENT) {
+                return "No console available for logging";
+              }
+            } else {
+              throw "log.setLevel() called with invalid level: " + level;
+            }
+          };
+
+          self.setDefaultLevel = function(level) {
+            if (!getPersistedLevel()) {
+              self.setLevel(level, false);
+            }
+          };
+
+          self.enableAll = function(persist) {
+            self.setLevel(self.levels.TRACE, persist);
+          };
+
+          self.disableAll = function(persist) {
+            self.setLevel(self.levels.SILENT, persist);
+          };
+
+          // Initialize with the right level
+          var initialLevel = getPersistedLevel();
+          if (initialLevel == null) {
+            initialLevel = defaultLevel == null ? "WARN" : defaultLevel;
+          }
+          self.setLevel(initialLevel, false);
+        }
+
+        /*
+         *
+         * Top-level API
+         *
+         */
+
+        var defaultLogger = new Logger();
+
+        var _loggersByName = {};
+        defaultLogger.getLogger = function getLogger(name) {
+          if (typeof name !== "string" || name === "") {
+            throw new TypeError("You must supply a name when creating a logger.");
+          }
+
+          var logger = _loggersByName[name];
+          if (!logger) {
+            logger = _loggersByName[name] = new Logger(name, defaultLogger.getLevel(), defaultLogger.methodFactory);
+          }
+          return logger;
+        };
+
+        // Grab the current global log variable in case of overwrite
+        var _log = typeof window !== undefinedType ? window.log : undefined;
+        defaultLogger.noConflict = function() {
+          if (typeof window !== undefinedType && window.log === defaultLogger) {
+            window.log = _log;
+          }
+
+          return defaultLogger;
+        };
+
+        defaultLogger.getLoggers = function getLoggers() {
+          return _loggersByName;
+        };
+
+        return defaultLogger;
+      });
 
       /***/
     },
@@ -19651,7 +19824,7 @@
                     case 18:
                       _context.prev = 18;
                       _context.t0 = _context["catch"](9);
-                      utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].error(`[DownloadRule] ${_this.name} from ${url} [Status] ${_context.t0}`);
+                      utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].error("[Super-preloader] " + `[DownloadRule] ${_this.name} from ${url} [Status] ${_context.t0}`);
                       e = _context.t0;
 
                     case 22:
@@ -19749,7 +19922,7 @@
                     case 7:
                       _context2.prev = 7;
                       _context2.t0 = _context2["catch"](1);
-                      utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].error(`[UpdateRule] ${_this2.name} [Status] ${_context2.t0}`); // mimic Promise.allSettled
+                      utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].error("[Super-preloader] " + `[UpdateRule] ${_this2.name} [Status] ${_context2.t0}`); // mimic Promise.allSettled
 
                       return _context2.abrupt("return", {
                         status: "rejected",
@@ -19972,7 +20145,7 @@
                           _this5.saveDB();
                         } else {
                           _this5.expire = today;
-                          utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].error("[UpdateRule] Fail");
+                          utils_logger__WEBPACK_IMPORTED_MODULE_17__["default"].error("[Super-preloader] " + "[UpdateRule] Fail");
 
                           _this5.saveDB(false);
                         }

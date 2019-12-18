@@ -1,2 +1,8 @@
 export const IS_FIREFOX = navigator.userAgent.toLowerCase().includes("firefox");
-export const SCRIPT_HANDLER = GM.info.scriptHandler || GM_info.scriptHandler;
+
+const INFO = GM.info || GM_info;
+
+export const SCRIPT_MANAGER = {
+  name: INFO.scriptHandler,
+  version: INFO.version
+};

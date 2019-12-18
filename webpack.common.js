@@ -21,6 +21,15 @@ module.exports = {
     rules: [
       {
         test: /\.m?js$/,
+        loader: "string-replace-loader",
+        options: {
+          search: "(logger\\.(?:trace|debug|info|warn|error))\\((.*)\\)",
+          replace: '$1("[Super-preloader] " + $2)',
+          flags: "g"
+        }
+      },
+      {
+        test: /\.m?js$/,
         exclude: /(node_modules|bower_components)/,
         use: {
           loader: "babel-loader"
