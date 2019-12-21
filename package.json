@@ -72,7 +72,7 @@
     "urlencode": "1.1.0",
     "webpack": "4.41.4",
     "webpack-cli": "3.3.10",
-    "webpack-dev-server": "3.10.0",
+    "webpack-dev-server": "3.10.1",
     "webpack-merge": "4.2.2",
     "yargs": "^15.0.2"
   }
