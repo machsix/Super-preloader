@@ -1,18 +1,17 @@
 [
 {
+  "resource_url": "http://wedata.net/items/85166",
   "name": "scp-wiki",
   "data": {
-    "url": "^https?://www\\.scp-wiki\\.net/forum",
-    "pageElement": "//div[@id='page-content']//table",
+    "url": "^https?://(www\\.)?scp-wiki\\.net/forum",
+    "pageElement": "id('page-content')//table/tbody/tr[not(@class='head')]",
     "exampleUrl": "http://www.scp-wiki.net/forum/c-88827/foundation-universe",
-    "insertBefore": "",
     "nextLink": "//div[@class='pager']/span[last()]/a"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "Mach6",
-  "resource_url": "http://wedata.net/items/85166",
   "created_at": "2019-12-19T06:27:46+09:00",
-  "updated_at": "2019-12-19T06:27:46+09:00"
+  "updated_at": "2019-12-21T09:58:33+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/85165",
