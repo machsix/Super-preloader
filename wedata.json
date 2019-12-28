@@ -1,5 +1,19 @@
 [
 {
+  "name": "コミスペ！ レビュー",
+  "data": {
+    "url": "^https?://media\\.comicspace\\.jp/",
+    "pageElement": "id('articles_index')/div[@class='article_list']/article[@class='card']",
+    "exampleUrl": "https://media.comicspace.jp/archives/category/review",
+    "nextLink": "id('articles_index')/div[@class='list_paging']/p[@class='to_next']/a"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "orangeal2o3@hatena",
+  "resource_url": "http://wedata.net/items/85167",
+  "created_at": "2019-12-25T19:51:43+09:00",
+  "updated_at": "2019-12-25T19:51:43+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/85166",
   "name": "scp-wiki",
   "data": {
