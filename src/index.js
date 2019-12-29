@@ -9,6 +9,7 @@ import {NOTIFICATION, SCRIPT_INFO} from "./meta";
 import _ from "lodash";
 import {addStyle} from "utils/gm-enhanced";
 import compareVersions from "compare-versions";
+import domTools from "utils/domTools";
 import elementReady from "utils/element-ready";
 import gotStock from "utils/got";
 import jsonRule from "utils/json-rule";
@@ -470,23 +471,29 @@ import logger from "utils/logger";
               var img = trs.snapshotItem(i).getElementsByTagName("img");
               if (img) {
                 img = img[0];
-                var imgSrc = img.getAttribute("src");
-                const newImg = $C("img", {
-                  src: imgSrc,
-                  style: "display:block; width:100%; height:auto;"
+                const imgSrc = img.getAttribute("src");
+                const newtr = domTools.create("tr", {
+                  attr: {
+                    align: "center"
+                  },
+                  children: [
+                    domTools.create("td", {
+                      attr: {
+                        colspan: 5,
+                        style: "border-bottom:1px dashed black;"
+                      },
+                      children: [
+                        domTools.create("img", {
+                          attr: {
+                            src: imgSrc,
+                            style: "display:block; width:100%; height:auto;"
+                          }
+                        })
+                      ]
+                    })
+                  ]
                 });
 
-                const newtd = $C("td", {
-                  colspan: 5,
-                  style: "border-bottom:1px dashed black;"
-                });
-
-                const newtr = $C("tr", {
-                  align: "center"
-                });
-
-                newtd.appendChild(newImg);
-                newtr.appendChild(newtd);
                 trs.snapshotItem(i).parentNode.insertBefore(newtr, trs.snapshotItem(i));
               }
             }
@@ -505,18 +512,24 @@ import logger from "utils/logger";
           [].forEach.call(tds, function(td) {
             const imgSrc = td.getElementsByTagName("img");
             if (imgSrc) {
-              const newImg = $C("img", {
-                src: imgSrc[0].getAttribute("src"),
-                style: "display:block; width:100%; height:auto;"
+              const newImg = domTools.create("img", {
+                attr: {
+                  src: imgSrc[0].getAttribute("src"),
+                  style: "display:block; width:100%; height:auto;"
+                }
               });
 
-              const newtd = $C("td", {
-                colspan: 2,
-                style: "border-bottom:1px solid black;"
+              const newtd = domTools.create("td", {
+                attr: {
+                  colspan: 2,
+                  style: "border-bottom:1px solid black;"
+                }
               });
 
-              const newtr = $C("tr", {
-                align: "center"
+              const newtr = domTools.create("tr", {
+                attr: {
+                  align: "center"
+                }
               });
 
               newtd.appendChild(newImg);
@@ -3243,101 +3256,73 @@ import logger from "utils/logger";
                 "
               );
 
-              const div = $C("div", {
-                id: "sp-sp-manualdiv"
-              });
-              manualDiv = div;
-              var nextStr = "Next";
-              if (i8n() === "zh_CN") {
-                nextStr = "下";
-              }
-              const span = $C(
-                "span",
-                {
-                  class: "sp-sp-md-span"
-                },
-                nextStr
-              );
-              div.appendChild(span);
-
-              const input = $C("input", {
-                type: "number",
-                value: 1,
-                min: 1,
-                title: "输入你想要拼接的页数(必须>=1),然后按回车.",
-                id: "sp-sp-md-number"
-              });
-
-              const getInputValue = function() {
-                var value = Number(input.value);
-                if (isNaN(value) || value < 1) {
-                  value = 1;
-                  input.value = 1;
-                }
-                return value;
-              };
-
-              const spage = function() {
+              const spage = (el) => {
                 if (doc) {
-                  const value = getInputValue();
+                  let value = Number(el.value);
+                  if (isNaN(value) || value < 1) {
+                    el.value = value = 1;
+                  }
                   ipagesmode = true;
                   ipagesnumber = value + paged;
                   insertedIntoDoc();
                 }
               };
-              input.addEventListener(
-                "keyup",
-                function(e) {
-                  if (e.keyCode == 13) {
-                    // 回车
-                    spage();
-                  }
+
+              const div = domTools.create("div", {
+                attr: {
+                  id: "sp-sp-manualdiv"
                 },
-                false
-              );
-              div.appendChild(input);
-              if (i8n() === "zh_CN") {
-                div.appendChild(
-                  $C(
-                    "span",
-                    {
-                      className: "sp-sp-md-span"
+                children: [
+                  domTools.create("span", {
+                    attr: {
+                      class: "sp-sp-md-span"
                     },
-                    "页"
-                  )
-                );
-              } else {
-                div.appendChild(
-                  $C(
-                    "span",
-                    {
-                      className: "sp-sp-md-span"
+                    innerHTML: i8n() === "zh_CN" ? "下" : "Next"
+                  }),
+                  domTools.create("input", {
+                    attr: {
+                      type: "number",
+                      value: 1,
+                      min: 1,
+                      title: "输入你想要拼接的页数(必须>=1),然后按回车.",
+                      id: "sp-sp-md-number"
                     },
-                    "page"
-                  )
-                );
-              }
-              div.appendChild(
-                $C("img", {
-                  id: "sp-sp-md-imgnext",
-                  src: _sep_icons.next
-                })
-              );
-              div.appendChild(
-                $C(
-                  "span",
-                  {
-                    id: "sp-sp-md-someinfo"
-                  },
-                  prefs.someValue
-                )
-              );
+                    eventListener: [
+                      {
+                        type: "keyup",
+                        listener: (e) => {
+                          if (e.keyCode == 13) {
+                            // 回车
+                            spage(e.target);
+                          }
+                        }
+                      }
+                    ]
+                  }),
+                  domTools.create("span", {
+                    attr: {className: "sp-sp-md-span"},
+                    innerHTML: i8n() === "zh_CN" ? "页" : "page"
+                  }),
+                  domTools.create("img", {
+                    attr: {
+                      id: "sp-sp-md-imgnext",
+                      src: _sep_icons.next
+                    }
+                  }),
+                  domTools.create("span", {
+                    attr: {id: "sp-sp-md-someinfo"},
+                    innerHTML: prefs.someValue
+                  })
+                ]
+              });
+              manualDiv = div;
+
               document.body.appendChild(div);
               div.addEventListener(
                 "click",
                 function(e) {
                   if (e.target.id == "sp-sp-md-number") return;
-                  spage();
+                  spage(document.getElementById("sp-sp-md-number"));
                 },
                 false
               );
@@ -3439,39 +3424,44 @@ import logger from "utils/logger";
                 pageStr = '<b>Page <span style="' + sep_icons.text_span_style + '">' + curNumber + "</span></b>" + (SSS.a_separatorReal ? getRalativePageStr(lastUrl, currentUrl, nextUrl) : "");
               }
               div.appendChild(
-                $C(
-                  "a",
-                  {
+                domTools.create("a", {
+                  attr: {
                     class: "sp-sp-nextlink",
                     target: "_blank",
                     href: currentUrl,
                     title: currentUrl
                   },
-                  pageStr
-                )
-              );
-
-              div.appendChild(
-                $C("img", {
-                  src: _sep_icons.top,
-                  class: "sp-sp-gotop",
-                  alt: "去到顶部",
-                  title: "去到顶部"
+                  innerHTML: pageStr
                 })
               );
 
               div.appendChild(
-                $C("img", {
-                  src: curNumber == sNumber ? _sep_icons.pre_gray : _sep_icons.pre,
-                  class: "sp-sp-gopre",
-                  title: "上滚一页"
+                domTools.create("img", {
+                  attr: {
+                    src: _sep_icons.top,
+                    class: "sp-sp-gotop",
+                    alt: "去到顶部",
+                    title: "去到顶部"
+                  }
                 })
               );
 
-              const i_next = $C("img", {
-                src: _sep_icons.next_gray,
-                class: "sp-sp-gonext",
-                title: "下滚一页"
+              div.appendChild(
+                domTools.create("img", {
+                  attr: {
+                    src: curNumber == sNumber ? _sep_icons.pre_gray : _sep_icons.pre,
+                    class: "sp-sp-gopre",
+                    title: "上滚一页"
+                  }
+                })
+              );
+
+              const i_next = domTools.create("img", {
+                attr: {
+                  src: _sep_icons.next_gray,
+                  class: "sp-sp-gonext",
+                  title: "下滚一页"
+                }
               });
 
               if (goNextImg.length == 2) {
@@ -3481,22 +3471,21 @@ import logger from "utils/logger";
               div.appendChild(i_next);
 
               div.appendChild(
-                $C("img", {
-                  src: _sep_icons.bottom,
-                  class: "sp-sp-gobottom",
-                  alt: "去到底部",
-                  title: "去到底部"
+                domTools.create("img", {
+                  attr: {
+                    src: _sep_icons.bottom,
+                    class: "sp-sp-gobottom",
+                    alt: "去到底部",
+                    title: "去到底部"
+                  }
                 })
               );
 
               div.appendChild(
-                $C(
-                  "span",
-                  {
-                    class: "sp-span-someinfo"
-                  },
-                  prefs.someValue
-                )
+                domTools.create("span", {
+                  attr: {class: "sp-span-someinfo"},
+                  innerHTML: prefs.someValue
+                })
               );
               curNumber += 1;
             } else {
@@ -3634,8 +3623,10 @@ import logger from "utils/logger";
                   ncol += parseInt(trs.children[i].getAttribute("colspan"), 10) || 1;
                 }
                 const tbody = doc.createElement("tbody");
-                const td = $C("td", {
-                  colspan: ncol
+                const td = domTools.create("td", {
+                  attr: {
+                    colspan: ncol
+                  }
                 });
                 const tr = doc.createElement("tr");
                 td.appendChild(sepdiv);
@@ -5119,31 +5110,6 @@ import logger from "utils/logger";
     }
   }
 
-  // create element with attribute
-  function $C(type, atArr, inner, action, listen) {
-    const e = document.createElement(type);
-    for (var at in atArr) {
-      if (atArr.hasOwnProperty(at)) {
-        e.setAttribute(at, atArr[at]);
-      }
-    }
-    if (action && listen) {
-      e.addEventListener(action, listen, false);
-    }
-    if (inner) {
-      e.innerHTML = inner;
-    }
-    return e;
-  }
-
-  // set multiple attributes for a dom element
-  function setAttributes(el, attrs) {
-    for (var key in attrs) {
-      if (Object.prototype.hasOwnProperty.call(attrs, key)) {
-        el.setAttribute(key, attrs[key]);
-      }
-    }
-  }
   // css 获取单个元素
   function getElementByCSS(css, contextNode) {
     return (contextNode || document).querySelector(css);
