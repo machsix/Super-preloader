@@ -14,6 +14,7 @@ import elementReady from "utils/element-ready";
 import gotStock from "utils/got";
 import jsonRule from "utils/json-rule";
 import logger from "utils/logger";
+import notice from "utils/notice";
 
 (function() {
   logger.setLevel("debug");
@@ -3417,7 +3418,7 @@ import logger from "utils/logger";
               div.className = "sp-separator";
               div.id = "sp-separator-" + curNumber;
               div.addEventListener("click", sepHandler, false);
-              var pageStr = "";
+              let pageStr = "";
               if (i8n() === "zh_CN") {
                 pageStr = '<b>第 <span style="' + sep_icons.text_span_style + '">' + curNumber + "</span> 页</b>" + (SSS.a_separatorReal ? getRalativePageStr(lastUrl, currentUrl, nextUrl) : "");
               } else {
@@ -3440,8 +3441,8 @@ import logger from "utils/logger";
                   attr: {
                     src: _sep_icons.top,
                     class: "sp-sp-gotop",
-                    alt: "去到顶部",
-                    title: "去到顶部"
+                    alt: i8n() === "zh_CN" ? "去到顶部" : "To Top",
+                    title: i8n() === "zh_CN" ? "去到顶部" : "To Top"
                   }
                 })
               );
@@ -3451,7 +3452,7 @@ import logger from "utils/logger";
                   attr: {
                     src: curNumber == sNumber ? _sep_icons.pre_gray : _sep_icons.pre,
                     class: "sp-sp-gopre",
-                    title: "上滚一页"
+                    title: i8n() === "zh_CN" ? "上滚一页" : "Scroll up a page"
                   }
                 })
               );
@@ -3460,7 +3461,7 @@ import logger from "utils/logger";
                 attr: {
                   src: _sep_icons.next_gray,
                   class: "sp-sp-gonext",
-                  title: "下滚一页"
+                  title: i8n() === "zh_CN" ? "下滚一页" : "Scroll down a page"
                 }
               });
 
@@ -3475,8 +3476,8 @@ import logger from "utils/logger";
                   attr: {
                     src: _sep_icons.bottom,
                     class: "sp-sp-gobottom",
-                    alt: "去到底部",
-                    title: "去到底部"
+                    alt: i8n() === "zh_CN" ? "去到底部" : "To Bottom",
+                    title: i8n() === "zh_CN" ? "去到底部" : "To Bottom"
                   }
                 })
               );
@@ -3595,45 +3596,44 @@ import logger from "utils/logger";
             }
 
             const sepdiv = createSep(lastUrl, cplink, nextlink);
-            var toInsert = sepdiv;
+            let toInsert = sepdiv;
             var ncol = 0;
             if (SSS.a_sepdivDom !== undefined && typeof SSS.a_sepdivDom === "function") {
               toInsert = SSS.a_sepdivDom(doc, sepdiv);
             } else if (pageElements[0] && pageElements[0].tagName === "TR" && pageElements[pageElements.length - 1].tagName === "TR") {
               const insertParent = insertPoint.parentNode;
-              var colNodes = getAllElements("child::tr[1]/child::*[self::td or self::th]", insertParent);
+              let colNodes = getAllElements("child::tr[1]/child::*[self::td or self::th]", insertParent);
               if (colNodes.length == 0) {
                 colNodes = getAllElements("child::*[self::td or self::th]", pageElements[0]);
               }
-              for (i = 0, ncol = 0; i < colNodes.length; i++) {
-                ncol += parseInt(colNodes[i].getAttribute("colspan"), 10) || 1;
-              }
-              const td = doc.createElement("td");
-              td.appendChild(sepdiv);
-              const tr = doc.createElement("tr");
-              td.setAttribute("colspan", ncol);
-              tr.appendChild(td);
-
-              toInsert = tr;
+              const ncol = [].reduce.call(colNodes, (acc, cur) => acc + (parseInt(cur.getAttribute("colspan"), 10) || 1), 0);
+              toInsert = domTools.create("tr", {
+                children: [
+                  domTools.create("td", {
+                    attr: {colspan: ncol},
+                    children: [sepdiv]
+                  })
+                ]
+              });
             } else if (pageElements[0] && pageElements[0].tagName === "TBODY" && pageElements[pageElements.length - 1].tagName === "TBODY") {
-              var trs = pageElements[pageElements.length - 1].getElementsByTagName("tr");
+              // https://bbs.kafan.cn/forum-8-1.html
+              const trs = pageElements[pageElements.length - 1].getElementsByTagName("tr");
               if (trs) {
-                trs = trs[trs.length - 1];
-                for (i = 0, ncol = 0; i < trs.children.length; i++) {
-                  ncol += parseInt(trs.children[i].getAttribute("colspan"), 10) || 1;
-                }
-                const tbody = doc.createElement("tbody");
-                const td = domTools.create("td", {
-                  attr: {
-                    colspan: ncol
-                  }
+                const ncol = [].reduce.call(trs[trs.length - 1].children, (acc, cur) => acc + (parseInt(cur.getAttribute("colspan"), 10) || 1), 0);
+                toInsert = domTools.create("tbody", {
+                  children: [
+                    domTools.create("tr", {
+                      children: [
+                        domTools.create("td", {
+                          attr: {colspan: ncol},
+                          children: [sepdiv]
+                        })
+                      ]
+                    })
+                  ]
                 });
-                const tr = doc.createElement("tr");
-                td.appendChild(sepdiv);
-                tr.appendChild(td);
-                tbody.appendChild(tr);
-
-                toInsert = tbody;
+              } else {
+                logger.warn("No trs found");
               }
             }
             fragment.insertBefore(toInsert, fragment.firstChild);
@@ -3761,7 +3761,7 @@ import logger from "utils/logger";
             return (scrollH - scrolly - WI - exElementHeight) / WI; // 剩余高度于页面总高度的比例.
           }
 
-          var pause = false;
+          let pause = false;
           if (prefs.pauseA) {
             const Sbutton = ["target", "shiftKey", "ctrlKey", "altKey"];
             const ltype = prefs.mouseA ? "mousedown" : "dblclick";
@@ -3794,7 +3794,7 @@ import logger from "utils/logger";
 
             const clearPause = function() {
               clearTimeout(Sctimeout);
-              document.removeEventListener("mouseup", arguments.callee, false);
+              document.removeEventListener("mouseup", clearPause, false);
             };
 
             const pausehandler = function(e) {
@@ -5060,56 +5060,6 @@ import logger from "utils/logger";
     }
   }
 
-  var noticeDiv;
-  var noticeDivto;
-  var noticeDivto2;
-
-  function notice(html_txt, showTime) {
-    if (!noticeDiv) {
-      const div = document.createElement("div");
-      noticeDiv = div;
-      div.style.cssText =
-        "\
-            position:fixed!important;\
-            z-index:2147483647!important;\
-            float:none!important;\
-            width:auto!important;\
-            height:auto!important;\
-            font-size:13px!important;\
-            padding:3px 20px 2px 5px!important;\
-            background-color:#7f8f9c!important;\
-            border:none!important;\
-            color:#000!important;\
-            text-align:left!important;\
-            left:0!important;\
-            bottom:0!important;\
-            opacity:0;\
-            -moz-border-radius:0 6px 0 0!important;\
-            border-radius:0 6px 0 0!important;\
-            -o-transition:opacity 0.3s ease-in-out;\
-            -webkit-transition:opacity 0.3s ease-in-out;\
-            -moz-transition:opacity 0.3s ease-in-out;\
-        ";
-      document.body.appendChild(div);
-    }
-    clearTimeout(noticeDivto);
-    clearTimeout(noticeDivto2);
-    noticeDiv.innerHTML = html_txt;
-    noticeDiv.style.display = "block";
-    noticeDiv.style.opacity = "0.96";
-    if (showTime === undefined) {
-      showTime = 1666;
-    }
-    if (showTime > 0) {
-      noticeDivto2 = setTimeout(function() {
-        noticeDiv.style.opacity = "0";
-      }, showTime);
-      noticeDivto = setTimeout(function() {
-        noticeDiv.style.display = "none";
-      }, showTime + 300);
-    }
-  }
-
   // css 获取单个元素
   function getElementByCSS(css, contextNode) {
     return (contextNode || document).querySelector(css);
@@ -5165,22 +5115,6 @@ import logger from "utils/logger";
       }
     }
 
-    function unique(array) {
-      // 数组去重并且保持数组顺序.
-      var i, ca, ca2, j;
-      for (i = 0; i < array.length; i++) {
-        ca = array[i];
-        for (j = i + 1; j < array.length; j++) {
-          ca2 = array[j];
-          if (ca2 == ca) {
-            array.splice(j, 1);
-            j--;
-          }
-        }
-      }
-      return array;
-    }
-
     function makeArray(x) {
       var ret = [];
       var i, ii;
@@ -5198,7 +5132,7 @@ import logger from "utils/logger";
             }
           }
         }
-        return unique(ret);
+        return _.uniq(ret);
       } else if (x.item) {
         // nodelist or HTMLcollection
         i = x.length;
