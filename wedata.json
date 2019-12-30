@@ -21752,18 +21752,18 @@
   "created_at": "2014-05-21T14:18:23+09:00"
 },
 {
-  "resource_url": "http://wedata.net/items/74846",
   "name": "Rolling Stone",
-  "created_by": "Tanookirby",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-05-20T15:53:25+09:00",
   "data": {
-    "exampleUrl": "http://www.rollingstone.com/politics/lists\r\nhttp://www.rollingstone.com/music/albumreviews\r\nhttp://www.rollingstone.com/music/songreviews\r\nhttp://www.rollingstone.com/movies/reviews",
     "url": "^https?://(www\\.)?rollingstone\\.com/",
-    "pageElement": "//section[@class='hub-content-feed']/article",
+    "pageElement": "//ul[@class='l-river']/li[article]",
+    "exampleUrl": "https://www.rollingstone.com/politics/lists\r\nhttps://www.rollingstone.com/music/albumreviews\r\nhttps://www.rollingstone.com/movies/reviews",
     "nextLink": "//link[@rel='next']"
   },
-  "created_at": "2014-05-21T11:28:44+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "Tanookirby",
+  "resource_url": "http://wedata.net/items/74846",
+  "created_at": "2014-05-21T11:28:44+09:00",
+  "updated_at": "2019-12-30T10:59:19+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/74842",
