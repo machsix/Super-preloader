@@ -9,6 +9,7 @@ import {NOTIFICATION, SCRIPT_INFO} from "./meta";
 import _ from "lodash";
 import {addStyle} from "utils/gm-enhanced";
 import compareVersions from "compare-versions";
+import displace from "displacejs";
 import domTools from "utils/domTools";
 import elementReady from "utils/element-ready";
 import gotStock from "utils/got";
@@ -1902,12 +1903,14 @@ import notice from "utils/notice";
               onload: upgradeNotification.onload
             };
             switch (i8n()) {
-              case "zh-CN":
-                opts.text = SCRIPT_INFO["name-CN"] + " 从 v" + myOldVersion + " 升级到 v" + scriptInfo.version + "。 ";
+              case "zh_CN":
+                opts.text = SCRIPT_INFO["name-CN"] + " 从 v" + myOldVersion + " 升级到 v" + scriptInfo.version + "。";
+                opts.text += upgradeNotification.text.zh_CN;
                 break;
 
               default:
                 opts.text = SCRIPT_INFO.name + " is upgraded from v" + myOldVersion + " to v" + scriptInfo.version + ". ";
+                opts.text += upgradeNotification.text.en_US;
                 break;
             }
             GM.notification(opts);
@@ -1959,7 +1962,7 @@ import notice from "utils/notice";
 
         const styleNode = addStyle(
           '\
-        #sp-prefs-setup { position:fixed;z-index:2147483647;top:30px;right:60px;padding:20px 30px;box-sizing:content-box;\
+        #sp-prefs-setup { z-index:2147483647;padding:20px 30px;box-sizing:content-box;\
                           border-radius: 3px!important;border: 1px solid #A0A0A0!important; \
                           box-shadow: -2px 2px 5px rgba(0,0,0,0.3)!important;\
                           background: -moz-linear-gradient(top, #FCFCFC, #F2F2F7 100%)!important;\
@@ -1984,6 +1987,14 @@ import notice from "utils/notice";
 
         var div = d.createElement("div");
         div.id = "sp-prefs-setup";
+        div.style.position = "fixed";
+        if (prefs.FW_position !== 2) {
+          div.style.right = "38px";
+          div.style.top = "20px";
+        } else {
+          div.style.right = `${prefs.FW_offset[1]}px`;
+          div.style.top = `${prefs.FW_offset[0]}px`;
+        }
         d.body.appendChild(div);
         if (i8n() === "zh_CN") {
           /* Deleted options
@@ -4312,6 +4323,22 @@ import notice from "utils/notice";
         if (prefs.floatWindow) {
           logger.debug("创建悬浮窗");
           floatWindow(SSS);
+          const floatWindowWidth = i8n() === "zh_CN" ? 231 : 366; //px
+          const d = displace(document.getElementById("sp-fw-container"), {
+            fixed: true,
+            customMove: (el, x, y) => {
+              delete el.style.left;
+              delete el.style.bottom;
+              el.style.right = `${window.innerWidth - x - floatWindowWidth}px`;
+              el.style.top = `${y}px`;
+            },
+            onMouseUp: (el) => {
+              prefs.FW_offset[0] = parseInt(el.style.top.replace("px", ""), 10);
+              prefs.FW_offset[1] = parseInt(el.style.right.replace("px", ""), 10);
+              prefs.FW_position = 2;
+              GM.setValue("prefs", prefs);
+            }
+          });
         }
 
         if (!SSS.enable) {

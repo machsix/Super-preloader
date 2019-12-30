@@ -13,7 +13,7 @@ const SCRIPT_INFO = {
   author: pkg.author,
   version: pkg.version,
   license: pkg.license,
-  changelog: "VM4 cookie",
+  changelog: "draggable floatWindow",
   greasyfork: "https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new",
   updateTime: `${now.getFullYear()}/${now.getMonth() + 1}/${now.getDate()}`,
   homepageURL: "https://github.com/machsix/Super-preloader",
@@ -27,14 +27,14 @@ SCRIPT_INFO.metaURL = `${SCRIPT_INFO.greasyfork}/code/${SCRIPT_INFO.name}.meta.j
 // New notification to send
 const NOTIFICATION = {
   text: {
-    zh_CN: "脚本重构基本完成，如遇问题，欢迎反馈!",
-    en_US: "Refactoring is basically finished. Please provide feedback if you meet any issue!"
+    zh_CN: "你现在可以通过拖拽改变悬浮窗位置！",
+    en_US: "You can now change the location of the floatWindow by dragging it!"
   },
   title: SCRIPT_INFO.name,
   image: SCRIPT_INFO.icon,
   onload: function() {},
   // eslint-disable-next-line no-unused-vars
-  show: (oldVersion, newVersion) => compareVersions(newVersion, "6.10.0") === 0
+  show: (oldVersion, newVersion) => compareVersions(newVersion, "6.11.0") === 0
 };
 
 // Meta for userscript
