@@ -3101,9 +3101,9 @@
   },
   {
     "name": "KuKu动漫",
-    "url": "^https?://comic\\.ikkdm\\.com/comiclist/\\d+/\\d+.*\\.htm",
-    "exampleUrl": "http://comic.ikkdm.com/comiclist/4/17099/3.htm",
-    "useiframe": true,
+    "url": "^https?://comic\\d*\\.kukudm\\.com/",
+    "pageElement": "(//input[@id='page1']/following-sibling::a)[1]",
+    "exampleUrl": "https://comic.kukudm.com/comiclist/2359/60920/1.htm",
     "nextLink": "//a[img[contains(@src,'images/d.gif')]]",
     "autopager": {
       "useiframe": true,
