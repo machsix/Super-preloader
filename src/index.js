@@ -9,6 +9,7 @@ import {NOTIFICATION, SCRIPT_INFO} from "./meta";
 import _ from "lodash";
 import {addStyle} from "utils/gm-enhanced";
 import compareVersions from "compare-versions";
+import displace from "displacejs";
 import domTools from "utils/domTools";
 import elementReady from "utils/element-ready";
 import gotStock from "utils/got";
@@ -4312,6 +4313,22 @@ import notice from "utils/notice";
         if (prefs.floatWindow) {
           logger.debug("创建悬浮窗");
           floatWindow(SSS);
+          const floatWindowWidth = 231; //px
+          const d = displace(document.getElementById("sp-fw-container"), {
+            fixed: true,
+            customMove: (el, x, y) => {
+              delete el.style.left;
+              delete el.style.bottom;
+              el.style.right = `${window.innerWidth - x - floatWindowWidth}px`;
+              el.style.top = `${y}px`;
+            },
+            onMouseUp: (el) => {
+              prefs.FW_offset[0] = parseInt(el.style.top.replace("px", ""), 10);
+              prefs.FW_offset[1] = parseInt(el.style.right.replace("px", ""), 10);
+              prefs.FW_position = 2;
+              GM.setValue("prefs", prefs);
+            }
+          });
         }
 
         if (!SSS.enable) {
