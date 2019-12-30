@@ -4,7 +4,8 @@
     "allowSyntheticDefaultImports": false,
     "baseUrl": "./",
     "paths": {
-      "utils/*": ["src/utils/*"]
+      "utils/*": ["src/utils/*"],
+      "rules/*": ["src/rules/*"]
     }
   },
   "exclude": ["node_modules"]

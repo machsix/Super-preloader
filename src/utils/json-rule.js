@@ -113,7 +113,7 @@ const p = [MyData, WeData];
 
 /**
  * Module to handle json doc
- * @module jsonRule
+ * @module jsonRuleLoader
  */
 export default {
   providers: p,

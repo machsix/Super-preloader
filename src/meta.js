@@ -34,7 +34,7 @@ const NOTIFICATION = {
   image: SCRIPT_INFO.icon,
   onload: function() {},
   // eslint-disable-next-line no-unused-vars
-  show: (oldVersion, newVersion) => compareVersions(newVersion, "6.11.0") === 0
+  show: (oldVersion, newVersion) => compareVersions(oldVersion, "6.11.0") < 0 && compareVersions(newVersion, "6.11.0") >= 0
 };
 
 // Meta for userscript
