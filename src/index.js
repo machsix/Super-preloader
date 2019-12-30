@@ -1,10 +1,9 @@
-/* eslint-disable linebreak-style */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-empty */
 
 // import "core-js";
 // import "regenerator-runtime/runtime";
-import {IS_FIREFOX, SCRIPT_MANAGER} from "utils/detect";
+import {BROWSER, SCRIPT_MANAGER} from "utils/detect";
 import {NOTIFICATION, SCRIPT_INFO} from "./meta";
 import _ from "lodash";
 import {addStyle} from "utils/gm-enhanced";
@@ -25,12 +24,12 @@ import notice from "utils/notice";
     encoding: document.characterSet
   };
   logger.debug(`Script Manager: ${SCRIPT_MANAGER.name}  v${SCRIPT_MANAGER.version}`);
-  logger.debug(`IS_FIREFOX: ${IS_FIREFOX}`);
+  logger.debug("Browser: ", BROWSER);
 
-  if (IS_FIREFOX) {
-    if ((SCRIPT_MANAGER.name === "Violentmonkey" && compareVersions(SCRIPT_MANAGER.version, "2.12.3") <= 0) || (SCRIPT_MANAGER.name === "Tampermonkey" && compareVersions(SCRIPT_MANAGER.version, "4.9.6095") <= 0)) {
+  if (BROWSER.name === "firefox") {
+    if ((SCRIPT_MANAGER.name === "Violentmonkey" && compareVersions(SCRIPT_MANAGER.version, "2.12.3") <= 0) || SCRIPT_MANAGER.name === "Tampermonkey") {
       // `options.cookie`, dirty fix for TM and VM on Firefox
-      // TODO: remove when TM and VM releases new version
+      // TODO: remove when TM releases new version
       logger.warn(`${SCRIPT_MANAGER.name}  v${SCRIPT_MANAGER.version} has a flaw on Firefox, which may affect this script`);
       logger.warn("Check https://github.com/Tampermonkey/tampermonkey/issues/786 and https://github.com/violentmonkey/violentmonkey/issues/606 to learn more");
       gotConfig.cookie = true;
@@ -48,9 +47,6 @@ import notice from "utils/notice";
   if (window.name === "mynovelreader-iframe") {
     return;
   }
-
-  // Website which has script to change window name
-  const ChangeIframeSites = [/^https?:\/\/www\.930mh\.com/i];
 
   function CheckIframe() {
     if (window.name === "superpreloader-iframe") {
@@ -353,9 +349,9 @@ import notice from "utils/notice";
 
           const keyword = getElementByXpath("//input[@title='Search']", doc, doc);
           if (keyword) {
-            console.log("%cMicrosoft is %s %csearch with Bing %s", "font-weight:bold;color:00bbee", emoji("1F60E"), "font-weight:bold;color:00bbee", encodeURI("https://www.bing.com/search?q=" + keyword.value));
+            console.log("%cMicrosoft is %s %csearch with Bing %s", "font-weight:bold;color:00bbee", emoji("1F451"), "font-weight:bold;color:00bbee", encodeURI("https://www.bing.com/search?q=" + keyword.value));
           } else {
-            console.log("%cMicrosoft is %s", "font-weight:bold;color:00bbee", emoji("1F60E"));
+            console.log("%cMicrosoft is %s", "font-weight:bold;color:00bbee", emoji("1F451"));
           }
         }
       }
@@ -1730,7 +1726,7 @@ import notice from "utils/notice";
   let autoMatch = autoMatchFactory;
 
   // 上一页关键字
-  var prePageKey = [
+  let prePageKey = [
     "上一页",
     "上一頁",
     "上1页",
@@ -1758,7 +1754,7 @@ import notice from "utils/notice";
   ];
 
   // 下一页关键字
-  var nextPageKey = [
+  let nextPageKey = [
     "下一页",
     "下一頁",
     "下1页",
@@ -1835,14 +1831,12 @@ import notice from "utils/notice";
     "Next »",
     "Next Page »",
     "次へ »",
-    "次のページ »",
     "后一页",
     "後一頁",
     "下一页 ›",
     "下一頁 ›",
     "下1页 ›",
     "下1頁 ›",
-    "下页 ›",
     "下頁 ›",
     "翻页 ›",
     "翻頁 ›",
@@ -1866,7 +1860,7 @@ import notice from "utils/notice";
     "次のページ ›",
     "»",
     "→",
-    "Next >"
+    "早期文章→"
   ];
   // THX to https://greasyfork.org/en/forum/discussion/39361/x
   // 出在自动翻页信息附加显示真实相对页面信息，一般能智能识别出来。如果还有站点不能识别，可以把地址的特征字符串加到下面

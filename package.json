@@ -57,6 +57,7 @@
     "babel-loader": "8.0.6",
     "babel-plugin-lodash": "3.3.4",
     "compare-versions": "3.5.1",
+    "detect-browser": "^4.8.0",
     "displacejs": "git+https://github.com/machsix/displace.git#4e1070d",
     "eslint": "6.8.0",
     "eslint-config-prettier": "6.9.0",
