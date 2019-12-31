@@ -31,6 +31,10 @@ module.exports = {
         use: ["to-string-loader", "css-loader"]
       },
       {
+        test: /\.s[ac]ss$/i,
+        use: ["to-string-loader", "css-loader", "sass-loader"]
+      },
+      {
         test: /\.m?js$/,
         exclude: /(node_modules|bower_components)/,
         use: [

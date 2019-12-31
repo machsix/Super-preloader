@@ -11,8 +11,9 @@ import _ from "lodash";
 import {addStyle} from "utils/gm-enhanced";
 import compareVersions from "compare-versions";
 
-import cssSpFloatWindow from "css/sp-fw.css";
+import cssSpFloatWindow from "css/sp-fw.scss";
 import cssSpPrefsSetup from "css/sp-prefs-setup.css";
+import cssSpPrefsSpinner from "css/sp-prefs-spinner.css";
 import cssSpSeparator from "css/sp-separator.css";
 
 import displace from "displacejs";
@@ -602,7 +603,17 @@ import notice from "utils/notice";
         });
 
         on($("updaterule"), "click", function() {
-          $("updaterule").innerHTML = "Updating...";
+          getElementByCSS("#sp-prefs-setup ul").remove();
+          getElementByCSS("#sp-prefs-setup div:last-child").remove();
+          const div = domTools.create("div", {
+            attr: {
+              class: "sp-prefs-spinner"
+            },
+            children: [domTools.create("div", {attr: {class: "rect1"}}), domTools.create("div", {attr: {class: "rect2"}}), domTools.create("div", {attr: {class: "rect3"}}), domTools.create("div", {attr: {class: "rect4"}})]
+          });
+          addStyle(cssSpPrefsSpinner);
+          $("setup").appendChild(div);
+          getElementByCSS("#sp-prefs-setup div").innerHTML = i8n() === "zh_CN" ? "规则更新中。。。" : "Updating ...";
           jsonRuleLoader.updateRule(true).then(() => {
             jsonRule = jsonRuleLoader.getRule();
             SP.loadSetting();
