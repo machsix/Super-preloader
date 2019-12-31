@@ -3101,7 +3101,7 @@
   },
   {
     "name": "KuKu动漫",
-    "url": "^https?://comic\\d*\\.kukudm\\.com/",
+    "url": "^https?://comic\\d*\\.(kukudm|ikkdm)\\.com/",
     "pageElement": "(//input[@id='page1']/following-sibling::a)[1]",
     "exampleUrl": "https://comic.kukudm.com/comiclist/2359/60920/1.htm",
     "nextLink": "//a[img[contains(@src,'images/d.gif')]]",
