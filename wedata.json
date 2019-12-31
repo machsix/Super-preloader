@@ -50054,20 +50054,20 @@
   "created_at": "2009-01-12T09:01:04+09:00"
 },
 {
-  "resource_url": "http://wedata.net/items/26648",
   "name": "技術評論社 連載一覧",
-  "created_by": "toton",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2016-02-09T10:31:30+09:00",
   "data": {
-    "Stylish": "@-moz-document url-prefix(\"http://gihyo.jp/\") {\r\nimg.lazy{display:inline !important;}\r\n.autopagerize_page_separator~.date{text-align:right;\r\nline-height:1 !important;}\r\n.autopagerize_page_separator~.author{text-align:right;\r\nline-height:1 !important;}\r\n.autopagerize_page_separator~p {\r\nmargin: 0 0 1em 0;\r\nline-height: 1.9;\r\n}\r\n.autopagerize_page_separator~h3 {\r\nmargin: 2.5em 0 1.2em 0;\r\npadding: 0 0 4px 0;\r\nborder-bottom: 1px solid #CCC;\r\nfont-size: 120%;\r\ncolor: #CC6600;\r\nline-height: 1.2;\r\n}\r\n.autopagerize_page_separator~.fig .illust{\r\nmargin: 1.8em 54px 1.8em 42px;\r\nline-height: 1.2;\r\nfont-size: 80%;\r\n}\r\n}",
-    "exampleUrl": "http://gihyo.jp/dev/serial\r\nhttp://gihyo.jp/dev/serial/01/sql_academy2\r\nhttp://gihyo.jp/admin/clip/01/fdt\r\nhttp://gihyo.jp/dev/feature/01/mercurial/0001\r\nhttp://gihyo.jp/dev/feature/01/mercurial/0001?page=4\r\nhttp://gihyo.jp/lifestyle/serial/01/travel_with_gadget/0001\r\nhttp://gihyo.jp/lifestyle/serial/01/survival_strategy_engineer/0001\r\nhttp://gihyo.jp/dev/feature/01/go_4beginners/0001?page=3",
-    "bookmarklet": "Array.prototype.forEach.call(document.querySelectorAll('img'), function(img) { var lazySrc = img.hasAttribute('data-src') ? img.getAttribute('data-src') : img.getAttribute('data-original'); if (lazySrc) { img.src = lazySrc;} });",
-    "url": "^https?://gihyo\\.jp/[^/]+/(?:clip|feature|serial)",
+    "url": "^https?://gihyo\\.jp/[^/]+/(?:clip|feature|serial|report)",
     "pageElement": "id('primary')//div[contains(concat(' ', @class, ' '), ' readingContent01 ')][id('article')]|//ul[@class='articleList01' or @class='toc article']//li|//h2[@class='subTitle01'][number(substring-after(id('primary')//li[@class='current']/a/@href,'?page='))=1 or not(//div[contains(@class,'pageSwitch01')])]|//p[@class='date' or @class='author'][number(substring-after(id('primary')//li[@class='current']/a/@href,'?page='))=1 or not(//div[contains(@class,'pageSwitch01')])]",
+    "Stylish": "@-moz-document url-prefix(\"http://gihyo.jp/\") {\r\nimg.lazy{display:inline !important;}\r\n.autopagerize_page_separator~.date{text-align:right;\r\nline-height:1 !important;}\r\n.autopagerize_page_separator~.author{text-align:right;\r\nline-height:1 !important;}\r\n.autopagerize_page_separator~p {\r\nmargin: 0 0 1em 0;\r\nline-height: 1.9;\r\n}\r\n.autopagerize_page_separator~h3 {\r\nmargin: 2.5em 0 1.2em 0;\r\npadding: 0 0 4px 0;\r\nborder-bottom: 1px solid #CCC;\r\nfont-size: 120%;\r\ncolor: #CC6600;\r\nline-height: 1.2;\r\n}\r\n.autopagerize_page_separator~.fig .illust{\r\nmargin: 1.8em 54px 1.8em 42px;\r\nline-height: 1.2;\r\nfont-size: 80%;\r\n}\r\n}",
+    "bookmarklet": "Array.prototype.forEach.call(document.querySelectorAll('img'), function(img) { var lazySrc = img.hasAttribute('data-src') ? img.getAttribute('data-src') : img.getAttribute('data-original'); if (lazySrc) { img.src = lazySrc;} });",
+    "exampleUrl": "http://gihyo.jp/dev/serial\r\nhttp://gihyo.jp/dev/serial/01/sql_academy2\r\nhttp://gihyo.jp/admin/clip/01/fdt\r\nhttp://gihyo.jp/dev/feature/01/mercurial/0001\r\nhttp://gihyo.jp/dev/feature/01/mercurial/0001?page=4\r\nhttp://gihyo.jp/lifestyle/serial/01/travel_with_gadget/0001\r\nhttp://gihyo.jp/lifestyle/serial/01/survival_strategy_engineer/0001\r\nhttp://gihyo.jp/dev/feature/01/go_4beginners/0001?page=3",
     "nextLink": "id('primary')//p[@class='next']/a[last()]|//ul[@class='linkList02']/li[@class='here']/preceding-sibling::li[1]/a"
   },
-  "created_at": "2009-01-12T08:09:00+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "toton",
+  "resource_url": "http://wedata.net/items/26648",
+  "created_at": "2009-01-12T08:09:00+09:00",
+  "updated_at": "2019-12-31T23:18:45+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/26644",
