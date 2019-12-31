@@ -1,6 +1,6 @@
 {
   "name": "super-preloader",
-  "version": "6.11.1",
+  "version": "6.11.2",
   "description": "Super-preloader",
   "main": "dist/Super_preloaderPlus_one_New.user.js",
   "author": "Mach6",
@@ -18,9 +18,9 @@
   },
   "scripts": {
     "lint": "eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\"",
-    "format": "prettier --write \"dist/*.json\" \"src/**/*.js\" \".ci/*.js\" \"docs/**/*.{js,md}\"",
-    "format:check": "prettier --check --loglevel debug \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"docs/**/*.{js,md}\"",
-    "format:staged": "pretty-quick --verbose --staged --write \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"docs/**/*.{js,md}\"",
+    "format": "prettier --write \"dist/*.json\" \"src/**/*.{js,css}\" \".ci/*.js\" \"docs/**/*.{js,md}\"",
+    "format:check": "prettier --check \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"docs/**/*.{js,md}\"",
+    "format:staged": "pretty-quick --verbose --staged --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"docs/**/*.{js,md}\"",
     "test": "npm run lint && npm run format:staged",
     "dev": "webpack-dev-server --color --config webpack.dev.js",
     "build": "webpack --no-cache --debug --config webpack.prod.js",
@@ -57,9 +57,10 @@
     "babel-loader": "8.0.6",
     "babel-plugin-lodash": "3.3.4",
     "compare-versions": "3.5.1",
-    "css-loader": "^3.4.0",
-    "detect-browser": "^4.8.0",
-    "displacejs": "git+https://github.com/machsix/displace.git#4e1070d",
+    "css-loader": "3.4.0",
+    "detect-browser": "4.8.0",
+    "displacejs": "1.4.0",
+    "ejs-loader": "0.3.5",
     "eslint": "6.8.0",
     "eslint-config-prettier": "6.9.0",
     "eslint-plugin-json": "2.0.1",
@@ -78,6 +79,6 @@
     "webpack-cli": "3.3.10",
     "webpack-dev-server": "3.10.1",
     "webpack-merge": "4.2.2",
-    "yargs": "^15.0.2"
+    "yargs": "15.0.2"
   }
 }

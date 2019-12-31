@@ -1,0 +1,80 @@
+<div id="sp-fw-rect" style="background-color:#000;">
+  <div id="sp-fw-dot" style="display:none;"></div>
+  <div id="sp-fw-cur-mode" style="display:none;"></div>
+</div>
+<div id="sp-fw-content" style="display:none;">
+  <div id="sp-fw-main">
+    <div id="sp-fw-main-head">
+      <input type="checkbox" title="Enable autopagger, otherwise only prefetcher is enabled" id="sp-fw-a_enable"
+        name="sp-fw-a_enable" />Enable autopagger
+      <span id="sp-fw-span-info">Super_preloader</span>
+    </div>
+    <fieldset>
+      <legend title="Preloader helps accelerating loading">Preloader Settings</legend>
+      <ul>
+        <li>
+          <input type="checkbox"
+            title="Use iframe to load next page into cache, otherwise use XHR to get the content. Do not use this if everthing is normal."
+            id="sp-fw-useiframe" name="sp-fw-useiframe" />Use iframe
+          <input type="checkbox" title="Check preload contents." id="sp-fw-viewcontent" name="sp-fw-viewcontent" />Show
+          preloaded content
+        </li>
+      </ul>
+    </fieldset>
+    <fieldset id="sp-fw-autopager-field" style="display:block;">
+      <legend title="Autopager frees you from clicking next page">Autopager Settings</legend>
+      <ul>
+        <li>
+          <input type="checkbox"
+            title="Use iframe to load next page into cache, otherwise use XHR to get the content. Do not use this if everthing is normal"
+            id="sp-fw-a_useiframe" name="sp-fw-a_useiframe" />Use iframe</input>
+          <input type="checkbox" title="Use a new iframe for the next page. It may solve problems with figures"
+            id="sp-fw-a_newIframe" name="sp-fw-a_newIframe">Use new iframe</input>
+          <ul id="sp-fw-a_useiframe-extend">
+            <li>
+              <input type="checkbox" title="Append the content untill iframe is fully loaded" id="sp-fw-a_iloaded"
+                name="sp-fw-a_iloaded" />Wait iframe to be fully loaded
+            </li>
+            <li>
+              <input type="number" min="0"
+                title="Wait for X ms untill the content is appended to the current page. (Default: 0)"
+                id="sp-fw-a_itimeout" name="sp-fw-a_itimeout" /> ms delay
+            </li>
+          </ul>
+        </li>
+        <li>
+          <input type="checkbox" id="sp-fw-a_manualA" name="sp-fw-a_manualA"
+            title="The next page won\'t be appended to the current page and you need to click a button" />Manual mode
+        </li>
+        <li>
+          Trick autopager until the height is <input type="number" min="0" id="sp-fw-a_remain" name="sp-fw-a_remain" />x
+          page height
+        </li>
+        <li>
+          Turn at most <input type="number" min="0" id="sp-fw-a_maxpage" name="sp-fw-a_maxpage" /> pages
+        </li>
+        <li>
+          <input type="checkbox" id="sp-fw-a_separator" name="sp-fw-a_separator"
+            title="Show the page navigation bar" />Navigation bar
+        </li>
+        <li>
+          <input type="checkbox"
+            title="Append the whole next page to current page (When there is not rule for the website, this is the only method)"
+            id="sp-fw-a_force" name="sp-fw-a_force" />Force to join page
+        </li>
+        <li>
+          <input type="checkbox" id="sp-fw-a_ipages_0" name="sp-fw-a_ipages_0"
+            title="Turn X pages instantly once the script is loaded. This is good for some gallery." />Turn <input
+            type="number" min="1" id="sp-fw-a_ipages_1" name="sp-fw-a_ipages_1" title="number of pages" /> pages
+          instantly
+          <span class="sp-fw-spanbutton" id="sp-fw-a_starti">Start</span>
+        </li>
+      </ul>
+    </fieldset>
+    <div id="sp-fw-foot">
+      <input type="checkbox" id="sp-fw-enable" title="Enable for thie website" name="sp-fw-enable" />Enable
+      <span id="sp-fw-setup" class="sp-fw-spanbutton" title="Global Settings">Global Settings</span>
+      <span id="sp-fw-savebutton" class="sp-fw-spanbutton" title="Save settings">Save</span>
+    </div>
+  </div>
+</div>

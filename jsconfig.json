@@ -6,7 +6,8 @@
     "paths": {
       "utils/*": ["src/utils/*"],
       "rules/*": ["src/rules/*"],
-      "css/*": ["src/css/*"]
+      "css/*": ["src/css/*"],
+      "template/*": ["src/template/*"]
     }
   },
   "exclude": ["node_modules"]

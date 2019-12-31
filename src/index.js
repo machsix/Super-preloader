@@ -10,11 +10,14 @@ import {getAllElements, getAllElementsByXpath, getElementByCSS, getElementByXpat
 import _ from "lodash";
 import {addStyle} from "utils/gm-enhanced";
 import compareVersions from "compare-versions";
+
 import cssSpFloatWindow from "css/sp-fw.css";
 import cssSpPrefsSetup from "css/sp-prefs-setup.css";
 import cssSpSeparator from "css/sp-separator.css";
+
 import displace from "displacejs";
 import domTools from "utils/domTools";
+import ejsTemplate from "template/ejs-template";
 import elementReady from "utils/element-ready";
 import gotStock from "utils/got";
 import {jsGeneralRule} from "rules/jsGeneralRule";
@@ -544,98 +547,14 @@ import notice from "utils/notice";
           div.style.right = `${prefs.FW_offset[1]}px`;
           div.style.top = `${prefs.FW_offset[0]}px`;
         }
+        div.innerHTML = ejsTemplate["sp-prefs"](i8n())({
+          prefs,
+          scriptInfo,
+          nextUpdateDate: jsonRuleLoader.expire.toDateString()
+        });
         d.body.appendChild(div);
-        if (i8n() === "zh_CN") {
-          /* Deleted options
-                                   <li title="下一页的链接设置成在新标签页打开"><input type="checkbox" id="sp-prefs-forceTargetWindow" checked/> 新标签打开链接</li>\
-          */
-          div.innerHTML =
-            "\
-                           <div>Super_preloaderPlus_one_New设置</div>\
-                               <ul>\
-                                   <li>脚本版本: <b>" +
-            scriptInfo.version +
-            " </b>   更新时间: <b>" +
-            scriptInfo.updateTime +
-            '</b>\
-                                       <a id="sp-prefs-homepageURL" target="_blank" href="' +
-            scriptInfo.homepageURL +
-            '"/>脚本主页</a>\
-                                       <a id="sp-prefs-homepageURL-feedback" target="_blank" href="' +
-            scriptInfo.homepageURL +
-            "/feedback" +
-            '"/> 反馈规则 </a>\
-                                   </li>\
-                                   <li>维护者: <b><a href="https://greasyfork.org/en/users/32861-mach6">Mach6</a></b>   更新日志: <b>' +
-            scriptInfo.changelog +
-            "</b></li>\
-                                   <li>规则数目: <b>" +
-            prefs.numOfRule +
-            "</b> 下次更新时间: <b>" +
-            jsonRuleLoader.expire.toDateString() +
-            '</b> <button id="sp-prefs-updaterule">更新规则</button></li>\
-                                   <li><input type="checkbox" id="sp-prefs-debug" /> 调试模式</li>\
-                                   <li><input title="强制开启中文界面" type="checkbox" id="sp-prefs-ChineseUI" /> 中文界面</li>\
-                                   <li><input type="checkbox" id="sp-prefs-enableHistory" /> 添加下一页到历史记录</li>\
-                                   <li><input type="checkbox" id="sp-prefs-dblclick_pause" /> 鼠标双击暂停翻页（默认为 Ctrl + 长按左键）</li>\
-                                   <li><input type="checkbox" id="sp-prefs-SITEINFO_D-useiframe" /> 全局启用iframe方式\
-                                   <li><input title="启用自动翻页，否则仅启用预读" type="checkbox" id="sp-prefs-SITEINFO_D-a_enable" checked/> 启用自动翻页 </li>\
-                                   <li><input type="checkbox" id="sp-prefs-arrowKeyPage"/> 使用 ← → 翻页 </li>\
-                                   <li><input title="强行拼接规则中没有的站点，不建议启用" type="checkbox" id="sp-prefs-SITEINFO_D-a_force_enable" /> 启用强制拼接（不建议）</li>\
-                                   <li>自定义排除列表：\
-                                       <div><textarea id="sp-prefs-excludes" placeholder="自定义排除列表，支持通配符。\n例如：http://*.douban.com/*"></textarea></div>\
-                                   </li>\
-                                   <li>自定义站点规则：\
-                                       <div><textarea id="sp-prefs-custom_siteinfo" placeholder="自定义站点规则"></textarea></div>\
-                                   </li>\
-                               </ul>\
-                           <div><button id="sp-prefs-ok" style="width:100px;">确定</button><button id="sp-prefs-cancel" style="width:100px;">取消</button><button id="sp-prefs-reset" style="width:100px;">重置</button></div>';
-        } else {
-          div.innerHTML =
-            "\
-                           <div>Super_preloaderPlus_one_New Settings</div>\
-                               <ul>\
-                                   <li>Version: <b>" +
-            scriptInfo.version +
-            " </b>  Update time: <b> " +
-            scriptInfo.updateTime +
-            '</b>\
-                                       <a id="sp-prefs-homepageURL" target="_blank" href="' +
-            scriptInfo.homepageURL +
-            '"/>Homepage</a>\
-                                       <a id="sp-prefs-homepageURL-feedback" target="_blank" href="' +
-            scriptInfo.homepageURL +
-            "/feedback" +
-            '"/> Feedback </a>\
-                                   </li>\
-                                   <li>Maintainer: <b><a href="https://greasyfork.org/en/users/32861-mach6">Mach6</a></b>  Changelog: <b>' +
-            scriptInfo.changelog +
-            "</b></li>\
-                                   <li>Number of Rules: <b>" +
-            prefs.numOfRule +
-            "</b> Next update: <b>" +
-            jsonRuleLoader.expire.toDateString() +
-            '</b> <button id="sp-prefs-updaterule">Update rules</button></li>\
-                                   <li><input type="checkbox" id="sp-prefs-debug" /> Debug mode</li>\
-                                   <li><input type="checkbox"  tile="English/Chinese UI" id="sp-prefs-ChineseUI" /> Chinese UI</li>\
-                                   <li><input type="checkbox" id="sp-prefs-enableHistory" /> Add next page to history</li>\
-                                   <li><input type="checkbox" id="sp-prefs-dblclick_pause" /> Double click to stop preload (Default: Ctrl + Long Left)</li>\
-                                   <li><input type="checkbox" id="sp-prefs-SITEINFO_D-useiframe" /> Enable iframe mode globally</li>\
-                                   <li><input type="checkbox" title="Enable autopagger, otherwise only prefetcher is enabled" id="sp-prefs-SITEINFO_D-a_enable" checked/> Enable autopagger globally</li>\
-                                   <li><input type="checkbox" id="sp-prefs-arrowKeyPage"/> Turn to the next page with  ← →</li>\
-                                   <li><input type="checkbox" id="sp-prefs-SITEINFO_D-a_force_enable" /> Mandatorily join pages if not covered by the rules</li>\
-                                   <li>Custom excludes:\
-                                       <div><textarea id="sp-prefs-excludes" placeholder="Customized excludes, support regex\nEx: http://*.douban.com/*"></textarea></div>\
-                                   </li>\
-                                   <li>Custom rules:\
-                                       <div><textarea id="sp-prefs-custom_siteinfo" placeholder="Custom rules"></textarea></div>\
-                                   </lhttps://greasyfork.org/en/scripts/33522-super-preloaderplus-one-newi>\
-                               </ul>\
-                           <div><button id="sp-prefs-ok" style="width:100px;">OK</button><button id="sp-prefs-cancel" style="width:100px;">Cancel</button><button id="sp-prefs-reset" style="width:100px;">Reset</button></div>';
-        }
-        div = null;
 
-        const close = function() {
+        const close = () => {
           if (styleNode) {
             styleNode.parentNode.removeChild(styleNode);
           }
@@ -1079,142 +998,7 @@ import notice from "utils/notice";
         }
 
         function floatWindowUI() {
-          var innerHTML = "";
-          if (i8n() === "zh_CN") {
-            innerHTML =
-              '\
-                                <div id="sp-fw-rect" style="background-color:#000;">\
-                                    <div id="sp-fw-dot" style="display:none;"></div>\
-                                    <div id="sp-fw-cur-mode" style="display:none;"></div>\
-                                </div>\
-                                <div id="sp-fw-content" style="display:none;">\
-                                    <div id="sp-fw-main">\
-                                        <div id="sp-fw-main-head">\
-                                            <input type="checkbox" title="使用翻页模式,否则使用预读模式" id="sp-fw-a_enable" name="sp-fw-a_enable"/>使用翻页模式\
-                                            <span id="sp-fw-span-info">Super_preloader</span>\
-                                        </div>\
-                                        <fieldset>\
-                                            <legend title="预读模式的相关设置" >预读设置</legend>\
-                                            <ul>\
-                                                <li>\
-                                                    <input type="checkbox" title="使用iframe预先载入好下一页到缓存,否则使用xhr请求下一页源码,取出所有的图片进行预读" id="sp-fw-useiframe" name="sp-fw-useiframe"/>使用iframe方式\
-                                                </li>\
-                                                <li>\
-                                                    <input type="checkbox" title="查看预读的内容,将其显示在页面的底部,看看预读了些什么." id="sp-fw-viewcontent" name="sp-fw-viewcontent"/>查看预读的内容\
-                                                </li>\
-                                            </ul>\
-                                        </fieldset>\
-                                        <fieldset id="sp-fw-autopager-field" style="display:block;">\
-                                            <legend title="自动翻页模式的相关设置">翻页设置</legend>\
-                                            <ul>\
-                                                <li>\
-                                                    <input type="checkbox" title="使用iframe方式进行翻页,否则使用xhr方式翻页,可以解决某些网页xhr方式无法翻页的问题,如果xhr翻页正常的话,就不要勾这项吧." id="sp-fw-a_useiframe" name="sp-fw-a_useiframe"/>使用iframe方式</input>\
-                                                    <input type="checkbox" title="每个下一页都用新的iframe，可以解决下一页图片或按钮点击的问题" id="sp-fw-a_newIframe" name="sp-fw-a_newIframe">新iframe</input>\
-                                                    <ul id="sp-fw-a_useiframe-extend">\
-                                                        <li>\
-                                                            <input type="checkbox" title="等待iframe完全载入后(发生load事件),将内容取出,否则在DOM完成后,就直接取出来..(勾上后,会比较慢,但是可能会解决一些问题.)" id="sp-fw-a_iloaded" name="sp-fw-a_iloaded" />等待iframe完全载入\
-                                                        </li>\
-                                                        <li>\
-                                                            <input type="number"  min="0" title="在可以从iframe取数据的时候,继续等待设定的ms才开始取出数据(此项为特殊网页准备,如果正常,请设置为0)" id="sp-fw-a_itimeout" name="sp-fw-a_itimeout"/>ms延时取出\
-                                                        </li>\
-                                                    </ul>\
-                                                </li>\
-                                                <li>\
-                                                    <input type="checkbox" id="sp-fw-a_manualA" name="sp-fw-a_manualA" title="不会自动拼接上来,会出现一个类似翻页导航的的图形,点击翻页(在论坛的帖子内容页面,可以考虑勾选此项,从而不影响你的回帖)"/>手动模式\
-                                                </li>\
-                                                <li>\
-                                                     剩余<input type="number" min="0" id="sp-fw-a_remain" name="sp-fw-a_remain" title="当剩余的页面的高度是浏览器可见窗口高度的几倍开始翻页"/>倍页面高度触发\
-                                                </li>\
-                                                <li>\
-                                                     最多翻<input type="number" min="0" id="sp-fw-a_maxpage" name="sp-fw-a_maxpage" title="最多翻页数量,当达到这个翻页数量的时候,自动翻页停止." />页\
-                                                </li>\
-                                                <li>\
-                                                    <input type="checkbox" id="sp-fw-a_separator" name="sp-fw-a_separator" title="分割页面主要内容的导航条,可以进行页面主要内容之间的快速跳转定位等."/>显示翻页导航\
-                                                </li>\
-                                                <li>\
-                                                    <input type="checkbox" title="将下一页的body部分内容整个拼接上来.(当需翻页的网站没有高级规则时,该项强制勾选,无法取消.)" id="sp-fw-a_force" name="sp-fw-a_force"/>强制拼接\
-                                                </li>\
-                                                <li>\
-                                                    <input type="checkbox" id="sp-fw-a_ipages_0" name="sp-fw-a_ipages_0" title="在JS加载后,立即连续翻后面设定的页数"/>启用 \
-                                                    立即翻<input type="number" min="1" id="sp-fw-a_ipages_1" name="sp-fw-a_ipages_1" title="连续翻页的数量" />页\
-                                                    <span  class="sp-fw-spanbutton"  title="现在立即开始连续翻页" id="sp-fw-a_starti">开始</span>\
-                                                </li>\
-                                            </ul>\
-                                        </fieldset>\
-                                        <div id="sp-fw-foot">\
-                                         <input type="checkbox" id="sp-fw-enable" title="总开关,启用js,否则禁用." name="sp-fw-enable"/>启用\
-                                         <span id="sp-fw-setup" class="sp-fw-spanbutton" title="打开设置窗口">设置</span>\
-                                         <span id="sp-fw-savebutton" class="sp-fw-spanbutton" title="保存设置">保存</span>\
-                                        </div>\
-                                    </div>\
-                                </div>';
-          } else {
-            innerHTML =
-              '\
-                                <div id="sp-fw-rect" style="background-color:#000;">\
-                                    <div id="sp-fw-dot" style="display:none;"></div>\
-                                    <div id="sp-fw-cur-mode" style="display:none;"></div>\
-                                </div>\
-                                <div id="sp-fw-content" style="display:none;">\
-                                    <div id="sp-fw-main">\
-                                        <div id="sp-fw-main-head">\
-                                            <input type="checkbox" title="Enable autopagger, otherwise only prefetcher is enabled" id="sp-fw-a_enable" name="sp-fw-a_enable"/>Enable autopagger\
-                                            <span id="sp-fw-span-info">Super_preloader</span>\
-                                        </div>\
-                                        <fieldset>\
-                                            <legend title="Preloader helps accelerating loading" >Preloader Settings</legend>\
-                                            <ul>\
-                                                <li>\
-                                                    <input type="checkbox" title="Use iframe to load next page into cache, otherwise use XHR to get the content. Do not use this if everthing is normal." id="sp-fw-useiframe" name="sp-fw-useiframe"/>Use iframe\
-                                                    <input type="checkbox" title="Check preload contents." id="sp-fw-viewcontent" name="sp-fw-viewcontent"/>Show preloaded content\
-                                                </li>\
-                                            </ul>\
-                                        </fieldset>\
-                                        <fieldset id="sp-fw-autopager-field" style="display:block;">\
-                                            <legend title="Autopager frees you from clicking next page">Autopager Settings</legend>\
-                                            <ul>\
-                                                <li>\
-                                                    <input type="checkbox" title="Use iframe to load next page into cache, otherwise use XHR to get the content. Do not use this if everthing is normal" id="sp-fw-a_useiframe" name="sp-fw-a_useiframe"/>Use iframe</input>\
-                                                    <input type="checkbox" title="Use a new iframe for the next page. It may solve problems with figures" id="sp-fw-a_newIframe" name="sp-fw-a_newIframe">Use new iframe</input>\
-                                                    <ul id="sp-fw-a_useiframe-extend">\
-                                                        <li>\
-                                                            <input type="checkbox" title="Append the content untill iframe is fully loaded" id="sp-fw-a_iloaded" name="sp-fw-a_iloaded" />Wait iframe to be fully loaded\
-                                                        </li>\
-                                                        <li>\
-                                                            <input type="number"  min="0" title="Wait for X ms untill the content is appended to the current page. (Default: 0)" id="sp-fw-a_itimeout" name="sp-fw-a_itimeout"/> ms delay\
-                                                        </li>\
-                                                    </ul>\
-                                                </li>\
-                                                <li>\
-                                                    <input type="checkbox" id="sp-fw-a_manualA" name="sp-fw-a_manualA" title="The next page won\'t be appended to the current page and you need to click a button"/>Manual mode\
-                                                </li>\
-                                                <li>\
-                                                     Trick autopager until the height is <input type="number" min="0" id="sp-fw-a_remain" name="sp-fw-a_remain" />x page height\
-                                                </li>\
-                                                <li>\
-                                                     Turn at most <input type="number" min="0" id="sp-fw-a_maxpage" name="sp-fw-a_maxpage" /> pages\
-                                                </li>\
-                                                <li>\
-                                                    <input type="checkbox" id="sp-fw-a_separator" name="sp-fw-a_separator" title="Show the page navigation bar"/>Navigation bar\
-                                                </li>\
-                                                <li>\
-                                                    <input type="checkbox" title="Append the whole next page to current page (When there is not rule for the website, this is the only method)" id="sp-fw-a_force" name="sp-fw-a_force"/>Force to join page\
-                                                </li>\
-                                                <li>\
-                                                    <input type="checkbox" id="sp-fw-a_ipages_0" name="sp-fw-a_ipages_0" title="Turn X pages instantly once the script is loaded. This is good for some gallery."/>Turn <input type="number" min="1" id="sp-fw-a_ipages_1" name="sp-fw-a_ipages_1" title="number of pages" /> pages instantly\
-                                                    <span  class="sp-fw-spanbutton"  id="sp-fw-a_starti">Start</span>\
-                                                </li>\
-                                            </ul>\
-                                        </fieldset>\
-                                        <div id="sp-fw-foot">\
-                                         <input type="checkbox" id="sp-fw-enable" title="Enable for thie website" name="sp-fw-enable"/>Enable\
-                                         <span id="sp-fw-setup" class="sp-fw-spanbutton" title="Global Settings">Global Settings</span>\
-                                         <span id="sp-fw-savebutton" class="sp-fw-spanbutton" title="Save settings">Save</span>\
-                                        </div>\
-                                    </div>\
-                                </div>';
-          }
-          return innerHTML;
+          return ejsTemplate.floatWindow(i8n())();
         }
 
         function sp_transition(start, end) {
@@ -2616,7 +2400,7 @@ import notice from "utils/notice";
           floatWindow(SSS);
           const floatWindowWidth = i8n() === "zh_CN" ? 231 : 366; //px
           const d = displace(document.getElementById("sp-fw-container"), {
-            fixed: true,
+            handle: document.getElementById("sp-fw-rect"),
             customMove: (el, x, y) => {
               delete el.style.left;
               delete el.style.bottom;
@@ -2630,6 +2414,7 @@ import notice from "utils/notice";
               GM.setValue("prefs", prefs);
             }
           });
+          document.getElementById("sp-fw-container").style.position = "fixed";
         }
 
         if (!SSS.enable) {

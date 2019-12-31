@@ -16,11 +16,16 @@ module.exports = {
     alias: {
       utils: path.resolve(__dirname, "src/utils"),
       rules: path.resolve(__dirname, "src/rules"),
-      css: path.resolve(__dirname, "src/css")
+      css: path.resolve(__dirname, "src/css"),
+      template: path.resolve(__dirname, "src/template")
     }
   },
   module: {
     rules: [
+      {
+        test: /\.ejs$/,
+        loader: "ejs-loader"
+      },
       {
         test: /\.css$/i,
         use: ["to-string-loader", "css-loader"]

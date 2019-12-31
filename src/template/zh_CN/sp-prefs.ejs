@@ -1,0 +1,27 @@
+<div>Super_preloaderPlus_one_New设置</div>
+<ul>
+  <li>脚本版本: <b><%= scriptInfo.version %></b> 更新时间: <b><%= scriptInfo.updateTime %></b>
+    <a id="sp-prefs-homepageURL" target="_blank" href="<%= scriptInfo.homepageURL %>" />脚本主页</a>
+    <a id="sp-prefs-homepageURL-feedback" target="_blank" href="<%= scriptInfo.homepageURL + "/feedback" %>">反馈规则</a>
+  </li>
+  <li>维护者: <b><a href="https://greasyfork.org/en/users/32861-mach6">Mach6</a></b> 更新日志:
+    <b><%= scriptInfo.changelog %></b></li>
+  <li>规则数目: <b><%= prefs.numOfRule %></b> 下次更新时间: <b><%= nextUpdateDate %></b>
+    <button id="sp-prefs-updaterule">更新规则</button></li>
+  <li><input type="checkbox" id="sp-prefs-debug" /> 调试模式</li>
+  <li><input title="强制开启中文界面" type="checkbox" id="sp-prefs-ChineseUI" /> 中文界面</li>
+  <li><input type="checkbox" id="sp-prefs-enableHistory" /> 添加下一页到历史记录</li>
+  <li><input type="checkbox" id="sp-prefs-dblclick_pause" /> 鼠标双击暂停翻页（默认为 Ctrl + 长按左键）</li>
+  <li><input type="checkbox" id="sp-prefs-SITEINFO_D-useiframe" /> 全局启用iframe方式
+  <li><input title="启用自动翻页，否则仅启用预读" type="checkbox" id="sp-prefs-SITEINFO_D-a_enable" checked /> 启用自动翻页 </li>
+  <li><input type="checkbox" id="sp-prefs-arrowKeyPage" /> 使用 &larr; &rarr; 翻页 </li>
+  <li><input title="强行拼接规则中没有的站点，不建议启用" type="checkbox" id="sp-prefs-SITEINFO_D-a_force_enable" /> 启用强制拼接（不建议）</li>
+  <li>自定义排除列表：
+    <div><textarea id="sp-prefs-excludes" placeholder="自定义排除列表，支持通配符。\n例如：http://*.douban.com/*"></textarea></div>
+  </li>
+  <li>自定义站点规则：
+    <div><textarea id="sp-prefs-custom_siteinfo" placeholder="自定义站点规则"></textarea></div>
+  </li>
+</ul>
+<div><button id="sp-prefs-ok" style="width:100px;">确定</button><button id="sp-prefs-cancel"
+    style="width:100px;">取消</button><button id="sp-prefs-reset" style="width:100px;">重置</button></div>
