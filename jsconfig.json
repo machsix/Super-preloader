@@ -5,7 +5,8 @@
     "baseUrl": "./",
     "paths": {
       "utils/*": ["src/utils/*"],
-      "rules/*": ["src/rules/*"]
+      "rules/*": ["src/rules/*"],
+      "css/*": ["src/css/*"]
     }
   },
   "exclude": ["node_modules"]

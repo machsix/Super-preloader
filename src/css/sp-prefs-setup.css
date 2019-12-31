@@ -1,0 +1,75 @@
+#sp-prefs-setup {
+  z-index: 2147483647;
+  padding: 20px 30px;
+  box-sizing: content-box;
+  border-radius: 3px !important;
+  border: 1px solid #a0a0a0 !important;
+  box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.3) !important;
+  background: -moz-linear-gradient(top, #fcfcfc, #f2f2f7 100%) !important;
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(#fcfcfc), to(#f2f2f7)) !important;
+  font-family: "Arial", "sans-serif" !important;
+  color: transparent;
+  max-height: 80%;
+  overflow: auto;
+}
+#sp-prefs-setup * {
+  color: black;
+  text-align: left;
+  line-height: normal;
+  font-size: 12px;
+  min-height: 12px;
+}
+#sp-prefs-setup a {
+  color: black;
+  text-decoration: underline;
+}
+#sp-prefs-setup div {
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+}
+#sp-prefs-setup ul {
+  margin: 15px 0 15px 0;
+  padding: 0;
+  list-style: none;
+  background: none;
+  border: 0;
+}
+#sp-prefs-setup input,
+#sp-prefs-setup select {
+  border: 1px solid gray;
+  padding: 2px;
+  background: white;
+  margin: 0px;
+}
+#sp-prefs-setup li {
+  margin: 0;
+  padding: 5px 0;
+  vertical-align: middle;
+  background: none;
+  border: 0;
+  font-size: 12px;
+}
+#sp-prefs-setup button {
+  margin: 0 10px;
+  text-align: center;
+  white-space: nowrap;
+  background-color: #f9f9f9 !important;
+  border: 1px solid #ccc !important;
+  box-shadow: inset 0 10px 5px white !important;
+  border-radius: 3px !important;
+  padding: 3px 3px !important;
+}
+#sp-prefs-setup textarea {
+  width: 98%;
+  height: 60px;
+  margin: 3px 0;
+  font-weight: 50;
+}
+#sp-prefs-setup b {
+  font-weight: bold;
+  font-family: "微软雅黑", sans-serif;
+}
+#sp-prefs-setup button:disabled {
+  color: gray;
+}

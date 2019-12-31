@@ -1,0 +1,79 @@
+.sp-separator {
+  line-height: 1.8 !important;
+  opacity: 1 !important;
+  position: relative !important;
+  float: none !important;
+  top: 0 !important;
+  left: 0 !important;
+  min-width: 366px;
+  width: auto;
+  text-align: center !important;
+  font-size: 14px !important;
+  display: block !important;
+  padding: 3px 0 !important;
+  margin: 5px 10px 8px;
+  clear: both !important;
+  border-style: solid !important;
+  border-color: #cccccc !important;
+  border-width: 1px !important;
+  -moz-border-radius: 30px !important;
+  border-radius: 30px !important;
+  background-color: #ffffff !important;
+}
+
+.sp-separator:hover {
+  box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+}
+
+#sp-separator-hover {
+  display: none;
+}
+
+.sp-separator:hover #sp-separator-hover {
+  display: block;
+}
+
+.sp-separator .sp-someinfo {
+  position: absolute !important;
+  right: 10px !important;
+  font-size: 12px !important;
+  font-style: italic !important;
+  background: none !important;
+}
+
+.sp-separator img {
+  vertical-align: middle !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+  margin: 0 5px !important;
+  border: none !important;
+  display: inline-block !important;
+  float: none !important;
+  width: auto;
+  height: auto;
+}
+
+.sp-separator a {
+  margin: 0 20px 0 -6px !important;
+  display: inline !important;
+  text-shadow: #fff 0 1px 0 !important;
+  background: none !important;
+  color: #595959 !important;
+}
+
+.sp-separator input {
+  padding: 0 !important;
+  line-height: 23px !important;
+}
+
+.sp-separator .sp-md-span {
+  font-weight: bold !important;
+  margin: 0 20px !important;
+}
+
+#sp-sp-md-number {
+  width: 6ch !important;
+  vertical-align: middle !important;
+  display: inline-block !important;
+  text-align: left !important;
+}

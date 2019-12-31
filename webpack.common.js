@@ -15,11 +15,16 @@ module.exports = {
   resolve: {
     alias: {
       utils: path.resolve(__dirname, "src/utils"),
-      rules: path.resolve(__dirname, "src/rules")
+      rules: path.resolve(__dirname, "src/rules"),
+      css: path.resolve(__dirname, "src/css")
     }
   },
   module: {
     rules: [
+      {
+        test: /\.css$/i,
+        use: ["to-string-loader", "css-loader"]
+      },
       {
         test: /\.m?js$/,
         exclude: /(node_modules|bower_components)/,

@@ -10,6 +10,9 @@ import {getAllElements, getAllElementsByXpath, getElementByCSS, getElementByXpat
 import _ from "lodash";
 import {addStyle} from "utils/gm-enhanced";
 import compareVersions from "compare-versions";
+import cssSpFloatWindow from "css/sp-fw.css";
+import cssSpPrefsSetup from "css/sp-prefs-setup.css";
+import cssSpSeparator from "css/sp-separator.css";
 import displace from "displacejs";
 import domTools from "utils/domTools";
 import elementReady from "utils/element-ready";
@@ -142,7 +145,6 @@ import notice from "utils/notice";
     s_ease: 2, // 淡入淡出效果 0：淡入 1：淡出 2：淡入淡出
     s_FPS: 60, // 帧速.(单位:帧/秒)
     s_duration: 333, // 动画持续时长.(单位:ms);
-    someValue: "", // 显示在翻页导航最右边的一个小句子..-_-!!..Powered by Super_preloader 隐藏了
     DisableI: true, // 只在顶层窗口加载JS..提升性能..如果开启了这项,那么DIExclude数组有效,里面的网页即使不在顶层窗口也会加载....
     arrowKeyPage: false, // 允许使用 左右方向键 翻页..
     sepStartN: 2, // 翻页导航上的,从几开始计数.(貌似有人在意这个,所以弄个开关出来,反正简单.-_-!!)
@@ -498,8 +500,8 @@ import notice from "utils/notice";
 
       let forceJsonUpdate = false;
       if (prefs.factoryCheck === true || prefs.factoryCheck === undefined) {
-        const hasMissing = assignMissingProperty(prefsFactory, prefs);
-        if (hasMissing) {
+        const hasDifferent = assignDifferentProperty(prefs, prefsFactory);
+        if (hasDifferent) {
           logger.info("[UpdateCheck] prefs is updated", prefs);
         }
         prefs.factoryCheck = false;
@@ -531,31 +533,7 @@ import notice from "utils/notice";
         };
         if ($("setup")) return;
 
-        const styleNode = addStyle(
-          '\
-        #sp-prefs-setup { z-index:2147483647;padding:20px 30px;box-sizing:content-box;\
-                          border-radius: 3px!important;border: 1px solid #A0A0A0!important; \
-                          box-shadow: -2px 2px 5px rgba(0,0,0,0.3)!important;\
-                          background: -moz-linear-gradient(top, #FCFCFC, #F2F2F7 100%)!important;\
-                          background: -webkit-gradient(linear, 0 0, 0 100%, from(#FCFCFC), to(#F2F2F7))!important;\
-                          font-family:"Arial","sans-serif" !important; color:transparent;max-height:80%;overflow:auto; }\
-        #sp-prefs-setup * { color:black;text-align:left;line-height:normal;font-size:12px; min-height: 12px}\
-        #sp-prefs-setup a { color:black;text-decoration:underline; }\
-        #sp-prefs-setup div { text-align:center;font-weight:bold;font-size:15px; }\
-        #sp-prefs-setup ul { margin:15px 0 15px 0;padding:0;list-style:none;background:none;border:0;}\
-        #sp-prefs-setup input, #sp-prefs-setup select { border:1px solid gray;padding:2px;background:white;margin:0px; }\
-        #sp-prefs-setup li { margin:0;padding:5px 0;vertical-align:middle;background:none;border:0; font-size:12px; }\
-        #sp-prefs-setup button { margin:0 10px;text-align:center;white-space: nowrap; background-color:#F9F9F9!important; \
-                                 border:1px solid #ccc!important;\
-                                 box-shadow:inset 0 10px 5px white!important;\
-                                 border-radius:3px!important;\
-                                 padding:3px 3px!important;}\
-        #sp-prefs-setup textarea { width:98%; height:60px; margin:3px 0; font-weight:50; }\
-        #sp-prefs-setup b { font-weight: bold; font-family: "微软雅黑", sans-serif; }\
-        #sp-prefs-setup button:disabled { color: graytext; }\
-        '
-        );
-
+        const styleNode = addStyle(cssSpPrefsSetup);
         var div = d.createElement("div");
         div.id = "sp-prefs-setup";
         div.style.position = "fixed";
@@ -830,174 +808,7 @@ import notice from "utils/notice";
         };
 
         function floatWindow(SSS) {
-          addStyle(
-            '\
-                         #sp-fw-container {\
-                             z-index:999999!important;\
-                             text-align:left!important;\
-                         }\
-                         #sp-fw-container * {\
-                             font-size:13px!important;\
-                             color:black!important;\
-                             float:none!important;\
-                         }\
-                         #sp-fw-main-head{\
-                             position:relative!important;\
-                             top:0!important;\
-                             left:0!important;\
-                         }\
-                         #sp-fw-span-info{\
-                             position:absolute!important;\
-                             right:1px!important;\
-                             top:0!important;\
-                             font-size:10px!important;\
-                             line-height:10px!important;\
-                             background:none!important;\
-                             font-style:italic!important;\
-                             color:#5a5a5a!important;\
-                             text-shadow:white 0px 1px 1px!important;\
-                         }\
-                         #sp-fw-container input {\
-                             vertical-align:middle!important;\
-                             display:inline-block!important;\
-                             outline:none!important;\
-                             height: auto !important;\
-                             padding: 0px !important;\
-                             margin-bottom: 0px !important;\
-                         }\
-                         #sp-fw-container input[type="number"] {\
-                             width:50px!important;\
-                             text-align:left!important;\
-                         }\
-                         #sp-fw-container input[type="checkbox"] {\
-                             border:1px solid #B4B4B4!important;\
-                             padding:1px!important;\
-                             margin:3px!important;\
-                             width:13px!important;\
-                             height:13px!important;\
-                             background:none!important;\
-                             cursor:pointer!important;\
-                             visibility: visible !important;\
-                             position: static !important;\
-                         }\
-                         #sp-fw-container input[type="button"] {\
-                             border:1px solid #ccc!important;\
-                             cursor:pointer!important;\
-                             background:none!important;\
-                             width:auto!important;\
-                             height:auto!important;\
-                         }\
-                         #sp-fw-container li {\
-                             list-style:none!important;\
-                             margin:3px 0!important;\
-                             border:none!important;\
-                             float:none!important;\
-                         }\
-                         #sp-fw-container fieldset {\
-                             border:2px groove #ccc!important;\
-                             -moz-border-radius:3px!important;\
-                             border-radius:3px!important;\
-                             padding:4px 9px 6px 9px!important;\
-                             margin:2px!important;\
-                             display:block!important;\
-                             width:auto!important;\
-                             height:auto!important;\
-                         }\
-                         #sp-fw-container legend {\
-                             line-height: 20px !important;\
-                             margin-bottom: 0px !important;\
-                         }\
-                         #sp-fw-container fieldset>ul {\
-                             padding:0!important;\
-                             margin:0!important;\
-                         }\
-                         #sp-fw-container ul#sp-fw-a_useiframe-extend{\
-                             padding-left:40px!important;\
-                         }\
-                         #sp-fw-rect {\
-                             position:relative!important;\
-                             top:0!important;\
-                             left:0!important;\
-                             float:right!important;\
-                             height:10px!important;\
-                             width:10px!important;\
-                             padding:0!important;\
-                             margin:0!important;\
-                             -moz-border-radius:3px!important;\
-                             border-radius:3px!important;\
-                             border:1px solid white!important;\
-                             -webkit-box-shadow:inset 0 5px 0 rgba(255,255,255,0.3), 0 0 3px rgba(0,0,0,0.8)!important;\
-                             -moz-box-shadow:inset 0 5px 0 rgba(255,255,255,0.3), 0 0 3px rgba(0,0,0,0.8)!important;\
-                             box-shadow:inset 0 5px 0 rgba(255,255,255,0.3), 0 0 3px rgba(0,0,0,0.8)!important;\
-                             opacity:0.8!important;\
-                         }\
-                         #sp-fw-dot,\
-                         #sp-fw-cur-mode {\
-                             position:absolute!important;\
-                             z-index:9999!important;\
-                             width:5px!important;\
-                             height:5px!important;\
-                             padding:0!important;\
-                             -moz-border-radius:3px!important;\
-                             border-radius:3px!important;\
-                             border:1px solid white!important;\
-                             opacity:1!important;\
-                             -webkit-box-shadow:inset 0 -2px 1px rgba(0,0,0,0.3),inset 0 2px 1px rgba(255,255,255,0.3), 0px 1px 2px rgba(0,0,0,0.9)!important;\
-                             -moz-box-shadow:inset 0 -2px 1px rgba(0,0,0,0.3),inset 0 2px 1px rgba(255,255,255,0.3), 0px 1px 2px rgba(0,0,0,0.9)!important;\
-                             box-shadow:inset 0 -2px 1px rgba(0,0,0,0.3),inset 0 2px 1px rgba(255,255,255,0.3), 0px 1px 2px rgba(0,0,0,0.9)!important;\
-                         }\
-                         #sp-fw-dot{\
-                             right:-3px!important;\
-                             top:-3px!important;\
-                         }\
-                         #sp-fw-cur-mode{\
-                             left:-3px!important;\
-                             top:-3px!important;\
-                             width:6px!important;\
-                             height:6px!important;\
-                         }\
-                         #sp-fw-content{\
-                             padding:0!important;\
-                             margin:5px 5px 0 0!important;\
-                             -moz-border-radius:3px!important;\
-                             border-radius:3px!important;\
-                             border:1px solid #A0A0A0!important;\
-                             -webkit-box-shadow:-2px 2px 5px rgba(0,0,0,0.3)!important;\
-                             -moz-box-shadow:-2px 2px 5px rgba(0,0,0,0.3)!important;\
-                             box-shadow:-2px 2px 5px rgba(0,0,0,0.3)!important;\
-                         }\
-                         #sp-fw-main {\
-                             padding:5px!important;\
-                             border:1px solid white!important;\
-                             -moz-border-radius:3px!important;\
-                             border-radius:3px!important;\
-                             background-color:#F2F2F7!important;\
-                             background: -moz-linear-gradient(top, #FCFCFC, #F2F2F7 100%)!important;\
-                             background: -webkit-gradient(linear, 0 0, 0 100%, from(#FCFCFC), to(#F2F2F7))!important;\
-                         }\
-                         #sp-fw-foot{\
-                          position:relative!important;\
-                          left:0!important;\
-                          right:0!important;\
-                          top: 2px!important;\
-                          min-height:20px!important;\
-                         }\
-                         #sp-fw-container .sp-fw-spanbutton{\
-                             padding:2px 3px!important;\
-                             border:1px solid #ccc!important;\
-                             -moz-border-radius:3px!important;\
-                             border-radius:3px!important;\
-                             cursor:pointer!important;\
-                             background-color:#F9F9F9!important;\
-                             -webkit-box-shadow:inset 0 10px 5px white!important;\
-                             -moz-box-shadow:inset 0 10px 5px white!important;\
-                             box-shadow:inset 0 10px 5px white!important;\
-                         }\
-                         #sp-fw-container #sp-fw-savebutton{\
-                             position:relative!important;\
-                             left: 96px!important;\
-                         }'
-          );
+          addStyle(cssSpFloatWindow);
 
           const div = document.createElement("div");
           div.id = "sp-fw-container";
@@ -1780,65 +1591,7 @@ import notice from "utils/notice";
 
           function manualAdiv() {
             if (!manualDiv) {
-              addStyle(
-                "\
-                    #sp-sp-manualdiv{\
-                        line-height:1.6!important;\
-                        opacity:1!important;\
-                        position:relative!important;\
-                        float:none!important;\
-                        top:0!important;\
-                        left:0!important;\
-                        z-index: 1000!important;\
-                        min-width:366px!important;\
-                        width:auto!important;\
-                        text-align:center!important;\
-                        font-size:14px!important;\
-                        padding:3px 0!important;\
-                        margin:5px 10px 8px;\
-                        clear:both!important;\
-                        border-top:1px solid #ccc!important;\
-                        border-bottom:1px solid #ccc!important;\
-                        -moz-border-radius:30px!important;\
-                        border-radius:30px!important;\
-                        background-color:#F5F5F5!important;\
-                        -moz-box-shadow:inset 0 10px 16px #fff,0 2px 3px rgba(0,0,0,0.1);\
-                        -webkit-box-shadow:inset 0 10px 16px #fff,0 2px 3px rgba(0,0,0,0.1);\
-                        box-shadow:inset 0 10px 16px #fff,0 2px 3px rgba(0,0,0,0.1);\
-                    }\
-                    .sp-sp-md-span{\
-                        font-weight:bold!important;\
-                        margin:0 5px!important;\
-                    }\
-                    #sp-sp-md-number{\
-                        width:50px!important;\
-                        vertical-align:middle!important;\
-                        display:inline-block!important;\
-                        text-align:left!important;\
-                    }\
-                    #sp-sp-md-imgnext{\
-                        padding:0!important;\
-                        margin:0 0 0 5px!important;\
-                        vertical-align:middle!important;\
-                        display:inline-block!important;\
-                    }\
-                    #sp-sp-manualdiv:hover{\
-                        cursor:pointer;\
-                    }\
-                    #sp-sp-md-someinfo{\
-                        position:absolute!important;\
-                        right:16px!important;\
-                        bottom:1px!important;\
-                        font-size:10px!important;\
-                        text-shadow:white 0 1px 0!important;\
-                        color:#5A5A5A!important;\
-                        font-style:italic!important;\
-                        z-index:-1!important;\
-                        background:none!important;\
-                    }\
-                "
-              );
-
+              addStyle(cssSpSeparator);
               const spage = (el) => {
                 if (doc) {
                   let value = Number(el.value);
@@ -1853,12 +1606,13 @@ import notice from "utils/notice";
 
               const div = domTools.create("div", {
                 attr: {
-                  id: "sp-sp-manualdiv"
+                  id: "sp-sp-manualdiv",
+                  class: "sp-separator"
                 },
                 children: [
                   domTools.create("span", {
                     attr: {
-                      class: "sp-sp-md-span"
+                      class: "sp-md-span"
                     },
                     innerHTML: i8n() === "zh_CN" ? "下" : "Next"
                   }),
@@ -1867,7 +1621,7 @@ import notice from "utils/notice";
                       type: "number",
                       value: 1,
                       min: 1,
-                      title: "输入你想要拼接的页数(必须>=1),然后按回车.",
+                      title: i8n() === "zh_CN" ? "输入你想要拼接的页数(必须>=1),然后按回车." : "Type number of pageringzing and press enter",
                       id: "sp-sp-md-number"
                     },
                     eventListener: [
@@ -1883,7 +1637,7 @@ import notice from "utils/notice";
                     ]
                   }),
                   domTools.create("span", {
-                    attr: {className: "sp-sp-md-span"},
+                    attr: {class: "sp-md-span"},
                     innerHTML: i8n() === "zh_CN" ? "页" : "page"
                   }),
                   domTools.create("img", {
@@ -1892,9 +1646,20 @@ import notice from "utils/notice";
                       src: _sep_icons.next
                     }
                   }),
-                  domTools.create("span", {
-                    attr: {id: "sp-sp-md-someinfo"},
-                    innerHTML: prefs.someValue
+                  domTools.create("div", {
+                    attr: {
+                      class: "sp-someinfo",
+                      id: "sp-separator-hover"
+                    },
+                    children: [
+                      domTools.create("a", {
+                        attr: {
+                          href: "https://github.com/machsix/Super-preloader",
+                          target: "_blank"
+                        },
+                        innerHTML: "Powered by Super-preloader"
+                      })
+                    ]
                   })
                 ]
               });
@@ -1906,12 +1671,13 @@ import notice from "utils/notice";
                 function(e) {
                   if (e.target.id == "sp-sp-md-number") return;
                   spage(document.getElementById("sp-sp-md-number"));
+                  manualDiv.remove();
                 },
                 false
               );
             }
             addIntoDoc(manualDiv);
-            manualDiv.style.display = "block";
+            //manualDiv.style.display = "block";
           }
 
           function beforeInsertIntoDoc() {
@@ -1937,64 +1703,7 @@ import notice from "utils/notice";
             const div = document.createElement("div");
             if (SSS.a_separator) {
               if (!sepStyle) {
-                sepStyle = addStyle(
-                  "\
-                        div.sp-separator{\
-                            line-height:1.8!important;\
-                            opacity:1!important;\
-                            position:relative!important;\
-                            float:none!important;\
-                            top:0!important;\
-                            left:0!important;\
-                            min-width:366px;\
-                            width:auto;\
-                            text-align:center!important;\
-                            font-size:14px!important;\
-                            display:block!important;\
-                            padding:3px 0!important;\
-                            margin:5px 10px 8px;\
-                            clear:both!important;\
-                            border-style: solid!important;\
-                            border-color: #cccccc!important;\
-                            border-width: 1px;!important;\
-                            -moz-border-radius:30px!important;\
-                            border-radius:30px!important;\
-                            background-color:#FFFFFF!important;\
-                        }\
-                        div.sp-separator:hover {\
-                            box-shadow: 0 0 11px rgba(33,33,33,.2);\
-                         }\
-                        div.sp-separator img{\
-                            vertical-align:middle!important;\
-                            cursor:pointer!important;\
-                            padding:0!important;\
-                            margin:0 5px!important;\
-                            border:none!important;\
-                            display:inline-block!important;\
-                            float:none!important;\
-                            width: auto;\
-                            height: auto;\
-                        }\
-                        div.sp-separator a.sp-sp-nextlink{\
-                            margin:0 20px 0 -6px!important;\
-                            display:inline!important;\
-                            text-shadow:#fff 0 1px 0!important;\
-                            background:none!important;\
-                            color:#595959!important;\
-                        }\
-                        div.sp-separator span.sp-span-someinfo{\
-                            position:absolute!important;\
-                            right:16px!important;\
-                            bottom:1px!important;\
-                            font-size:10px!important;\
-                            text-shadow:white 0 1px 0!important;\
-                            color:#5A5A5A!important;\
-                            font-style:italic!important;\
-                            z-index:-1!important;\
-                            background:none!important;\
-                        }\
-                    "
-                );
+                sepStyle = addStyle(cssSpSeparator);
               }
 
               div.className = "sp-separator";
@@ -2065,9 +1774,20 @@ import notice from "utils/notice";
               );
 
               div.appendChild(
-                domTools.create("span", {
-                  attr: {class: "sp-span-someinfo"},
-                  innerHTML: prefs.someValue
+                domTools.create("div", {
+                  attr: {
+                    class: "sp-someinfo",
+                    id: "sp-separator-hover"
+                  },
+                  children: [
+                    domTools.create("a", {
+                      attr: {
+                        href: "https://github.com/machsix/Super-preloader",
+                        target: "_blank"
+                      },
+                      innerHTML: "Powered by Super-preloader"
+                    })
+                  ]
                 })
               );
               curNumber += 1;
@@ -3846,15 +3566,19 @@ import notice from "utils/notice";
     return "^" + reg + "$";
   }
 
-  function assignMissingProperty(a, b) {
-    var hasMissing = false;
-    for (var prop in a) {
-      if (!b.hasOwnProperty(prop)) {
-        hasMissing = true;
-        b[prop] = a[prop];
-      }
+  function assignDifferentProperty(oldProp, newProp) {
+    const diffKeys = _.difference(Object.keys(oldProp), Object.keys(newProp));
+    const hasDifferent = diffKeys.length > 0;
+    if (hasDifferent) {
+      diffKeys.forEach((key) => {
+        if (key in oldProp) {
+          delete oldProp[key];
+        } else {
+          oldProp[key] = newProp[key];
+        }
+      });
     }
-    return hasMissing;
+    return hasDifferent;
   }
 
   function i8n() {
