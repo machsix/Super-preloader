@@ -1865,7 +1865,7 @@
   },
   {
     "name": "xgtutu",
-    "url": "^https?://www\\.xgtutu\\.com",
+    "url": "^https?://www\\.(xgtaotu|xgtutu)\\.com",
     "nextLink": "auto;",
     "category": ["gallery", "nsfw"],
     "autopager": {
@@ -1875,7 +1875,7 @@
   },
   {
     "name": "192tt",
-    "url": "^https?://www\\.(192tb|192ta)\\.com",
+    "url": "^https?://www\\.(192tb|192ta|192td)\\.com",
     "category": ["gallery", "nsfw"],
     "nextLink": "//div[@class='page']/a[@class='next']",
     "pageElement": "//ul[@class='clearfix']/parent::div",
@@ -1883,7 +1883,7 @@
   },
   {
     "name": "192tt-gallery",
-    "url": "^https?://www\\.(192tb|192ta)\\.com/.*?\\.html(#.*)?$",
+    "url": "^https?://www\\.(192tb|192ta|192td)\\.com/.*?\\.html(#.*)?$",
     "category": ["gallery", "nsfw"],
     "preLink": {
       "startAfter": "_",
@@ -1892,7 +1892,7 @@
     },
     "nextLink": {
       "startAfter": "_",
-      "mFails": ["re;^https?://www\\.(?:192tb|192ta)\\.com/.+(?=\\.html)", "_1.html"],
+      "mFails": ["re;^https?://www\\.(?:192tb|192ta|192td)\\.com/.+(?=\\.html)", "_1.html"],
       "inc": 1
     },
     "autopager": {
@@ -2019,7 +2019,7 @@
   },
   {
     "name": "sytaotu",
-    "url": "^https?://www\\.sytaotu\\.com",
+    "url": "^https?://www\\.(sytaotu|jpyouwu|ywmeitu|qttaotu)\\.com",
     "nextLink": "auto;",
     "autopager": {
       "pageElement": "//div[@id=\"picg\"]",
