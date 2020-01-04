@@ -1,5 +1,20 @@
 [
 {
+  "name": "お知らせ FGO",
+  "data": {
+    "url": "^https://news\\.fate-go\\.jp/",
+    "pageElement": "//ul[@class=\"list_news\"]/li",
+    "exampleUrl": "https://news.fate-go.jp/page/2/",
+    "insertBefore": "",
+    "nextLink": "//p[@class=\"prev\"]/a"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m_",
+  "resource_url": "http://wedata.net/items/85184",
+  "created_at": "2020-01-03T13:15:28+09:00",
+  "updated_at": "2020-01-03T13:15:28+09:00"
+},
+{
   "name": "コミスペ！ レビュー",
   "data": {
     "url": "^https?://media\\.comicspace\\.jp/",
