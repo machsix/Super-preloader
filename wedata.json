@@ -1,5 +1,20 @@
 [
 {
+  "name": "for GEEK",
+  "data": {
+    "url": "^https://www\\.geekjob\\.jp/.*",
+    "pageElement": "//div[@class=\"new_article\"]|//div[@class=\"article_detail\"]",
+    "exampleUrl": "https://www.geekjob.jp/ https://www.geekjob.jp/beginning/learnning/java-primer-2/",
+    "insertBefore": "",
+    "nextLink": "//li[@class=\"next\"]/a"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "denimu_ld",
+  "resource_url": "http://wedata.net/items/85185",
+  "created_at": "2020-01-04T12:27:25+09:00",
+  "updated_at": "2020-01-04T12:27:25+09:00"
+},
+{
   "name": "お知らせ FGO",
   "data": {
     "url": "^https://news\\.fate-go\\.jp/",
