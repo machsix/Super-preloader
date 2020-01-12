@@ -451,34 +451,18 @@
 },
 {
   "resource_url": "http://wedata.net/items/82289",
-  "name": "カーリル　レシピライター",
+  "name": "カーリル　レシピ",
   "data": {
-    "url": "^https?://calil\\.jp/recipe/writer(?:$|\\?.+)",
-    "pageElement": "id(\"ccontent\")//div[contains(concat(\" \", normalize-space(@class), \" \"), \" recipe_list_box \")]/div[2][./*]",
+    "url": "^https?://calil\\.jp/recipe/",
+    "pageElement": "//div[@class='recipe_list_box prefix']/*[@class='prefix']/*",
     "note": "1ページ目では次のページを継ぎ足せない不具合、2〜3ページ以上継ぎ足せない不具合が有る。",
-    "exampleUrl": "https://calil.jp/recipe/writer",
-    "nextLink": "id(\"ccontent\")//nav[contains(concat(\" \", normalize-space(@class), \" \"), \" calil_pagination \")]/descendant::a[last()]"
+    "exampleUrl": "https://calil.jp/recipe/writer https://calil.jp/recipe/list?sort=hot https://calil.jp/recipe/list?sort=date",
+    "nextLink": "//nav[@class='calil_pagination']//li[@class='active']/following-sibling::li[1]/a"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "KAWASAKICHIRO",
   "created_at": "2019-09-24T04:04:15+09:00",
-  "updated_at": "2020-01-05T10:28:51+09:00"
-},
-{
-  "resource_url": "http://wedata.net/items/82288",
-  "name": "カーリル　レシピを探す",
-  "data": {
-    "url": "^https?://calil\\.jp/recipe/list\\?(?:.*&)?sort=(?:hot|date)(?:$|&.*)",
-    "exampleUrl2": "https://calil.jp/recipe/list?sort=date",
-    "pageElement": "id(\"ccontent\")//div[contains(concat(\" \", normalize-space(@class), \" \"), \" recipe_list_box \")]/ul[./*]",
-    "note": "1ページ目では次のページを継ぎ足せない不具合、2〜3ページ以上継ぎ足せない不具合が有る。",
-    "exampleUrl": "https://calil.jp/recipe/list?sort=hot",
-    "nextLink": "id(\"ccontent\")//nav[contains(concat(\" \", normalize-space(@class), \" \"), \" calil_pagination \")]/descendant::a[last()]"
-  },
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "created_by": "KAWASAKICHIRO",
-  "created_at": "2019-09-24T04:01:52+09:00",
-  "updated_at": "2020-01-05T10:34:27+09:00"
+  "updated_at": "2020-01-12T12:25:51+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/82287",
@@ -22668,16 +22652,16 @@
 {
   "resource_url": "http://wedata.net/items/74677",
   "name": "Box Office Mojo",
-  "created_by": "Tanookirby",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2018-07-31T10:17:55+09:00",
   "data": {
-    "exampleUrl": "https://boxofficemojo.com/news/\r\nhttps://boxofficemojo.com/alltime/domestic.htm\r\nhttps://boxofficemojo.com/alltime/world/\r\nhttps://boxofficemojo.com/yearly/chart/?yr=2013&p=.htm\r\nhttps://boxofficemojo.com/weekend/\r\nhttps://boxofficemojo.com/weekly/",
-    "url": "^https://(?:www\\.)?boxofficemojo\\.com/(news|alltime|yearly|week(end|ly))",
-    "pageElement": "//tr[@bgcolor='#dcdcdc']/following-sibling::tr[td//font/a]",
-    "nextLink": "//b/font/following-sibling::a|//td/a[font='Next Page >>']"
+    "url": "^https://(?:www\\.)?boxofficemojo\\.com/(news|chart)",
+    "pageElement": "//div[@class='a-section imdb-scroll-table-inner']//tbody/tr[td]|//div[@class='a-row mojo-news-summary']",
+    "exampleUrl": "https://www.boxofficemojo.com/chart/top_lifetime_gross/\r\nhttps://www.boxofficemojo.com/news/\r\n",
+    "nextLink": "//li[@class='a-last']/a"
   },
-  "created_at": "2014-03-23T08:51:30+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "Tanookirby",
+  "created_at": "2014-03-23T08:51:30+09:00",
+  "updated_at": "2020-01-12T15:24:36+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/74675",
@@ -36691,20 +36675,20 @@
   "created_at": "2011-02-02T22:34:45+09:00"
 },
 {
-  "created_by": "t_f_m",
+  "resource_url": "http://wedata.net/items/43381",
   "name": "カーリル　検索結果",
   "data": {
-    "exampleUrl": "https://calil.jp/search?q=%E5%9C%B0%E7%90%83",
-    "note": "1ページ目では次のページを継ぎ足せない不具合、2〜3ページ以上継ぎ足せない不具合、継ぎ足されたページでは蔵書の有無が表示されない不具合が有る。",
-    "nextLink": "id(\"ccontent\")//nav[contains(concat(\" \", normalize-space(@class), \" \"), \" calil_pagination \")]//a[last()]",
     "url": "^https?://calil\\.jp/(?:search\\?|author\\?(?:.*&)?a=).+",
-    "pageElement": "id(\"ccontent\")//ul[contains(concat(\" \", normalize-space(@class), \" \"), \" search_items_icon \")]",
-    "exampleUrl2": "https://calil.jp/author?c=%E6%97%A5%E6%9C%AC%E3%81%AE%E5%B0%8F%E8%AA%AC%E5%AE%B6&a=%E5%B7%9D%E7%AB%AF%E5%BA%B7%E6%88%90"
+    "exampleUrl2": "https://calil.jp/author?c=%E6%97%A5%E6%9C%AC%E3%81%AE%E5%B0%8F%E8%AA%AC%E5%AE%B6&a=%E5%B7%9D%E7%AB%AF%E5%BA%B7%E6%88%90",
+    "pageElement": "//ul[@class='search_items_icon prefix']/li",
+    "note": "1ページ目では次のページを継ぎ足せない不具合、2〜3ページ以上継ぎ足せない不具合、継ぎ足されたページでは蔵書の有無が表示されない不具合が有る。",
+    "exampleUrl": "https://calil.jp/search?q=%E5%9C%B0%E7%90%83",
+    "nextLink": "//nav[@class='calil_pagination']//li[@class='active']/following-sibling::li[1]/a"
   },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m",
   "created_at": "2011-02-02T15:14:36+09:00",
-  "resource_url": "http://wedata.net/items/43381",
-  "updated_at": "2019-09-24T03:49:46+09:00",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize"
+  "updated_at": "2020-01-12T13:04:01+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/43377",
