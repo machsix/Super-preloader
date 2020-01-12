@@ -17335,18 +17335,18 @@
   "updated_at": "2015-02-24T09:21:20+09:00"
 },
 {
-  "resource_url": "http://wedata.net/items/76952",
   "name": "gHacks",
   "data": {
     "url": "^https://(www\\.)?ghacks\\.net",
-    "pageElement": "//div[@class='ghacks-content']/div[starts-with(@class,post-)]",
+    "pageElement": "//div[@class='ghacks-content']/div[starts-with(@class,'post-')]",
     "exampleUrl": "https://www.ghacks.net/\r\n",
     "nextLink": "//a[@class='next page-numbers']"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "Tanookirby",
+  "resource_url": "http://wedata.net/items/76952",
   "created_at": "2015-02-23T12:45:54+09:00",
-  "updated_at": "2020-01-05T09:48:26+09:00"
+  "updated_at": "2020-01-11T14:04:22+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/76950",
@@ -50122,9 +50122,10 @@
   "created_at": "2009-01-12T09:01:04+09:00"
 },
 {
+  "resource_url": "http://wedata.net/items/26648",
   "name": "技術評論社 連載一覧",
   "data": {
-    "url": "^https?://gihyo\\.jp/[^/]+/(?:clip|feature|serial|report)",
+    "url": "^https?://gihyo\\.jp/[^/]+/(?:clip|feature|serial|report|column)",
     "pageElement": "id('primary')//div[contains(concat(' ', @class, ' '), ' readingContent01 ')][id('article')]|//ul[@class='articleList01' or @class='toc article']//li|//h2[@class='subTitle01'][number(substring-after(id('primary')//li[@class='current']/a/@href,'?page='))=1 or not(//div[contains(@class,'pageSwitch01')])]|//p[@class='date' or @class='author'][number(substring-after(id('primary')//li[@class='current']/a/@href,'?page='))=1 or not(//div[contains(@class,'pageSwitch01')])]",
     "Stylish": "@-moz-document url-prefix(\"http://gihyo.jp/\") {\r\nimg.lazy{display:inline !important;}\r\n.autopagerize_page_separator~.date{text-align:right;\r\nline-height:1 !important;}\r\n.autopagerize_page_separator~.author{text-align:right;\r\nline-height:1 !important;}\r\n.autopagerize_page_separator~p {\r\nmargin: 0 0 1em 0;\r\nline-height: 1.9;\r\n}\r\n.autopagerize_page_separator~h3 {\r\nmargin: 2.5em 0 1.2em 0;\r\npadding: 0 0 4px 0;\r\nborder-bottom: 1px solid #CCC;\r\nfont-size: 120%;\r\ncolor: #CC6600;\r\nline-height: 1.2;\r\n}\r\n.autopagerize_page_separator~.fig .illust{\r\nmargin: 1.8em 54px 1.8em 42px;\r\nline-height: 1.2;\r\nfont-size: 80%;\r\n}\r\n}",
     "bookmarklet": "Array.prototype.forEach.call(document.querySelectorAll('img'), function(img) { var lazySrc = img.hasAttribute('data-src') ? img.getAttribute('data-src') : img.getAttribute('data-original'); if (lazySrc) { img.src = lazySrc;} });",
@@ -50133,9 +50134,8 @@
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "toton",
-  "resource_url": "http://wedata.net/items/26648",
   "created_at": "2009-01-12T08:09:00+09:00",
-  "updated_at": "2019-12-31T23:18:45+09:00"
+  "updated_at": "2020-01-12T09:29:25+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/26644",
