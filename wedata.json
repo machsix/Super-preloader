@@ -1,5 +1,20 @@
 [
 {
+  "resource_url": "http://wedata.net/items/85198",
+  "name": "d-smart",
+  "data": {
+    "url": "http://d-smart.jp/",
+    "pageElement": "//ul[@class=\"package-list row tab-content_description\"]",
+    "exampleUrl": "",
+    "insertBefore": "",
+    "nextLink": "//li[@class=\"waves-effect btn-paging light-blue accent-4 next-page\"]/a[@href]"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "bata0912",
+  "created_at": "2020-01-15T06:17:32+09:00",
+  "updated_at": "2020-01-15T06:17:32+09:00"
+},
+{
   "name": "アニメイトタイムズ 記事",
   "data": {
     "url": "^https://www\\.animatetimes\\.com/news/",
@@ -1533,17 +1548,18 @@
 },
 {
   "resource_url": "http://wedata.net/items/82149",
-  "created_by": "abrinizzze",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "name": "CamShowHub",
   "data": {
+    "url": "(http|https)://(www\\.)?camshowhub\\.to/.+",
+    "pageElement": "//div[@class=\"container-fluid\"]/div/div[(contains(@class, \"col-xl-\"))]",
     "exampleUrl": "https://camshowhub.to/model/myfreecams-msskate/10",
     "nextLink": "//ul[contains(@class,\"pagination\")]/li/a[contains(text(),\"Next\")]",
-    "url": "^https?://camshowhub.to/.+",
-    "pageElement": "//div[@class=\"wrapper\"]/div[@class=\"container-fluid\"]"
+    "insertBefore": "//div[@class=\"container-fluid\"]/hr[2]"
   },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "abrinizzze",
   "created_at": "2019-05-14T07:51:28+09:00",
-  "updated_at": "2019-11-01T10:25:57+09:00"
+  "updated_at": "2020-01-16T14:24:11+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/82148",
@@ -42891,17 +42907,17 @@
 {
   "resource_url": "http://wedata.net/items/32473",
   "name": "Dreamstime",
-  "created_by": "toshi",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-02-17T21:20:33+09:00",
   "data": {
+    "url": "^https://(www\\.)?dreamstime\\.com/",
+    "pageElement": "id('ilc0')/ul/li",
     "Stylish": "@-moz-document domain(\"dreamstime.com\") {\r\n  .thb-large-box{\r\n    display:flex;\r\n  flex-wrap:wrap;\r\n  }\r\n  .thb-large-box .thb_cell_v1{\r\n    padding-left: 4px;\r\n  }\r\n  .showonload {\r\n    visibility:visible !important;\r\n  }\r\n  .thb_cell_v1{height:197px !important;}\r\n}",
     "exampleUrl": "https://www.dreamstime.com/latest-photos-1",
-    "url": "^https://(www\\.)?dreamstime\\.com/",
-    "pageElement": "//div[@class='thb_cell thb_cell_v1'][./following-sibling::style]",
-    "nextLink": "//a[@class='dt-results-next']"
+    "nextLink": "//li[@class='dt-next']/a"
   },
-  "created_at": "2010-05-10T12:13:48+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "toshi",
+  "created_at": "2010-05-10T12:13:48+09:00",
+  "updated_at": "2020-01-16T10:49:07+09:00"
 },
 {
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
