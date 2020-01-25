@@ -1,5 +1,64 @@
 [
 {
+  "resource_url": "http://wedata.net/items/85202",
+  "name": "立憲民主党",
+  "data": {
+    "url": "^https?://cdp-japan\\.jp/",
+    "pageElement": "//div[contains(concat(' ',normalize-space(@class),' '),' block ')]/div",
+    "Suggestion": "This rule and http://wedata.net/items/85200 use the same rule. Why not combine them?",
+    "exampleUrl": "https://cdp-japan.jp/news",
+    "nextLink": "//a[@rel='next']"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "replobfuscation",
+  "created_at": "2020-01-24T06:57:54+09:00",
+  "updated_at": "2020-01-25T07:08:39+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85201",
+  "name": "楽待",
+  "data": {
+    "url": "^https?://www\\.rakumachi\\.jp/",
+    "pageElement": "//div[contains(@class,\"mainContents\")]/article|//div[contains(@class,\"mainContents\")]/article/preceding-sibling::*",
+    "exampleUrl": "https://www.rakumachi.jp/news/column/254267",
+    "insertBefore": "",
+    "nextLink": "//div[contains(@class,\"pager\")]/span[contains(@class,\"pager__number\")]/following-sibling::a[@href]"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "replobsfucation",
+  "created_at": "2020-01-24T06:22:34+09:00",
+  "updated_at": "2020-01-24T06:22:34+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85200",
+  "name": "国民民主党",
+  "data": {
+    "url": "^https?://www\\.dpfp\\.or\\.jp/",
+    "pageElement": "//div[contains(@class,'block')]/div",
+    "exampleUrl": "https://www.dpfp.or.jp/news",
+    "nextLink": "//a[@rel='next']"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "replobfuscation",
+  "created_at": "2020-01-24T06:13:40+09:00",
+  "updated_at": "2020-01-24T14:39:18+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85199",
+  "name": "ｋ本的に無料ソフト・フリーソフト　各ソフトウェア紹介ページ",
+  "data": {
+    "url": "^https?://(?:www\\.)?gigafree\\.net/.+",
+    "pageElement": "id(\"main\")//div[contains(concat(\" \", normalize-space(@class), \" \"), \" detail \")]",
+    "exampleUrl": "https://www.gigafree.net/media/music/aimp.html",
+    "insertBefore": "id(\"main\")//div[contains(concat(\" \", normalize-space(@class), \" \"), \" article_bottom \")]",
+    "nextLink": "id(\"main\")//div[contains(concat(\" \", normalize-space(@class), \" \"), \" pagination \")]/a[contains(text(), \"次のページへ進む\")]"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "KAWASAKICHIRO",
+  "created_at": "2020-01-21T17:48:48+09:00",
+  "updated_at": "2020-01-21T17:48:48+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/85198",
   "name": "d-smart",
   "data": {
@@ -610,17 +669,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/82266",
-  "created_by": "kissmekissu",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "name": "Yahoo Japan Test",
   "data": {
-    "exampleUrl": "https://search.yahoo.co.jp/search?p=test&aq=-1&oq=&ei=UTF-8&fr=top_ga1_sa&x=wrt",
-    "nextLink": "//span[@class=\"m\"]/a",
     "url": "^https://search\\.yahoo\\.co\\.jp/",
-    "pageElement": "//div[@id=\"contents\"]"
+    "pageElement": "//div[@id=\"contents\"]",
+    "exampleUrl": "https://search.yahoo.co.jp/search?p=test&aq=-1&oq=&ei=UTF-8&fr=top_ga1_sa&x=wrt",
+    "nextLink": "//div[contains(concat(\" \",@class,\" \"),\" Pagenation__next \")]/a"
   },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "kissmekissu",
   "created_at": "2019-09-12T00:29:28+09:00",
-  "updated_at": "2019-09-17T03:10:34+09:00"
+  "updated_at": "2020-01-22T19:22:18+09:00"
 },
 {
   "created_by": "kissmekissu",
@@ -10828,17 +10887,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/80660",
-  "created_by": "Tanookirby",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "name": "Category Lists (td-block-row)",
   "data": {
-    "exampleUrl": "http://atlantablackstar.com/category/local/ https://www.mobipicker.com/category/news/ https://apkmos.com/category/android-games/ https://www.pojo.com/category/pokemon/card-of-the-day-pokemon/ https://automaton-media.com/articles/iotw/page/4/ https://automaton-media.com/articles/interviewsjp/ https://mmoculture.com/category/global/",
-    "nextLink": "//link[@rel='next']|//span[@class='current']/following-sibling::a[1]",
-    "url": "^https?://(www\\.)?.+\\.com/(category|articles)/",
-    "pageElement": "//div[@class='td-block-row']"
+    "url": "^https?://(www\\.)?.+\\.com/(category|articles|devlog)/",
+    "pageElement": "//div[@class='td-block-row']",
+    "exampleUrl": "http://atlantablackstar.com/category/local/ https://www.mobipicker.com/category/news/ https://apkmos.com/category/android-games/ https://www.pojo.com/category/pokemon/card-of-the-day-pokemon/ https://automaton-media.com/articles/iotw/page/4/ https://automaton-media.com/articles/interviewsjp/ https://mmoculture.com/category/global/ https://automaton-media.com/devlog/",
+    "nextLink": "//link[@rel='next']|//span[@class='current']/following-sibling::a[1]"
   },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "Tanookirby",
   "created_at": "2016-03-25T13:21:22+09:00",
-  "updated_at": "2019-08-14T06:00:53+09:00"
+  "updated_at": "2020-01-24T19:11:41+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/80659",
@@ -12880,16 +12939,16 @@
 {
   "resource_url": "http://wedata.net/items/77649",
   "name": "The New York Post",
-  "created_by": "Tanookirby",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-08-24T08:44:37+09:00",
   "data": {
-    "exampleUrl": "http://nypost.com/news/",
     "url": "^https?://nypost\\.com/.+",
-    "pageElement": "//div[@class='article-loop']/*[self::article or @class='rule']",
-    "nextLink": "//div[contains(@class,'more-link')]/a"
+    "pageElement": "//ul[@class='article-loop']/li",
+    "exampleUrl": "https://nypost.com/news/",
+    "nextLink": "//div[@class='more-link decider__load-more']/a"
   },
-  "created_at": "2015-11-09T07:38:55+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "Tanookirby",
+  "created_at": "2015-11-09T07:38:55+09:00",
+  "updated_at": "2020-01-24T12:52:04+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/77648",
@@ -22781,16 +22840,16 @@
 {
   "resource_url": "http://wedata.net/items/74662",
   "name": "Cinemablend.com",
-  "created_by": "Tanookirby",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2018-06-04T12:31:01+09:00",
   "data": {
-    "exampleUrl": "https://www.cinemablend.com/new/Top-25-Muppet-Characters-Ranked-28058.html\r\nhttps://www.cinemablend.com/news/1523429/upcoming-pixar-movies-heres-whats-coming-in-the-next-few-years?story_page=2\r\nhttps://www.cinemablend.com/news.php?cid=27\r\nhttps://www.cinemablend.com/reviews/\r\nhttps://www.cinemablend.com/news/2313241/the-8-funniest-moments-in-black-panther?story_page=1\r\nhttps://www.cinemablend.com/television/2425292/who-is-the-flashs-thomas-our-5-best-theories?story_page=1",
-    "url": "^https?://(www\\.)?cinemablend\\.com/",
-    "pageElement": "//div[@class='partial content_story_pages_html ']/node()|(id('slot_left slot_center')|id('slot_left')/div[starts-with(@class,'partial content_story_cb_related ') or @class='partial snippet '])/div[starts-with(normalize-space(@class),'story_item item') or @class='partial content_story_pages_text ' or @class='partial content_story_pages_image ']|//div[@class='partial content_story_cb_related topics' or @class='partial content_story_cb_related reviews']/*",
+    "url": "^https?://(www\\.)?cinemablend\\.com/news",
+    "pageElement": "//div[starts-with(@class,'partial content_story_cb_related ')]/div[starts-with(normalize-space(@class),'story_item item')]",
+    "exampleUrl": "https://www.cinemablend.com/news.php?cid=27",
     "nextLink": "//a[@class='next' or @rel='next']"
   },
-  "created_at": "2014-03-23T05:31:26+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "Tanookirby",
+  "created_at": "2014-03-23T05:31:26+09:00",
+  "updated_at": "2020-01-20T06:17:03+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/74659",
@@ -46080,16 +46139,16 @@
 {
   "resource_url": "http://wedata.net/items/30144",
   "name": "Ask Men",
-  "created_by": "triptoy",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2016-02-18T19:54:09+09:00",
   "data": {
-    "exampleUrl": "http://www.askmen.com/entertainment/special_feature_400/439_sleep-5-things-you-didnt-know.html",
-    "url": "^http://www\\.askmen\\.com/",
+    "url": "^https://(www\\.)?askmen\\.com/",
     "pageElement": "(//div[@class='currentPage clearfix']/following-sibling::*[not(a/text()='Next Page')]|//div[starts-with(@class,'theArticle') and contains(@class,'cleanprint-article')]/text())[following-sibling::p[last()]]",
-    "nextLink": "//a[@class='jumpToPage' and .='Next Page']"
+    "exampleUrl": "https://www.askmen.com/entertainment/special_feature_400/439_sleep-5-things-you-didnt-know.html",
+    "nextLink": "//div[@data-track-category='Next Button']/a"
   },
-  "created_at": "2009-10-10T20:28:44+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "triptoy",
+  "created_at": "2009-10-10T20:28:44+09:00",
+  "updated_at": "2020-01-24T12:37:51+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/30119",
