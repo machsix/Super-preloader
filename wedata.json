@@ -1,18 +1,48 @@
 [
 {
+  "resource_url": "http://wedata.net/items/85204",
+  "name": "窓の杜　やじうまの杜",
+  "data": {
+    "url": "^https?://forest\\.watch\\.impress\\.co\\.jp/docs/serial/yajiuma/index\\d*",
+    "pageElement": "id(\"main\")/article",
+    "exampleUrl": "https://forest.watch.impress.co.jp/docs/serial/yajiuma/index2019.html",
+    "insertBefore": "",
+    "nextLink": "id(\"paginate-under\")//li[contains(concat(\" \", normalize-space(@class), \" \"), \" prev \")]/a"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "KAWASAKICHIRO",
+  "created_at": "2020-01-28T23:54:55+09:00",
+  "updated_at": "2020-01-28T23:54:55+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85203",
+  "name": "ハダカちゃんねる",
+  "data": {
+    "url": "^https://a-hadaka\\.jp/ch/",
+    "pageElement": "//section[@class='content']",
+    "exampleUrl": "https://a-hadaka.jp/ch/%e7%99%bd%e5%9d%82%e6%9c%89%e4%bb%a5%e3%81%aesex/",
+    "insertBefore": "",
+    "nextLink": "//a[@rel='next']"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "unknown10'",
+  "created_at": "2020-01-28T01:04:24+09:00",
+  "updated_at": "2020-01-28T01:04:24+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/85202",
   "name": "立憲民主党",
   "data": {
     "url": "^https?://cdp-japan\\.jp/",
     "pageElement": "//div[contains(concat(' ',normalize-space(@class),' '),' block ')]/div",
-    "Suggestion": "This rule and http://wedata.net/items/85200 use the same rule. Why not combine them?",
+    "Suggestion": "This rule and http://wedata.net/items/85200 use the same rule. Why not combine them?\r\n\r\nIt's political topic. Don't merge two different parties. There is already a subtle difference. There might be more differece in the future.",
     "exampleUrl": "https://cdp-japan.jp/news",
     "nextLink": "//a[@rel='next']"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "created_by": "replobfuscation",
+  "created_by": "replobfuscator",
   "created_at": "2020-01-24T06:57:54+09:00",
-  "updated_at": "2020-01-25T07:08:39+09:00"
+  "updated_at": "2020-01-26T05:57:41+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/85201",
@@ -12141,16 +12171,16 @@
 {
   "resource_url": "http://wedata.net/items/77743",
   "name": "NME Japan",
-  "created_by": "mitz",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2015-12-24T16:29:08+09:00",
   "data": {
-    "exampleUrl": "http://nme-jp.com/blogs/11137/",
-    "url": "^http://nme-jp\\.com/(?:blogs|reviews|features|news)/",
+    "url": "^https?://nme-jp\\.com/(?:blogs|reviews|features|news)/",
     "pageElement": "//div[contains(@class, \"post-content\")]/div[@class=\"wp-pagenavi\"]/preceding-sibling::*",
+    "exampleUrl": "http://nme-jp.com/blogs/11137/",
     "nextLink": "//a[contains(@class,\"nextpostslink\")]"
   },
-  "created_at": "2015-12-24T13:52:50+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "mitz",
+  "created_at": "2015-12-24T13:52:50+09:00",
+  "updated_at": "2020-02-01T04:19:17+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/77742",
@@ -16040,19 +16070,19 @@
 },
 {
   "resource_url": "http://wedata.net/items/77174",
-  "created_by": "sktn3",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "name": "カーリル　読みたいリスト・読んだリスト",
   "data": {
-    "exampleUrl": "https://calil.jp/list",
-    "nextLink": "id(\"ccontent\")//nav[contains(concat(\" \", normalize-space(@class), \" \"), \" calil_pagination \")]//a[last()]",
     "url": "^https?://calil\\.jp/list(?:$|\\?.+)",
+    "exampleUrl2": "https://calil.jp/list?status=read",
     "pageElement": "id(\"wishlist_table\")//tr",
-    "補足": "1ページ目では次のページを継ぎ足せない不具合、2〜3ページ以上継ぎ足せない不具合、継ぎ足されたページでは蔵書の有無が表示されない不具合が有る。",
-    "exampleUrl2": "https://calil.jp/list?status=read"
+    "補足": "継ぎ足されたページでは蔵書の有無が表示されない不具合が有る。",
+    "exampleUrl": "https://calil.jp/list",
+    "nextLink": "id(\"ccontent\")//li[contains(concat(\" \", normalize-space(@class), \" \"), \" active \")]/following-sibling::li[1]/a"
   },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "sktn3",
   "created_at": "2015-04-24T09:43:03+09:00",
-  "updated_at": "2019-09-24T04:08:08+09:00"
+  "updated_at": "2020-01-29T01:18:56+09:00"
 },
 {
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
@@ -46334,18 +46364,18 @@
   "created_at": "2009-09-17T00:03:35+09:00"
 },
 {
-  "resource_url": "http://wedata.net/items/29833",
   "name": "Entertainment Weekly",
-  "created_by": "yamamaya",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2018-01-21T11:38:46+09:00",
   "data": {
-    "exampleUrl": "http://tvrecaps.ew.com/recap/vampire-diaries-season-5-episode-17/ http://ew.com/tv/2017/04/21/fall-tv-pilots-2017/2/ http://ew.com/recap/marvel-runaways-season-1-episode-8/",
     "url": "^https?://(.+\\.)?ew\\.com/",
-    "pageElement": "//div[@class='padded']/*[not(@class='article__creative-work-title')][not(@class='article__creative-work-info')][not(@class='article__letter-grade')][following-sibling::div/@class='article__page-link']|//div[@class='article-body__inner']/p[following-sibling::strong][strong]/preceding-sibling::p|//div[@class='article-body__inner'][not(strong)]/*",
-    "nextLink": "//a[span/@class='next' or @rel='next']"
+    "pageElement": "//div[@class='category-page-item ']",
+    "exampleUrl": "https://ew.com/tv/",
+    "nextLink": "id('category-page-list-related-load-more-button')"
   },
-  "created_at": "2009-09-16T08:30:11+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "yamamaya",
+  "resource_url": "http://wedata.net/items/29833",
+  "created_at": "2009-09-16T08:30:11+09:00",
+  "updated_at": "2020-01-25T14:15:07+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/29819",
