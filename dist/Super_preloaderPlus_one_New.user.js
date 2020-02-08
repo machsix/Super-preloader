@@ -31,6 +31,7 @@
 // @connect      wedata.net
 // @connect      github.io
 // @include      http*
+// @exclude      /^http*://\d+\.\d+\.\d+\.\d+/
 // @exclude      http*://mail.google.com/*
 // @exclude      http*://maps.google*
 // @exclude      http*://www.google.com/reader*
