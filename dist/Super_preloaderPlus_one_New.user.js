@@ -9,7 +9,7 @@
 // @author       Mach6
 // @contributers YFdyh000, suchunchen
 // @thanksto     ywzhaiqi, NLF
-// @version      6.11.3
+// @version      6.11.4
 // @license      GPL-3.0
 // @update       2019/12/31
 // @homepageURL  https://github.com/machsix/Super-preloader
