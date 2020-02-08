@@ -39,22 +39,22 @@
 // @exclude      http*://app.yinxiang.com/*
 // @exclude      http*://www.dropbox.com/*
 // @exclude      http*://www.toodledo.com/*
-// @exclude      http://cloud.feedly.com/*
-// @exclude      http://weibo.com/*
-// @exclude      http://w.qq.com/*
-// @exclude      http://web2.qq.com/*
-// @exclude      http://openapi.qzone.qq.com/*
-// @exclude      http://*cloud.vip.xunlei.com/*
+// @exclude      http*://cloud.feedly.com/*
+// @exclude      http*://weibo.com/*
+// @exclude      http*://w.qq.com/*
+// @exclude      http*://web2.qq.com/*
+// @exclude      http*://openapi.qzone.qq.com/*
+// @exclude      http*://*cloud.vip.xunlei.com/*
 // @exclude      http*://www.wumii.com/*
-// @exclude      http://pan.baidu.com/*
-// @exclude      http://yun.baidu.com/*
-// @exclude      http://www.cnbeta.com/*
-// @exclude      http://www.youku.com/
-// @exclude      http://v.youku.com/*
-// @exclude      http://www.iqiyi.com/*
-// @exclude      http://www.duokan.com/reader/*
+// @exclude      http*://pan.baidu.com/*
+// @exclude      http*://yun.baidu.com/*
+// @exclude      http*://www.cnbeta.com/*
+// @exclude      http*://www.youku.com/
+// @exclude      http*://v.youku.com/*
+// @exclude      http*://www.iqiyi.com/*
+// @exclude      http*://www.duokan.com/reader/*
 // @exclude      https://www.kohls.com/*
-// @exclude      http://list.jd.com/*
+// @exclude      http*://list.jd.com/*
 // @exclude      http*://eclick.baidu.com/*
 // @exclude      http*://googleads.g.doubleclick.net/*
 // @exclude      http*://pos.baidu.com/*
@@ -786,7 +786,7 @@
         show: function show(e, t) {
             return a(e, "6.11.0") < 0 && a(t, "6.11.0") >= 0;
         }
-    }, c = `// ==UserScript==\n// @name         ${i.name}\n// @name:zh-CN   ${i["name-CN"]}\n// @name:zh-TW   ${i["name-CN"]}\n// @namespace    ${i.namespace}\n// @description  Preload and Autopager\n// @description:zh-CN  预读+翻页..全加速你的浏览体验\n// @description:zh-TW  预读+翻页..全加速你的浏览体验\n// @author       ${i.author}\n// @contributers YFdyh000, suchunchen\n// @thanksto     ywzhaiqi, NLF\n// @version      ${i.version}\n// @license      ${i.license}\n// @update       ${i.updateTime}\n// @homepageURL  ${i.homepageURL}\n// @supportURL   ${i.greasyfork}/feedback\n// @contributionURL https://ko-fi.com/machsix\n// @icon         ${i.icon}\n// @require      https://greasyfork.org/scripts/373124-gm4-polyfill-mach6-legacy/code/gm4-polyfill-mach6-legacy.js?version=758289\n// @grant        GM.getValue\n// @grant        GM_getValue\n// @grant        GM.setValue\n// @grant        GM_setValue\n// @grant        GM.notification\n// @grant        GM_notification\n// @grant        GM.xmlHttpRequest\n// @grant        GM_xmlhttpRequest\n// @grant        GM.info\n// @grant        GM_info\n// @grant        GM_registerMenuCommand\n// @connect      wedata.net\n// @connect      github.io\n// @include      http*\n// @exclude      http*://mail.google.com/*\n// @exclude      http*://maps.google*\n// @exclude      http*://www.google.com/reader*\n// @exclude      http*://www.google.com/calendar*\n// @exclude      https://docs.google.com/*\n// @exclude      http*://app.yinxiang.com/*\n// @exclude      http*://www.dropbox.com/*\n// @exclude      http*://www.toodledo.com/*\n// @exclude      http://cloud.feedly.com/*\n// @exclude      http://weibo.com/*\n// @exclude      http://w.qq.com/*\n// @exclude      http://web2.qq.com/*\n// @exclude      http://openapi.qzone.qq.com/*\n// @exclude      http://*cloud.vip.xunlei.com/*\n// @exclude      http*://www.wumii.com/*\n// @exclude      http://pan.baidu.com/*\n// @exclude      http://yun.baidu.com/*\n// @exclude      http://www.cnbeta.com/*\n// @exclude      http://www.youku.com/\n// @exclude      http://v.youku.com/*\n// @exclude      http://www.iqiyi.com/*\n// @exclude      http://www.duokan.com/reader/*\n// @exclude      https://www.kohls.com/*\n// @exclude      http://list.jd.com/*\n// @exclude      http*://eclick.baidu.com/*\n// @exclude      http*://googleads.g.doubleclick.net/*\n// @exclude      http*://pos.baidu.com/*\n// @exclude      http*://tpc.googlesyndication.com/*\n// @exclude      http*://ad.doubleclick.net/*\n// @exclude      http*://ad.agrantsem.com/*\n// ==/UserScript==\n`;
+    }, c = `// ==UserScript==\n// @name         ${i.name}\n// @name:zh-CN   ${i["name-CN"]}\n// @name:zh-TW   ${i["name-CN"]}\n// @namespace    ${i.namespace}\n// @description  Preload and Autopager\n// @description:zh-CN  预读+翻页..全加速你的浏览体验\n// @description:zh-TW  预读+翻页..全加速你的浏览体验\n// @author       ${i.author}\n// @contributers YFdyh000, suchunchen\n// @thanksto     ywzhaiqi, NLF\n// @version      ${i.version}\n// @license      ${i.license}\n// @update       ${i.updateTime}\n// @homepageURL  ${i.homepageURL}\n// @supportURL   ${i.greasyfork}/feedback\n// @contributionURL https://ko-fi.com/machsix\n// @icon         ${i.icon}\n// @require      https://greasyfork.org/scripts/373124-gm4-polyfill-mach6-legacy/code/gm4-polyfill-mach6-legacy.js?version=758289\n// @grant        GM.getValue\n// @grant        GM_getValue\n// @grant        GM.setValue\n// @grant        GM_setValue\n// @grant        GM.notification\n// @grant        GM_notification\n// @grant        GM.xmlHttpRequest\n// @grant        GM_xmlhttpRequest\n// @grant        GM.info\n// @grant        GM_info\n// @grant        GM_registerMenuCommand\n// @connect      wedata.net\n// @connect      github.io\n// @include      http*\n// @exclude      http*://mail.google.com/*\n// @exclude      http*://maps.google*\n// @exclude      http*://www.google.com/reader*\n// @exclude      http*://www.google.com/calendar*\n// @exclude      https://docs.google.com/*\n// @exclude      http*://app.yinxiang.com/*\n// @exclude      http*://www.dropbox.com/*\n// @exclude      http*://www.toodledo.com/*\n// @exclude      http*://cloud.feedly.com/*\n// @exclude      http*://weibo.com/*\n// @exclude      http*://w.qq.com/*\n// @exclude      http*://web2.qq.com/*\n// @exclude      http*://openapi.qzone.qq.com/*\n// @exclude      http*://*cloud.vip.xunlei.com/*\n// @exclude      http*://www.wumii.com/*\n// @exclude      http*://pan.baidu.com/*\n// @exclude      http*://yun.baidu.com/*\n// @exclude      http*://www.cnbeta.com/*\n// @exclude      http*://www.youku.com/\n// @exclude      http*://v.youku.com/*\n// @exclude      http*://www.iqiyi.com/*\n// @exclude      http*://www.duokan.com/reader/*\n// @exclude      https://www.kohls.com/*\n// @exclude      http*://list.jd.com/*\n// @exclude      http*://eclick.baidu.com/*\n// @exclude      http*://googleads.g.doubleclick.net/*\n// @exclude      http*://pos.baidu.com/*\n// @exclude      http*://tpc.googlesyndication.com/*\n// @exclude      http*://ad.doubleclick.net/*\n// @exclude      http*://ad.agrantsem.com/*\n// ==/UserScript==\n`;
     e.exports = {
         NOTIFICATION: s,
         METADATA: c,
