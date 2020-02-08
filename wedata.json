@@ -1,5 +1,48 @@
 [
 {
+  "resource_url": "http://wedata.net/items/85207",
+  "name": "Yahoo! JAPANヘルプセンター",
+  "data": {
+    "url": "^https?://www\\.yahoo-help\\.jp/app/answers/list/.+",
+    "pageElement": "id(\"rn_PageContent\")//div[@class='numbered']/ol/*",
+    "exampleUrl": "https://www.yahoo-help.jp/app/answers/list/p/533/c/887",
+    "nextLink": "id('pagenation')//li[@class='rn_NextPage 1']/a"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "KAWASAKICHIRO",
+  "created_at": "2020-02-04T08:37:14+09:00",
+  "updated_at": "2020-02-04T12:08:45+09:00"
+},
+{
+  "name": "Showbuzz Daily",
+  "data": {
+    "url": "https?://(www\\.)?showbuzzdaily\\.com/.",
+    "pageElement": "//div[@class='feed-vertical'][div/@class='inner']",
+    "exampleUrl": "http://www.showbuzzdaily.com/articles",
+    "insertBefore": "",
+    "nextLink": "//div[@class='pagination']/span[@class='current']/following-sibling::a[1]"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "Tanookirby",
+  "resource_url": "http://wedata.net/items/85206",
+  "created_at": "2020-02-02T13:26:19+09:00",
+  "updated_at": "2020-02-02T13:26:19+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85205",
+  "name": "Artemis Free Size Book Cover",
+  "data": {
+    "url": "^https?://artemis\\.ec-cube\\.shop/products/list",
+    "pageElement": "id('page_product_list')//ul[contains(@class,'ec-shelfGrid')]/li",
+    "exampleUrl": "https://artemis.ec-cube.shop/products/list",
+    "nextLink": "id('page_product_list')//li[contains(@class,'ec-pager__item--active')]/following-sibling::li[1]/a"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "KAWASAKICHIRO",
+  "created_at": "2020-02-01T20:49:11+09:00",
+  "updated_at": "2020-02-02T13:03:55+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/85204",
   "name": "窓の杜　やじうまの杜",
   "data": {
