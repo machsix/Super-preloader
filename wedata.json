@@ -1,5 +1,19 @@
 [
 {
+  "resource_url": "http://wedata.net/items/85222",
+  "name": "日経クロステック",
+  "data": {
+    "url": "^https://xtech\\.nikkei\\.com/",
+    "pageElement": "//div[@class='articleBody p-article_body']",
+    "exampleUrl": "https://xtech.nikkei.com/atcl/nxt/column/18/00682/021200027/",
+    "nextLink": "//ul[@class='p-pagenation_list']//li[@class='p-pagenation_list_item -next']/a"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "nnnn",
+  "created_at": "2020-02-14T10:20:22+09:00",
+  "updated_at": "2020-02-14T10:25:24+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/85207",
   "name": "Yahoo! JAPANヘルプセンター",
   "data": {
@@ -43,19 +57,19 @@
   "updated_at": "2020-02-02T13:03:55+09:00"
 },
 {
-  "resource_url": "http://wedata.net/items/85204",
   "name": "窓の杜　やじうまの杜",
   "data": {
     "url": "^https?://forest\\.watch\\.impress\\.co\\.jp/docs/serial/yajiuma/index\\d*",
     "pageElement": "id(\"main\")/article",
+    "bookmarklet": "for (var i = 0; i < $(\"img\").length; i++) {\r\n    $(\"img\").eq(i).attr(\"src\",$(\"img\").eq(i).attr(\"ajax\"));\r\n}",
     "exampleUrl": "https://forest.watch.impress.co.jp/docs/serial/yajiuma/index2019.html",
-    "insertBefore": "",
     "nextLink": "id(\"paginate-under\")//li[contains(concat(\" \", normalize-space(@class), \" \"), \" prev \")]/a"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "KAWASAKICHIRO",
+  "resource_url": "http://wedata.net/items/85204",
   "created_at": "2020-01-28T23:54:55+09:00",
-  "updated_at": "2020-01-28T23:54:55+09:00"
+  "updated_at": "2020-02-13T11:05:02+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/85203",
@@ -206,18 +220,19 @@
   "updated_at": "2020-01-03T13:15:28+09:00"
 },
 {
+  "resource_url": "http://wedata.net/items/85167",
   "name": "コミスペ！ レビュー",
   "data": {
     "url": "^https?://media\\.comicspace\\.jp/",
     "pageElement": "id('articles_index')/div[@class='article_list']/article[@class='card']",
+    "bookmarklet": "Array.prototype.forEach.call(document.querySelectorAll('img'), function(img) { var lazySrc = img.hasAttribute('data-src') ? img.getAttribute('data-src') : img.getAttribute('data-original'); if (lazySrc) { img.src = lazySrc; img.classList.remove('lazy');} });",
     "exampleUrl": "https://media.comicspace.jp/archives/category/review",
     "nextLink": "id('articles_index')/div[@class='list_paging']/p[@class='to_next']/a"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "created_by": "orangeal2o3@hatena",
-  "resource_url": "http://wedata.net/items/85167",
+  "created_by": "orange_al2o3",
   "created_at": "2019-12-25T19:51:43+09:00",
-  "updated_at": "2019-12-25T19:51:43+09:00"
+  "updated_at": "2020-02-13T11:15:47+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/85166",
@@ -2058,17 +2073,16 @@
 {
   "resource_url": "http://wedata.net/items/82113",
   "name": "NEWSポストセブン",
-  "created_by": "hatenaZZZ",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-04-07T10:11:43+09:00",
   "data": {
-    "exampleUrl": "https://www.news-postseven.com/archives/20190407_1347987.html",
     "url": "^https?://www\\.news-postseven\\.com/",
     "pageElement": "//div[@class=\"wp-editor\"]",
-    "insertBefore": "",
-    "nextLink": "//link[@rel=\"next\"]"
+    "exampleUrl": "https://www.news-postseven.com/archives/20190407_1347987.html",
+    "nextLink": "//li[@class=\"on\"]/following-sibling::li/a[@href]"
   },
-  "created_at": "2019-04-07T10:11:43+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "hatenaZZZ",
+  "created_at": "2019-04-07T10:11:43+09:00",
+  "updated_at": "2020-02-09T15:50:28+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/82112",
@@ -8996,16 +9010,16 @@
 {
   "resource_url": "http://wedata.net/items/80993",
   "name": "Forbes JAPAN（フォーブス ジャパン）",
-  "created_by": "raitu",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-05-16T09:22:03+09:00",
   "data": {
-    "exampleUrl": "https://forbesjapan.com/articles/detail/13687",
-    "url": "^https://forbesjapan\\.com/articles/detail/.*",
-    "pageElement": "//div[@class=\"kizi-honbun\"]/br[1][not(./preceding-sibling::*) or string-length(./preceding-sibling::text())<0]/following-sibling::node()",
-    "nextLink": "//ul[@class='contents_pagination']/li/a[.='>']"
+    "url": "^https?://forbesjapan\\.com/articles/detail/.*",
+    "pageElement": "//div[@class=\"kizi-honbun\"]",
+    "exampleUrl": "https://forbesjapan.com/articles/detail/13687\r\nhttps://forbesjapan.com/articles/detail/32271",
+    "nextLink": "//ul[@class=\"contents_pagination\"]/li/a[.=\">\"][@href]"
   },
-  "created_at": "2016-09-27T13:26:53+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "raitu",
+  "created_at": "2016-09-27T13:26:53+09:00",
+  "updated_at": "2020-02-11T17:11:59+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/80992",
@@ -57586,17 +57600,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/424",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "data": {
-    "exampleUrl": "http://ascii.jp/elem/000/000/143/143379/\r\nhttp://ascii.jp/elem/000/000/142/142959/\r\nhttp://ascii.jp/elem/000/000/120/120721/\r\nhttp://ascii.jp/elem/000/000/215/215126/\r\nhttp://tech.ascii.jp/elem/000/000/600/600188/?crank\r\nhttp://tech.ascii.jp/elem/000/000/600/600536/\r\nhttp://ascii.jp/elem/000/000/436/436831/\r\nhttp://ascii.jp/elem/000/000/612/612015/index-6.html\r\nhttp://ascii.jp/elem/000/000/871/871501/",
-    "pageElement": "(id(\"articleHead\")|id(\"contdefault\")/*[@class=\"newauthor\" or (self::h1 and not(following-sibling::p/@class=\"newauthor\" or preceding-sibling::p/@class=\"newauthor\"))])/following-sibling::*[following-sibling::div[contains(\" pager pages pgbottom pagerComic \",concat(\" \",@class,\" \"))]]|id(\"articleText\")",
-    "nextLink": "//a[@class=\"next\" or parent::span[@class=\"next\"] or contains(text(), \"(続きはこちら)\") or img/@src=\"/img/bt_comicnex.gif\"]|//span[@class=\"next\" and last()]/a[contains(text(),\"次へ\")]|//ul[@class=\"pager\"]/li/a[contains(text(), \"次へ\")]",
-    "url": "^https?://(?:www\\.|tech\\.)?ascii\\.jp/elem/(?:[^/]+/){4}"
-  },
-  "created_by": "swdyh",
   "name": "ASCII.jp",
+  "data": {
+    "url": "^https?://(?:www\\.|tech\\.)?ascii\\.jp/elem/(?:[^/]+/){4}",
+    "pageElement": "(id(\"articleHead\")|id(\"contdefault\")/*[@class=\"newauthor\" or (self::h1 and not(following-sibling::p/@class=\"newauthor\" or preceding-sibling::p/@class=\"newauthor\"))])/following-sibling::*[following-sibling::div[contains(\" pager pages pgbottom pagerComic \",concat(\" \",@class,\" \"))]]|id(\"articleText\")",
+    "exampleUrl": "http://ascii.jp/elem/000/000/143/143379/\r\nhttp://ascii.jp/elem/000/000/142/142959/\r\nhttp://ascii.jp/elem/000/000/120/120721/\r\nhttp://ascii.jp/elem/000/000/215/215126/\r\nhttp://tech.ascii.jp/elem/000/000/600/600188/?crank\r\nhttp://tech.ascii.jp/elem/000/000/600/600536/\r\nhttp://ascii.jp/elem/000/000/436/436831/\r\nhttp://ascii.jp/elem/000/000/612/612015/index-6.html\r\nhttp://ascii.jp/elem/000/000/871/871501/",
+    "nextLink": "//link[@rel=\"next\"]|//a[@class=\"next\" or parent::span[@class=\"next\"] or contains(text(), \"(続きはこちら)\") or img/@src=\"/img/bt_comicnex.gif\"]|//span[@class=\"next\" and last()]/a[contains(text(),\"次へ\")]|//ul[@class=\"pager\"]/li/a[contains(text(), \"次へ\")]"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "swdyh",
   "created_at": "2008-04-16T12:35:24+09:00",
-  "updated_at": "2014-11-12T18:06:35+09:00"
+  "updated_at": "2020-02-12T16:40:31+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/420",
