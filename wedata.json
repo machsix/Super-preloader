@@ -1,5 +1,19 @@
 [
 {
+  "resource_url": "http://wedata.net/items/85225",
+  "name": "2e5b1fac0049d3f3854ba8c2ebdf6483",
+  "data": {
+    "url": "^https://sc\\.benesse-gtec\\.com/list/",
+    "pageElement": "//section[@class='o-search-result__item']",
+    "exampleUrl": "https://sc.benesse-gtec.com/list/?score%5Bgtec-4%5D=1&years%5B2020%5D=1&ex%5Bgeneral%5D=1&ex%5Brecommend%5D=1&ex%5Bao%5D=1&ex%5Bsp%5D=1&features%5Bapp%5D=1&features%5Bsub%5D=1&features%5Bminasi%5D=1&features%5Badd%5D=1&features%5Bother%5D=1&area%5Btokyo%5D=1&area%5Bkanagawa%5D=1&area%5Bchiba%5D=1&area%5Bsaitama%5D=1&fp=2#tab-1",
+    "nextLink": "//li[@class='next']/a"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "kyozui",
+  "created_at": "2020-02-19T10:41:30+09:00",
+  "updated_at": "2020-02-19T11:56:02+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/85222",
   "name": "日経クロステック",
   "data": {
@@ -3285,16 +3299,16 @@
 {
   "resource_url": "http://wedata.net/items/82001",
   "name": "banki.ru",
-  "created_by": "Rom",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2018-10-24T22:31:14+09:00",
   "data": {
-    "exampleUrl": "http://www.banki.ru/forum/?PAGE_NAME=read&FID=21&TID=349364",
-    "url": "^http://www\\.banki\\.ru/forum/.*",
+    "url": "^https://www\\.banki\\.ru/forum/.*",
     "pageElement": "//div[@class='forum-messages-list']",
-    "nextLink": "//a[@class='icon-font icon-arrow-next']"
+    "exampleUrl": "http://www.banki.ru/forum/?PAGE_NAME=read&FID=21&TID=349364",
+    "nextLink": "//li[contains(@class,'ui-pagination__next')]/a[contains(@class,'icon-font') and contains(@class,'icon-arrow-next-16')]"
   },
-  "created_at": "2018-10-24T22:29:41+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "Rom",
+  "created_at": "2018-10-24T22:29:41+09:00",
+  "updated_at": "2020-02-22T00:04:53+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/82000",
