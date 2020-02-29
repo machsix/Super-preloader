@@ -1,5 +1,19 @@
 [
 {
+  "name": "9900rt",
+  "data": {
+    "url": "^https?://www\\.9900rt\\.info",
+    "pageElement": "//div[@class='main']//a[contains(text(),'下一页')]",
+    "exampleUrl": "http://www.9900rt.info/html/yazhou/2020/0226/8999_33.html",
+    "nextLink": "//div[@class='pages']/a[last()]"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "Mach6",
+  "resource_url": "http://wedata.net/items/85245",
+  "created_at": "2020-02-27T12:50:35+09:00",
+  "updated_at": "2020-02-27T14:12:41+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/85225",
   "name": "2e5b1fac0049d3f3854ba8c2ebdf6483",
   "data": {
@@ -10990,7 +11004,7 @@
   "resource_url": "http://wedata.net/items/80660",
   "name": "Category Lists (td-block-row)",
   "data": {
-    "url": "^https?://(www\\.)?.+\\.com/(category|articles|devlog)/",
+    "url": "^https?://(www\\.)?.+\\.com/",
     "pageElement": "//div[@class='td-block-row']",
     "exampleUrl": "http://atlantablackstar.com/category/local/ https://www.mobipicker.com/category/news/ https://apkmos.com/category/android-games/ https://www.pojo.com/category/pokemon/card-of-the-day-pokemon/ https://automaton-media.com/articles/iotw/page/4/ https://automaton-media.com/articles/interviewsjp/ https://mmoculture.com/category/global/ https://automaton-media.com/devlog/",
     "nextLink": "//link[@rel='next']|//span[@class='current']/following-sibling::a[1]"
@@ -10998,7 +11012,7 @@
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "Tanookirby",
   "created_at": "2016-03-25T13:21:22+09:00",
-  "updated_at": "2020-01-24T19:11:41+09:00"
+  "updated_at": "2020-02-27T19:48:22+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/80659",
@@ -24815,16 +24829,16 @@
 {
   "resource_url": "http://wedata.net/items/70183",
   "name": "Game*Spark",
-  "created_by": "myseni",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2018-06-26T22:29:39+09:00",
   "data": {
-    "exampleUrl": "https://www.gamespark.jp/article/2016/06/01/66232.html https://www.gamespark.jp/article/?page=1\r\nhttps://www.gamespark.jp/category/console/latest/?page=1\r\nhttps://www.gamespark.jp/article/2014/03/13/47007/comment.html\r\nhttps://www.gamespark.jp/article/2017/09/15/75817.html",
-    "url": "^https://(?:www\\.)?gamespark\\.jp/(?:article|category)/",
+    "url": "^https://(?:www\\.)?gamespark\\.jp/(?:article|category|special)/",
     "pageElement": "id('articlePaging')/preceding-sibling::node()[not(@id='nextPageButton')]|//ul[@class='newsItem' or @class='comment-list']/li[not(id('articleItem'))]|//div[@class='news-list']/*",
+    "exampleUrl": "https://www.gamespark.jp/article/2016/06/01/66232.html https://www.gamespark.jp/article/?page=1\r\nhttps://www.gamespark.jp/category/console/latest/?page=1\r\nhttps://www.gamespark.jp/article/2014/03/13/47007/comment.html\r\nhttps://www.gamespark.jp/article/2017/09/15/75817.html\r\nhttps://www.gamespark.jp/special/264/recent/注目インディーミニ問答",
     "nextLink": "id('nextPageButton')//li[@class='next']/a|//li[@class='item paging-next']/a"
   },
-  "created_at": "2013-04-17T13:35:47+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "myseni",
+  "created_at": "2013-04-17T13:35:47+09:00",
+  "updated_at": "2020-02-27T19:33:26+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/70150",
