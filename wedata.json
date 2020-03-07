@@ -1,5 +1,20 @@
 [
 {
+  "resource_url": "http://wedata.net/items/85257",
+  "name": "Maruzen eBook Library",
+  "data": {
+    "url": "^https://elib\\.maruzen\\.co\\.jp/elib/",
+    "pageElement": "//div[@class=\"main\"]//div[contains(concat(\" \",@class,\" \"),\" bookbox \")]",
+    "exampleUrl": "https://elib.maruzen.co.jp/elib/html/BookList/Genre/RIKOU/SS/TITLE_ASC?3",
+    "insertBefore": "",
+    "nextLink": "//span[a/@class=\"current\"]/following-sibling::span/a"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m_",
+  "created_at": "2020-03-07T05:16:13+09:00",
+  "updated_at": "2020-03-07T05:16:13+09:00"
+},
+{
   "name": "9900rt",
   "data": {
     "url": "^https?://www\\.9900rt\\.info",
@@ -1556,21 +1571,6 @@
     "nextLink": "//li[@class='previous']/a"
   },
   "created_at": "2019-05-28T11:08:30+09:00"
-},
-{
-  "resource_url": "http://wedata.net/items/82162",
-  "name": "Stevivor",
-  "created_by": "Tanookirby",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-05-28T10:25:31+09:00",
-  "data": {
-    "exampleUrl": "https://stevivor.com/news/",
-    "url": "^https://stevivor\\.com/news/",
-    "pageElement": "//div[@class='td_module_10 td_module_wrap td-animation-stack']",
-    "insertBefore": "",
-    "nextLink": "//link[@rel='next']"
-  },
-  "created_at": "2019-05-28T10:25:31+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/82161",
@@ -11001,18 +11001,18 @@
   "created_at": "2016-03-30T19:33:51+09:00"
 },
 {
-  "resource_url": "http://wedata.net/items/80660",
-  "name": "Category Lists (td-block-row)",
+  "name": "Category Lists (td-block-row, td-animation-stack)",
   "data": {
     "url": "^https?://(www\\.)?.+\\.com/",
-    "pageElement": "//div[@class='td-block-row']",
-    "exampleUrl": "http://atlantablackstar.com/category/local/ https://www.mobipicker.com/category/news/ https://apkmos.com/category/android-games/ https://www.pojo.com/category/pokemon/card-of-the-day-pokemon/ https://automaton-media.com/articles/iotw/page/4/ https://automaton-media.com/articles/interviewsjp/ https://mmoculture.com/category/global/ https://automaton-media.com/devlog/",
+    "pageElement": "//div[@class='td-block-row']|//div[@class='td_module_10 td_module_wrap td-animation-stack']",
+    "exampleUrl": "http://atlantablackstar.com/category/local/ https://www.mobipicker.com/category/news/ https://apkmos.com/category/android-games/ https://www.pojo.com/category/pokemon/card-of-the-day-pokemon/ https://automaton-media.com/articles/iotw/page/4/ https://automaton-media.com/articles/interviewsjp/ https://mmoculture.com/category/global/ https://automaton-media.com/devlog/ https://stevivor.com/news/ https://bikerumor.com/",
     "nextLink": "//link[@rel='next']|//span[@class='current']/following-sibling::a[1]"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "Tanookirby",
+  "resource_url": "http://wedata.net/items/80660",
   "created_at": "2016-03-25T13:21:22+09:00",
-  "updated_at": "2020-02-27T19:48:22+09:00"
+  "updated_at": "2020-03-02T12:28:08+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/80659",
@@ -13530,16 +13530,16 @@
 {
   "resource_url": "http://wedata.net/items/77605",
   "name": "サイゾーウーマン",
-  "created_by": "jigen_yid2",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-06-13T08:37:36+09:00",
   "data": {
-    "exampleUrl": "https://www.cyzowoman.com/2019/06/post_236931_1.html",
     "url": "^https?://www\\.cyzowoman\\.com/",
-    "pageElement": "//div[@itemprop=\"articleBody\"]/div[last()][not(./following-sibling::*)]/preceding-sibling::*",
+    "pageElement": "//article/div[contains(concat(\" \",@class,\" \"),\" entry_body \")]",
+    "exampleUrl": "https://www.cyzowoman.com/2019/06/post_236931_1.html",
     "nextLink": "//link[@rel=\"next\"]"
   },
-  "created_at": "2015-10-22T13:10:08+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "jigen_yid2",
+  "created_at": "2015-10-22T13:10:08+09:00",
+  "updated_at": "2020-03-07T05:48:26+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/77604",
@@ -14206,17 +14206,17 @@
 {
   "resource_url": "http://wedata.net/items/77487",
   "name": "マイナビウーマン",
-  "created_by": "jigendaddy_be",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2018-05-27T11:54:35+09:00",
   "data": {
-    "exampleUrl": "http://woman.mynavi.jp/tag/rensai_oikomi/ http://woman.mynavi.jp/renai/couple/ http://woman.mynavi.jp/kosodate/",
-    "bookmarklet": "Array.prototype.forEach.call(document.querySelectorAll('img'), function(img) { var lazySrc = img.hasAttribute('data-src') ? img.getAttribute('data-src') : img.getAttribute('data-original'); if (lazySrc) { img.src = lazySrc;} });",
     "url": "^https?://woman\\.mynavi\\.jp/",
-    "pageElement": "//li[@class=\"new-articles-item\"]|//div[@class=\"article-list\"]|//div[@class=\"article-list\"]/following-sibling::hr",
+    "pageElement": "//li[@class=\"new-articles-item\"]|//div[@class=\"article-list\"]|//div[@class=\"article-list\"]/following-sibling::hr|//div[contains(@class,\"entry-body\")]",
+    "bookmarklet": "Array.prototype.forEach.call(document.querySelectorAll('img'), function(img) { var lazySrc = img.hasAttribute('data-src') ? img.getAttribute('data-src') : img.getAttribute('data-original'); if (lazySrc) { img.src = lazySrc;} });",
+    "exampleUrl": "http://woman.mynavi.jp/tag/rensai_oikomi/ http://woman.mynavi.jp/renai/couple/ http://woman.mynavi.jp/kosodate/ https://woman.mynavi.jp/article/200102-4/",
     "nextLink": "//link[@rel=\"next\"]"
   },
-  "created_at": "2015-08-22T22:13:42+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "jigendaddy_be",
+  "created_at": "2015-08-22T22:13:42+09:00",
+  "updated_at": "2020-03-03T22:05:37+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/77484",
@@ -15610,16 +15610,16 @@
 {
   "resource_url": "http://wedata.net/items/77236",
   "name": "まぐまぐニュース！ - ２万人が創るニュースサイト",
-  "created_by": "terepandachan",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2018-09-30T16:17:32+09:00",
   "data": {
-    "exampleUrl": "http://www.mag2.com/p/news/15724\r\nhttp://www.mag2.com/p/news/142148",
     "url": "^https?://www\\.mag2\\.com/p/news/",
-    "pageElement": "//div[@class=\"page-links\"]/preceding-sibling::*[not(@class)][1]/preceding-sibling::*|//div[@class=\"page-links\"]/preceding-sibling::*[not(@class)][1][not(./a/@href=//link[@rel=\"next\"]/@href)]",
-    "nextLink": "//link[@rel=\"next\"]"
+    "pageElement": "//div[@class=\"page-links\"]/preceding-sibling::*[not(@class)][1]/preceding-sibling::*|//div[@class=\"page-links\"]/preceding-sibling::*[not(@class)][1][not(./a/@href=//link[@rel=\"next\"]/@href)]|//article",
+    "exampleUrl": "http://www.mag2.com/p/news/15724\r\nhttp://www.mag2.com/p/news/142148",
+    "nextLink": "//link[@rel=\"next\"]|//p[@class=\"nxplink\"]/a"
   },
-  "created_at": "2015-05-20T01:13:19+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "terepandachan",
+  "created_at": "2015-05-20T01:13:19+09:00",
+  "updated_at": "2020-03-03T22:18:12+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/77234",
@@ -17223,20 +17223,6 @@
     "nextLink": "//a[span/@class='ic ic-angle-left']"
   },
   "created_at": "2015-03-06T06:49:13+09:00"
-},
-{
-  "resource_url": "http://wedata.net/items/76983",
-  "name": "BikeRumor.com",
-  "created_by": "Tanookirby",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-05-14T08:45:41+09:00",
-  "data": {
-    "exampleUrl": "https://bikerumor.com/",
-    "url": "^https?://bikerumor\\.com/",
-    "pageElement": "//div[@class='td_module_10 td_module_wrap td-animation-stack']",
-    "nextLink": "//link[@rel='next']"
-  },
-  "created_at": "2015-03-06T06:45:17+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/76982",
@@ -22121,18 +22107,18 @@
   "created_at": "2014-05-08T14:26:52+09:00"
 },
 {
-  "resource_url": "http://wedata.net/items/74822",
   "name": "イザ！",
-  "created_by": "t_f_m",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-02-02T11:44:32+09:00",
   "data": {
-    "exampleUrl": "http://www.iza.ne.jp/kiji/events/news/140311/evt14031111550017-n1.html http://www.iza.ne.jp/kiji/politics/photos/160217/plt16021721150020-p1.html http://www.iza.ne.jp/topics/flash/flash-m1.html http://www.iza.ne.jp/kiji/question/newslist/question-n1.html http://www.iza.ne.jp/kiji/newslist/kiji-n1.html",
     "url": "^https?://(www\\.)?iza\\.ne\\.jp/(kiji|topics)/.",
-    "pageElement": "//div[@class='text']/p|//article[@class=\"photo-main\"]|//section[@class='topics-top-section' or @class='news-category-section' or @class='category-top-section']/ul",
-    "nextLink": "//a[@class='next' or ../@class='button-next']"
+    "pageElement": "//div[contains(@class,'detail')]|//article[@class='photo-main']|//section[@class='topics-top-section' or @class='news-category-section' or @class='category-top-section']/ul",
+    "exampleUrl": "http://www.iza.ne.jp/kiji/events/news/140311/evt14031111550017-n1.html\r\nhttp://www.iza.ne.jp/kiji/politics/photos/160217/plt16021721150020-p1.html\r\nhttp://www.iza.ne.jp/kiji/newslist/kiji-n1.html\r\nhttp://www.iza.ne.jp/kiji/life/news/200220/lif20022020470047-n1.html",
+    "nextLink": "//a[@class='next-02' or @class='next' or ../@class='button-next']"
   },
-  "created_at": "2014-05-07T13:05:46+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m",
+  "resource_url": "http://wedata.net/items/74822",
+  "created_at": "2014-05-07T13:05:46+09:00",
+  "updated_at": "2020-03-03T10:16:28+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/74819",
