@@ -81,6 +81,6 @@
     "webpack-cli": "3.3.11",
     "webpack-dev-server": "3.10.3",
     "webpack-merge": "4.2.2",
-    "yargs": "15.2.0"
+    "yargs": "15.3.0"
   }
 }
