@@ -1486,17 +1486,17 @@
 {
   "resource_url": "http://wedata.net/items/82169",
   "name": "ノベルアップ＋",
-  "created_by": "t_f_m",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-05-29T20:24:48+09:00",
   "data": {
-    "Stylus": "#section_episode .content_inner.loading{visibility:visible;}",
-    "exampleUrl": "https://novelup.plus/story/884863135/544507921",
     "url": "^https://novelup\\.plus/story/",
-    "pageElement": "id('section_episode')/div[contains(concat(' ',@class,' '),' content_inner ')]/div",
+    "Stylus": "#section_episode .content_inner.loading{visibility:visible;}",
+    "pageElement": "id('section_episode')/div[contains(concat(' ',@class,' '),' content_inner ')]/div|id('section_episode')/div[@class='episode_list']/ul/li",
+    "exampleUrl": "https://novelup.plus/story/675015526/223041348\r\nhttps://novelup.plus/story/675015526",
     "nextLink": "//div[contains(@class,\"move_set\")]/div[last()]/a"
   },
-  "created_at": "2019-05-29T20:09:25+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m",
+  "created_at": "2019-05-29T20:09:25+09:00",
+  "updated_at": "2020-03-10T22:03:40+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/82168",
