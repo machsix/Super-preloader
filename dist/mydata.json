@@ -1918,7 +1918,7 @@
     "name": "爱美图吧",
     "url": "^https?://(?:www\\.)?(itmtu|moemzi)\\.com",
     "category": ["gallery", "nsfw"],
-    "nextLink": "css;.page-numbers.current+a",
+    "nextLink": "css;.page-numbers.current+a:not([class~=prev])",
     "autopager": {
       "enable": true,
       "pageElement": "//div[@id='image_div'] | //ul[@id='index_ajax_list']",
