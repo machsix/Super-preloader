@@ -5858,19 +5858,18 @@
   "created_at": "2017-09-25T23:21:25+09:00"
 },
 {
-  "resource_url": "http://wedata.net/items/81575",
   "name": "ORICON NEWS フォトギャラリー（画像まとめ）",
-  "created_by": "knoa-jp",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-09-24T20:56:29+09:00",
   "data": {
-    "exampleUrl": "http://www.oricon.co.jp/photo/2380/145854/",
-    "url": "^http://www\\.oricon\\.co\\.jp/photo/[0-9]+/[0-9]+/$",
+    "url": "^https://www\\.oricon\\.co\\.jp/photo/[0-9]+/[0-9]+/$",
     "pageElement": "//div[@class=\"main_photo_image\"]",
-    "insertBefore": "",
-    "nextLink": "//a[contains(@class, \"main_photo_next\")]"
+    "exampleUrl": "http://www.oricon.co.jp/photo/2380/145854/",
+    "nextLink": "//a[contains(concat(\" \",@class,\" \"), \" main_photo_next \")]"
   },
-  "created_at": "2017-09-24T20:56:29+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "knoa-jp",
+  "resource_url": "http://wedata.net/items/81575",
+  "created_at": "2017-09-24T20:56:29+09:00",
+  "updated_at": "2020-03-12T15:58:13+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/81554",
@@ -39749,18 +39748,20 @@
   "created_at": "2010-08-18T10:38:23+09:00"
 },
 {
-  "resource_url": "http://wedata.net/items/35244",
   "name": "国立国会図書館サーチ",
-  "created_by": "oquno",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-04-15T18:28:49+09:00",
   "data": {
-    "exampleUrl": "https://iss.ndl.go.jp/books?ar=4e1f&any=test&op_id=1\r\nhttps://iss.ndl.go.jp/books?rft.au=%E9%9B%84%E5%B1%B1%E9%96%A3+%E7%B7%A8&search_mode=advanced",
-    "url": "^https://iss\\.ndl\\.go\\.jp/books",
+    "url": "^https?://iss\\.ndl\\.go\\.jp/(?:books|api/openurl)\\?.+",
+    "exampleUrl2": "https://iss.ndl.go.jp/books?rft.au=%E9%9B%84%E5%B1%B1%E9%96%A3+%E7%B7%A8&search_mode=advanced",
+    "exampleUrl3": "https://iss.ndl.go.jp/api/openurl?any=test",
     "pageElement": "//div[contains(@class,'item_group_wrapper')]",
+    "exampleUrl": "https://iss.ndl.go.jp/books?ar=4e1f&any=test&op_id=1",
     "nextLink": "id('resultfooter')/ul/li/a[@class='rarrow']"
   },
-  "created_at": "2010-08-17T13:52:51+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "oquno",
+  "resource_url": "http://wedata.net/items/35244",
+  "created_at": "2010-08-17T13:52:51+09:00",
+  "updated_at": "2020-03-14T16:45:04+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/35207",
@@ -57357,20 +57358,20 @@
   "created_at": "2008-04-16T12:35:37+09:00"
 },
 {
-  "resource_url": "http://wedata.net/items/472",
-  "created_by": "swdyh",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "name": "Google Search",
   "data": {
-    "exampleUrl": "http://www.google.com/search?q=AutoPagerize\r\nhttp://www.google.co.jp/custom?q=firefox\r\nhttps://www.google.com/search?q=bucket&tbm=pts\r\nhttps://www.google.com/search?q=autopagerize&client=firefox-b-1-d&source=lnms&tbm=nws&sa=X&ved=0ahUKEwjImsSLhq7jAhVUa80KHbVfDPMQ_AUIECgB&biw=1536&bih=728",
-    "Stylish": "/* Displays images when using search preview extension. Example:https://www.google.com/search?q=food&num=20&source=lnms&tbm=nws&sa=X&ved=0ahUKEwjalvHv0OHWAhXD2SYKHSRwBqUQ_AUIDCgD */ @-moz-document domain(\"google.com\") { div.bkWMgd > div > div > a > img{ display: inline-block !important; }}",
-    "nextLink": "id('pnnext')|id('navbar navcnt nav')//td[span]/following-sibling::td[1]/a|id('nn')/parent::a",
-    "comment": "Google Custom Search Result: http://wedata.net/items/60908\r\nGoogle Movies: http://wedata.net/items/58112\r\nGoogle Shopping: http://wedata.net/items/38952\r\nGoogle Custom Search Result: http://wedata.net/items/60908",
     "url": "^https?://[^./]+\\.google(?:\\.[^./]{2,3}){1,2}/(?:c(?:se|ustom)|search|webhp|m|#)",
-    "pageElement": "id('res')//li[div]|//div[@class='gsc-webResult gsc-result' or @class='psli']|id('rso')//div[contains(concat(' ', normalize-space(@class), ' '), ' g _cy ') or contains(concat(' ', normalize-space(@class), ' '), ' bkWMgd ')]"
+    "pageElement": "id('rso')//div[g-card or @class='g']",
+    "Stylish": "/* Displays images when using search preview extension. Example:https://www.google.com/search?q=food&num=20&source=lnms&tbm=nws&sa=X&ved=0ahUKEwjalvHv0OHWAhXD2SYKHSRwBqUQ_AUIDCgD */ @-moz-document domain(\"google.com\") { div.bkWMgd > div > div > a > img{ display: inline-block !important; }}",
+    "exampleUrl": "http://www.google.com/search?q=AutoPagerize\r\nhttp://www.google.co.jp/custom?q=firefox\r\nhttps://www.google.com/search?q=bucket&tbm=pts\r\nhttps://www.google.com/search?q=autopagerize&client=firefox-b-1-d&source=lnms&tbm=nws&sa=X&ved=0ahUKEwjImsSLhq7jAhVUa80KHbVfDPMQ_AUIECgB&biw=1536&bih=728",
+    "nextLink": "id('pnnext')|id('navbar navcnt nav')//td[span]/following-sibling::td[1]/a|id('nn')/parent::a",
+    "comment": "Google Custom Search Result: http://wedata.net/items/60908\r\nGoogle Movies: http://wedata.net/items/58112\r\nGoogle Shopping: http://wedata.net/items/38952\r\nGoogle Custom Search Result: http://wedata.net/items/60908"
   },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "swdyh",
+  "resource_url": "http://wedata.net/items/472",
   "created_at": "2008-04-16T12:35:37+09:00",
-  "updated_at": "2019-09-05T06:28:44+09:00"
+  "updated_at": "2020-03-14T05:35:56+09:00"
 },
 {
   "name": "Getchu.com \u8a73\u7d30\u691c\u7d22",
