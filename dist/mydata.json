@@ -3877,5 +3877,21 @@
     "url": "https?://steamcommunity.com/app/\\d+/discussions/",
     "nextLink": "//a[@class='pagebtn' and contains(@id,'next')]",
     "pageElement": "//div[@class='forum_topics']"
+  },
+  {
+    "name": "春滿四合院",
+    "category": ["forum", "nsfw"],
+    "url": "^https?://(www\\.)?spring4u\\.info/forumdisplay\\.php",
+    "nextLink": "//a[contains(text(),'>')]",
+    "pageElement": "//html/body/center/form[1]",
+    "exampleUrl": "https://www.spring4u.info/forumdisplay.php?fid=9"
+  },
+  {
+    "name": "禁忌书屋",
+    "category": ["forum", "nsfw"],
+    "url": "^https?://(www\\.)?cool18\\.com/bbs4/index\\.php",
+    "nextLink": "//*[@id='d_list_page']/a[contains(text(),'下一页')]",
+    "pageElement": "//*[@id='d_list']/ul",
+    "exampleUrl": "https://www.cool18.com/bbs4/index.php?app=forum&act=cachepage&cp=tree1"
   }
 ]
