@@ -1,5 +1,20 @@
 [
 {
+  "resource_url": "http://wedata.net/items/85263",
+  "name": "bizSPA!フレッシュ（ビズスパ）",
+  "data": {
+    "url": "^https?://bizspa\\.jp/",
+    "pageElement": "//div[@class=\"entry-wrap\"]",
+    "exampleUrl": "https://bizspa.jp/post-286757/",
+    "insertBefore": "",
+    "nextLink": "//span[contains(concat(\" \",@class,\" \"),\"is-current\")]/following-sibling::span/a[@href]"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "replobfuscator",
+  "created_at": "2020-03-19T18:02:42+09:00",
+  "updated_at": "2020-03-19T18:02:42+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/85257",
   "name": "Maruzen eBook Library",
   "data": {
