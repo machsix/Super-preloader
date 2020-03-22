@@ -1,5 +1,34 @@
 [
 {
+  "resource_url": "http://wedata.net/items/85265",
+  "name": "green client",
+  "data": {
+    "url": "^https://(www\\\\.)?green-japan\\\\.com/client/search/.*",
+    "pageElement": "//*[@id=\"js-main-contents\"]/div/div[1]/div[5]/div[1]/ul",
+    "exampleUrl": "https://green-japan.com/client/search/1",
+    "nextLink": "//*[@id=\"js-main-contents\"]/div/div[1]/div[5]/div[1]/ul/li[5]"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "soma",
+  "created_at": "2020-03-22T19:26:46+09:00",
+  "updated_at": "2020-03-22T19:29:40+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85264",
+  "name": "号外NET",
+  "data": {
+    "url": "^https://(?:[^/]+?\\.)?goguynet\\.jp/",
+    "pageElement": "//div[@class=\"centerBox01Inner\"]",
+    "exampleUrl": "https://sapporonishi-teine.goguynet.jp/\r\nhttps://tomakomai.goguynet.jp/",
+    "insertBefore": "",
+    "nextLink": "//*[@rel=\"next\"]"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "brib2",
+  "created_at": "2020-03-22T16:14:38+09:00",
+  "updated_at": "2020-03-22T16:14:38+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/85263",
   "name": "bizSPA!フレッシュ（ビズスパ）",
   "data": {
