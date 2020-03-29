@@ -1916,7 +1916,7 @@
   },
   {
     "name": "爱美图吧",
-    "url": "^https?://(?:www\\.)?(itmtu|moemzi)\\.com",
+    "url": "^https?://(?:www\\.)?(itmtu|moemzi)\\.(?:com|net)",
     "category": ["gallery", "nsfw"],
     "nextLink": "css;.page-numbers.current+a:not([class~=prev])",
     "autopager": {
