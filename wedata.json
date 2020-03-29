@@ -52828,32 +52828,32 @@
   "created_at": "2008-08-20T12:28:03+09:00"
 },
 {
-  "resource_url": "http://wedata.net/items/2235",
-  "name": "Fotolia search",
-  "created_by": "kakutani",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-01-22T15:25:28+09:00",
+  "name": "Adobe Stock search",
   "data": {
-    "exampleUrl": "https://jp.fotolia.com/search?k=Ruby&search.x=0&search.y=0&order=relevance",
-    "url": "^https://[^.]+\\.fotolia\\.com/search",
-    "pageElement": "//div[@class='thumbs-list-inner']/div/a",
-    "nextLink": "//a[span/@class='sp-10 ico-arrow-right-full']"
+    "url": "^https://stock\\.adobe\\.com/jp/search\\?",
+    "pageElement": "id('search-results')/*",
+    "exampleUrl": "https://stock.adobe.com/jp/search?k=Ruby&as_campaign=ftmigration2&as_channel=dpcft&as_campclass=brand&as_source=ft_web&as_camptype=acquisition&as_audience=users&as_content=closure_search-result-page",
+    "nextLink": "//li[@class='pagination-next']/a"
   },
-  "created_at": "2008-08-20T10:17:29+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "kakutani",
+  "resource_url": "http://wedata.net/items/2235",
+  "created_at": "2008-08-20T10:17:29+09:00",
+  "updated_at": "2020-03-30T06:13:32+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/2233",
   "name": "WHOLE SWEET LIFE",
-  "created_by": "porkbits",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-01-22T15:22:45+09:00",
   "data": {
-    "exampleUrl": "http://gs.dengeki.com/news/",
     "url": "^https?://gs\\.dengeki\\.com/.",
-    "pageElement": "//div[@class='boxBtop']",
+    "pageElement": "//div[@class='boxBtop'][not(.//@class='monthly_list')]",
+    "exampleUrl": "http://gs.dengeki.com/news/",
     "nextLink": "//a[@rel='next']"
   },
-  "created_at": "2008-08-19T17:56:02+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "porkbits",
+  "created_at": "2008-08-19T17:56:02+09:00",
+  "updated_at": "2020-03-30T06:03:15+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/2232",
@@ -52882,34 +52882,6 @@
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_at": "2008-08-18T13:13:31+09:00",
   "name": "The Alphaville Herald"
-},
-{
-  "resource_url": "http://wedata.net/items/2224",
-  "name": "楽天ブログ",
-  "created_by": "pixe",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2016-01-30T12:35:18+09:00",
-  "data": {
-    "exampleUrl": "http://plaza.rakuten.co.jp/winesketch/diary/200807270000/",
-    "url": "^http://plaza\\.rakuten\\.co\\.jp/\\w+/",
-    "pageElement": "id('diarydate')|//div[@class='dTitle titleBar break-word' or @class='lo']",
-    "nextLink": "//a[.='過去の記事 >']"
-  },
-  "created_at": "2008-08-18T08:44:07+09:00"
-},
-{
-  "resource_url": "http://wedata.net/items/2219",
-  "name": "Second Life Forums",
-  "created_by": "haoyayoi",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-01-22T15:44:07+09:00",
-  "data": {
-    "exampleUrl": "https://community.secondlife.com/t5/forums/recentpostspage/post-type/message/category-id/Blogs https://community.secondlife.com/t5/Featured-News/bg-p/blog_feature_news https://community.secondlife.com/t5/Status-Grid/bg-p/status-blog",
-    "url": "^https://.+\\.secondlife\\.com/",
-    "pageElement": "id('messageList')//tr[td]|//div[starts-with(@id,'messageview')]",
-    "nextLink": "//a[@rel='next']"
-  },
-  "created_at": "2008-08-17T19:24:32+09:00"
 },
 {
   "name": "\u3068\u304d\u3081\u304d\u5927\u9053\u5bfa\u5148\u751f\uff01",
@@ -52956,16 +52928,16 @@
 {
   "resource_url": "http://wedata.net/items/2205",
   "name": "MacUpdate",
-  "created_by": "pixe",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-01-22T14:47:09+09:00",
   "data": {
-    "exampleUrl": "https://www.macupdate.com/",
     "url": "^https://(?:www\\.)?macupdate\\.com/",
-    "pageElement": "//div[@class='nfml-update-list-rows']",
-    "nextLink": "//a[@class='nfmlulp-btn nextbtn']"
+    "pageElement": "//div[@class='ui segment mu_fresh_results_line_list']|//div[@class='mu_categories_results_apps_top']/div/a",
+    "exampleUrl": "https://www.macupdate.com/fresh-mac-apps https://www.macupdate.com/explore/categories",
+    "nextLink": "//a[@type=\"nextItem\" or @class=\"mu_pagination_next_link\"]"
   },
-  "created_at": "2008-08-15T08:19:54+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "pixe",
+  "created_at": "2008-08-15T08:19:54+09:00",
+  "updated_at": "2020-03-29T20:47:43+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/2204",
@@ -53590,13 +53562,13 @@
     "url": "^https://[^.]+\\.ap\\.teacup\\.com/[^/]+/\\d+\\.html",
     "pageElement": "id('tcmainlay')/*",
     "exampleUrl": "https://sky.ap.teacup.com/dohiponta/1935.html",
-    "nextLink": "descendant::div[@class=\"nextpage\"][1][count(./a)>2]/a[last()]"
+    "nextLink": "descendant::div[@class=\"nextpage\"][1][count(./a)>2 or //meta[@property=\"og:url\"][not(contains(@content,\"/1.html\"))]]/a[last()]"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "wo",
   "resource_url": "http://wedata.net/items/1982",
   "created_at": "2008-07-14T22:54:09+09:00",
-  "updated_at": "2020-03-29T11:50:23+09:00"
+  "updated_at": "2020-03-29T20:42:15+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/1981",
@@ -55713,18 +55685,18 @@
   "updated_at": "2014-09-06T12:00:25+09:00"
 },
 {
+  "resource_url": "http://wedata.net/items/679",
   "name": "Think IT > free",
   "data": {
     "url": "^https?://thinkit\\.co\\.jp/free/",
-    "pageElement": "id('article_main') | //div[@class='article_main'] | //tr[td/span[contains(a, '次のページ') or contains(a, '前のページ')]]/following-sibling::*[following::*[contains(., '次のページ') or contains(., '前のページ')]] | //div[@class='col-sm-24 ']/div[@class='field field-name-body field-type-text-with-summary field-label-hidden']",
+    "pageElement": "id('article_main') | //div[@class='article_main'] | //tr[td/span[contains(a, '次のページ') or contains(a, '前のページ')]]/following-sibling::*[following::*[contains(., '次のページ') or contains(., '前のページ')]] | //div[@class=\"smart-paging-pager\"]/preceding-sibling::div[contains(@class,\"field-name-body\")]",
     "exampleUrl": "https://thinkit.co.jp/free/article/0709/26/\r\nhttps://thinkit.co.jp/free/article/0606/13/1/\r\nhttps://thinkit.co.jp/free/article/0606/13/2/\r\nhttps://thinkit.co.jp/free/project/6/1/\r\nhttps://thinkit.co.jp/free/marugoto/2/1/15/1.html",
-    "nextLink": "descendant::a[contains(., '次のページ')][last()]"
+    "nextLink": "descendant::a[contains(., '次のページ')][last()]|//a[@title=\"次のページへ\"]"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "swdyh",
-  "resource_url": "http://wedata.net/items/679",
   "created_at": "2008-04-16T12:36:28+09:00",
-  "updated_at": "2020-03-26T13:22:48+09:00"
+  "updated_at": "2020-03-29T22:07:09+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/677",
@@ -56102,13 +56074,13 @@
   "data": {
     "url": "^https://(?:www\\.)?(:?tokyotosho\\.(?:info|se)|tokyo-tosho\\.net)/",
     "pageElement": "id('main')/table[@class='listing']/tbody/tr[@class]",
-    "exampleUrl": "https://www.tokyotosho.info/",
-    "nextLink": "//a[contains(.,'>>')]"
+    "exampleUrl": "https://www.tokyotosho.info/ https://www.tokyotosho.info/search.php?terms=auto&type=0&searchName=true&searchComment=true&size_min=&size_max=&username=",
+    "nextLink": "//td[@class=\"nav\"][last()]/a|//form[@action=\"/search.php\"][last()]/preceding-sibling::*[1][self::p]/text()[string-length(normalize-space())>0]/following-sibling::a[1]"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "swdyh",
   "created_at": "2008-04-16T12:35:53+09:00",
-  "updated_at": "2020-03-26T06:36:49+09:00"
+  "updated_at": "2020-03-29T21:46:41+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/546",
@@ -56142,7 +56114,7 @@
   "resource_url": "http://wedata.net/items/541",
   "name": "FreeImages.com",
   "data": {
-    "url": "^https://(www\\.)?freeimages\\.com/.+",
+    "url": "^https://(.+)?freeimages\\.com/.+",
     "pageElement": "//div[@class='listing-data' or @class='listing-primary']/ul",
     "exampleUrl": "https://www.freeimages.com/search/hammock \r\nhttps://www.freeimages.com/image https://www.freeimages.com/premium",
     "nextLink": "//a[@rel='next']"
@@ -56150,7 +56122,7 @@
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "swdyh",
   "created_at": "2008-04-16T12:35:52+09:00",
-  "updated_at": "2020-03-26T06:20:15+09:00"
+  "updated_at": "2020-03-29T21:24:09+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/537",
@@ -56405,18 +56377,18 @@
   "updated_at": "2020-03-25T06:55:21+09:00"
 },
 {
+  "resource_url": "http://wedata.net/items/484",
   "name": "HMV",
   "data": {
     "url": "^https://(www\\.)?hmv\\.co\\.jp/",
     "pageElement": "//ul[@class='resultList']/li|//div[@class='resultPickupBlock']/ul",
     "exampleUrl": "https://www.hmv.co.jp/search/index.asp?keyword=magic\r\nhttps://www.hmv.co.jp/artist/productlist/000000000000169/formattype/1?sort=date&direction=1&pagesize=1&pagenum=1",
-    "nextLink": "//p[@class=\"linkBlock02']/a|//a[@class='trigger next']"
+    "nextLink": "//link[@rel=\"next\"]|//a[@class=\"trigger next\"]"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "swdyh",
-  "resource_url": "http://wedata.net/items/484",
   "created_at": "2008-04-16T12:35:39+09:00",
-  "updated_at": "2020-03-25T06:48:01+09:00"
+  "updated_at": "2020-03-29T21:09:39+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/480",
@@ -56634,14 +56606,14 @@
   "name": "CafePress",
   "data": {
     "url": "^https://(www\\.)?cafepress\\.com/.",
-    "pageElement": "//div[@class='items-wrap']",
+    "pageElement": "//div[@class='items-wrap']/div[@data-index]",
     "exampleUrl": "https://www.cafepress.com/+t-shirts",
     "nextLink": "//link[@rel='next']"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "swdyh",
   "created_at": "2008-04-16T12:35:29+09:00",
-  "updated_at": "2020-03-25T04:57:04+09:00"
+  "updated_at": "2020-03-29T20:55:21+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/434",
