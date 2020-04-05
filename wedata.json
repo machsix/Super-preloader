@@ -6,13 +6,12 @@
     "url": "^https://animageplus\\.jp/articles/",
     "pageElement": "//div[@class=\"articleDetailTxt\"]/div[starts-with(@class,\"detail-box-\")]",
     "exampleUrl": "https://animageplus.jp/articles/detail/30904/3/1/1",
-    "insertBefore": "",
-    "nextLink": "//div[@class=\"articleListPager\"]//li[@class=\"next\"]/a"
+    "nextLink": "//div[@class=\"articlesListPager\"]//li[@class=\"next\"]/a"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "t_f_m_",
   "created_at": "2020-04-05T21:42:51+09:00",
-  "updated_at": "2020-04-05T21:42:51+09:00"
+  "updated_at": "2020-04-06T00:26:48+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/85279",
@@ -51021,30 +51020,16 @@
 {
   "resource_url": "http://wedata.net/items/25823",
   "name": "The Hype Machine",
-  "created_by": "yamamaya",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2016-02-08T06:18:17+09:00",
   "data": {
-    "exampleUrl": "http://hypem.com/search/lou%20reed/",
-    "url": "^http://hypem\\.com/",
+    "url": "^https://hypem\\.com/",
     "pageElement": "id('track-list')/div[starts-with(@id,'section')]",
+    "exampleUrl": "https://hypem.com/search/lou%20reed/",
     "nextLink": "//a[@class='next']"
   },
-  "created_at": "2008-11-24T21:14:32+09:00"
-},
-{
-  "name": "\u30de\u30e1\u30bf\u901a\u5e33 [SLMaMe(\u30bd\u30e9\u30de\u30e1) \u7ba1\u7406\u753b\u9762]",
-  "updated_at": "2008-11-23T11:29:15+09:00",
-  "created_by": "haoyayoi",
-  "resource_url": "http:\/\/wedata.net\/items\/25815",
-  "database_resource_url": "http:\/\/wedata.net\/databases\/AutoPagerize",
-  "data": {
-    "pageElement": "\/\/table[@class=\"data_table\"]\/tbody\/tr[2]",
-    "url": "^http:\/\/www\\.slmame\\.com\/admin\/atja_point\\.php",
-    "nextLink": "\/\/div[@class=\"block\"]\/a[starts-with(text(),\"\u00ab\")]",
-    "exampleUrl": "http:\/\/www.slmame.com\/admin\/atja_point.php"
-  },
-  "created_at": "2008-11-23T11:29:15+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "yamamaya",
+  "created_at": "2008-11-24T21:14:32+09:00",
+  "updated_at": "2020-04-06T06:21:00+09:00"
 },
 {
   "name": "EMPflix search",
@@ -51087,20 +51072,6 @@
     "exampleUrl": "http:\/\/ordermade.net\/con\/sample_list.cgi?PDID=430&MODE=2"
   },
   "created_at": "2008-11-21T06:14:28+09:00"
-},
-{
-  "name": "FOB \u753b\u50cf\u63b2\u793a\u677f",
-  "updated_at": "2008-11-20T06:39:17+09:00",
-  "created_by": "x2xx",
-  "resource_url": "http:\/\/wedata.net\/items\/25791",
-  "database_resource_url": "http:\/\/wedata.net\/databases\/AutoPagerize",
-  "data": {
-    "pageElement": "\/\/td[contains(@class,\"bbsCont1\")]\/table[contains(@class,\"bbsContEnt\")]",
-    "url": "^http:\/\/(?:www\\.)?[^-]+-bbs\\.com\/cgi-bin\/bbs\/",
-    "nextLink": "\/\/a[starts-with(@href,\"?page=\") and preceding-sibling::b]",
-    "exampleUrl": "http:\/\/red-bbs.com\/cgi-bin\/bbs\/"
-  },
-  "created_at": "2008-11-20T04:00:29+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/25739",
@@ -51159,20 +51130,6 @@
   "created_at": "2008-11-12T17:12:54+09:00"
 },
 {
-  "name": "\u65b0\u30b8\u30e3\u30f3\u30eb\u300c\u8aa4\u89e3\u6bba\u6c17\u300d\u30a8\u30d4\u30bd\u30fc\u30c9\uff5e\u3068\u3089\u3044\u3093\uff5e",
-  "updated_at": "2010-12-07T23:33:34+09:00",
-  "resource_url": "http:\/\/wedata.net\/items\/25721",
-  "created_by": "raitu",
-  "database_resource_url": "http:\/\/wedata.net\/databases\/AutoPagerize",
-  "data": {
-    "pageElement": "\/\/p\/*[self::br or self::img]",
-    "url": "^http:\/\/www5a\\.biglobe\\.ne\\.jp\/~yo-he-\/",
-    "nextLink": "\/\/a[text()=\"\u6b21\u3078\"]",
-    "exampleUrl": "http:\/\/www5a.biglobe.ne.jp\/~yo-he-\/ep01.html"
-  },
-  "created_at": "2008-11-12T13:53:19+09:00"
-},
-{
   "resource_url": "http://wedata.net/items/25720",
   "name": "電撃オンライン",
   "created_by": "wfas",
@@ -51217,16 +51174,16 @@
 {
   "resource_url": "http://wedata.net/items/25699",
   "name": "Good Smile Company　商品　案内日順",
-  "created_by": "haoyayoi",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-01-25T06:46:03+09:00",
   "data": {
-    "exampleUrl": "http://www.goodsmile.info/ja/products/page/1",
     "url": "^https?://(www\\.)?goodsmile.info/[^/]+/products/page",
-    "pageElement": "//div[@class='hitList clearfix']",
+    "pageElement": "//div[@class='hitList clearfix']/*",
+    "exampleUrl": "http://www.goodsmile.info/ja/products/page/1",
     "nextLink": "//a[@rel='next']"
   },
-  "created_at": "2008-11-07T09:03:03+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "haoyayoi",
+  "created_at": "2008-11-07T09:03:03+09:00",
+  "updated_at": "2020-04-06T05:56:57+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/25695",
@@ -51257,32 +51214,32 @@
   "created_at": "2008-11-05T22:05:03+09:00"
 },
 {
-  "name": "CANPAN\u30d6\u30ed\u30b0 \u8a18\u4e8b\u30da\u30fc\u30b8",
-  "updated_at": "2008-11-05T10:33:05+09:00",
-  "created_by": "shh",
-  "resource_url": "http:\/\/wedata.net\/items\/25686",
-  "database_resource_url": "http:\/\/wedata.net\/databases\/AutoPagerize",
+  "resource_url": "http://wedata.net/items/25686",
+  "name": "CANPANブログ 記事ページ",
   "data": {
-    "pageElement": "id(\"container\")\/\/div[@class=\"entry\"]",
-    "url": "^http:\/\/blog\\.canpan\\.info\/[^\/]+\/archive",
-    "nextLink": "id(\"container\")\/div[@class=\"page\"]\/a",
-    "exampleUrl": "http:\/\/blog.canpan.info\/eco-apa\/archive\/389"
+    "url": "^https://blog\\.canpan\\.info/[^/]+/archive",
+    "pageElement": "id('container')//div[@class='entry']",
+    "exampleUrl": "http://blog.canpan.info/eco-apa/archive/389",
+    "nextLink": "id('container')/div[@class='page']/a"
   },
-  "created_at": "2008-11-05T05:13:08+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "shh",
+  "created_at": "2008-11-05T05:13:08+09:00",
+  "updated_at": "2020-04-06T05:50:52+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/25680",
   "name": "IGN",
-  "created_by": "kiyosick",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-08-25T00:44:07+09:00",
   "data": {
-    "exampleUrl": "http://xbox360.ign.com/articles/926/926305p1.html\r\nhttp://www.ign.com/articles/2014/05/07/how-burtons-batman-changed-hollywood\r\nhttp://www.ign.com/top/movie-moments/98\r\nhttp://www.ign.com/articles/2010/11/20/the-top-25-nintendo-ds-games?page=2",
-    "url": "http://www.ign.com/*",
+    "url": "^https://(www\\.)?ign\\.com/.",
     "pageElement": "//div[@class=\"article_content\" or @class=\"article-content\"]/*[not(@class=\"prev-page icon-pointy-back\" or (@class='img-div ' and contains(a/img/@src,'nextgame_button')) or @class='accentDivider' or @class='aligncenter')]|id('topnitem topnitem_body')",
+    "exampleUrl": "http://xbox360.ign.com/articles/926/926305p1.html\r\nhttp://www.ign.com/articles/2014/05/07/how-burtons-batman-changed-hollywood\r\nhttp://www.ign.com/top/movie-moments/98\r\nhttp://www.ign.com/articles/2010/11/20/the-top-25-nintendo-ds-games?page=2",
     "nextLink": "//a[starts-with(.,'Next')]"
   },
-  "created_at": "2008-11-04T11:44:54+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "kiyosick",
+  "created_at": "2008-11-04T11:44:54+09:00",
+  "updated_at": "2020-04-06T05:48:41+09:00"
 },
 {
   "name": "AVFANTAY.COM",
