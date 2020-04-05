@@ -8,18 +8,25 @@
     <b><%= scriptInfo.changelog %></b></li>
   <li>规则数目: <b><%= prefs.numOfRule %></b> 下次更新时间: <b><%= nextUpdateDate %></b>
     <button id="sp-prefs-updaterule">更新规则</button></li>
-  <li><input type="checkbox" id="sp-prefs-debug" /> 调试模式</li>
-  <li><input title="强制开启中文界面" type="checkbox" id="sp-prefs-ChineseUI" /> 中文界面</li>
+  <li>
+    <input type="checkbox" id="sp-prefs-debug" /> 调试模式
+    <input class="inputShift" type="checkbox" id="sp-prefs-ChineseUI" /> 中文界面
+    <input class="inputShift" type="checkbox" id="sp-prefs-floatWindow" /> 开启悬浮窗
+  </li>
   <li><input type="checkbox" id="sp-prefs-enableHistory" /> 添加下一页到历史记录</li>
   <li><input type="checkbox" id="sp-prefs-dblclick_pause" /> 鼠标双击暂停翻页（默认为 Ctrl + 长按左键）</li>
-  <li><input type="checkbox" id="sp-prefs-SITEINFO_D-useiframe" /> 全局启用iframe方式
-  <li><input title="启用自动翻页，否则仅启用预读" type="checkbox" id="sp-prefs-SITEINFO_D-a_enable" checked /> 启用自动翻页 </li>
+  <li>
+    <input title="启用自动翻页，否则仅启用预读" type="checkbox" id="sp-prefs-SITEINFO_D-a_enable" checked /> 自动翻页
+    <input class="inputShift" type="checkbox" id="sp-prefs-SITEINFO_D-useiframe" /> 全局iframe方式
+    <input class="inputShift" title="强行拼接规则中没有的站点，不建议启用" type="checkbox" id="sp-prefs-SITEINFO_D-a_force_enable" />
+    全局强制拼接（不建议）
+  </li>
   <li><input type="checkbox" id="sp-prefs-arrowKeyPage" /> 使用 &larr; &rarr; 翻页 </li>
-  <li><input title="强行拼接规则中没有的站点，不建议启用" type="checkbox" id="sp-prefs-SITEINFO_D-a_force_enable" /> 启用强制拼接（不建议）</li>
   <li>自定义排除列表：
     <div><textarea id="sp-prefs-excludes" placeholder="自定义排除列表，支持通配符。\n例如：http://*.douban.com/*"></textarea></div>
   </li>
-  <li>自定义站点规则：
+  <li><a href="https://machsix.github.io/Super-preloader/zh-cn/siterule.html" style="color: blue;"
+      target="_blank">自定义站点规则：</a>
     <div><textarea id="sp-prefs-custom_siteinfo" placeholder="自定义站点规则"></textarea></div>
   </li>
 </ul>

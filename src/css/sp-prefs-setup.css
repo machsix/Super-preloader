@@ -42,6 +42,9 @@
   background: white;
   margin: 0px;
 }
+#sp-prefs-setup input.inputShift {
+  margin-left: 2px;
+}
 #sp-prefs-setup li {
   margin: 0;
   padding: 5px 0;

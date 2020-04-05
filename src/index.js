@@ -579,6 +579,7 @@ import notice from "utils/notice";
           prefs.dblclick_pause = !!$("dblclick_pause").checked;
           prefs.excludes = $("excludes").value;
           prefs.arrowKeyPage = !!$("arrowKeyPage").checked;
+          prefs.floatWindow = !!$("floatWindow").checked;
 
           SITEINFO_D.useiframe = !!$("SITEINFO_D-useiframe").checked;
           SITEINFO_D.autopager.enable = !!$("SITEINFO_D-a_enable").checked;
@@ -626,6 +627,7 @@ import notice from "utils/notice";
 
         $("debug").checked = logger.getLevel() === logger.levels.DEBUG;
         $("ChineseUI").checked = prefs.ChineseUI;
+        $("floatWindow").checked = prefs.floatWindow;
         $("enableHistory").checked = prefs.enableHistory;
         // $('forceTargetWindow').checked = prefs.forceTargetWindow;
         $("dblclick_pause").checked = prefs.dblclick_pause;

@@ -9,10 +9,14 @@
     <b><%= scriptInfo.changelog %></b></li>
   <li>Number of Rules: <b><%= prefs.numOfRule %></b> Next update: <b><%= nextUpdateDate %></b> <button
       id="sp-prefs-updaterule">Update rules</button></li>
-  <li><input type="checkbox" id="sp-prefs-debug" /> Debug mode</li>
-  <li><input type="checkbox" tile="English/Chinese UI" id="sp-prefs-ChineseUI" /> Chinese UI</li>
+  <li>
+    <input type="checkbox" id="sp-prefs-debug" /> Debug mode
+    <input class="inputShift" type="checkbox" tile="English/Chinese UI" id="sp-prefs-ChineseUI" /> Chinese UI
+    <input class="inputShift" type="checkbox" id="sp-prefs-floatWindow" /> Float window
+  </li>
   <li><input type="checkbox" id="sp-prefs-enableHistory" /> Add next page to history</li>
-  <li><input type="checkbox" id="sp-prefs-dblclick_pause" /> Double click to stop preload (Default: Ctrl + Long Left)
+  <li>
+    <input type="checkbox" id="sp-prefs-dblclick_pause" /> Double click to stop preload (Default: Ctrl + Long Left)
   </li>
   <li><input type="checkbox" id="sp-prefs-SITEINFO_D-useiframe" /> Enable iframe mode globally</li>
   <li><input type="checkbox" title="Enable autopagger, otherwise only prefetcher is enabled"
@@ -24,7 +28,8 @@
     <div><textarea id="sp-prefs-excludes"
         placeholder="Customized excludes, support regex\nEx: http://*.douban.com/*"></textarea></div>
   </li>
-  <li>Custom rules:
+  <li><a href="https://machsix.github.io/Super-preloader/siterule.html" style="color: blue;" target="_blank">Custom
+      rules:</a>
     <div><textarea id="sp-prefs-custom_siteinfo" placeholder="Custom rules"></textarea></div>
   </li>
 </ul>
