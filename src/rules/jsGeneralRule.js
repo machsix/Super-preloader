@@ -43,7 +43,7 @@ export const jsGeneralRule = [
       lazyImgSrc: "zoomfile",
       stylish:
         '.mbbs_code{font-family:Monaco,Consolas,"Lucida Console","Courier New",serif;font-size:12px;line-height:1.8em;list-style-type:decimal-leading-zero;padding-left:10px;background:none repeat scroll 0 0 #f7f7f7;color:#666;border:1px solid #ccc;overflow:hidden;padding:10px 0 5px 10px}',
-      filter: function(_pages) {
+      filter: function (_pages) {
         // 回复后插入到最后一页
         const replays = document.querySelectorAll("#postlistreply");
         if (replays.length > 1) {
@@ -57,10 +57,10 @@ export const jsGeneralRule = [
         //     SyntaxHighlighter.highlight();
         // }
       },
-      documentFilter: function(doc) {
+      documentFilter: function (doc) {
         // 卡饭论坛的下一页代码区域可能无法着色，所以手动修改并添加样式
         const pres = doc.querySelectorAll('pre[class^="brush:"]');
-        [].forEach.call(pres, function(pre) {
+        [].forEach.call(pres, function (pre) {
           pre.classList.add("mbbs_code");
         });
       }
@@ -175,7 +175,7 @@ export const jsGeneralRule = [
     url: "^https?://",
     nextLink: "//ol[@class='page-navigator']/li[@class='next']/a",
     autopager: {
-      pageElement: function(doc, _win, _cplink) {
+      pageElement: function (doc, _win, _cplink) {
         const gen = getElementByXpath("//head/meta[@name='generator']", doc, doc);
         if (!gen || !gen.content.includes("Typecho") || !doc.documentElement.outerHTML.includes("Typecho")) {
           return null;
@@ -192,7 +192,7 @@ export const jsGeneralRule = [
   {
     name: "WordPress",
     url: "^https?://[^/]+(/page/\\d+)?",
-    nextLink: function(_doc, _win, _cplink) {
+    nextLink: function (_doc, _win, _cplink) {
       const cplink = _cplink.replace(/^(.*)(#[^\/]*)?$/, "$1");
       if (cplink.slice(cplink.length - 5, cplink.length) === ".html") {
         return undefined;
@@ -209,7 +209,7 @@ export const jsGeneralRule = [
       }
     },
     autopager: {
-      pageElement: function(doc, win, _cplink) {
+      pageElement: function (doc, win, _cplink) {
         const blackList = [/^https?:\/\/bwg\.net\/?$/, /^https?:\/\/sunbox\.cc\/?$/, /^https?:\/\/anime1\.me/, /^https?:\/\/github\.com/];
         for (var i = 0; i < blackList.length; i++) {
           if (blackList[i].test(_cplink)) {

@@ -1,7 +1,7 @@
 const {spawnSync} = require("child_process");
 const path = require("path");
 
-const gitLog = function(obj, repoDir, magicKey) {
+const gitLog = function (obj, repoDir, magicKey) {
   const args = ["log"];
   magicKey = magicKey || "^^";
   repoDir = repoDir || "../";

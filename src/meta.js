@@ -32,7 +32,7 @@ const NOTIFICATION = {
   },
   title: SCRIPT_INFO.name,
   image: SCRIPT_INFO.icon,
-  onload: function() {},
+  onload: function () {},
   // eslint-disable-next-line no-unused-vars
   show: (oldVersion, newVersion) => compareVersions(oldVersion, "6.11.0") < 0 && compareVersions(newVersion, "6.11.0") >= 0
 };

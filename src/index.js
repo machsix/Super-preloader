@@ -27,7 +27,7 @@ import jsonRuleLoader from "utils/json-rule";
 import logger from "utils/logger";
 import notice from "utils/notice";
 
-(function() {
+(function () {
   logger.setLevel("debug");
   // use charset from currentDocument
   const gotConfig = {
@@ -73,7 +73,7 @@ import notice from "utils/notice";
   if (CheckIframe()) {
     // 搜狗,iframe里面怎么不加载js啊?
     // 去掉了原版的另一种方法，因为新版本 chrome 已经支持。旧版本 chrome iframe里面 无法访问window.parent,返回undefined
-    const domLoaded = function() {
+    const domLoaded = function () {
       //window.scroll(window.scrollX, 99999);
       const mutationObserver = window.frameElement ? JSON.parse(window.frameElement.getAttribute("mutationObserver")) : null;
       if (!mutationObserver) {
@@ -454,7 +454,7 @@ import notice from "utils/notice";
   /// ////////////////////////////////////////////////////////////////
   // eslint-disable-next-line prettier/prettier
   Promise.all([GM.getValue("prefs", prefsFactory), GM.getValue("SITEINFO_D", SITEINFO_DFactory), GM.getValue("autoMatch", autoMatchFactory), GM.getValue("version", myOldVersion), jsonRuleLoader.loadDB()])
-    .then(function(values) {
+    .then(function (values) {
       [prefs, SITEINFO_D, autoMatch, myOldVersion] = values;
 
       if (compareVersions(myOldVersion, scriptInfo.rewriteStorage) === -1) {
@@ -525,14 +525,14 @@ import notice from "utils/notice";
         // 'http://*.douban.com/*',
       ];
       blackList = blackList.concat(
-        prefs.excludes.split(/[\n\r]+/).map(function(line) {
+        prefs.excludes.split(/[\n\r]+/).map(function (line) {
           return line.trim();
         })
       );
-      const setup = function() {
+      const setup = function () {
         const d = document;
 
-        const $ = function(s) {
+        const $ = function (s) {
           return d.getElementById("sp-prefs-" + s);
         };
         if ($("setup")) return;
@@ -567,7 +567,7 @@ import notice from "utils/notice";
           node.addEventListener(e, f, false);
         };
 
-        on($("ok"), "click", function() {
+        on($("ok"), "click", function () {
           prefs.ChineseUI = !!$("ChineseUI").checked;
           // document.getElementById('sp-fw-container').innerHTML = floatWindowUI();
           prefs.custom_siteinfo = $("custom_siteinfo").value;
@@ -586,7 +586,7 @@ import notice from "utils/notice";
 
           autoMatch.useiframe = SITEINFO_D.useiframe;
 
-          Promise.all([GM.setValue("prefs", prefs), GM.setValue("SITEINFO_D", SITEINFO_D), GM.setValue("autoMatch", autoMatch)]).then(function(values) {
+          Promise.all([GM.setValue("prefs", prefs), GM.setValue("SITEINFO_D", SITEINFO_D), GM.setValue("autoMatch", autoMatch)]).then(function (values) {
             SP.loadSetting();
             close();
             location.reload();
@@ -602,7 +602,7 @@ import notice from "utils/notice";
           });
         });
 
-        on($("updaterule"), "click", function() {
+        on($("updaterule"), "click", function () {
           getElementByCSS("#sp-prefs-setup ul").remove();
           getElementByCSS("#sp-prefs-setup div:last-child").remove();
           const div = domTools.create("div", {
@@ -639,7 +639,7 @@ import notice from "utils/notice";
 
       // main functions
       const SP = {
-        spinit: function() {
+        spinit: function () {
           if (document.body.getAttribute("name") === "MyNovelReader") {
             return;
           }
@@ -654,7 +654,7 @@ import notice from "utils/notice";
 
           // 查找是否是页面不刷新的站点
           const locationHref = location.href;
-          const hashSite = _.find(HashchangeSites, function(x) {
+          const hashSite = _.find(HashchangeSites, function (x) {
             return toRE(x.url).test(locationHref);
           });
 
@@ -662,10 +662,10 @@ import notice from "utils/notice";
             isHashchangeSite = true;
             hashchangeTimer = hashSite.timer;
             logger.debug("当前是页面不刷新的站点", hashSite);
-            const p1 = new Promise(function(resolve, reject) {
+            const p1 = new Promise(function (resolve, reject) {
               setTimeout(resolve, hashchangeTimer);
             });
-            p1.then(function(values) {
+            p1.then(function (values) {
               init(window, document);
             });
           } else {
@@ -677,13 +677,13 @@ import notice from "utils/notice";
             addStyle("div.sp-separator { min-width:auto !important; }");
           }
         },
-        loadSetting: function() {
+        loadSetting: function () {
           const a_enable = SITEINFO_D.autopager.enable;
           if (a_enable !== undefined) {
             SITEINFO_D.autopager.enable = a_enable;
           }
 
-          const loadDblclickPause = function(reload) {
+          const loadDblclickPause = function (reload) {
             const dblclickPause = prefs.dblclick_pause;
             if (dblclickPause) {
               prefs.mouseA = false;
@@ -693,7 +693,7 @@ import notice from "utils/notice";
             if (reload) location.reload();
           };
 
-          const loadCustomSiteInfo = function() {
+          const loadCustomSiteInfo = function () {
             let userRules;
             try {
               userRules = new Function("", "return " + prefs.custom_siteinfo)();
@@ -721,7 +721,7 @@ import notice from "utils/notice";
       function init(window, document) {
         const startTime = new Date();
 
-        const nullFn = function() {}; // 空函数.
+        const nullFn = function () {}; // 空函数.
         const url = document.location.href.replace(/#.*$/, ""); // url 去掉hash
         var cplink = url; // 翻上来的最近的页面的url;
         const domain = document.domain; // 取得域名.
@@ -753,10 +753,10 @@ import notice from "utils/notice";
           const spanel = $("sp-fw-content"); // 设置面板.
 
           const spanelc = {
-            show: function() {
+            show: function () {
               spanel.style.display = "block";
             },
-            hide: function() {
+            hide: function () {
               spanel.style.display = "none";
             }
           };
@@ -764,14 +764,14 @@ import notice from "utils/notice";
           // 设置面板显隐
           rect.addEventListener(
             "mouseover",
-            function(e) {
+            function (e) {
               rectt1 = setTimeout(spanelc.show, 100);
             },
             false
           );
           rect.addEventListener(
             "mouseout",
-            function(e) {
+            function (e) {
               clearTimeout(rectt1);
             },
             false
@@ -779,7 +779,7 @@ import notice from "utils/notice";
 
           div.addEventListener(
             "mouseover",
-            function(e) {
+            function (e) {
               clearTimeout(rectt2);
             },
             false
@@ -787,7 +787,7 @@ import notice from "utils/notice";
 
           div.addEventListener(
             "mouseout",
-            function(e) {
+            function (e) {
               if (e.relatedTarget && e.relatedTarget.disabled) return; // for firefox and chrome
               rectt2 = setTimeout(spanelc.hide, 288);
             },
@@ -823,7 +823,7 @@ import notice from "utils/notice";
           const a_newIframe = $("sp-fw-a_newIframe");
           a_newIframe.addEventListener(
             "click",
-            function() {
+            function () {
               a_useiframe.checked = a_newIframe.checked;
             },
             false
@@ -832,7 +832,7 @@ import notice from "utils/notice";
           const a_starti = $("sp-fw-a_starti"); // 开始立即翻页
           a_starti.addEventListener(
             "click",
-            function(e) {
+            function (e) {
               if (e.currentTarget.disabled) return;
               var value = Number(a_ipages_1.value);
               if (isNaN(value) || value <= 0) {
@@ -852,7 +852,7 @@ import notice from "utils/notice";
           const savebutton = $("sp-fw-savebutton");
           savebutton.addEventListener(
             "click",
-            function(e) {
+            function (e) {
               const value = {
                 Rurl: SSS.Rurl,
                 useiframe: gl(useiframe),
@@ -896,7 +896,7 @@ import notice from "utils/notice";
               saveValue("spfwset", xToString(SSS.savedValue));
               if (e.shiftKey ? !prefs.FW_RAS : prefs.FW_RAS) {
                 // 按住shift键,执行反向操作.
-                setTimeout(function() {
+                setTimeout(function () {
                   location.reload();
                 }, 1);
               }
@@ -968,14 +968,14 @@ import notice from "utils/notice";
           }
 
           floatWO = {
-            updateColor: function(state) {
+            updateColor: function (state) {
               rect.style.backgroundColor = FWKG_color[state];
               rect.setAttribute("title", FWKG_state[state]);
             },
-            loadedIcon: function(command) {
+            loadedIcon: function (command) {
               dot.style.display = command == "show" ? "block" : "none";
             },
-            CmodeIcon: function(command) {
+            CmodeIcon: function (command) {
               cur_mode.style.display = command == "show" ? "block" : "none";
             }
           };
@@ -1045,7 +1045,7 @@ import notice from "utils/notice";
 
           function getRelativeDiv(which) {
             var id = div.id;
-            id = id.replace(/(sp-separator-)(.+)/, function(a, b, c) {
+            id = id.replace(/(sp-separator-)(.+)/, function (a, b, c) {
               return b + String(Number(c) + (which == "pre" ? -1 : 1));
             });
             return id ? document.getElementById(id) : null;
@@ -1163,15 +1163,15 @@ import notice from "utils/notice";
 
           var addIntoDoc;
           if (insertMode == -1 || insertMode == 1) {
-            addIntoDoc = function(obj) {
+            addIntoDoc = function (obj) {
               return insertPointP.insertBefore(obj, insertPoint);
             };
           } else if (insertMode == 2) {
-            addIntoDoc = function(obj) {
+            addIntoDoc = function (obj) {
               return insertPoint.appendChild(obj);
             };
           } else if (insertMode == 0) {
-            addIntoDoc = function(obj) {
+            addIntoDoc = function (obj) {
               return insertPointP.insertBefore(obj, insertPoint.nextSibling);
             };
           }
@@ -1246,7 +1246,7 @@ import notice from "utils/notice";
             logger.debug("触发 Hashchang 事件");
             removeL(true);
 
-            setTimeout(function() {
+            setTimeout(function () {
               nextlink = getElement(SSS.nextLink || "auto;");
               nextlink = getFullHref(nextlink);
               // preLink = getElement(SSS.preLink || 'auto;');
@@ -1261,7 +1261,7 @@ import notice from "utils/notice";
             const iframe = event.currentTarget;
             const body = iframe.contentDocument.body;
             if (body && body.firstChild) {
-              setTimeout(function() {
+              setTimeout(function () {
                 doc = iframe.contentDocument;
                 removeScripts(doc, SSS.a_scriptFilter);
                 win = iframe.contentWindow || doc;
@@ -1307,11 +1307,11 @@ import notice from "utils/notice";
               }
               if (SSS.a_iloaded) {
                 i.addEventListener("load", iframeLoaded, false);
-                remove.push(function() {
+                remove.push(function () {
                   i.removeEventListener("load", iframeLoaded, false);
                 });
               } else {
-                const messagehandler = function(e) {
+                const messagehandler = function (e) {
                   if (!messageR && e.data == "superpreloader-iframe:DOMLoaded") {
                     messageR = true;
                     iframeLoaded.call(i, {currentTarget: i});
@@ -1321,7 +1321,7 @@ import notice from "utils/notice";
                   }
                 };
                 window.addEventListener("message", messagehandler, false);
-                remove.push(function() {
+                remove.push(function () {
                   window.removeEventListener("message", messagehandler, false);
                 });
               }
@@ -1355,7 +1355,7 @@ import notice from "utils/notice";
               };
               got
                 .get(nextlink, reqConf)
-                .then(function(res) {
+                .then(function (res) {
                   if (res.finalUrl === cplink) {
                     logger.debug("最终地址相同");
                     XHRNotLoaded(res);
@@ -1363,7 +1363,7 @@ import notice from "utils/notice";
                     XHRLoaded(res);
                   }
                 })
-                .catch(function(res) {
+                .catch(function (res) {
                   XHRNotLoaded(res);
                 });
               logger.debug("读取完成");
@@ -1463,7 +1463,7 @@ import notice from "utils/notice";
               document.body.appendChild(div);
               div.addEventListener(
                 "click",
-                function(e) {
+                function (e) {
                   if (e.target.id == "sp-sp-md-number") return;
                   spage(document.getElementById("sp-sp-md-number"));
                   manualDiv.remove();
@@ -1683,7 +1683,7 @@ import notice from "utils/notice";
             // 处理下一页内容部分链接是否新标签页打开
             if (prefs.forceTargetWindow) {
               const arr = Array.prototype.slice.call(fragment.querySelectorAll('a[href]:not([href^="mailto:"]):not([href^="javascript:"]):not([href^="#"])'));
-              arr.forEach(function(elem) {
+              arr.forEach(function (elem) {
                 elem.setAttribute("target", "_blank");
                 if (elem.getAttribute("onclick") == "atarget(this)") {
                   // 卡饭论坛的控制是否在新标签页打开
@@ -1749,7 +1749,7 @@ import notice from "utils/notice";
 
             if (imgs) {
               // 非opera,在iframeDOM取出数据时需要重载图片.
-              setTimeout(function() {
+              setTimeout(function () {
                 const _imgs = imgs;
                 var i, ii, img;
                 for (i = 0, ii = _imgs.length; i < ii; i++) {
@@ -1805,7 +1805,7 @@ import notice from "utils/notice";
               removeL();
               return;
             }
-            const delayiframe = function(fn) {
+            const delayiframe = function (fn) {
               setTimeout(fn, 199);
             };
             if (nextlink) {
@@ -1866,7 +1866,7 @@ import notice from "utils/notice";
             const button_2 = Sbutton[prefs.Pbutton[1]];
             const button_3 = Sbutton[prefs.Pbutton[2]];
 
-            const pauseIt = function() {
+            const pauseIt = function () {
               pause = !pause;
               if (prefs.stop_ipage) ipagesmode = false;
               if (pause) {
@@ -1889,12 +1889,12 @@ import notice from "utils/notice";
             };
             var Sctimeout;
 
-            const clearPause = function() {
+            const clearPause = function () {
               clearTimeout(Sctimeout);
               document.removeEventListener("mouseup", clearPause, false);
             };
 
-            const pausehandler = function(e) {
+            const pausehandler = function (e) {
               if (!SSS.a_manualA || ipagesmode) {
                 if (e[button_1] && e[button_2] && e[button_3]) {
                   if (e.type == "mousedown") {
@@ -1907,7 +1907,7 @@ import notice from "utils/notice";
               }
             };
             document.addEventListener(ltype, pausehandler, false);
-            remove.push(function() {
+            remove.push(function () {
               document.removeEventListener(ltype, pausehandler, false);
             });
           }
@@ -1934,12 +1934,12 @@ import notice from "utils/notice";
             timeout = setTimeout(scroll, 100);
           }
           window.addEventListener("scroll", timeoutfn, false);
-          remove.push(function() {
+          remove.push(function () {
             window.removeEventListener("scroll", timeoutfn, false);
           });
 
           autoPO = {
-            startipages: function(value) {
+            startipages: function (value) {
               if (value > 0) {
                 ipagesmode = true;
                 ipagesnumber = value + paged;
@@ -2009,7 +2009,7 @@ import notice from "utils/notice";
             ";
             iframe.addEventListener(
               "load",
-              function(e) {
+              function (e) {
                 const body = e.currentTarget.contentDocument.body;
                 if (body && body.firstChild) {
                   floatWO.updateColor("prefetcher");
@@ -2092,7 +2092,7 @@ import notice from "utils/notice";
 
         // 是否在frame上加载..
         if (prefs.DisableI && window.self != window.parent) {
-          const isReturn = !_.find(DIExclude, function(x) {
+          const isReturn = !_.find(DIExclude, function (x) {
             return x[1] && x[2].test(url);
           });
           if (isReturn) {
@@ -2116,7 +2116,7 @@ import notice from "utils/notice";
 
         let SSS = {};
 
-        const findCurSiteInfo = function() {
+        const findCurSiteInfo = function () {
           const SIIAD = SITEINFO_D.autopager;
           var Rurl;
           const ii = SSRules.length;
@@ -2217,7 +2217,7 @@ import notice from "utils/notice";
                 SSS.a_scriptFilter = SIIA.scriptFilter === undefined ? "" : SIIA.scriptFilter;
                 if (typeof SSS.a_documentFilter === "string") {
                   if (SSS.a_documentFilter === "startFilter") {
-                    SSS.a_documentFilter = function(doc, nextLink) {
+                    SSS.a_documentFilter = function (doc, nextLink) {
                       return SII.autopager.startFilter(doc);
                     };
                   }
@@ -2298,10 +2298,10 @@ import notice from "utils/notice";
         }
 
         const superPreloader = {
-          go: function() {
+          go: function () {
             if (nextlink) window.location.href = nextlink;
           },
-          back: function() {
+          back: function () {
             if (!prelink) getElement("auto;");
             if (prelink) window.location.href = prelink;
           }
@@ -2311,7 +2311,7 @@ import notice from "utils/notice";
           logger.debug("添加键盘左右方向键翻页监听.");
           document.addEventListener(
             "keyup",
-            function(e) {
+            function (e) {
               const tarNN = e.target.nodeName;
               if (tarNN != "BODY" && tarNN != "HTML") return;
 
@@ -2339,7 +2339,7 @@ import notice from "utils/notice";
         logger.debug("添加鼠标手势翻页监听");
         document.addEventListener(
           "superPreloader.go",
-          function() {
+          function () {
             superPreloader.go();
           },
           false
@@ -2348,7 +2348,7 @@ import notice from "utils/notice";
         // 监听下一页事件.
         document.addEventListener(
           "superPreloader.back",
-          function() {
+          function () {
             superPreloader.back();
           },
           false
@@ -2363,7 +2363,7 @@ import notice from "utils/notice";
         }
 
         // 载入设置..
-        const loadLocalSetting = function() {
+        const loadLocalSetting = function () {
           logger.debug("加载设置");
           var savedValue = getValue("spfwset");
           if (savedValue) {
@@ -2754,7 +2754,7 @@ import notice from "utils/notice";
           return parseInt(num, 10);
         }
 
-        const getRalativePageNumArray = function(lasturl, url) {
+        const getRalativePageNumArray = function (lasturl, url) {
           if (!lasturl || !url) {
             return [0, 0];
           }
@@ -2767,7 +2767,7 @@ import notice from "utils/notice";
 
           var lasturl_info;
           // 一些 url_info 为 p1,p2,p3 之类的
-          const handleInfo = function(s) {
+          const handleInfo = function (s) {
             if (s) {
               return s.replace(/^p/, "");
             }
@@ -2936,7 +2936,7 @@ import notice from "utils/notice";
     const min = obj.min === undefined ? 1 : obj.min;
     const aStr = _cplink.slice(0, index);
     const bStr = _cplink.slice(index);
-    const nbStr = bStr.replace(/^(\d+)(.*)$/, function(a, b, c) {
+    const nbStr = bStr.replace(/^(\d+)(.*)$/, function (a, b, c) {
       b = Number(b) + obj.inc;
       if (b >= max || b < min) return a;
       return b + c;
@@ -2954,76 +2954,76 @@ import notice from "utils/notice";
   /* jshint ignore:start */
   // 动画库
   const Tween = {
-    Linear: function(t, b, c, d) {
+    Linear: function (t, b, c, d) {
       return (c * t) / d + b;
     },
     Quad: {
-      easeIn: function(t, b, c, d) {
+      easeIn: function (t, b, c, d) {
         return c * (t /= d) * t + b;
       },
-      easeOut: function(t, b, c, d) {
+      easeOut: function (t, b, c, d) {
         return -c * (t /= d) * (t - 2) + b;
       },
-      easeInOut: function(t, b, c, d) {
+      easeInOut: function (t, b, c, d) {
         if ((t /= d / 2) < 1) return (c / 2) * t * t + b;
         return (-c / 2) * (--t * (t - 2) - 1) + b;
       }
     },
     Cubic: {
-      easeIn: function(t, b, c, d) {
+      easeIn: function (t, b, c, d) {
         return c * (t /= d) * t * t + b;
       },
-      easeOut: function(t, b, c, d) {
+      easeOut: function (t, b, c, d) {
         return c * ((t = t / d - 1) * t * t + 1) + b;
       },
-      easeInOut: function(t, b, c, d) {
+      easeInOut: function (t, b, c, d) {
         if ((t /= d / 2) < 1) return (c / 2) * t * t * t + b;
         return (c / 2) * ((t -= 2) * t * t + 2) + b;
       }
     },
     Quart: {
-      easeIn: function(t, b, c, d) {
+      easeIn: function (t, b, c, d) {
         return c * (t /= d) * t * t * t + b;
       },
-      easeOut: function(t, b, c, d) {
+      easeOut: function (t, b, c, d) {
         return -c * ((t = t / d - 1) * t * t * t - 1) + b;
       },
-      easeInOut: function(t, b, c, d) {
+      easeInOut: function (t, b, c, d) {
         if ((t /= d / 2) < 1) return (c / 2) * t * t * t * t + b;
         return (-c / 2) * ((t -= 2) * t * t * t - 2) + b;
       }
     },
     Quint: {
-      easeIn: function(t, b, c, d) {
+      easeIn: function (t, b, c, d) {
         return c * (t /= d) * t * t * t * t + b;
       },
-      easeOut: function(t, b, c, d) {
+      easeOut: function (t, b, c, d) {
         return c * ((t = t / d - 1) * t * t * t * t + 1) + b;
       },
-      easeInOut: function(t, b, c, d) {
+      easeInOut: function (t, b, c, d) {
         if ((t /= d / 2) < 1) return (c / 2) * t * t * t * t * t + b;
         return (c / 2) * ((t -= 2) * t * t * t * t + 2) + b;
       }
     },
     Sine: {
-      easeIn: function(t, b, c, d) {
+      easeIn: function (t, b, c, d) {
         return -c * Math.cos((t / d) * (Math.PI / 2)) + c + b;
       },
-      easeOut: function(t, b, c, d) {
+      easeOut: function (t, b, c, d) {
         return c * Math.sin((t / d) * (Math.PI / 2)) + b;
       },
-      easeInOut: function(t, b, c, d) {
+      easeInOut: function (t, b, c, d) {
         return (-c / 2) * (Math.cos((Math.PI * t) / d) - 1) + b;
       }
     },
     Expo: {
-      easeIn: function(t, b, c, d) {
+      easeIn: function (t, b, c, d) {
         return t == 0 ? b : c * Math.pow(2, 10 * (t / d - 1)) + b;
       },
-      easeOut: function(t, b, c, d) {
+      easeOut: function (t, b, c, d) {
         return t == d ? b + c : c * (-Math.pow(2, (-10 * t) / d) + 1) + b;
       },
-      easeInOut: function(t, b, c, d) {
+      easeInOut: function (t, b, c, d) {
         if (t == 0) return b;
         if (t == d) return b + c;
         if ((t /= d / 2) < 1) return (c / 2) * Math.pow(2, 10 * (t - 1)) + b;
@@ -3031,19 +3031,19 @@ import notice from "utils/notice";
       }
     },
     Circ: {
-      easeIn: function(t, b, c, d) {
+      easeIn: function (t, b, c, d) {
         return -c * (Math.sqrt(1 - (t /= d) * t) - 1) + b;
       },
-      easeOut: function(t, b, c, d) {
+      easeOut: function (t, b, c, d) {
         return c * Math.sqrt(1 - (t = t / d - 1) * t) + b;
       },
-      easeInOut: function(t, b, c, d) {
+      easeInOut: function (t, b, c, d) {
         if ((t /= d / 2) < 1) return (-c / 2) * (Math.sqrt(1 - t * t) - 1) + b;
         return (c / 2) * (Math.sqrt(1 - (t -= 2) * t) + 1) + b;
       }
     },
     Elastic: {
-      easeIn: function(t, b, c, d, a, p) {
+      easeIn: function (t, b, c, d, a, p) {
         if (t == 0) return b;
         if ((t /= d) == 1) return b + c;
         if (!p) p = d * 0.3;
@@ -3056,7 +3056,7 @@ import notice from "utils/notice";
         }
         return -(a * Math.pow(2, 10 * (t -= 1)) * Math.sin(((t * d - s) * (2 * Math.PI)) / p)) + b;
       },
-      easeOut: function(t, b, c, d, a, p) {
+      easeOut: function (t, b, c, d, a, p) {
         if (t == 0) return b;
         if ((t /= d) == 1) return b + c;
         if (!p) p = d * 0.3;
@@ -3069,7 +3069,7 @@ import notice from "utils/notice";
         }
         return a * Math.pow(2, -10 * t) * Math.sin(((t * d - s) * (2 * Math.PI)) / p) + c + b;
       },
-      easeInOut: function(t, b, c, d, a, p) {
+      easeInOut: function (t, b, c, d, a, p) {
         if (t == 0) return b;
         if ((t /= d / 2) == 2) return b + c;
         if (!p) p = d * (0.3 * 1.5);
@@ -3085,25 +3085,25 @@ import notice from "utils/notice";
       }
     },
     Back: {
-      easeIn: function(t, b, c, d, s) {
+      easeIn: function (t, b, c, d, s) {
         if (s == undefined) s = 1.70158;
         return c * (t /= d) * t * ((s + 1) * t - s) + b;
       },
-      easeOut: function(t, b, c, d, s) {
+      easeOut: function (t, b, c, d, s) {
         if (s == undefined) s = 1.70158;
         return c * ((t = t / d - 1) * t * ((s + 1) * t + s) + 1) + b;
       },
-      easeInOut: function(t, b, c, d, s) {
+      easeInOut: function (t, b, c, d, s) {
         if (s == undefined) s = 1.70158;
         if ((t /= d / 2) < 1) return (c / 2) * (t * t * (((s *= 1.525) + 1) * t - s)) + b;
         return (c / 2) * ((t -= 2) * t * (((s *= 1.525) + 1) * t + s) + 2) + b;
       }
     },
     Bounce: {
-      easeIn: function(t, b, c, d) {
+      easeIn: function (t, b, c, d) {
         return c - Tween.Bounce.easeOut(d - t, 0, c, d) + b;
       },
-      easeOut: function(t, b, c, d) {
+      easeOut: function (t, b, c, d) {
         if ((t /= d) < 1 / 2.75) {
           return c * (7.5625 * t * t) + b;
         } else if (t < 2 / 2.75) {
@@ -3114,7 +3114,7 @@ import notice from "utils/notice";
           return c * (7.5625 * (t -= 2.625 / 2.75) * t + 0.984375) + b;
         }
       },
-      easeInOut: function(t, b, c, d) {
+      easeInOut: function (t, b, c, d) {
         if (t < d / 2) return Tween.Bounce.easeIn(t * 2, 0, c, d) * 0.5 + b;
         else return Tween.Bounce.easeOut(t * 2 - d, 0, c, d) * 0.5 + c * 0.5 + b;
       }
@@ -3129,9 +3129,9 @@ import notice from "utils/notice";
   // ====================  functions  ==============================
   function handleLazyImgSrc(rule, doc) {
     const imgAttrs = rule.split("|");
-    imgAttrs.forEach(function(attr) {
+    imgAttrs.forEach(function (attr) {
       attr = attr.trim();
-      [].forEach.call(doc.querySelectorAll("img[" + attr + "]"), function(img) {
+      [].forEach.call(doc.querySelectorAll("img[" + attr + "]"), function (img) {
         const newSrc = img.getAttribute(attr);
         if (newSrc && newSrc != img.src) {
           img.setAttribute("src", newSrc);
@@ -3261,7 +3261,7 @@ import notice from "utils/notice";
         case "string":
           return (
             '"' +
-            x.replace(/(?:\r\n|\n|\r|\t|\\|\")/g, function(a) {
+            x.replace(/(?:\r\n|\n|\r|\t|\\|\")/g, function (a) {
               var ret;
               switch (
                 a // 转成字面量
@@ -3356,7 +3356,7 @@ import notice from "utils/notice";
 
   function wildcardToRegExpStr(urlstr) {
     if (urlstr.source) return urlstr.source;
-    const reg = urlstr.replace(/[()\[\]{}|+.,^$?\\]/g, "\\$&").replace(/\*+/g, function(str) {
+    const reg = urlstr.replace(/[()\[\]{}|+.,^$?\\]/g, "\\$&").replace(/\*+/g, function (str) {
       return str === "*" ? ".*" : "[^/]*";
     });
     return "^" + reg + "$";

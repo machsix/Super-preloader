@@ -220,7 +220,7 @@ function create(thisDefaults) {
 
     // helper functions
     const genCallback = (executor, name, retryCount) =>
-      function(xmlResponse) {
+      function (xmlResponse) {
         // convert XMLHttpRequest response to Node.js HTTP response
         // Note: retryCount is added manually
         const nodeResponse = {
@@ -269,13 +269,13 @@ function create(thisDefaults) {
     request.defaults[key] = isNullOrUndefined(thisDefaults[key]) ? defaults[key] : thisDefaults[key];
   }
 
-  request.get = function(url, optionsIn) {
+  request.get = function (url, optionsIn) {
     const options = parseArgument(url, optionsIn);
     options.method = "GET";
     return this(options);
   };
 
-  request.post = function(url, optionsIn) {
+  request.post = function (url, optionsIn) {
     const options = parseArgument(url, optionsIn);
     options.method = "POST";
     return this(options);

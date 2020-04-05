@@ -41,10 +41,10 @@ export default function notice(html_txt, showTime) {
     showTime = 1666;
   }
   if (showTime > 0) {
-    noticeDivto2 = setTimeout(function() {
+    noticeDivto2 = setTimeout(function () {
       noticeDiv.style.opacity = "0";
     }, showTime);
-    noticeDivto = setTimeout(function() {
+    noticeDivto = setTimeout(function () {
       noticeDiv.style.display = "none";
     }, showTime + 300);
   }

@@ -69,7 +69,7 @@ export const jsSiteRule = [
       // HT_insert: ['//div[@id="res"]', 0], // 插入方式此项为一个数组: [节点xpath或CSS选择器,插入方式(0: 插入到给定节点之后 1：插入到给定节点之前;2：附加到给定节点的里面;)](可选);
       // HT_insert:['css;div#res',2],
       lazyImgSrc: "imgsrc",
-      documentFilter: function(doc, _nextLink) {
+      documentFilter: function (doc, _nextLink) {
         // 作用于xhr或iframe加载的下一页
         // 可以是一个函数 接收doc, nextLink 两个参数，也可以是字符串'startFilter'
         const x = doc.evaluate('//script/text()[contains(self::text(), "setImagesSrc")]', doc, null, 9, null).singleNodeValue;
@@ -105,7 +105,7 @@ export const jsSiteRule = [
       // filter: function() {
       // 在添加内容到页面后运行
       //},
-      startFilter: function(doc, _win) {
+      startFilter: function (doc, _win) {
         // 只作用一次, 用于打开的页面
         // 函数： 接收doc, win 两个参数
         // 移除 Google 重定向
@@ -153,7 +153,7 @@ export const jsSiteRule = [
       HT_insert: ["css;div#content_left", 2],
       replaceE: "css;#page",
       stylish: ".autopagerize_page_info, div.sp-separator {margin-bottom: 10px !important;}",
-      startFilter: function(_doc, win) {
+      startFilter: function (_doc, win) {
         // 设置百度搜索类型为 s?wd=
         try {
           win.document.cookie = "ISSW=1";
@@ -168,7 +168,7 @@ export const jsSiteRule = [
     autopager: {
       scriptFilter: "renderPosts",
       pageElement: "//table[@class='posts']/tbody",
-      filter: function(pageElements) {
+      filter: function (pageElements) {
         const scripts = getAllElementsByXpath(".//script[contains(text(), 'renderPosts')]", pageElements[0], document);
         if (scripts.snapshotLength > 0) {
           for (let i = 0; i < scripts.snapshotLength; i++) {
@@ -194,7 +194,7 @@ export const jsSiteRule = [
     pageElement: "//div[@id='maincontent']/table/tbody[@id]",
     autopager: {
       relatedObj: true,
-      sepdivDom: function(doc, sepdiv) {
+      sepdivDom: function (doc, sepdiv) {
         const td = doc.createElement("td");
         td.appendChild(sepdiv);
         const tr = doc.createElement("tr");
@@ -217,7 +217,7 @@ export const jsSiteRule = [
       pageElement: 'id("commentTabBlockNew")/ul[@class="comment_listBox"]',
       excludeElement: '//div[@class="article-card J_trigger_ani"]',
       replaceE: '(//ul[@class="pagination"])[1]',
-      startFilter: function(doc) {
+      startFilter: function (doc) {
         const firstDiv = doc.querySelector(".pagination");
         if (firstDiv) {
           firstDiv.parentNode.removeChild(firstDiv);
@@ -229,7 +229,7 @@ export const jsSiteRule = [
     name: "和讯博客",
     url: /^https?:\/\/\w+\.blog\.hexun\.com\//i,
     exampleUrl: "http://23802543.blog.hexun.com/",
-    nextLink: function(doc) {
+    nextLink: function (doc) {
       var url = doc.querySelector('.PageSkip_1 a[title="下一页"]').getAttribute("href");
       url = url.replace(/(\/p\d+\/).*/, "$1default.html");
       return url;
@@ -246,7 +246,7 @@ export const jsSiteRule = [
       pageElement: '//form[@id="form2"]/table',
       relatedObj: true,
       documentFilter: "startFilter",
-      startFilter: function(doc) {
+      startFilter: function (doc) {
         const trs = getAllElementsByXpath("//div[@class='artist']/div[@class='atl']/form/table/tbody/tr/td[@colspan='5']/parent::tr", doc, doc);
         if (trs.snapshotLength > 0) {
           for (var i = 0; i < trs.snapshotLength; i++) {
@@ -289,9 +289,9 @@ export const jsSiteRule = [
     nextLink: '//b[@title="Alt+Pagedown"]/parent::a',
     autopager: {
       pageElement: '//table[@class="torrents"]',
-      startFilter: function(doc) {
+      startFilter: function (doc) {
         const tds = doc.getElementsByClassName("torrentimg");
-        [].forEach.call(tds, function(td) {
+        [].forEach.call(tds, function (td) {
           const imgSrc = td.getElementsByTagName("img");
           if (imgSrc) {
             const newImg = domTools.create("img", {
@@ -336,7 +336,7 @@ export const jsSiteRule = [
       startAfter: "?p=",
       mFails: [/^https?:\/\/idope\.se\/torrent-list\/.+/i, "/?p=1"],
       inc: 1,
-      isLast: function(doc, _win, _lhref) {
+      isLast: function (doc, _win, _lhref) {
         const pageSel = doc.getElementById("next");
         if (!pageSel) {
           return true;
@@ -357,7 +357,7 @@ export const jsSiteRule = [
       useiframe: true,
       pageElement: '//div[@class="atl-main"]',
       lazyImgSrc: "original",
-      filter: function(_pages) {
+      filter: function (_pages) {
         const see_only_uname = unsafeWindow.see_only_uname;
         const setOnlyUser = unsafeWindow.setOnlyUser;
         if (see_only_uname) {
@@ -373,9 +373,9 @@ export const jsSiteRule = [
     autopager: {
       pageElement: 'id("J_posts_list")',
       replaceE: "css;.pages",
-      documentFilter: function(doc) {
+      documentFilter: function (doc) {
         // 头像载入出错的修正
-        [].forEach.call(doc.querySelectorAll("img.J_avatar"), function(img) {
+        [].forEach.call(doc.querySelectorAll("img.J_avatar"), function (img) {
           img.setAttribute("onerror", 'this.src="http://www.firefox.net.cn/res/images/face/face_small.jpg";');
         });
       }
@@ -388,7 +388,7 @@ export const jsSiteRule = [
     autopager: {
       pageElement: "id('postlist') | id('threadlist')",
       replaceE: '//div[@class="pg"][child::a[@class="nxt"]]',
-      documentFilter: function(doc) {
+      documentFilter: function (doc) {
         const firstDiv = doc.querySelector("div[id^='post_']");
         if (firstDiv) {
           firstDiv.parentNode.removeChild(firstDiv);
@@ -400,7 +400,7 @@ export const jsSiteRule = [
     name: "游民星空",
     url: /^https?:\/\/www\.gamersky\.com\/\w+\/\d{6}\/.*.shtml/i,
     exampleUrl: "https://www.gamersky.com/ent/201510/671493.shtml | https://www.gamersky.com/handbook/201707/922480.shtml",
-    nextLink: function(doc, _win, cplink) {
+    nextLink: function (doc, _win, cplink) {
       const node = getElementByXpath('//div[@class="page_css"]//a[(text()="下一页")]', doc, doc);
       if (!node) {
         return null;
@@ -429,7 +429,7 @@ export const jsSiteRule = [
       useiframe: true,
       pageElement: "//div[@class='glzjshow_con']",
       replaceE: "id('after_this_page')",
-      startFilter: function(doc) {
+      startFilter: function (doc) {
         const comments = getElementByXpath('//div[@class="glzjshow_plun"]', doc, doc);
         if (comments) {
           comments.style.display = "none";
@@ -446,7 +446,7 @@ export const jsSiteRule = [
       useiframe: true,
       replaceE: "id('pageNum')",
       pageElement: "//div[@class='box-bd'][last()]",
-      startFilter: function(doc) {
+      startFilter: function (doc) {
         const pager = doc.querySelector("#pageNum");
         if (pager) {
           getElementByXpath("//div[@class='box-bd'][last()]", doc, doc).after(pager);
@@ -457,7 +457,7 @@ export const jsSiteRule = [
           ad.style.display = "none";
         }
       },
-      documentFilter: function(doc) {
+      documentFilter: function (doc) {
         const pager = doc.querySelector("#pageNum");
         if (pager) {
           pager.style.display = "none";
@@ -473,7 +473,7 @@ export const jsSiteRule = [
     documentFilter: function documentFilter(doc) {
       const style = document.querySelector("#txtContent").getAttribute("style");
       const cls = document.querySelector("#txtContent").getAttribute("class");
-      [].forEach.call(doc.querySelectorAll("#txtContent"), function(div) {
+      [].forEach.call(doc.querySelectorAll("#txtContent"), function (div) {
         div.setAttribute("style", style);
         div.setAttribute("class", cls);
       });
@@ -507,7 +507,7 @@ export const jsSiteRule = [
     nextLink: "//div[contains(@class, 'art-page')]/a[text()='下一页']",
     autopager: {
       pageElement: "//div[@class='art-body']",
-      documentFilter: function(doc) {
+      documentFilter: function (doc) {
         // 删除导航
         const navigator = doc.querySelector(".art-pagination");
         if (navigator) {
@@ -525,7 +525,7 @@ export const jsSiteRule = [
     autopager: {
       pageElement: '//div[@id="content-list"]',
       lazyImgSrc: "original",
-      filter: function(_pages) {
+      filter: function (_pages) {
         const chouti = unsafeWindow.chouti;
         const NS_links_comment_top = unsafeWindow.NS_links_comment_top;
         chouti.vote();
@@ -544,7 +544,7 @@ export const jsSiteRule = [
     pageElement: "id('ct')//tbody",
     autopager: {
       // 只执行一次，删除多余的表头
-      documentFilter: function(doc) {
+      documentFilter: function (doc) {
         const firstDiv = doc.querySelector(".th");
         if (firstDiv) {
           firstDiv.parentNode.removeChild(firstDiv);
@@ -555,13 +555,10 @@ export const jsSiteRule = [
   {
     name: "Jable",
     url: /^https?:\/\/jable\.tv/i,
-    nextLink: function(doc, _win, cplink) {
+    nextLink: function (doc, _win, cplink) {
       const a = getElementByXpath("//ul[@class='pagination']/li[span[contains(@class,'active')]]/following-sibling::li[1]/a", doc, doc);
       const blockID = a.getAttribute("data-block-id");
-      const parms = a
-        .getAttribute("data-parameters")
-        .replace(/:/g, "=")
-        .replace(/;/g, "&");
+      const parms = a.getAttribute("data-parameters").replace(/:/g, "=").replace(/;/g, "&");
       // const containerID = a.getAttribute("data-container-id");
       const nextLink = cplink + "?mode=async&function=get_block&block_id=" + blockID + "&" + parms + "&_=" + Date.now();
       return nextLink;
@@ -580,7 +577,7 @@ export const jsSiteRule = [
       startAfter: "?page=",
       mFails: [/^https?:\/\/(?:netflav\.com)\/.+/i, "?page=1"],
       inc: 1,
-      isLast: function(doc, _win, _lhref) {
+      isLast: function (doc, _win, _lhref) {
         const CurrentPage = Number(getElementByXpath("//div[@id='general-pagination']/div/a[@aria-current='true']", doc, doc).innerText);
         const TotalPage = Number(getElementByXpath("(//div[@id='general-pagination']/div/a[@type='nextItem']/preceding-sibling::a)[last()]", doc, doc).innerText);
         if (CurrentPage == TotalPage) {
@@ -599,7 +596,7 @@ export const jsSiteRule = [
   {
     name: "悠悠美图",
     url: /^https?:\/\/www\.youyourentiyishu\.com/i,
-    nextLink: function(doc, _win, cplink) {
+    nextLink: function (doc, _win, cplink) {
       const m = cplink.match(/\d+-(\d+)\.html/);
       if (!m) {
         return cplink.replace(".html", "-2.html");
@@ -631,7 +628,7 @@ export const jsSiteRule = [
       pageElement: 'id("post") | id("content")',
       replaceE: "css;#pagenavi",
       // 删除页面上不需要的元素
-      documentFilter: function(doc) {
+      documentFilter: function (doc) {
         const nodeBrowse = doc.querySelector(".browse");
         if (nodeBrowse) {
           nodeBrowse.parentNode.removeChild(nodeBrowse);
@@ -647,7 +644,7 @@ export const jsSiteRule = [
     name: "CSDN博客",
     url: /^https?:\/\/blog\.csdn\.net/i,
     exampleUrl: "http://blog.csdn.net/wangjieest?viewmode=list",
-    nextLink: function(doc, _win, _cplink) {
+    nextLink: function (doc, _win, _cplink) {
       for (var i = 0; i < doc.scripts.length; i++) {
         const scriptText = doc.scripts[i].text;
         if (typeof scriptText != "undefined" && scriptText.indexOf("currentPage") > 0) {
@@ -667,14 +664,14 @@ export const jsSiteRule = [
     },
     autopager: {
       pageElement: '//div[@id="article_list"] | // div[@class="article-list"]',
-      documentFilter: function(doc) {
+      documentFilter: function (doc) {
         // 文档底部的 marginBottom 重置
         const articleList = doc.querySelector(".article-list");
         if (articleList) {
           articleList.style.marginBottom = "0";
         }
       },
-      startFilter: function(doc, _win) {
+      startFilter: function (doc, _win) {
         // 文档底部的 marginBottom 重置
         const articleList = doc.querySelector(".article-list");
         if (articleList) {
@@ -700,7 +697,7 @@ export const jsSiteRule = [
     nextLink: '(//div[@class="page_nav"])[1]/a[text()="下一页"]',
     autopager: {
       pageElement: 'id("bbs_detail_wrap")',
-      documentFilter: function(doc) {
+      documentFilter: function (doc) {
         // 删除文档中的多余表头
         const titleH = doc.querySelector(".bbs_title_h");
         if (titleH) {
@@ -726,7 +723,7 @@ export const jsSiteRule = [
           pageNav[index].style.display = "none";
         }
       },
-      startFilter: function(doc) {
+      startFilter: function (doc) {
         // 尾页的分页信息隐藏
         const pageNav = doc.querySelectorAll(".mod_fun_wrap");
         if (pageNav) {
@@ -742,7 +739,7 @@ export const jsSiteRule = [
           feedBox.parentNode.removeChild(feedBox);
         }
       },
-      sepdivDom: function(_doc, sepdiv) {
+      sepdivDom: function (_doc, sepdiv) {
         sepdiv.className += " bbs_detail_wrap";
         return sepdiv;
       }
@@ -753,11 +750,11 @@ export const jsSiteRule = [
     url: "^https?://bl-novel\\.in/novel",
     nextLink: "//a[@id='pb_next']",
     pageElement: "//div[@id='nr']",
-    documentFilter: function(doc, _nextLink) {
+    documentFilter: function (doc, _nextLink) {
       var scripts = doc.getElementsByTagName("script");
       var re = /chapter\s*=\s*secret\(['"](.*)['"],\s*['"](.*)['"],\s*(\w+)\s*\)/g;
       var c;
-      [].forEach.call(scripts, function(x) {
+      [].forEach.call(scripts, function (x) {
         if (x.innerText.indexOf("var chapter") >= 0) {
           var temp = re.exec(x.innerText);
           var content = temp[1];
@@ -785,7 +782,7 @@ export const jsSiteRule = [
     name: "第一版主",
     url: "^https?://www\\.diyibanzhu\\d?\\.(top|one|net|com)",
     pageElement: "//div[@id='content']",
-    nextLink: function(doc, _win, cplink) {
+    nextLink: function (doc, _win, cplink) {
       var chapters = getAllElementsByXpath("//div[@class='chapterPages']/a", doc);
       var prefix = cplink.substr(0, cplink.lastIndexOf("/")) + "/";
       var i = 0;
@@ -804,7 +801,7 @@ export const jsSiteRule = [
     name: "起点文学-排行榜",
     url: /^https?:\/\/www\.(qidian)\.com(\/mm)?\/rank\/.*/i,
     exampleUrl: "https://www.qidian.com/rank/collect",
-    nextLink: function(doc, _win, cplink) {
+    nextLink: function (doc, _win, cplink) {
       var res = getElementByXpath('//div[@id="page-container"]', doc);
       if (res === null) {
         return undefined;
@@ -847,7 +844,7 @@ export const jsSiteRule = [
   {
     name: "优书-书单|评论",
     url: /^https?:\/\/www\.yousuu\.com\/(comments|booklist)/i,
-    nextLink: function(doc, _win, cplink) {
+    nextLink: function (doc, _win, cplink) {
       var res = getElementByXpath('//ul[contains(@class, "pagination")]', doc);
       if (res === null) {
         return undefined;
@@ -892,7 +889,7 @@ export const jsSiteRule = [
     name: "动漫之家漫画网",
     url: /^https?:\/\/(www|manhua)\.(dmzj|178)\.com\/\w+\/\d+\.shtml/,
     exampleUrl: "https://manhua.dmzj.com/yuanlian/36944.shtml#@page=1",
-    nextLink: function(doc, _win, cplink) {
+    nextLink: function (doc, _win, cplink) {
       const current = Number(getElementByXpath('//*[@id="page_select"]/option[@selected][1]', doc).text.match(/(\d+)/)[1]);
       const xpath_last = '//*[@id="page_select"]/option[last()]';
       const end_num = Number(getElementByXpath(xpath_last, doc).text.match(/(\d+)/)[1]);
@@ -915,7 +912,7 @@ export const jsSiteRule = [
     url: /^https?:\/\/www\.manhuagui\.com\/comic\/.+/i,
     // this is a set which uses hash to change page
     // we need to manually add hash
-    nextLink: function(doc, _win, cplink) {
+    nextLink: function (doc, _win, cplink) {
       const current = Number(getElementByXpath('//*[@id="page"]', doc).innerHTML);
       const xpath_last = '//div[@id="pagination"]/a[contains(@href,"javascript") and not(@class)][last()]';
       const end_num = Number(getElementByXpath(xpath_last, doc).text);
@@ -948,7 +945,7 @@ export const jsSiteRule = [
       startAfter: "#p=",
       mFails: [/^https?:\/\/(?:manhua\.sfacg\.com\/mh|www\.acg456\.com)\/.+/i, "#p=1"],
       inc: 1,
-      isLast: function(doc, _win, _lhref) {
+      isLast: function (doc, _win, _lhref) {
         const TotalPage = Number(doc.getElementById("TotalPage").innerText) - 1;
         const CurrentPage = Number(doc.getElementById("CurrentPage").innerText);
         if (CurrentPage == TotalPage) {
@@ -971,7 +968,7 @@ export const jsSiteRule = [
       startAfter: "?p=",
       mFails: [/^http:\/\/www\.omanhua\.com\/comic\/.+/i, "?p=1"],
       inc: 1,
-      isLast: function(doc, _win, _lhref) {
+      isLast: function (doc, _win, _lhref) {
         const select = doc.getElementById("pageSelect");
         if (select) {
           const s2os = select.options;
@@ -989,7 +986,7 @@ export const jsSiteRule = [
     name: "汗汗漫画",
     url: /^https?:\/\/\w+\.(?:vs20|3gmanhua|hhcomic|huhudm|huhumh|hhimm|hhmmoo)\.(?:com|net)\/\w+\/\d+\.html/i,
     exampleUrl: "http://www.hhmmoo.com/page315224/1.html?s=1； http://www.hhmmoo.com/page315224/4.html?s=1&d=0",
-    nextLink: function(_doc, _win, cplink) {
+    nextLink: function (_doc, _win, cplink) {
       // created based on http://www.hhmmoo.com/script/view.js
       const m = cplink.match(/(.*\d+\/)(\d+)(\.html\?s=\d+)((?:\?|&)d=.*)?/);
       // const url_head = m[1];
@@ -1029,7 +1026,7 @@ export const jsSiteRule = [
       startAfter: "?p=",
       inc: 1,
       mFails: [/^https?:\/\/(?:cococomic|dm.99manga|99manga|99comic|www.99comic|www.hhcomic)\.(?:com|cc)\/.+/i, "?p=1&s=0"],
-      isLast: function(doc, _win, _lhref) {
+      isLast: function (doc, _win, _lhref) {
         const maxpage = Number(doc.getElementById("spPageCount").innerText);
         const current = Number(doc.getElementById("spPageIndex").innerText);
         if (current == maxpage) return true;
@@ -1054,7 +1051,7 @@ export const jsSiteRule = [
       startAfter: "?p=",
       mFails: [/^http:\/\/mh\.tsdm\.net\/comic\/.+\.html/i, "?p=1"],
       inc: 1,
-      isLast: function(doc, _win, _lhref) {
+      isLast: function (doc, _win, _lhref) {
         const pageSelect = doc.getElementById("qTcms_select_i");
         if (pageSelect) {
           const s2os = pageSelect.options;
@@ -1083,7 +1080,7 @@ export const jsSiteRule = [
       startAfter: "?p=",
       mFails: [/^https?:\/\/www\.930mh\.com\/manhua\/.+\.html/i, "?p=1"],
       inc: 1,
-      isLast: function(doc, _win, _lhref) {
+      isLast: function (doc, _win, _lhref) {
         const index = doc.getElementById("images").children[1].innerText;
         const nums = index.match(/\d+/g);
         if (Number(nums[0]) >= Number(nums[1])) {
@@ -1105,7 +1102,7 @@ export const jsSiteRule = [
     autopager: {
       pageElement: '//div[@class="mainbox"]//table[last()]',
       replaceE: '//div[@class="pages_btns"]',
-      startFilter: function(doc, _win) {
+      startFilter: function (doc, _win) {
         const firstDiv = doc.querySelector("#ad_text");
         if (firstDiv) {
           firstDiv.parentNode.removeChild(firstDiv);
@@ -1116,7 +1113,7 @@ export const jsSiteRule = [
   {
     name: "xkcd",
     url: "^https?://(?:www.)?xkcd.com",
-    nextLink: function(doc, _win, cplink) {
+    nextLink: function (doc, _win, cplink) {
       const m = cplink.match(/\d+/);
       if (!m) {
         return cplink + "/2/";

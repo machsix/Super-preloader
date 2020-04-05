@@ -46,7 +46,7 @@ const logger = {
       this.loglevel = BROWSER_LEVEL.WARN;
     }
   },
-  _log: function(level) {
+  _log: function (level) {
     if (level >= this.loglevel) {
       return console[Object.keys(BROWSER_LEVEL)[LEVEL_NUM.indexOf(level)].toLowerCase()];
     } else {
@@ -56,7 +56,7 @@ const logger = {
 };
 
 Object.keys(BROWSER_LEVEL).forEach((key) => {
-  logger[key.toLowerCase()] = function(...args) {
+  logger[key.toLowerCase()] = function (...args) {
     this._log(BROWSER_LEVEL[key]).apply(console, logFormat(...args));
   };
 });
