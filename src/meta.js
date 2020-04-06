@@ -101,6 +101,10 @@ const METADATA = `// ==UserScript==
 // @exclude      http*://tpc.googlesyndication.com/*
 // @exclude      http*://ad.doubleclick.net/*
 // @exclude      http*://ad.agrantsem.com/*
+// @exclude      http*://web.telegram.org/*
+// @exclude      http*://booklink.me/*
+// @exclude      http*://m.booklink.me/*
+
 // ==/UserScript==
 `;
 
