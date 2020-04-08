@@ -133,3 +133,75 @@ export function getLastElement(selector, _cplink, contextNode, doc, win) {
     return eles[l - 1];
   }
 }
+
+/**
+ *
+ * @param {object} obj dom element
+ * @returns {string/boolean} dom element main property
+ */
+export function getProperty(obj) {
+  if (obj.nodeName === "INPUT") {
+    switch (obj.type) {
+      case "checkbox":
+        return obj.checked;
+      case "number": {
+        const min = obj.hasAttribute("min") ? Number(obj.min) : undefined;
+        const max = obj.hasAttribute("max") ? Number(obj.max) : undefined;
+        if (min >= Number(obj.value)) return min;
+        if (max < Number(obj.value)) return max;
+        return obj.value;
+      }
+      default:
+        return obj.value;
+    }
+  } else if (obj.nodeName === "SELECT") {
+    return obj.selectedOptions[0].value;
+  } else if (obj.nodeName === "A") {
+    return obj.href;
+  } else {
+    return obj.innerHTML;
+  }
+}
+
+/**
+ *
+ * @param {object} obj dom element
+ * @param {object} value value set to dom element
+ * @returns {undefined}
+ */
+export function setProperty(obj, value) {
+  if (obj.nodeName === "INPUT") {
+    switch (obj.type) {
+      case "checkbox":
+        obj.checked = !!value;
+        break;
+      case "number": {
+        if (obj.hasAttribute("min")) {
+          if (value < obj.min) {
+            value = obj.min;
+          }
+        }
+        if (obj.hasAttribute("max")) {
+          if (value > obj.max) {
+            value = obj.max;
+          }
+        }
+        obj.value = value;
+        break;
+      }
+      default:
+        obj.value = value;
+    }
+  } else if (obj.nodeName === "SELECT") {
+    for (let i = 0; i < obj.options.length; i++) {
+      if (obj.options[i].value === value) {
+        obj.selectedIndex = i;
+        break;
+      }
+    }
+  } else if (obj.nodeName === "A") {
+    obj.href = value;
+  } else {
+    obj.innerHTML = value;
+  }
+}

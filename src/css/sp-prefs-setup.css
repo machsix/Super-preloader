@@ -42,6 +42,11 @@
   background: white;
   margin: 0px;
 }
+#sp-prefs-setup input[type="checkbox"] {
+  cursor: pointer !important;
+  visibility: visible !important;
+  position: static !important;
+}
 #sp-prefs-setup input.inputShift {
   margin-left: 2px;
 }

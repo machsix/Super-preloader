@@ -5,8 +5,12 @@
 <div id="sp-fw-content" style="display:none;">
   <div id="sp-fw-main">
     <div id="sp-fw-main-head">
-      <input type="checkbox" title="使用翻页模式,否则使用预读模式" id="sp-fw-a_enable" name="sp-fw-a_enable" />使用翻页模式
-      <span id="sp-fw-span-info">Super_preloader</span>
+      <label>工作模式</label>
+      <select id="sp-fw-a_enable" name="sp-fw-a_enable">
+        <option value="preloader">预读模式</option>
+        <option value="autopager">自动翻页模式</option>
+      </select>
+      <!-- <span id="sp-fw-span-info">Super_preloader</span> -->
     </div>
     <fieldset>
       <legend title="预读模式的相关设置">预读设置</legend>

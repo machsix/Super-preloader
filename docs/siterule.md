@@ -29,22 +29,22 @@ We prefer [JSON data](https://developer.mozilla.org/en/docs/Web/JavaScript/Refer
 - **type**: `XPath String`<Jbadge/>, `XPath`<Jbadge :json="false"/>
 - **description**: regular expression to match the URL of the website
 
+### enable
+
+- **type**: `Boolean` <Badge text="Optional" type="error" />
+- **default**: `true`
+- **description**: set to false to disable both autopager and preloader
+
+### useiframe
+
+- **type**: `Boolean` <Badge text="Optional" type="error" />
+- **default**: `false`
+- **description**: user iframe to preload next page content and display it
+
 ### exampleUrl <Badge text="Optional" type="error" />
 
 - **type**: `String` <Jbadge/>
 - **description**: example of the URL
-
-### enable <Badge text="Optional" type="error" />
-
-- **type**: `Boolean` <Jbadge/>
-- **default**: `true`
-- **description**: switch of the rule
-
-### useiframe <Badge text="Optional" type="error" />
-
-- **type**: `Boolean` <Jbadge/>
-- **default**: `false`
-- **description**: enable iframe instead of [XHR](https://developer.mozilla.org/en/docs/Web/API/XMLHttpRequest)
 
 ### nextLink
 
@@ -82,7 +82,7 @@ The script finds the URL of `next page` based on `nextLink`. We provide a variet
 
 6. [Object]() complex mode, check the function `hrefInc` to learn more<Jbadge/>
 
-### preLink <Badge text="Optional" type="error" />
+### prevLink <Badge text="Optional" type="error" />
 
 It serves the same function as [nextLink](#nextlink) but is designed for previous page. Usually you don't need it :joy:
 
@@ -116,6 +116,18 @@ The script finds the elements that are joined together automatically when the pa
 ## Rules enhancements
 
 In addition to the basic elements, the rule can also contain an `Object` with `key` as `autopager` for enhanced functionality. `autopager` can contain the following `key`. All `key` are <Badge text="Optional" type="error" />
+
+### enable
+
+- **type**: `Boolean` <Jbadge/>
+- **default**: `true`
+- **description**: enable autopager instead of preloadeder
+
+### useiframe
+
+- **type**: `Boolean` <Jbadge/>
+- **default**: `false`
+- **description**: user iframe to load next page content instead of [XHR](https://developer.mozilla.org/en/docs/Web/API/XMLHttpRequest)
 
 ### iloaded
 
@@ -232,75 +244,4 @@ Function(currentDocument, sepdiv) {
 
 ## example
 
-```js
-    {
-      Name: "Google search",
-      Url: "^https?://(?:(?:www|encrypted)\\.google(?:stable)?\\..{2,9}|wen\\.lu)/(?:webhp |search|#|$|\\?)",
-      exampleUrl: "http://www.google.com",
-      Enable: true,
-      Useiframe: false,
-      Viewcontent: false,
-      nextLink: 'id("pnnext") | id("navbar navcnt nav")//td[span]/
-      preLink: '//a[@id="pnprev"]',
-      Autopager: {
-        Enable: true,
-        Useiframe: false,
-        Iloaded: false,
-        Itimeout: 0,
-        newIframe: false,
-        pageElement: '//div[@id="ires"]',
-        Remain: 1 / 3,
-        relatedObj: ["css;div#navcnt", "bottom"], calculation of the total height of the page. (optional)
-        replaceE: '//div[@id="navcnt"]',
-        Ipages: [false, 2],
-        Separator: true,
-        sepdivDom: function(doc, sepdiv) {}
-        separatorReal: true,
-        Maxpage: 66,
-        manualA: false,
-        HT_insert: ['//div[@id="res"]', 2],
-        lazyImgSrc: "imgsrc",
-        Stylish: "hr.rgsep{display:none;}" + ".rg_meta{display:none}.bili{display:inline-block;margin:0 6px 6px 0;overflow:hidden;position:relative;vertical-align: Top}._HG{margin-bottom:2px;margin-right:2px}",
-        documentFilter: function(doc, nextLink) {
-          Const x = doc.evaluate('//script/text()[contains(self::text(), "setImagesSrc")]', doc, null, 9, null).singleNodeValue;
-          If (x) {
-            Try {
-              New Function("document", "window", "google", x.nodeValue)(doc, unsafeWindow, unsafeWindow.google);
-            } catch (e) {}
-          }
-        },
-        Filter: function() {
-        },
-        startFilter: function(doc, win) {
-          Const script = doc.createElement("script");
-          Script.type = "text/javascript";
-          script.textContent =
-            '\
-                Object.defineProperty(window, "rwt", {\
-                    Configurable: false,\
-                    Enumerable: true,\
-                    Get: function () {\
-                        Return function() {};\
-                    },\
-                });\
-                ';
-          doc.documentElement.appendChild(script);
-          doc.documentElement.removeChild(script);
-
-          Const ins = doc.getElementById("ires");
-          Const bres = doc.getElementById("bres");
-          Const brs = doc.getElementById("brs");
-          // var imagexbox = getElementByXpath('//*[@id="imagebox_bigimages"]//parent::div', doc, doc);
-          // var rso = doc.getElementById('rso');
-          If (ins) {
-            If (bres) {
-              ins.appendChild(bres);
-            }
-            If (brs) {
-              ins.appendChild(brs);
-            }
-          }
-        }
-      }
-    }
-```
+[https://github.com/machsix/Super-preloader/raw/master/dist/mydata.json](https://github.com/machsix/Super-preloader/raw/master/dist/mydata.json)

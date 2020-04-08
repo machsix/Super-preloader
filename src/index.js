@@ -5,7 +5,7 @@
 // import "regenerator-runtime/runtime";
 import {BROWSER, SCRIPT_MANAGER} from "utils/detect";
 import {NOTIFICATION, SCRIPT_INFO} from "./meta";
-import {getAllElements, getAllElementsByXpath, getElementByCSS, getElementByXpath, getLastElement} from "utils/domSelector";
+import {getAllElements, getAllElementsByXpath, getElementByCSS, getElementByXpath, getLastElement, getProperty, setProperty} from "utils/domSelector";
 
 import _ from "lodash";
 import {addStyle} from "utils/gm-enhanced";
@@ -740,13 +740,16 @@ import notice from "utils/notice";
         };
 
         function floatWindow(SSS) {
+          // inject css
           addStyle(cssSpFloatWindow);
 
+          // create container
           const div = document.createElement("div");
           div.id = "sp-fw-container";
           div.innerHTML = floatWindowUI();
           document.body.appendChild(div);
 
+          // helper function to get element
           function $(id) {
             return document.getElementById(id);
           }
@@ -754,6 +757,7 @@ import notice from "utils/notice";
           const rect = $("sp-fw-rect"); // 悬浮窗的小正方形,用颜色描述当前的状态.
           const spanel = $("sp-fw-content"); // 设置面板.
 
+          // 设置面板显隐
           const spanelc = {
             show: function () {
               spanel.style.display = "block";
@@ -762,8 +766,7 @@ import notice from "utils/notice";
               spanel.style.display = "none";
             }
           };
-          var rectt1, rectt2;
-          // 设置面板显隐
+          let rectt1, rectt2;
           rect.addEventListener(
             "mouseover",
             function (e) {
@@ -772,7 +775,7 @@ import notice from "utils/notice";
             false
           );
           rect.addEventListener(
-            "mouseout",
+            "mouseleave",
             function (e) {
               clearTimeout(rectt1);
             },
@@ -788,9 +791,11 @@ import notice from "utils/notice";
           );
 
           div.addEventListener(
-            "mouseout",
+            "mouseleave",
             function (e) {
-              if (e.relatedTarget && e.relatedTarget.disabled) return; // for firefox and chrome
+              // Firefox bug
+              // https://stackoverflow.com/questions/46831247/select-triggers-mouseleave-event-on-parent-element-in-mozilla-firefox
+              if (e.relatedTarget === null) return;
               rectt2 = setTimeout(spanelc.hide, 288);
             },
             false
@@ -857,42 +862,27 @@ import notice from "utils/notice";
             function (e) {
               const value = {
                 Rurl: SSS.Rurl,
-                useiframe: gl(useiframe),
-                viewcontent: gl(viewcontent),
-                enable: gl(enable)
+                useiframe: getProperty(useiframe),
+                viewcontent: getProperty(viewcontent),
+                enable: getProperty(enable)
               };
 
-              function gl(obj) {
-                switch (obj.type) {
-                  case "checkbox":
-                    return obj.checked;
-                  case "number": {
-                    const min = obj.hasAttribute("min") ? Number(obj.min) : undefined;
-                    const max = obj.hasAttribute("max") ? Number(obj.max) : undefined;
-                    if (min >= Number(obj.value)) return min;
-                    if (max < Number(obj.value)) return max;
-                    return obj.value;
-                  }
-                  default:
-                    return obj.value;
-                }
-              }
               if (SSS.a_enable !== undefined) {
-                value.a_enable = gl(a_enable);
-                value.a_useiframe = gl(a_useiframe);
-                value.a_newIframe = gl(a_newIframe);
-                value.a_iloaded = gl(a_iloaded);
-                value.a_manualA = gl(a_manualA);
-                value.a_force = gl(a_force);
-                const t_a_itimeout = gl(a_itimeout);
+                value.a_enable = getProperty(a_enable) === "autopager";
+                value.a_useiframe = getProperty(a_useiframe);
+                value.a_newIframe = getProperty(a_newIframe);
+                value.a_iloaded = getProperty(a_iloaded);
+                value.a_manualA = getProperty(a_manualA);
+                value.a_force = getProperty(a_force);
+                const t_a_itimeout = getProperty(a_itimeout);
                 value.a_itimeout = isNaN(t_a_itimeout) ? SSS.a_itimeout : t_a_itimeout >= 0 ? t_a_itimeout : 0;
-                const t_a_remain = gl(a_remain);
+                const t_a_remain = getProperty(a_remain);
                 value.a_remain = isNaN(t_a_remain) ? SSS.a_remain : Number(t_a_remain);
-                const t_a_maxpage = gl(a_maxpage);
+                const t_a_maxpage = getProperty(a_maxpage);
                 value.a_maxpage = isNaN(t_a_maxpage) ? SSS.a_maxpage : t_a_maxpage >= 1 ? t_a_maxpage : 1;
-                const t_a_ipages_1 = gl(a_ipages_1);
-                value.a_ipages = [gl(a_ipages_0), isNaN(t_a_ipages_1) ? SSS.a_ipages[1] : t_a_ipages_1 >= 1 ? t_a_ipages_1 : 1];
-                value.a_separator = gl(a_separator);
+                const t_a_ipages_1 = getProperty(a_ipages_1);
+                value.a_ipages = [getProperty(a_ipages_0), isNaN(t_a_ipages_1) ? SSS.a_ipages[1] : t_a_ipages_1 >= 1 ? t_a_ipages_1 : 1];
+                value.a_separator = getProperty(a_separator);
               }
               SSS.savedValue[SSS.sedValueIndex] = value;
               saveValue("spfwset", xToString(SSS.savedValue));
@@ -906,32 +896,24 @@ import notice from "utils/notice";
             false
           );
 
-          function ll(obj, value) {
-            if (obj.type == "checkbox") {
-              obj.checked = value;
-            } else {
-              obj.value = value;
-            }
-          }
-
           // 载入翻页设置.
           if (SSS.a_enable === undefined) {
             // 未定义翻页功能.
             a_enable.disabled = true;
             autopager_field.style.display = "none";
           } else {
-            ll(a_enable, SSS.a_enable);
-            ll(a_useiframe, SSS.a_useiframe);
-            ll(a_newIframe, SSS.a_newIframe);
-            ll(a_iloaded, SSS.a_iloaded);
-            ll(a_itimeout, SSS.a_itimeout);
-            ll(a_manualA, SSS.a_manualA);
-            ll(a_force, SSS.a_force);
-            ll(a_remain, SSS.a_remain);
-            ll(a_maxpage, SSS.a_maxpage);
-            ll(a_separator, SSS.a_separator);
-            ll(a_ipages_0, SSS.a_ipages[0]);
-            ll(a_ipages_1, SSS.a_ipages[1]);
+            setProperty(a_enable, SSS.a_enable ? "autopager" : "preloader");
+            setProperty(a_useiframe, SSS.a_useiframe);
+            setProperty(a_newIframe, SSS.a_newIframe);
+            setProperty(a_iloaded, SSS.a_iloaded);
+            setProperty(a_itimeout, SSS.a_itimeout);
+            setProperty(a_manualA, SSS.a_manualA);
+            setProperty(a_force, SSS.a_force);
+            setProperty(a_remain, SSS.a_remain);
+            setProperty(a_maxpage, SSS.a_maxpage);
+            setProperty(a_separator, SSS.a_separator);
+            setProperty(a_ipages_0, SSS.a_ipages[0]);
+            setProperty(a_ipages_1, SSS.a_ipages[1]);
           }
 
           if (!SSS.a_enable) {
@@ -945,11 +927,11 @@ import notice from "utils/notice";
           }
 
           // 载入预读设置.
-          ll(useiframe, SSS.useiframe);
-          ll(viewcontent, SSS.viewcontent);
+          setProperty(useiframe, SSS.useiframe);
+          setProperty(viewcontent, SSS.viewcontent);
 
           // 总开关
-          ll(enable, SSS.enable);
+          setProperty(enable, SSS.enable);
 
           const FWKG_state = {
             loading: "读取中状态",

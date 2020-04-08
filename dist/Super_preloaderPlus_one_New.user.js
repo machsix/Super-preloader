@@ -9,9 +9,9 @@
 // @author       Mach6
 // @contributers YFdyh000, suchunchen
 // @thanksto     ywzhaiqi, NLF
-// @version      6.11.4
+// @version      6.12.0
 // @license      GPL-3.0
-// @update       2020/4/5
+// @update       2020/4/8
 // @homepageURL  https://github.com/machsix/Super-preloader
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
 // @contributionURL https://ko-fi.com/machsix
@@ -122,6 +122,10 @@
         return getAllElements;
     })), r.d(t, "e", (function() {
         return getLastElement;
+    })), r.d(t, "f", (function() {
+        return getProperty;
+    })), r.d(t, "g", (function() {
+        return setProperty;
     }));
     var n = r(164), o = r.n(n), a = r(0);
     function getElementByCSS(e, t) {
@@ -166,6 +170,40 @@
     function getLastElement(e, t, r, n, o) {
         var a = getAllElements(e, r, n, o, t), i = a.length;
         if (i > 0) return a[i - 1];
+    }
+    function getProperty(e) {
+        if ("INPUT" !== e.nodeName) return "SELECT" === e.nodeName ? e.selectedOptions[0].value : "A" === e.nodeName ? e.href : e.innerHTML;
+        switch (e.type) {
+          case "checkbox":
+            return e.checked;
+
+          case "number":
+            var t = e.hasAttribute("min") ? Number(e.min) : void 0, r = e.hasAttribute("max") ? Number(e.max) : void 0;
+            return t >= Number(e.value) ? t : r < Number(e.value) ? r : e.value;
+
+          default:
+            return e.value;
+        }
+    }
+    function setProperty(e, t) {
+        if ("INPUT" === e.nodeName) switch (e.type) {
+          case "checkbox":
+            e.checked = !!t;
+            break;
+
+          case "number":
+            e.hasAttribute("min") && t < e.min && (t = e.min), e.hasAttribute("max") && t > e.max && (t = e.max), 
+            e.value = t;
+            break;
+
+          default:
+            e.value = t;
+        } else if ("SELECT" === e.nodeName) {
+            for (var r = 0; r < e.options.length; r++) if (e.options[r].value === t) {
+                e.selectedIndex = r;
+                break;
+            }
+        } else "A" === e.nodeName ? e.href = t : e.innerHTML = t;
     }
 }, function(e, t, r) {
     "use strict";
@@ -289,7 +327,7 @@
     e.exports = a;
 }, function(e, t, r) {
     "use strict";
-    var n = r(48), o = r.n(n), a = r(68), i = r.n(a), s = r(37), c = r.n(s), u = r(38), l = r.n(u), p = r(39), f = r.n(p), d = r(30), _ = r.n(d), h = r(100), m = r.n(h), g = r(21), b = r.n(g), v = r(175), y = r.n(v), w = r(101), E = r.n(w), x = r(102), O = r.n(x), S = r(4), P = r.n(S), A = r(13), M = r.n(A), I = r(5), D = r.n(I), C = r(69), T = r.n(C), k = r(19), B = r.n(k), L = r(51), R = r.n(L), U = r(176), j = r.n(U), W = r(10), N = r.n(W), F = r(67), K = r.n(F), z = r(8), q = r.n(z), G = r(70), H = r(0);
+    var n = r(48), o = r.n(n), a = r(68), i = r.n(a), s = r(37), c = r.n(s), u = r(38), l = r.n(u), p = r(39), f = r.n(p), d = r(30), _ = r.n(d), h = r(100), m = r.n(h), g = r(21), b = r.n(g), v = r(175), y = r.n(v), E = r(101), w = r.n(E), x = r(102), O = r.n(x), S = r(4), P = r.n(S), A = r(13), M = r.n(A), I = r(5), D = r.n(I), C = r(69), T = r.n(C), B = r(19), k = r.n(B), L = r(51), R = r.n(L), U = r(176), j = r.n(U), W = r(10), N = r.n(W), K = r(67), F = r.n(K), z = r(8), q = r.n(z), G = r(70), H = r(0);
     function ownKeys(e, t) {
         var r = _()(e);
         if (f.a) {
@@ -301,7 +339,7 @@
         return r;
     }
     function _createForOfIteratorHelper(e) {
-        if (void 0 === E.a || null == e[y.a]) {
+        if (void 0 === w.a || null == e[y.a]) {
             if (b()(e) || (e = function _unsupportedIterableToArray(e, t) {
                 if (!e) return;
                 if ("string" == typeof e) return _arrayLikeToArray(e, t);
@@ -362,7 +400,7 @@
         constructor(e, t, r) {
             var n = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : null;
             this.name = e, this.url = q()(t) ? t : [ t ], this.detailUrl = r, this.rule = [], 
-            K()(n) ? this.ruleParser = n : this.ruleParser = function(e) {
+            F()(n) ? this.ruleParser = n : this.ruleParser = function(e) {
                 return JSON.parse(e.data);
             };
         }
@@ -374,9 +412,9 @@
         }
         downloadRule() {
             var e = this;
-            return R()(B.a.mark((function _callee() {
+            return R()(k.a.mark((function _callee() {
                 var t, r, n, o, a, i;
-                return B.a.wrap((function _callee$(s) {
+                return k.a.wrap((function _callee$(s) {
                     for (;;) switch (s.prev = s.next) {
                       case 0:
                         t = [], r = null, n = _createForOfIteratorHelper(e.url), s.prev = 3, n.s();
@@ -429,9 +467,9 @@
         }
         updateRule(e) {
             var t = this;
-            return R()(B.a.mark((function _callee2() {
+            return R()(k.a.mark((function _callee2() {
                 var r, n, o, a;
-                return B.a.wrap((function _callee2$(i) {
+                return k.a.wrap((function _callee2$(i) {
                     for (;;) switch (i.prev = i.next) {
                       case 0:
                         return r = null, i.prev = 1, i.next = 4, Y.get(t.detailUrl);
@@ -535,9 +573,9 @@
         },
         saveDB() {
             var e = arguments, t = this;
-            return R()(B.a.mark((function _callee3() {
+            return R()(k.a.mark((function _callee3() {
                 var r;
-                return B.a.wrap((function _callee3$(n) {
+                return k.a.wrap((function _callee3$(n) {
                     for (;;) switch (n.prev = n.next) {
                       case 0:
                         return r = !(e.length > 0 && void 0 !== e[0]) || e[0], n.next = 3, GM.setValue("jsonRuleInfo", {
@@ -561,9 +599,9 @@
         },
         updateRule() {
             var e = arguments, t = this;
-            return R()(B.a.mark((function _callee4() {
+            return R()(k.a.mark((function _callee4() {
                 var r, n, o;
-                return B.a.wrap((function _callee4$(a) {
+                return k.a.wrap((function _callee4$(a) {
                     for (;;) switch (a.prev = a.next) {
                       case 0:
                         if (e.length > 0 && void 0 !== e[0] && e[0] && t.resetExpire(), r = new Date(+t.expire - 24 * t.updatePeriodInDay * 60 * 60 * 1e3), 
@@ -856,7 +894,7 @@
         author: n.author,
         version: n.version,
         license: n.license,
-        changelog: "draggable floatWindow",
+        changelog: "working mode",
         greasyfork: "https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new",
         updateTime: `${a.getFullYear()}/${a.getMonth() + 1}/${a.getDate()}`,
         homepageURL: "https://github.com/machsix/Super-preloader",
@@ -1054,13 +1092,13 @@
     };
 }, function(e, t, r) {
     "use strict";
-    var n = r(48), o = r.n(n), a = r(68), i = r.n(a), s = r(37), c = r.n(s), u = r(38), l = r.n(u), p = r(39), f = r.n(p), d = r(30), _ = r.n(d), h = r(5), m = r.n(h), g = r(170), b = r.n(g), v = r(4), y = r.n(v), w = r(69), E = r.n(w), x = r(13), O = r.n(x), S = r(36), P = r.n(S), A = r(35), M = r.n(A), I = r(107), D = r.n(I), C = r(50), T = r.n(C), k = r(10), B = r.n(k), L = r(108), R = r.n(L), U = r(109), j = r.n(U), W = r(0), lowercaseKeys = function(e) {
+    var n = r(48), o = r.n(n), a = r(68), i = r.n(a), s = r(37), c = r.n(s), u = r(38), l = r.n(u), p = r(39), f = r.n(p), d = r(30), _ = r.n(d), h = r(5), m = r.n(h), g = r(170), b = r.n(g), v = r(4), y = r.n(v), E = r(69), w = r.n(E), x = r(13), O = r.n(x), S = r(36), P = r.n(S), A = r(35), M = r.n(A), I = r(107), D = r.n(I), C = r(50), T = r.n(C), B = r(10), k = r.n(B), L = r(108), R = r.n(L), U = r(109), j = r.n(U), W = r(0), lowercaseKeys = function(e) {
         for (var t = {}, r = 0, n = P()(e); r < n.length; r++) {
             var o = O()(n[r], 2), a = o[0], i = o[1];
             t[a.toLowerCase()] = i;
         }
         return t;
-    }, N = r(110), F = r.n(N), K = r(171), z = r.n(K);
+    }, N = r(110), K = r.n(N), F = r(171), z = r.n(F);
     function ownKeys(e, t) {
         var r = _()(e);
         if (f.a) {
@@ -1075,7 +1113,7 @@
         for (var t = 1; t < arguments.length; t++) {
             var r = null != arguments[t] ? arguments[t] : {};
             t % 2 ? ownKeys(Object(r), !0).forEach((function(t) {
-                E()(e, t, r[t]);
+                w()(e, t, r[t]);
             })) : c.a ? i()(e, c()(r)) : ownKeys(Object(r)).forEach((function(t) {
                 o()(e, t, l()(r, t));
             }));
@@ -1108,7 +1146,7 @@
     };
     function parseArgument(e, t) {
         var r = _objectSpread({}, t);
-        return q(t) && M()(e) && (r = _objectSpread({}, e)), B()(e) && (r.url = e), r;
+        return q(t) && M()(e) && (r = _objectSpread({}, e)), k()(e) && (r.url = e), r;
     }
     var H = function create(e) {
         var t = function request(e) {
@@ -1116,13 +1154,13 @@
                 var t = {};
                 return [ "method", "url", "timeout", "headers", "binary", "user", "password", "context", "withCredentials", "data" ].forEach((function(r) {
                     q(e[r]) || (t[r] = e[r]);
-                })), e.prefixUrl && (t.url = e.prefixUrl + e.url), e.html && B()(e.encoding) && (t.overrideMimeType = `text/html; charset=${e.encoding}`), 
-                q(e.searchParams) || (t.url += `?${F.a.stringify(e.searchParams, null, null, (function(t) {
+                })), e.prefixUrl && (t.url = e.prefixUrl + e.url), e.html && k()(e.encoding) && (t.overrideMimeType = `text/html; charset=${e.encoding}`), 
+                q(e.searchParams) || (t.url += `?${K.a.stringify(e.searchParams, null, null, (function(t) {
                     return z()(t, e.encoding);
                 }))}`), t;
             }(t = function normalizeArguments(e) {
                 var t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : G, r = [];
-                if (!q(e.headers) && B()(e.headers)) try {
+                if (!q(e.headers) && k()(e.headers)) try {
                     e.headers = JSON.parse(e.headers);
                 } catch (t) {
                     console.error(`[Super-preloader] [got] header: ${e.headers} error: ${t}`), delete e.headers;
@@ -1143,10 +1181,10 @@
                 }
                 for (var u in e.method = e.method.toUpperCase(), e.timeout && (e.timeout = y()(e.timeout)), 
                 e.hasOwnProperty("html") ? e.html && (e.binary = !1) : e.html = t.html, r.push("encoding"), 
-                r.push("html"), e.searchParams ? B()(e.searchParams) && (e.searchParams = F.a.parse(e.querystring)) : e.searchParams = {}, 
+                r.push("html"), e.searchParams ? k()(e.searchParams) && (e.searchParams = K.a.parse(e.querystring)) : e.searchParams = {}, 
                 r.push("searchParams"), e.body && (e.data = e.body), t) u in r || q(e[u]) && (e[u] = t[u]);
                 return q(e.cookie) || (D()(e.cookie) && e.cookie && (e.cookie = document.cookie), 
-                B()(e.cookie) && (e.hasOwnProperty("headers") ? e.headers.cookie = e.cookie : e.headers = {
+                k()(e.cookie) && (e.hasOwnProperty("headers") ? e.headers.cookie = e.cookie : e.headers = {
                     cookie: e.cookie
                 })), (e.noHeader || T()(e.headers)) && delete e.headers, D()(e.cache) && !e.cache && (e.searchParams.timestamp = (new Date).getTime()), 
                 T()(e.searchParams) && delete e.searchParams, e;
@@ -2262,16 +2300,16 @@
             return function entries() {
                 return new r(this, e);
             };
-        }, y = t + " Iterator", w = "values" == _, E = !1, x = e.prototype, O = x[p] || x["@@iterator"] || _ && x[_], S = O || getMethod(_), P = _ ? w ? getMethod("entries") : S : void 0, A = "Array" == t && x.entries || O;
+        }, y = t + " Iterator", E = "values" == _, w = !1, x = e.prototype, O = x[p] || x["@@iterator"] || _ && x[_], S = O || getMethod(_), P = _ ? E ? getMethod("entries") : S : void 0, A = "Array" == t && x.entries || O;
         if (A && (v = l(A.call(new e))) !== Object.prototype && v.next && (u(v, y, !0), 
-        n || "function" == typeof v[p] || i(v, p, returnThis)), w && O && "values" !== O.name && (E = !0, 
+        n || "function" == typeof v[p] || i(v, p, returnThis)), E && O && "values" !== O.name && (w = !0, 
         S = function values() {
             return O.call(this);
-        }), n && !m || !f && !E && x[p] || i(x, p, S), s[t] = S, s[y] = returnThis, _) if (g = {
-            values: w ? S : getMethod("values"),
+        }), n && !m || !f && !w && x[p] || i(x, p, S), s[t] = S, s[y] = returnThis, _) if (g = {
+            values: E ? S : getMethod("values"),
             keys: h ? S : getMethod("keys"),
             entries: P
-        }, m) for (b in g) b in x || a(x, b, g[b]); else o(o.P + o.F * (f || E), t, g);
+        }, m) for (b in g) b in x || a(x, b, g[b]); else o(o.P + o.F * (f || w), t, g);
         return g;
     };
 }, function(e, t, r) {
@@ -2300,7 +2338,7 @@
     e.exports = n && n.documentElement;
 }, function(e, t, r) {
     "use strict";
-    var n = r(7), o = r(24), a = r(11), i = r(6), s = r(120), c = r(203).KEY, u = r(27), l = r(75), p = r(56), f = r(53), d = r(9), _ = r(81), h = r(82), m = r(204), g = r(117), b = r(12), v = r(26), y = r(40), w = r(15), E = r(78), x = r(44), O = r(121), S = r(205), P = r(84), A = r(57), M = r(16), I = r(32), D = P.f, C = M.f, T = S.f, k = n.Symbol, B = n.JSON, L = B && B.stringify, R = d("_hidden"), U = d("toPrimitive"), j = {}.propertyIsEnumerable, W = l("symbol-registry"), N = l("symbols"), F = l("op-symbols"), K = Object.prototype, z = "function" == typeof k && !!A.f, q = n.QObject, G = !q || !q.prototype || !q.prototype.findChild, H = a && u((function() {
+    var n = r(7), o = r(24), a = r(11), i = r(6), s = r(120), c = r(203).KEY, u = r(27), l = r(75), p = r(56), f = r(53), d = r(9), _ = r(81), h = r(82), m = r(204), g = r(117), b = r(12), v = r(26), y = r(40), E = r(15), w = r(78), x = r(44), O = r(121), S = r(205), P = r(84), A = r(57), M = r(16), I = r(32), D = P.f, C = M.f, T = S.f, B = n.Symbol, k = n.JSON, L = k && k.stringify, R = d("_hidden"), U = d("toPrimitive"), j = {}.propertyIsEnumerable, W = l("symbol-registry"), N = l("symbols"), K = l("op-symbols"), F = Object.prototype, z = "function" == typeof B && !!A.f, q = n.QObject, G = !q || !q.prototype || !q.prototype.findChild, H = a && u((function() {
         return 7 != O(C({}, "a", {
             get: function() {
                 return C(this, "a", {
@@ -2309,62 +2347,62 @@
             }
         })).a;
     })) ? function(e, t, r) {
-        var n = D(K, t);
-        n && delete K[t], C(e, t, r), n && e !== K && C(K, t, n);
+        var n = D(F, t);
+        n && delete F[t], C(e, t, r), n && e !== F && C(F, t, n);
     } : C, wrap = function(e) {
-        var t = N[e] = O(k.prototype);
+        var t = N[e] = O(B.prototype);
         return t._k = e, t;
-    }, Y = z && "symbol" == typeof k.iterator ? function(e) {
+    }, Y = z && "symbol" == typeof B.iterator ? function(e) {
         return "symbol" == typeof e;
     } : function(e) {
-        return e instanceof k;
+        return e instanceof B;
     }, V = function defineProperty(e, t, r) {
-        return e === K && V(F, t, r), b(e), t = E(t, !0), b(r), o(N, t) ? (r.enumerable ? (o(e, R) && e[R][t] && (e[R][t] = !1), 
+        return e === F && V(K, t, r), b(e), t = w(t, !0), b(r), o(N, t) ? (r.enumerable ? (o(e, R) && e[R][t] && (e[R][t] = !1), 
         r = O(r, {
             enumerable: x(0, !1)
         })) : (o(e, R) || C(e, R, x(1, {})), e[R][t] = !0), H(e, t, r)) : C(e, t, r);
     }, J = function defineProperties(e, t) {
         b(e);
-        for (var r, n = m(t = w(t)), o = 0, a = n.length; a > o; ) V(e, r = n[o++], t[r]);
+        for (var r, n = m(t = E(t)), o = 0, a = n.length; a > o; ) V(e, r = n[o++], t[r]);
         return e;
     }, Z = function propertyIsEnumerable(e) {
-        var t = j.call(this, e = E(e, !0));
-        return !(this === K && o(N, e) && !o(F, e)) && (!(t || !o(this, e) || !o(N, e) || o(this, R) && this[R][e]) || t);
+        var t = j.call(this, e = w(e, !0));
+        return !(this === F && o(N, e) && !o(K, e)) && (!(t || !o(this, e) || !o(N, e) || o(this, R) && this[R][e]) || t);
     }, X = function getOwnPropertyDescriptor(e, t) {
-        if (e = w(e), t = E(t, !0), e !== K || !o(N, t) || o(F, t)) {
+        if (e = E(e), t = w(t, !0), e !== F || !o(N, t) || o(K, t)) {
             var r = D(e, t);
             return !r || !o(N, t) || o(e, R) && e[R][t] || (r.enumerable = !0), r;
         }
     }, $ = function getOwnPropertyNames(e) {
-        for (var t, r = T(w(e)), n = [], a = 0; r.length > a; ) o(N, t = r[a++]) || t == R || t == c || n.push(t);
+        for (var t, r = T(E(e)), n = [], a = 0; r.length > a; ) o(N, t = r[a++]) || t == R || t == c || n.push(t);
         return n;
     }, Q = function getOwnPropertySymbols(e) {
-        for (var t, r = e === K, n = T(r ? F : w(e)), a = [], i = 0; n.length > i; ) !o(N, t = n[i++]) || r && !o(K, t) || a.push(N[t]);
+        for (var t, r = e === F, n = T(r ? K : E(e)), a = [], i = 0; n.length > i; ) !o(N, t = n[i++]) || r && !o(F, t) || a.push(N[t]);
         return a;
     };
-    z || (s((k = function Symbol() {
-        if (this instanceof k) throw TypeError("Symbol is not a constructor!");
+    z || (s((B = function Symbol() {
+        if (this instanceof B) throw TypeError("Symbol is not a constructor!");
         var e = f(arguments.length > 0 ? arguments[0] : void 0), $set = function(t) {
-            this === K && $set.call(F, t), o(this, R) && o(this[R], e) && (this[R][e] = !1), 
+            this === F && $set.call(K, t), o(this, R) && o(this[R], e) && (this[R][e] = !1), 
             H(this, e, x(1, t));
         };
-        return a && G && H(K, e, {
+        return a && G && H(F, e, {
             configurable: !0,
             set: $set
         }), wrap(e);
     }).prototype, "toString", (function toString() {
         return this._k;
-    })), P.f = X, M.f = V, r(83).f = S.f = $, r(46).f = Z, A.f = Q, a && !r(42) && s(K, "propertyIsEnumerable", Z, !0), 
+    })), P.f = X, M.f = V, r(83).f = S.f = $, r(46).f = Z, A.f = Q, a && !r(42) && s(F, "propertyIsEnumerable", Z, !0), 
     _.f = function(e) {
         return wrap(d(e));
     }), i(i.G + i.W + i.F * !z, {
-        Symbol: k
+        Symbol: B
     });
     for (var ee = "hasInstance,isConcatSpreadable,iterator,match,replace,search,species,split,toPrimitive,toStringTag,unscopables".split(","), te = 0; ee.length > te; ) d(ee[te++]);
     for (var re = I(d.store), ne = 0; re.length > ne; ) h(re[ne++]);
     i(i.S + i.F * !z, "Symbol", {
         for: function(e) {
-            return o(W, e += "") ? W[e] : W[e] = k(e);
+            return o(W, e += "") ? W[e] : W[e] = B(e);
         },
         keyFor: function keyFor(e) {
             if (!Y(e)) throw TypeError(e + " is not a symbol!");
@@ -2393,8 +2431,8 @@
         getOwnPropertySymbols: function getOwnPropertySymbols(e) {
             return A.f(y(e));
         }
-    }), B && i(i.S + i.F * (!z || u((function() {
-        var e = k();
+    }), k && i(i.S + i.F * (!z || u((function() {
+        var e = B();
         return "[null]" != L([ e ]) || "{}" != L({
             a: e
         }) || "{}" != L(Object(e));
@@ -2403,9 +2441,9 @@
             for (var t, r, n = [ e ], o = 1; arguments.length > o; ) n.push(arguments[o++]);
             if (r = t = n[1], (v(t) || void 0 !== e) && !Y(e)) return g(t) || (t = function(e, t) {
                 if ("function" == typeof r && (t = r.call(this, e, t)), !Y(t)) return t;
-            }), n[1] = t, L.apply(B, n);
+            }), n[1] = t, L.apply(k, n);
         }
-    }), k.prototype[U] || r(25)(k.prototype, U, k.prototype.valueOf), p(k, "Symbol"), 
+    }), B.prototype[U] || r(25)(B.prototype, U, B.prototype.valueOf), p(B, "Symbol"), 
     p(Math, "Math", !0), p(n.JSON, "JSON", !0);
 }, function(e, t) {}, function(e, t, r) {
     var n = r(12);
@@ -4450,73 +4488,64 @@
                         };
                         o.addEventListener("mouseover", (function(e) {
                             r = setTimeout(i, 100);
-                        }), !1), o.addEventListener("mouseout", (function(e) {
+                        }), !1), o.addEventListener("mouseleave", (function(e) {
                             clearTimeout(r);
                         }), !1), t.addEventListener("mouseover", (function(e) {
                             clearTimeout(n);
-                        }), !1), t.addEventListener("mouseout", (function(e) {
-                            e.relatedTarget && e.relatedTarget.disabled || (n = setTimeout(s, 288));
+                        }), !1), t.addEventListener("mouseleave", (function(e) {
+                            null !== e.relatedTarget && (n = setTimeout(s, 288));
                         }), !1);
                         var c = $("sp-fw-dot");
                         c.style.backgroundColor = FWKG_color.dot;
                         var u = $("sp-fw-cur-mode");
                         u.style.backgroundColor = e.a_enable ? FWKG_color.autopager : FWKG_color.prefetcher;
-                        var l = $("sp-fw-a_enable"), p = $("sp-fw-autopager-field"), f = $("sp-fw-useiframe"), d = $("sp-fw-viewcontent"), _ = $("sp-fw-a_useiframe"), h = $("sp-fw-a_iloaded"), m = $("sp-fw-a_itimeout"), g = $("sp-fw-a_manualA"), b = $("sp-fw-a_remain"), v = $("sp-fw-a_maxpage"), y = $("sp-fw-a_separator"), w = $("sp-fw-a_ipages_0"), E = $("sp-fw-a_ipages_1"), x = $("sp-fw-a_force"), O = $("sp-fw-a_newIframe");
+                        var l = $("sp-fw-a_enable"), p = $("sp-fw-autopager-field"), f = $("sp-fw-useiframe"), d = $("sp-fw-viewcontent"), _ = $("sp-fw-a_useiframe"), h = $("sp-fw-a_iloaded"), m = $("sp-fw-a_itimeout"), g = $("sp-fw-a_manualA"), b = $("sp-fw-a_remain"), v = $("sp-fw-a_maxpage"), y = $("sp-fw-a_separator"), E = $("sp-fw-a_ipages_0"), w = $("sp-fw-a_ipages_1"), x = $("sp-fw-a_force"), O = $("sp-fw-a_newIframe");
                         O.addEventListener("click", (function() {
                             _.checked = O.checked;
                         }), !1);
                         var S = $("sp-fw-a_starti");
                         S.addEventListener("click", (function(t) {
                             if (!t.currentTarget.disabled) {
-                                var r = Number(E.value);
-                                (isNaN(r) || r <= 0) && (r = e.a_ipages[1], E.value = r), autoPO.startipages(r);
+                                var r = Number(w.value);
+                                (isNaN(r) || r <= 0) && (r = e.a_ipages[1], w.value = r), autoPO.startipages(r);
                             }
                         }), !1);
                         var P = $("sp-fw-enable");
-                        function ll(e, t) {
-                            "checkbox" == e.type ? e.checked = t : e.value = t;
-                        }
                         $("sp-fw-setup").addEventListener("click", setup, !1), $("sp-fw-savebutton").addEventListener("click", (function(t) {
                             var r = {
                                 Rurl: e.Rurl,
-                                useiframe: gl(f),
-                                viewcontent: gl(d),
-                                enable: gl(P)
+                                useiframe: Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_12__.f)(f),
+                                viewcontent: Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_12__.f)(d),
+                                enable: Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_12__.f)(P)
                             };
-                            function gl(e) {
-                                switch (e.type) {
-                                  case "checkbox":
-                                    return e.checked;
-
-                                  case "number":
-                                    var t = e.hasAttribute("min") ? Number(e.min) : void 0, r = e.hasAttribute("max") ? Number(e.max) : void 0;
-                                    return t >= Number(e.value) ? t : r < Number(e.value) ? r : e.value;
-
-                                  default:
-                                    return e.value;
-                                }
-                            }
                             if (void 0 !== e.a_enable) {
-                                r.a_enable = gl(l), r.a_useiframe = gl(_), r.a_newIframe = gl(O), r.a_iloaded = gl(h), 
-                                r.a_manualA = gl(g), r.a_force = gl(x);
-                                var n = gl(m);
+                                r.a_enable = "autopager" === Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_12__.f)(l), 
+                                r.a_useiframe = Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_12__.f)(_), r.a_newIframe = Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_12__.f)(O), 
+                                r.a_iloaded = Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_12__.f)(h), r.a_manualA = Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_12__.f)(g), 
+                                r.a_force = Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_12__.f)(x);
+                                var n = Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_12__.f)(m);
                                 r.a_itimeout = isNaN(n) ? e.a_itimeout : n >= 0 ? n : 0;
-                                var o = gl(b);
+                                var o = Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_12__.f)(b);
                                 r.a_remain = isNaN(o) ? e.a_remain : Number(o);
-                                var a = gl(v);
+                                var a = Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_12__.f)(v);
                                 r.a_maxpage = isNaN(a) ? e.a_maxpage : a >= 1 ? a : 1;
-                                var i = gl(E);
-                                r.a_ipages = [ gl(w), isNaN(i) ? e.a_ipages[1] : i >= 1 ? i : 1 ], r.a_separator = gl(y);
+                                var i = Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_12__.f)(w);
+                                r.a_ipages = [ Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_12__.f)(E), isNaN(i) ? e.a_ipages[1] : i >= 1 ? i : 1 ], 
+                                r.a_separator = Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_12__.f)(y);
                             }
                             e.savedValue[e.sedValueIndex] = r, saveValue("spfwset", xToString(e.savedValue)), 
                             (t.shiftKey ? !prefs.FW_RAS : prefs.FW_RAS) && setTimeout((function() {
                                 location.reload();
                             }), 1);
-                        }), !1), void 0 === e.a_enable ? (l.disabled = !0, p.style.display = "none") : (ll(l, e.a_enable), 
-                        ll(_, e.a_useiframe), ll(O, e.a_newIframe), ll(h, e.a_iloaded), ll(m, e.a_itimeout), 
-                        ll(g, e.a_manualA), ll(x, e.a_force), ll(b, e.a_remain), ll(v, e.a_maxpage), ll(y, e.a_separator), 
-                        ll(w, e.a_ipages[0]), ll(E, e.a_ipages[1])), e.a_enable || (S.disabled = !0), e.hasRule || (x.disabled = !0), 
-                        ll(f, e.useiframe), ll(d, e.viewcontent), ll(P, e.enable);
+                        }), !1), void 0 === e.a_enable ? (l.disabled = !0, p.style.display = "none") : (Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_12__.g)(l, e.a_enable ? "autopager" : "preloader"), 
+                        Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_12__.g)(_, e.a_useiframe), Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_12__.g)(O, e.a_newIframe), 
+                        Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_12__.g)(h, e.a_iloaded), Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_12__.g)(m, e.a_itimeout), 
+                        Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_12__.g)(g, e.a_manualA), Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_12__.g)(x, e.a_force), 
+                        Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_12__.g)(b, e.a_remain), Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_12__.g)(v, e.a_maxpage), 
+                        Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_12__.g)(y, e.a_separator), Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_12__.g)(E, e.a_ipages[0]), 
+                        Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_12__.g)(w, e.a_ipages[1])), e.a_enable || (S.disabled = !0), 
+                        e.hasRule || (x.disabled = !0), Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_12__.g)(f, e.useiframe), 
+                        Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_12__.g)(d, e.viewcontent), Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_12__.g)(P, e.enable);
                         var A = {
                             loading: "读取中状态",
                             prefetcher: "预读状态",
@@ -4754,7 +4783,7 @@
                                         }), utils_domTools__WEBPACK_IMPORTED_MODULE_20__.a.create("img", {
                                             attr: {
                                                 id: "sp-sp-md-imgnext",
-                                                src: w.next
+                                                src: E.next
                                             }
                                         }), utils_domTools__WEBPACK_IMPORTED_MODULE_20__.a.create("div", {
                                             attr: {
@@ -4780,7 +4809,7 @@
                             insertedIntoDoc());
                         }
                         prefs.Aplus ? (b = doRequest, doRequest()) : (g = doRequest, h && doRequest());
-                        var v = [ !1 ], y = prefs.sepStartN, w = sep_icons, E = y;
+                        var v = [ !1 ], y = prefs.sepStartN, E = sep_icons, w = y;
                         var x, O, S = 0;
                         function insertedIntoDoc() {
                             if (s) {
@@ -4813,9 +4842,9 @@
                                     var o = document.createElement("div");
                                     if (e.a_separator) {
                                         _ || (_ = Object(utils_gm_enhanced__WEBPACK_IMPORTED_MODULE_13__.a)(css_sp_separator_css__WEBPACK_IMPORTED_MODULE_18___default.a)), 
-                                        o.className = "sp-separator", o.id = "sp-separator-" + E, o.addEventListener("click", sepHandler, !1);
+                                        o.className = "sp-separator", o.id = "sp-separator-" + w, o.addEventListener("click", sepHandler, !1);
                                         var a = "";
-                                        a = "zh_CN" === i8n() ? '<b>第 <span style="' + sep_icons.text_span_style + '">' + E + "</span> 页</b>" + (e.a_separatorReal ? getRalativePageStr(t, r, n) : "") : '<b>Page <span style="' + sep_icons.text_span_style + '">' + E + "</span></b>" + (e.a_separatorReal ? getRalativePageStr(t, r, n) : ""), 
+                                        a = "zh_CN" === i8n() ? '<b>第 <span style="' + sep_icons.text_span_style + '">' + w + "</span> 页</b>" + (e.a_separatorReal ? getRalativePageStr(t, r, n) : "") : '<b>Page <span style="' + sep_icons.text_span_style + '">' + w + "</span></b>" + (e.a_separatorReal ? getRalativePageStr(t, r, n) : ""), 
                                         o.appendChild(utils_domTools__WEBPACK_IMPORTED_MODULE_20__.a.create("a", {
                                             attr: {
                                                 class: "sp-sp-nextlink",
@@ -4826,28 +4855,28 @@
                                             innerHTML: a
                                         })), o.appendChild(utils_domTools__WEBPACK_IMPORTED_MODULE_20__.a.create("img", {
                                             attr: {
-                                                src: w.top,
+                                                src: E.top,
                                                 class: "sp-sp-gotop",
                                                 alt: "zh_CN" === i8n() ? "去到顶部" : "To Top",
                                                 title: "zh_CN" === i8n() ? "去到顶部" : "To Top"
                                             }
                                         })), o.appendChild(utils_domTools__WEBPACK_IMPORTED_MODULE_20__.a.create("img", {
                                             attr: {
-                                                src: E == y ? w.pre_gray : w.pre,
+                                                src: w == y ? E.pre_gray : E.pre,
                                                 class: "sp-sp-gopre",
                                                 title: "zh_CN" === i8n() ? "上滚一页" : "Scroll up a page"
                                             }
                                         }));
                                         var i = utils_domTools__WEBPACK_IMPORTED_MODULE_20__.a.create("img", {
                                             attr: {
-                                                src: w.next_gray,
+                                                src: E.next_gray,
                                                 class: "sp-sp-gonext",
                                                 title: "zh_CN" === i8n() ? "下滚一页" : "Scroll down a page"
                                             }
                                         });
                                         2 == v.length && v.shift(), v.push(i), o.appendChild(i), o.appendChild(utils_domTools__WEBPACK_IMPORTED_MODULE_20__.a.create("img", {
                                             attr: {
-                                                src: w.bottom,
+                                                src: E.bottom,
                                                 class: "sp-sp-gobottom",
                                                 alt: "zh_CN" === i8n() ? "去到底部" : "To Bottom",
                                                 title: "zh_CN" === i8n() ? "去到底部" : "To Bottom"
@@ -4864,28 +4893,28 @@
                                                 },
                                                 innerHTML: "Powered by Super-preloader"
                                             }) ]
-                                        })), E += 1;
+                                        })), w += 1;
                                     } else o.style.cssText = "                    height:0!important;                    width:0!important;                    margin:0!important;                    padding:0!important;                    border:none!important;                    clear:both!important;                    display:block!important;                    visibility:hidden!important;                ";
                                     return o;
                                 }(l, cplink, nextlink), D = I;
                                 if (void 0 !== e.a_sepdivDom && "function" == typeof e.a_sepdivDom) D = e.a_sepdivDom(s, I); else if (a[0] && "TR" === a[0].tagName && "TR" === a[a.length - 1].tagName) {
                                     var C = r.parentNode, T = Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_12__.a)("child::tr[1]/child::*[self::td or self::th]", C);
                                     0 == T.length && (T = Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_12__.a)("child::*[self::td or self::th]", a[0]));
-                                    var k = [].reduce.call(T, (function(e, t) {
+                                    var B = [].reduce.call(T, (function(e, t) {
                                         return e + (_babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_3___default()(t.getAttribute("colspan"), 10) || 1);
                                     }), 0);
                                     D = utils_domTools__WEBPACK_IMPORTED_MODULE_20__.a.create("tr", {
                                         children: [ utils_domTools__WEBPACK_IMPORTED_MODULE_20__.a.create("td", {
                                             attr: {
-                                                colspan: k
+                                                colspan: B
                                             },
                                             children: [ I ]
                                         }) ]
                                     });
                                 } else if (a[0] && "TBODY" === a[0].tagName && "TBODY" === a[a.length - 1].tagName) {
-                                    var B = a[a.length - 1].getElementsByTagName("tr");
-                                    if (B) {
-                                        var L = [].reduce.call(B[B.length - 1].children, (function(e, t) {
+                                    var k = a[a.length - 1].getElementsByTagName("tr");
+                                    if (k) {
+                                        var L = [].reduce.call(k[k.length - 1].children, (function(e, t) {
                                             return e + (_babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_3___default()(t.getAttribute("colspan"), 10) || 1);
                                         }), 0);
                                         D = utils_domTools__WEBPACK_IMPORTED_MODULE_20__.a.create("tbody", {
@@ -4914,15 +4943,15 @@
                                 }), 99), e.a_replaceE) {
                                     var R = Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_12__.a)(e.a_replaceE), U = R.length;
                                     if (U > 0) {
-                                        var j, W, N = Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_12__.a)(e.a_replaceE, !1, s, c), F = N.length;
-                                        if (F == U) for (f = 0; f < F; f++) j = R[f], W = N[f], W = s.importNode(W, !0), 
+                                        var j, W, N = Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_12__.a)(e.a_replaceE, !1, s, c), K = N.length;
+                                        if (K == U) for (f = 0; f < K; f++) j = R[f], W = N[f], W = s.importNode(W, !0), 
                                         j.parentNode.replaceChild(W, j);
                                     }
                                 }
                                 S += 1, h && S >= m && (h = !1), t.loadedIcon("hide"), d && (d.style.display = "none"), 
-                                v[0] && (v[0].src = w.next);
-                                var K = document.createEvent("Event");
-                                if (K.initEvent("Super_preloaderPageLoaded", !0, !1), document.dispatchEvent(K), 
+                                v[0] && (v[0].src = E.next);
+                                var F = document.createEvent("Event");
+                                if (F.initEvent("Super_preloaderPageLoaded", !0, !1), document.dispatchEvent(F), 
                                 prefs.enableHistory) try {
                                     window.history.pushState(null, n, cplink);
                                 } catch (e) {}
@@ -4941,15 +4970,15 @@
                         O = e.a_relatedObj[1]) : (x = e.a_pageElement, O = "bottom"));
                         var P, A = !1;
                         if (prefs.pauseA) {
-                            var M, I = [ "target", "shiftKey", "ctrlKey", "altKey" ], D = prefs.mouseA ? "mousedown" : "dblclick", C = I[prefs.Pbutton[0]], T = I[prefs.Pbutton[1]], k = I[prefs.Pbutton[2]], B = function pauseIt() {
+                            var M, I = [ "target", "shiftKey", "ctrlKey", "altKey" ], D = prefs.mouseA ? "mousedown" : "dblclick", C = I[prefs.Pbutton[0]], T = I[prefs.Pbutton[1]], B = I[prefs.Pbutton[2]], k = function pauseIt() {
                                 A = !A, prefs.stop_ipage && (h = !1), A ? (t.updateColor("Apause"), "zh_CN" === i8n() ? Object(utils_notice__WEBPACK_IMPORTED_MODULE_28__.a)('<b>状态</b>:自动翻页<span style="color:red!important;"><b> 暂停</b></span>.', prefs.disappearDelay) : Object(utils_notice__WEBPACK_IMPORTED_MODULE_28__.a)('<b>Status</b>:Autopagger<span style="color:red!important;"><b> Pause</b></span>.', prefs.disappearDelay)) : (t.updateColor("autopager"), 
                                 t.CmodeIcon("hide"), "zh_CN" === i8n() ? Object(utils_notice__WEBPACK_IMPORTED_MODULE_28__.a)('<b>状态</b>:自动翻页<span style="color:red!important;"><b> 启用</b></span>.') : Object(utils_notice__WEBPACK_IMPORTED_MODULE_28__.a)('<b>Status</b>:Autopagger<span style="color:red!important;"><b> Enable</b></span>.')), 
                                 scroll();
                             }, L = function clearPause() {
                                 clearTimeout(M), document.removeEventListener("mouseup", clearPause, !1);
                             }, R = function pausehandler(t) {
-                                e.a_manualA && !h || t[C] && t[T] && t[k] && ("mousedown" == t.type ? (document.addEventListener("mouseup", L, !1), 
-                                M = setTimeout(B, prefs.Atimeout)) : B());
+                                e.a_manualA && !h || t[C] && t[T] && t[B] && ("mousedown" == t.type ? (document.addEventListener("mouseup", L, !1), 
+                                M = setTimeout(k, prefs.Atimeout)) : k());
                             };
                             document.addEventListener(D, R, !1), remove.push((function() {
                                 document.removeEventListener(D, R, !1);
@@ -5201,31 +5230,31 @@
                             }
                             var n, o, a = prePageKey, i = nextPageKey, s = nextPageKey.length, c = prePageKey.length, u = getFullHref, l = utils_domSelector__WEBPACK_IMPORTED_MODULE_12__.b, p = Number, f = domain_port, d = e.links, _ = d.length, h = cplink;
                             autoGetLink.checked ? o = !0 : (n = nextlink, o = prelink);
-                            var m, g, b, v, y, w, E, x, O, S, P, A, M, I, D, C, T, k, B, L, R, U, j = autoMatch.digitalCheck, W = /^\s*\D{0,1}(\d+)\D{0,1}\s*$/;
+                            var m, g, b, v, y, E, w, x, O, S, P, A, M, I, D, C, T, B, k, L, R, U, j = autoMatch.digitalCheck, W = /^\s*\D{0,1}(\d+)\D{0,1}\s*$/;
                             for (utils_logger__WEBPACK_IMPORTED_MODULE_27__.a.debug("[Super-preloader]", `全文档链接数量:${_}`), 
                             m = 0; m < _ && (!n || !o); m++) if (g = d[m]) {
                                 if (b = g.textContent) {
                                     if (j && (v = b.match(W))) {
-                                        if (v = v[1], y = g, w = 0, !n) {
-                                            for (E = g.previousSibling, x = g.previousElementSibling; !E && !x && w < 1; ) (y = y.parentNode) && (E = y.previousSibling, 
-                                            x = y.previousElementSibling), w++;
-                                            if (O = w > 0, (E || x) && ((S = E ? E.textContent.match(W) : "") ? P = E : (S = x ? x.textContent.match(W) : "", 
+                                        if (v = v[1], y = g, E = 0, !n) {
+                                            for (w = g.previousSibling, x = g.previousElementSibling; !w && !x && E < 1; ) (y = y.parentNode) && (w = y.previousSibling, 
+                                            x = y.previousElementSibling), E++;
+                                            if (O = E > 0, (w || x) && ((S = w ? w.textContent.match(W) : "") ? P = w : (S = x ? x.textContent.match(W) : "", 
                                             P = x), S && p(S = S[1]) == p(v) - 1)) {
                                                 (3 == (A = P.nodeType) || 1 == A && (O ? 0 === l("./descendant-or-self::a[@href]", P, e).snapshotLength : !P.hasAttribute("href") || u(P.getAttribute("href")) == h)) && (n = finalCheck(g, "next"));
                                                 continue;
                                             }
                                         }
                                         if (!o) {
-                                            for (M = g.nextSibling, I = g.nextElementSibling; !M && !I && w < 1; ) (y = y.parentNode) && (M = g.nextSibling, 
-                                            I = g.nextElementSibling), w++;
-                                            O = w > 0, (M || I) && ((D = M ? M.textContent.match(W) : "") ? C = M : (D = I ? I.textContent.match(W) : "", 
+                                            for (M = g.nextSibling, I = g.nextElementSibling; !M && !I && E < 1; ) (y = y.parentNode) && (M = g.nextSibling, 
+                                            I = g.nextElementSibling), E++;
+                                            O = E > 0, (M || I) && ((D = M ? M.textContent.match(W) : "") ? C = M : (D = I ? I.textContent.match(W) : "", 
                                             C = I), D && p(D = D[1]) == p(v) + 1 && (3 == (A = C.nodeType) || 1 == A && (O ? 0 === l("./descendant-or-self::a[@href]", C, e).snapshotLength : !C.hasAttribute("href") || u(C.getAttribute("href")) == h)) && (o = finalCheck(g, "pre")));
                                         }
                                         continue;
                                     }
                                 } else b = g.title;
-                                if (!b) for (k = 0, B = (T = g.getElementsByTagName("img")).length; k < B && (L = T[k], 
-                                !(b = L.alt || L.title)); k++) ;
+                                if (!b) for (B = 0, k = (T = g.getElementsByTagName("img")).length; B < k && (L = T[B], 
+                                !(b = L.alt || L.title)); B++) ;
                                 if (b) {
                                     if (!n) {
                                         for (R = !1, U = 0; U < s; U++) if (i[U].test(b)) {
@@ -5840,12 +5869,12 @@
     r(125), r(45), r(55), r(214), r(222), r(223), e.exports = r(3).Promise;
 }, function(e, t, r) {
     "use strict";
-    var n, o, a, i, s = r(42), c = r(7), u = r(43), l = r(80), p = r(6), f = r(26), d = r(54), _ = r(215), h = r(216), m = r(130), g = r(131).set, b = r(218)(), v = r(85), y = r(132), w = r(219), E = r(133), x = c.TypeError, O = c.process, S = O && O.versions, P = S && S.v8 || "", A = c.Promise, M = "process" == l(O), empty = function() {}, I = o = v.f, D = !!function() {
+    var n, o, a, i, s = r(42), c = r(7), u = r(43), l = r(80), p = r(6), f = r(26), d = r(54), _ = r(215), h = r(216), m = r(130), g = r(131).set, b = r(218)(), v = r(85), y = r(132), E = r(219), w = r(133), x = c.TypeError, O = c.process, S = O && O.versions, P = S && S.v8 || "", A = c.Promise, M = "process" == l(O), empty = function() {}, I = o = v.f, D = !!function() {
         try {
             var e = A.resolve(1), t = (e.constructor = {})[r(9)("species")] = function(e) {
                 e(empty, empty);
             };
-            return (M || "function" == typeof PromiseRejectionEvent) && e.then(empty) instanceof t && 0 !== P.indexOf("6.6") && -1 === w.indexOf("Chrome/66");
+            return (M || "function" == typeof PromiseRejectionEvent) && e.then(empty) instanceof t && 0 !== P.indexOf("6.6") && -1 === E.indexOf("Chrome/66");
         } catch (e) {}
     }(), isThenable = function(e) {
         var t;
@@ -5950,7 +5979,7 @@
         }
     }), p(p.S + p.F * (s || !D), "Promise", {
         resolve: function resolve(e) {
-            return E(s && this === i ? A : this, e);
+            return w(s && this === i ? A : this, e);
         }
     }), p(p.S + p.F * !(D && r(129)((function(e) {
         A.all(e).catch(empty);
@@ -6440,12 +6469,12 @@
 }, function(e, t, r) {
     var n = r(146), o = r(148), a = r(274), i = r(277), s = r(153), c = r(8), u = r(94), l = r(95), p = 1, f = "[object Arguments]", d = "[object Array]", _ = "[object Object]", h = Object.prototype.hasOwnProperty;
     e.exports = function baseIsEqualDeep(e, t, r, m, g, b) {
-        var v = c(e), y = c(t), w = v ? d : s(e), E = y ? d : s(t), x = (w = w == f ? _ : w) == _, O = (E = E == f ? _ : E) == _, S = w == E;
+        var v = c(e), y = c(t), E = v ? d : s(e), w = y ? d : s(t), x = (E = E == f ? _ : E) == _, O = (w = w == f ? _ : w) == _, S = E == w;
         if (S && u(e)) {
             if (!u(t)) return !1;
             v = !0, x = !1;
         }
-        if (S && !x) return b || (b = new n), v || l(e) ? o(e, t, r, m, g, b) : a(e, t, w, r, m, g, b);
+        if (S && !x) return b || (b = new n), v || l(e) ? o(e, t, r, m, g, b) : a(e, t, E, r, m, g, b);
         if (!(r & p)) {
             var P = x && h.call(e, "__wrapped__"), A = O && h.call(t, "__wrapped__");
             if (P || A) {
@@ -6461,10 +6490,10 @@
         return !1;
     };
 }, function(e, t, r) {
-    var n = r(47), o = r(275), a = r(137), i = r(148), s = r(276), c = r(92), u = 1, l = 2, p = "[object Boolean]", f = "[object Date]", d = "[object Error]", _ = "[object Map]", h = "[object Number]", m = "[object RegExp]", g = "[object Set]", b = "[object String]", v = "[object Symbol]", y = "[object ArrayBuffer]", w = "[object DataView]", E = n ? n.prototype : void 0, x = E ? E.valueOf : void 0;
-    e.exports = function equalByTag(e, t, r, n, E, O, S) {
+    var n = r(47), o = r(275), a = r(137), i = r(148), s = r(276), c = r(92), u = 1, l = 2, p = "[object Boolean]", f = "[object Date]", d = "[object Error]", _ = "[object Map]", h = "[object Number]", m = "[object RegExp]", g = "[object Set]", b = "[object String]", v = "[object Symbol]", y = "[object ArrayBuffer]", E = "[object DataView]", w = n ? n.prototype : void 0, x = w ? w.valueOf : void 0;
+    e.exports = function equalByTag(e, t, r, n, w, O, S) {
         switch (r) {
-          case w:
+          case E:
             if (e.byteLength != t.byteLength || e.byteOffset != t.byteOffset) return !1;
             e = e.buffer, t = t.buffer;
 
@@ -6492,7 +6521,7 @@
             var M = S.get(e);
             if (M) return M == t;
             n |= l, S.set(e, t);
-            var I = i(P(e), P(t), n, E, O, S);
+            var I = i(P(e), P(t), n, w, O, S);
             return S.delete(e), I;
 
           case v:
@@ -6533,8 +6562,8 @@
             m || (m = "constructor" == d);
         }
         if (h && !m) {
-            var y = e.constructor, w = t.constructor;
-            y != w && "constructor" in e && "constructor" in t && !("function" == typeof y && y instanceof y && "function" == typeof w && w instanceof w) && (h = !1);
+            var y = e.constructor, E = t.constructor;
+            y != E && "constructor" in e && "constructor" in t && !("function" == typeof y && y instanceof y && "function" == typeof E && E instanceof E) && (h = !1);
         }
         return c.delete(e), c.delete(t), h;
     };
@@ -6756,7 +6785,7 @@
         return r || u.test(e) ? l(e.slice(2), r ? 2 : 8) : s.test(e) ? a : +e;
     };
 }, function(e) {
-    e.exports = JSON.parse('{"name":"super-preloader","version":"6.11.4","description":"Super-preloader","main":"dist/Super_preloaderPlus_one_New.user.js","author":"Mach6","license":"GPL-3.0","bugs":{"url":"https://github.com/machsix/Super-preloader/issues"},"homepage":"https://github.com/machsix/Super-preloader","directories":{"doc":"docs"},"repository":{"type":"git","url":"git+https://github.com/machsix/Super-preloader.git"},"scripts":{"lint":"eslint \\"dist/*.json\\" \\"src/**/*.js\\" \\"ci/*.js\\"","format":"prettier --write \\"dist/*.json\\" \\"src/**/*.{js,css}\\" \\"ci/*.js\\" \\"docs/**/*.{js,md}\\"","format:check":"prettier --check \\"dist/*.json\\" \\"src/**/*.{js,css}\\" \\"ci/*.js\\" \\"docs/**/*.{js,md}\\"","format:staged":"pretty-quick --verbose --staged --write \\"dist/*.json\\" \\"src/**/*.{js,css}\\" \\"ci/*.js\\" \\"docs/**/*.{js,md}\\"","test":"npm run lint && npm run format:staged","dev":"webpack-dev-server --color --config webpack.dev.js","build":"webpack --no-cache --debug --config webpack.prod.js","build:dev":"webpack --config webpack.dev.js","docs:dev":"vuepress dev docs","docs:build":"vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh","preversion":"npm run test && npm run docs:build","version":"npm run build  && npm run build:dev && git add dist/*.js && git add dist/*.json","postversion":"git add package.json package-lock.json","publish:patch":"npm --no-git-tag-version version patch","publish":"npm --no-git-tag-version version minor"},"husky":{"hooks":{"pre-commit":"npm run test"}},"keywords":["userscript"],"devDependencies":{"@vuepress/plugin-back-to-top":"1.4.0","@vuepress/plugin-google-analytics":"1.4.0","@vuepress/plugin-pwa":"1.4.0","vuepress":"1.4.0"},"dependencies":{"@babel/cli":"7.8.4","@babel/core":"7.9.0","@babel/plugin-transform-runtime":"7.9.0","@babel/preset-env":"7.9.0","@babel/runtime-corejs2":"7.9.2","babel-loader":"8.1.0","babel-plugin-lodash":"3.3.4","compare-versions":"3.6.0","css-loader":"3.4.2","detect-browser":"5.0.0","displacejs":"1.4.1","ejs-loader":"0.3.6","eslint":"6.8.0","eslint-config-prettier":"6.10.1","eslint-plugin-json":"2.1.1","eslint-plugin-prettier":"3.1.2","husky":"4.2.3","lodash":"4.17.15","lodash-webpack-plugin":"0.11.5","loglevel":"1.6.7","node-sass":"^4.13.1","prettier":"2.0.2","pretty-quick":"2.0.1","sass-loader":"^8.0.2","string-replace-loader":"2.2.0","terser-webpack-plugin":"2.3.5","to-string-loader":"^1.1.6","urlencode":"1.1.0","webpack":"^4.42.1","webpack-cli":"3.3.11","webpack-dev-server":"3.10.3","webpack-merge":"4.2.2","yargs":"15.3.1"}}');
+    e.exports = JSON.parse('{"name":"super-preloader","version":"6.12.0","description":"Super-preloader","main":"dist/Super_preloaderPlus_one_New.user.js","author":"Mach6","license":"GPL-3.0","bugs":{"url":"https://github.com/machsix/Super-preloader/issues"},"homepage":"https://github.com/machsix/Super-preloader","directories":{"doc":"docs"},"repository":{"type":"git","url":"git+https://github.com/machsix/Super-preloader.git"},"scripts":{"lint":"eslint \\"dist/*.json\\" \\"src/**/*.js\\" \\"ci/*.js\\"","format":"prettier --write \\"dist/*.json\\" \\"src/**/*.{js,css}\\" \\"ci/*.js\\" \\"docs/**/*.{js,md}\\"","format:check":"prettier --check \\"dist/*.json\\" \\"src/**/*.{js,css}\\" \\"ci/*.js\\" \\"docs/**/*.{js,md}\\"","format:staged":"pretty-quick --verbose --staged --write \\"dist/*.json\\" \\"src/**/*.{js,css}\\" \\"ci/*.js\\" \\"docs/**/*.{js,md}\\"","test":"npm run lint && npm run format:staged","dev":"webpack-dev-server --color --config webpack.dev.js","build":"webpack --no-cache --debug --config webpack.prod.js","build:dev":"webpack --config webpack.dev.js","docs:dev":"vuepress dev docs","docs:build":"vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh","preversion":"npm run test && npm run docs:build","version":"npm run build  && npm run build:dev && git add dist/*.js && git add dist/*.json","postversion":"git add package.json package-lock.json","publish:patch":"npm --no-git-tag-version version patch","publish":"npm --no-git-tag-version version minor"},"husky":{"hooks":{"pre-commit":"npm run test"}},"keywords":["userscript"],"devDependencies":{"@vuepress/plugin-back-to-top":"1.4.0","@vuepress/plugin-google-analytics":"1.4.0","@vuepress/plugin-pwa":"1.4.0","vuepress":"1.4.0"},"dependencies":{"@babel/cli":"7.8.4","@babel/core":"7.9.0","@babel/plugin-transform-runtime":"7.9.0","@babel/preset-env":"7.9.5","@babel/runtime-corejs2":"7.9.2","babel-loader":"8.1.0","babel-plugin-lodash":"3.3.4","compare-versions":"3.6.0","css-loader":"3.5.1","detect-browser":"5.0.0","displacejs":"1.4.1","ejs-loader":"0.3.6","eslint":"6.8.0","eslint-config-prettier":"6.10.1","eslint-plugin-json":"2.1.1","eslint-plugin-prettier":"3.1.2","husky":"4.2.3","lodash":"4.17.15","lodash-webpack-plugin":"0.11.5","loglevel":"1.6.7","node-sass":"^4.13.1","prettier":"2.0.4","pretty-quick":"2.0.1","sass-loader":"^8.0.2","string-replace-loader":"2.3.0","terser-webpack-plugin":"2.3.5","to-string-loader":"^1.1.6","urlencode":"1.1.0","webpack":"^4.42.1","webpack-cli":"3.3.11","webpack-dev-server":"3.10.3","webpack-merge":"4.2.2","yargs":"15.3.1"}}');
 }, function(e, t, r) {
     var n = r(86), o = r(138), a = r(140), i = r(89), s = r(313), c = r(92), u = 200;
     e.exports = function baseUniq(e, t, r) {
@@ -6783,10 +6812,10 @@
 }, function(e, t) {
     e.exports = function noop() {};
 }, function(e, t, r) {
-    (t = r(66)(!1)).push([ e.i, '#sp-fw-container{z-index:999999 !important;text-align:left !important;line-height:13px !important}#sp-fw-container *{font-size:13px !important;color:black !important;float:none !important}#sp-fw-main-head{position:relative !important;top:0 !important;left:0 !important}#sp-fw-span-info{position:absolute !important;right:1px !important;top:0 !important;font-size:11px !important;line-height:11px !important;background:none !important;font-style:italic !important;color:#5a5a5a !important;text-shadow:white 0px 1px 1px !important}#sp-fw-container input{vertical-align:middle !important;display:inline-block !important;outline:none !important;height:13px !important;padding:0px !important;margin:0 !important;margin-right:3px !important}#sp-fw-container input[type="number"]{width:6ch !important;text-align:left !important;margin:0 3px !important}#sp-fw-container input[type="number"]:hover::-webkit-inner-spin-button{height:60px}#sp-fw-container input[type="checkbox"]{border:1px solid #b4b4b4 !important;padding:1px !important;width:13px !important;height:13px !important;background:none !important;cursor:pointer !important;visibility:visible !important;position:static !important}#sp-fw-container input[type="button"]{border:1px solid #ccc !important;cursor:pointer !important;background:none !important;width:auto !important;height:auto !important}#sp-fw-container li{list-style:none !important;margin:3px 0 !important;border:none !important;float:none !important}#sp-fw-container fieldset{border:2px groove #ccc !important;-moz-border-radius:3px !important;border-radius:3px !important;padding:4px 9px 6px 9px !important;margin:2px !important;display:block !important;width:auto !important;height:auto !important}#sp-fw-container legend{line-height:20px !important;margin-bottom:0px !important}#sp-fw-container fieldset>ul{padding:0 !important;margin:0 !important}#sp-fw-container ul#sp-fw-a_useiframe-extend{padding-left:40px !important}#sp-fw-rect{position:relative !important;top:0 !important;left:0 !important;float:right !important;height:10px !important;width:10px !important;padding:0 !important;margin:0 !important;-moz-border-radius:3px !important;border-radius:3px !important;border:1px solid white !important;-webkit-box-shadow:inset 0 5px 0 rgba(255,255,255,0.3),0 0 3px rgba(0,0,0,0.8) !important;-moz-box-shadow:inset 0 5px 0 rgba(255,255,255,0.3),0 0 3px rgba(0,0,0,0.8) !important;box-shadow:inset 0 5px 0 rgba(255,255,255,0.3),0 0 3px rgba(0,0,0,0.8) !important;opacity:0.8 !important}#sp-fw-dot,#sp-fw-cur-mode{position:absolute !important;z-index:9999 !important;width:5px !important;height:5px !important;padding:0 !important;-moz-border-radius:3px !important;border-radius:3px !important;border:1px solid white !important;opacity:1 !important;-webkit-box-shadow:inset 0 -2px 1px rgba(0,0,0,0.3),inset 0 2px 1px rgba(255,255,255,0.3),0px 1px 2px rgba(0,0,0,0.9) !important;-moz-box-shadow:inset 0 -2px 1px rgba(0,0,0,0.3),inset 0 2px 1px rgba(255,255,255,0.3),0px 1px 2px rgba(0,0,0,0.9) !important;box-shadow:inset 0 -2px 1px rgba(0,0,0,0.3),inset 0 2px 1px rgba(255,255,255,0.3),0px 1px 2px rgba(0,0,0,0.9) !important}#sp-fw-dot{right:-3px !important;top:-3px !important}#sp-fw-cur-mode{left:-3px !important;top:-3px !important;width:6px !important;height:6px !important}#sp-fw-content{padding:0 !important;margin:5px 5px 0 0 !important;-moz-border-radius:3px !important;border-radius:3px !important;border:1px solid #a0a0a0 !important;-webkit-box-shadow:-2px 2px 5px rgba(0,0,0,0.3) !important;-moz-box-shadow:-2px 2px 5px rgba(0,0,0,0.3) !important;box-shadow:-2px 2px 5px rgba(0,0,0,0.3) !important}#sp-fw-main{padding:5px !important;border:1px solid white !important;-moz-border-radius:3px !important;border-radius:3px !important;background-color:#f2f2f7 !important;background:-moz-linear-gradient(top, #fcfcfc, #f2f2f7 100%) !important;background:-webkit-gradient(linear, 0 0, 0 100%, from(#fcfcfc), to(#f2f2f7)) !important}#sp-fw-foot{position:relative !important;left:0 !important;right:0 !important;top:2px !important;min-height:20px !important}#sp-fw-container .sp-fw-spanbutton{padding:2px 3px !important;border:1px solid #ccc !important;-moz-border-radius:3px !important;border-radius:3px !important;cursor:pointer !important;background-color:#f9f9f9 !important;-webkit-box-shadow:inset 0 10px 5px white !important;-moz-box-shadow:inset 0 10px 5px white !important;box-shadow:inset 0 10px 5px white !important;display:inline-block}#sp-fw-container #sp-fw-savebutton{position:relative !important;left:96px !important}\n', "" ]), 
+    (t = r(66)(!1)).push([ e.i, '#sp-fw-container{z-index:999999 !important;text-align:left !important;line-height:13px !important}#sp-fw-container *{font-size:13px !important;color:black !important;float:none !important}#sp-fw-main-head{position:relative !important;top:0 !important;left:0 !important}#sp-fw-span-info{position:absolute !important;right:1px !important;top:0 !important;font-size:11px !important;line-height:11px !important;background:none !important;font-style:italic !important;color:#5a5a5a !important;text-shadow:white 0px 1px 1px !important}#sp-fw-container input{vertical-align:middle !important;display:inline-block !important;outline:none !important;padding:0px !important;margin:0 !important;margin-right:3px !important;background:white;border:1px solid gray;cursor:pointer !important}#sp-fw-container input[type="number"]{width:6ch !important;text-align:left !important;margin:0 3px !important}#sp-fw-container input[type="number"]:hover::-webkit-inner-spin-button{height:60px}#sp-fw-container input[type="checkbox"]{position:static !important}#sp-fw-container input[type="button"]{width:auto !important;height:auto !important}#sp-fw-container li{list-style:none !important;margin:3px 0 !important;border:none !important;float:none !important}#sp-fw-container fieldset{border:2px groove #ccc !important;-moz-border-radius:3px !important;border-radius:3px !important;padding:4px 9px 6px 9px !important;margin:2px !important;display:block !important;width:auto !important;height:auto !important}#sp-fw-container legend{line-height:20px !important;margin-bottom:0px !important}#sp-fw-container fieldset>ul{padding:0 !important;margin:0 !important}#sp-fw-container ul#sp-fw-a_useiframe-extend{padding-left:40px !important}#sp-fw-rect{position:relative !important;top:0 !important;left:0 !important;float:right !important;height:10px !important;width:10px !important;padding:0 !important;margin:0 !important;-moz-border-radius:3px !important;border-radius:3px !important;border:1px solid white !important;-webkit-box-shadow:inset 0 5px 0 rgba(255,255,255,0.3),0 0 3px rgba(0,0,0,0.8) !important;-moz-box-shadow:inset 0 5px 0 rgba(255,255,255,0.3),0 0 3px rgba(0,0,0,0.8) !important;box-shadow:inset 0 5px 0 rgba(255,255,255,0.3),0 0 3px rgba(0,0,0,0.8) !important;opacity:0.8 !important}#sp-fw-dot,#sp-fw-cur-mode{position:absolute !important;z-index:9999 !important;width:5px !important;height:5px !important;padding:0 !important;-moz-border-radius:3px !important;border-radius:3px !important;border:1px solid white !important;opacity:1 !important;-webkit-box-shadow:inset 0 -2px 1px rgba(0,0,0,0.3),inset 0 2px 1px rgba(255,255,255,0.3),0px 1px 2px rgba(0,0,0,0.9) !important;-moz-box-shadow:inset 0 -2px 1px rgba(0,0,0,0.3),inset 0 2px 1px rgba(255,255,255,0.3),0px 1px 2px rgba(0,0,0,0.9) !important;box-shadow:inset 0 -2px 1px rgba(0,0,0,0.3),inset 0 2px 1px rgba(255,255,255,0.3),0px 1px 2px rgba(0,0,0,0.9) !important}#sp-fw-dot{right:-3px !important;top:-3px !important}#sp-fw-cur-mode{left:-3px !important;top:-3px !important;width:6px !important;height:6px !important}#sp-fw-content{padding:0 !important;margin:5px 5px 0 0 !important;-moz-border-radius:3px !important;border-radius:3px !important;border:1px solid #a0a0a0 !important;-webkit-box-shadow:-2px 2px 5px rgba(0,0,0,0.3) !important;-moz-box-shadow:-2px 2px 5px rgba(0,0,0,0.3) !important;box-shadow:-2px 2px 5px rgba(0,0,0,0.3) !important}#sp-fw-main{padding:5px !important;border:1px solid white !important;-moz-border-radius:3px !important;border-radius:3px !important;background-color:#f2f2f7 !important;background:-moz-linear-gradient(top, #fcfcfc, #f2f2f7 100%) !important;background:-webkit-gradient(linear, 0 0, 0 100%, from(#fcfcfc), to(#f2f2f7)) !important}#sp-fw-foot{position:relative !important;left:0 !important;right:0 !important;top:2px !important;padding-left:2px;min-height:20px !important}#sp-fw-container .sp-fw-spanbutton{padding:2px 3px !important;border:1px solid #ccc !important;-moz-border-radius:3px !important;border-radius:3px !important;cursor:pointer !important;background-color:#f9f9f9 !important;-webkit-box-shadow:inset 0 10px 5px white !important;-moz-box-shadow:inset 0 10px 5px white !important;box-shadow:inset 0 10px 5px white !important;display:inline-block}#sp-fw-container #sp-fw-savebutton{position:absolute !important;right:2px !important}\n', "" ]), 
     e.exports = t;
 }, function(e, t, r) {
-    (t = r(66)(!1)).push([ e.i, '#sp-prefs-setup {\n  z-index: 2147483647;\n  padding: 20px 30px;\n  box-sizing: content-box;\n  border-radius: 3px !important;\n  border: 1px solid #a0a0a0 !important;\n  box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.3) !important;\n  background: -moz-linear-gradient(top, #fcfcfc, #f2f2f7 100%) !important;\n  background: -webkit-gradient(linear, 0 0, 0 100%, from(#fcfcfc), to(#f2f2f7)) !important;\n  font-family: "Arial", "sans-serif" !important;\n  color: transparent;\n  max-height: 80%;\n  overflow: auto;\n}\n#sp-prefs-setup * {\n  color: black;\n  text-align: left;\n  line-height: normal;\n  font-size: 12px;\n  min-height: 12px;\n}\n#sp-prefs-setup a {\n  color: black;\n  text-decoration: underline;\n}\n#sp-prefs-setup div {\n  text-align: center;\n  font-weight: bold;\n  font-size: 15px;\n}\n#sp-prefs-setup ul {\n  margin: 15px 0 15px 0;\n  padding: 0;\n  list-style: none;\n  background: none;\n  border: 0;\n}\n#sp-prefs-setup input,\n#sp-prefs-setup select {\n  border: 1px solid gray;\n  padding: 2px;\n  background: white;\n  margin: 0px;\n}\n#sp-prefs-setup input.inputShift {\n  margin-left: 2px;\n}\n\n#sp-prefs-setup li {\n  margin: 0;\n  padding: 5px 0;\n  vertical-align: middle;\n  background: none;\n  border: 0;\n  font-size: 12px;\n}\n#sp-prefs-setup button {\n  margin: 0 10px;\n  text-align: center;\n  white-space: nowrap;\n  background-color: #f9f9f9 !important;\n  border: 1px solid #ccc !important;\n  box-shadow: inset 0 10px 5px white !important;\n  border-radius: 3px !important;\n  padding: 3px 3px !important;\n}\n#sp-prefs-setup textarea {\n  width: 98%;\n  height: 60px;\n  margin: 3px 0;\n  font-weight: 50;\n}\n#sp-prefs-setup b {\n  font-weight: bold;\n  font-family: "微软雅黑", sans-serif;\n}\n#sp-prefs-setup button:disabled {\n  color: gray;\n}\n', "" ]), 
+    (t = r(66)(!1)).push([ e.i, '#sp-prefs-setup {\n  z-index: 2147483647;\n  padding: 20px 30px;\n  box-sizing: content-box;\n  border-radius: 3px !important;\n  border: 1px solid #a0a0a0 !important;\n  box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.3) !important;\n  background: -moz-linear-gradient(top, #fcfcfc, #f2f2f7 100%) !important;\n  background: -webkit-gradient(linear, 0 0, 0 100%, from(#fcfcfc), to(#f2f2f7)) !important;\n  font-family: "Arial", "sans-serif" !important;\n  color: transparent;\n  max-height: 80%;\n  overflow: auto;\n}\n#sp-prefs-setup * {\n  color: black;\n  text-align: left;\n  line-height: normal;\n  font-size: 12px;\n  min-height: 12px;\n}\n#sp-prefs-setup a {\n  color: black;\n  text-decoration: underline;\n}\n#sp-prefs-setup div {\n  text-align: center;\n  font-weight: bold;\n  font-size: 15px;\n}\n#sp-prefs-setup ul {\n  margin: 15px 0 15px 0;\n  padding: 0;\n  list-style: none;\n  background: none;\n  border: 0;\n}\n#sp-prefs-setup input,\n#sp-prefs-setup select {\n  border: 1px solid gray;\n  padding: 2px;\n  background: white;\n  margin: 0px;\n}\n#sp-prefs-setup input[type="checkbox"] {\n  cursor: pointer !important;\n  visibility: visible !important;\n  position: static !important;\n}\n#sp-prefs-setup input.inputShift {\n  margin-left: 2px;\n}\n#sp-prefs-setup li {\n  margin: 0;\n  padding: 5px 0;\n  vertical-align: middle;\n  background: none;\n  border: 0;\n  font-size: 12px;\n}\n#sp-prefs-setup button {\n  margin: 0 10px;\n  text-align: center;\n  white-space: nowrap;\n  background-color: #f9f9f9 !important;\n  border: 1px solid #ccc !important;\n  box-shadow: inset 0 10px 5px white !important;\n  border-radius: 3px !important;\n  padding: 3px 3px !important;\n}\n#sp-prefs-setup textarea {\n  width: 98%;\n  height: 60px;\n  margin: 3px 0;\n  font-weight: 50;\n}\n#sp-prefs-setup b {\n  font-weight: bold;\n  font-family: "微软雅黑", sans-serif;\n}\n#sp-prefs-setup button:disabled {\n  color: gray;\n}\n', "" ]), 
     e.exports = t;
 }, function(e, t, r) {
     (t = r(66)(!1)).push([ e.i, ".sp-prefs-spinner {\n  margin: 40px auto;\n  width: 100%;\n  height: 50px;\n  text-align: center;\n  font-size: 10px;\n}\n\n.sp-prefs-spinner > div {\n  background-color: #333;\n  height: 100%;\n  width: 25%;\n  display: inline-block;\n\n  -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;\n  animation: sk-stretchdelay 1.2s infinite ease-in-out;\n}\n\n.sp-prefs-spinner .rect2 {\n  -webkit-animation-delay: -1.1s;\n  animation-delay: -1.1s;\n}\n\n.sp-prefs-spinner .rect3 {\n  -webkit-animation-delay: -1s;\n  animation-delay: -1s;\n}\n\n.sp-prefs-spinner .rect4 {\n  -webkit-animation-delay: -0.9s;\n  animation-delay: -0.9s;\n}\n\n.sp-prefs-spinner .rect5 {\n  -webkit-animation-delay: -0.8s;\n  animation-delay: -0.8s;\n}\n\n@-webkit-keyframes sk-stretchdelay {\n  0%,\n  40%,\n  100% {\n    -webkit-transform: scaleY(0.4);\n  }\n  20% {\n    -webkit-transform: scaleY(1);\n  }\n}\n\n@keyframes sk-stretchdelay {\n  0%,\n  40%,\n  100% {\n    transform: scaleY(0.4);\n    -webkit-transform: scaleY(0.4);\n  }\n  20% {\n    transform: scaleY(1);\n    -webkit-transform: scaleY(1);\n  }\n}\n", "" ]), 
@@ -6830,14 +6859,14 @@
     module.exports = function(obj) {
         obj || (obj = {});
         var __t, __p = "";
-        with (obj) __p += '<div id="sp-fw-rect" style="background-color:#000;">\n  <div id="sp-fw-dot" style="display:none;"></div>\n  <div id="sp-fw-cur-mode" style="display:none;"></div>\n</div>\n<div id="sp-fw-content" style="display:none;">\n  <div id="sp-fw-main">\n    <div id="sp-fw-main-head">\n      <input type="checkbox" title="使用翻页模式,否则使用预读模式" id="sp-fw-a_enable" name="sp-fw-a_enable" />使用翻页模式\n      <span id="sp-fw-span-info">Super_preloader</span>\n    </div>\n    <fieldset>\n      <legend title="预读模式的相关设置">预读设置</legend>\n      <ul>\n        <li>\n          <input type="checkbox" title="使用iframe预先载入好下一页到缓存,否则使用xhr请求下一页源码,取出所有的图片进行预读" id="sp-fw-useiframe"\n            name="sp-fw-useiframe" />使用iframe方式\n        </li>\n        <li>\n          <input type="checkbox" title="查看预读的内容,将其显示在页面的底部,看看预读了些什么." id="sp-fw-viewcontent"\n            name="sp-fw-viewcontent" />查看预读的内容\n        </li>\n      </ul>\n    </fieldset>\n    <fieldset id="sp-fw-autopager-field" style="display:block;">\n      <legend title="自动翻页模式的相关设置">翻页设置</legend>\n      <ul>\n        <li>\n          <input type="checkbox" title="使用iframe方式进行翻页,否则使用xhr方式翻页,可以解决某些网页xhr方式无法翻页的问题,如果xhr翻页正常的话,就不要勾这项吧."\n            id="sp-fw-a_useiframe" name="sp-fw-a_useiframe" />使用iframe方式</input>\n          <input type="checkbox" title="每个下一页都用新的iframe，可以解决下一页图片或按钮点击的问题" id="sp-fw-a_newIframe"\n            name="sp-fw-a_newIframe">新iframe</input>\n          <ul id="sp-fw-a_useiframe-extend">\n            <li>\n              <input type="checkbox" title="等待iframe完全载入后(发生load事件),将内容取出,否则在DOM完成后,就直接取出来..(勾上后,会比较慢,但是可能会解决一些问题.)"\n                id="sp-fw-a_iloaded" name="sp-fw-a_iloaded" />等待iframe完全载入\n            </li>\n            <li>\n              <input type="number" min="0" title="在可以从iframe取数据的时候,继续等待设定的ms才开始取出数据(此项为特殊网页准备,如果正常,请设置为0)"\n                id="sp-fw-a_itimeout" name="sp-fw-a_itimeout" />ms延时取出\n            </li>\n          </ul>\n        </li>\n        <li>\n          <input type="checkbox" id="sp-fw-a_manualA" name="sp-fw-a_manualA"\n            title="不会自动拼接上来,会出现一个类似翻页导航的的图形,点击翻页(在论坛的帖子内容页面,可以考虑勾选此项,从而不影响你的回帖)" />手动模式\n        </li>\n        <li>\n          剩余<input type="number" min="0" id="sp-fw-a_remain" name="sp-fw-a_remain"\n            title="当剩余的页面的高度是浏览器可见窗口高度的几倍开始翻页" />倍页面高度触发\n        </li>\n        <li>\n          最多翻<input type="number" min="0" id="sp-fw-a_maxpage" name="sp-fw-a_maxpage"\n            title="最多翻页数量,当达到这个翻页数量的时候,自动翻页停止." />页\n        </li>\n        <li>\n          <input type="checkbox" id="sp-fw-a_separator" name="sp-fw-a_separator"\n            title="分割页面主要内容的导航条,可以进行页面主要内容之间的快速跳转定位等." />显示翻页导航\n        </li>\n        <li>\n          <input type="checkbox" title="将下一页的body部分内容整个拼接上来.(当需翻页的网站没有高级规则时,该项强制勾选,无法取消.)" id="sp-fw-a_force"\n            name="sp-fw-a_force" />强制拼接\n        </li>\n        <li>\n          <input type="checkbox" id="sp-fw-a_ipages_0" name="sp-fw-a_ipages_0" title="在JS加载后,立即连续翻后面设定的页数" />启用\n          立即翻<input type="number" min="1" id="sp-fw-a_ipages_1" name="sp-fw-a_ipages_1" title="连续翻页的数量" />页\n          <span class="sp-fw-spanbutton" title="现在立即开始连续翻页" id="sp-fw-a_starti">开始</span>\n        </li>\n      </ul>\n    </fieldset>\n    <div id="sp-fw-foot">\n      <input type="checkbox" id="sp-fw-enable" title="总开关,启用js,否则禁用." name="sp-fw-enable" />启用\n      <span id="sp-fw-setup" class="sp-fw-spanbutton" title="打开设置窗口">设置</span>\n      <span id="sp-fw-savebutton" class="sp-fw-spanbutton" title="保存设置">保存</span>\n    </div>\n  </div>\n</div>\n';
+        with (obj) __p += '<div id="sp-fw-rect" style="background-color:#000;">\n  <div id="sp-fw-dot" style="display:none;"></div>\n  <div id="sp-fw-cur-mode" style="display:none;"></div>\n</div>\n<div id="sp-fw-content" style="display:none;">\n  <div id="sp-fw-main">\n    <div id="sp-fw-main-head">\n      <label>工作模式</label>\n      <select id="sp-fw-a_enable" name="sp-fw-a_enable">\n        <option value="preloader">预读模式</option>\n        <option value="autopager">自动翻页模式</option>\n      </select>\n      \x3c!-- <span id="sp-fw-span-info">Super_preloader</span> --\x3e\n    </div>\n    <fieldset>\n      <legend title="预读模式的相关设置">预读设置</legend>\n      <ul>\n        <li>\n          <input type="checkbox" title="使用iframe预先载入好下一页到缓存,否则使用xhr请求下一页源码,取出所有的图片进行预读" id="sp-fw-useiframe"\n            name="sp-fw-useiframe" />使用iframe方式\n        </li>\n        <li>\n          <input type="checkbox" title="查看预读的内容,将其显示在页面的底部,看看预读了些什么." id="sp-fw-viewcontent"\n            name="sp-fw-viewcontent" />查看预读的内容\n        </li>\n      </ul>\n    </fieldset>\n    <fieldset id="sp-fw-autopager-field" style="display:block;">\n      <legend title="自动翻页模式的相关设置">翻页设置</legend>\n      <ul>\n        <li>\n          <input type="checkbox" title="使用iframe方式进行翻页,否则使用xhr方式翻页,可以解决某些网页xhr方式无法翻页的问题,如果xhr翻页正常的话,就不要勾这项吧."\n            id="sp-fw-a_useiframe" name="sp-fw-a_useiframe" />使用iframe方式</input>\n          <input type="checkbox" title="每个下一页都用新的iframe，可以解决下一页图片或按钮点击的问题" id="sp-fw-a_newIframe"\n            name="sp-fw-a_newIframe">新iframe</input>\n          <ul id="sp-fw-a_useiframe-extend">\n            <li>\n              <input type="checkbox" title="等待iframe完全载入后(发生load事件),将内容取出,否则在DOM完成后,就直接取出来..(勾上后,会比较慢,但是可能会解决一些问题.)"\n                id="sp-fw-a_iloaded" name="sp-fw-a_iloaded" />等待iframe完全载入\n            </li>\n            <li>\n              <input type="number" min="0" title="在可以从iframe取数据的时候,继续等待设定的ms才开始取出数据(此项为特殊网页准备,如果正常,请设置为0)"\n                id="sp-fw-a_itimeout" name="sp-fw-a_itimeout" />ms延时取出\n            </li>\n          </ul>\n        </li>\n        <li>\n          <input type="checkbox" id="sp-fw-a_manualA" name="sp-fw-a_manualA"\n            title="不会自动拼接上来,会出现一个类似翻页导航的的图形,点击翻页(在论坛的帖子内容页面,可以考虑勾选此项,从而不影响你的回帖)" />手动模式\n        </li>\n        <li>\n          剩余<input type="number" min="0" id="sp-fw-a_remain" name="sp-fw-a_remain"\n            title="当剩余的页面的高度是浏览器可见窗口高度的几倍开始翻页" />倍页面高度触发\n        </li>\n        <li>\n          最多翻<input type="number" min="0" id="sp-fw-a_maxpage" name="sp-fw-a_maxpage"\n            title="最多翻页数量,当达到这个翻页数量的时候,自动翻页停止." />页\n        </li>\n        <li>\n          <input type="checkbox" id="sp-fw-a_separator" name="sp-fw-a_separator"\n            title="分割页面主要内容的导航条,可以进行页面主要内容之间的快速跳转定位等." />显示翻页导航\n        </li>\n        <li>\n          <input type="checkbox" title="将下一页的body部分内容整个拼接上来.(当需翻页的网站没有高级规则时,该项强制勾选,无法取消.)" id="sp-fw-a_force"\n            name="sp-fw-a_force" />强制拼接\n        </li>\n        <li>\n          <input type="checkbox" id="sp-fw-a_ipages_0" name="sp-fw-a_ipages_0" title="在JS加载后,立即连续翻后面设定的页数" />启用\n          立即翻<input type="number" min="1" id="sp-fw-a_ipages_1" name="sp-fw-a_ipages_1" title="连续翻页的数量" />页\n          <span class="sp-fw-spanbutton" title="现在立即开始连续翻页" id="sp-fw-a_starti">开始</span>\n        </li>\n      </ul>\n    </fieldset>\n    <div id="sp-fw-foot">\n      <input type="checkbox" id="sp-fw-enable" title="总开关,启用js,否则禁用." name="sp-fw-enable" />启用\n      <span id="sp-fw-setup" class="sp-fw-spanbutton" title="打开设置窗口">设置</span>\n      <span id="sp-fw-savebutton" class="sp-fw-spanbutton" title="保存设置">保存</span>\n    </div>\n  </div>\n</div>\n';
         return __p;
     };
 }, function(module, exports) {
     module.exports = function(obj) {
         obj || (obj = {});
         var __t, __p = "";
-        with (obj) __p += '<div id="sp-fw-rect" style="background-color:#000;">\n  <div id="sp-fw-dot" style="display:none;"></div>\n  <div id="sp-fw-cur-mode" style="display:none;"></div>\n</div>\n<div id="sp-fw-content" style="display:none;">\n  <div id="sp-fw-main">\n    <div id="sp-fw-main-head">\n      <input type="checkbox" title="Enable autopagger, otherwise only prefetcher is enabled" id="sp-fw-a_enable"\n        name="sp-fw-a_enable" />Enable autopagger\n      <span id="sp-fw-span-info">Super_preloader</span>\n    </div>\n    <fieldset>\n      <legend title="Preloader helps accelerating loading">Preloader Settings</legend>\n      <ul>\n        <li>\n          <input type="checkbox"\n            title="Use iframe to load next page into cache, otherwise use XHR to get the content. Do not use this if everthing is normal."\n            id="sp-fw-useiframe" name="sp-fw-useiframe" />Use iframe\n          <input type="checkbox" title="Check preload contents." id="sp-fw-viewcontent" name="sp-fw-viewcontent" />Show\n          preloaded content\n        </li>\n      </ul>\n    </fieldset>\n    <fieldset id="sp-fw-autopager-field" style="display:block;">\n      <legend title="Autopager frees you from clicking next page">Autopager Settings</legend>\n      <ul>\n        <li>\n          <input type="checkbox"\n            title="Use iframe to load next page into cache, otherwise use XHR to get the content. Do not use this if everthing is normal"\n            id="sp-fw-a_useiframe" name="sp-fw-a_useiframe" />Use iframe</input>\n          <input type="checkbox" title="Use a new iframe for the next page. It may solve problems with figures"\n            id="sp-fw-a_newIframe" name="sp-fw-a_newIframe">Use new iframe</input>\n          <ul id="sp-fw-a_useiframe-extend">\n            <li>\n              <input type="checkbox" title="Append the content untill iframe is fully loaded" id="sp-fw-a_iloaded"\n                name="sp-fw-a_iloaded" />Wait iframe to be fully loaded\n            </li>\n            <li>\n              <input type="number" min="0"\n                title="Wait for X ms untill the content is appended to the current page. (Default: 0)"\n                id="sp-fw-a_itimeout" name="sp-fw-a_itimeout" /> ms delay\n            </li>\n          </ul>\n        </li>\n        <li>\n          <input type="checkbox" id="sp-fw-a_manualA" name="sp-fw-a_manualA"\n            title="The next page won\\\'t be appended to the current page and you need to click a button" />Manual mode\n        </li>\n        <li>\n          Trick autopager until the height is <input type="number" min="0" id="sp-fw-a_remain" name="sp-fw-a_remain" />x\n          page height\n        </li>\n        <li>\n          Turn at most <input type="number" min="0" id="sp-fw-a_maxpage" name="sp-fw-a_maxpage" /> pages\n        </li>\n        <li>\n          <input type="checkbox" id="sp-fw-a_separator" name="sp-fw-a_separator"\n            title="Show the page navigation bar" />Navigation bar\n        </li>\n        <li>\n          <input type="checkbox"\n            title="Append the whole next page to current page (When there is not rule for the website, this is the only method)"\n            id="sp-fw-a_force" name="sp-fw-a_force" />Force to join page\n        </li>\n        <li>\n          <input type="checkbox" id="sp-fw-a_ipages_0" name="sp-fw-a_ipages_0"\n            title="Turn X pages instantly once the script is loaded. This is good for some gallery." />Turn <input\n            type="number" min="1" id="sp-fw-a_ipages_1" name="sp-fw-a_ipages_1" title="number of pages" /> pages\n          instantly\n          <span class="sp-fw-spanbutton" id="sp-fw-a_starti">Start</span>\n        </li>\n      </ul>\n    </fieldset>\n    <div id="sp-fw-foot">\n      <input type="checkbox" id="sp-fw-enable" title="Enable for thie website" name="sp-fw-enable" />Enable\n      <span id="sp-fw-setup" class="sp-fw-spanbutton" title="Global Settings">Global Settings</span>\n      <span id="sp-fw-savebutton" class="sp-fw-spanbutton" title="Save settings">Save</span>\n    </div>\n  </div>\n</div>\n';
+        with (obj) __p += '<div id="sp-fw-rect" style="background-color:#000;">\n  <div id="sp-fw-dot" style="display:none;"></div>\n  <div id="sp-fw-cur-mode" style="display:none;"></div>\n</div>\n<div id="sp-fw-content" style="display:none;">\n  <div id="sp-fw-main">\n    <div id="sp-fw-main-head">\n      <label>Mode</label>\n      <select id="sp-fw-a_enable" name="sp-fw-a_enable">\n        <option value="preloader">Preloader</option>\n        <option value="autopager">Autopager</option>\n      </select>\n      <span id="sp-fw-span-info">Super_preloader</span>\n    </div>\n    <fieldset>\n      <legend title="Preloader helps accelerating loading">Preloader Settings</legend>\n      <ul>\n        <li>\n          <input type="checkbox"\n            title="Use iframe to load next page into cache, otherwise use XHR to get the content. Do not use this if everthing is normal."\n            id="sp-fw-useiframe" name="sp-fw-useiframe" />Use iframe\n          <input type="checkbox" title="Check preload contents." id="sp-fw-viewcontent" name="sp-fw-viewcontent" />Show\n          preloaded content\n        </li>\n      </ul>\n    </fieldset>\n    <fieldset id="sp-fw-autopager-field" style="display:block;">\n      <legend title="Autopager frees you from clicking next page">Autopager Settings</legend>\n      <ul>\n        <li>\n          <input type="checkbox"\n            title="Use iframe to load next page into cache, otherwise use XHR to get the content. Do not use this if everthing is normal"\n            id="sp-fw-a_useiframe" name="sp-fw-a_useiframe" />Use iframe</input>\n          <input type="checkbox" title="Use a new iframe for the next page. It may solve problems with figures"\n            id="sp-fw-a_newIframe" name="sp-fw-a_newIframe">Use new iframe</input>\n          <ul id="sp-fw-a_useiframe-extend">\n            <li>\n              <input type="checkbox" title="Append the content untill iframe is fully loaded" id="sp-fw-a_iloaded"\n                name="sp-fw-a_iloaded" />Wait iframe to be fully loaded\n            </li>\n            <li>\n              <input type="number" min="0"\n                title="Wait for X ms untill the content is appended to the current page. (Default: 0)"\n                id="sp-fw-a_itimeout" name="sp-fw-a_itimeout" /> ms delay\n            </li>\n          </ul>\n        </li>\n        <li>\n          <input type="checkbox" id="sp-fw-a_manualA" name="sp-fw-a_manualA"\n            title="The next page won\\\'t be appended to the current page and you need to click a button" />Manual mode\n        </li>\n        <li>\n          Trigger autopager until the height is <input type="number" min="0" id="sp-fw-a_remain" name="sp-fw-a_remain" />x\n          page height\n        </li>\n        <li>\n          Turn at most <input type="number" min="0" id="sp-fw-a_maxpage" name="sp-fw-a_maxpage" /> pages\n        </li>\n        <li>\n          <input type="checkbox" id="sp-fw-a_separator" name="sp-fw-a_separator"\n            title="Show the page navigation bar" />Navigation bar\n        </li>\n        <li>\n          <input type="checkbox"\n            title="Append the whole next page to current page (When there is not rule for the website, this is the only method)"\n            id="sp-fw-a_force" name="sp-fw-a_force" />Force to join page\n        </li>\n        <li>\n          <input type="checkbox" id="sp-fw-a_ipages_0" name="sp-fw-a_ipages_0"\n            title="Turn X pages instantly once the script is loaded. This is good for some gallery." />Turn <input\n            type="number" min="1" id="sp-fw-a_ipages_1" name="sp-fw-a_ipages_1" title="number of pages" /> pages\n          instantly\n          <span class="sp-fw-spanbutton" id="sp-fw-a_starti">Start</span>\n        </li>\n      </ul>\n    </fieldset>\n    <div id="sp-fw-foot">\n      <input type="checkbox" id="sp-fw-enable" title="Enable for thie website" name="sp-fw-enable" />Enable\n      <span id="sp-fw-setup" class="sp-fw-spanbutton" title="Global Settings">Global Settings</span>\n      <span id="sp-fw-savebutton" class="sp-fw-spanbutton" title="Save settings">Save</span>\n    </div>\n  </div>\n</div>\n';
         return __p;
     };
 }, function(e, t, r) {

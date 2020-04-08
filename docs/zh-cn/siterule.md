@@ -28,17 +28,11 @@ sidebarDepth: 3
 - **type**: `String` <Jbadge/>
 - **description**: 地址范例
 
-### enable <Badge text="Optional" type="error" />
+### enable
 
-- **type**: `Boolean` <Jbadge/>
+- **type**: `Boolean` <Badge text="Optional" type="error" />
 - **default**: `true`
 - **description**: 规则开关
-
-### useiframe <Badge text="Optional" type="error" />
-
-- **type**: `Boolean` <Jbadge/>
-- **default**: `false`
-- **description**: 使用 iframe 而不使用[XHR](https://developer.mozilla.org/en/docs/Web/API/XMLHttpRequest)
 
 ### nextLink
 
@@ -76,7 +70,7 @@ sidebarDepth: 3
 
 6. [Object]()复杂模式，参照函数`hrefInc`<Jbadge/>
 
-### preLink <Badge text="Optional" type="error" />
+### prevLink <Badge text="Optional" type="error" />
 
 同[nextLink](#nextlink), 然而基本没什么时候需要:joy:
 
@@ -110,6 +104,12 @@ sidebarDepth: 3
 ## 规则的增强功能
 
 除基本元素外，规则还可包含一个`key`为`autopager`的`Object`以实现增强功能。`autopager`可包含以下`key`。所有`key`都为<Badge text="Optional" type="error" />
+
+### useiframe
+
+- **type**: `Boolean` <Jbadge/>
+- **default**: `false`
+- **description**: 使用 iframe 读取内容而不使用[XHR](https://developer.mozilla.org/en/docs/Web/API/XMLHttpRequest)
 
 ### iloaded
 
@@ -253,75 +253,4 @@ function(currentDocument, sepdiv) {
 
 ## 例子
 
-```js
-    {
-      name: "Google搜索",
-      url: "^https?://(?:(?:www|encrypted)\\.google(?:stable)?\\..{2,9}|wen\\.lu)/(?:webhp|search|#|$|\\?)",
-      exampleUrl: "http://www.google.com",
-      enable: true,
-      useiframe: false,
-      viewcontent: false,
-      nextLink: 'id("pnnext") | id("navbar navcnt nav")//td[span]/
-      preLink: '//a[@id="pnprev"]',
-      autopager: {
-        enable: true,
-        useiframe: false,
-        iloaded: false,
-        itimeout: 0,
-        newIframe: false,
-        pageElement: '//div[@id="ires"]',
-        remain: 1 / 3,
-        relatedObj: ["css;div#navcnt", "bottom"],页面总高度的计算.(可选)
-        replaceE: '//div[@id="navcnt"]',
-        ipages: [false, 2],
-        separator: true,
-        sepdivDom: function(doc, sepdiv) {}
-        separatorReal: true,
-        maxpage: 66,
-        manualA: false,
-        HT_insert: ['//div[@id="res"]', 2],
-        lazyImgSrc: "imgsrc",
-        stylish: "hr.rgsep{display:none;}" + ".rg_meta{display:none}.bili{display:inline-block;margin:0 6px 6px 0;overflow:hidden;position:relative;vertical-align:top}._HG{margin-bottom:2px;margin-right:2px}",
-        documentFilter: function(doc, nextLink) {
-          const x = doc.evaluate('//script/text()[contains(self::text(), "setImagesSrc")]', doc, null, 9, null).singleNodeValue;
-          if (x) {
-            try {
-              new Function("document", "window", "google", x.nodeValue)(doc, unsafeWindow, unsafeWindow.google);
-            } catch (e) {}
-          }
-        },
-        filter: function() {
-        },
-        startFilter: function(doc, win) {
-          const script = doc.createElement("script");
-          script.type = "text/javascript";
-          script.textContent =
-            '\
-                Object.defineProperty(window, "rwt", {\
-                    configurable: false,\
-                    enumerable: true,\
-                    get: function () {\
-                        return function() {};\
-                    },\
-                });\
-                ';
-          doc.documentElement.appendChild(script);
-          doc.documentElement.removeChild(script);
-
-          const ins = doc.getElementById("ires");
-          const bres = doc.getElementById("bres");
-          const brs = doc.getElementById("brs");
-          // var imagexbox = getElementByXpath('//*[@id="imagebox_bigimages"]//parent::div', doc, doc);
-          // var rso = doc.getElementById('rso');
-          if (ins) {
-            if (bres) {
-              ins.appendChild(bres);
-            }
-            if (brs) {
-              ins.appendChild(brs);
-            }
-          }
-        }
-      }
-    }
-```
+[https://github.com/machsix/Super-preloader/raw/master/dist/mydata.json](https://github.com/machsix/Super-preloader/raw/master/dist/mydata.json)

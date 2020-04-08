@@ -5,8 +5,11 @@
 <div id="sp-fw-content" style="display:none;">
   <div id="sp-fw-main">
     <div id="sp-fw-main-head">
-      <input type="checkbox" title="Enable autopagger, otherwise only prefetcher is enabled" id="sp-fw-a_enable"
-        name="sp-fw-a_enable" />Enable autopagger
+      <label>Mode</label>
+      <select id="sp-fw-a_enable" name="sp-fw-a_enable">
+        <option value="preloader">Preloader</option>
+        <option value="autopager">Autopager</option>
+      </select>
       <span id="sp-fw-span-info">Super_preloader</span>
     </div>
     <fieldset>
@@ -47,7 +50,7 @@
             title="The next page won\'t be appended to the current page and you need to click a button" />Manual mode
         </li>
         <li>
-          Trick autopager until the height is <input type="number" min="0" id="sp-fw-a_remain" name="sp-fw-a_remain" />x
+          Trigger autopager until the height is <input type="number" min="0" id="sp-fw-a_remain" name="sp-fw-a_remain" />x
           page height
         </li>
         <li>

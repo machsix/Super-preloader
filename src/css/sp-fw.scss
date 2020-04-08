@@ -2,21 +2,26 @@ $font-size: 13px;
 $span-info-size: $font-size - 2px;
 $input-number-width: 6ch;
 $input-margin: 3px;
+$fieldset-margin: 2px;
+
 #sp-fw-container {
   z-index: 999999 !important;
   text-align: left !important;
   line-height: $font-size !important;
 }
+
 #sp-fw-container * {
   font-size: $font-size !important;
   color: black !important;
   float: none !important;
 }
+
 #sp-fw-main-head {
   position: relative !important;
   top: 0 !important;
   left: 0 !important;
 }
+
 #sp-fw-span-info {
   position: absolute !important;
   right: 1px !important;
@@ -28,67 +33,70 @@ $input-margin: 3px;
   color: #5a5a5a !important;
   text-shadow: white 0px 1px 1px !important;
 }
+
 #sp-fw-container input {
   vertical-align: middle !important;
   display: inline-block !important;
   outline: none !important;
-  height: $font-size !important;
   padding: 0px !important;
   margin: 0 !important;
   margin-right: $input-margin !important;
+  background: white;
+  border: 1px solid gray;
+  cursor: pointer !important;
 }
+
 #sp-fw-container input[type="number"] {
   width: $input-number-width !important;
   text-align: left !important;
   margin: 0 $input-margin !important;
 }
+
 #sp-fw-container input[type="number"]:hover::-webkit-inner-spin-button {
   height: 60px;
 }
+
 #sp-fw-container input[type="checkbox"] {
-  border: 1px solid #b4b4b4 !important;
-  padding: 1px !important;
-  width: $font-size !important;
-  height: $font-size !important;
-  background: none !important;
-  cursor: pointer !important;
-  visibility: visible !important;
   position: static !important;
 }
+
 #sp-fw-container input[type="button"] {
-  border: 1px solid #ccc !important;
-  cursor: pointer !important;
-  background: none !important;
   width: auto !important;
   height: auto !important;
 }
+
 #sp-fw-container li {
   list-style: none !important;
   margin: 3px 0 !important;
   border: none !important;
   float: none !important;
 }
+
 #sp-fw-container fieldset {
   border: 2px groove #ccc !important;
   -moz-border-radius: 3px !important;
   border-radius: 3px !important;
   padding: 4px 9px 6px 9px !important;
-  margin: 2px !important;
+  margin: $fieldset-margin !important;
   display: block !important;
   width: auto !important;
   height: auto !important;
 }
+
 #sp-fw-container legend {
   line-height: 20px !important;
   margin-bottom: 0px !important;
 }
+
 #sp-fw-container fieldset > ul {
   padding: 0 !important;
   margin: 0 !important;
 }
+
 #sp-fw-container ul#sp-fw-a_useiframe-extend {
   padding-left: 40px !important;
 }
+
 #sp-fw-rect {
   position: relative !important;
   top: 0 !important;
@@ -106,6 +114,7 @@ $input-margin: 3px;
   box-shadow: inset 0 5px 0 rgba(255, 255, 255, 0.3), 0 0 3px rgba(0, 0, 0, 0.8) !important;
   opacity: 0.8 !important;
 }
+
 #sp-fw-dot,
 #sp-fw-cur-mode {
   position: absolute !important;
@@ -121,16 +130,19 @@ $input-margin: 3px;
   -moz-box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.3), inset 0 2px 1px rgba(255, 255, 255, 0.3), 0px 1px 2px rgba(0, 0, 0, 0.9) !important;
   box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.3), inset 0 2px 1px rgba(255, 255, 255, 0.3), 0px 1px 2px rgba(0, 0, 0, 0.9) !important;
 }
+
 #sp-fw-dot {
   right: -3px !important;
   top: -3px !important;
 }
+
 #sp-fw-cur-mode {
   left: -3px !important;
   top: -3px !important;
   width: 6px !important;
   height: 6px !important;
 }
+
 #sp-fw-content {
   padding: 0 !important;
   margin: 5px 5px 0 0 !important;
@@ -141,6 +153,7 @@ $input-margin: 3px;
   -moz-box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.3) !important;
   box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.3) !important;
 }
+
 #sp-fw-main {
   padding: 5px !important;
   border: 1px solid white !important;
@@ -150,13 +163,16 @@ $input-margin: 3px;
   background: -moz-linear-gradient(top, #fcfcfc, #f2f2f7 100%) !important;
   background: -webkit-gradient(linear, 0 0, 0 100%, from(#fcfcfc), to(#f2f2f7)) !important;
 }
+
 #sp-fw-foot {
   position: relative !important;
   left: 0 !important;
   right: 0 !important;
   top: 2px !important;
+  padding-left: $fieldset-margin;
   min-height: 20px !important;
 }
+
 #sp-fw-container .sp-fw-spanbutton {
   padding: 2px 3px !important;
   border: 1px solid #ccc !important;
@@ -169,7 +185,8 @@ $input-margin: 3px;
   box-shadow: inset 0 10px 5px white !important;
   display: inline-block;
 }
+
 #sp-fw-container #sp-fw-savebutton {
-  position: relative !important;
-  left: 96px !important;
+  position: absolute !important;
+  right: $fieldset-margin !important;
 }
