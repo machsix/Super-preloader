@@ -73,6 +73,7 @@
   height: 60px;
   margin: 3px 0;
   font-weight: 50;
+  background: white;
 }
 #sp-prefs-setup b {
   font-weight: bold;
