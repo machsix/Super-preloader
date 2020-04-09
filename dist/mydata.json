@@ -2457,18 +2457,14 @@
     "url": "^https?://www\\.(kknn|okma|qiuwu)\\.net/html/.+\\.shtml",
     "exampleUrl": "https://www.qiuwu.net/html/345/345366/136202701.shtml",
     "nextLink": "auto;",
-    "autopager": {
-      "pageElement": "css;#bgdiv"
-    }
+    "pageElement": "css;#bgdiv"
   },
   {
     "name": "凤舞文学移动版",
     "url": "^https?://m\\.(kknn|okma|qiuwu)\\.net/html/.+\\.shtml",
     "exampleUrl": "https://m.qiuwu.net/html/345/345366/136202701.shtml",
     "nextLink": "css;div.nr_page:nth-child(5) > a:nth-child(3)",
-    "autopager": {
-      "pageElement": "css;.oid"
-    }
+    "pageElement": "css;.oid"
   },
   {
     "name": "红袖添香",
