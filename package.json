@@ -57,7 +57,7 @@
     "babel-loader": "8.1.0",
     "babel-plugin-lodash": "3.3.4",
     "compare-versions": "3.6.0",
-    "css-loader": "3.5.1",
+    "css-loader": "3.5.2",
     "detect-browser": "5.0.0",
     "displacejs": "1.4.1",
     "ejs-loader": "0.3.6",
