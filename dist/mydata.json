@@ -2277,6 +2277,20 @@
     "nextLink": "//div[@class=\"artical_btn\"]/descendant::a[text()=\"下一章\"]"
   },
   {
+    "name": "凤舞文学桌面版",
+    "url": "^https?://www\\.(kknn|okma|qiuwu)\\.net/html/.+\\.shtml",
+    "exampleUrl": "https://www.qiuwu.net/html/345/345366/136202701.shtml",
+    "nextLink": "auto;",
+    "pageElement": "css;#bgdiv"
+  },
+  {
+    "name": "凤舞文学移动版",
+    "url": "^https?://m\\.(kknn|okma|qiuwu)\\.net/html/.+\\.shtml",
+    "exampleUrl": "https://m.qiuwu.net/html/345/345366/136202701.shtml",
+    "nextLink": "css;div.nr_page:nth-child(5) > a:nth-child(3)",
+    "pageElement": "css;.oid"
+  },
+  {
     "name": "红袖添香",
     "url": "^https?://novel\\.hongxiu\\.com/a/.+\\.shtml",
     "pageElement": "//div[@class=\"wrapper_main\"]",
