@@ -5,13 +5,13 @@
     "url": "https?://(www\\.)?rrys2019\\.com/(resourcelist|translate|article|subtitle)",
     "pageElement": "//*[contains(@class,'resource-showlist') or @class='task-list' or @class='article-list' or contains(@class,'subtitle-list')]",
     "exampleUrl": "http://www.rrys2019.com/resourcelist",
-    "nextLink": "//div[contains(@class,'pages')]//a[last()]"
+    "nextLink": "//div[contains(@class,'pages')]//a[text()='下一页>']"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "flarejune",
   "resource_url": "http://wedata.net/items/85289",
   "created_at": "2020-04-11T07:26:42+09:00",
-  "updated_at": "2020-04-11T07:50:17+09:00"
+  "updated_at": "2020-04-11T19:01:34+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/85287",
@@ -7976,18 +7976,18 @@
   "created_at": "2017-03-08T22:27:09+09:00"
 },
 {
-  "resource_url": "http://wedata.net/items/81224",
   "name": "NIKKEI STYLE",
-  "created_by": "t_f_m",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-09-05T03:22:55+09:00",
   "data": {
-    "exampleUrl": "https://style.nikkei.com/article/DGXMZO13579300S7A300C1000000",
     "url": "^https://style\\.nikkei\\.com/article/",
-    "pageElement": "//div[@class='load']/div[@class='text01']",
-    "nextLink": "//li[@class='current']/following-sibling::li/a"
+    "pageElement": "//div[@itemprop='articleBody']",
+    "exampleUrl": "https://style.nikkei.com/article/DGXMZO13579300S7A300C1000000",
+    "nextLink": "//*[@rel='next']"
   },
-  "created_at": "2017-03-08T16:35:29+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m",
+  "resource_url": "http://wedata.net/items/81224",
+  "created_at": "2017-03-08T16:35:29+09:00",
+  "updated_at": "2020-04-12T19:16:30+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/81223",
@@ -43243,6 +43243,20 @@
   "created_at": "2010-05-10T14:51:19+09:00"
 },
 {
+  "name": "PornHub.com",
+  "data": {
+    "url": "^https://[^.]+\\.pornhub\\.com/",
+    "pageElement": "//div[@class='nf-videos']//li[contains(concat(' ', @class, ' '), ' videoblock ') or contains(concat(' ', @class, ' '), ' photoAlbumListContainer ')]",
+    "exampleUrl": "https://www.pornhub.com/video https://www.pornhub.com/album",
+    "nextLink": "//li[contains(concat(' ', @class, ' '), ' page_next ')]/a"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "toshi",
+  "resource_url": "http://wedata.net/items/32485",
+  "created_at": "2010-05-10T14:45:37+09:00",
+  "updated_at": "2020-04-11T12:28:15+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/32482",
   "name": "FARK.com Comments",
   "created_by": "toshi",
@@ -48826,16 +48840,16 @@
 {
   "resource_url": "http://wedata.net/items/27769",
   "name": "Yahoo!知恵袋 - 質問一覧",
-  "created_by": "x2xx",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-04-14T00:28:42+09:00",
   "data": {
-    "exampleUrl": "http://chiebukuro.yahoo.co.jp/list/question_list/new http://chiebukuro.yahoo.co.jp/dir/list/d2078297579 http://chiebukuro.yahoo.co.jp/tag/tags.php?tag=%E6%94%BF%E5%85%9A%E5%8A%A9%E6%88%90%E9%87%91",
-    "url": "^https?://chiebukuro\\.yahoo.co\\.jp/(?:list/|dir/list|tag)",
-    "pageElement": "(id('yschnpg')/following-sibling::ul|//ul[@class='lst_tg'])/li",
-    "nextLink": "id('yschnpg')//a[contains(@class,'next')]|id('pg')//li[last()]/a"
+    "url": "^https?://chiebukuro\\.yahoo.co\\.jp/(?:list/|(dir|.*question)/list|tag)",
+    "pageElement": "id('qa_lst')/*|//ul[@class='lst_tg']/li",
+    "exampleUrl": "https://chiebukuro.yahoo.co.jp/question/list https://chiebukuro.yahoo.co.jp/category/2078297579/question/list https://chiebukuro.yahoo.co.jp/tag/tags.php?tag=%E6%94%BF%E5%85%9A%E5%8A%A9%E6%88%90%E9%87%91",
+    "nextLink": "//a[contains(@class,'Pagination__Anchor--Next')]|id('pg')//li[span]/following-sibling::li[1]/a"
   },
-  "created_at": "2009-04-10T02:50:23+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "x2xx",
+  "created_at": "2009-04-10T02:50:23+09:00",
+  "updated_at": "2020-04-12T05:10:07+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/27767",
@@ -48850,20 +48864,6 @@
     "nextLink": "//div[@class=\"alignleft\"]/a"
   },
   "created_at": "2009-04-09T20:14:51+09:00"
-},
-{
-  "resource_url": "http://wedata.net/items/27753",
-  "name": "カラメル",
-  "created_by": "ku",
-  "updated_at": "2016-02-13T13:35:46+09:00",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "data": {
-    "exampleUrl": "http://calamel.jp/search/wii?cid=0&qr0=wii",
-    "url": "^http://calamel\\.jp/",
-    "pageElement": "//li[@class='itemlist']",
-    "nextLink": "//a[@rel='next']"
-  },
-  "created_at": "2009-04-07T11:04:45+09:00"
 },
 {
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
@@ -48926,44 +48926,16 @@
 {
   "resource_url": "http://wedata.net/items/27671",
   "name": "4Gamer.net",
-  "created_by": "gakulin",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-01-29T06:00:36+09:00",
   "data": {
-    "exampleUrl": "http://www.4gamer.net/games/044/G004485/20090329001/",
-    "url": "^https?://(www\\.)?4gamer\\.net/",
+    "url": "^https://(www\\.)?4gamer\\.net/",
     "pageElement": "//div[@class='maintxt']/node()",
-    "nextLink": "//div[@class='paging']/span/following-sibling::a[1]"
+    "exampleUrl": "https://www.4gamer.net/games/044/G004485/20090329001/",
+    "nextLink": "//div[starts-with(@class,'paging ')]/span/following-sibling::a[1]"
   },
-  "created_at": "2009-04-01T13:14:04+09:00"
-},
-{
-  "resource_url": "http://wedata.net/items/27655",
-  "name": "drawr ユーザページ|マイページ(新着|コメント|アーカイブ)|メッセージ(送信箱|受信箱)|ブックマーク",
-  "created_by": "Cote",
-  "updated_at": "2016-02-13T15:45:57+09:00",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "data": {
-    "exampleUrl": "http://drawr.net/home.php",
-    "url": "^http://drawr\\.net/",
-    "pageElement": "id(\"content\")",
-    "nextLink": "(//li[@class=\"left-food-link\"])[last()]/a"
-  },
-  "created_at": "2009-03-31T14:58:56+09:00"
-},
-{
-  "name": "日本経済新聞出版社 正誤表",
-  "created_by": "k2jp",
-  "updated_at": "2016-02-13T12:55:05+09:00",
-  "resource_url": "http://wedata.net/items/27634",
-  "data": {
-    "exampleUrl": "http://www.nikkeibook.com/errata.php?page=1&goods_flg=&errataword=",
-    "url": "^http://(?:www\\.)?nikkeibook\\.com/errata\\.php",
-    "pageElement": "id('searchResult')//tr[td]",
-    "nextLink": "id('searchResult')//a[contains(.,'>>')]"
-  },
-  "created_at": "2009-03-30T17:48:49+09:00",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize"
+  "created_by": "gakulin",
+  "created_at": "2009-04-01T13:14:04+09:00",
+  "updated_at": "2020-04-12T04:40:24+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/27631",
@@ -56205,10 +56177,9 @@
   "updated_at": "2014-09-10T19:16:16+09:00"
 },
 {
-  "resource_url": "http://wedata.net/items/418",
   "name": "Amazon 検索結果",
   "data": {
-    "url": "^https?://www\\.amazon\\.(?:c(?:a|n|o(?:m|\\.(?:jp|uk)))|de|fr)/(?:[^/]+/)?(?:[bes]|(?:gp|exec/obidos)/(search|aag)|entity/author)",
+    "url": "^https?://www\\.amazon\\.(?:c(?:a|n|o(?:m|\\.(?:jp|uk)))|de|fr)/(?:[^/]+/)?(?:[bes]|(?:gp|exec/obidos)/(search|aag)|entity/author)?",
     "pageElement": "id('rightResults atfResults btfResults mainResults Results sparseWrapper')[not(//link[@rel='canonical'][contains(@href,'page')])]//*[starts-with(@id,'result_')]|//li[@class='shoveler-cell']|id('resultsCol')[//link[@rel='canonical'][contains(@href,'page')]]|//div[contains(concat(' ',@class,' '),' s-search-results ')]/div|id('searchWidget')/*[self::div[not(ul/@class='a-pagination')] or self::hr]",
     "Stylish": "@-moz-document url-prefix(\"http://www.amazon.co.jp/\") {\r\nul.s-result-list p.autopagerize_page_info{\r\n    letter-spacing:normal !important;}\r\n}\r\n\r\n@-moz-document url-prefix(\"http://www.amazon.co.jp/s/?rh\"), url-prefix(\"http://www.amazon.co.jp/s/ref=sr_pg_1\") {\r\n.autopagerize_page_separator~#resultsCol .s-result-item{\r\n    display: inline-block;\r\n    border-top: 1px solid #DDD;\r\n    padding-top:10px;\r\n}\r\n.autopagerize_page_separator~#resultsCol .a-fixed-left-grid-inner{\r\n    padding-left: 120px !important;\r\n}\r\n\r\n.autopagerize_page_separator~#resultsCol .a-fixed-left-grid-inner a h2{\r\n    font-weight:bold !important;\r\n      font-size: 1.25em;\r\n}\r\n.autopagerize_page_separator~#resultsCol .med {\r\n    font-size: 1.2em;\r\n}\r\n.autopagerize_page_separator~#resultsCol .a-icon-alt{\r\n    display:none;\r\n}\r\n}",
     "exampleUrl": "http://www.amazon.co.jp/s/?field-keywords=windows\r\nhttp://www.amazon.co.jp/s/?url=search-alias%3Dtoys&field-keywords=lego\r\nhttp://www.amazon.co.jp/s/rh=n%3A13299531 http://www.amazon.co.jp/exec/obidos/search-handle-url?_encoding=UTF8&search-type=ss&index=books-jp&field-author=%E6%9D%91%E4%B8%8A%20%E6%98%A5%E6%A8%B9\r\nhttp://www.amazon.co.jp/gp/search/rh=k%3A%E3%83%9D%E3%82%B1%E3%83%A2%E3%83%B3%2Ci%3Avideogames&keywords=%E3%83%9D%E3%82%B1%E3%83%A2%E3%83%B3\r\nhttp://www.amazon.co.jp/b?ie=UTF8&node=2515445051\r\nhttp://www.amazon.co.jp/%E6%A9%99%E4%B9%83-%E3%81%BE%E3%81%BE%E3%82%8C/e/B006AIETUI/\r\nhttp://www.amazon.com/gp/aag/main?ie=UTF8&seller=AGHVE2KVOZA3D\r\nhttp://www.amazon.co.jp/s/ref=lp_3452196051_pg_2?rh=n%3A2250738051%2Cn%3A!2275265051%2Cn%3A!2275277051%2Cn%3A3452196051&page=2&ie=UTF8&qid=1438764067\r\nhttps://www.amazon.co.jp/s?rh=n%3A6990947051&page=2\r\nhttps://www.amazon.co.jp/kindle-dbs/entity/author/B00J1JKSOY?_encoding=UTF8&offset=0&pageSize=12&searchAlias=stripbooks&sort=author-pages-popularity-rank&page=4&langFilter=default#formatSelectorHeader",
@@ -56216,8 +56187,9 @@
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "swdyh",
+  "resource_url": "http://wedata.net/items/418",
   "created_at": "2008-04-16T12:35:23+09:00",
-  "updated_at": "2020-03-25T05:35:23+09:00"
+  "updated_at": "2020-04-12T06:16:20+09:00"
 },
 {
   "name": "Amazon \u304a\u3059\u3059\u3081\u5546\u54c1",
