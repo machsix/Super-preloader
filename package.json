@@ -68,7 +68,7 @@
     "husky": "4.2.5",
     "lodash": "4.17.15",
     "lodash-webpack-plugin": "0.11.5",
-    "loglevel": "1.6.7",
+    "loglevel": "1.6.8",
     "node-sass": "^4.13.1",
     "prettier": "2.0.4",
     "pretty-quick": "2.0.1",
