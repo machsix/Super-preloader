@@ -1,5 +1,19 @@
 [
 {
+  "resource_url": "http://wedata.net/items/85306",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_at": "2020-04-25T20:05:08+09:00",
+  "data": {
+    "pageElement": "//div[@class='content-left']/div[contains(@class, 'content-row')]/div",
+    "exampleUrl": "https://www.youav.com/search/videos/",
+    "url": "^https://www\\.youav\\.com/",
+    "nextLink": "//ul[@class='pagination']/li[@class='page-item']/a[@class='page-link'][i[contains(@class, 'fa-caret-right')]]"
+  },
+  "updated_at": "2020-04-25T20:05:08+09:00",
+  "name": "YouAV",
+  "created_by": "natuha_03"
+},
+{
   "resource_url": "http://wedata.net/items/85305",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_at": "2020-04-24T17:30:26+09:00",
