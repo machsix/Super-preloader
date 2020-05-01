@@ -1,8 +1,8 @@
 # Faq
 
-## How to repquest rule?
+## How should I request a rule?
 
-To request rule, you should follow the following format
+When requesting a rule, you should follow this format:
 
 ```
 
@@ -16,4 +16,4 @@ To request rule, you should follow the following format
 
 ```
 
-**I won’t spend time on writing rules for those who don’t obey the rule.**
+**I won’t spend time writing rules for those who don’t obey this.**
