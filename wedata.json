@@ -31305,18 +31305,18 @@
   "created_at": "2012-05-19T11:42:21+09:00"
 },
 {
+  "resource_url": "http://wedata.net/items/61099",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "created_by": "cool",
+  "created_at": "2012-05-19T00:05:11+09:00",
   "data": {
     "pageElement": "id(\"res_list\")",
-    "exampleUrl": "http://bakusai.com/thr_res/acode=7/ctgid=123/bid=1122/tid=1604525/tp=1/",
-    "url": "^http://bakusai\\.com/",
+    "exampleUrl": "https://bakusai.com/thr_res/acode=7/ctgid=123/bid=1122/tid=1604525/tp=1/",
+    "url": "^https?://bakusai\\.com/",
     "nextLink": "//span[@class=\"paging_nextlink\"]/a"
   },
-  "updated_at": "2013-02-24T09:52:02+09:00",
-  "created_at": "2012-05-19T00:05:11+09:00",
+  "updated_at": "2020-05-02T11:42:15+09:00",
   "name": "爆サイ.com",
-  "resource_url": "http://wedata.net/items/61099"
+  "created_by": "cool"
 },
 {
   "name": "Mozilla Developer Street  dev.mozilla.jp",
