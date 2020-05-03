@@ -5,7 +5,8 @@
 // import "regenerator-runtime/runtime";
 import {BROWSER, SCRIPT_MANAGER} from "utils/detect";
 import {NOTIFICATION, SCRIPT_INFO} from "./meta";
-import {getAllElements, getAllElementsByXpath, getElementByCSS, getElementByXpath, getLastElement, getProperty, setProperty} from "utils/domSelector";
+import {createDOM, getProperty, setProperty} from "utils/domTools";
+import {getAllElements, getAllElementsByXpath, getElementByCSS, getElementByXpath, getLastElement} from "utils/domSelector";
 
 import _ from "lodash";
 import {addStyle} from "utils/gm-enhanced";
@@ -17,7 +18,6 @@ import cssSpPrefsSpinner from "css/sp-prefs-spinner.css";
 import cssSpSeparator from "css/sp-separator.css";
 
 import displace from "displacejs";
-import domTools from "utils/domTools";
 import ejsTemplate from "template/ejs-template";
 import elementReady from "utils/element-ready";
 import gotStock from "utils/got";
@@ -495,12 +495,7 @@ import notice from "utils/notice";
         }
       }
 
-      if (compareVersions(myOldVersion, scriptInfo.version) !== 0) {
-        prefs.factoryCheck = true;
-        // preSPinit.push(jsonRuleLoader.updateRule(true)); // rule is always updated after upgrade
-        preSPinit.push(GM.setValue("version", scriptInfo.version));
-        logger.info(`[UpdateCheck] version is updated ${myOldVersion} => ${scriptInfo.version}`);
-      }
+
 
       let forceJsonUpdate = false;
       if (prefs.factoryCheck === true || prefs.factoryCheck === undefined) {
@@ -606,11 +601,11 @@ import notice from "utils/notice";
         on($("updaterule"), "click", function () {
           getElementByCSS("#sp-prefs-setup ul").remove();
           getElementByCSS("#sp-prefs-setup div:last-child").remove();
-          const div = domTools.create("div", {
+          const div = createDOM("div", {
             attr: {
               class: "sp-prefs-spinner"
             },
-            children: [domTools.create("div", {attr: {class: "rect1"}}), domTools.create("div", {attr: {class: "rect2"}}), domTools.create("div", {attr: {class: "rect3"}}), domTools.create("div", {attr: {class: "rect4"}})]
+            children: [createDOM("div", {attr: {class: "rect1"}}), createDOM("div", {attr: {class: "rect2"}}), createDOM("div", {attr: {class: "rect3"}}), createDOM("div", {attr: {class: "rect4"}})]
           });
           addStyle(cssSpPrefsSpinner);
           $("setup").appendChild(div);
@@ -1383,19 +1378,19 @@ import notice from "utils/notice";
                 }
               };
 
-              const div = domTools.create("div", {
+              const div = createDOM("div", {
                 attr: {
                   id: "sp-sp-manualdiv",
                   class: "sp-separator"
                 },
                 children: [
-                  domTools.create("span", {
+                  createDOM("span", {
                     attr: {
                       class: "sp-md-span"
                     },
                     innerHTML: i8n() === "zh_CN" ? "下" : "Next"
                   }),
-                  domTools.create("input", {
+                  createDOM("input", {
                     attr: {
                       type: "number",
                       value: 1,
@@ -1415,23 +1410,23 @@ import notice from "utils/notice";
                       }
                     ]
                   }),
-                  domTools.create("span", {
+                  createDOM("span", {
                     attr: {class: "sp-md-span"},
                     innerHTML: i8n() === "zh_CN" ? "页" : "page"
                   }),
-                  domTools.create("img", {
+                  createDOM("img", {
                     attr: {
                       id: "sp-sp-md-imgnext",
                       src: _sep_icons.next
                     }
                   }),
-                  domTools.create("div", {
+                  createDOM("div", {
                     attr: {
                       class: "sp-someinfo",
                       id: "sp-separator-hover"
                     },
                     children: [
-                      domTools.create("a", {
+                      createDOM("a", {
                         attr: {
                           href: "https://github.com/machsix/Super-preloader",
                           target: "_blank"
@@ -1495,7 +1490,7 @@ import notice from "utils/notice";
                 pageStr = '<b>Page <span style="' + sep_icons.text_span_style + '">' + curNumber + "</span></b>" + (SSS.a_separatorReal ? getRalativePageStr(lastUrl, currentUrl, nextUrl) : "");
               }
               div.appendChild(
-                domTools.create("a", {
+                createDOM("a", {
                   attr: {
                     class: "sp-sp-nextlink",
                     target: "_blank",
@@ -1507,7 +1502,7 @@ import notice from "utils/notice";
               );
 
               div.appendChild(
-                domTools.create("img", {
+                createDOM("img", {
                   attr: {
                     src: _sep_icons.top,
                     class: "sp-sp-gotop",
@@ -1518,7 +1513,7 @@ import notice from "utils/notice";
               );
 
               div.appendChild(
-                domTools.create("img", {
+                createDOM("img", {
                   attr: {
                     src: curNumber == sNumber ? _sep_icons.pre_gray : _sep_icons.pre,
                     class: "sp-sp-gopre",
@@ -1527,7 +1522,7 @@ import notice from "utils/notice";
                 })
               );
 
-              const i_next = domTools.create("img", {
+              const i_next = createDOM("img", {
                 attr: {
                   src: _sep_icons.next_gray,
                   class: "sp-sp-gonext",
@@ -1542,7 +1537,7 @@ import notice from "utils/notice";
               div.appendChild(i_next);
 
               div.appendChild(
-                domTools.create("img", {
+                createDOM("img", {
                   attr: {
                     src: _sep_icons.bottom,
                     class: "sp-sp-gobottom",
@@ -1553,13 +1548,13 @@ import notice from "utils/notice";
               );
 
               div.appendChild(
-                domTools.create("div", {
+                createDOM("div", {
                   attr: {
                     class: "sp-someinfo",
                     id: "sp-separator-hover"
                   },
                   children: [
-                    domTools.create("a", {
+                    createDOM("a", {
                       attr: {
                         href: "https://github.com/machsix/Super-preloader",
                         target: "_blank"
@@ -1688,9 +1683,9 @@ import notice from "utils/notice";
                 colNodes = getAllElements("child::*[self::td or self::th]", pageElements[0]);
               }
               const ncol = [].reduce.call(colNodes, (acc, cur) => acc + (parseInt(cur.getAttribute("colspan"), 10) || 1), 0);
-              toInsert = domTools.create("tr", {
+              toInsert = createDOM("tr", {
                 children: [
-                  domTools.create("td", {
+                  createDOM("td", {
                     attr: {colspan: ncol},
                     children: [sepdiv]
                   })
@@ -1701,11 +1696,11 @@ import notice from "utils/notice";
               const trs = pageElements[pageElements.length - 1].getElementsByTagName("tr");
               if (trs) {
                 const ncol = [].reduce.call(trs[trs.length - 1].children, (acc, cur) => acc + (parseInt(cur.getAttribute("colspan"), 10) || 1), 0);
-                toInsert = domTools.create("tbody", {
+                toInsert = createDOM("tbody", {
                   children: [
-                    domTools.create("tr", {
+                    createDOM("tr", {
                       children: [
-                        domTools.create("td", {
+                        createDOM("td", {
                           attr: {colspan: ncol},
                           children: [sepdiv]
                         })
@@ -2581,8 +2576,7 @@ import notice from "utils/notice";
                           nodeType = preSS.nodeType;
                           if (
                             nodeType == 3 ||
-                            (nodeType == 1 &&
-                              (searchedD ? _getAllElementsByXpath("./descendant-or-self::a[@href]", preSS, doc).snapshotLength === 0 : !preSS.hasAttribute("href") || _getFullHref(preSS.getAttribute("href")) == curLHref))
+                            (nodeType == 1 && (searchedD ? _getAllElementsByXpath("./descendant-or-self::a[@href]", preSS, doc).length === 0 : !preSS.hasAttribute("href") || _getFullHref(preSS.getAttribute("href")) == curLHref))
                           ) {
                             _nextlink = finalCheck(a, "next");
                           }
@@ -2620,8 +2614,7 @@ import notice from "utils/notice";
                           nodeType = nextSS.nodeType;
                           if (
                             nodeType == 3 ||
-                            (nodeType == 1 &&
-                              (searchedD ? _getAllElementsByXpath("./descendant-or-self::a[@href]", nextSS, doc).snapshotLength === 0 : !nextSS.hasAttribute("href") || _getFullHref(nextSS.getAttribute("href")) == curLHref))
+                            (nodeType == 1 && (searchedD ? _getAllElementsByXpath("./descendant-or-self::a[@href]", nextSS, doc).length === 0 : !nextSS.hasAttribute("href") || _getFullHref(nextSS.getAttribute("href")) == curLHref))
                           ) {
                             _prelink = finalCheck(a, "pre");
                           }
@@ -3346,20 +3339,7 @@ import notice from "utils/notice";
     return "^" + reg + "$";
   }
 
-  function assignDifferentProperty(oldProp, newProp) {
-    const diffKeys = _.difference(Object.keys(oldProp), Object.keys(newProp));
-    const hasDifferent = diffKeys.length > 0;
-    if (hasDifferent) {
-      diffKeys.forEach((key) => {
-        if (key in oldProp) {
-          delete oldProp[key];
-        } else {
-          oldProp[key] = newProp[key];
-        }
-      });
-    }
-    return hasDifferent;
-  }
+
 
   function i8n() {
     if (userLang.indexOf("zh") !== -1 || prefs.ChineseUI) {

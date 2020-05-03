@@ -108,7 +108,6 @@ const WeData = new RuleProvider("wedata.net", ["http://wedata.net/databases/Auto
     .map((i) => ({...i.data, name: i.name}))
 );
 
-const oldDay = new Date("1992-05-15");
 const p = [MyData, WeData];
 
 /**
@@ -117,33 +116,14 @@ const p = [MyData, WeData];
  */
 export default {
   providers: p,
-  RuleProvider,
   rule: p.map(() => []),
-  expire: oldDay,
+  expire: new Date("1992-05-15"),
   updatePeriodInDay: 1,
   resetExpire() {
-    this.expire = oldDay;
+    this.expire = new Date("1992-05-15");
   },
   getRule() {
     return _.flatten(this.rule);
-  },
-  loadDB() {
-    return new Promise((resolve) => {
-      Promise.all([
-        GM.getValue("jsonRuleInfo", {
-          expire: this.expire,
-          updatePeriodInDay: this.updatePeriodInDay
-        }),
-        GM.getValue("SITEINFO_json", this.rule)
-      ]).then(([jsonRuleInfo, rule]) => {
-        if (_.isString(jsonRuleInfo)) jsonRuleInfo = JSON.parse(jsonRuleInfo);
-        if (_.isString(rule)) rule = JSON.parse(rule);
-        this.expire = new Date(jsonRuleInfo.expire);
-        this.updatePeriodInDay = parseInt(jsonRuleInfo.updatePeriodInDay);
-        this.rule = rule;
-        resolve(this.getRule());
-      });
-    });
   },
   async saveDB(saveRule = true) {
     await GM.setValue("jsonRuleInfo", {
@@ -178,5 +158,23 @@ export default {
     } else {
       logger.info(`[UpdateRule] Next update at: ${this.expire}`);
     }
+  },
+  async loadDB(forceUpdateRule = false) {
+    let [jsonRuleInfo, rule] = await Promise.all([
+      GM.getValue("jsonRuleInfo", {
+        expire: this.expire,
+        updatePeriodInDay: this.updatePeriodInDay
+      }),
+      GM.getValue("SITEINFO_json", this.rule)
+    ]);
+    if (_.isString(jsonRuleInfo)) jsonRuleInfo = JSON.parse(jsonRuleInfo);
+    if (_.isString(rule)) rule = JSON.parse(rule);
+    this.expire = new Date(jsonRuleInfo.expire);
+    this.updatePeriodInDay = parseInt(jsonRuleInfo.updatePeriodInDay);
+    this.rule = rule;
+    if (forceUpdateRule || this.getRule().length === 0) {
+      await this.updateRule(true);
+    }
+    return this.getRule();
   }
 };

@@ -1,15 +1,27 @@
 /**
+ * Set multiple attributes of a dom element
+ * @param {object} el dom element
+ * @param {object} attr dom attributes
+ * @returns {null} null
+ */
+export function setMultipleAttributes(el, attr) {
+  for (const [key, val] of Object.entries(attr)) {
+    el.setAttribute(key, val);
+  }
+}
+
+/**
  * Create a dom element
  * @param {string} type element type
  * @param {object} conf configuration of the dom, could be 'attr', 'innnerHTML', 'children', 'eventListner'
- * @param {object} dom dom to attach
+ * @param {object} doc dom to attach
  * @returns {object} dom element
  */
-function create(type, conf, dom = document) {
-  const e = dom.createElement(type);
+export function createDOM(type, conf, doc = document) {
+  const e = doc.createElement(type);
 
   if (conf.hasOwnProperty("attr")) {
-    setAttr(e, conf.attr);
+    setMultipleAttributes(e, conf.attr);
   }
 
   if (conf.hasOwnProperty("innerHTML")) {
@@ -35,15 +47,73 @@ function create(type, conf, dom = document) {
 }
 
 /**
- * Set multiple attributes of a dom element
- * @param {object} el dom element
- * @param {object} attr dom attributes
- * @returns {null} null
+ * Get attributes for settings
+ * @param {object} obj dom element
+ * @returns {string/boolean} dom element main property
  */
-function setAttr(el, attr) {
-  for (const [key, val] of Object.entries(attr)) {
-    el.setAttribute(key, val);
+export function getProperty(obj) {
+  if (obj.nodeName === "INPUT") {
+    switch (obj.type) {
+      case "checkbox":
+        return obj.checked;
+      case "number": {
+        const min = obj.hasAttribute("min") ? Number(obj.min) : undefined;
+        const max = obj.hasAttribute("max") ? Number(obj.max) : undefined;
+        if (min >= Number(obj.value)) return min;
+        if (max < Number(obj.value)) return max;
+        return obj.value;
+      }
+      default:
+        return obj.value;
+    }
+  } else if (obj.nodeName === "SELECT") {
+    return obj.selectedOptions[0].value;
+  } else if (obj.nodeName === "A") {
+    return obj.href;
+  } else {
+    return obj.innerHTML;
   }
 }
 
-export default {create, setAttr};
+/**
+ * Set attributes for settings
+ * @param {object} obj dom element
+ * @param {object} value value set to dom element
+ * @returns {undefined}
+ */
+export function setProperty(obj, value) {
+  if (obj.nodeName === "INPUT") {
+    switch (obj.type) {
+      case "checkbox":
+        obj.checked = !!value;
+        break;
+      case "number": {
+        if (obj.hasAttribute("min")) {
+          if (value < obj.min) {
+            value = obj.min;
+          }
+        }
+        if (obj.hasAttribute("max")) {
+          if (value > obj.max) {
+            value = obj.max;
+          }
+        }
+        obj.value = value;
+        break;
+      }
+      default:
+        obj.value = value;
+    }
+  } else if (obj.nodeName === "SELECT") {
+    for (let i = 0; i < obj.options.length; i++) {
+      if (obj.options[i].value === value) {
+        obj.selectedIndex = i;
+        break;
+      }
+    }
+  } else if (obj.nodeName === "A") {
+    obj.href = value;
+  } else {
+    obj.innerHTML = value;
+  }
+}

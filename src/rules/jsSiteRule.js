@@ -81,17 +81,15 @@ export const jsSiteRule = [
         // Fix images
         // add horizontal flexibly first
         const imgPs = getAllElementsByXpath("//g-scrolling-carousel/div/div/div", doc, doc);
-        if (imgPs.snapshotLength > 0) {
-          for (let i = 0; i < imgPs.snapshotLength; i++) {
-            const d = imgPs.snapshotItem(i);
+        if (imgPs.length > 0) {
+          for (const d of imgPs) {
             d.style.cssText += "display: flex;flex-wrap: nowrap;width: 600px;white-space: nowrap;overflow-x: auto;";
           }
         }
 
         const hiddenImgs = getAllElementsByXpath("//g-scrolling-carousel/div/div/div/div[not(@data-vis)]//g-img/img", doc, doc);
-        if (hiddenImgs.snapshotLength > 0) {
-          for (let i = 0; i < hiddenImgs.snapshotLength; i++) {
-            const d = hiddenImgs.snapshotItem(i);
+        if (hiddenImgs.length > 0) {
+          for (const d of hiddenImgs) {
             d.setAttribute("src", d.getAttribute("data-src"));
             d.style.opacity = 1;
           }
@@ -170,9 +168,8 @@ export const jsSiteRule = [
       pageElement: "//table[@class='posts']/tbody",
       filter: function (pageElements) {
         const scripts = getAllElementsByXpath(".//script[contains(text(), 'renderPosts')]", pageElements[0], document);
-        if (scripts.snapshotLength > 0) {
-          for (let i = 0; i < scripts.snapshotLength; i++) {
-            const s = scripts.snapshotItem(i);
+        if (scripts.length > 0) {
+          for (const s of scripts) {
             try {
               eval(s.innerText);
             } catch (e) {}
@@ -248,9 +245,9 @@ export const jsSiteRule = [
       documentFilter: "startFilter",
       startFilter: function (doc) {
         const trs = getAllElementsByXpath("//div[@class='artist']/div[@class='atl']/form/table/tbody/tr/td[@colspan='5']/parent::tr", doc, doc);
-        if (trs.snapshotLength > 0) {
-          for (var i = 0; i < trs.snapshotLength; i++) {
-            var img = trs.snapshotItem(i).getElementsByTagName("img");
+        if (trs.length > 0) {
+          for (var i = 0; i < trs.length; i++) {
+            var img = trs[i].getElementsByTagName("img");
             if (img) {
               img = img[0];
               const imgSrc = img.getAttribute("src");
@@ -276,7 +273,7 @@ export const jsSiteRule = [
                 ]
               });
 
-              trs.snapshotItem(i).parentNode.insertBefore(newtr, trs.snapshotItem(i));
+              trs[i].parentNode.insertBefore(newtr, trs[i]);
             }
           }
         }
@@ -786,10 +783,10 @@ export const jsSiteRule = [
       var chapters = getAllElementsByXpath("//div[@class='chapterPages']/a", doc);
       var prefix = cplink.substr(0, cplink.lastIndexOf("/")) + "/";
       var i = 0;
-      for (i = 0; i < chapters.snapshotLength; i++) {
-        if (chapters.snapshotItem(i).className === "curr") {
-          if (i + 1 < chapters.snapshotLength) {
-            return prefix + chapters.snapshotItem(i + 1).getAttribute("href");
+      for (i = 0; i < chapters.length; i++) {
+        if (chapters[i].className === "curr") {
+          if (i + 1 < chapters.length) {
+            return prefix + chapters[i + 1].getAttribute("href");
           } else {
             return getDomain(cplink) + getElementByXpath("//span[@class='next']/a").getAttribute("href");
           }
