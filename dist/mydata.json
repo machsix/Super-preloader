@@ -1721,6 +1721,28 @@
     }
   },
   {
+    "name": "爱图吧",
+    "url": "^https?://www\\.ituba\\.cc",
+    "pageElement": "css;.ArticlePicBox>div",
+    "exampleUrl": "http://www.ituba.cc/model/69233_40.html",
+    "nextLink": "css;.page_now +a.page-en",
+    "category": ["gallery", "nsfw"],
+    "autopager": {
+      "ipages": [true, 30]
+    }
+  },
+  {
+    "name": "爱图吧2",
+    "url": "^https?://www\\.ituba\\.cc",
+    "pageElement": "css;#NewList ul",
+    "exampleUrl": "http://www.ituba.cc/model/",
+    "nextLink": "css;.pages ul > span + a",
+    "autopager": {
+      "relatedObj": true
+    },
+    "category": ["gallery", "nsfw"]
+  },
+  {
     "name": "chottie",
     "url": "^https?://chottie\\.com/blog",
     "pageElement": "//div[@class='entry-content']/p",

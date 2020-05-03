@@ -9,9 +9,9 @@
 // @author       Mach6
 // @contributers YFdyh000, suchunchen
 // @thanksto     ywzhaiqi, NLF
-// @version      6.12.1
+// @version      6.12.2
 // @license      GPL-3.0
-// @update       2020/4/8
+// @update       2020/5/2
 // @homepageURL  https://github.com/machsix/Super-preloader
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
 // @contributionURL https://ko-fi.com/machsix
@@ -11629,7 +11629,7 @@
     /* 265 */
     /***/ function (module) {
       module.exports = JSON.parse(
-        '{"name":"super-preloader","version":"6.12.1","description":"Super-preloader","main":"dist/Super_preloaderPlus_one_New.user.js","author":"Mach6","license":"GPL-3.0","bugs":{"url":"https://github.com/machsix/Super-preloader/issues"},"homepage":"https://github.com/machsix/Super-preloader","directories":{"doc":"docs"},"repository":{"type":"git","url":"git+https://github.com/machsix/Super-preloader.git"},"scripts":{"lint":"eslint \\"dist/*.json\\" \\"src/**/*.js\\" \\"ci/*.js\\"","format":"prettier --write \\"dist/*.json\\" \\"src/**/*.{js,css}\\" \\"ci/*.js\\" \\"docs/**/*.{js,md}\\"","format:check":"prettier --check \\"dist/*.json\\" \\"src/**/*.{js,css}\\" \\"ci/*.js\\" \\"docs/**/*.{js,md}\\"","format:staged":"pretty-quick --verbose --staged --write \\"dist/*.json\\" \\"src/**/*.{js,css}\\" \\"ci/*.js\\" \\"docs/**/*.{js,md}\\"","test":"npm run lint && npm run format:staged","dev":"webpack-dev-server --color --config webpack.dev.js","build":"webpack --no-cache --debug --config webpack.prod.js","build:dev":"webpack --config webpack.dev.js","docs:dev":"vuepress dev docs","docs:build":"vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh","preversion":"npm run test && npm run docs:build","version":"npm run build  && npm run build:dev && git add dist/*.js && git add dist/*.json","postversion":"git add package.json package-lock.json","publish:patch":"npm --no-git-tag-version version patch","publish":"npm --no-git-tag-version version minor"},"husky":{"hooks":{"pre-commit":"npm run test"}},"keywords":["userscript"],"devDependencies":{"@vuepress/plugin-back-to-top":"1.4.0","@vuepress/plugin-google-analytics":"1.4.0","@vuepress/plugin-pwa":"1.4.0","vuepress":"1.4.0"},"dependencies":{"@babel/cli":"7.8.4","@babel/core":"7.9.0","@babel/plugin-transform-runtime":"7.9.0","@babel/preset-env":"7.9.5","@babel/runtime-corejs2":"7.9.2","babel-loader":"8.1.0","babel-plugin-lodash":"3.3.4","compare-versions":"3.6.0","css-loader":"3.5.1","detect-browser":"5.0.0","displacejs":"1.4.1","ejs-loader":"0.3.6","eslint":"6.8.0","eslint-config-prettier":"6.10.1","eslint-plugin-json":"2.1.1","eslint-plugin-prettier":"3.1.2","husky":"4.2.3","lodash":"4.17.15","lodash-webpack-plugin":"0.11.5","loglevel":"1.6.7","node-sass":"^4.13.1","prettier":"2.0.4","pretty-quick":"2.0.1","sass-loader":"^8.0.2","string-replace-loader":"2.3.0","terser-webpack-plugin":"2.3.5","to-string-loader":"^1.1.6","urlencode":"1.1.0","webpack":"^4.42.1","webpack-cli":"3.3.11","webpack-dev-server":"3.10.3","webpack-merge":"4.2.2","yargs":"15.3.1"}}'
+        '{"name":"super-preloader","version":"6.12.2","description":"Super-preloader","main":"dist/Super_preloaderPlus_one_New.user.js","author":"Mach6","license":"GPL-3.0","bugs":{"url":"https://github.com/machsix/Super-preloader/issues"},"homepage":"https://github.com/machsix/Super-preloader","directories":{"doc":"docs"},"repository":{"type":"git","url":"git+https://github.com/machsix/Super-preloader.git"},"scripts":{"lint":"eslint \\"dist/*.json\\" \\"src/**/*.js\\" \\"ci/*.js\\"","format":"prettier --write \\"dist/*.json\\" \\"src/**/*.{js,css}\\" \\"ci/*.js\\" \\"docs/**/*.{js,md}\\"","format:check":"prettier --check \\"dist/*.json\\" \\"src/**/*.{js,css}\\" \\"ci/*.js\\" \\"docs/**/*.{js,md}\\"","format:staged":"pretty-quick --verbose --staged --write \\"dist/*.json\\" \\"src/**/*.{js,css}\\" \\"ci/*.js\\" \\"docs/**/*.{js,md}\\"","test":"npm run lint && npm run format:staged","dev":"webpack-dev-server --color --config webpack.dev.js","build":"webpack --no-cache --debug --config webpack.prod.js","build:dev":"webpack --config webpack.dev.js","docs:dev":"vuepress dev docs","docs:build":"vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh","preversion":"npm run test && npm run docs:build","version":"npm run build  && npm run build:dev && git add dist/*.js && git add dist/*.json","postversion":"git add package.json package-lock.json","publish:patch":"npm --no-git-tag-version version patch","publish":"npm --no-git-tag-version version minor"},"husky":{"hooks":{"pre-commit":"npm run test"}},"keywords":["userscript"],"devDependencies":{"@vuepress/plugin-back-to-top":"1.4.1","@vuepress/plugin-google-analytics":"1.4.1","@vuepress/plugin-pwa":"1.4.1","vuepress":"1.4.1"},"dependencies":{"@babel/cli":"7.8.4","@babel/core":"7.9.6","@babel/plugin-transform-runtime":"7.9.6","@babel/preset-env":"7.9.6","@babel/runtime-corejs2":"7.9.6","babel-loader":"8.1.0","babel-plugin-lodash":"3.3.4","compare-versions":"3.6.0","css-loader":"3.5.3","detect-browser":"5.0.0","displacejs":"1.4.1","ejs-loader":"0.3.6","eslint":"6.8.0","eslint-config-prettier":"6.11.0","eslint-plugin-json":"2.1.1","eslint-plugin-prettier":"3.1.3","husky":"4.2.5","lodash":"4.17.15","lodash-webpack-plugin":"0.11.5","loglevel":"1.6.8","node-sass":"^4.13.1","prettier":"2.0.5","pretty-quick":"2.0.1","sass-loader":"^8.0.2","string-replace-loader":"2.3.0","terser-webpack-plugin":"3.0.0","to-string-loader":"^1.1.6","urlencode":"1.1.0","webpack":"^4.42.1","webpack-cli":"3.3.11","webpack-dev-server":"3.10.3","webpack-merge":"4.2.2","yargs":"15.3.1"}}'
       );
 
       /***/
@@ -19603,13 +19603,15 @@
       /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "jsSiteRule", function () {
         return jsSiteRule;
       });
-      /* harmony import */ var _babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(44);
-      /* harmony import */ var _babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(_babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_0__);
-      /* harmony import */ var _babel_runtime_corejs2_core_js_date_now__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(356);
-      /* harmony import */ var _babel_runtime_corejs2_core_js_date_now__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/ __webpack_require__.n(_babel_runtime_corejs2_core_js_date_now__WEBPACK_IMPORTED_MODULE_1__);
-      /* harmony import */ var utils_domSelector__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(267);
-      /* harmony import */ var utils_domTools__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(285);
-      /* harmony import */ var utils_emoji__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(359);
+      /* harmony import */ var _babel_runtime_corejs2_core_js_array_from__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(93);
+      /* harmony import */ var _babel_runtime_corejs2_core_js_array_from__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(_babel_runtime_corejs2_core_js_array_from__WEBPACK_IMPORTED_MODULE_0__);
+      /* harmony import */ var _babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(44);
+      /* harmony import */ var _babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/ __webpack_require__.n(_babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_1__);
+      /* harmony import */ var _babel_runtime_corejs2_core_js_date_now__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(356);
+      /* harmony import */ var _babel_runtime_corejs2_core_js_date_now__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/ __webpack_require__.n(_babel_runtime_corejs2_core_js_date_now__WEBPACK_IMPORTED_MODULE_2__);
+      /* harmony import */ var utils_domSelector__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(267);
+      /* harmony import */ var utils_domTools__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(285);
+      /* harmony import */ var utils_emoji__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(359);
 
       var jsSiteRule = [
         {
@@ -19705,7 +19707,7 @@
               } // Fix images
               // add horizontal flexibly first
 
-              var imgPs = Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_2__["getAllElementsByXpath"])("//g-scrolling-carousel/div/div/div", doc, doc);
+              var imgPs = Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_3__["getAllElementsByXpath"])("//g-scrolling-carousel/div/div/div", doc, doc);
 
               if (imgPs.snapshotLength > 0) {
                 for (var i = 0; i < imgPs.snapshotLength; i++) {
@@ -19714,7 +19716,7 @@
                 }
               }
 
-              var hiddenImgs = Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_2__["getAllElementsByXpath"])("//g-scrolling-carousel/div/div/div/div[not(@data-vis)]//g-img/img", doc, doc);
+              var hiddenImgs = Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_3__["getAllElementsByXpath"])("//g-scrolling-carousel/div/div/div/div[not(@data-vis)]//g-img/img", doc, doc);
 
               if (hiddenImgs.snapshotLength > 0) {
                 for (var _i = 0; _i < hiddenImgs.snapshotLength; _i++) {
@@ -19760,19 +19762,19 @@
                 brs.id = "ibrs";
               }
 
-              console.log("%cGoogle    is %s", "font-weight:bold;color:red", Object(utils_emoji__WEBPACK_IMPORTED_MODULE_4__["default"])("1F4A9"));
-              var keyword = Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_2__["getElementByXpath"])("//input[@title='Search']", doc, doc);
+              console.log("%cGoogle    is %s", "font-weight:bold;color:red", Object(utils_emoji__WEBPACK_IMPORTED_MODULE_5__["default"])("1F4A9"));
+              var keyword = Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_3__["getElementByXpath"])("//input[@title='Search']", doc, doc);
 
               if (keyword) {
                 console.log(
                   "%cMicrosoft is %s %csearch with Bing %s",
                   "font-weight:bold;color:00bbee",
-                  Object(utils_emoji__WEBPACK_IMPORTED_MODULE_4__["default"])("1F451"),
+                  Object(utils_emoji__WEBPACK_IMPORTED_MODULE_5__["default"])("1F451"),
                   "font-weight:bold;color:00bbee",
                   encodeURI("https://www.bing.com/search?q=" + keyword.value)
                 );
               } else {
-                console.log("%cMicrosoft is %s", "font-weight:bold;color:00bbee", Object(utils_emoji__WEBPACK_IMPORTED_MODULE_4__["default"])("1F451"));
+                console.log("%cMicrosoft is %s", "font-weight:bold;color:00bbee", Object(utils_emoji__WEBPACK_IMPORTED_MODULE_5__["default"])("1F451"));
               }
             }
           }
@@ -19806,7 +19808,7 @@
             scriptFilter: "renderPosts",
             pageElement: "//table[@class='posts']/tbody",
             filter: function filter(pageElements) {
-              var scripts = Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_2__["getAllElementsByXpath"])(".//script[contains(text(), 'renderPosts')]", pageElements[0], document);
+              var scripts = Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_3__["getAllElementsByXpath"])(".//script[contains(text(), 'renderPosts')]", pageElements[0], document);
 
               if (scripts.snapshotLength > 0) {
                 for (var i = 0; i < scripts.snapshotLength; i++) {
@@ -19887,7 +19889,7 @@
             relatedObj: true,
             documentFilter: "startFilter",
             startFilter: function startFilter(doc) {
-              var trs = Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_2__["getAllElementsByXpath"])("//div[@class='artist']/div[@class='atl']/form/table/tbody/tr/td[@colspan='5']/parent::tr", doc, doc);
+              var trs = Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_3__["getAllElementsByXpath"])("//div[@class='artist']/div[@class='atl']/form/table/tbody/tr/td[@colspan='5']/parent::tr", doc, doc);
 
               if (trs.snapshotLength > 0) {
                 for (var i = 0; i < trs.snapshotLength; i++) {
@@ -19896,18 +19898,18 @@
                   if (img) {
                     img = img[0];
                     var imgSrc = img.getAttribute("src");
-                    var newtr = utils_domTools__WEBPACK_IMPORTED_MODULE_3__["default"].create("tr", {
+                    var newtr = utils_domTools__WEBPACK_IMPORTED_MODULE_4__["default"].create("tr", {
                       attr: {
                         align: "center"
                       },
                       children: [
-                        utils_domTools__WEBPACK_IMPORTED_MODULE_3__["default"].create("td", {
+                        utils_domTools__WEBPACK_IMPORTED_MODULE_4__["default"].create("td", {
                           attr: {
                             colspan: 5,
                             style: "border-bottom:1px dashed black;"
                           },
                           children: [
-                            utils_domTools__WEBPACK_IMPORTED_MODULE_3__["default"].create("img", {
+                            utils_domTools__WEBPACK_IMPORTED_MODULE_4__["default"].create("img", {
                               attr: {
                                 src: imgSrc,
                                 style: "display:block; width:100%; height:auto;"
@@ -19936,19 +19938,19 @@
                 var imgSrc = td.getElementsByTagName("img");
 
                 if (imgSrc) {
-                  var newImg = utils_domTools__WEBPACK_IMPORTED_MODULE_3__["default"].create("img", {
+                  var newImg = utils_domTools__WEBPACK_IMPORTED_MODULE_4__["default"].create("img", {
                     attr: {
                       src: imgSrc[0].getAttribute("src"),
                       style: "display:block; width:100%; height:auto;"
                     }
                   });
-                  var newtd = utils_domTools__WEBPACK_IMPORTED_MODULE_3__["default"].create("td", {
+                  var newtd = utils_domTools__WEBPACK_IMPORTED_MODULE_4__["default"].create("td", {
                     attr: {
                       colspan: 2,
                       style: "border-bottom:1px solid black;"
                     }
                   });
-                  var newtr = utils_domTools__WEBPACK_IMPORTED_MODULE_3__["default"].create("tr", {
+                  var newtr = utils_domTools__WEBPACK_IMPORTED_MODULE_4__["default"].create("tr", {
                     attr: {
                       align: "center"
                     }
@@ -20043,7 +20045,7 @@
           url: /^https?:\/\/www\.gamersky\.com\/\w+\/\d{6}\/.*.shtml/i,
           exampleUrl: "https://www.gamersky.com/ent/201510/671493.shtml | https://www.gamersky.com/handbook/201707/922480.shtml",
           nextLink: function nextLink(doc, _win, cplink) {
-            var node = Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_2__["getElementByXpath"])('//div[@class="page_css"]//a[(text()="下一页")]', doc, doc);
+            var node = Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_3__["getElementByXpath"])('//div[@class="page_css"]//a[(text()="下一页")]', doc, doc);
 
             if (!node) {
               return null;
@@ -20074,7 +20076,7 @@
             pageElement: "//div[@class='glzjshow_con']",
             replaceE: "id('after_this_page')",
             startFilter: function startFilter(doc) {
-              var comments = Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_2__["getElementByXpath"])('//div[@class="glzjshow_plun"]', doc, doc);
+              var comments = Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_3__["getElementByXpath"])('//div[@class="glzjshow_plun"]', doc, doc);
 
               if (comments) {
                 comments.style.display = "none";
@@ -20095,7 +20097,7 @@
               var pager = doc.querySelector("#pageNum");
 
               if (pager) {
-                Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_2__["getElementByXpath"])("//div[@class='box-bd'][last()]", doc, doc).after(pager);
+                Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_3__["getElementByXpath"])("//div[@class='box-bd'][last()]", doc, doc).after(pager);
               } //删除侧边栏
 
               var ad = doc.querySelector(".aside-wrap");
@@ -20205,11 +20207,11 @@
           name: "Jable",
           url: /^https?:\/\/jable\.tv/i,
           nextLink: function nextLink(doc, _win, cplink) {
-            var a = Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_2__["getElementByXpath"])("//ul[@class='pagination']/li[span[contains(@class,'active')]]/following-sibling::li[1]/a", doc, doc);
+            var a = Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_3__["getElementByXpath"])("//ul[@class='pagination']/li[span[contains(@class,'active')]]/following-sibling::li[1]/a", doc, doc);
             var blockID = a.getAttribute("data-block-id");
             var parms = a.getAttribute("data-parameters").replace(/:/g, "=").replace(/;/g, "&"); // const containerID = a.getAttribute("data-container-id");
 
-            var nextLink = cplink + "?mode=async&function=get_block&block_id=" + blockID + "&" + parms + "&_=" + _babel_runtime_corejs2_core_js_date_now__WEBPACK_IMPORTED_MODULE_1___default()();
+            var nextLink = cplink + "?mode=async&function=get_block&block_id=" + blockID + "&" + parms + "&_=" + _babel_runtime_corejs2_core_js_date_now__WEBPACK_IMPORTED_MODULE_2___default()();
 
             return nextLink;
           },
@@ -20228,8 +20230,8 @@
             mFails: [/^https?:\/\/(?:netflav\.com)\/.+/i, "?page=1"],
             inc: 1,
             isLast: function isLast(doc, _win, _lhref) {
-              var CurrentPage = Number(Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_2__["getElementByXpath"])("//div[@id='general-pagination']/div/a[@aria-current='true']", doc, doc).innerText);
-              var TotalPage = Number(Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_2__["getElementByXpath"])("(//div[@id='general-pagination']/div/a[@type='nextItem']/preceding-sibling::a)[last()]", doc, doc).innerText);
+              var CurrentPage = Number(Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_3__["getElementByXpath"])("//div[@id='general-pagination']/div/a[@aria-current='true']", doc, doc).innerText);
+              var TotalPage = Number(Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_3__["getElementByXpath"])("(//div[@id='general-pagination']/div/a[@type='nextItem']/preceding-sibling::a)[last()]", doc, doc).innerText);
 
               if (CurrentPage == TotalPage) {
                 return true;
@@ -20317,7 +20319,7 @@
                   continue;
                 }
 
-                return baseUrlMatches[1] + "/" + (_babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_0___default()(pageMatches[1]) + 1);
+                return baseUrlMatches[1] + "/" + (_babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_1___default()(pageMatches[1]) + 1);
               }
             }
 
@@ -20459,7 +20461,7 @@
           url: "^https?://www\\.diyibanzhu\\d?\\.(top|one|net|com)",
           pageElement: "//div[@id='content']",
           nextLink: function nextLink(doc, _win, cplink) {
-            var chapters = Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_2__["getAllElementsByXpath"])("//div[@class='chapterPages']/a", doc);
+            var chapters = Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_3__["getAllElementsByXpath"])("//div[@class='chapterPages']/a", doc);
             var prefix = cplink.substr(0, cplink.lastIndexOf("/")) + "/";
             var i = 0;
 
@@ -20468,7 +20470,7 @@
                 if (i + 1 < chapters.snapshotLength) {
                   return prefix + chapters.snapshotItem(i + 1).getAttribute("href");
                 } else {
-                  return getDomain(cplink) + Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_2__["getElementByXpath"])("//span[@class='next']/a").getAttribute("href");
+                  return getDomain(cplink) + Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_3__["getElementByXpath"])("//span[@class='next']/a").getAttribute("href");
                 }
               }
             }
@@ -20479,7 +20481,7 @@
           url: /^https?:\/\/www\.(qidian)\.com(\/mm)?\/rank\/.*/i,
           exampleUrl: "https://www.qidian.com/rank/collect",
           nextLink: function nextLink(doc, _win, cplink) {
-            var res = Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_2__["getElementByXpath"])('//div[@id="page-container"]', doc);
+            var res = Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_3__["getElementByXpath"])('//div[@id="page-container"]', doc);
 
             if (res === null) {
               return undefined;
@@ -20524,7 +20526,7 @@
           name: "优书-书单|评论",
           url: /^https?:\/\/www\.yousuu\.com\/(comments|booklist)/i,
           nextLink: function nextLink(doc, _win, cplink) {
-            var res = Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_2__["getElementByXpath"])('//ul[contains(@class, "pagination")]', doc);
+            var res = Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_3__["getElementByXpath"])('//ul[contains(@class, "pagination")]', doc);
 
             if (res === null) {
               return undefined;
@@ -20575,9 +20577,9 @@
           url: /^https?:\/\/(www|manhua)\.(dmzj|178)\.com\/\w+\/\d+\.shtml/,
           exampleUrl: "https://manhua.dmzj.com/yuanlian/36944.shtml#@page=1",
           nextLink: function nextLink(doc, _win, cplink) {
-            var current = Number(Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_2__["getElementByXpath"])('//*[@id="page_select"]/option[@selected][1]', doc).text.match(/(\d+)/)[1]);
+            var current = Number(Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_3__["getElementByXpath"])('//*[@id="page_select"]/option[@selected][1]', doc).text.match(/(\d+)/)[1]);
             var xpath_last = '//*[@id="page_select"]/option[last()]';
-            var end_num = Number(Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_2__["getElementByXpath"])(xpath_last, doc).text.match(/(\d+)/)[1]);
+            var end_num = Number(Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_3__["getElementByXpath"])(xpath_last, doc).text.match(/(\d+)/)[1]);
             var next = current + 1;
 
             if (next > end_num) {
@@ -20600,9 +20602,9 @@
           // this is a set which uses hash to change page
           // we need to manually add hash
           nextLink: function nextLink(doc, _win, cplink) {
-            var current = Number(Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_2__["getElementByXpath"])('//*[@id="page"]', doc).innerHTML);
+            var current = Number(Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_3__["getElementByXpath"])('//*[@id="page"]', doc).innerHTML);
             var xpath_last = '//div[@id="pagination"]/a[contains(@href,"javascript") and not(@class)][last()]';
-            var end_num = Number(Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_2__["getElementByXpath"])(xpath_last, doc).text);
+            var end_num = Number(Object(utils_domSelector__WEBPACK_IMPORTED_MODULE_3__["getElementByXpath"])(xpath_last, doc).text);
             var next = current + 1;
 
             if (next > end_num) {
@@ -20804,6 +20806,29 @@
               if (firstDiv) {
                 firstDiv.parentNode.removeChild(firstDiv);
               }
+            }
+          }
+        },
+        {
+          name: "腐漫画",
+          url: "^https?://www\\.fmhuaaa\\.net/manhua/\\d+/.+",
+          enable: true,
+          pageElement: '//div[@class="bi"] //a',
+          exampleUrl: "http://www.fmhuaaa.net/manhua/6265/832101.html",
+          nextLink: '//div[@class="bp"]/a[text()="下一页"][@href]',
+          autopager: {
+            startFilter: function startFilter(d, _win) {
+              d.getElementById("bigpic").src = d.getElementById("bigpic").src.replace("fmvip.xzglasses.com", "fmvip.xzglasses.com");
+
+              _babel_runtime_corejs2_core_js_array_from__WEBPACK_IMPORTED_MODULE_0___default()(d.querySelectorAll("iframe")).forEach(function (frame) {
+                return frame.remove();
+              });
+            },
+            documentFilter: function documentFilter(d, _nextLink) {
+              var link = d.body.innerHTML.match(/imgurl = '(.+)';/);
+              if (link) link = "//fmvip.xzglasses.com" + link[1];
+              d.getElementById("bigpic").src = link;
+              d.getElementById("bigpic").dataset.link = link;
             }
           }
         },
