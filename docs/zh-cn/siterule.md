@@ -6,8 +6,8 @@ sidebarDepth: 3
 
 站点规则可以是
 
-- [JavaScript object](https://en.wikipedia.org/wiki/JavaScript)存储于`SITEINFO`变量
-- [JSON data](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/JSON) 存储于`dist/mydata.json`
+- [JavaScript object](https://en.wikipedia.org/wiki/JavaScript) stored in file [https://github.com/machsix/Super-preloader/blob/master/src/rules/jsSiteRule.js](https://github.com/machsix/Super-preloader/blob/master/src/rules/jsSiteRule.js). You need to submit [pull request](https://github.com/machsix/Super-preloader/pulls) through Github
+- [JSON data](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/JSON) 存储于[https://github.com/machsix/Super-preloader/blob/master/dist/mydata.json](https://github.com/machsix/Super-preloader/blob/master/dist/mydata.json)的规则. 你可以自行添加到`设置`中的`自定义站点规则`
 
 我们更倾向于[JSON data](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/JSON)因为[JSON]()可以实现热更新. 🌰 在[文末](/siterule.md#例子).
 

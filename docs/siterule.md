@@ -12,8 +12,8 @@ sidebarDepth: 3
 
 Site rules can be
 
-- [JavaScript object](https://en.wikipedia.org/wiki/JavaScript) stored in the `SITEINFO` variable
-- [JSON data](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/JSON) stored in `dist/mydata.json`
+- [JavaScript object](https://en.wikipedia.org/wiki/JavaScript) stored in file [https://github.com/machsix/Super-preloader/blob/master/src/rules/jsSiteRule.js](https://github.com/machsix/Super-preloader/blob/master/src/rules/jsSiteRule.js). You need to submit [pull request](https://github.com/machsix/Super-preloader/pulls) through Github
+- [JSON data](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/JSON) stored in [https://github.com/machsix/Super-preloader/blob/master/dist/mydata.json](https://github.com/machsix/Super-preloader/blob/master/dist/mydata.json). You can add it into `Custom rules` textarea in the `Global Settings`
 
 We prefer [JSON data](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/JSON) because [JSON]() can implement hot update. An example is shown at the [end](/en/siterule.md#example).
 
