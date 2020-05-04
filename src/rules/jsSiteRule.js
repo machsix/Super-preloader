@@ -1108,6 +1108,26 @@ export const jsSiteRule = [
     }
   },
   {
+    name: "腐漫画",
+    url: "^https?://www\\.fmhuaaa\\.net/manhua/\\d+/.+",
+    enable: true,
+    pageElement: '//div[@class="bi"] //a',
+    exampleUrl: "http://www.fmhuaaa.net/manhua/6265/832101.html",
+    nextLink: '//div[@class="bp"]/a[text()="下一页"][@href]',
+    autopager: {
+      startFilter: (d, _win) => {
+        d.getElementById("bigpic").src = d.getElementById("bigpic").src.replace("fmvip.xzglasses.com", "fmvip.xzglasses.com");
+        Array.from(d.querySelectorAll("iframe")).forEach((frame) => frame.remove());
+      },
+      documentFilter: (d, _nextLink) => {
+        var link = d.body.innerHTML.match(/imgurl = '(.+)';/);
+        if (link) link = "//fmvip.xzglasses.com" + link[1];
+        d.getElementById("bigpic").src = link;
+        d.getElementById("bigpic").dataset.link = link;
+      }
+    }
+  },
+  {
     name: "xkcd",
     url: "^https?://(?:www.)?xkcd.com",
     nextLink: function (doc, _win, cplink) {

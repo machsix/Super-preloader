@@ -9390,6 +9390,7 @@
         return SCRIPT_MANAGER;
       });
       /* harmony import */ var detect_browser__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(209);
+      /* harmony import */ var detect_browser__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(detect_browser__WEBPACK_IMPORTED_MODULE_0__);
 
       var BROWSER = Object(detect_browser__WEBPACK_IMPORTED_MODULE_0__["detect"])();
       var INFO = GM.info || GM_info;
@@ -9401,44 +9402,17 @@
       /***/
     },
     /* 209 */
-    /***/ function (module, __webpack_exports__, __webpack_require__) {
+    /***/ function (module, exports, __webpack_require__) {
       "use strict";
-      __webpack_require__.r(__webpack_exports__);
       /* WEBPACK VAR INJECTION */ (function (process) {
-        /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BrowserInfo", function () {
-          return BrowserInfo;
-        });
-        /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NodeInfo", function () {
-          return NodeInfo;
-        });
-        /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SearchBotDeviceInfo", function () {
-          return SearchBotDeviceInfo;
-        });
-        /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BotInfo", function () {
-          return BotInfo;
-        });
-        /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "detect", function () {
-          return detect;
-        });
-        /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "browserName", function () {
-          return browserName;
-        });
-        /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "parseUserAgent", function () {
-          return parseUserAgent;
-        });
-        /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "detectOS", function () {
-          return detectOS;
-        });
-        /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getNodeVersion", function () {
-          return getNodeVersion;
-        });
         var __spreadArrays =
-          (undefined && undefined.__spreadArrays) ||
+          (this && this.__spreadArrays) ||
           function () {
             for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
             for (var r = Array(s), k = 0, i = 0; i < il; i++) for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++) r[k] = a[j];
             return r;
           };
+        Object.defineProperty(exports, "__esModule", {value: true});
         var BrowserInfo = /** @class */ (function () {
           function BrowserInfo(name, version, os) {
             this.name = name;
@@ -9448,7 +9422,7 @@
           }
           return BrowserInfo;
         })();
-
+        exports.BrowserInfo = BrowserInfo;
         var NodeInfo = /** @class */ (function () {
           function NodeInfo(version) {
             this.version = version;
@@ -9458,7 +9432,7 @@
           }
           return NodeInfo;
         })();
-
+        exports.NodeInfo = NodeInfo;
         var SearchBotDeviceInfo = /** @class */ (function () {
           function SearchBotDeviceInfo(name, version, os, bot) {
             this.name = name;
@@ -9469,7 +9443,7 @@
           }
           return SearchBotDeviceInfo;
         })();
-
+        exports.SearchBotDeviceInfo = SearchBotDeviceInfo;
         var BotInfo = /** @class */ (function () {
           function BotInfo() {
             this.type = "bot";
@@ -9480,7 +9454,17 @@
           }
           return BotInfo;
         })();
-
+        exports.BotInfo = BotInfo;
+        var ReactNativeInfo = /** @class */ (function () {
+          function ReactNativeInfo() {
+            this.type = "react-native";
+            this.name = "react-native";
+            this.version = null;
+            this.os = null;
+          }
+          return ReactNativeInfo;
+        })();
+        exports.ReactNativeInfo = ReactNativeInfo;
         // tslint:disable-next-line:max-line-length
         var SEARCHBOX_UA_REGEX = /alexa|bot|crawl(er|ing)|facebookexternalhit|feedburner|google web preview|nagios|postrank|pingdom|slurp|spider|yahoo!|yandex/;
         var SEARCHBOT_OS_REGEX = /(nuhk|Googlebot|Yammybot|Openbot|Slurp|MSNBot|Ask\ Jeeves\/Teoma|ia_archiver)/;
@@ -9490,7 +9474,6 @@
           ["edge", /Edge\/([0-9\._]+)/],
           ["edge-ios", /EdgiOS\/([0-9\._]+)/],
           ["yandexbrowser", /YaBrowser\/([0-9\._]+)/],
-          ["vivaldi", /Vivaldi\/([0-9\.]+)/],
           ["kakaotalk", /KAKAOTALK\s([0-9\.]+)/],
           ["samsung", /SamsungBrowser\/([0-9\.]+)/],
           ["silk", /\bSilk\/([0-9._-]+)\b/],
@@ -9550,11 +9533,15 @@
           if (!!userAgent) {
             return parseUserAgent(userAgent);
           }
+          if (typeof document === "undefined" && typeof navigator !== "undefined" && navigator.product === "ReactNative") {
+            return new ReactNativeInfo();
+          }
           if (typeof navigator !== "undefined") {
             return parseUserAgent(navigator.userAgent);
           }
           return getNodeVersion();
         }
+        exports.detect = detect;
         function matchUserAgent(ua) {
           // opted for using reduce here rather than Array#first with a regex.test call
           // this is primarily because using the reduce we only perform the regex
@@ -9577,6 +9564,7 @@
           var data = matchUserAgent(ua);
           return data ? data[0] : null;
         }
+        exports.browserName = browserName;
         function parseUserAgent(ua) {
           var matchedRule = matchUserAgent(ua);
           if (!matchedRule) {
@@ -9603,6 +9591,7 @@
           }
           return new BrowserInfo(name, versionParts.join("."), os);
         }
+        exports.parseUserAgent = parseUserAgent;
         function detectOS(ua) {
           for (var ii = 0, count = operatingSystemRules.length; ii < count; ii++) {
             var _a = operatingSystemRules[ii],
@@ -9615,10 +9604,12 @@
           }
           return null;
         }
+        exports.detectOS = detectOS;
         function getNodeVersion() {
           var isNode = typeof process !== "undefined" && process.version;
           return isNode ? new NodeInfo(process.version.slice(1)) : null;
         }
+        exports.getNodeVersion = getNodeVersion;
         function createVersionParts(count) {
           var output = [];
           for (var ii = 0; ii < count; ii++) {
@@ -9939,7 +9930,7 @@
     /* 212 */
     /***/ function (module) {
       module.exports = JSON.parse(
-        '{"name":"super-preloader","version":"6.12.2","description":"Super-preloader","main":"dist/Super_preloaderPlus_one_New.user.js","author":"Mach6","license":"GPL-3.0","bugs":{"url":"https://github.com/machsix/Super-preloader/issues"},"homepage":"https://github.com/machsix/Super-preloader","directories":{"doc":"docs"},"repository":{"type":"git","url":"git+https://github.com/machsix/Super-preloader.git"},"scripts":{"lint":"eslint \\"dist/*.json\\" \\"src/**/*.js\\" \\"ci/*.js\\"","format":"prettier --write \\"dist/*.json\\" \\"src/**/*.{js,css}\\" \\"ci/*.js\\" \\"docs/**/*.{js,md}\\"","format:check":"prettier --check \\"dist/*.json\\" \\"src/**/*.{js,css}\\" \\"ci/*.js\\" \\"docs/**/*.{js,md}\\"","format:staged":"pretty-quick --verbose --staged --write \\"dist/*.json\\" \\"src/**/*.{js,css}\\" \\"ci/*.js\\" \\"docs/**/*.{js,md}\\"","test":"npm run lint && npm run format:staged","dev":"webpack-dev-server --color --config webpack.dev.js","build":"webpack --no-cache --debug --config webpack.prod.js","build:dev":"webpack --config webpack.dev.js","docs:dev":"vuepress dev docs","docs:build":"vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh","preversion":"npm run test && npm run docs:build","version":"npm run build  && npm run build:dev && git add dist/*.js && git add dist/*.json","postversion":"git add package.json package-lock.json","publish:patch":"npm --no-git-tag-version version patch","publish":"npm --no-git-tag-version version minor"},"husky":{"hooks":{"pre-commit":"npm run test"}},"keywords":["userscript"],"devDependencies":{"@vuepress/plugin-back-to-top":"1.4.1","@vuepress/plugin-google-analytics":"1.4.1","@vuepress/plugin-pwa":"1.4.1","babel-plugin-wildcard":"^6.0.0","vuepress":"1.4.1"},"dependencies":{"@babel/cli":"7.8.4","@babel/core":"7.9.0","@babel/plugin-transform-runtime":"7.9.0","@babel/preset-env":"7.9.5","@babel/runtime-corejs2":"7.9.2","babel-loader":"8.1.0","babel-plugin-lodash":"3.3.4","compare-versions":"3.6.0","css-loader":"3.5.3","detect-browser":"5.0.0","displacejs":"1.4.1","ejs-loader":"0.3.6","eslint":"6.8.0","eslint-config-prettier":"6.11.0","eslint-plugin-json":"2.1.1","eslint-plugin-prettier":"3.1.3","husky":"4.2.5","lodash":"4.17.15","lodash-webpack-plugin":"0.11.5","loglevel":"1.6.8","node-sass":"^4.13.1","prettier":"2.0.5","pretty-quick":"2.0.1","sass-loader":"^8.0.2","string-replace-loader":"2.3.0","terser-webpack-plugin":"2.3.6","to-string-loader":"^1.1.6","urlencode":"1.1.0","webpack":"^4.42.1","webpack-cli":"3.3.11","webpack-dev-server":"3.10.3","webpack-merge":"4.2.2","yargs":"15.3.1"}}'
+        '{"name":"super-preloader","version":"6.12.2","description":"Super-preloader","main":"dist/Super_preloaderPlus_one_New.user.js","author":"Mach6","license":"GPL-3.0","bugs":{"url":"https://github.com/machsix/Super-preloader/issues"},"homepage":"https://github.com/machsix/Super-preloader","directories":{"doc":"docs"},"repository":{"type":"git","url":"git+https://github.com/machsix/Super-preloader.git"},"scripts":{"lint":"eslint \\"dist/*.json\\" \\"src/**/*.js\\" \\"ci/*.js\\"","format":"prettier --write \\"dist/*.json\\" \\"src/**/*.{js,css}\\" \\"ci/*.js\\" \\"docs/**/*.{js,md}\\"","format:check":"prettier --check \\"dist/*.json\\" \\"src/**/*.{js,css}\\" \\"ci/*.js\\" \\"docs/**/*.{js,md}\\"","format:staged":"pretty-quick --verbose --staged --write \\"dist/*.json\\" \\"src/**/*.{js,css}\\" \\"ci/*.js\\" \\"docs/**/*.{js,md}\\"","test":"npm run lint && npm run format:staged","dev":"webpack-dev-server --color --config webpack.dev.js","build":"webpack --no-cache --debug --config webpack.prod.js","build:dev":"webpack --config webpack.dev.js","docs:dev":"vuepress dev docs","docs:build":"vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh","preversion":"npm run test && npm run docs:build","version":"npm run build  && npm run build:dev && git add dist/*.js && git add dist/*.json","postversion":"git add package.json package-lock.json","publish:patch":"npm --no-git-tag-version version patch","publish":"npm --no-git-tag-version version minor"},"husky":{"hooks":{"pre-commit":"npm run test"}},"keywords":["userscript"],"devDependencies":{"@vuepress/plugin-back-to-top":"1.4.1","@vuepress/plugin-google-analytics":"1.4.1","@vuepress/plugin-pwa":"1.4.1","babel-plugin-wildcard":"^6.0.0","vuepress":"1.4.1"},"dependencies":{"@babel/cli":"7.8.4","@babel/core":"7.9.6","@babel/plugin-transform-runtime":"7.9.6","@babel/preset-env":"7.9.6","@babel/runtime-corejs2":"7.9.6","babel-loader":"8.1.0","babel-plugin-lodash":"3.3.4","compare-versions":"3.6.0","css-loader":"3.5.3","detect-browser":"5.1.0","displacejs":"1.4.1","ejs-loader":"0.3.6","eslint":"6.8.0","eslint-config-prettier":"6.11.0","eslint-plugin-json":"2.1.1","eslint-plugin-prettier":"3.1.3","husky":"4.2.5","lodash":"4.17.15","lodash-webpack-plugin":"0.11.5","loglevel":"1.6.8","node-sass":"4.14.0","prettier":"2.0.5","pretty-quick":"2.0.1","sass-loader":"^8.0.2","string-replace-loader":"2.3.0","terser-webpack-plugin":"3.0.0","to-string-loader":"^1.1.6","urlencode":"1.1.0","webpack":"4.43.0","webpack-cli":"3.3.11","webpack-dev-server":"3.10.3","webpack-merge":"4.2.2","yargs":"15.3.1"}}'
       );
 
       /***/
@@ -10845,7 +10836,7 @@
         if (typeof o === "string") return arrayLikeToArray(o, minLen);
         var n = Object.prototype.toString.call(o).slice(8, -1);
         if (n === "Object" && o.constructor) n = o.constructor.name;
-        if (n === "Map" || n === "Set") return _Array$from(n);
+        if (n === "Map" || n === "Set") return _Array$from(o);
         if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return arrayLikeToArray(o, minLen);
       }
 
@@ -13537,19 +13528,19 @@
           didErr = false,
           err;
         return {
-          s() {
+          s: function s() {
             it = _babel_runtime_corejs2_core_js_get_iterator__WEBPACK_IMPORTED_MODULE_6___default()(o);
           },
-          n() {
+          n: function n() {
             var step = it.next();
             normalCompletion = step.done;
             return step;
           },
-          e(e) {
+          e: function e(_e2) {
             didErr = true;
-            err = e;
+            err = _e2;
           },
-          f() {
+          f: function f() {
             try {
               if (!normalCompletion && it.return != null) it.return();
             } finally {
@@ -13564,7 +13555,7 @@
         if (typeof o === "string") return _arrayLikeToArray(o, minLen);
         var n = Object.prototype.toString.call(o).slice(8, -1);
         if (n === "Object" && o.constructor) n = o.constructor.name;
-        if (n === "Map" || n === "Set") return _babel_runtime_corejs2_core_js_array_from__WEBPACK_IMPORTED_MODULE_10___default()(n);
+        if (n === "Map" || n === "Set") return _babel_runtime_corejs2_core_js_array_from__WEBPACK_IMPORTED_MODULE_10___default()(o);
         if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
       }
 
@@ -13817,9 +13808,13 @@
             return true;
           })
           .map(function (i) {
-            return _objectSpread({}, i.data, {
-              name: i.name
-            });
+            return _objectSpread(
+              _objectSpread({}, i.data),
+              {},
+              {
+                name: i.name
+              }
+            );
           });
       });
       var p = [MyData, WeData];
@@ -14214,7 +14209,7 @@
           }
         }
 
-        options.headers = _objectSpread({}, thisDefaults.headers, {}, options.headers);
+        options.headers = _objectSpread(_objectSpread({}, thisDefaults.headers), options.headers);
 
         if (lodash_isEmpty__WEBPACK_IMPORTED_MODULE_14___default()(options.headers)) {
           delete options.headers;
@@ -21131,19 +21126,19 @@
           didErr = false,
           err;
         return {
-          s() {
+          s: function s() {
             it = _babel_runtime_corejs2_core_js_get_iterator__WEBPACK_IMPORTED_MODULE_0___default()(o);
           },
-          n() {
+          n: function n() {
             var step = it.next();
             normalCompletion = step.done;
             return step;
           },
-          e(e) {
+          e: function e(_e2) {
             didErr = true;
-            err = e;
+            err = _e2;
           },
-          f() {
+          f: function f() {
             try {
               if (!normalCompletion && it.return != null) it.return();
             } finally {
@@ -21158,7 +21153,7 @@
         if (typeof o === "string") return _arrayLikeToArray(o, minLen);
         var n = Object.prototype.toString.call(o).slice(8, -1);
         if (n === "Object" && o.constructor) n = o.constructor.name;
-        if (n === "Map" || n === "Set") return _babel_runtime_corejs2_core_js_array_from__WEBPACK_IMPORTED_MODULE_4___default()(n);
+        if (n === "Map" || n === "Set") return _babel_runtime_corejs2_core_js_array_from__WEBPACK_IMPORTED_MODULE_4___default()(o);
         if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
       }
 
@@ -22390,6 +22385,29 @@
               if (firstDiv) {
                 firstDiv.parentNode.removeChild(firstDiv);
               }
+            }
+          }
+        },
+        {
+          name: "腐漫画",
+          url: "^https?://www\\.fmhuaaa\\.net/manhua/\\d+/.+",
+          enable: true,
+          pageElement: '//div[@class="bi"] //a',
+          exampleUrl: "http://www.fmhuaaa.net/manhua/6265/832101.html",
+          nextLink: '//div[@class="bp"]/a[text()="下一页"][@href]',
+          autopager: {
+            startFilter: function startFilter(d, _win) {
+              d.getElementById("bigpic").src = d.getElementById("bigpic").src.replace("fmvip.xzglasses.com", "fmvip.xzglasses.com");
+
+              _babel_runtime_corejs2_core_js_array_from__WEBPACK_IMPORTED_MODULE_4___default()(d.querySelectorAll("iframe")).forEach(function (frame) {
+                return frame.remove();
+              });
+            },
+            documentFilter: function documentFilter(d, _nextLink) {
+              var link = d.body.innerHTML.match(/imgurl = '(.+)';/);
+              if (link) link = "//fmvip.xzglasses.com" + link[1];
+              d.getElementById("bigpic").src = link;
+              d.getElementById("bigpic").dataset.link = link;
             }
           }
         },
