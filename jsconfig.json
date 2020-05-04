@@ -7,7 +7,8 @@
       "utils/*": ["src/utils/*"],
       "rules/*": ["src/rules/*"],
       "css/*": ["src/css/*"],
-      "template/*": ["src/template/*"]
+      "locale/*": ["src/locale/*"],
+      "root/*": ["src/*"]
     }
   },
   "exclude": ["node_modules"]

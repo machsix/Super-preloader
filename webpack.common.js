@@ -17,7 +17,8 @@ module.exports = {
       utils: path.resolve(__dirname, "src/utils"),
       rules: path.resolve(__dirname, "src/rules"),
       css: path.resolve(__dirname, "src/css"),
-      template: path.resolve(__dirname, "src/template")
+      locale: path.resolve(__dirname, "src/locale"),
+      root: path.resolve(__dirname, "src")
     }
   },
   module: {

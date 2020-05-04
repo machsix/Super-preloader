@@ -125,12 +125,12 @@ export default {
   getRule() {
     return _.flatten(this.rule);
   },
-  async saveDB(saveRule = true) {
+  async saveRule(saveDB = true) {
     await GM.setValue("jsonRuleInfo", {
       expire: this.expire,
       updatePeriodInDay: this.updatePeriodInDay
     });
-    if (saveRule) {
+    if (saveDB) {
       await GM.setValue("SITEINFO_json", this.rule);
     }
   },
@@ -148,18 +148,18 @@ export default {
           this.rule = values.map(({value}) => (value ? value : this.rule));
           this.expire = new Date(+today + this.updatePeriodInDay * 24 * 60 * 60 * 1000);
           logger.info(`[UpdateRule] Next update at: ${this.expire}`);
-          this.saveDB();
+          this.saveRule();
         } else {
           this.expire = today;
           logger.error("[UpdateRule] Fail");
-          this.saveDB(false);
+          this.saveRule(false);
         }
       });
     } else {
       logger.info(`[UpdateRule] Next update at: ${this.expire}`);
     }
   },
-  async loadDB(forceUpdateRule = false) {
+  async loadRule(forceUpdateRule = false) {
     let [jsonRuleInfo, rule] = await Promise.all([
       GM.getValue("jsonRuleInfo", {
         expire: this.expire,

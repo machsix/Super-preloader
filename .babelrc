@@ -8,6 +8,13 @@
         "regenerator": true,
         "proposals": false
       }
+    ],
+    [
+      "wildcard",
+      {
+        "noModifyCase": true,
+        "exts": ["ejs"]
+      }
     ]
   ],
   "presets": [

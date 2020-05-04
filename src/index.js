@@ -7,6 +7,8 @@ import {BROWSER, SCRIPT_MANAGER} from "utils/detect";
 import {NOTIFICATION, SCRIPT_INFO} from "./meta";
 import {createDOM, getProperty, setProperty} from "utils/domTools";
 import {getAllElements, getAllElementsByXpath, getElementByCSS, getElementByXpath, getLastElement} from "utils/domSelector";
+import {loadSettings, resetSettings, saveSettings} from "utils/init";
+import {setLang, template, userLang} from "locale/locale";
 
 import _ from "lodash";
 import {addStyle} from "utils/gm-enhanced";
@@ -18,7 +20,6 @@ import cssSpPrefsSpinner from "css/sp-prefs-spinner.css";
 import cssSpSeparator from "css/sp-separator.css";
 
 import displace from "displacejs";
-import ejsTemplate from "template/ejs-template";
 import elementReady from "utils/element-ready";
 import gotStock from "utils/got";
 import {jsGeneralRule} from "rules/jsGeneralRule";
@@ -107,7 +108,6 @@ import notice from "utils/notice";
         const timeout = mutationObserver.timeout && 0;
         setTimeout(() => {
           p.then((values) => {
-            console.log(values);
             if (values) {
               values.forEach(({element, type, mutationList, observer}) => {
                 observer.disconnect();
@@ -127,74 +127,6 @@ import notice from "utils/notice";
     }
     return;
   }
-
-  /// //////////////////设置(请注意开关的缩进关系..子开关一般在父开关为true的时候才会生效.)//////////////////////
-  const userLang = navigator.language || navigator.userLanguage;
-  // (Default settings)
-  const prefsFactory = {
-    floatWindow: true, // 显示悬浮窗
-    FW_position: 2, // 1:出现在左上角;2:出现在右上角;3：出现在右下角;4：出现在左下角;
-    FW_offset: [20, 38], // 偏离版边的垂直和水平方向的数值..(单位:像素)
-    FW_RAS: true, // 点击悬浮窗上的保存按钮..立即刷新页面;
-    pauseA: true, // 快速停止自动翻页(当前模式为翻页模式的时候生效.);
-    Pbutton: [2, 0, 0], // 需要按住的键.....0: 不按住任何键;1: shift鍵;2: ctrl鍵; 3: alt鍵;(同时按3个键.就填 1 2 3)(一个都不按.就填 0 0 0)
-    mouseA: true, // 按住鼠标左键..否则.双击;
-    Atimeout: 200, // 按住左键时..延时.多少生效..(单位:ms);
-    stop_ipage: true, // 如果在连续翻页过程中暂停.重新启用后.不在继续..连续翻页..
-
-    Aplus: true, // 自动翻页模式的时候..提前预读好一页..就是翻完第1页,立马预读第2页,翻完第2页,立马预读第3页..(大幅加快翻页快感-_-!!)(建议开启)..
-    sepP: true, // 翻页模式下.分隔符.在使用上滚一页或下滚一页的时候是否保持相对位置..
-    sepT: true, // 翻页模式下.分隔符.在使用上滚一页或下滚一页的时候使用动画过渡..
-    s_method: 3, // 动画方式 0-10 一种11种动画效果..自己试试吧
-    s_ease: 2, // 淡入淡出效果 0：淡入 1：淡出 2：淡入淡出
-    s_FPS: 60, // 帧速.(单位:帧/秒)
-    s_duration: 333, // 动画持续时长.(单位:ms);
-    DisableI: true, // 只在顶层窗口加载JS..提升性能..如果开启了这项,那么DIExclude数组有效,里面的网页即使不在顶层窗口也会加载....
-    arrowKeyPage: false, // 允许使用 左右方向键 翻页..
-    sepStartN: 2, // 翻页导航上的,从几开始计数.(貌似有人在意这个,所以弄个开关出来,反正简单.-_-!!)
-
-    // 新增或修改的
-    forceTargetWindow: true, // 下一页的链接设置成在新标签页打开
-    debug: true,
-    enableHistory: false, // 把下一页链接添加到历史记录
-    autoGetPreLink: false, // 一开始不自动查找上一页链接，改为调用时再查找
-    excludes: "",
-    custom_siteinfo: "[]",
-    lazyImgSrc: "zoomfile|file|original|load-src|_src|imgsrc|real_src|src2|data-lazyload-src|data-ks-lazyload|data-lazyload|data-src|data-original|data-thumb|data-imageurl|data-defer-src|data-placeholder",
-    ChineseUI: false,
-    dblclick_pause: false,
-    factoryCheck: true,
-    disappearDelay: -1, //暂停翻页状态栏disappearDelay ms后消失, -1为不消失
-    numOfRule: 4308
-  };
-  let prefs = prefsFactory;
-  let myOldVersion = "1.0.0";
-
-  /// ///////////////////////---------------规则-------////////////////
-  // 高级规则的一些默认设置..如果你不知道是什么..请务必不要修改(删除)它.此修改会影响到所有高级规则...
-  // (Default settings)
-  const SITEINFO_DFactory = {
-    enable: true, // 启用
-    useiframe: false, // (预读)是否使用iframe..
-    viewcontent: false, // 查看预读的内容,显示在页面的最下方.
-    autopager: {
-      enable: true, // 启用自动翻页...
-      force_enable: false, // 默认启用强制拼接
-      manualA: false, // 手动翻页.
-      useiframe: false, // (翻页)是否使用iframe..
-      iloaded: false, // 是否在iframe完全load后操作..否则在DOM完成后操作
-      itimeout: 0, // 延时多少ms后,在操作..
-      newIframe: false,
-      remain: 1, // 剩余页面的高度..是显示高度的 remain 倍开始翻页..
-      maxpage: 99, // 最多翻多少页..
-      ipages: [false, 2], // 立即翻页,第一项是控制是否在js加载的时候立即翻第二项(必须小于maxpage)的页数,比如[true,3].就是说JS加载后.立即翻3页.
-      separator: true, // 显示翻页导航..(推荐显示.)
-      separatorReal: true, // 显示真实的页数
-      reload: false, // 强制重载iframe
-      sandbox: false // Iframe sandbox 选项
-    }
-  };
-  let SITEINFO_D = SITEINFO_DFactory;
 
   // 在以下网站上允许在非顶层窗口上加载JS..比如猫扑之类的框架集网页.
   const DIExclude = [
@@ -253,60 +185,6 @@ import notice from "utils/notice";
     Astop: "#A00000", // 翻页状态(停止)(翻页完成,或者被异常停止.)(无法再开启)
     dot: "#00FF05" // 读取完后,会显示一个小点,那么小点的颜色.
   };
-
-  // 当没有找到规则的时候,进入自动搜索模式.
-  // 在没有高级规则的网站上.的一些设置..
-  // (Default settings)
-  const autoMatchFactory = {
-    keyMatch: true, // 是否启用关键字匹配
-    cases: false, // 关键字区分大小写....
-    digitalCheck: true, // 对数字连接进行检测,从中找出下一页的链接
-    pfwordl: {
-      // 关键字前面的字符限定.
-      previous: {
-        // 上一页关键字前面的字符,例如 "上一页" 要匹配 "[上一页" ,那么prefix要的设置要不小于1,并且character要包含字符 "["
-        enable: true,
-        maxPrefix: 3,
-        character: [" ", "　", "[", "［", "<", "＜", "?", "?", "<<", "『", "「", "【", "(", "←"]
-      },
-      next: {
-        // 下一页关键字前面的字符
-        enable: true,
-        maxPrefix: 2,
-        character: [" ", "　", "[", "［", "『", "「", "【", "("]
-      }
-    },
-    sfwordl: {
-      // 关键字后面的字符限定.
-      previous: {
-        // 上一页关键字后面的字符
-        enable: true,
-        maxSubfix: 2,
-        character: [" ", "　", "]", "］", "』", "」", "】", ")"]
-      },
-      next: {
-        // 下一页关键字后面的字符
-        enable: true,
-        maxSubfix: 3,
-        character: [" ", "　", "]", "］", ">", "﹥", "?", "?", ">>", "』", "」", "】", ")", "→"]
-      }
-    },
-    useiframe: SITEINFO_D.useiframe || false, // (预读)是否使用iframe..
-    viewcontent: false, // 查看预读的内容,显示在页面的最下方.
-    FA: {
-      // 强制拼接 选项 功能设置.
-      enable: false, // 默认启用 强制拼接
-      manualA: false, // 手动翻页.
-      useiframe: false, // (翻页)是否使用iframe..
-      iloaded: false, // (只在opera有效)如果使用iframe翻页..是否在iframe完全load后操作..否则在DOM完成后操作
-      itimeout: 0, // 当使用iframe翻页时在完成后继续等待多少ms后,在操作..
-      remain: 1, // 剩余页面的高度..是显示高度的 remain 倍开始翻页..
-      maxpage: 99, // 最多翻多少页..
-      ipages: [false, 2], // 立即翻页,第一项是控制是否在js加载的时候立即翻第二项(必须小于maxpage)的页数,比如[true,3].就是说JS加载后.立即翻3页.
-      separator: true // 显示翻页导航..(推荐显示.)..
-    }
-  };
-  let autoMatch = autoMatchFactory;
 
   // 上一页关键字
   let prePageKey = [
@@ -453,77 +331,10 @@ import notice from "utils/notice";
   // ------------------------下面的不要管他-----------------
   /// ////////////////////////////////////////////////////////////////
   // eslint-disable-next-line prettier/prettier
-  Promise.all([GM.getValue("prefs", prefsFactory), GM.getValue("SITEINFO_D", SITEINFO_DFactory), GM.getValue("autoMatch", autoMatchFactory), GM.getValue("version", myOldVersion), jsonRuleLoader.loadDB()])
+  loadSettings()
     .then(function (values) {
-      [prefs, SITEINFO_D, autoMatch, myOldVersion] = values;
-
-      if (compareVersions(myOldVersion, scriptInfo.rewriteStorage) === -1) {
-        if (_.isString(prefs)) prefs = JSON.parse(prefs);
-        if (_.isString(SITEINFO_D)) SITEINFO_D = JSON.parse(SITEINFO_D);
-        if (_.isString(autoMatch)) autoMatch = JSON.parse(autoMatch);
-      }
-      if (typeof prefs.debug !== "undefined") {
-        logger.setLevel(prefs.debug ? "debug" : "info");
-      }
-      let jsonRule = jsonRuleLoader.getRule();
-
-      const preSPinit = [];
-      // check the consistency of script settings
-      if (compareVersions(myOldVersion, scriptInfo.version) < 0) {
-        // update rule if the script is upgraded or it is installed for the first time
-        if (upgradeNotification) {
-          if (upgradeNotification.show(myOldVersion, scriptInfo.version) || compareVersions(myOldVersion, "1.0.0") === 0) {
-            const opts = {
-              text: "",
-              title: upgradeNotification.title,
-              image: upgradeNotification.image,
-              onload: upgradeNotification.onload
-            };
-            switch (i8n()) {
-              case "zh_CN":
-                opts.text = SCRIPT_INFO["name-CN"] + " 从 v" + myOldVersion + " 升级到 v" + scriptInfo.version + "。";
-                opts.text += upgradeNotification.text.zh_CN;
-                break;
-
-              default:
-                opts.text = SCRIPT_INFO.name + " is upgraded from v" + myOldVersion + " to v" + scriptInfo.version + ". ";
-                opts.text += upgradeNotification.text.en_US;
-                break;
-            }
-            GM.notification(opts);
-          }
-        }
-      }
-
-
-
-      let forceJsonUpdate = false;
-      if (prefs.factoryCheck === true || prefs.factoryCheck === undefined) {
-        const hasDifferent = assignDifferentProperty(prefs, prefsFactory);
-        if (hasDifferent) {
-          logger.info("[UpdateCheck] prefs is updated", prefs);
-        }
-        prefs.factoryCheck = false;
-        preSPinit.push(GM.setValue("prefs", prefs));
-        if (compareVersions(myOldVersion, scriptInfo.rewriteStorage) === -1) {
-          preSPinit.push(GM.setValue("SITEINFO_D", SITEINFO_D));
-          preSPinit.push(GM.setValue("autoMatch", autoMatch));
-          forceJsonUpdate = true;
-          logger.info("[UpdateCheck] Storage is rewritten");
-        }
-      }
-      preSPinit.push(jsonRuleLoader.updateRule(forceJsonUpdate));
-
-      // 黑名单,网站正则..
-      var blackList = [
-        // 例子
-        // 'http://*.douban.com/*',
-      ];
-      blackList = blackList.concat(
-        prefs.excludes.split(/[\n\r]+/).map(function (line) {
-          return line.trim();
-        })
-      );
+      let {jsonRule} = values;
+      const {prefs, SITEINFO_D, autoMatch, version, blackList} = values;
       const setup = function () {
         const d = document;
 
@@ -543,7 +354,7 @@ import notice from "utils/notice";
           div.style.right = `${prefs.FW_offset[1]}px`;
           div.style.top = `${prefs.FW_offset[0]}px`;
         }
-        div.innerHTML = ejsTemplate["sp-prefs"](i8n())({
+        div.innerHTML = template["sp-prefs"]({
           prefs,
           scriptInfo,
           nextUpdateDate: jsonRuleLoader.expire.toDateString()
@@ -564,7 +375,6 @@ import notice from "utils/notice";
 
         on($("ok"), "click", function () {
           prefs.ChineseUI = !!$("ChineseUI").checked;
-          // document.getElementById('sp-fw-container').innerHTML = floatWindowUI();
           prefs.custom_siteinfo = $("custom_siteinfo").value;
           prefs.debug = !!$("debug").checked;
           if (prefs.debug) {
@@ -582,7 +392,11 @@ import notice from "utils/notice";
 
           autoMatch.useiframe = SITEINFO_D.useiframe;
 
-          Promise.all([GM.setValue("prefs", prefs), GM.setValue("SITEINFO_D", SITEINFO_D), GM.setValue("autoMatch", autoMatch)]).then(function (values) {
+          saveSettings({
+            prefs,
+            SITEINFO_D,
+            autoMatch
+          }).then(() => {
             SP.loadSetting();
             close();
             location.reload();
@@ -590,10 +404,7 @@ import notice from "utils/notice";
         });
 
         on($("reset"), "click", () => {
-          prefs = prefsFactory;
-          Promise.all([GM.setValue("prefs", prefsFactory), GM.setValue("SITEINFO_D", SITEINFO_DFactory), GM.setValue("version", "1.0.0")], jsonRuleLoader.updateRule(true)).then(() => {
-            SP.loadSetting();
-            close();
+          resetSettings().then(() => {
             location.reload();
           });
         });
@@ -609,7 +420,7 @@ import notice from "utils/notice";
           });
           addStyle(cssSpPrefsSpinner);
           $("setup").appendChild(div);
-          getElementByCSS("#sp-prefs-setup div").innerHTML = i8n() === "zh_CN" ? "规则更新中。。。" : "Updating ...";
+          getElementByCSS("#sp-prefs-setup div").innerHTML = userLang === "zh_CN" ? "规则更新中。。。" : "Updating ...";
           jsonRuleLoader.updateRule(true).then(() => {
             jsonRule = jsonRuleLoader.getRule();
             SP.loadSetting();
@@ -643,7 +454,7 @@ import notice from "utils/notice";
 
           this.loadSetting();
 
-          if (i8n() === "zh_CN") {
+          if (userLang === "zh_CN") {
             GM.registerMenuCommand("Super_preloaderPlus_one_New 设置", setup);
           } else {
             GM.registerMenuCommand("Super_preloaderPlus_one_New Settings", setup);
@@ -710,10 +521,7 @@ import notice from "utils/notice";
       };
 
       logger.debug("Entrypoint");
-      Promise.all(preSPinit).then(() => {
-        jsonRule = jsonRuleLoader.getRule();
-        SP.spinit();
-      });
+      SP.spinit();
 
       function init(window, document) {
         const startTime = new Date();
@@ -741,7 +549,7 @@ import notice from "utils/notice";
           // create container
           const div = document.createElement("div");
           div.id = "sp-fw-container";
-          div.innerHTML = floatWindowUI();
+          div.innerHTML = template.floatWindow();
           document.body.appendChild(div);
 
           // helper function to get element
@@ -937,7 +745,7 @@ import notice from "utils/notice";
             dot: "读取完后"
           };
 
-          if (i8n() !== "zh_CN") {
+          if (userLang !== "zh_CN") {
             FWKG_state.loading = "Loading";
             FWKG_state.prefetcher = "Prefetching";
             FWKG_state.autopager = "Autopagger (Running)";
@@ -985,10 +793,6 @@ import notice from "utils/notice";
             default:
               break;
           }
-        }
-
-        function floatWindowUI() {
-          return ejsTemplate.floatWindow(i8n())();
         }
 
         function sp_transition(start, end) {
@@ -1388,14 +1192,14 @@ import notice from "utils/notice";
                     attr: {
                       class: "sp-md-span"
                     },
-                    innerHTML: i8n() === "zh_CN" ? "下" : "Next"
+                    innerHTML: userLang === "zh_CN" ? "下" : "Next"
                   }),
                   createDOM("input", {
                     attr: {
                       type: "number",
                       value: 1,
                       min: 1,
-                      title: i8n() === "zh_CN" ? "输入你想要拼接的页数(必须>=1),然后按回车." : "Type number of pageringzing and press enter",
+                      title: userLang === "zh_CN" ? "输入你想要拼接的页数(必须>=1),然后按回车." : "Type number of pageringzing and press enter",
                       id: "sp-sp-md-number"
                     },
                     eventListener: [
@@ -1412,7 +1216,7 @@ import notice from "utils/notice";
                   }),
                   createDOM("span", {
                     attr: {class: "sp-md-span"},
-                    innerHTML: i8n() === "zh_CN" ? "页" : "page"
+                    innerHTML: userLang === "zh_CN" ? "页" : "page"
                   }),
                   createDOM("img", {
                     attr: {
@@ -1484,7 +1288,7 @@ import notice from "utils/notice";
               div.id = "sp-separator-" + curNumber;
               div.addEventListener("click", sepHandler, false);
               let pageStr = "";
-              if (i8n() === "zh_CN") {
+              if (userLang === "zh_CN") {
                 pageStr = '<b>第 <span style="' + sep_icons.text_span_style + '">' + curNumber + "</span> 页</b>" + (SSS.a_separatorReal ? getRalativePageStr(lastUrl, currentUrl, nextUrl) : "");
               } else {
                 pageStr = '<b>Page <span style="' + sep_icons.text_span_style + '">' + curNumber + "</span></b>" + (SSS.a_separatorReal ? getRalativePageStr(lastUrl, currentUrl, nextUrl) : "");
@@ -1506,8 +1310,8 @@ import notice from "utils/notice";
                   attr: {
                     src: _sep_icons.top,
                     class: "sp-sp-gotop",
-                    alt: i8n() === "zh_CN" ? "去到顶部" : "To Top",
-                    title: i8n() === "zh_CN" ? "去到顶部" : "To Top"
+                    alt: userLang === "zh_CN" ? "去到顶部" : "To Top",
+                    title: userLang === "zh_CN" ? "去到顶部" : "To Top"
                   }
                 })
               );
@@ -1517,7 +1321,7 @@ import notice from "utils/notice";
                   attr: {
                     src: curNumber == sNumber ? _sep_icons.pre_gray : _sep_icons.pre,
                     class: "sp-sp-gopre",
-                    title: i8n() === "zh_CN" ? "上滚一页" : "Scroll up a page"
+                    title: userLang === "zh_CN" ? "上滚一页" : "Scroll up a page"
                   }
                 })
               );
@@ -1526,7 +1330,7 @@ import notice from "utils/notice";
                 attr: {
                   src: _sep_icons.next_gray,
                   class: "sp-sp-gonext",
-                  title: i8n() === "zh_CN" ? "下滚一页" : "Scroll down a page"
+                  title: userLang === "zh_CN" ? "下滚一页" : "Scroll down a page"
                 }
               });
 
@@ -1541,8 +1345,8 @@ import notice from "utils/notice";
                   attr: {
                     src: _sep_icons.bottom,
                     class: "sp-sp-gobottom",
-                    alt: i8n() === "zh_CN" ? "去到底部" : "To Bottom",
-                    title: i8n() === "zh_CN" ? "去到底部" : "To Bottom"
+                    alt: userLang === "zh_CN" ? "去到底部" : "To Bottom",
+                    title: userLang === "zh_CN" ? "去到底部" : "To Bottom"
                   }
                 })
               );
@@ -1850,7 +1654,7 @@ import notice from "utils/notice";
               if (prefs.stop_ipage) ipagesmode = false;
               if (pause) {
                 floatWO.updateColor("Apause");
-                if (i8n() === "zh_CN") {
+                if (userLang === "zh_CN") {
                   notice("<b>状态</b>:" + '自动翻页<span style="color:red!important;"><b> 暂停</b></span>.', prefs.disappearDelay);
                 } else {
                   notice("<b>Status</b>:" + 'Autopagger<span style="color:red!important;"><b> Pause</b></span>.', prefs.disappearDelay);
@@ -1858,7 +1662,7 @@ import notice from "utils/notice";
               } else {
                 floatWO.updateColor("autopager");
                 floatWO.CmodeIcon("hide");
-                if (i8n() === "zh_CN") {
+                if (userLang === "zh_CN") {
                   notice("<b>状态</b>:" + '自动翻页<span style="color:red!important;"><b> 启用</b></span>.');
                 } else {
                   notice("<b>Status</b>:" + 'Autopagger<span style="color:red!important;"><b> Enable</b></span>.');
@@ -2100,7 +1904,7 @@ import notice from "utils/notice";
           var Rurl;
           const ii = SSRules.length;
 
-          if (i8n() === "zh_CN") {
+          if (userLang === "zh_CN") {
             logger.debug(`高级规则数目:${ii}`);
             logger.debug(`规则数 > ${ii - jsonRule.length} 来自其他来源, 比如: wedata.net`);
           } else {
@@ -2111,7 +1915,7 @@ import notice from "utils/notice";
             const SII = SSRules[i];
             Rurl = toRE(SII.url);
             if (Rurl.test(url)) {
-              if (i8n() === "zh_CN") {
+              if (userLang === "zh_CN") {
                 logger.debug("找到当前站点规则:", SII);
                 logger.debug(`规则ID: ${i + 1}`);
               } else {
@@ -2388,7 +2192,7 @@ import notice from "utils/notice";
         if (prefs.floatWindow) {
           logger.debug("创建悬浮窗");
           floatWindow(SSS);
-          const floatWindowWidth = i8n() === "zh_CN" ? 231 : 366; //px
+          const floatWindowWidth = userLang === "zh_CN" ? 231 : 366; //px
           const d = displace(document.getElementById("sp-fw-container"), {
             handle: document.getElementById("sp-fw-rect"),
             customMove: (el, x, y) => {
@@ -2809,7 +2613,7 @@ import notice from "utils/notice";
         var relativePageStr;
         if (realPageSiteMatch) {
           // 如果匹配就显示实际网页信息
-          if (i8n() === "zh_CN") {
+          if (userLang === "zh_CN") {
             if (relativePageNumarray[1] - relativePageNumarray[0] > 1) {
               // 一般是搜索引擎的第xx - xx项……
               relativePageStr = ' [ 实际：第 <span style="' + sep_icons.text_span_style + '">' + relativePageNumarray[0] + " - " + relativePageNumarray[1] + "</span> 项 ]";
@@ -3337,15 +3141,5 @@ import notice from "utils/notice";
       return str === "*" ? ".*" : "[^/]*";
     });
     return "^" + reg + "$";
-  }
-
-
-
-  function i8n() {
-    if (userLang.indexOf("zh") !== -1 || prefs.ChineseUI) {
-      return "zh_CN";
-    } else {
-      return "en_US";
-    }
   }
 })();
