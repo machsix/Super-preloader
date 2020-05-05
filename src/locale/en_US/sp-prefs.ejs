@@ -1,13 +1,13 @@
 <div>Super_preloaderPlus_one_New Settings</div>
 <ul>
-  <li>Version: <b><%= scriptInfo.version %></b> Update time: <b><%= scriptInfo.updateTime %></b>
-    <a id="sp-prefs-homepageURL" target="_blank" href="<%= scriptInfo.homepageURL %>" />Homepage</a>
-    <a id="sp-prefs-homepageURL-feedback" target="_blank" href="<%= scriptInfo.homepageURL + "/feedback" %>" /> Feedback
+  <li>Version: <b><%= locals.scriptInfo.version %></b> Update time: <b><%= locals.scriptInfo.updateTime %></b>
+    <a id="sp-prefs-homepageURL" target="_blank" href="<%= locals.scriptInfo.homepageURL %>" />Homepage</a>
+    <a id="sp-prefs-homepageURL-feedback" target="_blank" href="<%= locals.scriptInfo.homepageURL + "/feedback" %>" /> Feedback
     </a>
   </li>
   <li>Maintainer: <b><a href="https://greasyfork.org/en/users/32861-mach6">Mach6</a></b> Changelog:
-    <b><%= scriptInfo.changelog %></b></li>
-  <li>Number of Rules: <b><%= prefs.numOfRule %></b> Next update: <b><%= nextUpdateDate %></b> <button
+    <b><%= locals.scriptInfo.changelog %></b></li>
+  <li>Number of Rules: <b><%= locals.prefs.numOfRule %></b> Next update: <b><%= locals.nextUpdateDate %></b> <button
       id="sp-prefs-updaterule">Update rules</button></li>
   <li>
     <input type="checkbox" id="sp-prefs-debug" /> Debug mode

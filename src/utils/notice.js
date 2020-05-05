@@ -1,9 +1,9 @@
-import domTools from "utils/domTools";
+import {createDOM} from "./domTools";
 export let noticeDiv, noticeDivto, noticeDivto2;
 
 export default function notice(html_txt, showTime) {
   if (!noticeDiv) {
-    const div = domTools.create("div", {
+    const div = createDOM("div", {
       attr: {
         style:
           "\

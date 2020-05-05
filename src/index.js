@@ -3,30 +3,25 @@
 
 // import "core-js";
 // import "regenerator-runtime/runtime";
-import {BROWSER, SCRIPT_MANAGER} from "utils/detect";
+import * as spcss from "./css";
+import {BROWSER, SCRIPT_MANAGER} from "./utils/detect";
 import {NOTIFICATION, SCRIPT_INFO} from "./meta";
-import {createDOM, getProperty, setProperty} from "utils/domTools";
-import {getAllElements, getAllElementsByXpath, getElementByCSS, getElementByXpath, getLastElement} from "utils/domSelector";
-import {loadSettings, resetSettings, saveSettings} from "utils/init";
-import {setLang, template, userLang} from "locale/locale";
+import {createDOM, getProperty, setProperty} from "./utils/domTools";
+import {getAllElements, getAllElementsByXpath, getElementByCSS, getElementByXpath, getLastElement} from "./utils/domSelector";
+import {loadSettings, resetSettings, saveSettings} from "./utils/init";
+import {setLang, template, userLang} from "./locale/locale";
 
 import _ from "lodash";
-import {addStyle} from "utils/gm-enhanced";
+import {addStyle} from "./utils/gm-enhanced";
 import compareVersions from "compare-versions";
-
-import cssSpFloatWindow from "css/sp-fw.scss";
-import cssSpPrefsSetup from "css/sp-prefs-setup.css";
-import cssSpPrefsSpinner from "css/sp-prefs-spinner.css";
-import cssSpSeparator from "css/sp-separator.css";
-
 import displace from "displacejs";
-import elementReady from "utils/element-ready";
-import gotStock from "utils/got";
-import {jsGeneralRule} from "rules/jsGeneralRule";
-import {jsSiteRule} from "rules/jsSiteRule";
-import jsonRuleLoader from "utils/json-rule";
-import logger from "utils/logger";
-import notice from "utils/notice";
+import elementReady from "./utils/element-ready";
+import gotStock from "./utils/got";
+import {jsGeneralRule} from "./rules/jsGeneralRule";
+import {jsSiteRule} from "./rules/jsSiteRule";
+import jsonRuleLoader from "./utils/json-rule";
+import logger from "./utils/logger";
+import notice from "./utils/notice";
 
 (function () {
   logger.setLevel("debug");
@@ -36,7 +31,7 @@ import notice from "utils/notice";
     encoding: document.characterSet
   };
   logger.debug(`Script Manager: ${SCRIPT_MANAGER.name}  v${SCRIPT_MANAGER.version}`);
-  logger.debug("Browser: ", BROWSER);
+  logger.debug("Browser: ", JSON.stringify(BROWSER));
 
   if (BROWSER.name === "firefox") {
     if ((SCRIPT_MANAGER.name === "Violentmonkey" && compareVersions(SCRIPT_MANAGER.version, "2.12.3") <= 0) || SCRIPT_MANAGER.name === "Tampermonkey") {
@@ -343,7 +338,7 @@ import notice from "utils/notice";
         };
         if ($("setup")) return;
 
-        const styleNode = addStyle(cssSpPrefsSetup);
+        const styleNode = addStyle(spcss["sp-prefs-setup"]);
         var div = d.createElement("div");
         div.id = "sp-prefs-setup";
         div.style.position = "fixed";
@@ -418,7 +413,7 @@ import notice from "utils/notice";
             },
             children: [createDOM("div", {attr: {class: "rect1"}}), createDOM("div", {attr: {class: "rect2"}}), createDOM("div", {attr: {class: "rect3"}}), createDOM("div", {attr: {class: "rect4"}})]
           });
-          addStyle(cssSpPrefsSpinner);
+          addStyle(spcss["sp-prefs-spinner"]);
           $("setup").appendChild(div);
           getElementByCSS("#sp-prefs-setup div").innerHTML = userLang === "zh_CN" ? "规则更新中。。。" : "Updating ...";
           jsonRuleLoader.updateRule(true).then(() => {
@@ -544,7 +539,7 @@ import notice from "utils/notice";
 
         function floatWindow(SSS) {
           // inject css
-          addStyle(cssSpFloatWindow);
+          addStyle(spcss["sp-fw"]);
 
           // create container
           const div = document.createElement("div");
@@ -1169,7 +1164,7 @@ import notice from "utils/notice";
 
           function manualAdiv() {
             if (!manualDiv) {
-              addStyle(cssSpSeparator);
+              addStyle(spcss["sp-separator"]);
               const spage = (el) => {
                 if (doc) {
                   let value = Number(el.value);
@@ -1281,7 +1276,7 @@ import notice from "utils/notice";
             const div = document.createElement("div");
             if (SSS.a_separator) {
               if (!sepStyle) {
-                sepStyle = addStyle(cssSpSeparator);
+                sepStyle = addStyle(spcss["sp-separator"]);
               }
 
               div.className = "sp-separator";
@@ -2151,7 +2146,7 @@ import notice from "utils/notice";
           var savedValue = getValue("spfwset");
           if (savedValue) {
             try {
-              savedValue = eval(savedValue);
+              savedValue = new Function("return " + savedValue)();
             } catch (e) {
               saveValue("spfwset", ""); // 有问题的设置,被手动修改过?,清除掉,不然下次还是要出错.
             }

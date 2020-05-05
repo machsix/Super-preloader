@@ -4,8 +4,9 @@
     [
       "@babel/plugin-transform-runtime",
       {
-        "corejs": 2,
+      //  "corejs": 2,
         "regenerator": true,
+        "helpers": true,
         "proposals": false
       }
     ],
@@ -13,7 +14,7 @@
       "wildcard",
       {
         "noModifyCase": true,
-        "exts": ["ejs"]
+        "exts": ["ejs", "css", "scss"]
       }
     ]
   ],
@@ -21,7 +22,8 @@
     [
       "@babel/preset-env",
       {
-        "debug": true
+        "modules": false,
+        "debug": false
       }
     ]
   ]

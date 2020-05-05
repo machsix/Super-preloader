@@ -1,6 +1,6 @@
-import {getAllElementsByXpath, getElementByXpath} from "utils/domSelector";
-import domTools from "utils/domTools";
-import emoji from "utils/emoji";
+import {getAllElementsByXpath, getElementByXpath} from "../utils/domSelector";
+import {createDOM} from "../utils/domTools";
+import emoji from "../utils/emoji";
 
 export const jsSiteRule = [
   {
@@ -171,7 +171,7 @@ export const jsSiteRule = [
         if (scripts.length > 0) {
           for (const s of scripts) {
             try {
-              eval(s.innerText);
+              new Function(s.innerText)();
             } catch (e) {}
           }
         }
@@ -251,18 +251,18 @@ export const jsSiteRule = [
             if (img) {
               img = img[0];
               const imgSrc = img.getAttribute("src");
-              const newtr = domTools.create("tr", {
+              const newtr = createDOM("tr", {
                 attr: {
                   align: "center"
                 },
                 children: [
-                  domTools.create("td", {
+                  createDOM("td", {
                     attr: {
                       colspan: 5,
                       style: "border-bottom:1px dashed black;"
                     },
                     children: [
-                      domTools.create("img", {
+                      createDOM("img", {
                         attr: {
                           src: imgSrc,
                           style: "display:block; width:100%; height:auto;"
@@ -291,21 +291,21 @@ export const jsSiteRule = [
         [].forEach.call(tds, function (td) {
           const imgSrc = td.getElementsByTagName("img");
           if (imgSrc) {
-            const newImg = domTools.create("img", {
+            const newImg = createDOM("img", {
               attr: {
                 src: imgSrc[0].getAttribute("src"),
                 style: "display:block; width:100%; height:auto;"
               }
             });
 
-            const newtd = domTools.create("td", {
+            const newtd = createDOM("td", {
               attr: {
                 colspan: 2,
                 style: "border-bottom:1px solid black;"
               }
             });
 
-            const newtr = domTools.create("tr", {
+            const newtr = createDOM("tr", {
               attr: {
                 align: "center"
               }
