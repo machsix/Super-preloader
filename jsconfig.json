@@ -2,14 +2,7 @@
   "compilerOptions": {
     "target": "es6",
     "allowSyntheticDefaultImports": false,
-    "baseUrl": "./",
-    "paths": {
-      "utils/*": ["src/utils/*"],
-      "rules/*": ["src/rules/*"],
-      "css/*": ["src/css/*"],
-      "locale/*": ["src/locale/*"],
-      "root/*": ["src/*"]
-    }
+    "baseUrl": "./"
   },
   "exclude": ["node_modules"]
 }

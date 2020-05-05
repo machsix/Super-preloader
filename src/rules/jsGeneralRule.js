@@ -1,4 +1,4 @@
-import {getAllElements, getAllElementsByXpath, getElementByXpath} from "utils/domSelector";
+import {getAllElements, getAllElementsByXpath, getElementByXpath} from "../utils/domSelector";
 // General rules for CMS like phpwind
 export const jsGeneralRule = [
   {

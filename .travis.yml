@@ -1,5 +1,5 @@
 language: node_js
-node_js: stable
+node_js: lts/*
 cache: npm
 before_install:
   - npm config set scripts-prepend-node-path true

@@ -1,10 +1,30 @@
 import _ from "lodash";
-import logger from "utils/logger";
-import lowercaseKeys from "utils/lowercaseKeys";
-import querystring from "querystring";
-import urlencode from "urlencode";
+import {encodeURIE} from "./iconv-browser";
+import logger from "./logger";
+import lowercaseKeys from "./lowercaseKeys";
 
 const isNullOrUndefined = (x) => _.isUndefined(x) || _.isNull(x);
+
+const queryString = {
+  parse(text) {
+    const query = text.replace(/^\?/, "");
+    const search = /([^&=]+)=?([^&]*)/g;
+    const decode = function (s) {
+      return decodeURIComponent(s.replace(/\+/g, " "));
+    };
+    const searchParams = {};
+    let match;
+    while ((match = search.exec(query))) {
+      searchParams[decode(match[1])] = decode(match[2]);
+    }
+    return searchParams;
+  },
+  stringify(params) {
+    return Object.keys(params)
+      .map((key) => key + "=" + params[key])
+      .join("&");
+  }
+};
 
 const defaults = {
   method: "GET",
@@ -98,7 +118,7 @@ function normalizeArguments(options, thisDefaults = defaults) {
   // `options.searchParams` , searchParams must be encoded in "utf8"
   if (options.searchParams) {
     if (_.isString(options.searchParams)) {
-      options.searchParams = querystring.parse(options.querystring);
+      options.searchParams = queryString.parse(options.searchParams);
     }
   } else {
     options.searchParams = {};
@@ -173,7 +193,13 @@ function gotopt2gmopt(options) {
   }
   // process `options.searchParams`
   if (!isNullOrUndefined(options.searchParams)) {
-    config.url += `?${querystring.stringify(options.searchParams, null, null, (x) => urlencode(x, options.encoding))}`;
+    config.url += `?${queryString.stringify(options.searchParams)}`;
+  }
+
+  if (options.encoding) {
+    config.url = encodeURIE(config.url, options.encoding);
+  } else {
+    config.url = encodeURI(config.url);
   }
   return config;
 }

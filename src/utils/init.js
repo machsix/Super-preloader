@@ -1,9 +1,9 @@
 import {SCRIPT_INFO as scriptInfo, NOTIFICATION as upgradeNotification} from "../meta";
-import {setLang, template, userLang} from "locale/locale";
+import {setLang, template, userLang} from "../locale/locale";
 import _ from "lodash";
 import compareVersions from "compare-versions";
-import jsonRuleLoader from "utils/json-rule";
-import logger from "utils/logger";
+import jsonRuleLoader from "./json-rule";
+import logger from "./logger";
 
 const factorySettings = {
   prefs: {

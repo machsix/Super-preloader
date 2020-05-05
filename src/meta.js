@@ -1,9 +1,9 @@
-const pkg = require("../package.json"); // this feature is provided by webpack json-loader
-const compareVersions = require("compare-versions");
+import compareVersions from "compare-versions";
+import pkg from "../package.json"; // this feature is provided by @rollup/plugin-json
 
 // Information of script
 const now = new Date();
-const SCRIPT_INFO = {
+export const SCRIPT_INFO = {
   name: "Super_preloaderPlus_one_New",
   shortname: "Super-preloader",
   "name-CN": "Super_preloaderPlus_one_改",
@@ -20,12 +20,11 @@ const SCRIPT_INFO = {
   // rewrite storage for these versions
   rewriteStorage: "6.6.83"
 };
-
 SCRIPT_INFO.downloadURL = `${SCRIPT_INFO.greasyfork}/code/${SCRIPT_INFO.name}.user.js`;
 SCRIPT_INFO.metaURL = `${SCRIPT_INFO.greasyfork}/code/${SCRIPT_INFO.name}.meta.js`;
 
 // New notification to send
-const NOTIFICATION = {
+export const NOTIFICATION = {
   title: SCRIPT_INFO.name,
   image: SCRIPT_INFO.icon,
   onload: function () {},
@@ -38,7 +37,7 @@ const NOTIFICATION = {
 };
 
 // Meta for userscript
-const METADATA = `// ==UserScript==
+export const METADATA = `// ==UserScript==
 // @name         ${SCRIPT_INFO.name}
 // @name:zh-CN   ${SCRIPT_INFO["name-CN"]}
 // @name:zh-TW   ${SCRIPT_INFO["name-CN"]}
@@ -103,5 +102,3 @@ const METADATA = `// ==UserScript==
 // @exclude      http*://ad.agrantsem.com/*
 // ==/UserScript==
 `;
-
-module.exports = {NOTIFICATION, METADATA, SCRIPT_INFO};
