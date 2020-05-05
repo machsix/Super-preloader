@@ -1,6 +1,6 @@
 {
   "name": "super-preloader",
-  "version": "6.13.0",
+  "version": "6.13.1",
   "description": "Super-preloader",
   "main": "dist/Super_preloaderPlus_one_New.user.js",
   "author": "Mach6",
@@ -27,7 +27,7 @@
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "docs:publish": "npm run docs:build && bash ./ci/gen_ghpage.sh",
-    "preversion": "npm run test && npm run docs:build",
+    "preversion": "npm run test",
     "version": "npm run build  && git add dist/*.js && git add dist/*.json",
     "postversion": "git add package.json package-lock.json",
     "publish:patch": "npm --no-git-tag-version version patch",

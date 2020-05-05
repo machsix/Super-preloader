@@ -639,8 +639,8 @@ import notice from "./utils/notice";
             "click",
             function (e) {
               if (e.currentTarget.disabled) return;
-              var value = Number(a_ipages_1.value);
-              if (isNaN(value) || value <= 0) {
+              var value = parseInt(a_ipages_1.value);
+              if (isNaN(value) || value < 0) {
                 value = SSS.a_ipages[1];
                 a_ipages_1.value = value;
               }
@@ -679,7 +679,7 @@ import notice from "./utils/notice";
                 const t_a_maxpage = getProperty(a_maxpage);
                 value.a_maxpage = isNaN(t_a_maxpage) ? SSS.a_maxpage : t_a_maxpage >= 1 ? t_a_maxpage : 1;
                 const t_a_ipages_1 = getProperty(a_ipages_1);
-                value.a_ipages = [getProperty(a_ipages_0), isNaN(t_a_ipages_1) ? SSS.a_ipages[1] : t_a_ipages_1 >= 1 ? t_a_ipages_1 : 1];
+                value.a_ipages = [getProperty(a_ipages_0), isNaN(t_a_ipages_1) ? SSS.a_ipages[1] : t_a_ipages_1 >= 0 ? t_a_ipages_1 : 1];
                 value.a_separator = getProperty(a_separator);
               }
               SSS.savedValue[SSS.sedValueIndex] = value;
@@ -1148,8 +1148,10 @@ import notice from "./utils/notice";
             }
           }
 
-          var ipagesmode = SSS.a_ipages[0];
-          var ipagesnumber = SSS.a_ipages[1];
+          let [ipagesmode = false, ipagesnumber = 2] = SSS.a_ipages;
+          if (ipagesmode && ipagesnumber === 0) {
+            ipagesnumber = Number.MAX_SAFE_INTEGER;
+          }
           var scrollDo = nullFn;
           var afterInsertDo = nullFn;
           if (prefs.Aplus) {
@@ -2142,7 +2144,6 @@ import notice from "./utils/notice";
 
         // 载入设置..
         const loadLocalSetting = function () {
-          logger.debug("加载设置");
           var savedValue = getValue("spfwset");
           if (savedValue) {
             try {
@@ -2150,8 +2151,6 @@ import notice from "./utils/notice";
             } catch (e) {
               saveValue("spfwset", ""); // 有问题的设置,被手动修改过?,清除掉,不然下次还是要出错.
             }
-          }
-          if (savedValue) {
             SSS.savedValue = savedValue;
             var i, ii;
             for (i = 0, ii = savedValue.length; i < ii; i++) {
@@ -2166,6 +2165,7 @@ import notice from "./utils/notice";
               }
             }
             SSS.sedValueIndex = i;
+            logger.debug(`加载本地设置 ${SSS}`);
           } else {
             SSS.savedValue = [];
             SSS.sedValueIndex = 0;

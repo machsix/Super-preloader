@@ -57,11 +57,11 @@ export function getProperty(obj) {
       case "checkbox":
         return obj.checked;
       case "number": {
-        const min = obj.hasAttribute("min") ? Number(obj.min) : undefined;
-        const max = obj.hasAttribute("max") ? Number(obj.max) : undefined;
-        if (min >= Number(obj.value)) return min;
-        if (max < Number(obj.value)) return max;
-        return obj.value;
+        const min = obj.hasAttribute("min") ? parseInt(obj.min) : undefined;
+        const max = obj.hasAttribute("max") ? parseInt(obj.max) : undefined;
+        if (min >= obj.valueAsNumber) return min;
+        if (max < obj.valueAsNumber) return max;
+        return obj.valueAsNumber;
       }
       default:
         return obj.value;
