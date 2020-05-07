@@ -24,14 +24,12 @@ import logger from "./utils/logger";
 import notice from "./utils/notice";
 
 (function () {
-  logger.setLevel("debug");
   // use charset from currentDocument
   const gotConfig = {
     html: true,
     encoding: document.characterSet
   };
-  logger.debug(`Script Manager: ${SCRIPT_MANAGER.name}  v${SCRIPT_MANAGER.version}`);
-  logger.debug("Browser: ", JSON.stringify(BROWSER));
+  logger.setLevel("warn");
 
   if (BROWSER.name === "firefox") {
     if ((SCRIPT_MANAGER.name === "Violentmonkey" && compareVersions(SCRIPT_MANAGER.version, "2.12.3") <= 0) || SCRIPT_MANAGER.name === "Tampermonkey") {
@@ -330,6 +328,13 @@ import notice from "./utils/notice";
     .then(function (values) {
       let {jsonRule} = values;
       const {prefs, SITEINFO_D, autoMatch, version, blackList} = values;
+      if (prefs.debug) {
+        logger.setLevel("debug");
+      } else {
+        logger.setLevel(5);
+      }
+      logger.debug(`Script Manager: ${SCRIPT_MANAGER.name}  v${SCRIPT_MANAGER.version}`);
+      logger.debug("Browser: ", JSON.stringify(BROWSER));
       const setup = function () {
         const d = document;
 
@@ -374,6 +379,8 @@ import notice from "./utils/notice";
           prefs.debug = !!$("debug").checked;
           if (prefs.debug) {
             logger.setLevel("debug");
+          } else {
+            logger.setLevel(5);
           }
           prefs.enableHistory = !!$("enableHistory").checked;
           prefs.dblclick_pause = !!$("dblclick_pause").checked;
@@ -515,7 +522,6 @@ import notice from "./utils/notice";
         }
       };
 
-      logger.debug("Entrypoint");
       SP.spinit();
 
       function init(window, document) {
