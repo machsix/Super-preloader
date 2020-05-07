@@ -8,8 +8,9 @@ import {BROWSER, SCRIPT_MANAGER} from "./utils/detect";
 import {NOTIFICATION, SCRIPT_INFO} from "./meta";
 import {createDOM, getProperty, setProperty} from "./utils/domTools";
 import {getAllElements, getAllElementsByXpath, getElementByCSS, getElementByXpath, getLastElement} from "./utils/domSelector";
-import {loadSettings, resetSettings, saveSettings} from "./utils/init";
+import {loadLocalSetting, loadSettings, resetSettings, saveLocalSetting, saveSettings} from "./utils/init";
 import {setLang, template, userLang} from "./locale/locale";
+import {toRE, wildcardToRegExpStr} from "./utils/regex";
 
 import _ from "lodash";
 import {addStyle} from "./utils/gm-enhanced";
@@ -406,23 +407,16 @@ import notice from "./utils/notice";
         });
 
         on($("reset"), "click", () => {
+          $("setup").innerHTML = template.spinner.reset;
+          addStyle(spcss["sp-prefs-spinner"]);
           resetSettings().then(() => {
             location.reload();
           });
         });
 
         on($("updaterule"), "click", function () {
-          getElementByCSS("#sp-prefs-setup ul").remove();
-          getElementByCSS("#sp-prefs-setup div:last-child").remove();
-          const div = createDOM("div", {
-            attr: {
-              class: "sp-prefs-spinner"
-            },
-            children: [createDOM("div", {attr: {class: "rect1"}}), createDOM("div", {attr: {class: "rect2"}}), createDOM("div", {attr: {class: "rect3"}}), createDOM("div", {attr: {class: "rect4"}})]
-          });
+          $("setup").innerHTML = template.spinner.update;
           addStyle(spcss["sp-prefs-spinner"]);
-          $("setup").appendChild(div);
-          getElementByCSS("#sp-prefs-setup div").innerHTML = userLang === "zh_CN" ? "规则更新中。。。" : "Updating ...";
           jsonRuleLoader.updateRule(true).then(() => {
             jsonRule = jsonRuleLoader.getRule();
             SP.loadSetting();
@@ -506,6 +500,7 @@ import notice from "./utils/notice";
           const loadCustomSiteInfo = function () {
             let userRules;
             try {
+              // eslint-disable-next-line no-new-func
               userRules = new Function("", "return " + prefs.custom_siteinfo)();
             } catch (e) {
               logger.error("自定义站点规则错误", prefs.custom_siteinfo);
@@ -688,8 +683,7 @@ import notice from "./utils/notice";
                 value.a_ipages = [getProperty(a_ipages_0), isNaN(t_a_ipages_1) ? SSS.a_ipages[1] : t_a_ipages_1 >= 0 ? t_a_ipages_1 : 1];
                 value.a_separator = getProperty(a_separator);
               }
-              SSS.savedValue[SSS.sedValueIndex] = value;
-              saveValue("spfwset", xToString(SSS.savedValue));
+              saveLocalSetting(value);
               if (e.shiftKey ? !prefs.FW_RAS : prefs.FW_RAS) {
                 // 按住shift键,执行反向操作.
                 setTimeout(function () {
@@ -1966,7 +1960,7 @@ import notice from "./utils/notice";
                 // 如果是Oautopager的规则..
                 if (!(SII.autopager instanceof Object)) SII.autopager = {};
                 SII.autopager.pageElement = SII.pageElement;
-                if (SII.useiframe) SII.autopager.useiframe = SII.useiframe;
+                if (!SII.autopager.useiframe) SII.autopager.useiframe = SII.useiframe;
                 if (SII.preLink) SII.autopager.preLink = SII.preLink;
                 if (SII.insertBefore) SII.autopager.HT_insert = [SII.insertBefore, 1];
               }
@@ -1978,11 +1972,7 @@ import notice from "./utils/notice";
                 if (!SSS.a_pageElement) break;
                 SSS.a_manualA = SIIA.manualA === undefined ? SIIAD.manualA : SIIA.manualA;
                 SSS.a_enable = SIIA.enable === undefined ? SIIAD.enable : SIIA.enable;
-                if (SIIA.useiframe === undefined) {
-                  SSS.a_useiframe = SII.useiframe;
-                } else {
-                  SSS.a_useiframe = SIIA.useiframe;
-                }
+                SSS.a_useiframe = SIIA.useiframe === undefined ? SIIAD.useiframe : SIIA.useiframe;
                 SSS.a_mutationObserver = SSS.a_useiframe ? (SIIA.mutationObserver === undefined ? null : SIIA.mutationObserver) : null;
                 SSS.a_newIframe = SIIA.newIframe === undefined ? SIIAD.newIframe : SIIA.newIframe;
                 SSS.a_iloaded = SIIA.iloaded === undefined ? SIIAD.iloaded : SIIA.iloaded;
@@ -1994,7 +1984,7 @@ import notice from "./utils/notice";
                 SSS.a_separatorReal = SIIA.separatorReal === undefined ? SIIAD.separatorReal : SIIA.separatorReal;
                 SSS.a_replaceE = SIIA.replaceE;
                 SSS.a_HT_insert = SIIA.HT_insert;
-                SSS.a_relatedObj = SIIA.relatedObj;
+                SSS.a_relatedObj = SIIA.relatedObj === undefined ? SIIAD.relatedObj : SIIA.relatedObj;
                 SSS.a_ipages = SIIA.ipages === undefined ? SIIAD.ipages : SIIA.ipages;
 
                 // new
@@ -2148,37 +2138,7 @@ import notice from "./utils/notice";
           return;
         }
 
-        // 载入设置..
-        const loadLocalSetting = function () {
-          var savedValue = getValue("spfwset");
-          if (savedValue) {
-            try {
-              savedValue = new Function("return " + savedValue)();
-            } catch (e) {
-              saveValue("spfwset", ""); // 有问题的设置,被手动修改过?,清除掉,不然下次还是要出错.
-            }
-            SSS.savedValue = savedValue;
-            var i, ii;
-            for (i = 0, ii = savedValue.length; i < ii; i++) {
-              const savedValue_x = savedValue[i];
-              if (savedValue_x.Rurl == SSS.Rurl) {
-                for (var ix in savedValue_x) {
-                  if (savedValue_x.hasOwnProperty(ix)) {
-                    SSS[ix] = savedValue_x[ix]; // 加载键值.
-                  }
-                }
-                break;
-              }
-            }
-            SSS.sedValueIndex = i;
-            logger.debug(`加载本地设置 ${SSS}`);
-          } else {
-            SSS.savedValue = [];
-            SSS.sedValueIndex = 0;
-          }
-        };
-
-        loadLocalSetting();
+        loadLocalSetting(SSS);
 
         if (!SSS.hasRule) {
           SSS.a_force = true;
@@ -2956,15 +2916,6 @@ import notice from "./utils/notice";
     }
   }
 
-  function saveValue(key, value) {
-    localStorage.setItem(key, encodeURIComponent(value));
-  }
-
-  function getValue(key) {
-    const value = localStorage.getItem(key);
-    return value ? decodeURIComponent(value) : undefined;
-  }
-
   function createDocumentByString(str) {
     // string转为DOM
     if (!str) {
@@ -3028,119 +2979,5 @@ import notice from "./utils/notice";
     }
     a.href = href;
     return a.href;
-  }
-
-  // 任何转成字符串，存储，修改过
-  function xToString(x) {
-    function toStr(x) {
-      switch (typeof x) {
-        case "undefined":
-          return Str(x);
-        case "boolean":
-          return Str(x);
-        case "number":
-          return Str(x);
-        case "string":
-          return (
-            '"' +
-            x.replace(/(?:\r\n|\n|\r|\t|\\|\")/g, function (a) {
-              var ret;
-              switch (
-                a // 转成字面量
-              ) {
-                case "\r\n":
-                  ret = "\\r\\n";
-                  break;
-                case "\n":
-                  ret = "\\n";
-                  break;
-                case "\r":
-                  ret = "\\r";
-                  break;
-                case "\t":
-                  ret = "\\t";
-                  break;
-                case "\\":
-                  ret = "\\\\";
-                  break;
-                case '"':
-                  ret = '\\"';
-                  break;
-                default:
-                  break;
-              }
-              return ret;
-            }) +
-            '"'
-          );
-        case "function": {
-          const fnStr = Str(x);
-          return fnStr.indexOf("native code") == -1 ? fnStr : "function(){}";
-        }
-        case "object":
-          // 注,object的除了单纯{},其他的对象的属性会造成丢失..
-          if (x === null) {
-            return Str(x);
-          }
-          var rStr = "";
-          var i;
-          switch (x.constructor.name) {
-            case "Object":
-              for (i in x) {
-                if (!x.hasOwnProperty(i)) {
-                  // 去掉原型链上的属性.
-                  continue;
-                }
-                rStr += toStr(i) + ":" + toStr(x[i]) + ",";
-              }
-              return "{" + rStr.replace(/,$/i, "") + "}";
-            case "Array":
-              for (i in x) {
-                if (!x.hasOwnProperty(i)) {
-                  // 去掉原型链上的属性.
-                  continue;
-                }
-                rStr += toStr(x[i]) + ",";
-              }
-              return "[" + rStr.replace(/,$/i, "") + "]";
-            case "String":
-              return toStr(Str(x));
-            case "RegExp":
-              return Str(x);
-            case "Number":
-              return Str(x);
-            case "Boolean":
-              return Str(x);
-            default:
-              break;
-          }
-          break;
-        default:
-          break;
-      }
-    }
-    const Str = String;
-    return toStr(x);
-  }
-
-  function toRE(obj) {
-    if (obj instanceof RegExp) {
-      return obj;
-    } else if (obj instanceof Array) {
-      return new RegExp(obj[0], obj[1]);
-    } else {
-      if (obj.search(/^wildc;/i) === 0) {
-        obj = wildcardToRegExpStr(obj.slice(6));
-      }
-      return new RegExp(obj);
-    }
-  }
-
-  function wildcardToRegExpStr(urlstr) {
-    if (urlstr.source) return urlstr.source;
-    const reg = urlstr.replace(/[()\[\]{}|+.,^$?\\]/g, "\\$&").replace(/\*+/g, function (str) {
-      return str === "*" ? ".*" : "[^/]*";
-    });
-    return "^" + reg + "$";
   }
 })();

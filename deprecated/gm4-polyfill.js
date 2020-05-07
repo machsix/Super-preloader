@@ -43,7 +43,7 @@ function gm4polyfill() {
       GM.getResourceUrl(aRes)
         .then((url) => fetch(url))
         .then((resp) => resp.text())
-        .catch(function(error) {
+        .catch(function (error) {
           GM.log("Request failed", error);
           return null;
         });
@@ -74,7 +74,7 @@ function gm4polyfill() {
     const old = this[oldKey];
     if (typeof GM[newKey] == "undefined") {
       if (typeof old === "function") {
-        GM[newKey] = function(...args) {
+        GM[newKey] = function (...args) {
           return new Promise((resolve, reject) => {
             try {
               resolve(old.apply(this, args));
@@ -85,9 +85,7 @@ function gm4polyfill() {
         };
       } else if (eval(`typeof ${oldKey} === "function"`)) {
         // dirty hack for GM3 because it doesn't export GM API to window
-        GM[newKey] = new Function('arg1','arg2',
-          'return new Promise(function(resolve,reject){try {resolve(' + oldKey + '(arg1,arg2));} catch (e) {reject(e);}});'
-        ); // es5 syntax only, because babel couldn't handle this
+        GM[newKey] = new Function("arg1", "arg2", "return new Promise(function(resolve,reject){try {resolve(" + oldKey + "(arg1,arg2));} catch (e) {reject(e);}});"); // es5 syntax only, because babel couldn't handle this
         console.warn("[Super-preloader] GM3 polyfill");
       }
     }

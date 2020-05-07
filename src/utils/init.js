@@ -1,10 +1,12 @@
 import {SCRIPT_INFO as scriptInfo, NOTIFICATION as upgradeNotification} from "../meta";
 import {setLang, template, userLang} from "../locale/locale";
+import JSONE from "../utils/stringify";
 import _ from "lodash";
 import compareVersions from "compare-versions";
 import jsonRuleLoader from "./json-rule";
 import logger from "./logger";
 
+// ---------------------- Settings stored in GM storaged, changed by control pannel ---------------
 const factorySettings = {
   prefs: {
     floatWindow: true, // 显示悬浮窗
@@ -60,7 +62,8 @@ const factorySettings = {
       separator: true, // 显示翻页导航..(推荐显示.)
       separatorReal: true, // 显示真实的页数
       reload: false, // 强制重载iframe
-      sandbox: false // Iframe sandbox 选项
+      sandbox: false, // Iframe sandbox 选项
+      relatedObj: true
     }
   },
   autoMatch: {
@@ -237,4 +240,61 @@ export async function loadSettings() {
   const blackList = [].concat(settings.prefs.excludes.split(/[\n\r]+/).map((line) => line.trim()));
 
   return {jsonRule, blackList, ...settings};
+}
+
+// ---------------------- Settings stored in localStorage, changed by floatWindow ---------------
+let domainSettings = [];
+let localSettingIndex = -1;
+
+export function getLocalStorage(key = "spfwset", fallback = null) {
+  const valStr = localStorage.getItem(key);
+  try {
+    return JSONE.parse(valStr) || fallback;
+  } catch (err) {
+    // compatability with old version
+    const val = JSONE.parse(decodeURIComponent(valStr)) || fallback;
+    setLocalStorage(val, key);
+    return val;
+  }
+}
+
+export function setLocalStorage(val, key = "spfwset") {
+  localStorage.setItem(key, JSONE.stringify(val));
+}
+
+/**
+ * Append local pageSetting to the rules, note we may have more than one pageSetting
+ * because localStorage stores rule for a domain but not a URL
+ * @param {object} pageSetting Local pageSetting for a website
+ * @returns {object} modified pageSetting
+ */
+export function loadLocalSetting(pageSetting) {
+  domainSettings = getLocalStorage("spfwset") || [];
+
+  if (!domainSettings) return pageSetting;
+  for (let i = 0; i < domainSettings.length; i++) {
+    const localSetting = domainSettings[i];
+    if (localSetting.Rurl === pageSetting.Rurl) {
+      for (const [key, value] of Object.entries(localSetting)) {
+        pageSetting[key] = value;
+      }
+      localSettingIndex = i;
+      logger.debug("Load local settings ", localSetting);
+      return pageSetting;
+    }
+  }
+  localSettingIndex = -1;
+  return pageSetting;
+}
+
+export function saveLocalSetting(localSetting) {
+  if (domainSettings.length === 0 || localSettingIndex === -1) {
+    // no local setting or no suitable local setting
+    domainSettings.push(localSetting);
+    localSettingIndex += 1;
+  } else {
+    domainSettings[localSettingIndex] = localSetting;
+  }
+  setLocalStorage(domainSettings);
+  return domainSettings;
 }

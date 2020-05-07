@@ -9,9 +9,9 @@
 // @author       Mach6
 // @contributers YFdyh000, suchunchen
 // @thanksto     ywzhaiqi, NLF
-// @version      6.13.2
+// @version      6.13.3
 // @license      GPL-3.0
-// @update       2020/5/6
+// @update       2020/5/7
 // @homepageURL  https://github.com/machsix/Super-preloader
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
 // @contributionURL https://ko-fi.com/machsix
@@ -64,8 +64,6 @@
 // ==/UserScript==
 
 (function () {
-  'use strict';
-
   function _arrayWithHoles(arr) {
     if (Array.isArray(arr)) return arr;
   }
@@ -3464,7 +3462,7 @@
   }));
   });
 
-  var name="super-preloader";var version="6.13.2";var description="Super-preloader";var main="dist/Super_preloaderPlus_one_New.user.js";var author="Mach6";var license="GPL-3.0";var bugs={url:"https://github.com/machsix/Super-preloader/issues"};var homepage="https://github.com/machsix/Super-preloader";var directories={doc:"docs"};var repository={type:"git",url:"git+https://github.com/machsix/Super-preloader.git"};var scripts={lint:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\"",format:"prettier --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"docs/**/*.{js,md}\"","format:check":"prettier --check \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"docs/**/*.{js,md}\"","format:staged":"pretty-quick --verbose --staged --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"docs/**/*.{js,md}\"",test:"npm run lint && npm run format:staged",dev:"rollup -c --dev -w",build:"rollup -c","docs:dev":"vuepress dev docs","docs:build":"vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh",preversion:"npm run test",version:"npm run build  && git add dist/*.js && git add dist/*.json",postversion:"git add package.json package-lock.json","publish:patch":"npm --no-git-tag-version version patch",publish:"npm --no-git-tag-version version minor"};var husky={hooks:{"pre-commit":"npm run test"}};var keywords=["userscript"];var devDependencies={"@vuepress/plugin-back-to-top":"1.4.1","@vuepress/plugin-google-analytics":"1.4.1","@vuepress/plugin-pwa":"1.4.1",vuepress:"1.4.1"};var dependencies={"@babel/core":"7.9.6","@babel/plugin-transform-runtime":"7.9.6","@babel/preset-env":"7.9.6","@rollup/plugin-babel":"5.0.0","@rollup/plugin-commonjs":"11.0.2","@rollup/plugin-json":"4.0.3","@rollup/plugin-node-resolve":"7.1.3","@sinonjs/text-encoding":"0.7.1","babel-plugin-lodash":"3.3.4","babel-plugin-wildcard":"6.0.0","compare-versions":"3.6.0",displacejs:"1.4.1",eslint:"6.8.0","eslint-config-prettier":"6.11.0","eslint-plugin-json":"2.1.1","eslint-plugin-prettier":"3.1.3",husky:"4.2.5",lodash:"4.17.15",loglevel:"1.6.8",prettier:"2.0.5","pretty-quick":"2.0.1",rollup:"2.7.6","rollup-plugin-banner":"git+https://git@github.com/machsix/rollup-plugin-banner.git#v0.2.2","rollup-plugin-dev":"1.1.2","rollup-plugin-ejs":"2.2.0","rollup-plugin-re":"1.0.7","rollup-plugin-scss-string":"0.1.0",yargs:"15.3.1"};var pkg = {name:name,version:version,description:description,main:main,author:author,license:license,bugs:bugs,homepage:homepage,directories:directories,repository:repository,scripts:scripts,husky:husky,keywords:keywords,devDependencies:devDependencies,dependencies:dependencies};
+  var name="super-preloader";var version="6.13.3";var description="Super-preloader";var main="dist/Super_preloaderPlus_one_New.user.js";var author="Mach6";var license="GPL-3.0";var bugs={url:"https://github.com/machsix/Super-preloader/issues"};var homepage="https://github.com/machsix/Super-preloader";var directories={doc:"docs"};var repository={type:"git",url:"git+https://github.com/machsix/Super-preloader.git"};var scripts={lint:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\"",format:"prettier --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"docs/**/*.{js,md}\"","format:check":"prettier --check \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"docs/**/*.{js,md}\"","format:staged":"pretty-quick --verbose --staged --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"docs/**/*.{js,md}\"",test:"npm run lint && npm run format:staged",dev:"rollup -c --dev -w",build:"rollup -c","docs:dev":"vuepress dev docs","docs:build":"vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh",preversion:"npm run test",version:"npm run build  && git add dist/*.js && git add dist/*.json",postversion:"git add package.json package-lock.json","publish:patch":"npm --no-git-tag-version version patch",publish:"npm --no-git-tag-version version minor"};var husky={hooks:{"pre-commit":"npm run test"}};var keywords=["userscript"];var devDependencies={"@vuepress/plugin-back-to-top":"1.4.1","@vuepress/plugin-google-analytics":"1.4.1","@vuepress/plugin-pwa":"1.4.1",vuepress:"1.4.1"};var dependencies={"@babel/core":"7.9.6","@babel/plugin-transform-runtime":"7.9.6","@babel/preset-env":"7.9.6","@rollup/plugin-babel":"5.0.0","@rollup/plugin-commonjs":"11.0.2","@rollup/plugin-json":"4.0.3","@rollup/plugin-node-resolve":"7.1.3","@sinonjs/text-encoding":"0.7.1","babel-plugin-lodash":"3.3.4","babel-plugin-wildcard":"6.0.0","compare-versions":"3.6.0",displacejs:"1.4.1",eslint:"6.8.0","eslint-config-prettier":"6.11.0","eslint-plugin-json":"2.1.1","eslint-plugin-prettier":"3.1.3",husky:"4.2.5",lodash:"4.17.15",loglevel:"1.6.8",prettier:"2.0.5","pretty-quick":"2.0.1",rollup:"2.7.6","rollup-plugin-banner":"git+https://git@github.com/machsix/rollup-plugin-banner.git#v0.2.2","rollup-plugin-dev":"1.1.2","rollup-plugin-ejs":"2.2.0","rollup-plugin-re":"1.0.7","rollup-plugin-scss-string":"0.1.0",yargs:"15.3.1"};var pkg = {name:name,version:version,description:description,main:main,author:author,license:license,bugs:bugs,homepage:homepage,directories:directories,repository:repository,scripts:scripts,husky:husky,keywords:keywords,devDependencies:devDependencies,dependencies:dependencies};
 
   // Information of script
 
@@ -5389,21 +5387,109 @@
 
   }
 
-  var en_US = {};
-  en_US["upgradeNotification"] = anonymous;
-  en_US["sp-prefs"] = anonymous$1;
-  en_US["floatWindow"] = anonymous$2;
-  var zh_CN = {};
-  zh_CN["upgradeNotification"] = anonymous$3;
-  zh_CN["sp-prefs"] = anonymous$4;
-  zh_CN["floatWindow"] = anonymous$5;
-  var ejsTemplate = {
-    en_US,
-    zh_CN
-  };
+  function anonymous$6(locals, escapeFn, include, rethrow
+  ) {
+  rethrow = rethrow || function rethrow(err, str, flnm, lineno, esc){
+    var lines = str.split('\n');
+    var start = Math.max(lineno - 3, 0);
+    var end = Math.min(lines.length, lineno + 3);
+    var filename = esc(flnm); // eslint-disable-line
+    // Error context
+    var context = lines.slice(start, end).map(function (line, i){
+      var curr = i + start + 1;
+      return (curr == lineno ? ' >> ' : '    ')
+        + curr
+        + '| '
+        + line;
+    }).join('\n');
 
-  var availableLangs = Object.keys(ejsTemplate);
-  var template = ejsTemplate.en_US;
+    // Alter exception message
+    err.path = filename;
+    err.message = (filename || 'ejs') + ':'
+      + lineno + '\n'
+      + context + '\n\n'
+      + err.message;
+
+    throw err;
+  };
+  escapeFn = escapeFn || function (markup) {
+    return markup == undefined
+      ? ''
+      : String(markup)
+        .replace(_MATCH_HTML, encode_char);
+  };
+  var _ENCODE_HTML_RULES = {
+        "&": "&amp;"
+      , "<": "&lt;"
+      , ">": "&gt;"
+      , '"': "&#34;"
+      , "'": "&#39;"
+      }
+    , _MATCH_HTML = /[&<>'"]/g;
+  function encode_char(c) {
+    return _ENCODE_HTML_RULES[c] || c;
+  }var __line = 1
+    , __lines = "<div><%= locals.notice %></div>\n<div class=\"sp-prefs-spinner\"><div class=\"rect1\"></div><div class=\"rect2\"></div><div class=\"rect3\"></div><div class=\"rect4\"></div></div>\n"
+    , __filename = undefined;
+  try {
+    var __output = "";
+    function __append(s) { if (s !== undefined && s !== null) __output += s; }
+      ; __append("<div>")
+      ; __append(escapeFn( locals.notice ))
+      ; __append("</div>\n<div class=\"sp-prefs-spinner\"><div class=\"rect1\"></div><div class=\"rect2\"></div><div class=\"rect3\"></div><div class=\"rect4\"></div></div>\n")
+      ; __line = 3;
+    return __output;
+  } catch (e) {
+    rethrow(e, __lines, __filename, __line, escapeFn);
+  }
+
+  }
+
+  var en_US={spinner:{update:"Updating ....",reset:"Reseting ...."}};var zh_CN={spinner:{update:"更新中 ....",reset:"重置中 ...."}};var i8n = {en_US:en_US,zh_CN:zh_CN};
+
+  var en_US$1 = {};
+  en_US$1["upgradeNotification"] = anonymous;
+  en_US$1["sp-prefs"] = anonymous$1;
+  en_US$1["floatWindow"] = anonymous$2;
+  var zh_CN$1 = {};
+  zh_CN$1["upgradeNotification"] = anonymous$3;
+  zh_CN$1["sp-prefs"] = anonymous$4;
+  zh_CN$1["floatWindow"] = anonymous$5;
+  var jsonTemplate = {};
+  jsonTemplate["spinner"] = anonymous$6;
+  var ejs = {
+    en_US: en_US$1,
+    zh_CN: zh_CN$1
+  };
+  var availableJsonLangs = Object.keys(i8n);
+  var availableEjsLangs = Object.keys(ejs);
+
+  for (var _i = 0, _availableEjsLangs = availableEjsLangs; _i < _availableEjsLangs.length; _i++) {
+    var lang = _availableEjsLangs[_i];
+
+    if (availableJsonLangs.includes(lang)) {
+      var li8n = i8n[lang]; // spinner
+
+      var spinner = {};
+
+      for (var _i2 = 0, _Object$entries = Object.entries(li8n.spinner); _i2 < _Object$entries.length; _i2++) {
+        var _Object$entries$_i = slicedToArray(_Object$entries[_i2], 2),
+            k = _Object$entries$_i[0],
+            v = _Object$entries$_i[1];
+
+        spinner[k] = jsonTemplate.spinner({
+          notice: v
+        });
+      }
+
+      ejs[lang].spinner = spinner;
+    } else {
+      ejs[lang].spinner = ejs.en_US.spinner;
+    }
+  }
+
+  var availableLangs = Object.keys(ejs);
+  var template = ejs.en_US;
 
   function langDetect() {
     var userLang = navigator.language || navigator.userLanguage;
@@ -5419,12 +5505,77 @@
   function setLang(x) {
     if (availableLangs.includes(x)) {
       userLang = x;
-      template = ejsTemplate[userLang];
+      template = ejs[userLang];
     } else {
       userLang = "en_US";
-      template = ejsTemplate[userLang];
+      template = ejs[userLang];
     }
   }
+
+  var magicKey = {
+    function: "\0",
+    undefined: "\x01",
+    null: "\x02"
+  };
+
+  function replacer(_key, val) {
+    if (val instanceof RegExp) {
+      return `${val.toString()}`;
+    }
+
+    if (typeof val === "function") {
+      return `${magicKey.function}${val.toString()}`;
+    }
+
+    if (val === null) {
+      return `${magicKey.null}`;
+    }
+
+    if (val === undefined) {
+      return `${magicKey.undefined}`;
+    }
+
+    return val;
+  }
+
+  function reviver(_key, val) {
+    if (typeof val !== "string") {
+      return val;
+    }
+
+    if (val.length === 0) return val;
+    var mk = val.slice(0, 1);
+
+    try {
+      switch (mk) {
+        case magicKey.undefined:
+          return undefined;
+
+        case magicKey.null:
+          return null;
+
+        case magicKey.function:
+          return new Function(`return ${val.slice(1)}`)();
+
+        default:
+          return val;
+      }
+    } catch (error) {
+      // CSP rule may block new Function
+      return null;
+    }
+  }
+
+  function stringify(obj) {
+    return JSON.stringify(obj, replacer);
+  }
+  function parse(obj) {
+    return JSON.parse(obj, reviver);
+  }
+  var JSONE = {
+    stringify,
+    parse
+  };
 
   /**
    * Flattens `array` a single level deep.
@@ -10070,6 +10221,7 @@
   function ownKeys$2(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
   function _objectSpread$2(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$2(Object(source), true).forEach(function (key) { defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$2(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
   var factorySettings = {
     prefs: {
       floatWindow: true,
@@ -10161,8 +10313,9 @@
         // 显示真实的页数
         reload: false,
         // 强制重载iframe
-        sandbox: false // Iframe sandbox 选项
-
+        sandbox: false,
+        // Iframe sandbox 选项
+        relatedObj: true
       }
     },
     autoMatch: {
@@ -10324,7 +10477,7 @@
 
   function loadSettings() {
     return _loadSettings.apply(this, arguments);
-  }
+  } // ---------------------- Settings stored in localStorage, changed by floatWindow ---------------
 
   function _loadSettings() {
     _loadSettings = asyncToGenerator( /*#__PURE__*/regenerator.mark(function _callee3() {
@@ -10437,6 +10590,92 @@
       }, _callee3);
     }));
     return _loadSettings.apply(this, arguments);
+  }
+
+  var domainSettings = [];
+  var localSettingIndex = -1;
+  function getLocalStorage() {
+    var key = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "spfwset";
+    var fallback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+    var valStr = localStorage.getItem(key);
+
+    try {
+      return JSONE.parse(valStr) || fallback;
+    } catch (err) {
+      // compatability with old version
+      var val = JSONE.parse(decodeURIComponent(valStr)) || fallback;
+      setLocalStorage(val, key);
+      return val;
+    }
+  }
+  function setLocalStorage(val) {
+    var key = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "spfwset";
+    localStorage.setItem(key, JSONE.stringify(val));
+  }
+  /**
+   * Append local pageSetting to the rules, note we may have more than one pageSetting
+   * because localStorage stores rule for a domain but not a URL
+   * @param {object} pageSetting Local pageSetting for a website
+   * @returns {object} modified pageSetting
+   */
+
+  function loadLocalSetting(pageSetting) {
+    domainSettings = getLocalStorage("spfwset") || [];
+    if (!domainSettings) return pageSetting;
+
+    for (var i = 0; i < domainSettings.length; i++) {
+      var localSetting = domainSettings[i];
+
+      if (localSetting.Rurl === pageSetting.Rurl) {
+        for (var _i2 = 0, _Object$entries = Object.entries(localSetting); _i2 < _Object$entries.length; _i2++) {
+          var _Object$entries$_i = slicedToArray(_Object$entries[_i2], 2),
+              key = _Object$entries$_i[0],
+              value = _Object$entries$_i[1];
+
+          pageSetting[key] = value;
+        }
+
+        localSettingIndex = i;
+        logger.debug("[Super-preloader]", "Load local settings ", localSetting);
+        return pageSetting;
+      }
+    }
+
+    localSettingIndex = -1;
+    return pageSetting;
+  }
+  function saveLocalSetting(localSetting) {
+    if (domainSettings.length === 0 || localSettingIndex === -1) {
+      // no local setting or no suitable local setting
+      domainSettings.push(localSetting);
+      localSettingIndex += 1;
+    } else {
+      domainSettings[localSettingIndex] = localSetting;
+    }
+
+    setLocalStorage(domainSettings);
+    return domainSettings;
+  }
+
+  function toRE(obj) {
+    if (obj instanceof RegExp) {
+      return obj;
+    } else if (obj instanceof Array) {
+      return new RegExp(obj[0], obj[1]);
+    } else {
+      if (obj.search(/^wildc;/i) === 0) {
+        obj = wildcardToRegExpStr(obj.slice(6));
+      }
+
+      return new RegExp(obj);
+    }
+  }
+  function wildcardToRegExpStr(urlstr) {
+    if (urlstr.source) return urlstr.source;
+    var reg = urlstr.replace(/[()\[\]{}|+.,^$?\\]/g, "\\$&").replace(/\*+/g, function (str) {
+      return str === "*" ? ".*" : "[^/]*";
+    });
+    return "^" + reg + "$";
   }
 
   function addStyle(aCss, aId, doc) {
@@ -12345,38 +12584,15 @@
           });
         });
         on($("reset"), "click", function () {
+          $("setup").innerHTML = template.spinner.reset;
+          addStyle(spcss["sp-prefs-spinner"]);
           resetSettings().then(function () {
             location.reload();
           });
         });
         on($("updaterule"), "click", function () {
-          getElementByCSS("#sp-prefs-setup ul").remove();
-          getElementByCSS("#sp-prefs-setup div:last-child").remove();
-          var div = createDOM("div", {
-            attr: {
-              class: "sp-prefs-spinner"
-            },
-            children: [createDOM("div", {
-              attr: {
-                class: "rect1"
-              }
-            }), createDOM("div", {
-              attr: {
-                class: "rect2"
-              }
-            }), createDOM("div", {
-              attr: {
-                class: "rect3"
-              }
-            }), createDOM("div", {
-              attr: {
-                class: "rect4"
-              }
-            })]
-          });
+          $("setup").innerHTML = template.spinner.update;
           addStyle(spcss["sp-prefs-spinner"]);
-          $("setup").appendChild(div);
-          getElementByCSS("#sp-prefs-setup div").innerHTML = userLang === "zh_CN" ? "规则更新中。。。" : "Updating ...";
           jsonRuleLoader.updateRule(true).then(function () {
             jsonRule = jsonRuleLoader.getRule();
             SP.loadSetting();
@@ -12462,6 +12678,7 @@
             var userRules;
 
             try {
+              // eslint-disable-next-line no-new-func
               userRules = new Function("", "return " + prefs.custom_siteinfo)();
             } catch (e) {
               logger.error("[Super-preloader]", "自定义站点规则错误", prefs.custom_siteinfo);
@@ -12617,8 +12834,7 @@
               value.a_separator = getProperty(a_separator);
             }
 
-            SSS.savedValue[SSS.sedValueIndex] = value;
-            saveValue("spfwset", xToString(SSS.savedValue));
+            saveLocalSetting(value);
 
             if (e.shiftKey ? !prefs.FW_RAS : prefs.FW_RAS) {
               // 按住shift键,执行反向操作.
@@ -13956,7 +14172,7 @@
                 // 如果是Oautopager的规则..
                 if (!(SII.autopager instanceof Object)) SII.autopager = {};
                 SII.autopager.pageElement = SII.pageElement;
-                if (SII.useiframe) SII.autopager.useiframe = SII.useiframe;
+                if (!SII.autopager.useiframe) SII.autopager.useiframe = SII.useiframe;
                 if (SII.preLink) SII.autopager.preLink = SII.preLink;
                 if (SII.insertBefore) SII.autopager.HT_insert = [SII.insertBefore, 1];
               } // 自动翻页设置.
@@ -13969,13 +14185,7 @@
                 if (!SSS.a_pageElement) return "break";
                 SSS.a_manualA = SIIA.manualA === undefined ? SIIAD.manualA : SIIA.manualA;
                 SSS.a_enable = SIIA.enable === undefined ? SIIAD.enable : SIIA.enable;
-
-                if (SIIA.useiframe === undefined) {
-                  SSS.a_useiframe = SII.useiframe;
-                } else {
-                  SSS.a_useiframe = SIIA.useiframe;
-                }
-
+                SSS.a_useiframe = SIIA.useiframe === undefined ? SIIAD.useiframe : SIIA.useiframe;
                 SSS.a_mutationObserver = SSS.a_useiframe ? SIIA.mutationObserver === undefined ? null : SIIA.mutationObserver : null;
                 SSS.a_newIframe = SIIA.newIframe === undefined ? SIIAD.newIframe : SIIA.newIframe;
                 SSS.a_iloaded = SIIA.iloaded === undefined ? SIIAD.iloaded : SIIA.iloaded;
@@ -13987,7 +14197,7 @@
                 SSS.a_separatorReal = SIIA.separatorReal === undefined ? SIIAD.separatorReal : SIIA.separatorReal;
                 SSS.a_replaceE = SIIA.replaceE;
                 SSS.a_HT_insert = SIIA.HT_insert;
-                SSS.a_relatedObj = SIIA.relatedObj;
+                SSS.a_relatedObj = SIIA.relatedObj === undefined ? SIIAD.relatedObj : SIIA.relatedObj;
                 SSS.a_ipages = SIIA.ipages === undefined ? SIIAD.ipages : SIIA.ipages; // new
 
                 SSS.filter = SII.filter || SIIA.filter; // 新增了函数的形式，原来的功能是移除 pageElement
@@ -14139,45 +14349,9 @@
           logger.error("[Super-preloader]", "下一页链接不存在,JS无法继续.");
           logger.debug("[Super-preloader]", `全部过程耗时:${new Date() - startTime}ms`);
           return;
-        } // 载入设置..
+        }
 
-
-        var loadLocalSetting = function loadLocalSetting() {
-          var savedValue = getValue("spfwset");
-
-          if (savedValue) {
-            try {
-              savedValue = new Function("return " + savedValue)();
-            } catch (e) {
-              saveValue("spfwset", ""); // 有问题的设置,被手动修改过?,清除掉,不然下次还是要出错.
-            }
-
-            SSS.savedValue = savedValue;
-            var i, ii;
-
-            for (i = 0, ii = savedValue.length; i < ii; i++) {
-              var savedValue_x = savedValue[i];
-
-              if (savedValue_x.Rurl == SSS.Rurl) {
-                for (var ix in savedValue_x) {
-                  if (savedValue_x.hasOwnProperty(ix)) {
-                    SSS[ix] = savedValue_x[ix]; // 加载键值.
-                  }
-                }
-
-                break;
-              }
-            }
-
-            SSS.sedValueIndex = i;
-            logger.debug("[Super-preloader]", `加载本地设置 ${SSS}`);
-          } else {
-            SSS.savedValue = [];
-            SSS.sedValueIndex = 0;
-          }
-        };
-
-        loadLocalSetting();
+        loadLocalSetting(SSS);
 
         if (!SSS.hasRule) {
           SSS.a_force = true;
@@ -14978,15 +15152,6 @@
       }
     }
 
-    function saveValue(key, value) {
-      localStorage.setItem(key, encodeURIComponent(value));
-    }
-
-    function getValue(key) {
-      var value = localStorage.getItem(key);
-      return value ? decodeURIComponent(value) : undefined;
-    }
-
     function createDocumentByString(str) {
       // string转为DOM
       if (!str) {
@@ -15057,136 +15222,6 @@
 
       a.href = href;
       return a.href;
-    } // 任何转成字符串，存储，修改过
-
-
-    function xToString(x) {
-      function toStr(x) {
-        switch (typeof x) {
-          case "undefined":
-            return Str(x);
-
-          case "boolean":
-            return Str(x);
-
-          case "number":
-            return Str(x);
-
-          case "string":
-            return '"' + x.replace(/(?:\r\n|\n|\r|\t|\\|\")/g, function (a) {
-              var ret;
-
-              switch (a // 转成字面量
-              ) {
-                case "\r\n":
-                  ret = "\\r\\n";
-                  break;
-
-                case "\n":
-                  ret = "\\n";
-                  break;
-
-                case "\r":
-                  ret = "\\r";
-                  break;
-
-                case "\t":
-                  ret = "\\t";
-                  break;
-
-                case "\\":
-                  ret = "\\\\";
-                  break;
-
-                case '"':
-                  ret = '\\"';
-                  break;
-              }
-
-              return ret;
-            }) + '"';
-
-          case "function":
-            {
-              var fnStr = Str(x);
-              return fnStr.indexOf("native code") == -1 ? fnStr : "function(){}";
-            }
-
-          case "object":
-            // 注,object的除了单纯{},其他的对象的属性会造成丢失..
-            if (x === null) {
-              return Str(x);
-            }
-
-            var rStr = "";
-            var i;
-
-            switch (x.constructor.name) {
-              case "Object":
-                for (i in x) {
-                  if (!x.hasOwnProperty(i)) {
-                    // 去掉原型链上的属性.
-                    continue;
-                  }
-
-                  rStr += toStr(i) + ":" + toStr(x[i]) + ",";
-                }
-
-                return "{" + rStr.replace(/,$/i, "") + "}";
-
-              case "Array":
-                for (i in x) {
-                  if (!x.hasOwnProperty(i)) {
-                    // 去掉原型链上的属性.
-                    continue;
-                  }
-
-                  rStr += toStr(x[i]) + ",";
-                }
-
-                return "[" + rStr.replace(/,$/i, "") + "]";
-
-              case "String":
-                return toStr(Str(x));
-
-              case "RegExp":
-                return Str(x);
-
-              case "Number":
-                return Str(x);
-
-              case "Boolean":
-                return Str(x);
-            }
-
-            break;
-        }
-      }
-
-      var Str = String;
-      return toStr(x);
-    }
-
-    function toRE(obj) {
-      if (obj instanceof RegExp) {
-        return obj;
-      } else if (obj instanceof Array) {
-        return new RegExp(obj[0], obj[1]);
-      } else {
-        if (obj.search(/^wildc;/i) === 0) {
-          obj = wildcardToRegExpStr(obj.slice(6));
-        }
-
-        return new RegExp(obj);
-      }
-    }
-
-    function wildcardToRegExpStr(urlstr) {
-      if (urlstr.source) return urlstr.source;
-      var reg = urlstr.replace(/[()\[\]{}|+.,^$?\\]/g, "\\$&").replace(/\*+/g, function (str) {
-        return str === "*" ? ".*" : "[^/]*";
-      });
-      return "^" + reg + "$";
     }
   })();
 

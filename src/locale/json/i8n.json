@@ -1,0 +1,14 @@
+{
+  "en_US": {
+    "spinner": {
+      "update": "Updating ....",
+      "reset": "Reseting ...."
+    }
+  },
+  "zh_CN": {
+    "spinner": {
+      "update": "更新中 ....",
+      "reset": "重置中 ...."
+    }
+  }
+}

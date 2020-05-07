@@ -19,7 +19,8 @@ const basicConfig = {
   output: {
     dir: "./dist",
     entryFileNames: "[name].user.js",
-    format: "iife"
+    format: "iife",
+    strict: false // fix https://github.com/facebook/regenerator/blob/a755f3f0cd7928c1b89c251e5e84472aa31b7e33/packages/regenerator-runtime/runtime.js#L725
     // globals: {
     //   "@babel/runtime/regenerator": "regeneratorRuntime"
     // }
