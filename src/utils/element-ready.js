@@ -7,7 +7,7 @@
  * @returns {Promise} promise when observed
  */
 function elementReady(element, type) {
-  const config = type === "attributes" ? {attributes: true} : {childList: true};
+  const config = type === 'attributes' ? {attributes: true} : {childList: true};
   return new Promise((resolve) => {
     new MutationObserver((mutationList, observer) => {
       resolve({

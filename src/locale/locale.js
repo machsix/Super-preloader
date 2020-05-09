@@ -1,13 +1,13 @@
-import ejsTemplate from "./ejsTemplate";
+import ejsTemplate from './ejsTemplate';
 const availableLangs = Object.keys(ejsTemplate);
 export let template = ejsTemplate.en_US;
 
 function langDetect() {
   const userLang = navigator.language || navigator.userLanguage;
-  if (userLang.indexOf("zh") !== -1) {
-    return "zh_CN";
+  if (userLang.indexOf('zh') !== -1) {
+    return 'zh_CN';
   } else {
-    return "en_US";
+    return 'en_US';
   }
 }
 
@@ -17,7 +17,7 @@ export function setLang(x) {
     userLang = x;
     template = ejsTemplate[userLang];
   } else {
-    userLang = "en_US";
+    userLang = 'en_US';
     template = ejsTemplate[userLang];
   }
 }

@@ -1,14 +1,14 @@
 const magicKey = {
-  function: "\u0000",
-  undefined: "\u0001",
-  null: "\u0002"
+  function: '\u0000',
+  undefined: '\u0001',
+  null: '\u0002'
 };
 
 function replacer(_key, val) {
   if (val instanceof RegExp) {
     return `${val.toString()}`;
   }
-  if (typeof val === "function") {
+  if (typeof val === 'function') {
     return `${magicKey.function}${val.toString()}`;
   }
   if (val === null) {
@@ -21,7 +21,7 @@ function replacer(_key, val) {
 }
 
 function reviver(_key, val) {
-  if (typeof val !== "string") {
+  if (typeof val !== 'string') {
     return val;
   }
   if (val.length === 0) return val;

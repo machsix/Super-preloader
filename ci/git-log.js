@@ -1,32 +1,32 @@
-const {spawnSync} = require("child_process");
-const path = require("path");
+const {spawnSync} = require('child_process');
+const path = require('path');
 
 const gitLog = function (obj, repoDir, magicKey) {
-  const args = ["log"];
-  magicKey = magicKey || "^^";
-  repoDir = repoDir || "../";
+  const args = ['log'];
+  magicKey = magicKey || '^^';
+  repoDir = repoDir || '../';
 
   let logFormat = {
-    commit: "%H",
-    abbreviated_commit: "%h",
-    date: "%cD",
-    committer: "%cn",
-    author_date: "%aD",
-    author: "%an"
+    commit: '%H',
+    abbreviated_commit: '%h',
+    date: '%cD',
+    committer: '%cn',
+    author_date: '%aD',
+    author: '%an'
   };
 
   if (obj) {
-    if (obj.hasOwnProperty("nCommit")) {
+    if (obj.hasOwnProperty('nCommit')) {
       args.push(`-${obj.nCommit}`);
     }
 
-    if (obj.hasOwnProperty("logFormat")) {
+    if (obj.hasOwnProperty('logFormat')) {
       logFormat = obj.logFormat;
     }
   }
-  let strLogFormat = "{%n";
+  let strLogFormat = '{%n';
   for (const prop in logFormat) {
-    if (typeof logFormat[prop] === "string") {
+    if (typeof logFormat[prop] === 'string') {
       strLogFormat += `  "${prop}": "${logFormat[prop]}",%n`;
     }
   }
@@ -35,23 +35,23 @@ const gitLog = function (obj, repoDir, magicKey) {
 
   args.push(`--pretty=format:${strLogFormat}`);
 
-  args.push("HEAD");
+  args.push('HEAD');
   if (obj) {
-    if (obj.hasOwnProperty("fileList")) {
-      args.push("--");
+    if (obj.hasOwnProperty('fileList')) {
+      args.push('--');
       obj.fileList.forEach((x) => {
         args.push(x);
       });
     }
   }
 
-  const out = spawnSync("git", args, {
+  const out = spawnSync('git', args, {
     cwd: path.resolve(process.cwd(), repoDir),
-    encoding: "utf8"
+    encoding: 'utf8'
   });
   const commitInfoArray = out.stdout.split(magicKey).filter((val) => val.length > 0);
 
-  let commitInfo = "[\n";
+  let commitInfo = '[\n';
   commitInfoArray.forEach((val, i) => {
     if (i < commitInfoArray.length - 1) {
       commitInfo += `${val},`;

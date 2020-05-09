@@ -1,16 +1,16 @@
-import _ from "lodash";
-import {encodeURIE} from "./iconv-browser";
-import logger from "./logger";
-import lowercaseKeys from "./lowercaseKeys";
+import _ from 'lodash';
+import {encodeURIE} from './iconv-browser';
+import logger from './logger';
+import lowercaseKeys from './lowercaseKeys';
 
 const isNullOrUndefined = (x) => _.isUndefined(x) || _.isNull(x);
 
 const queryString = {
   parse(text) {
-    const query = text.replace(/^\?/, "");
+    const query = text.replace(/^\?/, '');
     const search = /([^&=]+)=?([^&]*)/g;
     const decode = function (s) {
-      return decodeURIComponent(s.replace(/\+/g, " "));
+      return decodeURIComponent(s.replace(/\+/g, ' '));
     };
     const searchParams = {};
     let match;
@@ -21,20 +21,20 @@ const queryString = {
   },
   stringify(params) {
     return Object.keys(params)
-      .map((key) => key + "=" + params[key])
-      .join("&");
+      .map((key) => key + '=' + params[key])
+      .join('&');
   }
 };
 
 const defaults = {
-  method: "GET",
+  method: 'GET',
   retry: 0,
   headers: {},
   stream: false,
   cache: true,
   dnsCache: false,
   encoding: null,
-  prefixUrl: "",
+  prefixUrl: '',
   timeout: 0, // wait forever
   searchParams: {}, // queryString for get
   body: null, // post body
@@ -82,14 +82,14 @@ function normalizeArguments(options, thisDefaults = defaults) {
   if (_.isEmpty(options.headers)) {
     delete options.headers;
   }
-  keyNotMerge.push("headers");
+  keyNotMerge.push('headers');
 
   // `options.prefixUrl`
   if (!isNullOrUndefined(options.prefixUrl)) {
     try {
       options.prefixUrl = options.prefixUrl.toString();
-      if (!options.prefixUrl.endsWith("/")) {
-        options.prefixUrl += "/";
+      if (!options.prefixUrl.endsWith('/')) {
+        options.prefixUrl += '/';
       }
     } catch (error) {
       delete options.prefixUrl;
@@ -105,15 +105,15 @@ function normalizeArguments(options, thisDefaults = defaults) {
   }
 
   // `options.html` and `options.encoding`
-  if (options.hasOwnProperty("html")) {
+  if (options.hasOwnProperty('html')) {
     if (options.html) {
       options.binary = false;
     }
   } else {
     options.html = thisDefaults.html;
   }
-  keyNotMerge.push("encoding");
-  keyNotMerge.push("html");
+  keyNotMerge.push('encoding');
+  keyNotMerge.push('html');
 
   // `options.searchParams` , searchParams must be encoded in "utf8"
   if (options.searchParams) {
@@ -123,7 +123,7 @@ function normalizeArguments(options, thisDefaults = defaults) {
   } else {
     options.searchParams = {};
   }
-  keyNotMerge.push("searchParams");
+  keyNotMerge.push('searchParams');
 
   // `options.body` => `options.data`
   if (options.body) {
@@ -146,7 +146,7 @@ function normalizeArguments(options, thisDefaults = defaults) {
       options.cookie = document.cookie;
     }
     if (_.isString(options.cookie)) {
-      if (options.hasOwnProperty("headers")) {
+      if (options.hasOwnProperty('headers')) {
         options.headers.cookie = options.cookie;
       } else {
         options.headers = {cookie: options.cookie};
@@ -177,7 +177,7 @@ function normalizeArguments(options, thisDefaults = defaults) {
  */
 function gotopt2gmopt(options) {
   const config = {};
-  ["method", "url", "timeout", "headers", "binary", "user", "password", "context", "withCredentials", "data"].forEach((key) => {
+  ['method', 'url', 'timeout', 'headers', 'binary', 'user', 'password', 'context', 'withCredentials', 'data'].forEach((key) => {
     if (!isNullOrUndefined(options[key])) {
       config[key] = options[key];
     }
@@ -242,7 +242,7 @@ function create(thisDefaults) {
 
     // got => gm
     const gmOptions = gotopt2gmopt(gotOptions);
-    logger.debug("GM_xmlhttpRequest", gmOptions);
+    logger.debug('GM_xmlhttpRequest', gmOptions);
 
     // helper functions
     const genCallback = (executor, name, retryCount) =>
@@ -266,8 +266,8 @@ function create(thisDefaults) {
 
     const genPromise = (retryCount = 0) =>
       new Promise((resolve, reject) => {
-        gmOptions.onload = genCallback(resolve, "onload", retryCount);
-        ["onabort", "onerror", "ontimeout"].forEach((method) => {
+        gmOptions.onload = genCallback(resolve, 'onload', retryCount);
+        ['onabort', 'onerror', 'ontimeout'].forEach((method) => {
           gmOptions[method] = genCallback(reject, method, retryCount);
         });
         GM.xmlHttpRequest(gmOptions);
@@ -297,13 +297,13 @@ function create(thisDefaults) {
 
   request.get = function (url, optionsIn) {
     const options = parseArgument(url, optionsIn);
-    options.method = "GET";
+    options.method = 'GET';
     return this(options);
   };
 
   request.post = function (url, optionsIn) {
     const options = parseArgument(url, optionsIn);
-    options.method = "POST";
+    options.method = 'POST';
     return this(options);
   };
 

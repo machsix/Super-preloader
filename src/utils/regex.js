@@ -13,8 +13,8 @@ export function toRE(obj) {
 
 export function wildcardToRegExpStr(urlstr) {
   if (urlstr.source) return urlstr.source;
-  const reg = urlstr.replace(/[()\[\]{}|+.,^$?\\]/g, "\\$&").replace(/\*+/g, function (str) {
-    return str === "*" ? ".*" : "[^/]*";
+  const reg = urlstr.replace(/[()\[\]{}|+.,^$?\\]/g, '\\$&').replace(/\*+/g, function (str) {
+    return str === '*' ? '.*' : '[^/]*';
   });
-  return "^" + reg + "$";
+  return '^' + reg + '$';
 }

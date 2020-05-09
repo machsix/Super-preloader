@@ -1,25 +1,25 @@
-import {METADATA, SCRIPT_INFO} from "./src/meta";
-import babel from "@rollup/plugin-babel";
-import banner from "rollup-plugin-banner";
-import commonjs from "@rollup/plugin-commonjs";
-import dev from "rollup-plugin-dev";
-import ejs from "rollup-plugin-ejs";
-import json from "@rollup/plugin-json";
-import replace from "rollup-plugin-re";
-import resolve from "@rollup/plugin-node-resolve";
-import scss from "rollup-plugin-scss-string";
+import {METADATA, SCRIPT_INFO} from './src/meta';
+import babel from '@rollup/plugin-babel';
+import banner from 'rollup-plugin-banner';
+import commonjs from '@rollup/plugin-commonjs';
+import dev from 'rollup-plugin-dev';
+import ejs from 'rollup-plugin-ejs';
+import json from '@rollup/plugin-json';
+import replace from 'rollup-plugin-re';
+import resolve from '@rollup/plugin-node-resolve';
+import scss from 'rollup-plugin-scss-string';
 // import {terser} from "rollup-plugin-terser";
 
 // TODO commonjs bug https://github.com/rollup/plugins/issues/304
 
 const basicConfig = {
   input: {
-    [SCRIPT_INFO.name]: "./src/index.js"
+    [SCRIPT_INFO.name]: './src/index.js'
   },
   output: {
-    dir: "./dist",
-    entryFileNames: "[name].user.js",
-    format: "iife",
+    dir: './dist',
+    entryFileNames: '[name].user.js',
+    format: 'iife',
     strict: false // fix https://github.com/facebook/regenerator/blob/a755f3f0cd7928c1b89c251e5e84472aa31b7e33/packages/regenerator-runtime/runtime.js#L725
     // globals: {
     //   "@babel/runtime/regenerator": "regeneratorRuntime"
@@ -35,7 +35,7 @@ const basicConfig = {
       },
       patterns: [
         {
-          include: "src/**/*.js",
+          include: 'src/**/*.js',
           test: /(logger\.(?:trace|debug|info|warn|error))\((.*)\)/g,
           replace: (_, p1, p2) => `${p1}("[Super-preloader]", ${p2.trim()})`
           // All string in loggermust be wrapped in double quote
@@ -70,7 +70,7 @@ const basicConfig = {
       raw: true
     }),
     ejs({
-      include: ["**/*.ejs"], // optional, '**/*.ejs' by default
+      include: ['**/*.ejs'], // optional, '**/*.ejs' by default
       compilerOptions: {
         client: true,
         strict: true // all variables in ejs should be "locals.XX"
@@ -80,17 +80,17 @@ const basicConfig = {
       compact: true
     }),
     scss({
-      include: ["**/*.css", "**/*.scss", "**/*.sass"]
+      include: ['**/*.css', '**/*.scss', '**/*.sass']
     }),
     babel({
-      babelHelpers: "runtime",
-      exclude: "node_modules/**"
+      babelHelpers: 'runtime',
+      exclude: 'node_modules/**'
     }),
     resolve(),
     commonjs({
       ignoreGlobal: true, // to make text-encoding works
       namedExport: {
-        loglevel: ["noConflict"]
+        loglevel: ['noConflict']
       }
     })
     // terser({
@@ -108,8 +108,8 @@ export default (commandLineArgs) => {
   if (commandLineArgs.dev === true) {
     basicConfig.plugins.push(
       dev({
-        dirs: ["dist"],
-        host: "localhost",
+        dirs: ['dist'],
+        host: 'localhost',
         port: 8081
       })
     );

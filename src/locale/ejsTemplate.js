@@ -1,9 +1,9 @@
 /* eslint-disable global-require */
-import * as en_US from "./en_US";
-import * as zh_CN from "./zh_CN";
+import * as en_US from './en_US';
+import * as zh_CN from './zh_CN';
 // eslint-disable-next-line sort-imports
-import * as jsonTemplate from "./json";
-import i8n from "./json/i8n.json";
+import * as jsonTemplate from './json';
+import i8n from './json/i8n.json';
 
 const ejs = {
   en_US,

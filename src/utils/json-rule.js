@@ -1,6 +1,6 @@
-import _ from "lodash";
-import gotStock from "./got";
-import logger from "./logger";
+import _ from 'lodash';
+import gotStock from './got';
+import logger from './logger';
 
 const got = gotStock.create({cache: false});
 
@@ -72,7 +72,7 @@ class RuleProvider {
     } catch (error) {
       logger.error(`[UpdateRule] ${this.name} [Status] ${error}`);
       // mimic Promise.allSettled
-      return {status: "rejected", reason: error};
+      return {status: 'rejected', reason: error};
     }
 
     const detail = res.data;
@@ -83,21 +83,21 @@ class RuleProvider {
         logger.info(`[UpdateRule] ${this.name} [Status] Success`);
         this.rule = rule;
       } catch (error) {
-        return {status: "rejected", reason: error};
+        return {status: 'rejected', reason: error};
       }
     } else {
       logger.info(`[UpdateRule] ${this.name} [Status] No need to update`);
     }
-    return {status: "fulfilled", value: this.rule};
+    return {status: 'fulfilled', value: this.rule};
   }
 }
 
 // Providers
-const MyData = new RuleProvider("machsix.github.io", ["https://machsix.github.io/Super-preloader/mydata.json", "https://super-preloader.netlify.com/mydata.json"], "https://machsix.github.io/Super-preloader/mydata_detail.json");
-const WeData = new RuleProvider("wedata.net", ["http://wedata.net/databases/AutoPagerize/items.json", "https://machsix.github.io/Super-preloader/wedata.json"], "http://wedata.net/databases/AutoPagerize.json", (res) =>
+const MyData = new RuleProvider('machsix.github.io', ['https://machsix.github.io/Super-preloader/mydata.json', 'https://super-preloader.netlify.com/mydata.json'], 'https://machsix.github.io/Super-preloader/mydata_detail.json');
+const WeData = new RuleProvider('wedata.net', ['http://wedata.net/databases/AutoPagerize/items.json', 'https://machsix.github.io/Super-preloader/wedata.json'], 'http://wedata.net/databases/AutoPagerize.json', (res) =>
   (_.isString(res.data) ? JSON.parse(res.data) : res.data)
     .filter((i) => {
-      const nameFilter = ["Generic Posts Rule", "hAtom"];
+      const nameFilter = ['Generic Posts Rule', 'hAtom'];
       for (let j = 0; j < nameFilter.length; j++) {
         if (nameFilter[j].indexOf(i.name) >= 0) {
           return false;
@@ -117,21 +117,21 @@ const p = [MyData, WeData];
 export default {
   providers: p,
   rule: p.map(() => []),
-  expire: new Date("1992-05-15"),
+  expire: new Date('1992-05-15'),
   updatePeriodInDay: 1,
   resetExpire() {
-    this.expire = new Date("1992-05-15");
+    this.expire = new Date('1992-05-15');
   },
   getRule() {
     return _.flatten(this.rule);
   },
   async saveRule(saveDB = true) {
-    await GM.setValue("jsonRuleInfo", {
+    await GM.setValue('jsonRuleInfo', {
       expire: this.expire,
       updatePeriodInDay: this.updatePeriodInDay
     });
     if (saveDB) {
-      await GM.setValue("SITEINFO_json", this.rule);
+      await GM.setValue('SITEINFO_json', this.rule);
     }
   },
   async updateRule(force = false) {
@@ -143,7 +143,7 @@ export default {
     if (today > this.expire) {
       const promises = this.providers.map((x) => x.updateRule(lastUpdate));
       await Promise.all(promises).then((values) => {
-        const status = values.map(({status}) => status === "fulfilled" || false);
+        const status = values.map(({status}) => status === 'fulfilled' || false);
         if (status.every((x) => x)) {
           this.rule = values.map(({value}) => (value ? value : this.rule));
           this.expire = new Date(+today + this.updatePeriodInDay * 24 * 60 * 60 * 1000);
@@ -151,7 +151,7 @@ export default {
           this.saveRule();
         } else {
           this.expire = today;
-          logger.error("[UpdateRule] Fail");
+          logger.error('[UpdateRule] Fail');
           this.saveRule(false);
         }
       });
@@ -161,11 +161,11 @@ export default {
   },
   async loadRule(forceUpdateRule = false) {
     let [jsonRuleInfo, rule] = await Promise.all([
-      GM.getValue("jsonRuleInfo", {
+      GM.getValue('jsonRuleInfo', {
         expire: this.expire,
         updatePeriodInDay: this.updatePeriodInDay
       }),
-      GM.getValue("SITEINFO_json", this.rule)
+      GM.getValue('SITEINFO_json', this.rule)
     ]);
     if (_.isString(jsonRuleInfo)) jsonRuleInfo = JSON.parse(jsonRuleInfo);
     if (_.isString(rule)) rule = JSON.parse(rule);

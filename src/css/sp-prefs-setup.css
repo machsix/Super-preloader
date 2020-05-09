@@ -7,7 +7,7 @@
   box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.3) !important;
   background: -moz-linear-gradient(top, #fcfcfc, #f2f2f7 100%) !important;
   background: -webkit-gradient(linear, 0 0, 0 100%, from(#fcfcfc), to(#f2f2f7)) !important;
-  font-family: "Arial", "sans-serif" !important;
+  font-family: 'Arial', 'sans-serif' !important;
   color: transparent;
   max-height: 80%;
   overflow: auto;
@@ -42,7 +42,7 @@
   background: white;
   margin: 0px;
 }
-#sp-prefs-setup input[type="checkbox"] {
+#sp-prefs-setup input[type='checkbox'] {
   cursor: pointer !important;
   visibility: visible !important;
   position: static !important;
@@ -77,7 +77,7 @@
 }
 #sp-prefs-setup b {
   font-weight: bold;
-  font-family: "微软雅黑", sans-serif;
+  font-family: '微软雅黑', sans-serif;
 }
 #sp-prefs-setup button:disabled {
   color: gray;

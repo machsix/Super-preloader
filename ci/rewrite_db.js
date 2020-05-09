@@ -1,10 +1,10 @@
-const fs = require("fs");
-const {gitLog} = require("./git-log");
-const path = require("path");
-const argv = require("yargs").argv;
+const fs = require('fs');
+const {gitLog} = require('./git-log');
+const path = require('path');
+const argv = require('yargs').argv;
 console.log(argv);
 // 1. Filename
-const jsonFilePath = argv._.length ? argv._[0] : path.resolve("../dist/mydata.json");
+const jsonFilePath = argv._.length ? argv._[0] : path.resolve('../dist/mydata.json');
 const jsonFile = path.basename(jsonFilePath);
 const jsonFileName = path.basename(jsonFile, path.extname(jsonFile));
 
@@ -22,16 +22,16 @@ const readable = argv.h || false;
  */
 function formatDB(db) {
   // keys should be set in the root of the rule
-  const rootKeys = ["name", "url", "pageElement", "exampleUrl", "nextLink", "preLink", "insertBefore", "useiframe", "category"];
+  const rootKeys = ['name', 'url', 'pageElement', 'exampleUrl', 'nextLink', 'preLink', 'insertBefore', 'useiframe', 'category'];
   // keys shouldn't exist
-  const removedKeys = ["enable"];
+  const removedKeys = ['enable'];
   const dbNew = {
     autopager: {}
   };
   for (const [key, value] of Object.entries(db)) {
     if (rootKeys.includes(key)) {
       dbNew[key] = value;
-    } else if (key == "autopager") {
+    } else if (key == 'autopager') {
       for (const [key2, value2] of Object.entries(value)) {
         if (rootKeys.includes(key2)) {
           dbNew[key2] = value2;
@@ -60,14 +60,14 @@ function formatDB(db) {
 }
 
 // strip whitespace in the file
-fs.readFile(jsonFilePath, {encoding: "utf8"}, (err, data) => {
+fs.readFile(jsonFilePath, {encoding: 'utf8'}, (err, data) => {
   if (!err) {
     const mydata = JSON.parse(data);
     const formattedDB = mydata.map((i) => formatDB(i));
     if (readable) {
-      fs.writeFile(jsonFilePath, JSON.stringify(formattedDB, null, 2), "utf8", () => {});
+      fs.writeFile(jsonFilePath, JSON.stringify(formattedDB, null, 2), 'utf8', () => {});
     } else {
-      fs.writeFile(jsonFilePath, JSON.stringify(formattedDB), "utf8", () => {});
+      fs.writeFile(jsonFilePath, JSON.stringify(formattedDB), 'utf8', () => {});
     }
   } else {
     throw err;
@@ -87,25 +87,25 @@ if (mandatoryUpdate) {
 }
 
 const info = {
-  created_by: "mach6",
+  created_by: 'mach6',
   name: jsonFilePath,
   updated_at: lastUpdateDate.toJSON(),
-  required_keys: "url nextLink pageElement",
-  created_at: "2017-09-27T00:00:00.000Z",
+  required_keys: 'url nextLink pageElement',
+  created_at: '2017-09-27T00:00:00.000Z',
   // resource_url: [url || `https://machsix.github.io/Super-preloader/${jsonFile}`, `https://cdn.jsdelivr.net/gh/machsix/Super-preloader/dist/${jsonFile}`],
   resource_url: `https://machsix.github.io/Super-preloader/${jsonFile}`,
-  description: "Rule for Super_preloaderPlus_one_New",
+  description: 'Rule for Super_preloaderPlus_one_New',
   permit_other_keys: true
 };
 
 const detailFilePath = path.resolve(path.dirname(jsonFilePath), `${jsonFileName}_detail.json`);
 console.log(info);
 if (readable) {
-  fs.writeFile(detailFilePath, JSON.stringify(info, null, 2), "utf8", () => {
+  fs.writeFile(detailFilePath, JSON.stringify(info, null, 2), 'utf8', () => {
     console.log(`${detailFilePath} is written`);
   });
 } else {
-  fs.writeFile(detailFilePath, JSON.stringify(info), "utf8", () => {
+  fs.writeFile(detailFilePath, JSON.stringify(info), 'utf8', () => {
     console.log(`${detailFilePath} is written`);
   });
 }
