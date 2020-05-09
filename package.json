@@ -69,7 +69,7 @@
     "loglevel": "1.6.8",
     "prettier": "2.0.5",
     "pretty-quick": "2.0.1",
-    "rollup": "2.7.6",
+    "rollup": "2.8.2",
     "rollup-plugin-banner": "git+https://git@github.com/machsix/rollup-plugin-banner.git#v0.2.2",
     "rollup-plugin-dev": "1.1.2",
     "rollup-plugin-ejs": "2.2.0",
