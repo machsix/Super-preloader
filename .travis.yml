@@ -22,9 +22,9 @@ deploy:
   local_dir: docs/.vuepress/dist
   keep_history: true
   target_branch: gh-pages
-  commit_message: "Commit sha: ${git_sha}"
-  name: "traviscibot"
-  email: "deploy@travis-ci.org"
+  commit_message: 'Commit sha: %{git_sha}'
+  name: 'traviscibot'
+  email: 'deploy@travis-ci.org'
   verbose: true
   on:
     branch: master
