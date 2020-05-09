@@ -48,7 +48,7 @@
     "@vuepress/plugin-pwa": "1.4.1",
     "extract-zip": "2.0.0",
     "got": "11.1.2",
-    "puppeteer": "2.1.0",
+    "puppeteer": "3.0.4",
     "vuepress": "1.4.1"
   },
   "dependencies": {
