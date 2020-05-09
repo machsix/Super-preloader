@@ -42203,12 +42203,12 @@
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_at": "2010-05-13T00:42:44+09:00",
   "data": {
-    "pageElement": "//section[@class='searchItem product']|//div[@class='col-6 fullListing'][last()]/div[@class='row']|id('editorReview')/*|//div[@class='row asset']",
+    "pageElement": "//section[@class=\"searchItem product\"]|//div[contains(@class,\"assetBody\")]/ancestor::div[contains(@class,\"row\")][1]|id(\"editorReview\")/*",
     "exampleUrl": "https://www.cnet.com/topics/appliances/3/ https://www.cnet.com/uk/search/?query=ipod&page=4 https://www.cnet.com/apple/3/ https://www.cnet.com/products/samsung-exec-u-s-cellular/",
     "url": "^https://(www\\.)?cnet\\.com",
-    "nextLink": "//a[@class='next' and not(id('editorReview')) or @class='load-more' or @rel='next']"
+    "nextLink": "//a[@class=\"next\" or @class=\"load-more\" or @rel=\"next\"][not(@data-to)]"
   },
-  "updated_at": "2020-05-09T08:22:44+09:00",
+  "updated_at": "2020-05-09T10:57:51+09:00",
   "name": "CNET",
   "created_by": "toshi"
 },
@@ -42217,12 +42217,12 @@
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_at": "2010-05-13T00:29:24+09:00",
   "data": {
-    "pageElement": "//div[@class='storyNav']/preceding-sibling::*[not(span/@class='read_more' or @class='articleByline ' or contains(.,'(Page '))][preceding-sibling::p[2]]|//p[span/@class='read_more']/node()[not(self::span/@class='read_more')]|//p[contains(.,'(Page ')]/following-sibling::p[1]/node()|//table[@class='archives']/tbody/tr",
+    "pageElement": "//p[./span[@class=\"read_more\"]]/preceding-sibling::*[./preceding-sibling::p]|//p[./span[@class=\"read_more\"]]|//table[@class=\"archives\"]/tbody/tr",
     "exampleUrl": "https://www.xconomy.com/san-diego/2010/05/12/wireless-life-sciences-investor-meeting-puts-innovation-on-stage-boston-sleep-company-zeo-claims-a-top-prize/\r\nhttps://www.xconomy.com/page/2/?s=+&cat=37&author=0",
     "url": "^https://(www\\.)?xconomy\\.com/",
-    "nextLink": "//span[@class='read_more']/a[last()]|//table[@class='archives']/tfoot//td[@align='right']/a[last()]"
+    "nextLink": "//link[@rel=\"next\"]"
   },
-  "updated_at": "2020-05-09T08:17:12+09:00",
+  "updated_at": "2020-05-09T10:28:38+09:00",
   "name": "Xconomy",
   "created_by": "toshi"
 },
