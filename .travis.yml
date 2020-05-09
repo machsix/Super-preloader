@@ -1,13 +1,15 @@
 language: node_js
 node_js: lts/*
+services: xvfb
 cache: npm
 before_install:
   - npm config set scripts-prepend-node-path true
 install:
   - npm ci
 script:
-  - npm run test
+  - npm run check
   - npm run build
+  - npm run test
   - npm run docs:publish
 deploy:
   provider: pages

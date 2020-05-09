@@ -17,17 +17,18 @@
     "url": "git+https://github.com/machsix/Super-preloader.git"
   },
   "scripts": {
-    "lint": "eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\"",
-    "format": "prettier --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"docs/**/*.{js,md}\"",
-    "format:check": "prettier --check \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"docs/**/*.{js,md}\"",
-    "format:staged": "pretty-quick --verbose --staged --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"docs/**/*.{js,md}\"",
-    "test": "npm run lint && npm run format:staged",
+    "lint": "eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.js\"",
+    "format": "prettier --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"",
+    "format:check": "prettier --check \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"",
+    "format:staged": "pretty-quick --verbose --staged --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"",
+    "check": "npm run lint && npm run format:staged",
+    "test": "cd test && node test.js",
     "dev": "rollup -c --dev -w",
     "build": "rollup -c",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "docs:publish": "npm run docs:build && bash ./ci/gen_ghpage.sh",
-    "preversion": "npm run test",
+    "preversion": "npm run check",
     "version": "npm run build  && git add dist/*.js && git add dist/*.json",
     "postversion": "git add package.json package-lock.json",
     "publish:patch": "npm --no-git-tag-version version patch",
@@ -35,7 +36,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run test"
+      "pre-commit": "npm run check"
     }
   },
   "keywords": [
@@ -45,6 +46,11 @@
     "@vuepress/plugin-back-to-top": "1.4.1",
     "@vuepress/plugin-google-analytics": "1.4.1",
     "@vuepress/plugin-pwa": "1.4.1",
+    "got": "^11.1.2",
+    "jest": "^26.0.1",
+    "jest-puppeteer": "^4.4.0",
+    "puppeteer": "^3.0.4",
+    "unzip-stream": "^0.3.0",
     "vuepress": "1.4.1"
   },
   "dependencies": {
