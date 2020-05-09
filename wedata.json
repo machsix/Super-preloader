@@ -1,5 +1,19 @@
 [
 {
+  "resource_url": "http://wedata.net/items/85331",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_at": "2020-05-09T12:55:09+09:00",
+  "data": {
+    "pageElement": "//ul[@id=\"mainList\"]",
+    "exampleUrl": "http://flat-icon-design.com/",
+    "url": "https?://flat-icon-design\\.com/",
+    "nextLink": "//li[@class=\"active_page\"]/following-sibling::li/a"
+  },
+  "updated_at": "2020-05-09T13:01:31+09:00",
+  "name": "FLAT ICON DESIGN -フラットアイコンデザイン-",
+  "created_by": "replobfuscator"
+},
+{
   "resource_url": "http://wedata.net/items/85330",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_at": "2020-05-08T13:46:47+09:00",
@@ -41788,19 +41802,19 @@
   "created_at": "2010-05-22T16:21:43+09:00"
 },
 {
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "name": "SPORTS SHOP GALLERY・2 Online Shop",
-  "created_by": "たく",
-  "updated_at": "2016-03-01T12:36:55+09:00",
   "resource_url": "http://wedata.net/items/32934",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_at": "2010-05-20T14:22:59+09:00",
   "data": {
+    "pageElement": "id('result')/ul",
     "Stylish": "@-moz-document domain(\"shop.gallery2.co.jp\") {\r\n  .autopagerize_page_separator~li{visibility: visible !important;}\r\n}",
-    "exampleUrl": "http://shop.gallery2.co.jp/search?category1=3&category2=451",
-    "url": "^http://shop\\.gallery2\\.co\\.jp/search",
-    "pageElement": "//ul[@class='itemList']/li",
-    "nextLink": "//li[@class='paginationNext']/a"
+    "exampleUrl": "https://www.gallery2.co.jp/sports/basketball/search",
+    "url": "^https://(www\\.)?gallery2\\.co\\.jp/",
+    "nextLink": "//a[@class='next']"
   },
-  "created_at": "2010-05-20T14:22:59+09:00"
+  "updated_at": "2020-05-09T13:38:20+09:00",
+  "name": "SPORTS SHOP GALLERY・2 Online Shop",
+  "created_by": "たく"
 },
 {
   "resource_url": "http://wedata.net/items/32853",
@@ -41846,59 +41860,59 @@
 },
 {
   "resource_url": "http://wedata.net/items/32836",
-  "name": "CLiki : Search results",
-  "created_by": "NANRI",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2016-03-01T11:25:37+09:00",
+  "created_at": "2010-05-19T01:03:13+09:00",
   "data": {
-    "exampleUrl": "http://www.cliki.net/site/search?query=test",
-    "url": "^http://www\\.cliki\\.net/site/search\\?",
     "pageElement": "id('content-area')/ol/li",
-    "nextLink": "id('paginator')//a[contains(.,'>')]"
+    "exampleUrl": "https://www.cliki.net/site/search?query=test",
+    "url": "^https://(www\\.)?cliki\\.net/site/search\\?",
+    "nextLink": "id('paginator')/span[number()>0][not(a)]/following-sibling::span[1]/a"
   },
-  "created_at": "2010-05-19T01:03:13+09:00"
+  "updated_at": "2020-05-09T13:32:52+09:00",
+  "name": "CLiki : Search results",
+  "created_by": "NANRI"
 },
 {
   "resource_url": "http://wedata.net/items/32833",
-  "created_by": "amos",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "name": "イオンネットスーパー",
-  "data": {
-    "exampleUrl": "https://shop.aeon.com/netsuper/01050000019810/25.html",
-    "nextLink": "//div[@class=\"pages\"]//li[contains(concat(\" \",@class,\" \"),\" pages-item-next \")]/a",
-    "url": "^https?://shop\\.aeon\\.com/netsuper/",
-    "pageElement": "//div[contains(concat(\" \",@class,\" \"),\" products \")]"
-  },
   "created_at": "2010-05-18T19:35:29+09:00",
-  "updated_at": "2019-09-20T14:23:06+09:00"
+  "data": {
+    "pageElement": "//div[contains(concat(' ',@class,' '),' products ')]/ol/li",
+    "exampleUrl": "https://shop.aeon.com/netsuper/01050000019810/25.html",
+    "url": "^https?://shop\\.aeon\\.com/netsuper/",
+    "nextLink": "//a[@title='Page Next']"
+  },
+  "updated_at": "2020-05-09T13:26:22+09:00",
+  "name": "イオンネットスーパー",
+  "created_by": "amos"
 },
 {
   "resource_url": "http://wedata.net/items/32832",
-  "name": "格安旅行の検索・比較 Travel.jp",
-  "created_by": "moony",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2016-03-01T00:19:15+09:00",
+  "created_at": "2010-05-18T17:28:29+09:00",
   "data": {
-    "exampleUrl": "http://www.travel.co.jp/domtour/pricelist/kanto/okinawa_47_0_3.html",
-    "url": "^http://www\\.travel\\.co\\.jp/",
     "pageElement": "//div[@class='resultList resultNormal']/div",
-    "nextLink": "//a[@class='next pager-link']"
+    "exampleUrl": "https://www.travel.co.jp/domtour/pricelist/kanto/okinawa_47_0_3.html",
+    "url": "^https://(www\\.)?travel\\.co\\.jp/",
+    "nextLink": "id('pager_next')"
   },
-  "created_at": "2010-05-18T17:28:29+09:00"
+  "updated_at": "2020-05-09T13:20:19+09:00",
+  "name": "格安旅行の検索・比較 Travel.jp",
+  "created_by": "moony"
 },
 {
   "resource_url": "http://wedata.net/items/32823",
-  "name": "Ragna Archives Network 2",
-  "created_by": "xazsa",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2016-03-01T00:00:35+09:00",
+  "created_at": "2010-05-17T05:45:28+09:00",
   "data": {
-    "exampleUrl": "http://www5.big.or.jp/~seraph/ragna/ragna.cgi?q=%E3%81%A6%E3%81%84%E3%82%8B%E3%80%82&mode=search&support=",
-    "url": "^http://www5\\.big\\.or\\.jp/~seraph/ragna/ragna\\.cgi\\?",
     "pageElement": "//table[@summary='result']/tbody/tr[td]",
+    "exampleUrl": "http://www5.big.or.jp/~seraph/ragna/ragna.cgi?q=%E3%81%A6%E3%81%84%E3%82%8B%E3%80%82&mode=search&support=",
+    "url": "^https?://www5\\.big\\.or\\.jp/~seraph/ragna/ragna\\.cgi\\?",
     "nextLink": "//div[@class='main']/p[last()]/span[not(a)]/following-sibling::span/a"
   },
-  "created_at": "2010-05-17T05:45:28+09:00"
+  "updated_at": "2020-05-09T13:18:34+09:00",
+  "name": "Ragna Archives Network 2",
+  "created_by": "xazsa"
 },
 {
   "name": "\u30de\u30f3\u30ac\u3067\u5206\u304b\u308bLisp(Manga Guide to Lisp)",
@@ -41930,32 +41944,32 @@
 },
 {
   "resource_url": "http://wedata.net/items/32815",
-  "name": "公開ユーザ - 新刊.net",
-  "created_by": "t_f_m",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2016-02-29T23:36:12+09:00",
+  "created_at": "2010-05-16T21:04:34+09:00",
   "data": {
-    "exampleUrl": "http://sinkan.net/?action_users=true",
-    "url": "^http://sinkan\\.net/\\?action_users=true",
     "pageElement": "id('users_list')/table[@class='user']",
+    "exampleUrl": "http://sinkan.net/?action_users=true",
+    "url": "^https?://sinkan\\.net/\\?action_users=true",
     "nextLink": "id('current')/following-sibling::span[1]/a"
   },
-  "created_at": "2010-05-16T21:04:34+09:00"
+  "updated_at": "2020-05-09T13:11:50+09:00",
+  "name": "公開ユーザ - 新刊.net",
+  "created_by": "t_f_m"
 },
 {
-  "resource_url": "http://wedata.net/items/32814",
-  "name": "明和水産",
-  "created_by": "southhighland",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-02-23T20:13:15+09:00",
+  "created_at": "2010-05-16T13:29:13+09:00",
+  "resource_url": "http://wedata.net/items/32814",
   "data": {
-    "exampleUrl": "http://bbs68.meiwasuisan.com/news/",
-    "bookmarklet": "Array.prototype.forEach.call(document.querySelectorAll('img'), function(img) { var lazySrc = img.hasAttribute('data-src') ? img.getAttribute('data-src') : img.getAttribute('data-original'); if (lazySrc) { img.src = lazySrc;} });",
-    "url": "^http://[^.]+\\.meiwasuisan\\.com/",
     "pageElement": "id('content')/table/tbody/tr[td]",
-    "nextLink": "//span[@class=\"pagerCurrent\"]/following-sibling::a[1]"
+    "bookmarklet": "Array.prototype.forEach.call(document.querySelectorAll('img'), function(img) { var lazySrc = img.hasAttribute('data-src') ? img.getAttribute('data-src') : img.getAttribute('data-original'); if (lazySrc) { img.src = lazySrc;} });",
+    "exampleUrl": "http://bbs68.meiwasuisan.com/news/",
+    "url": "^https?://[^.]+\\.meiwasuisan\\.com/",
+    "nextLink": "//span[@class='pagerCurrent']/following-sibling::a[1]"
   },
-  "created_at": "2010-05-16T13:29:13+09:00"
+  "updated_at": "2020-05-09T13:06:09+09:00",
+  "name": "明和水産",
+  "created_by": "southhighland"
 },
 {
   "resource_url": "http://wedata.net/items/32802",
