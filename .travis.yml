@@ -1,21 +1,30 @@
 language: node_js
-node_js: lts/*
+dist: xenial
+os: linux
+node_js: 12
+services: xvfb
 cache: npm
 before_install:
   - npm config set scripts-prepend-node-path true
 install:
-  - npm ci
+  - npm install
 script:
-  - npm run test
+  - npm run check
   - npm run build
+  - npm run test
   - npm run docs:publish
 deploy:
   provider: pages
-  skip_cleanup: true
-  github_token: $GH_TOKEN
+  edge: true
+  strategy: git
+  cleanup: false
+  token: $GH_TOKEN
   local_dir: docs/.vuepress/dist
   keep_history: true
   target_branch: gh-pages
+  commit_message: "Commit sha: ${git_sha}"
+  name: "traviscibot"
+  email: "deploy@travis-ci.org"
   verbose: true
   on:
     branch: master

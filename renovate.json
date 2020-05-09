@@ -2,5 +2,10 @@
   "extends": ["config:base"],
   "automerge": true,
   "schedule": "every weekend",
-  "separateMajorMinor": false
+  "separateMajorMinor": false,
+  "packageRules": [
+    {
+      "excludePackageNames": ["puppeteer"]
+    }
+  ]
 }
