@@ -1,5 +1,49 @@
 [
 {
+  "resource_url": "http://wedata.net/items/85330",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_at": "2020-05-08T13:46:47+09:00",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//div[@class=\"article-body\"]/ol[@class=\"article-pager\"]/preceding-sibling::* | //div[@class=\"m-list\"]",
+    "exampleUrl": "https://futabanet.jp/articles/-/81049?page=1\r\nhttps://futabanet.jp/list/futaman/genre/manga",
+    "nextLink": "//div[@class=\"next-link\"]/a | //li[contains(@class,\"m-pager-next\")]/a",
+    "url": "^https?://futabanet\\.jp/"
+  },
+  "updated_at": "2020-05-08T13:46:47+09:00",
+  "name": "ふたまん＋",
+  "created_by": "brib2"
+},
+{
+  "resource_url": "http://wedata.net/items/85329",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_at": "2020-05-08T12:18:42+09:00",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//ul[contains(@class,\"archive_list\")]/li",
+    "exampleUrl": "http://wadaayaka.com/news",
+    "nextLink": "//a[@class=\"nextpostslink\"]",
+    "url": "^https?://wadaayaka\\.com/"
+  },
+  "updated_at": "2020-05-08T12:18:42+09:00",
+  "name": "和田彩花 オフィシャルウェブサイト",
+  "created_by": "brib2"
+},
+{
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_at": "2020-05-08T10:47:13+09:00",
+  "resource_url": "http://wedata.net/items/85328",
+  "data": {
+    "pageElement": "//gi-asset",
+    "exampleUrl": "https://www.istockphoto.com/jp/search/2/image?phrase=a",
+    "url": "^https://(www\\.)?istockphoto\\.com/",
+    "nextLink": "//a[@rel='next']"
+  },
+  "updated_at": "2020-05-08T13:07:32+09:00",
+  "name": "iStock",
+  "created_by": "Tanookirby2"
+},
+{
   "resource_url": "http://wedata.net/items/85327",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_at": "2020-05-06T13:11:24+09:00",
@@ -8053,21 +8097,6 @@
   "created_at": "2017-03-26T22:29:17+09:00"
 },
 {
-  "resource_url": "http://wedata.net/items/81257",
-  "name": "Youtubeアニメ無料動画+",
-  "created_by": "jigendaddy_be",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-03-27T10:26:59+09:00",
-  "data": {
-    "Stylish": "@-moz-document domain(\"tvanimedouga.blog93.fc2.com\") {\r\n  .autopagerize_page_separator~.mainEntryComment form{display:none;}\r\n}",
-    "exampleUrl": "http://tvanimedouga.blog93.fc2.com/ http://tvanimedouga.blog93.fc2.com/blog-entry-31091.html",
-    "url": "^http://tvanimedouga\\.blog93\\.fc2\\.com/(blog|page)?",
-    "pageElement": "//div[@class=\"mainEntryBlock\" or @class=\"mainEntryComment\"]",
-    "nextLink": "//link[@rel=\"next\"]"
-  },
-  "created_at": "2017-03-26T13:28:50+09:00"
-},
-{
   "resource_url": "http://wedata.net/items/81254",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "name": "listal.com",
@@ -10112,19 +10141,18 @@
   "created_at": "2016-08-29T05:17:40+09:00"
 },
 {
-  "name": "Comic Book",
-  "created_by": "Tanookirby",
-  "updated_at": "2016-08-28T07:09:04+09:00",
   "resource_url": "http://wedata.net/items/80958",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_at": "2016-08-28T07:09:04+09:00",
   "data": {
-    "exampleUrl": "http://comicbook.com/category/-marvel-comics http://comicbook.com/list/top-grossing-comic-book-movies-worldwide-",
+    "pageElement": "//article[@class='CategoryCard-headline']",
+    "exampleUrl": "https://comicbook.com/dc/",
     "url": "^https?://comicbook.com/.",
-    "pageElement": "//article[@class='category_art']|//li[@class='entityrank_itm']",
-    "insertBefore": "",
     "nextLink": "//a[@class='next_lnk btn grey']"
   },
-  "created_at": "2016-08-28T07:09:04+09:00",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize"
+  "updated_at": "2020-05-08T09:37:53+09:00",
+  "name": "Comic Book",
+  "created_by": "Tanookirby"
 },
 {
   "resource_url": "http://wedata.net/items/80956",
@@ -28953,17 +28981,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/63999",
-  "name": "駿河屋",
-  "created_by": "kazak",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-10-16T01:39:36+09:00",
+  "created_at": "2012-10-14T00:18:15+09:00",
   "data": {
-    "exampleUrl": "https://www.suruga-ya.jp/search?category=2",
-    "url": "^https://www\\.suruga-ya\\.jp/search",
-    "pageElement": "id(\"search_result\")/div",
-    "nextLink": "//li[@class='next']/a"
+    "pageElement": "id(\"search_result\")/div | //table[@class=\"list\" or @class=\"paddTbl\"]",
+    "exampleUrl": "https://www.suruga-ya.jp/search?category=2\r\nhttps://www.suruga-ya.jp/pcmypage/action_nyuka_search/list\r\nhttps://www.suruga-ya.jp/pcmypage/action_news",
+    "url": "^https?://www\\.suruga-ya\\.jp/",
+    "nextLink": "//li[@class=\"next\"]/a | //a[@rel=\"next\"]"
   },
-  "created_at": "2012-10-14T00:18:15+09:00"
+  "updated_at": "2020-05-09T10:04:45+09:00",
+  "name": "駿河屋",
+  "created_by": "kazak"
 },
 {
   "resource_url": "http://wedata.net/items/63995",
@@ -41958,73 +41986,59 @@
 },
 {
   "resource_url": "http://wedata.net/items/32772",
-  "name": "ABCgames.sk",
-  "created_by": "toshi",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2016-02-29T23:06:31+09:00",
+  "created_at": "2010-05-14T23:18:08+09:00",
   "data": {
-    "exampleUrl": "http://www.abcgames.sk/?p=screenshoty_zobraz&id=7920",
-    "url": "^http://www\\.abcgames\\.sk/",
     "pageElement": "//div[@class='tab']/following-sibling::p[contains(., '>')][1]/following-sibling::table[@class='normal']/tbody/tr",
+    "exampleUrl": "https://www.abcgames.sk/?p=screenshoty_zobraz&id=7920",
+    "url": "^https://(www\\.)?abcgames\\.sk/",
     "nextLink": "//div[@class='tab']/following-sibling::p/a[contains(., '>')]"
   },
-  "created_at": "2010-05-14T23:18:08+09:00"
+  "updated_at": "2020-05-09T09:44:04+09:00",
+  "name": "ABCgames.sk",
+  "created_by": "toshi"
 },
 {
   "resource_url": "http://wedata.net/items/32771",
-  "name": "PlayHub.com",
-  "created_by": "toshi",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-02-23T11:19:46+09:00",
+  "created_at": "2010-05-14T23:11:50+09:00",
   "data": {
-    "exampleUrl": "http://www.playhub.com/category/action-games/1/top-rated.html",
-    "url": "^https?://(www\\.)?playhub\\.com/category/",
     "pageElement": "id('content')/div[@class='row'][1]",
+    "exampleUrl": "http://www.playhub.com/action",
+    "url": "^https?://(www\\.)?playhub\\.com/",
     "nextLink": "//li[@rel='next']/a"
   },
-  "created_at": "2010-05-14T23:11:50+09:00"
+  "updated_at": "2020-05-09T09:43:08+09:00",
+  "name": "PlayHub.com",
+  "created_by": "toshi"
 },
 {
-  "resource_url": "http://wedata.net/items/32767",
-  "name": "JSTOR",
-  "created_by": "whym",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2016-02-29T23:00:00+09:00",
+  "created_at": "2010-05-14T14:42:39+09:00",
+  "resource_url": "http://wedata.net/items/32767",
   "data": {
-    "exampleUrl": "http://www.jstor.org/stable/30029811",
-    "url": "^http://www\\.jstor\\.org/stable/",
-    "pageElement": "//div[@class='article-view small-12 columns brandingStripe']",
-    "nextLink": "//a[@class='next-item']"
+    "pageElement": "//ol[@class='list-searchResults mln']/li",
+    "exampleUrl": "https://www.jstor.org/action/doBasicSearch?Query=food&filter=",
+    "url": "^https://(www\\.)?jstor\\.org/",
+    "nextLink": "id('next-page')"
   },
-  "created_at": "2010-05-14T14:42:39+09:00"
+  "updated_at": "2020-05-09T09:41:30+09:00",
+  "name": "JSTOR",
+  "created_by": "whym"
 },
 {
   "resource_url": "http://wedata.net/items/32766",
-  "name": "SICP full text",
-  "created_by": "whym",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2016-02-29T22:53:17+09:00",
+  "created_at": "2010-05-14T14:39:06+09:00",
   "data": {
-    "exampleUrl": "http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-1.html",
-    "url": "^https://mitpress\\.mit\\.edu/sicp/full-text/book/book",
-    "pageElement": "(//div[contains(@class,'navigation')])[last()]/preceding-sibling::*[not(contains(@class,'navigation'))]",
+    "pageElement": "//div[@class='l-1up']/div/div/ul[@class='results__list']/li",
+    "exampleUrl": "https://mitpress.mit.edu/topics/mit",
+    "url": "^https://mitpress\\.mit\\.edu/",
     "nextLink": "//div[contains(@class,'navigation')]/span/a[starts-with(.,'next')]"
   },
-  "created_at": "2010-05-14T14:39:06+09:00"
-},
-{
-  "resource_url": "http://wedata.net/items/32757",
-  "name": "Superbreak Search Results",
-  "created_by": "Dementia",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-02-23T11:11:25+09:00",
-  "data": {
-    "exampleUrl": "http://www.superbreak.com/search/location/YO12/16-07-2010/1-nights/1-rooms/2-adults,0-children/2,3,4,5-star/sortby-PriceAscending/page-1",
-    "url": "^https?://(www\\.)?superbreak\\.com/search/",
-    "pageElement": "id('hotelList')/div[contains(@class,'boxStyle box')]",
-    "nextLink": "id('botPaging')/ul[@class='pagination']/li[@class='rArrow']/a"
-  },
-  "created_at": "2010-05-14T01:34:56+09:00"
+  "updated_at": "2020-05-09T09:34:28+09:00",
+  "name": "SICP full text",
+  "created_by": "whym"
 },
 {
   "name": "CAM4",
@@ -42040,20 +42054,6 @@
     "exampleUrl": "http:\/\/cam4.com\/"
   },
   "created_at": "2010-05-14T01:31:44+09:00"
-},
-{
-  "resource_url": "http://wedata.net/items/32755",
-  "name": "Break.com",
-  "created_by": "toshi",
-  "updated_at": "2016-02-29T22:27:04+09:00",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "data": {
-    "exampleUrl": "http://www.break.com/\r\nhttp://www.break.com/tv-shows/access-hollywood/index2.html\r\nhttp://www.break.com/games/cool-new-games.html",
-    "url": "^http://www\\.break\\.com/",
-    "pageElement": "id('js-timestream-full')/div/div/article",
-    "nextLink": "//div[@class='js-load-more ui-load-more']/a"
-  },
-  "created_at": "2010-05-14T01:26:52+09:00"
 },
 {
   "name": "deviantclip",
@@ -42072,17 +42072,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/32751",
-  "name": "sueddeutsche.de",
-  "created_by": "toshi",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2016-02-29T22:15:54+09:00",
+  "created_at": "2010-05-14T00:44:56+09:00",
   "data": {
-    "exampleUrl": "http://www.sueddeutsche.de/panorama/mahnwache-fuer-gewaltopfer-in-offenbach-tue-wir-kaempfen-mit-dir-1.2244492 http://suche.sueddeutsche.de/news",
-    "url": "^http://(www|suche)\\.sueddeutsche\\.de/",
-    "pageElement": "//section[@class='body']|//div[@class='entrylist__entry']",
-    "nextLink": "//a[contains(.,'nächste Seite')]|//li[@class='arrow next']/a"
+    "pageElement": "//div[@itemprop='articleBody']/*|//div[@class='entrylist__entry']",
+    "exampleUrl": "https://www.sueddeutsche.de/panorama/mahnwache-fuer-gewaltopfer-in-offenbach-tugce-wir-kaempfen-mit-dir-1.2244492 https://www.sueddeutsche.de/news",
+    "url": "^https?://(www\\.)?sueddeutsche\\.de/",
+    "nextLink": "//a[@class='css-lkj0nt']//li[@class='arrow next']/a"
   },
-  "created_at": "2010-05-14T00:44:56+09:00"
+  "updated_at": "2020-05-09T09:21:42+09:00",
+  "name": "sueddeutsche.de",
+  "created_by": "toshi"
 },
 {
   "resource_url": "http://wedata.net/items/32750",
@@ -42128,32 +42128,33 @@
   "created_at": "2010-05-13T23:59:10+09:00"
 },
 {
-  "resource_url": "http://wedata.net/items/32746",
-  "name": "Metacafe",
-  "created_by": "toshi",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-02-23T10:59:09+09:00",
+  "created_at": "2010-05-13T23:31:21+09:00",
+  "resource_url": "http://wedata.net/items/32746",
   "data": {
+    "pageElement": "//div[@id='search_videos_videos_list_search_result_items']",
+    "comment": "Id is not unique",
     "exampleUrl": "http://www.metacafe.com/videos_about/food/",
     "url": "^https?://(www\\.)?metacafe\\.com/",
-    "pageElement": "//div[@class='mc-previews mc-big-previews']/form/*",
     "nextLink": "//a[i/@class='icon-caret-right']"
   },
-  "created_at": "2010-05-13T23:31:21+09:00"
+  "updated_at": "2020-05-09T09:01:36+09:00",
+  "name": "Metacafe",
+  "created_by": "toshi"
 },
 {
   "resource_url": "http://wedata.net/items/32745",
-  "name": "FOCUS Online",
-  "created_by": "toshi",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-02-23T10:54:23+09:00",
+  "created_at": "2010-05-13T23:15:33+09:00",
   "data": {
+    "pageElement": "//div[@class='textBlock']/node()|//div[@class='teaser clearfix']",
     "exampleUrl": "http://www.focus.de/politik/ausland/tid-18254/illegale-migration-auf-der-suche-nach-dem-paradies_aid_507647.html http://www.focus.de/suche/2/",
     "url": "^https?://(www\\.)?focus\\.de/",
-    "pageElement": "//div[@class='textBlock']/node()|//div[@class='teaser clearfix']",
-    "nextLink": "//a['@class=bluebutton next' or @class='nextPage browse right']"
+    "nextLink": "//a[@class='bluebutton next' or @class='nextPage browse right']"
   },
-  "created_at": "2010-05-13T23:15:33+09:00"
+  "updated_at": "2020-05-09T08:59:02+09:00",
+  "name": "FOCUS Online",
+  "created_by": "toshi"
 },
 {
   "name": "\u30a2\u30ad\u30d0HOBBY",
@@ -42199,45 +42200,45 @@
 },
 {
   "resource_url": "http://wedata.net/items/32725",
-  "name": "CNET",
-  "created_by": "toshi",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-02-23T06:02:08+09:00",
+  "created_at": "2010-05-13T00:42:44+09:00",
   "data": {
+    "pageElement": "//section[@class='searchItem product']|//div[@class='col-6 fullListing'][last()]/div[@class='row']|id('editorReview')/*|//div[@class='row asset']",
     "exampleUrl": "https://www.cnet.com/topics/appliances/3/ https://www.cnet.com/uk/search/?query=ipod&page=4 https://www.cnet.com/apple/3/ https://www.cnet.com/products/samsung-exec-u-s-cellular/",
     "url": "^https://(www\\.)?cnet\\.com",
-    "pageElement": "//section[@class='searchItem product']|//div[@class='col-6 fullListing'][last()]/div[@class='row']|//div[@class='asset']|id('editorReview')/*",
     "nextLink": "//a[@class='next' and not(id('editorReview')) or @class='load-more' or @rel='next']"
   },
-  "created_at": "2010-05-13T00:42:44+09:00"
+  "updated_at": "2020-05-09T08:22:44+09:00",
+  "name": "CNET",
+  "created_by": "toshi"
 },
 {
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "name": "Xconomy",
-  "created_by": "toshi",
-  "updated_at": "2016-02-29T17:09:31+09:00",
   "resource_url": "http://wedata.net/items/32724",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_at": "2010-05-13T00:29:24+09:00",
   "data": {
-    "exampleUrl": "http://www.xconomy.com/san-diego/2010/05/12/wireless-life-sciences-investor-meeting-puts-innovation-on-stage-boston-sleep-company-zeo-claims-a-top-prize/\r\nhttp://www.xconomy.com/page/2/?s=+&cat=37&author=0",
-    "url": "^http://www\\.xconomy\\.com/",
     "pageElement": "//div[@class='storyNav']/preceding-sibling::*[not(span/@class='read_more' or @class='articleByline ' or contains(.,'(Page '))][preceding-sibling::p[2]]|//p[span/@class='read_more']/node()[not(self::span/@class='read_more')]|//p[contains(.,'(Page ')]/following-sibling::p[1]/node()|//table[@class='archives']/tbody/tr",
+    "exampleUrl": "https://www.xconomy.com/san-diego/2010/05/12/wireless-life-sciences-investor-meeting-puts-innovation-on-stage-boston-sleep-company-zeo-claims-a-top-prize/\r\nhttps://www.xconomy.com/page/2/?s=+&cat=37&author=0",
+    "url": "^https://(www\\.)?xconomy\\.com/",
     "nextLink": "//span[@class='read_more']/a[last()]|//table[@class='archives']/tfoot//td[@align='right']/a[last()]"
   },
-  "created_at": "2010-05-13T00:29:24+09:00"
+  "updated_at": "2020-05-09T08:17:12+09:00",
+  "name": "Xconomy",
+  "created_by": "toshi"
 },
 {
   "resource_url": "http://wedata.net/items/32722",
-  "name": "FastCompany.com",
-  "created_by": "toshi",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-02-23T05:51:57+09:00",
+  "created_at": "2010-05-13T00:15:47+09:00",
   "data": {
-    "exampleUrl": "https://www.fastcompany.com/search?q=tv",
-    "url": "^https://(www\\.)?fastcompany\\.com/search",
-    "pageElement": "//article",
-    "nextLink": "//li[@class='search-result-next hide-for-small']/a"
+    "pageElement": "//div[@class='post__body']|//div[@class='all-feed__posts']/article",
+    "exampleUrl": "https://www.fastcompany.com/news https://www.fastcompany.com/co-design",
+    "url": "^https://(www\\.)?fastcompany\\.com/.",
+    "nextLink": "//li[@class='pagination__page pagination__page--next']/a|//a[starts-with(@title,'See More ')]"
   },
-  "created_at": "2010-05-13T00:15:47+09:00"
+  "updated_at": "2020-05-09T08:14:44+09:00",
+  "name": "FastCompany.com",
+  "created_by": "toshi"
 },
 {
   "resource_url": "http://wedata.net/items/32721",
@@ -42283,31 +42284,31 @@
 },
 {
   "resource_url": "http://wedata.net/items/32713",
-  "name": "1001 Free Fonts",
-  "created_by": "toshi",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2016-02-29T14:30:23+09:00",
+  "created_at": "2010-05-12T23:14:12+09:00",
   "data": {
-    "exampleUrl": "http://www.1001freefonts.com/3d-fonts.php",
-    "url": "^http://(?:www\\.)?1001freefonts\\.com/",
-    "pageElement": "//ul[@class='fontListingList']/li",
-    "nextLink": "//a[.='>']"
+    "pageElement": "//ul[@class='fontListingList']/li[not(div/@class='inlinePageAds')]",
+    "exampleUrl": "https://www.1001freefonts.com/3d-fonts.php",
+    "url": "^https://(?:www\\.)?1001freefonts\\.com/",
+    "nextLink": "//div[@class='pagingLink pagingLinkLast']/a"
   },
-  "created_at": "2010-05-12T23:14:12+09:00"
+  "updated_at": "2020-05-09T08:35:50+09:00",
+  "name": "1001 Free Fonts",
+  "created_by": "toshi"
 },
 {
   "resource_url": "http://wedata.net/items/32712",
-  "name": "The Different Scent:",
-  "created_by": "toshi",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-02-23T04:13:14+09:00",
+  "created_at": "2010-05-12T23:09:25+09:00",
   "data": {
+    "pageElement": "//div[@class='product--box box--image']",
     "exampleUrl": "https://www.thedifferentscent.de/index.php?cPath=1_5",
     "url": "^https://(www\\.)?thedifferentscent\\.de/",
-    "pageElement": "//table[@class='productListing']/tbody/tr[@class]",
-    "nextLink": "//a[@title=' nächste Seite ']"
+    "nextLink": "//a[@class='paging--link paging--next']"
   },
-  "created_at": "2010-05-12T23:09:25+09:00"
+  "updated_at": "2020-05-09T05:04:21+09:00",
+  "name": "The Different Scent:",
+  "created_by": "toshi"
 },
 {
   "name": "ActionScript.org",
@@ -42326,73 +42327,31 @@
 },
 {
   "resource_url": "http://wedata.net/items/32709",
-  "name": "MATLAB Central",
-  "created_by": "toshi",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-02-23T04:09:45+09:00",
+  "created_at": "2010-05-12T22:32:09+09:00",
   "data": {
-    "exampleUrl": "http://www.mathworks.com/matlabcentral/fileexchange/?sort=date_desc_updated&term=\r\nhttp://www.mathworks.com/matlabcentral/newsreader/\r\nhttps://www.mathworks.com/matlabcentral/linkexchange/",
+    "pageElement": "//div[@class='cards']/div",
+    "exampleUrl": "https://www.mathworks.com/matlabcentral/fileexchange/?category%5B%5D=337&sort=date_desc_updated",
     "url": "^https?://(www\\.)?mathworks\\.com/matlabcentral/",
-    "pageElement": "//div[starts-with(normalize-space(@class),'row add_border_bottom')]|//tr[@class='file_results']",
-    "nextLink": "//a[span/@class='icon-arrow-open-right']|id('pagination_next')"
+    "nextLink": "//a[@data-action='loadMore']"
   },
-  "created_at": "2010-05-12T22:32:09+09:00"
-},
-{
-  "resource_url": "http://wedata.net/items/32706",
-  "name": "Funny Pics | www.holytaco.com",
-  "created_by": "toshi",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-05-05T14:57:52+09:00",
-  "data": {
-    "exampleUrl": "http://www.holytaco.com/photos",
-    "url": "^https?://(www\\.)?holytaco\\.com/photos",
-    "pageElement": "id('gallery-bottom')/div[@class='block']/div[@class='common-block']",
-    "nextLink": "//a[@class='nextpostslink']"
-  },
-  "created_at": "2010-05-12T21:52:42+09:00"
-},
-{
-  "resource_url": "http://wedata.net/items/32704",
-  "name": "Funny Stuff | www.holytaco.com",
-  "created_by": "toshi",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2016-02-29T13:40:18+09:00",
-  "data": {
-    "exampleUrl": "http://www.holytaco.com/",
-    "url": "^http://www\\.holytaco\\.com/(page/\\d+)?$",
-    "pageElement": "//div[@class='post-item']",
-    "nextLink": "//a[@class='nextpostslink']"
-  },
-  "created_at": "2010-05-12T21:49:51+09:00"
+  "updated_at": "2020-05-09T05:01:01+09:00",
+  "name": "MATLAB Central",
+  "created_by": "toshi"
 },
 {
   "resource_url": "http://wedata.net/items/32700",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_at": "2010-05-12T21:30:40+09:00",
+  "data": {
+    "pageElement": "//div[@class='c-block__cards']/article",
+    "exampleUrl": "https://www.treehugger.com/",
+    "url": "^https://(www\\.)?treehugger\\.com/",
+    "nextLink": "//a[@class='c-pagination__next']"
+  },
+  "updated_at": "2020-05-09T04:52:39+09:00",
   "name": "treehugger",
-  "created_by": "toshi",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2016-02-29T13:12:18+09:00",
-  "data": {
-    "exampleUrl": "http://www.treehugger.com/",
-    "url": "^http://www\\.treehugger\\.com/",
-    "pageElement": "id('stream-item-list')//li[p]",
-    "nextLink": "//a[@class='next']"
-  },
-  "created_at": "2010-05-12T21:30:40+09:00"
-},
-{
-  "resource_url": "http://wedata.net/items/32696",
-  "name": "写真素材 - Fotolia",
-  "created_by": "toshi",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-02-23T04:05:04+09:00",
-  "data": {
-    "exampleUrl": "https://jp.fotolia.com/Galleries/2wxsLFlKlxE0y7ModLs4Cy84PwygKR6D",
-    "url": "^https://[^.]+\\.fotolia\\.com/",
-    "pageElement": "//div[starts-with(@id,'content-thumb')]",
-    "nextLink": "//div[@class='link-next-page clearfix center-content']/a"
-  },
-  "created_at": "2010-05-12T19:32:18+09:00"
+  "created_by": "toshi"
 },
 {
   "resource_url": "http://wedata.net/items/32695",
@@ -42424,47 +42383,18 @@
   "created_at": "2010-05-12T19:12:30+09:00"
 },
 {
-  "resource_url": "http://wedata.net/items/32691",
-  "name": "Yahoo! Answers",
-  "created_by": "toshi",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2016-02-29T11:33:58+09:00",
-  "data": {
-    "exampleUrl": "https://au.answers.yahoo.com/question/index?qid=20070124144113AAVmBL1&page=2",
-    "url": "^https?://([^.]+\\.)?answers\\.yahoo\\.com/",
-    "pageElement": "id('ya-qn-answers')/li",
-    "nextLink": "//a[@aria-pressed='true']/following-sibling::a[1]"
-  },
-  "created_at": "2010-05-12T18:47:34+09:00"
-},
-{
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "name": "The Simple Dollar",
-  "created_by": "toshi",
-  "updated_at": "2016-02-29T11:21:48+09:00",
   "resource_url": "http://wedata.net/items/32610",
-  "data": {
-    "exampleUrl": "http://www.thesimpledollar.com/page/2/",
-    "url": "^http://www\\.thesimpledollar\\.com/",
-    "pageElement": "//div[@class='post'][div/@class='interior']",
-    "nextLink": "//a[@class='next page-numbers']"
-  },
-  "created_at": "2010-05-12T16:43:15+09:00"
-},
-{
-  "resource_url": "http://wedata.net/items/32606",
-  "name": "Socialite Life",
-  "created_by": "toshi",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-02-23T10:03:42+09:00",
+  "created_at": "2010-05-12T16:43:15+09:00",
   "data": {
-    "Stylish": "@-moz-document domain(\"socialitelife.com\") {\r\n  .autopagerize_page_separator~.autopagerize_page_separator~.main-container .sidebar{display:none;}\r\n  .pag{display:none;}\r\n}",
-    "exampleUrl": "http://www.socialitelife.com/\r\nhttp://www.socialitelife.com/photos",
-    "url": "^https?://(www\\.)?socialitelife\\.com/",
-    "pageElement": "//div[@class=\"container main-container\"][./following-sibling::div[@class=\"container main-container\"]][//link[@rel=\"canonical\"][@href=\"http://www.socialitelife.com/\"]]|//div[@class=\"container main-container\"][not(//link[@rel=\"canonical\"][@href=\"http://www.socialitelife.com/\" or contains(@href,\"/photos\")])]|//div[@class=\"post row\"]",
-    "nextLink": "//a[span/@class='arrow next']"
+    "pageElement": "//div[@class='section--hubs-category-posts__post-wrapper cc-blog-hub']",
+    "exampleUrl": "https://www.thesimpledollar.com/credit-cards/ https://www.thesimpledollar.com/loans/",
+    "url": "^https://(www\\.)?thesimpledollar\\.com/",
+    "nextLink": "//link[@rel='next']"
   },
-  "created_at": "2010-05-12T16:14:08+09:00"
+  "updated_at": "2020-05-08T11:51:54+09:00",
+  "name": "The Simple Dollar",
+  "created_by": "toshi"
 },
 {
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
@@ -42481,33 +42411,18 @@
   "resource_url": "http://wedata.net/items/32603"
 },
 {
-  "name": "WPdb.de - Wallpaper Database",
-  "updated_at": "2010-05-12T15:47:33+09:00",
-  "resource_url": "http:\/\/wedata.net\/items\/32602",
-  "created_by": "toshi",
-  "database_resource_url": "http:\/\/wedata.net\/databases\/AutoPagerize",
-  "data": {
-    "insertBefore": "",
-    "pageElement": "id(\"table1\")\/tbody\/tr",
-    "url": "^http:\/\/(?:www\\.)?wpdb\\.de\/",
-    "nextLink": "\/\/a[@class=\"selected\"]\/following-sibling::a[1]",
-    "exampleUrl": "http:\/\/www.wpdb.de\/"
-  },
-  "created_at": "2010-05-12T15:47:33+09:00"
-},
-{
-  "resource_url": "http://wedata.net/items/32588",
-  "name": "VR-Zone",
-  "created_by": "toshi",
+  "resource_url": "http://wedata.net/items/32602",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2016-02-29T10:33:34+09:00",
+  "created_at": "2010-05-12T15:47:33+09:00",
   "data": {
-    "exampleUrl": "http://vr-zone.com/?s=drive",
-    "url": "^http://vr-zone\\.com/",
-    "pageElement": "//div[@class='item-isotope'][article]",
-    "nextLink": "//a[@class='nextpostslink']"
+    "pageElement": "id(\"table1\")/tbody/tr",
+    "exampleUrl": "https://www.wpdb.de/",
+    "url": "^https://(?:www\\.)?wpdb\\.de/",
+    "nextLink": "//a[@class=\"selected\"]/following-sibling::a[1]"
   },
-  "created_at": "2010-05-12T02:35:16+09:00"
+  "updated_at": "2020-05-08T11:37:10+09:00",
+  "name": "WPdb.de - Wallpaper Database",
+  "created_by": "toshi"
 },
 {
   "resource_url": "http://wedata.net/items/32587",
@@ -42539,59 +42454,45 @@
 },
 {
   "resource_url": "http://wedata.net/items/32583",
-  "name": "GoNintendo",
-  "created_by": "toshi",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2016-02-29T07:25:58+09:00",
+  "created_at": "2010-05-12T01:15:22+09:00",
   "data": {
-    "exampleUrl": "http://gonintendo.com/",
-    "url": "^http://gonintendo\\.com/",
     "pageElement": "//div[@class='content']",
+    "exampleUrl": "https://gonintendo.com/",
+    "url": "^https://gonintendo\\.com/",
     "nextLink": "//a[@rel='next']"
   },
-  "created_at": "2010-05-12T01:15:22+09:00"
+  "updated_at": "2020-05-08T11:31:01+09:00",
+  "name": "GoNintendo",
+  "created_by": "toshi"
 },
 {
   "resource_url": "http://wedata.net/items/32582",
-  "name": "The Portable Freeware Collection",
-  "created_by": "toshi",
-  "updated_at": "2016-02-29T07:08:44+09:00",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_at": "2010-05-12T00:50:47+09:00",
   "data": {
-    "exampleUrl": "http://www.portablefreeware.com/",
-    "url": "^http://www\\.portablefreeware\\.com/",
     "pageElement": "//div[starts-with(@class,'entry group ')]",
+    "exampleUrl": "https://www.portablefreeware.com/",
+    "url": "^https://(www\\.)?portablefreeware\\.com/",
     "nextLink": "//li[@class='current']/following-sibling::li[1]/a"
   },
-  "created_at": "2010-05-12T00:50:47+09:00"
-},
-{
-  "resource_url": "http://wedata.net/items/32581",
-  "name": "Orphan Road",
-  "created_by": "toshi",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2016-02-29T07:03:46+09:00",
-  "data": {
-    "exampleUrl": "http://www.orphanroad.com/",
-    "url": "^http://www\\.orphanroad\\.com/",
-    "pageElement": "id('post-teasers')/div[@class='post-teasers-row post-teasers-pair']",
-    "nextLink": "//div[@class='pagination-next alignright']/a"
-  },
-  "created_at": "2010-05-12T00:43:55+09:00"
+  "updated_at": "2020-05-08T11:29:27+09:00",
+  "name": "The Portable Freeware Collection",
+  "created_by": "toshi"
 },
 {
   "resource_url": "http://wedata.net/items/32580",
-  "name": "Farnell",
-  "created_by": "toshi",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2016-02-28T20:21:57+09:00",
+  "created_at": "2010-05-12T00:38:27+09:00",
   "data": {
-    "exampleUrl": "http://uk.farnell.com/webapp/wcs/stores/servlet/Search?catalogId=15001&langId=44&storeId=10151&categoryId=700000004383&st=battery&beginIndex=2&showResults=true",
-    "url": "^http://[^.]+\\.farnell\\.com/",
     "pageElement": "id('sProdList')/tbody/tr",
-    "nextLink": "//a[@rel='next']"
+    "exampleUrl": "https://uk.farnell.com/webapp/wcs/stores/servlet/Search?catalogId=15001&langId=44&storeId=10151&categoryId=700000004383&st=battery&beginIndex=2&showResults=true",
+    "url": "^https://[^.]+\\.farnell\\.com/",
+    "nextLink": "//span[@class='paginNextArrow']/a"
   },
-  "created_at": "2010-05-12T00:38:27+09:00"
+  "updated_at": "2020-05-08T11:25:13+09:00",
+  "name": "Farnell",
+  "created_by": "toshi"
 },
 {
   "resource_url": "http://wedata.net/items/32569",
@@ -42608,60 +42509,46 @@
   "created_at": "2010-05-11T17:07:35+09:00"
 },
 {
-  "resource_url": "http://wedata.net/items/32568",
-  "name": "StockLogos.com",
-  "created_by": "toshi",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-02-21T10:38:14+09:00",
-  "data": {
-    "exampleUrl": "https://stocklogos.com/briefs\r\nhttps://stocklogos.com/blog\r\nhttps://stocklogos.com/forum",
-    "url": "^https?://stocklogos\\.com/.",
-    "pageElement": "//ul[@class='l-grid']/li|//table[@class='views-table cols-4']/tbody/tr|//div[@class='view-content']/*",
-    "nextLink": "//a[..[@class='more-link' or @class='pager-next']]"
-  },
-  "created_at": "2010-05-11T16:52:18+09:00"
-},
-{
+  "created_at": "2010-05-11T16:37:35+09:00",
   "resource_url": "http://wedata.net/items/32567",
-  "name": "Ads of the World, Brands of the World, Critique",
-  "created_by": "toshi",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-02-21T10:22:17+09:00",
   "data": {
-    "exampleUrl": "http://adsoftheworld.com/\r\nhttp://adsoftheworld.com/blog?page=1\r\nhttp://adsoftheworld.com/recent\r\nhttp://www.brandsoftheworld.com/logos\r\nhttp://www.brandsoftheworld.com/forums/general?page=1\r\nhttp://www.brandsoftheworld.com/forum/mx-atv-templates\r\nhttp://creativebits.org/membersforum\r\nhttp://creativebits.org/new_members_please_introduce_yourself_here",
-    "url": "^https?://(?:(?:a|www\\.bran)dsoftheworld\\.com|creativebits\\.org)/",
     "pageElement": "//ul[@class='inline-list' or @class='logos']/li|//div[starts-with(@id,'blog-') or @class='comment ']|//tr[@class='odd' or @class='even']",
+    "exampleUrl": "http://adsoftheworld.com/\r\nhttp://adsoftheworld.com/blog?page=1\r\nhttp://adsoftheworld.com/recent\r\nhttp://www.brandsoftheworld.com/logos\r\nhttp://www.brandsoftheworld.com/forums/general?page=1\r\nhttp://www.brandsoftheworld.com/forum/mx-atv-templates\r\nhttp://creativebits.org/membersforum\r\nhttp://creativebits.org/new_members_please_introduce_yourself_here",
+    "url": "^https?://(www\\.)?((a|bran)dsoftheworld\\.com|creativebits\\.org)/",
     "nextLink": "//li[starts-with(@class,'pager-next')]/a"
   },
-  "created_at": "2010-05-11T16:37:35+09:00"
+  "updated_at": "2020-05-08T10:37:23+09:00",
+  "name": "Ads of the World, Brands of the World, Critique",
+  "created_by": "toshi"
 },
 {
-  "resource_url": "http://wedata.net/items/32566",
-  "name": "Koreus.com",
-  "created_by": "toshi",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-02-21T21:18:11+09:00",
+  "created_at": "2010-05-11T16:08:10+09:00",
+  "resource_url": "http://wedata.net/items/32566",
   "data": {
+    "pageElement": "//div[@class='container']/div[@class='row']//div[@class='row']|id('centercolumn')/div[@style][1]/following-sibling::*[./following-sibling::br]",
     "exampleUrl": "https://www.koreus.com/animations/nouveau/\r\nhttps://www.koreus.com/tag/chute\r\nhttps://www.koreus.com/modules/news/",
     "url": "^https://(www\\.)?koreus\\.com/",
-    "pageElement": "//div[@class='col-md-9']/div[@class='row']/div",
     "nextLink": "//li[@class='active']/following-sibling::li[1]/a|id('content')/div[1]//b/following-sibling::a[1]"
   },
-  "created_at": "2010-05-11T16:08:10+09:00"
+  "updated_at": "2020-05-08T10:47:24+09:00",
+  "name": "Koreus.com",
+  "created_by": "toshi"
 },
 {
   "resource_url": "http://wedata.net/items/32565",
-  "name": "CareerBuilder.com",
-  "created_by": "toshi",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-02-20T13:51:10+09:00",
+  "created_at": "2010-05-11T15:58:23+09:00",
   "data": {
-    "exampleUrl": "http://www.careerbuilder.com/jobs-se?pay=0&siteid=cbnsv&emp=ALL&posted=30",
-    "url": "^https?://(www\\.)?careerbuilder\\.com/jobs",
-    "pageElement": "//div[@class='job-row']",
-    "nextLink": "id('next-button')"
+    "pageElement": "//ul[@class=\"pagination\"]/ancestor::div[@class=\"row\"][1]/preceding-sibling::*[./*/*]",
+    "exampleUrl": "https://www.careerbuilder.com/advice",
+    "url": "^https?://(www\\.)?careerbuilder\\.com/",
+    "nextLink": "//li[@class=\"next_page\"]/a"
   },
-  "created_at": "2010-05-11T15:58:23+09:00"
+  "updated_at": "2020-05-08T10:36:33+09:00",
+  "name": "CareerBuilder.com",
+  "created_by": "toshi"
 },
 {
   "resource_url": "http://wedata.net/items/32564",
@@ -42693,45 +42580,31 @@
 },
 {
   "resource_url": "http://wedata.net/items/32559",
-  "name": "Applemania.pl, AUTOKULT.pl, Fotoblogia.pl, HDTVMania.pl, Lajfmajster.pl, Gadżetomania.pl, GRRR.pl, Komórkomania.pl, NiezłeKino.pl, SIMblog, vBeta.pl",
-  "created_by": "toshi",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-06-25T11:19:55+09:00",
+  "created_at": "2010-05-11T14:00:49+09:00",
   "data": {
+    "pageElement": "//div[@class='grid-wrapper']",
     "exampleUrl": "https://komorkomania.pl/c/6,apple",
     "url": "^https://(?:a(?:pplemania|utokult)|(?:fotoblog|hdtvman)ia|lajfmajster|g(?:adzetomania|rrr)|komorkomania|niezlekino|simblog|vbeta).pl/",
-    "pageElement": "//article",
-    "nextLink": "//a[@class='load-content__btn']"
+    "nextLink": "//a[@class='pg_page pg_next']"
   },
-  "created_at": "2010-05-11T14:00:49+09:00"
+  "updated_at": "2020-05-08T09:54:41+09:00",
+  "name": "Applemania.pl, AUTOKULT.pl, Fotoblogia.pl, HDTVMania.pl, Lajfmajster.pl, Gadżetomania.pl, GRRR.pl, Komórkomania.pl, NiezłeKino.pl, SIMblog, vBeta.pl",
+  "created_by": "toshi"
 },
 {
-  "resource_url": "http://wedata.net/items/32557",
-  "name": "Geekologie, I Watch Stuff, The Superficial",
-  "created_by": "toshi",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-02-20T13:35:45+09:00",
+  "created_at": "2010-05-11T13:39:07+09:00",
+  "resource_url": "http://wedata.net/items/32557",
   "data": {
+    "pageElement": "//article|//div[@class='post']",
     "exampleUrl": "http://geekologie.com/\r\nhttp://www.iwatchstuff.com/\r\nhttp://www.thesuperficial.com/",
     "url": "^https?://(www\\.)?(?:geekologie|iwatchstuff|thesuperficial)\\.com/",
-    "pageElement": "//article|//div[@class='post']",
-    "nextLink": "//a[@class='light-button pull-center' or @class='light-button pull-right' or ../normalize-space(@class)='next right']"
+    "nextLink": "//a[@class='light-button pull-center' or @class='next_link']"
   },
-  "created_at": "2010-05-11T13:39:07+09:00"
-},
-{
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "data": {
-    "exampleUrl": "http://nerdapproved.com/\r\nhttp://nerdapproved.com/?s=rom",
-    "pageElement": "//div[starts-with(@class,'post')]",
-    "nextLink": "//*[@class='previous_posts']/a",
-    "url": "^http://nerdapproved\\.com/"
-  },
-  "resource_url": "http://wedata.net/items/32556",
-  "created_by": "toshi",
-  "name": "Nerd Approved",
-  "created_at": "2010-05-11T12:18:13+09:00",
-  "updated_at": "2015-02-24T16:05:23+09:00"
+  "updated_at": "2020-05-08T09:41:47+09:00",
+  "name": "Geekologie, I Watch Stuff, The Superficial",
+  "created_by": "toshi"
 },
 {
   "resource_url": "http://wedata.net/items/32552",
@@ -42749,17 +42622,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/32551",
-  "name": "UserLogos.org",
-  "created_by": "toshi",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2016-02-28T16:32:37+09:00",
+  "created_at": "2010-05-11T11:34:26+09:00",
   "data": {
-    "exampleUrl": "http://www.userlogos.org/\r\nhttp://www.userlogos.org/forums/general/discussions\r\nhttp://www.userlogos.org/forums/general/discussions/11162008/launchy-stuff",
-    "url": "^http://(www\\.)?userlogos\\.org/",
     "pageElement": "//div[@class='view-content']/div[starts-with(@class,'views-row')]|id('forum')//*[td or starts-with(@class,'comment comment')]|//div[@id='comments']/div[starts-with(@class,'comment')]",
-    "nextLink": "//li[@class='pager-next']/a"
+    "exampleUrl": "http://www.userlogos.org/\r\nhttp://www.userlogos.org/forums/general/discussions\r\nhttp://www.userlogos.org/forums/general/discussions/11162008/launchy-stuff",
+    "url": "^https?://(www\\.)?userlogos\\.org/",
+    "nextLink": "//li[@class='pager-next' or @class='pager-next last']"
   },
-  "created_at": "2010-05-11T11:34:26+09:00"
+  "updated_at": "2020-05-08T08:53:58+09:00",
+  "name": "UserLogos.org",
+  "created_by": "toshi"
 },
 {
   "resource_url": "http://wedata.net/items/32550",
@@ -42832,32 +42705,32 @@
   "created_by": "toshi"
 },
 {
-  "resource_url": "http://wedata.net/items/32529",
-  "name": "Basic Thinking Blog",
-  "created_by": "toshi",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-02-19T11:45:00+09:00",
+  "created_at": "2010-05-11T01:27:03+09:00",
+  "resource_url": "http://wedata.net/items/32529",
   "data": {
+    "pageElement": "//article",
     "exampleUrl": "https://www.basicthinking.de/blog/",
     "url": "^https://(www\\.)?basicthinking\\.de/blog/",
-    "pageElement": "id('main-box-8')/div[@class='main-box-inside ']/div[@class='vce-loop-wrap']/*",
     "nextLink": "//a[@class='next page-numbers']"
   },
-  "created_at": "2010-05-11T01:27:03+09:00"
+  "updated_at": "2020-05-09T08:29:35+09:00",
+  "name": "Basic Thinking Blog",
+  "created_by": "toshi"
 },
 {
   "resource_url": "http://wedata.net/items/32528",
-  "name": "Suche - ZDF.de",
-  "created_by": "toshi",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-02-19T11:40:41+09:00",
+  "created_at": "2010-05-11T01:22:23+09:00",
   "data": {
-    "exampleUrl": "https://www.zdf.de/suche?q=2&from=&to=&sender=alle+Sender&attrs=",
-    "url": "^https://www\\.zdf\\.de/suche",
     "pageElement": "id('aria-search-block')/*",
-    "nextLink": "//div[@class='load-more-container m-focus-within']/a"
+    "exampleUrl": "https://www.zdf.de/suche?q=2&from=&to=&sender=alle+Sender&attrs=",
+    "url": "^https://(www\\.)?zdf\\.de/suche",
+    "nextLink": "//div[@class='load-more-container']/a"
   },
-  "created_at": "2010-05-11T01:22:23+09:00"
+  "updated_at": "2020-05-09T04:31:35+09:00",
+  "name": "Suche - ZDF.de",
+  "created_by": "toshi"
 },
 {
   "resource_url": "http://wedata.net/items/32523",
@@ -42916,20 +42789,6 @@
     "exampleUrl": "http:\/\/www.alfasystem.net\/a_m\/diary.cgi?page=1"
   },
   "created_at": "2010-05-11T00:47:57+09:00"
-},
-{
-  "resource_url": "http://wedata.net/items/32519",
-  "name": "Adobe Photoshop Lightroom Killer Tips",
-  "created_by": "toshi",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2016-02-26T22:21:19+09:00",
-  "data": {
-    "exampleUrl": "http://lightroomkillertips.com/?s=photoshop",
-    "url": "^http://lightroomkillertips\\.com/\\?",
-    "pageElement": "//div[@class='recent-post clearfix']",
-    "nextLink": "//div[@class='alignleft']/a"
-  },
-  "created_at": "2010-05-11T00:35:49+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/32517",
@@ -55088,11 +54947,11 @@
     "pageElement": "(//article[not(contains(../@class,'widget'))][not(contains(@class,'columns four'))][not(contains(@class,'side-contents'))][not(ancestor::*[starts-with(@class,'sidebar')])][not(ancestor::*[contains(@class,'featured') and not(self::body)])]|//*[starts-with(@id,'post-')][not(contains(@id,'nav'))][not(contains(@id,'post-rating'))])[not(.//*[contains(@class,'admz')])][not(self::h2)][not(self::h3)][not(ancestor::*[@id='side' or @class='pickup'])][not(ancestor::aside)][not(id('load-more-posts') or @id='fpost' or contains(@class,'carousel'))][parent::node()[not(@id='side')][not(contains(@class,'thumbnail'))][not(following-sibling::*[not(@id='side')][article or *[starts-with(@id,'post-')]])]/*[self::article or starts-with(@id,'post-')]/following-sibling::*[self::article or starts-with(@id,'post-')][not(contains(@id,'nav'))]]|id('content')[count(div)>1]/div[contains(@class,'post')][not(contains(div/@class,'breadcrumb'))][not(contains(div/@class,'nav'))]",
     "Stylish": "@-moz-document domain(\"wotopi.jp\") { .figure-list{display:flex; flex-wrap:wrap;} }",
     "comment": "nextLink:563 pageElement:957",
-    "exampleUrl": "http://www.jinnsblog.com/ http://starcasm.net/ http://www.newyorker.com/magazine/food-and-drink http://moherou.net/page/2/ http://anjo.dekiteharu.jp/category/3d_animation http://blog.archive.org/ http://www.celebdirtylaundry.com/ http://www.sonyalpharumors.com/ http://octech.jp/modules/wordpress/ http://www.octech.jp/review/?s=a https://www.evilmadscientist.com/ http://g86.dbcls.jp/~togoriv/ http://g86.dbcls.jp/~togoriv/cho-cell/ http://www.synthtopia.com/ https://ieiri.net/blog http://dannnao.net/blog/ http://dannnao.net/blog/page/2/ http://dannnao.net/blog/2013/01/2000px/ http://tvline.com/ http://blog.nrpg-a.com/ http://gadget-shot.com/ http://www.bijin-snap.com/ http://www.appinn.com/page/2/ http://www.askasu.idv.tw/ http://shingeki.tv/news/ https://www.ama-dan.com/news http://www.stuff-review.com/ http://blog.jquery.com/ http://4koma.takeshobo.co.jp/category/flash/ http://www.cbr.com/category/tv/news-tv/ https://petitetomo.com/ http://fail.in.th/ https://www.webcreatorbox.com/ https://xperia-freaks.org/ http://www.43rumors.com/ http://web-engineer.buyuden.net/series/buyuden/ http://allanhutchison.net/ http://www.caelum-lex.com/ http://skaz.jp/page/2 http://yaneuraou.yaneu.com/ http://dl-zip.com/ https://www.flickeringmyth.com/category/movies http://www.justskins.com/ http://insidepulse.com/ http://wrestling.insidepulse.com/ http://diehardgamefan.com/category/nintendo_wii/ http://insidefights.com/ http://bestwebgallery.com/page/2/ http://4koma.takeshobo.co.jp/date/2016/02/ http://haaya.net/ http://info.yadoku.com/ http://www.baitoru.com/kanto/jlist/wrd%E3%83%86%E3%82%B9%E3%83%88/?pname=search_fw1&from=toparea1 http://youpouch.com/ http://littlebigdetails.com/page/2 http://littlebigdetails.com/tagged/chrome/page/2 http://bash.org.pl/latest/ http://www.geeksnack.com/ https://www.raymond.cc/blog/ http://templated.co/ http://www.asagei.com/ http://ptm-net.com/news http://ptm-net.com/report https://opentrackers.org/ http://www.techbang.com/posts?page=1 http://www.blogherald.com/ http://www.socialnetworking.jp/?cat=29 https://www.smashingmagazine.com/category/graphics/ https://templated.co/ http://www.adweek.com/vertical/tv-video/ http://rexdl.com/ https://ihackedit.com/ https://tnzwtmfm.net/articles/news/ http://oceanofgames.com/ http://www.mkph.com/ http://s0ft4pc.com/ http://www.zeit.de/suche/index?q=2 https://getsatisfaction.com/imdb/categories/imdb_i_need_to_know https://www.limemo.net/blog/page/2 https://www.winandmac.com/ http://blog.gsmarena.com/ https://danbooru.donmai.us/forum_topics/9127 http://www.justjared.com/ http://qoly.jp/category/news http://gameganba.com/category/news/ http://13dl.net/page/2 http://www.j-n.co.jp/searchresult.html?mgenre_id=76 http://cartermatt.com/category/tv/news/ https://www.kitguru.net/tag/news/ http://wotopi.jp/archives/date/2017/02 https://screenrant.com/movie-news/page/2/ http://hollywoodlife.com/ https://netsurfinkenbunki.com/ https://nationalinterest.org/tag/military https://axia.co.jp/blog https://www.popoptiq.com/entertainment/ https://blog.qiita.com/page/2/ https://www.geekjob.jp/ https://www.alistapart.com/articles/ https://alistapart.com/?s=list https://i.impressrd.jp/page/2 https://diamond.jp/list/feature https://techreport.com/category/news/ https://appsafari.com/ https://alpha.mixi.co.jp/?p=566 https://nyhash.info/ https://lineblog.me/kurakimai/ https://deadspin.com/c/nhl https://kotaku.com/ https://jalopnik.com/ https://jezebel.com/ https://io9.com/ https://us.gizmodo.com/ https://us.lifehacker.com/ https://www.theroot.com/ https://www.ryuzee.com/ https://ikubon.com/wp/ https://www.modmy.com/category/ios-jailbreak https://www.nginx.com/blog/",
+    "exampleUrl": "http://www.jinnsblog.com/ http://starcasm.net/ http://www.newyorker.com/magazine/food-and-drink http://moherou.net/page/2/ http://anjo.dekiteharu.jp/category/3d_animation http://blog.archive.org/ http://www.celebdirtylaundry.com/ http://www.sonyalpharumors.com/ http://octech.jp/modules/wordpress/ http://www.octech.jp/review/?s=a https://www.evilmadscientist.com/ http://g86.dbcls.jp/~togoriv/ http://g86.dbcls.jp/~togoriv/cho-cell/ http://www.synthtopia.com/ https://ieiri.net/blog http://dannnao.net/blog/ http://dannnao.net/blog/page/2/ http://dannnao.net/blog/2013/01/2000px/ http://tvline.com/ http://blog.nrpg-a.com/ http://gadget-shot.com/ http://www.bijin-snap.com/ http://www.appinn.com/page/2/ http://www.askasu.idv.tw/ http://shingeki.tv/news/ https://www.ama-dan.com/news http://www.stuff-review.com/ http://blog.jquery.com/ http://4koma.takeshobo.co.jp/category/flash/ http://www.cbr.com/category/tv/news-tv/ https://petitetomo.com/ http://fail.in.th/ https://www.webcreatorbox.com/ https://xperia-freaks.org/ http://www.43rumors.com/ http://web-engineer.buyuden.net/series/buyuden/ http://allanhutchison.net/ http://www.caelum-lex.com/ http://skaz.jp/page/2 http://yaneuraou.yaneu.com/ http://dl-zip.com/ https://www.flickeringmyth.com/category/movies http://www.justskins.com/ http://insidepulse.com/ http://wrestling.insidepulse.com/ http://diehardgamefan.com/category/nintendo_wii/ http://insidefights.com/ http://bestwebgallery.com/page/2/ http://4koma.takeshobo.co.jp/date/2016/02/ http://haaya.net/ http://info.yadoku.com/ http://www.baitoru.com/kanto/jlist/wrd%E3%83%86%E3%82%B9%E3%83%88/?pname=search_fw1&from=toparea1 http://youpouch.com/ http://littlebigdetails.com/page/2 http://littlebigdetails.com/tagged/chrome/page/2 http://bash.org.pl/latest/ http://www.geeksnack.com/ https://www.raymond.cc/blog/ http://templated.co/ http://www.asagei.com/ http://ptm-net.com/news http://ptm-net.com/report https://opentrackers.org/ http://www.techbang.com/posts?page=1 http://www.blogherald.com/ http://www.socialnetworking.jp/?cat=29 https://www.smashingmagazine.com/category/graphics/ https://templated.co/ http://www.adweek.com/vertical/tv-video/ http://rexdl.com/ https://ihackedit.com/ https://tnzwtmfm.net/articles/news/ http://oceanofgames.com/ http://www.mkph.com/ http://s0ft4pc.com/ http://www.zeit.de/suche/index?q=2 https://getsatisfaction.com/imdb/categories/imdb_i_need_to_know https://www.limemo.net/blog/page/2 https://www.winandmac.com/ http://blog.gsmarena.com/ https://danbooru.donmai.us/forum_topics/9127 http://www.justjared.com/ http://qoly.jp/category/news http://gameganba.com/category/news/ http://13dl.net/page/2 http://www.j-n.co.jp/searchresult.html?mgenre_id=76 http://cartermatt.com/category/tv/news/ https://www.kitguru.net/tag/news/ http://wotopi.jp/archives/date/2017/02 https://screenrant.com/movie-news/page/2/ http://hollywoodlife.com/ https://netsurfinkenbunki.com/ https://nationalinterest.org/tag/military https://axia.co.jp/blog https://www.popoptiq.com/entertainment/ https://blog.qiita.com/page/2/ https://www.geekjob.jp/ https://www.alistapart.com/articles/ https://alistapart.com/?s=list https://i.impressrd.jp/page/2 https://diamond.jp/list/feature https://techreport.com/category/news/ https://appsafari.com/ https://alpha.mixi.co.jp/?p=566 https://nyhash.info/ https://lineblog.me/kurakimai/ https://deadspin.com/c/nhl https://kotaku.com/ https://jalopnik.com/ https://jezebel.com/ https://io9.com/ https://us.gizmodo.com/ https://us.lifehacker.com/ https://www.theroot.com/ https://www.ryuzee.com/ https://ikubon.com/wp/ https://www.modmy.com/category/ios-jailbreak https://www.nginx.com/blog/ https://seattletransitblog.com/category/orphan-road/ http://vr-zone.com/?s=drive https://socialitelife.com/category/entertainment/celebrity/ http://lightroomkillertips.com/?s=photoshop",
     "url": "^https?://.+",
     "nextLink": "(//*[not(contains(@class,'_inactive'))]/a[starts-with(@class,'nextpostslink') or contains(@class,'next page-numbers') or (.|..)[normalize-space(@rel)='next' or normalize-space(@class)='next' or contains(@class,'pagination-next')]][not(span/@class='link-text')]|//*[contains(@class,'nav-previous')][not(contains(@class,'pull'))]/a|(//*[contains(@class,'current')][number()>0]/following-sibling::a[1]|(//li|//span|//div)[(.//*|.)[contains(@class,'current')]][number()>0]/following-sibling::*[self::li or self::span or self::div][1]/a))[not(starts-with(@href, '#'))]"
   },
-  "updated_at": "2020-05-08T06:14:30+09:00",
+  "updated_at": "2020-05-09T04:28:34+09:00",
   "name": "Generic Posts Rule",
   "created_by": "swdyh"
 }
