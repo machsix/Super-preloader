@@ -1,9 +1,9 @@
-import {getAllElements, getAllElementsByXpath, getElementByXpath} from "../utils/domSelector";
+import {getAllElements, getAllElementsByXpath, getElementByXpath} from '../utils/domSelector';
 // General rules for CMS like phpwind
 export const jsGeneralRule = [
   {
-    name: "Discuz 论坛 - 搜索",
-    url: "^https?://bbs\\.[a-z]+\\.cn/search\\.php\\?mod=forum",
+    name: 'Discuz 论坛 - 搜索',
+    url: '^https?://bbs\\.[a-z]+\\.cn/search\\.php\\?mod=forum',
     preLink: '//div[@class="pages" or @class="pg"]/descendant::a[@class="prev"][@href]',
     nextLink: '//div[@class="pages" or @class="pg"]/descendant::a[@class="next" or @class="nxt"][@href]',
     autopager: {
@@ -12,7 +12,7 @@ export const jsGeneralRule = [
     }
   },
   {
-    name: "Discuz 论坛 - 导读",
+    name: 'Discuz 论坛 - 导读',
     url: /^https?:\/\/(?:bbs|u)\.[^\/]+\/(?:forum\.php\?mod=guide|home\.php\?mod=space)/i,
     preLink: '//div[@class="pages" or @class="pg"]/descendant::a[@class="prev"][@href]',
     nextLink: '//div[@class="pages" or @class="pg"]/descendant::a[@class="next" or @class="nxt"][@href]',
@@ -22,30 +22,30 @@ export const jsGeneralRule = [
     }
   },
   {
-    name: "Discuz论坛列表",
+    name: 'Discuz论坛列表',
     url: /^https?:\/\/(?:www\.[^\/]+\/|[^\/]+\/(?:bbs\/)?)(?:2b\/)?(?:(?:forum)|(?:showforum)|(?:viewforum)|(?:forumdisplay))+/i,
     preLink: '//div[@class="pages" or @class="pg"]/descendant::a[@class="prev"][@href]',
     nextLink: '//div[@class="pages" or @class="pg"]/descendant::a[@class="next" or @class="nxt"][@href] | //div[@class="p_bar"]/a[@class="p_curpage"]/following-sibling::a[@class="p_num"]',
     autopager: {
       pageElement: '//form[@method="post"][@name] | //div[@id="postlist"] | //div[@id="threadlist"]',
       replaceE: '//div[@class="pages" or @class="pg"][child::a[@class="next" or @class="nxt"][@href]]',
-      lazyImgSrc: "file|pagespeed_lsc_url"
+      lazyImgSrc: 'file|pagespeed_lsc_url'
     }
   },
   {
-    name: "Discuz论坛帖子",
+    name: 'Discuz论坛帖子',
     url: /^https?:\/\/(?:www\.[^\/]+\/|[^\/]+\/(?:bbs\/)?)(?:2b\/)?(?:(?:thread)|(?:viewthread)|(?:showtopic)|(?:viewtopic))+/i,
     preLink: '//div[@class="pages" or @class="pg"]/descendant::a[@class="prev"][@href]',
     nextLink: '//div[@class="pages" or @class="pg"]/descendant::a[@class="next" or @class="nxt"][@href] | //div[@class="p_bar"]/descendant::a[text()="??"]',
     autopager: {
       pageElement: '//div[@id="postlist"] | //form[@method="post"][@name]',
       replaceE: '//div[@class="pages" or @class="pg"][child::a[@class="next" or @class="nxt"][@href]]',
-      lazyImgSrc: "zoomfile",
+      lazyImgSrc: 'zoomfile',
       stylish:
         '.mbbs_code{font-family:Monaco,Consolas,"Lucida Console","Courier New",serif;font-size:12px;line-height:1.8em;list-style-type:decimal-leading-zero;padding-left:10px;background:none repeat scroll 0 0 #f7f7f7;color:#666;border:1px solid #ccc;overflow:hidden;padding:10px 0 5px 10px}',
       filter: function (_pages) {
         // 回复后插入到最后一页
-        const replays = document.querySelectorAll("#postlistreply");
+        const replays = document.querySelectorAll('#postlistreply');
         if (replays.length > 1) {
           const first = replays[0];
           first.parentNode.removeChild(first);
@@ -61,13 +61,13 @@ export const jsGeneralRule = [
         // 卡饭论坛的下一页代码区域可能无法着色，所以手动修改并添加样式
         const pres = doc.querySelectorAll('pre[class^="brush:"]');
         [].forEach.call(pres, function (pre) {
-          pre.classList.add("mbbs_code");
+          pre.classList.add('mbbs_code');
         });
       }
     }
   },
   {
-    name: "phpWind论坛列表",
+    name: 'phpWind论坛列表',
     url: /^https?:\/\/(?:www\.[^\/]+\/|[^\/]+\/(?:bbs\/)?)?thread/i,
     preLink: '//div[starts-with(@class,"pages")]/b[1]/preceding-sibling::a[1][not(@class)][@href] | //div[starts-with(@class,"pages")]/ul[1]/li[b]/preceding-sibling::li/a[1][not(@class)][@href]',
     nextLink: '//div[starts-with(@class,"pages")]/b[1]/following-sibling::a[1][not(@class)] | //div[starts-with(@class,"pages")]/ul[1]/li[b]/following-sibling::li/a[1][not(@class)]',
@@ -76,7 +76,7 @@ export const jsGeneralRule = [
     }
   },
   {
-    name: "phpWind论坛帖子",
+    name: 'phpWind论坛帖子',
     url: /^https?:\/\/(?:www\.[^\/]+\/|[^\/]+\/(?:bbs\/)?)?read/i,
     preLink: '//div[starts-with(@class,"pages")]/b[1]/preceding-sibling::a[1][not(@class)][@href] | //div[starts-with(@class,"pages")]/ul[1]/li[b]/preceding-sibling::li/a[1][not(@class)][@href]',
     nextLink: '//div[starts-with(@class,"pages")]/b[1]/following-sibling::a[1][not(@class)] | //div[starts-with(@class,"pages")]/ul[1]/li[b]/following-sibling::li/a[1][not(@class)]',
@@ -85,10 +85,10 @@ export const jsGeneralRule = [
     }
   },
   {
-    name: "phpBB列表",
+    name: 'phpBB列表',
     url: /^https?:\/\/[^\/]+(\/[a-z,0-9]+)?\/viewforum/i,
-    exampleUrl: "http://www.firefox.net.cn/forum/viewforum.php?f=4",
-    nextLink: "auto;",
+    exampleUrl: 'http://www.firefox.net.cn/forum/viewforum.php?f=4',
+    nextLink: 'auto;',
     autopager: {
       pageElement: '(//div[@id="page-body"]/div[@class="forumbg"]|//table[@class="forumline"]|//table[@class="tablebg"])',
       // replaceE:'//fildset[@class="display-options")]',
@@ -96,10 +96,10 @@ export const jsGeneralRule = [
     }
   },
   {
-    name: "phpBB帖子",
+    name: 'phpBB帖子',
     url: /^https?:\/\/[^\/]+(\/[a-z,0-9]+)?\/viewtopic/i,
-    exampleUrl: "http://www.firefox.net.cn/forum/viewtopic.php?t=34339",
-    nextLink: "auto;",
+    exampleUrl: 'http://www.firefox.net.cn/forum/viewtopic.php?t=34339',
+    nextLink: 'auto;',
     autopager: {
       // pageElement:'//div[@id="page-body"]',
       pageElement: '(//div[@id="page-body"]/div[contains(@class,"post")]|//table[@class="forumline"]|//table[@class="tablebg"])'
@@ -107,77 +107,77 @@ export const jsGeneralRule = [
     }
   },
   {
-    name: "phpBB Search",
+    name: 'phpBB Search',
     url: /^https?:\/\/forum\.[^\/]+\/search\.php/i,
-    exampleUrl: "http://forum.everedit.net/search.php?keywords=%E5%A4%A7%E7%BA%B2",
-    nextLink: "auto;",
+    exampleUrl: 'http://forum.everedit.net/search.php?keywords=%E5%A4%A7%E7%BA%B2',
+    nextLink: 'auto;',
     autopager: {
       pageElement: 'id("page-body")/div[starts-with(@class, "search post")]',
       replaceE: 'id("page-body")/ul[@class="linklist"]'
     }
   },
   {
-    name: "discuz论坛通用搜索",
-    url: "^https?://[^/]+/f/(?:discuz|search)",
-    nextLink: "auto;",
+    name: 'discuz论坛通用搜索',
+    url: '^https?://[^/]+/f/(?:discuz|search)',
+    nextLink: 'auto;',
     pageElement: 'id("result-items")'
   },
   {
-    name: "View forum - 通用",
-    url: "^https?://.+?/viewforum\\.php\\?",
+    name: 'View forum - 通用',
+    url: '^https?://.+?/viewforum\\.php\\?',
     nextLink:
       '//span[@class="gensmall"]/b/b/following-sibling::a[1] | (//table/tbody/tr/td[@class="nav"])[last()]/b[last()]/following-sibling::a[1]  | //div[@class="pagination"]/span/strong/following-sibling::a[1] | //a[text()="Next"]',
     pageElement: '//ul[contains(concat(" ",@class," ")," topics ")]|//form[table/@class="forumline"]'
   },
   {
-    name: "wiki 通用",
-    url: ".\\?(?:.+&)?search=",
+    name: 'wiki 通用',
+    url: '.\\?(?:.+&)?search=',
     nextLink: '//a[@class="mw-nextlink"]',
     pageElement: '//ul[@class="mw-search-results"]'
   },
   {
-    name: "通用 Forum 规则1",
-    url: "^https?://.*((showthread\\.php\\?)|(forum|thread))",
+    name: '通用 Forum 规则1',
+    url: '^https?://.*((showthread\\.php\\?)|(forum|thread))',
     nextLink: '//a[@rel="next"]',
     pageElement: '//div[@id="posts"]|//ol[@id="posts"]/li',
     separatorReal: false
   },
   {
-    name: "通用 Forum 规则2 vBulletin threads",
-    url: "^https?://[^?#]+?/showthread\\.php\\?",
+    name: '通用 Forum 规则2 vBulletin threads',
+    url: '^https?://[^?#]+?/showthread\\.php\\?',
     nextLink: '//tr[@valign="top"]//div[@class="pagenav"]//a[contains(text(), ">")]',
     pageElement: '(//div[@class="pagenav"])[1]|//div[@id="posts"]/node()',
     separatorReal: false
   },
   {
-    name: "通用 Forum 规则3 vBulletin thread_list",
-    url: "^https?://.*((forumdisplay\\.php\\?)|forum)",
-    nextLink: "auto;",
+    name: '通用 Forum 规则3 vBulletin thread_list',
+    url: '^https?://.*((forumdisplay\\.php\\?)|forum)',
+    nextLink: 'auto;',
     pageElement: '//div[@id="posts"]/div[@align="center"] | //table[@class="tborder"][@id="threadslist"]',
     separatorReal: false
   },
   {
-    name: "通用 Forum 规则4",
+    name: '通用 Forum 规则4',
     url: /^https?:\/\/forums\..*\/threads/i,
-    nextLink: '(//div[@class="PageNav"])[1]//a[contains(text(),' > ")]",
+    nextLink: '(//div[@class="PageNav"])[1]//a[contains(text(),' > ')]',
     pageElement: '//ol[@id="messageList"]/li',
     separatorReal: false
   },
   {
-    name: "PHPWind 5.3.0 / 6.0.0 / 6.3.2 / 7.0.0 / 7.5.0 - View Thread",
-    url: "^https?://.+/read\\.php\\?.*tid((=[0-9]+.*)|(-[0-9]+.*\\.html?))$",
-    nextLink: "auto;",
+    name: 'PHPWind 5.3.0 / 6.0.0 / 6.3.2 / 7.0.0 / 7.5.0 - View Thread',
+    url: '^https?://.+/read\\.php\\?.*tid((=[0-9]+.*)|(-[0-9]+.*\\.html?))$',
+    nextLink: 'auto;',
     pageElement: '//form[@name="delatc"]',
-    exampleUrl: "http://www.yydzh.com/read.php?tid=1584013"
+    exampleUrl: 'http://www.yydzh.com/read.php?tid=1584013'
   },
   {
-    name: "Typecho",
-    url: "^https?://",
+    name: 'Typecho',
+    url: '^https?://',
     nextLink: "//ol[@class='page-navigator']/li[@class='next']/a",
     autopager: {
       pageElement: function (doc, _win, _cplink) {
         const gen = getElementByXpath("//head/meta[@name='generator']", doc, doc);
-        if (!gen || !gen.content.includes("Typecho") || !doc.documentElement.outerHTML.includes("Typecho")) {
+        if (!gen || !gen.content.includes('Typecho') || !doc.documentElement.outerHTML.includes('Typecho')) {
           return null;
         }
         try {
@@ -190,22 +190,22 @@ export const jsGeneralRule = [
     }
   },
   {
-    name: "WordPress",
-    url: "^https?://[^/]+(/page/\\d+)?",
+    name: 'WordPress',
+    url: '^https?://[^/]+(/page/\\d+)?',
     nextLink: function (_doc, _win, _cplink) {
-      const cplink = _cplink.replace(/^(.*)(#[^\/]*)?$/, "$1");
-      if (cplink.slice(cplink.length - 5, cplink.length) === ".html") {
+      const cplink = _cplink.replace(/^(.*)(#[^\/]*)?$/, '$1');
+      if (cplink.slice(cplink.length - 5, cplink.length) === '.html') {
         return undefined;
       }
-      if (cplink.slice(cplink.length - 4, cplink.length) === ".htm") {
+      if (cplink.slice(cplink.length - 4, cplink.length) === '.htm') {
         return undefined;
       }
       const a = /^(https?:\/\/.*?)(\/page\/\d+\/?)?$/.exec(cplink);
       if (a[2]) {
         const b = Number(/\/page\/(\d+)/.exec(a[2])[1]) + 1;
-        return cplink.replace(/^(https?:\/\/.*?\/page\/)\d+(.*)$/, "$1" + String(b) + "$2");
+        return cplink.replace(/^(https?:\/\/.*?\/page\/)\d+(.*)$/, '$1' + String(b) + '$2');
       } else {
-        return cplink.replace(/^(.*?)\/?$/, "$1") + "/page/2";
+        return cplink.replace(/^(.*?)\/?$/, '$1') + '/page/2';
       }
     },
     autopager: {
@@ -217,7 +217,7 @@ export const jsGeneralRule = [
           }
         }
         // detect if this is wordpress
-        const wpText = ["wp-content", "wp-plugin", "wp-comment"];
+        const wpText = ['wp-content', 'wp-plugin', 'wp-comment'];
         var isWP = false;
         for (i = 0; i < wpText.length; i++) {
           if (doc.documentElement.outerHTML.indexOf(wpText[i]) > -1) {
@@ -230,7 +230,7 @@ export const jsGeneralRule = [
         }
 
         // if this is the page of an article, return null
-        const submitComment = ["发表评论", "提交评论", "添加留言", "提交留言", "コメントを送信", "SUBMIT COMMENT", "POST COMMENT", "Submit Comment", "Post comment", "Post Comment"];
+        const submitComment = ['发表评论', '提交评论', '添加留言', '提交留言', 'コメントを送信', 'SUBMIT COMMENT', 'POST COMMENT', 'Submit Comment', 'Post comment', 'Post Comment'];
         for (i = 0; i < submitComment.length; i++) {
           if (getElementByXpath("//input[@value='" + submitComment[i] + "']", doc, doc)) {
             return null;
@@ -273,9 +273,9 @@ export const jsGeneralRule = [
     }
   },
   {
-    name: "Generic Posts Rule created by swdyh",
-    exampleUrl: "http://wedata.net/items/400.json",
-    url: "^https?://.+",
+    name: 'Generic Posts Rule created by swdyh',
+    exampleUrl: 'http://wedata.net/items/400.json',
+    url: '^https?://.+',
     pageElement:
       "(//article[not(contains(../@class,'widget'))][not(contains(@class,'columns four'))][not(ancestor::*[starts-with(@class,'sidebar')])]|//*[starts-with(@id,'post-')][not(contains(@id,'post-rating'))])[not(.//*[contains(@class,'admz')])][not(id('load-more-posts') or @id='fpost' or contains(@class,'carousel'))][parent::node()[not(self::h2)][not(@id='side')][not(contains(@class,'thumbnail'))][not(following-sibling::*[not(@id='side')][article or *[starts-with(@id,'post-')]])]/*[self::article or starts-with(@id,'post-')]/following-sibling::*[self::article or starts-with(@id,'post-')][not(contains(@id,'nav'))]]|id('content')[count(div)>1]/div[contains(@class,'post')][not(contains(div/@class,'breadcrumb'))][not(contains(div/@class,'nav'))]",
     nextLink:

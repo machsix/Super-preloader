@@ -1,10 +1,10 @@
-import {SCRIPT_INFO as scriptInfo, NOTIFICATION as upgradeNotification} from "../meta";
-import {setLang, template, userLang} from "../locale/locale";
-import JSONE from "../utils/stringify";
-import _ from "lodash";
-import compareVersions from "compare-versions";
-import jsonRuleLoader from "./json-rule";
-import logger from "./logger";
+import {SCRIPT_INFO as scriptInfo, NOTIFICATION as upgradeNotification} from '../meta';
+import {setLang, template, userLang} from '../locale/locale';
+import JSONE from '../utils/stringify';
+import _ from 'lodash';
+import compareVersions from 'compare-versions';
+import jsonRuleLoader from './json-rule';
+import logger from './logger';
 
 // ---------------------- Settings stored in GM storaged, changed by control pannel ---------------
 const factorySettings = {
@@ -35,9 +35,9 @@ const factorySettings = {
     debug: true,
     enableHistory: false, // 把下一页链接添加到历史记录
     autoGetPreLink: false, // 一开始不自动查找上一页链接，改为调用时再查找
-    excludes: "",
-    custom_siteinfo: "[]",
-    lazyImgSrc: "zoomfile|file|original|load-src|_src|imgsrc|real_src|src2|data-lazyload-src|data-ks-lazyload|data-lazyload|data-src|data-original|data-thumb|data-imageurl|data-defer-src|data-placeholder",
+    excludes: '',
+    custom_siteinfo: '[]',
+    lazyImgSrc: 'zoomfile|file|original|load-src|_src|imgsrc|real_src|src2|data-lazyload-src|data-ks-lazyload|data-lazyload|data-src|data-original|data-thumb|data-imageurl|data-defer-src|data-placeholder',
     ChineseUI: false,
     dblclick_pause: false,
     factoryCheck: true,
@@ -76,13 +76,13 @@ const factorySettings = {
         // 上一页关键字前面的字符,例如 "上一页" 要匹配 "[上一页" ,那么prefix要的设置要不小于1,并且character要包含字符 "["
         enable: true,
         maxPrefix: 3,
-        character: [" ", "　", "[", "［", "<", "＜", "?", "?", "<<", "『", "「", "【", "(", "←"]
+        character: [' ', '　', '[', '［', '<', '＜', '?', '?', '<<', '『', '「', '【', '(', '←']
       },
       next: {
         // 下一页关键字前面的字符
         enable: true,
         maxPrefix: 2,
-        character: [" ", "　", "[", "［", "『", "「", "【", "("]
+        character: [' ', '　', '[', '［', '『', '「', '【', '(']
       }
     },
     sfwordl: {
@@ -91,13 +91,13 @@ const factorySettings = {
         // 上一页关键字后面的字符
         enable: true,
         maxSubfix: 2,
-        character: [" ", "　", "]", "］", "』", "」", "】", ")"]
+        character: [' ', '　', ']', '］', '』', '」', '】', ')']
       },
       next: {
         // 下一页关键字后面的字符
         enable: true,
         maxSubfix: 3,
-        character: [" ", "　", "]", "］", ">", "﹥", "?", "?", ">>", "』", "」", "】", ")", "→"]
+        character: [' ', '　', ']', '］', '>', '﹥', '?', '?', '>>', '』', '」', '】', ')', '→']
       }
     },
     useiframe: false, // (预读)是否使用iframe..
@@ -115,7 +115,7 @@ const factorySettings = {
       separator: true // 显示翻页导航..(推荐显示.)..
     }
   },
-  version: "1.0.0" // set a small value for first-time installation
+  version: '1.0.0' // set a small value for first-time installation
 };
 
 // const settingsKeys = ["prefs", "SITEINFO_D", "autoMatch", "version"];
@@ -142,7 +142,7 @@ function mergeProperty(oldProp, newProp) {
   });
 
   for (const k of Object.keys(oldProp)) {
-    if (!Array.isArray(oldProp[k]) && typeof oldProp[k] === "object") {
+    if (!Array.isArray(oldProp[k]) && typeof oldProp[k] === 'object') {
       hasDifferency = hasDifferency || mergeProperty(oldProp[k], newProp[k]);
     }
   }
@@ -150,7 +150,7 @@ function mergeProperty(oldProp, newProp) {
 }
 
 export async function resetSettings() {
-  logger.info("settings are reset");
+  logger.info('settings are reset');
   await Promise.all(settingsKeys.map((key) => GM.setValue(key, factorySettings[key])));
 }
 
@@ -187,14 +187,14 @@ export async function loadSettings() {
     logger.info(`[UpdateCheck] version is updated ${settings.version} => ${scriptInfo.version}`);
     settings.version = scriptInfo.version;
     settings.autoMatch.useiframe = settings.SITEINFO_D.useiframe || false;
-    postLoading.push(GM.setValue("version", settings.version));
+    postLoading.push(GM.setValue('version', settings.version));
 
     const hasDifferency = mergeProperty(settings, factorySettings);
     settings.prefs.factoryCheck = false;
     if (hasDifferency) {
-      logger.info("[UpdateCheck] settings are updated");
+      logger.info('[UpdateCheck] settings are updated');
       Object.keys(settings).forEach((key) => {
-        if (key !== "version") {
+        if (key !== 'version') {
           postLoading.push(GM.setValue(key, settings[key]));
         }
       });
@@ -204,18 +204,18 @@ export async function loadSettings() {
   }
 
   // set global variables based on prefs
-  if (typeof settings.prefs.debug !== "undefined") {
-    logger.setLevel(settings.prefs.debug ? "debug" : "info");
+  if (typeof settings.prefs.debug !== 'undefined') {
+    logger.setLevel(settings.prefs.debug ? 'debug' : 'info');
   }
   if (settings.prefs.ChineseUI) {
-    setLang("zh_CN");
+    setLang('zh_CN');
   }
 
   // send notification
   if (verDiff < 0) {
     if (upgradeNotification.show(settings.version, scriptInfo.version) || isInstalled) {
       const opts = {
-        text: "",
+        text: '',
         title: upgradeNotification.title,
         image: upgradeNotification.image,
         onload: upgradeNotification.onload
@@ -224,7 +224,7 @@ export async function loadSettings() {
         oldversion: myOldVersion,
         newversion: settings.version
       });
-      if (Object.keys(upgradeNotification).includes("extratext")) {
+      if (Object.keys(upgradeNotification).includes('extratext')) {
         if (Object.keys(upgradeNotification.extratext).includes(userLang)) {
           opts.text += upgradeNotification.extratext[userLang];
         } else {
@@ -246,7 +246,7 @@ export async function loadSettings() {
 let domainSettings = [];
 let localSettingIndex = -1;
 
-export function getLocalStorage(key = "spfwset", fallback = null) {
+export function getLocalStorage(key = 'spfwset', fallback = null) {
   const valStr = localStorage.getItem(key);
   try {
     return JSONE.parse(valStr) || fallback;
@@ -258,7 +258,7 @@ export function getLocalStorage(key = "spfwset", fallback = null) {
   }
 }
 
-export function setLocalStorage(val, key = "spfwset") {
+export function setLocalStorage(val, key = 'spfwset') {
   localStorage.setItem(key, JSONE.stringify(val));
 }
 
@@ -269,7 +269,7 @@ export function setLocalStorage(val, key = "spfwset") {
  * @returns {object} modified pageSetting
  */
 export function loadLocalSetting(pageSetting) {
-  domainSettings = getLocalStorage("spfwset") || [];
+  domainSettings = getLocalStorage('spfwset') || [];
 
   if (!domainSettings) return pageSetting;
   for (let i = 0; i < domainSettings.length; i++) {
@@ -279,7 +279,7 @@ export function loadLocalSetting(pageSetting) {
         pageSetting[key] = value;
       }
       localSettingIndex = i;
-      logger.debug("Load local settings ", localSetting);
+      logger.debug('Load local settings ', localSetting);
       return pageSetting;
     }
   }

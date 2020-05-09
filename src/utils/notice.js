@@ -1,12 +1,12 @@
-import {createDOM} from "./domTools";
+import {createDOM} from './domTools';
 export let noticeDiv, noticeDivto, noticeDivto2;
 
 export default function notice(html_txt, showTime) {
   if (!noticeDiv) {
-    const div = createDOM("div", {
+    const div = createDOM('div', {
       attr: {
         style:
-          "\
+          '\
             position:fixed!important;\
             z-index:2147483647!important;\
             float:none!important;\
@@ -26,7 +26,7 @@ export default function notice(html_txt, showTime) {
             -o-transition:opacity 0.3s ease-in-out;\
             -webkit-transition:opacity 0.3s ease-in-out;\
             -moz-transition:opacity 0.3s ease-in-out;\
-        "
+        '
       }
     });
     document.body.appendChild(div);
@@ -35,17 +35,17 @@ export default function notice(html_txt, showTime) {
   clearTimeout(noticeDivto);
   clearTimeout(noticeDivto2);
   noticeDiv.innerHTML = html_txt;
-  noticeDiv.style.display = "block";
-  noticeDiv.style.opacity = "0.96";
+  noticeDiv.style.display = 'block';
+  noticeDiv.style.opacity = '0.96';
   if (showTime === undefined) {
     showTime = 1666;
   }
   if (showTime > 0) {
     noticeDivto2 = setTimeout(function () {
-      noticeDiv.style.opacity = "0";
+      noticeDiv.style.opacity = '0';
     }, showTime);
     noticeDivto = setTimeout(function () {
-      noticeDiv.style.display = "none";
+      noticeDiv.style.display = 'none';
     }, showTime + 300);
   }
 }

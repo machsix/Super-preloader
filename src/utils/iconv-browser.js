@@ -1,4 +1,4 @@
-import {TextDecoder, TextEncoder} from "@sinonjs/text-encoding";
+import {TextDecoder, TextEncoder} from '@sinonjs/text-encoding';
 
 // #if IS_REMOVE
 // another option: https://github.com/r12a/r12a.github.io/blob/master/apps/conversion/conversionfunctions.js
@@ -13,7 +13,7 @@ import {TextDecoder, TextEncoder} from "@sinonjs/text-encoding";
  */
 function buf2hex(buffer) {
   // buffer is an ArrayBuffer
-  return Array.prototype.map.call(new Uint8Array(buffer), (x) => ("00" + x.toString(16)).slice(-2));
+  return Array.prototype.map.call(new Uint8Array(buffer), (x) => ('00' + x.toString(16)).slice(-2));
 }
 
 /**
@@ -25,18 +25,18 @@ function buf2hex(buffer) {
 function hex2buf(text) {
   let hexString = text;
   if (Array.isArray(text)) {
-    hexString = text.join("");
+    hexString = text.join('');
   }
   // remove the leading 0x
-  hexString = hexString.replace(/^0x/, "");
+  hexString = hexString.replace(/^0x/, '');
   // ensure even number of characters
   if (hexString.length % 2 != 0) {
-    throw new Error("WARNING: expecting an even number of characters in the hexString");
+    throw new Error('WARNING: expecting an even number of characters in the hexString');
   }
   // check for some non-hex characters
   const bad = hexString.match(/[G-Z\s]/i);
   if (bad) {
-    throw new Error("WARNING: found non-hex characters", bad);
+    throw new Error('WARNING: found non-hex characters', bad);
   }
   // split the string into pairs of octets
   const pairs = hexString.match(/[\dA-F]{2}/gi);
@@ -52,9 +52,9 @@ function hex2buf(text) {
  * @param {string} encoding charset
  * @returns {ArrayBuffer} encoded string
  */
-export function encode(text, encoding = "utf-8") {
+export function encode(text, encoding = 'utf-8') {
   let buffer = null;
-  if (["utf8", "utf-8", "unicode-1-1-utf-8"].includes(encoding)) {
+  if (['utf8', 'utf-8', 'unicode-1-1-utf-8'].includes(encoding)) {
     buffer = new TextEncoder().encode(text);
   } else {
     try {
@@ -73,20 +73,20 @@ export function encode(text, encoding = "utf-8") {
  * @param {string} encoding charset
  * @returns {array} array of hex value for the corresponding arraybuffer
  */
-export function encodeHex(text, encoding = "utf-8") {
+export function encodeHex(text, encoding = 'utf-8') {
   return buf2hex(encode(text, encoding));
 }
 
-export function decode(uint8array, encoding = "utf-8") {
+export function decode(uint8array, encoding = 'utf-8') {
   return new TextDecoder(encoding).decode(uint8array);
 }
 
-export function decodeHex(stringArray, encoding = "utf-8") {
+export function decodeHex(stringArray, encoding = 'utf-8') {
   return decode(hex2buf(stringArray), encoding);
 }
 
-export function encodeURIE(text, encoding = "utf-8") {
-  if (encoding === "utf-8") {
+export function encodeURIE(text, encoding = 'utf-8') {
+  if (encoding === 'utf-8') {
     return encodeURIE(text);
   }
   function isURIcomponent(str) {
@@ -99,8 +99,8 @@ export function encodeURIE(text, encoding = "utf-8") {
       } else {
         return `%${encodeHex(x, encoding)
           .map((x) => x.toUpperCase())
-          .join("%")}`;
+          .join('%')}`;
       }
     })
-    .join("");
+    .join('');
 }

@@ -1,100 +1,100 @@
 module.exports = {
   plugins: {
-    "@vuepress/last-updated": true,
-    "@vuepress/back-to-top": true,
-    "@vuepress/pwa": {
+    '@vuepress/last-updated': true,
+    '@vuepress/back-to-top': true,
+    '@vuepress/pwa': {
       serviceWorker: true,
       updatePopup: true
     },
-    "@vuepress/google-analytics": {
-      ga: "UA-139969974-1"
+    '@vuepress/google-analytics': {
+      ga: 'UA-139969974-1'
     }
   },
   locales: {
-    "/": {
-      lang: "en-US",
-      title: "Super-preloader"
+    '/': {
+      lang: 'en-US',
+      title: 'Super-preloader'
     },
-    "/zh-cn/": {
-      lang: "zh-CN",
-      title: "Super-preloader"
+    '/zh-cn/': {
+      lang: 'zh-CN',
+      title: 'Super-preloader'
     }
   },
-  base: "/Super-preloader/",
+  base: '/Super-preloader/',
   head: [
     [
-      "link",
+      'link',
       {
-        rel: "icon",
-        href: "/logo.png"
+        rel: 'icon',
+        href: '/logo.png'
       }
     ]
   ],
-  description: ":scroll: Preload and Autopager",
+  description: ':scroll: Preload and Autopager',
   themeConfig: {
-    logo: "/logo.png",
-    repo: "machsix/Super-preloader",
+    logo: '/logo.png',
+    repo: 'machsix/Super-preloader',
     editLinks: true,
-    docsDir: "docs",
+    docsDir: 'docs',
     locales: {
-      "/zh-cn/": {
-        lang: "zh-CN",
-        label: "中文",
-        editLinkText: "在 GitHub 上编辑此页",
-        lastUpdated: "更新时间",
+      '/zh-cn/': {
+        lang: 'zh-CN',
+        label: '中文',
+        editLinkText: '在 GitHub 上编辑此页',
+        lastUpdated: '更新时间',
         nav: [
           {
-            text: "介绍",
-            link: "/zh-cn/"
+            text: '介绍',
+            link: '/zh-cn/'
           }
         ],
         sidebar: {
-          "/zh-cn/": [
+          '/zh-cn/': [
             {
-              title: "介绍",
+              title: '介绍',
               collapsable: false,
-              children: [["", "简介"], "example", "compatibility", "database"]
+              children: [['', '简介'], 'example', 'compatibility', 'database']
             },
             {
-              title: "开发指南",
+              title: '开发指南',
               collapsable: false,
-              children: ["develop", "siterule"]
+              children: ['develop', 'siterule']
             },
             {
-              title: "HOW TO",
+              title: 'HOW TO',
               collapsable: false,
-              children: ["faq"]
+              children: ['faq']
             }
           ]
         }
       },
-      "/": {
-        lang: "en-US",
-        label: "English",
-        editLinkText: "Edit this page on GitHub",
-        lastUpdated: "Last Updated",
+      '/': {
+        lang: 'en-US',
+        label: 'English',
+        editLinkText: 'Edit this page on GitHub',
+        lastUpdated: 'Last Updated',
         nav: [
           {
-            text: "Introduction",
-            link: "/"
+            text: 'Introduction',
+            link: '/'
           }
         ],
         sidebar: {
-          "/": [
+          '/': [
             {
-              title: "Introduction",
+              title: 'Introduction',
               collapsable: false,
-              children: [["", "Introduction"], "example", "compatibility", "database"]
+              children: [['', 'Introduction'], 'example', 'compatibility', 'database']
             },
             {
-              title: "Development",
+              title: 'Development',
               collapsable: false,
-              children: ["siterule"]
+              children: ['siterule']
             },
             {
-              title: "HOW TO",
+              title: 'HOW TO',
               collapsable: false,
-              children: ["faq"]
+              children: ['faq']
             }
           ]
         }

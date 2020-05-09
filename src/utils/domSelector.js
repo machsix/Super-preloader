@@ -68,7 +68,7 @@ export function getAllElementsByXpath(xpath, contextNode, doc = document) {
 export function getAllElements(selector, contextNode, doc = document, win = window, _cplink = undefined) {
   if (!selector) return [];
   contextNode = contextNode || doc;
-  if (typeof selector === "string") {
+  if (typeof selector === 'string') {
     if (selector.search(/^css;/i) === 0) {
       return getAllElementsByCSS(selector.slice(4), contextNode);
     } else {
@@ -77,7 +77,7 @@ export function getAllElements(selector, contextNode, doc = document, win = wind
   } else {
     const query = selector(doc, win, _cplink);
     if (!Array.isArray(query)) {
-      throw new Error("Wrong type is returned by getAllElements");
+      throw new Error('Wrong type is returned by getAllElements');
     } else {
       return query;
     }
