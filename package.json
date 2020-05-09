@@ -46,11 +46,11 @@
     "@vuepress/plugin-back-to-top": "1.4.1",
     "@vuepress/plugin-google-analytics": "1.4.1",
     "@vuepress/plugin-pwa": "1.4.1",
-    "got": "^11.1.2",
-    "jest": "^26.0.1",
-    "jest-puppeteer": "^4.4.0",
-    "puppeteer": "^3.0.4",
-    "unzip-stream": "^0.3.0",
+    "got": "11.1.2",
+    "jest": "26.0.1",
+    "jest-puppeteer": "4.4.0",
+    "puppeteer": "3.0.4",
+    "unzip-stream": "0.3.0",
     "vuepress": "1.4.1"
   },
   "dependencies": {
