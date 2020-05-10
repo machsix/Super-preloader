@@ -41169,59 +41169,59 @@
 },
 {
   "resource_url": "http://wedata.net/items/33165",
-  "name": "SHOP.COM",
-  "created_by": "Ythcal",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-02-24T11:48:20+09:00",
+  "created_at": "2010-06-12T05:13:39+09:00",
   "data": {
+    "pageElement": "//ul[contains(@class,\"qa-search-products-results\")]/li",
     "exampleUrl": "http://www.shop.com/Food+and+Drink/Cuisine-Italian-24",
     "url": "^https?://(www\\.)?shop\\.com/",
-    "pageElement": "id('content')/li",
     "nextLink": "//link[@rel='next']"
   },
-  "created_at": "2010-06-12T05:13:39+09:00"
+  "updated_at": "2020-05-10T14:14:06+09:00",
+  "name": "SHOP.COM",
+  "created_by": "Ythcal"
 },
 {
   "resource_url": "http://wedata.net/items/33143",
-  "name": "ニコニコ生放送 　検索結果",
-  "created_by": "toshi",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2016-03-01T23:01:30+09:00",
+  "created_at": "2010-06-09T12:13:21+09:00",
   "data": {
-    "exampleUrl": "http://live.nicovideo.jp/search?track=&sort=point&date=&keyword=ドラマ&filter=+:closed:",
-    "url": "^http://live\\.nicovideo\\.jp/search",
-    "pageElement": "//div[@class='cmn']/div[@class='result_list'][1]/*",
-    "nextLink": "//a[@rel='next']"
+    "pageElement": "descendant::ul[@class=\"searchPage-ProgramList\"][1]/li",
+    "exampleUrl": "https://live.nicovideo.jp/search?keyword=%E3%83%89%E3%83%A9%E3%83%9E&status=past&sortOrder=recentDesc&page=5",
+    "url": "^https://live\\.nicovideo\\.jp/search",
+    "nextLink": "//a[@class='searchPage-Pager_Item-next']"
   },
-  "created_at": "2010-06-09T12:13:21+09:00"
+  "updated_at": "2020-05-10T14:10:43+09:00",
+  "name": "ニコニコ生放送 　検索結果",
+  "created_by": "toshi"
 },
 {
   "resource_url": "http://wedata.net/items/33141",
-  "name": "ThinkIT",
-  "created_by": "gorimaru",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2018-03-08T15:09:04+09:00",
+  "created_at": "2010-06-09T11:13:05+09:00",
   "data": {
+    "pageElement": "id('article_body')/* | //div[@class='tex2jax'][./h2]/*",
     "exampleUrl": "https://thinkit.co.jp/article/1141/1\r\nhttps://thinkit.co.jp/article/1042/1",
     "url": "^https://thinkit\\.co\\.jp/",
-    "pageElement": "id('article_body') | //div[@class='field-item even'][h2]/*[not(self::h2)]",
     "nextLink": "//li[@class='pager-next']/a"
   },
-  "created_at": "2010-06-09T11:13:05+09:00"
+  "updated_at": "2020-05-10T14:06:01+09:00",
+  "name": "ThinkIT",
+  "created_by": "gorimaru"
 },
 {
-  "name": "\u6ecb\u8cc0\u54b2\u304f\u30d6\u30ed\u30b0",
-  "updated_at": "2010-06-08T19:51:02+09:00",
-  "resource_url": "http:\/\/wedata.net\/items\/33139",
-  "created_by": "t_f_m",
-  "database_resource_url": "http:\/\/wedata.net\/databases\/AutoPagerize",
+  "resource_url": "http://wedata.net/items/33139",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_at": "2010-06-08T19:33:29+09:00",
   "data": {
-    "pageElement": "id(\"content\")\/div\/*[self::h2 or self::div[@class=\"blogbody\"]]",
-    "url": "^http:\/\/[^\/]+\\.shiga-saku\\.net\/",
-    "nextLink": "\/\/a[text()=\"\u6b21\u306e\u30da\u30fc\u30b8\" or text()=\"\u524d\u306e\u8a18\u4e8b\"]",
-    "exampleUrl": "http:\/\/gankodo.shiga-saku.net\/"
+    "pageElement": "id('content')/div/*[self::h2 or @class='blogbody']",
+    "exampleUrl": "https://gankodo.shiga-saku.net/",
+    "url": "^https://[^/]+\\.shiga-saku\\.net/",
+    "nextLink": "//a[.='次のページ' or .='前の記事']"
   },
-  "created_at": "2010-06-08T19:33:29+09:00"
+  "updated_at": "2020-05-10T13:28:55+09:00",
+  "name": "滋賀咲くブログ",
+  "created_by": "t_f_m"
 },
 {
   "resource_url": "http://wedata.net/items/33136",
@@ -41239,17 +41239,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/33127",
-  "name": "読書メーター 感想",
-  "created_by": "t_f_m",
-  "updated_at": "2017-06-04T18:59:49+09:00",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_at": "2010-06-07T19:20:42+09:00",
   "data": {
+    "pageElement": "//div[@class=\".show__content show__content--activities\"]/*",
     "exampleUrl": "https://book.akahoshitakuya.com/bl/4062175614 https://book.akahoshitakuya.com/bl/4062175614?t=c&p=3 https://bookmeter.com/b/4062175614",
     "url": "^https://book(\\.akahoshitakuya|meter)\\.com/b",
-    "pageElement": "//div[@class=\"log_list_box hreview\"]",
-    "nextLink": "//span[@class='now_page']/following-sibling::span[1]/a"
+    "nextLink": "//li[@class='pagination-next']/a"
   },
-  "created_at": "2010-06-07T19:20:42+09:00"
+  "updated_at": "2020-05-10T13:21:41+09:00",
+  "name": "読書メーター 感想",
+  "created_by": "t_f_m"
 },
 {
   "resource_url": "http://wedata.net/items/33092",
@@ -41295,59 +41295,59 @@
 },
 {
   "resource_url": "http://wedata.net/items/33056",
-  "name": "eMedicine",
-  "created_by": "zumlin",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2016-03-01T19:11:52+09:00",
+  "created_at": "2010-06-01T08:03:50+09:00",
   "data": {
-    "exampleUrl": "http://emedicine.medscape.com/article/150215-overview",
-    "url": "^http://emedicine\\.medscape\\.com/article/",
-    "pageElement": "//div[@class='back_next_btn']/preceding-sibling::*",
-    "nextLink": "//div[@class='next_btn']/a"
+    "pageElement": "id('archives')/ul/li",
+    "exampleUrl": "https://www.medscape.com/index/list_13470_0",
+    "url": "^https://(www\\.)?medscape\\.com/",
+    "nextLink": "id('next20')/a"
   },
-  "created_at": "2010-06-01T08:03:50+09:00"
+  "updated_at": "2020-05-10T11:32:02+09:00",
+  "name": "Medscape",
+  "created_by": "zumlin"
 },
 {
   "resource_url": "http://wedata.net/items/33054",
-  "name": "仙台市図書館 検索結果書誌一覧：蔵書検索システム",
-  "created_by": "yibe",
-  "updated_at": "2016-03-01T18:45:33+09:00",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_at": "2010-06-01T05:40:15+09:00",
   "data": {
-    "exampleUrl": "https://lib-www.smt.city.sendai.jp/licsxp-opac/WOpacTifSchCmpdDispAction.do",
-    "url": "^https?://lib-www\\.smt\\.city\\.sendai\\.jp/licsxp-opac/WOpacTif(?:.*?SchCmpdExec|JunlChoSelect|TilListDisp)Action\\.do",
-    "pageElement": "//table[@class='list']/tbody/tr",
-    "nextLink": "//span[@class='cur']/following-sibling::a[1]"
+    "pageElement": "//div[@class='outerdiv']/*[starts-with(@id,'journal_detail')]",
+    "exampleUrl": "https://lib-www.smt.city.sendai.jp/?page_id=261",
+    "url": "^https?://lib-www\\.smt\\.city\\.sendai\\.jp/",
+    "nextLink": "//a[@title='次']"
   },
-  "created_at": "2010-06-01T05:40:15+09:00"
+  "updated_at": "2020-05-10T10:39:59+09:00",
+  "name": "仙台市図書館 検索結果書誌一覧：蔵書検索システム",
+  "created_by": "yibe"
 },
 {
   "resource_url": "http://wedata.net/items/33053",
-  "name": "Mind Control Stories",
-  "created_by": "The Sane Scientist",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2016-03-01T18:56:58+09:00",
+  "created_at": "2010-06-01T04:42:06+09:00",
   "data": {
-    "exampleUrl": "http://www.mcstories.com/Titles/B.html http://www.mcstories.com/WhatWasNew.html",
-    "url": "^http://(?:www\\.)?mcstories\\.com/(Titles|WhatWasNew)",
     "pageElement": "id('mcstories')/section|//div[@class='story']",
+    "exampleUrl": "https://www.mcstories.com/Titles/B.html https://www.mcstories.com/WhatWasNew.html",
+    "url": "^https://(?:www\\.)?mcstories\\.com/(Titles|WhatWasNew)",
     "nextLink": "//h3[@class='trailer']/a|//nav[@class='arrows'][count(./a)>1 or ./a[@href='B.html']]/a[last()]"
   },
-  "created_at": "2010-06-01T04:42:06+09:00"
+  "updated_at": "2020-05-10T10:29:07+09:00",
+  "name": "Mind Control Stories",
+  "created_by": "The Sane Scientist"
 },
 {
   "resource_url": "http://wedata.net/items/33051",
-  "name": "BIGLOBEニュース",
-  "created_by": "t_f_m",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-02-24T11:05:33+09:00",
+  "created_at": "2010-05-31T22:01:38+09:00",
   "data": {
-    "exampleUrl": "https://news.biglobe.ne.jp/index_2.html https://news.biglobe.ne.jp/economy/money/kabu/",
+    "pageElement": "//section[@class=\"news-list\"]//li",
+    "exampleUrl": "https://news.biglobe.ne.jp/economy/whole/",
     "url": "^https://news\\.biglobe\\.ne\\.jp/",
-    "pageElement": "//div[@class='pgingNav clearfix']/preceding-sibling::*[1]//li",
-    "nextLink": "//a[@title='次の10件']"
+    "nextLink": "//a[@class='next']"
   },
-  "created_at": "2010-05-31T22:01:38+09:00"
+  "updated_at": "2020-05-10T11:00:20+09:00",
+  "name": "BIGLOBEニュース",
+  "created_by": "t_f_m"
 },
 {
   "name": "\u9ad8\u6728\u6d69\u5149\uff20\u81ea\u5b85\u306e\u65e5\u8a18",
@@ -41379,18 +41379,18 @@
   "created_at": "2010-05-26T16:54:05+09:00"
 },
 {
-  "name": "\u30de\u30f3\u30ac\u3067\u5206\u304b\u308b JavaScript\u30d7\u30ed\u30b0\u30e9\u30df\u30f3\u30b0\u8b1b\u5ea7",
-  "updated_at": "2010-05-26T21:51:23+09:00",
-  "resource_url": "http:\/\/wedata.net\/items\/33025",
-  "created_by": "yibe",
-  "database_resource_url": "http:\/\/wedata.net\/databases\/AutoPagerize",
+  "resource_url": "http://wedata.net/items/33025",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_at": "2010-05-26T01:57:33+09:00",
   "data": {
-    "pageElement": "\/\/div[contains(concat(\" \", @class, \" \"), \" body \")]",
-    "url": "^http:\/\/crocro\\.com\/write\/manga_javascript\/wiki\\.cgi\\?p=",
-    "nextLink": "\/\/a[@class=\"wikipage\" and contains(., \/\/div[@class=\"mainIn\"]\/h1)]\/parent::li\/following-sibling::li[1]\/a",
-    "exampleUrl": "http:\/\/crocro.com\/write\/manga_javascript\/wiki.cgi?p=%A5%D7%A5%ED%C9%F4%C5%D0%BE%EC"
+    "pageElement": "id(\"contents-inner\")/descendant::b[1]/../following-sibling::div[./following-sibling::div[./b]]",
+    "exampleUrl": "https://crocro.com/news/nc.cgi",
+    "url": "^https://crocro\\.com/.",
+    "nextLink": "id(\"contents-inner\")/descendant::a[1][./preceding-sibling::b]"
   },
-  "created_at": "2010-05-26T01:57:33+09:00"
+  "updated_at": "2020-05-10T11:45:36+09:00",
+  "name": "マンガで分かる JavaScriptプログラミング講座",
+  "created_by": "yibe"
 },
 {
   "name": "\u30db\u30ef\u30a4\u306e(\u611f\u52d5\u7684)Ruby\u30ac\u30a4\u30c9",
@@ -41407,18 +41407,18 @@
   "created_at": "2010-05-25T14:07:39+09:00"
 },
 {
-  "name": "Armor Games",
-  "updated_at": "2010-05-25T01:59:55+09:00",
-  "resource_url": "http:\/\/wedata.net\/items\/33007",
-  "created_by": "toshi",
-  "database_resource_url": "http:\/\/wedata.net\/databases\/AutoPagerize",
+  "resource_url": "http://wedata.net/items/33007",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_at": "2010-05-25T01:59:23+09:00",
   "data": {
-    "pageElement": "id(\"categorylisting\")\/ul[@class=\"gamelisting\"]",
-    "url": "^http:\/\/armorgames\\.com\/category\/",
-    "nextLink": "id(\"categorylisting\")\/div[@class=\"pagination\"]\/span[@class=\"numberselected\"]\/following-sibling::a[1]",
-    "exampleUrl": "http:\/\/armorgames.com\/category\/arcade"
+    "pageElement": "//div[@class='title-bar clearfix']/following-sibling::ul[1]/li",
+    "exampleUrl": "https://armorgames.com/category/arcade",
+    "url": "^https://armorgames\\.com/category/",
+    "nextLink": "//li[@class='active']/following-sibling::li[1]/a"
   },
-  "created_at": "2010-05-25T01:59:23+09:00"
+  "updated_at": "2020-05-10T09:51:32+09:00",
+  "name": "Armor Games",
+  "created_by": "toshi"
 },
 {
   "resource_url": "http://wedata.net/items/32994",
@@ -41450,17 +41450,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/32966",
-  "name": "Whirlpool Forums",
-  "created_by": "zumlin",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2016-03-01T14:05:55+09:00",
+  "created_at": "2010-05-22T21:18:26+09:00",
   "data": {
-    "exampleUrl": "http://forums.whirlpool.net.au/forum/100 http://forums.whirlpool.net.au/forum-replies.cfm?t=971700",
-    "url": "^https?://forums\\.whirlpool\\.net\\.au/forum",
     "pageElement": "//table[@class='showvisited']/tbody/tr|id('replylist')/div",
-    "nextLink": "(id('threads')/div[@class='footbar']/ul[@class='pagination']|id('top_pagination'))/li[starts-with(@class,'current')]/following-sibling::li[1]/a"
+    "exampleUrl": "http://forums.whirlpool.net.au/forum/100 http://forums.whirlpool.net.au/forum-replies.cfm?t=971700",
+    "url": "^https?://forums\\.whirlpool\\.net\\.au/",
+    "nextLink": "(id('threads')/div[@class='footbar']/ul[@class='pagination']|id('top_pagination'))/li[contains(@class,'current')]/following-sibling::li[1]/a"
   },
-  "created_at": "2010-05-22T21:18:26+09:00"
+  "updated_at": "2020-05-10T08:02:54+09:00",
+  "name": "Whirlpool Forums",
+  "created_by": "zumlin"
 },
 {
   "name": "Filehippo - Latest Software Updates",
@@ -41491,32 +41491,32 @@
   "updated_at": "2015-04-27T12:38:01+09:00"
 },
 {
-  "name": "My Episodes Calendar",
-  "updated_at": "2010-05-23T01:28:04+09:00",
-  "resource_url": "http:\/\/wedata.net\/items\/32960",
-  "created_by": "zumlin",
-  "database_resource_url": "http:\/\/wedata.net\/databases\/AutoPagerize",
+  "resource_url": "http://wedata.net/items/32960",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_at": "2010-05-22T18:48:59+09:00",
   "data": {
-    "pageElement": "\/\/table[@class=\"cal_container\"]",
-    "url": "^http:\/\/(?:www\\.)?myepisodes\\.com\/cal\\.php",
-    "nextLink": "id(\"calendar\")\/\/td[@class=\"cal_navi_right\"]\/a",
-    "exampleUrl": "http:\/\/www.myepisodes.com\/cal.php"
+    "pageElement": "//table[@class='cal_container']",
+    "exampleUrl": "http://www.myepisodes.com/cal.php",
+    "url": "^https?://(?:www\\.)?myepisodes\\.com/cal\\.php",
+    "nextLink": "id('calendar')//td[@class='cal_navi_right']/a"
   },
-  "created_at": "2010-05-22T18:48:59+09:00"
+  "updated_at": "2020-05-10T07:57:00+09:00",
+  "name": "My Episodes Calendar",
+  "created_by": "zumlin"
 },
 {
-  "resource_url": "http://wedata.net/items/32959",
-  "name": "daft.ie",
-  "created_by": "zumlin",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2016-03-01T12:48:47+09:00",
+  "created_at": "2010-05-22T18:31:39+09:00",
+  "resource_url": "http://wedata.net/items/32959",
   "data": {
-    "exampleUrl": "http://www.daft.ie/dublin-city-centre/residential-property-for-rent/?submit_x=23&submit_y=9",
-    "url": "^https?://www\\.daft\\.ie/",
-    "pageElement": "//div[@class='box']",
+    "pageElement": "//div[@class=\"add-menu\"]/following-sibling::div[./following-sibling::div]",
+    "exampleUrl": "https://www.daft.ie/dublin-city-centre/residential-property-for-rent/?submit_x=23&submit_y=9",
+    "url": "^https://(www\\.)?daft\\.ie/",
     "nextLink": "//li[@class='next_page']/a"
   },
-  "created_at": "2010-05-22T18:31:39+09:00"
+  "updated_at": "2020-05-10T09:17:06+09:00",
+  "name": "daft.ie",
+  "created_by": "zumlin"
 },
 {
   "resource_url": "http://wedata.net/items/32954",
@@ -53685,17 +53685,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/628",
-  "name": "FC2 BLOG",
-  "created_by": "swdyh",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-10-13T20:51:24+09:00",
+  "created_at": "2008-04-16T12:36:15+09:00",
   "data": {
-    "exampleUrl": "http://freesoftfile.blog122.fc2.com/blog-category-0.html\r\nhttp://tofukko.blog113.fc2.com/\r\nhttp://syn2.blog98.fc2.com/page-1.html\r\nhttp://daijyoyuukoharu.blog62.fc2.com/page-1.html",
+    "pageElement": "id('main main-column center main_block Main primary-column blog content')[1]/div[(@class='main_block' and div/@class='main_title') or @class='content'] | id('contents Contents')[1]/div[not(@id)] | id('main')/table[starts-with(@class,'entry')] | id('blog_content')/div[@class] | id('right')/div[@class='contents'] | id('primary')/div[@class='entry'] | id('mainBlock')/div[div] | id('entry') | id('box_main')/table | id('left')/*[self::div/@class='body' or self::a[contains(.,'月')]] | //div[@align='center']/table[@width='740']//table[@width='660'] | id('topentry')/*[not(contains(@class,'navi'))] | //table[@id='layout']//td[@class='center']/table[.//h2/@class='entry_title'] | //article[@class='entry-m'] | id('main_contents')/div[contains(@class, 'grid_content')]",
+    "exampleUrl": "http://freesoftfile.blog122.fc2.com/blog-category-0.html\r\nhttp://tofukko.blog113.fc2.com/\r\nhttp://syn2.blog98.fc2.com/page-1.html\r\nhttp://daijyoyuukoharu.blog62.fc2.com/page-1.html\r\nhttp://killerworldend.blog.fc2.com/blog-category-0-1.html",
     "url": "^https?://[^.]+\\.blog(?:[^.]+)?\\.fc2\\.com/",
-    "pageElement": "id('main main-column center main_block Main primary-column blog content')[1]/div[(@class='main_block' and div/@class='main_title') or @class='content'] | id('contents Contents')[1]/div[not(@id)] | id('main')/table[starts-with(@class,'entry')] | id('blog_content')/div[@class] | id('right')/div[@class='contents'] | id('primary')/div[@class='entry'] | id('mainBlock')/div[div] | id('entry') | id('box_main')/table | id('left')/*[self::div/@class='body' or self::a[contains(.,'月')]] | //div[@align='center']/table[@width='740']//table[@width='660'] | id('topentry')/*[not(contains(@class,'navi'))] | //table[@id='layout']//td[@class='center']/table[.//h2/@class='entry_title'] | //article[@class='entry-m'] | \r\nid('main_contents')/div[contains(@class, 'grid_content')]",
-    "nextLink": "descendant::a[contains(@href,\"fc2.com/page-\")][last()] | /descendant::a[contains(translate(text(), \"ENTX\", \"entx\"), \"next\")][last()]|//a[.='古いページへ']"
+    "nextLink": "descendant::a[contains(@href,\"fc2.com/page-\")][last()] | /descendant::a[contains(translate(text(), \"ENTX\", \"entx\"), \"next\")][last()]|//a[.='古いページへ']|//link[@rel='next']"
   },
-  "created_at": "2008-04-16T12:36:15+09:00"
+  "updated_at": "2020-05-10T13:09:51+09:00",
+  "name": "FC2 BLOG",
+  "created_by": "swdyh"
 },
 {
   "resource_url": "http://wedata.net/items/614",
