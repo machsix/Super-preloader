@@ -35,7 +35,7 @@ async function main() {
   console.log('Download VM');
   await extract(violentmonkey.file, {dir: violentmonkey.folder});
   console.log('Unzip VM');
-  const browser = await puppeteer.launch({
+  var browser = await puppeteer.launch({
     headless: false, //NOTE Extensions in Chrome / Chromium currently only work in non-headless mode.
     timeout: 60 * 1000,
     args: [`--disable-extensions-except=${violentmonkey.folder}`, '--no-sandbox', `--load-extension=${violentmonkey.folder}`]
@@ -54,17 +54,19 @@ async function main() {
     await targetPage.goto(link);
   } catch (error) {}
 
-  await waitSeconds(5);
   pages = await browser.pages();
   while (pages.length === 1) {
     await waitSeconds(5);
     pages = await browser.pages();
   }
   targetPage = pages[1];
-  await targetPage.click('body > div > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > button:nth-child(2)');
   await waitSeconds(3);
+  await targetPage.click('body > div > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > button:nth-child(2)');
+  await targetPage.waitFor(() => document.querySelector('.page-confirm .ellipsis+div').innerHTML.includes('Script installed'), {
+    timeout: 10 * 1000
+  });
   await targetPage.click('body > div > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > button:nth-child(3)');
-  console.log('Script installed');
+  console.log('Script installation: \u2714');
 
   // open website
   pages = await browser.pages();
@@ -72,26 +74,54 @@ async function main() {
   await targetPage.goto('https://www.google.com/search?q=apple');
 
   // check floatWindow
-  console.log('Wait 30s for initialization');
-  await waitSeconds(30);
-  const floatWindow = await targetPage.$('#sp-fw-rect');
-  if (!floatWindow) {
-    throw new Error("FloatWindow doesn't exist");
-  } else {
-    console.log('FlowWindow appears');
+  try {
+    await targetPage.waitFor('#sp-fw-rect', {
+      timeout: 30 * 1000
+    });
+    console.log('FloatWindow: \u2714');
+  } catch (_err) {
+    throw new Error('FloatWindow: \u274c');
   }
 
   // check seperator
   await targetPage.evaluate((_) => {
     window.scrollTo(0, document.body.scrollHeight + 20);
   });
-  await waitSeconds(30);
-  console.log('Wait 30s for pagging');
-  const sep = await targetPage.$('#sp-separator-2');
-  if (!sep) {
-    throw new Error("Seperator doesn't exist");
-  } else {
-    console.log('Seperator works');
+  try {
+    await targetPage.waitFor('#sp-separator-2', {
+      timeout: 30 * 1000
+    });
+    console.log('Seperator: \u2714');
+  } catch (_err) {
+    throw new Error('Seperator: \u274c');
+  }
+
+  // check CSP
+  await targetPage.goto('https://rarbg.to/torrents.php');
+  await targetPage.evaluate((_) => {
+    window.scrollTo(0, document.body.scrollHeight + 20);
+  });
+  try {
+    await targetPage.waitFor('#sp-separator-2', {
+      timeout: 30 * 1000
+    });
+    console.log('CSP: \u2714');
+  } catch (_err) {
+    throw new Error('CSP: \u274c');
+  }
+
+  // check iframe
+  await targetPage.goto('https://idope.se/torrent-list/transformer');
+  await targetPage.evaluate((_) => {
+    window.scrollTo(0, document.body.scrollHeight + 20);
+  });
+  try {
+    await targetPage.waitFor('#sp-separator-2', {
+      timeout: 30 * 1000
+    });
+    console.log('Iframe: \u2714');
+  } catch (_err) {
+    throw new Error('Iframe: \u274c');
   }
   await browser.close();
 }
