@@ -11,7 +11,7 @@ install:
 script:
   - npm run check
   - npm run build
-  - npm run test
+  - travis_retry npm run test
   - npm run docs:publish
 deploy:
   provider: pages
