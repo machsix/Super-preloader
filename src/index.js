@@ -1125,6 +1125,7 @@ import notice from './utils/notice';
             floatWO.CmodeIcon('show');
 
             logger.debug('获取下一页', SSS.a_useiframe ? '(iframe方式)' : '(XHR方式)', nextlink);
+            pagedLinks.push(nextlink);
             if (SSS.a_useiframe) {
               iframeRequest(nextlink);
             } else {
@@ -1588,7 +1589,7 @@ import notice from './utils/notice';
             const delayiframe = function (fn) {
               setTimeout(fn, 199);
             };
-            if (nextlink) {
+            if (nextlink && !pagedLinks.includes(nextlink)) {
               // debug('找到下一页链接:', nextlink);
               doc = win = null;
               if (ipagesmode) {
@@ -1890,6 +1891,7 @@ import notice from './utils/notice';
         }
 
         // 重要的变量两枚.
+        const pagedLinks = [document.location.href];
         var nextlink;
         var prelink;
         //= ==============

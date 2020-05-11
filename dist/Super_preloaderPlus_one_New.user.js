@@ -9,9 +9,9 @@
 // @author       Mach6
 // @contributers YFdyh000, suchunchen
 // @thanksto     ywzhaiqi, NLF
-// @version      6.13.3
+// @version      6.13.4
 // @license      GPL-3.0
-// @update       2020/5/7
+// @update       2020/5/11
 // @homepageURL  https://github.com/machsix/Super-preloader
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
 // @contributionURL https://ko-fi.com/machsix
@@ -3283,11 +3283,11 @@
 
   var _wcImport3 = ".sp-prefs-spinner {\n  margin: 40px auto;\n  width: 100%;\n  height: 50px;\n  text-align: center;\n  font-size: 10px; }\n\n.sp-prefs-spinner > div {\n  background-color: #333;\n  height: 100%;\n  width: 25%;\n  display: inline-block;\n  -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;\n  animation: sk-stretchdelay 1.2s infinite ease-in-out; }\n\n.sp-prefs-spinner .rect2 {\n  -webkit-animation-delay: -1.1s;\n  animation-delay: -1.1s; }\n\n.sp-prefs-spinner .rect3 {\n  -webkit-animation-delay: -1s;\n  animation-delay: -1s; }\n\n.sp-prefs-spinner .rect4 {\n  -webkit-animation-delay: -0.9s;\n  animation-delay: -0.9s; }\n\n.sp-prefs-spinner .rect5 {\n  -webkit-animation-delay: -0.8s;\n  animation-delay: -0.8s; }\n\n@-webkit-keyframes sk-stretchdelay {\n  0%,\n  40%,\n  100% {\n    -webkit-transform: scaleY(0.4); }\n  20% {\n    -webkit-transform: scaleY(1); } }\n\n@keyframes sk-stretchdelay {\n  0%,\n  40%,\n  100% {\n    transform: scaleY(0.4);\n    -webkit-transform: scaleY(0.4); }\n  20% {\n    transform: scaleY(1);\n    -webkit-transform: scaleY(1); } }\n";
 
-  var _wcImport2 = "@charset \"UTF-8\";\n#sp-prefs-setup {\n  z-index: 2147483647;\n  padding: 20px 30px;\n  box-sizing: content-box;\n  border-radius: 3px !important;\n  border: 1px solid #a0a0a0 !important;\n  box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.3) !important;\n  background: -moz-linear-gradient(top, #fcfcfc, #f2f2f7 100%) !important;\n  background: -webkit-gradient(linear, 0 0, 0 100%, from(#fcfcfc), to(#f2f2f7)) !important;\n  font-family: \"Arial\", \"sans-serif\" !important;\n  color: transparent;\n  max-height: 80%;\n  overflow: auto; }\n\n#sp-prefs-setup * {\n  color: black;\n  text-align: left;\n  line-height: normal;\n  font-size: 12px;\n  min-height: 12px; }\n\n#sp-prefs-setup a {\n  color: black;\n  text-decoration: underline; }\n\n#sp-prefs-setup div {\n  text-align: center;\n  font-weight: bold;\n  font-size: 15px; }\n\n#sp-prefs-setup ul {\n  margin: 15px 0 15px 0;\n  padding: 0;\n  list-style: none;\n  background: none;\n  border: 0; }\n\n#sp-prefs-setup input,\n#sp-prefs-setup select {\n  border: 1px solid gray;\n  padding: 2px;\n  background: white;\n  margin: 0px; }\n\n#sp-prefs-setup input[type=\"checkbox\"] {\n  cursor: pointer !important;\n  visibility: visible !important;\n  position: static !important; }\n\n#sp-prefs-setup input.inputShift {\n  margin-left: 2px; }\n\n#sp-prefs-setup li {\n  margin: 0;\n  padding: 5px 0;\n  vertical-align: middle;\n  background: none;\n  border: 0;\n  font-size: 12px; }\n\n#sp-prefs-setup button {\n  margin: 0 10px;\n  text-align: center;\n  white-space: nowrap;\n  background-color: #f9f9f9 !important;\n  border: 1px solid #ccc !important;\n  box-shadow: inset 0 10px 5px white !important;\n  border-radius: 3px !important;\n  padding: 3px 3px !important; }\n\n#sp-prefs-setup textarea {\n  width: 98%;\n  height: 60px;\n  margin: 3px 0;\n  font-weight: 50;\n  background: white; }\n\n#sp-prefs-setup b {\n  font-weight: bold;\n  font-family: \"微软雅黑\", sans-serif; }\n\n#sp-prefs-setup button:disabled {\n  color: gray; }\n";
+  var _wcImport2 = "@charset \"UTF-8\";\n#sp-prefs-setup {\n  z-index: 2147483647;\n  padding: 20px 30px;\n  box-sizing: content-box;\n  border-radius: 3px !important;\n  border: 1px solid #a0a0a0 !important;\n  box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.3) !important;\n  background: -moz-linear-gradient(top, #fcfcfc, #f2f2f7 100%) !important;\n  background: -webkit-gradient(linear, 0 0, 0 100%, from(#fcfcfc), to(#f2f2f7)) !important;\n  font-family: 'Arial', 'sans-serif' !important;\n  color: transparent;\n  max-height: 80%;\n  overflow: auto; }\n\n#sp-prefs-setup * {\n  color: black;\n  text-align: left;\n  line-height: normal;\n  font-size: 12px;\n  min-height: 12px; }\n\n#sp-prefs-setup a {\n  color: black;\n  text-decoration: underline; }\n\n#sp-prefs-setup div {\n  text-align: center;\n  font-weight: bold;\n  font-size: 15px; }\n\n#sp-prefs-setup ul {\n  margin: 15px 0 15px 0;\n  padding: 0;\n  list-style: none;\n  background: none;\n  border: 0; }\n\n#sp-prefs-setup input,\n#sp-prefs-setup select {\n  border: 1px solid gray;\n  padding: 2px;\n  background: white;\n  margin: 0px; }\n\n#sp-prefs-setup input[type='checkbox'] {\n  cursor: pointer !important;\n  visibility: visible !important;\n  position: static !important; }\n\n#sp-prefs-setup input.inputShift {\n  margin-left: 2px; }\n\n#sp-prefs-setup li {\n  margin: 0;\n  padding: 5px 0;\n  vertical-align: middle;\n  background: none;\n  border: 0;\n  font-size: 12px; }\n\n#sp-prefs-setup button {\n  margin: 0 10px;\n  text-align: center;\n  white-space: nowrap;\n  background-color: #f9f9f9 !important;\n  border: 1px solid #ccc !important;\n  box-shadow: inset 0 10px 5px white !important;\n  border-radius: 3px !important;\n  padding: 3px 3px !important; }\n\n#sp-prefs-setup textarea {\n  width: 98%;\n  height: 60px;\n  margin: 3px 0;\n  font-weight: 50;\n  background: white; }\n\n#sp-prefs-setup b {\n  font-weight: bold;\n  font-family: '微软雅黑', sans-serif; }\n\n#sp-prefs-setup button:disabled {\n  color: gray; }\n";
 
   var _wcImport = "#sp-fw-container {\n  z-index: 999999 !important;\n  text-align: left !important;\n  line-height: 13px !important; }\n\n#sp-fw-container * {\n  font-size: 13px !important;\n  color: black !important;\n  float: none !important; }\n\n#sp-fw-main-head {\n  position: relative !important;\n  top: 0 !important;\n  left: 0 !important; }\n\n#sp-fw-span-info {\n  position: absolute !important;\n  right: 1px !important;\n  top: 0 !important;\n  font-size: 11px !important;\n  line-height: 11px !important;\n  background: none !important;\n  font-style: italic !important;\n  color: #5a5a5a !important;\n  text-shadow: white 0px 1px 1px !important; }\n\n#sp-fw-main select {\n  background: white; }\n\n#sp-fw-container input {\n  vertical-align: middle !important;\n  display: inline-block !important;\n  outline: none !important;\n  padding: 0px !important;\n  margin: 0 !important;\n  margin-right: 3px !important;\n  background: white;\n  border: 1px solid gray;\n  cursor: pointer !important; }\n\n#sp-fw-container input[type=\"number\"] {\n  width: 6ch !important;\n  text-align: left !important;\n  margin: 0 3px !important; }\n\n#sp-fw-container input[type=\"number\"]:hover::-webkit-inner-spin-button {\n  height: 60px; }\n\n#sp-fw-container input[type=\"checkbox\"] {\n  position: static !important; }\n\n#sp-fw-container input[type=\"button\"] {\n  width: auto !important;\n  height: auto !important; }\n\n#sp-fw-container li {\n  list-style: none !important;\n  margin: 3px 0 !important;\n  border: none !important;\n  float: none !important; }\n\n#sp-fw-container fieldset {\n  border: 2px groove #ccc !important;\n  -moz-border-radius: 3px !important;\n  border-radius: 3px !important;\n  padding: 4px 9px 6px 9px !important;\n  margin: 2px !important;\n  display: block !important;\n  width: auto !important;\n  height: auto !important; }\n\n#sp-fw-container legend {\n  line-height: 20px !important;\n  margin-bottom: 0px !important; }\n\n#sp-fw-container fieldset > ul {\n  padding: 0 !important;\n  margin: 0 !important; }\n\n#sp-fw-container ul#sp-fw-a_useiframe-extend {\n  padding-left: 40px !important; }\n\n#sp-fw-rect {\n  position: relative !important;\n  top: 0 !important;\n  left: 0 !important;\n  float: right !important;\n  height: 10px !important;\n  width: 10px !important;\n  padding: 0 !important;\n  margin: 0 !important;\n  -moz-border-radius: 3px !important;\n  border-radius: 3px !important;\n  border: 1px solid white !important;\n  -webkit-box-shadow: inset 0 5px 0 rgba(255, 255, 255, 0.3), 0 0 3px rgba(0, 0, 0, 0.8) !important;\n  -moz-box-shadow: inset 0 5px 0 rgba(255, 255, 255, 0.3), 0 0 3px rgba(0, 0, 0, 0.8) !important;\n  box-shadow: inset 0 5px 0 rgba(255, 255, 255, 0.3), 0 0 3px rgba(0, 0, 0, 0.8) !important;\n  opacity: 0.8 !important; }\n\n#sp-fw-dot,\n#sp-fw-cur-mode {\n  position: absolute !important;\n  z-index: 9999 !important;\n  width: 5px !important;\n  height: 5px !important;\n  padding: 0 !important;\n  -moz-border-radius: 3px !important;\n  border-radius: 3px !important;\n  border: 1px solid white !important;\n  opacity: 1 !important;\n  -webkit-box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.3), inset 0 2px 1px rgba(255, 255, 255, 0.3), 0px 1px 2px rgba(0, 0, 0, 0.9) !important;\n  -moz-box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.3), inset 0 2px 1px rgba(255, 255, 255, 0.3), 0px 1px 2px rgba(0, 0, 0, 0.9) !important;\n  box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.3), inset 0 2px 1px rgba(255, 255, 255, 0.3), 0px 1px 2px rgba(0, 0, 0, 0.9) !important; }\n\n#sp-fw-dot {\n  right: -3px !important;\n  top: -3px !important; }\n\n#sp-fw-cur-mode {\n  left: -3px !important;\n  top: -3px !important;\n  width: 6px !important;\n  height: 6px !important; }\n\n#sp-fw-content {\n  padding: 0 !important;\n  margin: 5px 5px 0 0 !important;\n  -moz-border-radius: 3px !important;\n  border-radius: 3px !important;\n  border: 1px solid #a0a0a0 !important;\n  -webkit-box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.3) !important;\n  -moz-box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.3) !important;\n  box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.3) !important; }\n\n#sp-fw-main {\n  padding: 5px !important;\n  border: 1px solid white !important;\n  -moz-border-radius: 3px !important;\n  border-radius: 3px !important;\n  background-color: #f2f2f7 !important;\n  background: -moz-linear-gradient(top, #fcfcfc, #f2f2f7 100%) !important;\n  background: -webkit-gradient(linear, 0 0, 0 100%, from(#fcfcfc), to(#f2f2f7)) !important; }\n\n#sp-fw-foot {\n  position: relative !important;\n  left: 0 !important;\n  right: 0 !important;\n  top: 2px !important;\n  padding-left: 2px;\n  min-height: 20px !important; }\n\n#sp-fw-container .sp-fw-spanbutton {\n  padding: 2px 3px !important;\n  border: 1px solid #ccc !important;\n  -moz-border-radius: 3px !important;\n  border-radius: 3px !important;\n  cursor: pointer !important;\n  background-color: #f9f9f9 !important;\n  -webkit-box-shadow: inset 0 10px 5px white !important;\n  -moz-box-shadow: inset 0 10px 5px white !important;\n  box-shadow: inset 0 10px 5px white !important;\n  display: inline-block; }\n\n#sp-fw-container #sp-fw-savebutton {\n  position: absolute !important;\n  right: 2px !important; }\n";
 
-  var userAgentRules = [["aol", /AOLShield\/([0-9\._]+)/], ["edge", /Edge\/([0-9\._]+)/], ["edge-ios", /EdgiOS\/([0-9\._]+)/], ["yandexbrowser", /YaBrowser\/([0-9\._]+)/], ["kakaotalk", /KAKAOTALK\s([0-9\.]+)/], ["samsung", /SamsungBrowser\/([0-9\.]+)/], ["silk", /\bSilk\/([0-9._-]+)\b/], ["miui", /MiuiBrowser\/([0-9\.]+)$/], ["beaker", /BeakerBrowser\/([0-9\.]+)/], ["edge-chromium", /Edg\/([0-9\.]+)/], ["chromium-webview", /(?!Chrom.*OPR)wv\).*Chrom(?:e|ium)\/([0-9\.]+)(:?\s|$)/], ["chrome", /(?!Chrom.*OPR)Chrom(?:e|ium)\/([0-9\.]+)(:?\s|$)/], ["phantomjs", /PhantomJS\/([0-9\.]+)(:?\s|$)/], ["crios", /CriOS\/([0-9\.]+)(:?\s|$)/], ["firefox", /Firefox\/([0-9\.]+)(?:\s|$)/], ["fxios", /FxiOS\/([0-9\.]+)/], ["opera-mini", /Opera Mini.*Version\/([0-9\.]+)/], ["opera", /Opera\/([0-9\.]+)(?:\s|$)/], ["opera", /OPR\/([0-9\.]+)(:?\s|$)/], ["ie", /Trident\/7\.0.*rv\:([0-9\.]+).*\).*Gecko$/], ["ie", /MSIE\s([0-9\.]+);.*Trident\/[4-7].0/], ["ie", /MSIE\s(7\.0)/], ["bb10", /BB10;\sTouch.*Version\/([0-9\.]+)/], ["android", /Android\s([0-9\.]+)/], ["ios", /Version\/([0-9\._]+).*Mobile.*Safari.*/], ["safari", /Version\/([0-9\._]+).*Safari/], ["facebook", /FBAV\/([0-9\.]+)/], ["instagram", /Instagram\s([0-9\.]+)/], ["ios-webview", /AppleWebKit\/([0-9\.]+).*Mobile/], ["ios-webview", /AppleWebKit\/([0-9\.]+).*Gecko\)$/]];
+  var userAgentRules = [['aol', /AOLShield\/([0-9\._]+)/], ['edge', /Edge\/([0-9\._]+)/], ['edge-ios', /EdgiOS\/([0-9\._]+)/], ['yandexbrowser', /YaBrowser\/([0-9\._]+)/], ['kakaotalk', /KAKAOTALK\s([0-9\.]+)/], ['samsung', /SamsungBrowser\/([0-9\.]+)/], ['silk', /\bSilk\/([0-9._-]+)\b/], ['miui', /MiuiBrowser\/([0-9\.]+)$/], ['beaker', /BeakerBrowser\/([0-9\.]+)/], ['edge-chromium', /Edg\/([0-9\.]+)/], ['chromium-webview', /(?!Chrom.*OPR)wv\).*Chrom(?:e|ium)\/([0-9\.]+)(:?\s|$)/], ['chrome', /(?!Chrom.*OPR)Chrom(?:e|ium)\/([0-9\.]+)(:?\s|$)/], ['phantomjs', /PhantomJS\/([0-9\.]+)(:?\s|$)/], ['crios', /CriOS\/([0-9\.]+)(:?\s|$)/], ['firefox', /Firefox\/([0-9\.]+)(?:\s|$)/], ['fxios', /FxiOS\/([0-9\.]+)/], ['opera-mini', /Opera Mini.*Version\/([0-9\.]+)/], ['opera', /Opera\/([0-9\.]+)(?:\s|$)/], ['opera', /OPR\/([0-9\.]+)(:?\s|$)/], ['ie', /Trident\/7\.0.*rv\:([0-9\.]+).*\).*Gecko$/], ['ie', /MSIE\s([0-9\.]+);.*Trident\/[4-7].0/], ['ie', /MSIE\s(7\.0)/], ['bb10', /BB10;\sTouch.*Version\/([0-9\.]+)/], ['android', /Android\s([0-9\.]+)/], ['ios', /Version\/([0-9\._]+).*Mobile.*Safari.*/], ['safari', /Version\/([0-9\._]+).*Safari/], ['facebook', /FBAV\/([0-9\.]+)/], ['instagram', /Instagram\s([0-9\.]+)/], ['ios-webview', /AppleWebKit\/([0-9\.]+).*Mobile/], ['ios-webview', /AppleWebKit\/([0-9\.]+).*Gecko\)$/]];
   var REQUIRED_VERSION_PARTS = 3;
 
   function matchUserAgent(ua) {
@@ -3295,7 +3295,7 @@
     // this is primarily because using the reduce we only perform the regex
     // execution once rather than once for the test and for the exec again below
     // probably something that needs to be benchmarked though
-    return ua !== "" && userAgentRules.reduce(function (matched, _a) {
+    return ua !== '' && userAgentRules.reduce(function (matched, _a) {
       var browser = _a[0],
           regex = _a[1];
 
@@ -3325,16 +3325,16 @@
     var versionParts = match[1] && match[1].split(/[._]/).slice(0, 3);
 
     if (!versionParts) {
-      versionParts = ["1"];
+      versionParts = ['1'];
     }
 
     if (versionParts.length < REQUIRED_VERSION_PARTS) {
       for (var i = 0; i < REQUIRED_VERSION_PARTS - versionParts.length; i++) {
-        versionParts.push("0");
+        versionParts.push('0');
       }
     }
 
-    var version = versionParts.join(".");
+    var version = versionParts.join('.');
     return {
       name,
       version
@@ -3462,26 +3462,26 @@
   }));
   });
 
-  var name="super-preloader";var version="6.13.3";var description="Super-preloader";var main="dist/Super_preloaderPlus_one_New.user.js";var author="Mach6";var license="GPL-3.0";var bugs={url:"https://github.com/machsix/Super-preloader/issues"};var homepage="https://github.com/machsix/Super-preloader";var directories={doc:"docs"};var repository={type:"git",url:"git+https://github.com/machsix/Super-preloader.git"};var scripts={lint:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\"",format:"prettier --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"docs/**/*.{js,md}\"","format:check":"prettier --check \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"docs/**/*.{js,md}\"","format:staged":"pretty-quick --verbose --staged --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"docs/**/*.{js,md}\"",test:"npm run lint && npm run format:staged",dev:"rollup -c --dev -w",build:"rollup -c","docs:dev":"vuepress dev docs","docs:build":"vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh",preversion:"npm run test",version:"npm run build  && git add dist/*.js && git add dist/*.json",postversion:"git add package.json package-lock.json","publish:patch":"npm --no-git-tag-version version patch",publish:"npm --no-git-tag-version version minor"};var husky={hooks:{"pre-commit":"npm run test"}};var keywords=["userscript"];var devDependencies={"@vuepress/plugin-back-to-top":"1.4.1","@vuepress/plugin-google-analytics":"1.4.1","@vuepress/plugin-pwa":"1.4.1",vuepress:"1.4.1"};var dependencies={"@babel/core":"7.9.6","@babel/plugin-transform-runtime":"7.9.6","@babel/preset-env":"7.9.6","@rollup/plugin-babel":"5.0.0","@rollup/plugin-commonjs":"11.0.2","@rollup/plugin-json":"4.0.3","@rollup/plugin-node-resolve":"7.1.3","@sinonjs/text-encoding":"0.7.1","babel-plugin-lodash":"3.3.4","babel-plugin-wildcard":"6.0.0","compare-versions":"3.6.0",displacejs:"1.4.1",eslint:"6.8.0","eslint-config-prettier":"6.11.0","eslint-plugin-json":"2.1.1","eslint-plugin-prettier":"3.1.3",husky:"4.2.5",lodash:"4.17.15",loglevel:"1.6.8",prettier:"2.0.5","pretty-quick":"2.0.1",rollup:"2.7.6","rollup-plugin-banner":"git+https://git@github.com/machsix/rollup-plugin-banner.git#v0.2.2","rollup-plugin-dev":"1.1.2","rollup-plugin-ejs":"2.2.0","rollup-plugin-re":"1.0.7","rollup-plugin-scss-string":"0.1.0",yargs:"15.3.1"};var pkg = {name:name,version:version,description:description,main:main,author:author,license:license,bugs:bugs,homepage:homepage,directories:directories,repository:repository,scripts:scripts,husky:husky,keywords:keywords,devDependencies:devDependencies,dependencies:dependencies};
+  var name="super-preloader";var version="6.13.4";var description="Super-preloader";var main="dist/Super_preloaderPlus_one_New.user.js";var author="Mach6";var license="GPL-3.0";var bugs={url:"https://github.com/machsix/Super-preloader/issues"};var homepage="https://github.com/machsix/Super-preloader";var directories={doc:"docs"};var repository={type:"git",url:"git+https://github.com/machsix/Super-preloader.git"};var scripts={lint:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.js\"",format:"prettier --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"","format:check":"prettier --check \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"","format:staged":"pretty-quick --verbose --staged --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"",check:"npm run lint && npm run format:staged",test:"cd test && node test.js",dev:"rollup -c --dev -w",build:"rollup -c","docs:dev":"vuepress dev docs","docs:build":"vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh",preversion:"npm run check",version:"npm run build  && git add dist/*.js && git add dist/*.json",postversion:"git add package.json package-lock.json","publish:patch":"npm --no-git-tag-version version patch",publish:"npm --no-git-tag-version version minor"};var husky={hooks:{"pre-commit":"npm run check"}};var keywords=["userscript"];var devDependencies={"@vuepress/plugin-back-to-top":"1.4.1","@vuepress/plugin-google-analytics":"1.4.1","@vuepress/plugin-pwa":"1.4.1","extract-zip":"2.0.0",got:"11.1.3",puppeteer:"2.1.0",vuepress:"1.4.1"};var dependencies={"@babel/core":"7.9.6","@babel/plugin-transform-runtime":"7.9.6","@babel/preset-env":"7.9.6","@rollup/plugin-babel":"5.0.0","@rollup/plugin-commonjs":"11.1.0","@rollup/plugin-json":"4.0.3","@rollup/plugin-node-resolve":"7.1.3","@sinonjs/text-encoding":"0.7.1","babel-plugin-lodash":"3.3.4","babel-plugin-wildcard":"6.0.0","compare-versions":"3.6.0",displacejs:"1.4.1",eslint:"7.0.0","eslint-config-prettier":"6.11.0","eslint-plugin-json":"2.1.1","eslint-plugin-prettier":"3.1.3",husky:"4.2.5",lodash:"4.17.15",loglevel:"1.6.8",prettier:"2.0.5","pretty-quick":"2.0.1",rollup:"2.9.0","rollup-plugin-banner":"git+https://git@github.com/machsix/rollup-plugin-banner.git#v0.2.2","rollup-plugin-dev":"1.1.2","rollup-plugin-ejs":"2.2.0","rollup-plugin-re":"1.0.7","rollup-plugin-scss-string":"0.1.0",yargs:"15.3.1"};var pkg = {name:name,version:version,description:description,main:main,author:author,license:license,bugs:bugs,homepage:homepage,directories:directories,repository:repository,scripts:scripts,husky:husky,keywords:keywords,devDependencies:devDependencies,dependencies:dependencies};
 
   // Information of script
 
   var now = new Date();
   var SCRIPT_INFO = {
-    name: "Super_preloaderPlus_one_New",
-    shortname: "Super-preloader",
-    "name-CN": "Super_preloaderPlus_one_改",
-    namespace: "https://github.com/machsix",
-    icon: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAvCAYAAABOtfLKAAAL9UlEQVR42s1ZC1CU1xXee/9/dwGFFRU1SQURfCSaCCoaX6Py9gmDqBSN4zuKWvEFPqpGDGrjtLFJGzXO1FgfqNUYp2lim9hWGzH1hcT3pDHK2FidGtvqaIIi/b71/viz/wLL6tjuzJnz73/vf+455zv33HPvtSUm9hMgqUgjf1qUnBwvbeoXHBwcqGlaBynFSCHEa6C3pJT9MjPThY/yhM1khP1p8okTx2jHjx8QQUGBkVB6EmgvDLgCugeqVLSxd+8edhjti1xNGfOoYdCgFG3gwGSdPCUl3iLocfnQoQO0zZvXS6fT8aymyYVQ+JxS/D5Q4fM2GLYFvAJ8W2zsSzp0oB7QJ0F/pF9yNbkWZMaMyZLt2kUHhIU1DYyKigxs2zbanpTU315ZWSkqKx8IhgOfyZcsyddycibK1NREnwxJSOhrnz17moyN7eSAkkNAnysjboK267o2zOl0PtenT08d4ZZA40BbCwsXy/v3bwjKgW721q1bBTZrFhYE3QKyszMl5FqQgSHZbsghYBMG+gP4h+C/Af8V+BrQYgySA29m2O32PqA2LldIWHj4D5zvvPNTSQO3bt0gJ0x4RcIBFkN2794s4CQX5UDmvxhOeN4NmX2pIL+fPHmsBmfZdF1PRXs5kDqBPktAP2fIge+iXkq/TdA3YsWK14QFmWPHDgoITlIx+wB0hwLVc6UHse0qqASC94CvgGdHQ4mY0NBGTRYsmC2JIL1Kw/bt2y1cLlcY+q1THv8GY00LDm4YfOvW30Va2qAqww8d+pR6JKPPXY8xHyh97qjne9T3yJE/CwsyZ84ct9nteqry2Mfo2BPeTwASQ6go3s3A83K0b8Dz72iIMuh704Dfgv5KT4LSGjZs8FxFxU3RpEnjUH6nlDgNoxOBghw2LE33DMkvvvjcjAydNRO6jAYNgX4J0KUn3v2eeqJfyokTxTYLMsojSUasLl6cpxlzxMyHDBmgt2jRPIAhBmPb0mAInwqi1w8rgyqVnFN4vwJ8LagCVIr+3RhKSC4WQ8iLixUySo8DBz6Sanwy29Kl+ZLv2c5+xcX7rchcvHjWQOY+s0jnzp2QRarHPogJQRswIEmfMmW8LChYKA1DMzPTZOPGoY3hrVgMMhVy3gddN6H2FecalTLNKQsvLa1C5r4pm7kNJ+/SJUbH+yK2o1/yqVNHHyFj/kGJFOWRbd27d3XAez6nXSiIJPJDuXPne24DIyMjgiAvRk3aSoToMoshdSNT1K1bF+iRwHZ3euZ/6qeQSeFYVZGDwTri5StoLMTzHxnXZmT8X08GMkwpfzaNAZ9bVnbOCIlakDnsKzLU80/Um3OKdtjw57KKZ5UxwK3I+MUvXDhJtPMoE3zeuXMlDInHRKYzkdnqoW8F7XAjxFQJy3IRCj+uYc74xUtKDgkiopCZd/JkcZ3IoI/Pc4YVBPXG8z9oh01ZdrJ582Yh8Ej/+swZJgMkAi0jY4jX9vPnSzyQOeEHMp0NPXQiExfX2Txn4ps1axpC/UE0xgaviZNYwBohm6X4igzqI23OnOkaaqwIruwjR2bIJ4FMSYknMp1qy2ZJISHBjaB/qRmZUqZVWJroCzJZWcNkRsZQ1lADIfgjh8MRNWPGq5p3ZGS+Qibv7NnjTxqZJFQcjX1EJt5SYxUULJJt2kQFos9kxiroSmBgYNSqVcsEPcfJavCZM6do8F53GJQH3m3WrBzNaEeImg3RDU40iYxZDzMyXbtakcFz/ZChIczl7KdW9dvq20tEBtWzHhPzIsPAYeIMR53rCxda/ud7Tuq+fXsxO1Uz5Kkhk5MzSQYGBkQZgkwr+230/63ah2ynAj7wzRgrhousJzInTliQsVdHJrY2ZGw+IbN69esS7Wlou+GliuY39+pBt1mKFBVtFHUhAyRqRaZRI1f9kWH2wjsH9zPo86XJkGsQOgqUgO+T6BATT1TvE0z/yeMbNAhqOnx4umZF5rP6IhNaFzJFRMZzyzx4cKq2d2+R5KSGwEPGnMEOMdxcI5l5RER4ELYCTVq1Cg8yv8/KyuA81HxAhsaYkbHXgozwigzzOT3hbaEsKzsrUAG3VkXkJcyl6IUL51hCprCQm0Q5lnsY8PHMhEZ7Tfz48TqRsVdHJsQ/ZAxOj7799huSoYJvcgMCnC1ZCXgqdv3611xn5quqOe/q1a9sFgP8QEZKH5DR9dqQsRqEAxAN/ZhyOUktimE1r1YBoCIWdSPzl3oh43I9QgZUf2RMCnARpNFeFTtz5piNiChk5p4+fVTUjcx+n5HBFjrZb2TqUOSJIHPsWI3I6I+LjL+GKGSOiv8RMsG1IeMXv3jxNJHJU8jkX758zgdkDtaKTFycD8igxqkJGb8NwkIrqRictYGOQn0ma+tPOnx4v6DHHxpjQYbGeCIT+lSQIV+zZpVkobl+/RrvhpjJigz1+P9ABoumwELcF4MvB++zcuUyNWeslJ4+CNX1vwUVgscTTMhYEkCtyPBPSMiTR+bSpbPV5gxPZ8wGUD6OpgSQ46lnsMNhfwn9MkHu00/vyHT2Cxn74yLDhRV7nRjev5AbtVhSUj99/vxZcty40RJ1XVu0/wje/sTj0JBXGr/s3ftlbuRqRMblqhuZrT16xHECu3eMEOaXQVBepxxW21SK/3meBjR4P9OK4Yfx/qZ0KAedgqK/5toEx2YHBAREshYEQY943s3oPXt21+uLzE6c1gRHRLR0UhEexZ4/f1SYz3ypUG7uVMkBMJjXSb1hwy+4ZoyAvI/BM/kdqmcnnocb3gT9kwbg3SBcUbTIz8+V7PeoCr8jxo4dpWF3ase3ATiNaYj+O4zjWRhTKzL3FNyfwAMfqp3hetAKLHxzQNk8xUfV3LFBgwbP4BA9aPr0yVWH7DTciHGc6Aue4nMzRo6C1AVeiP+3QN+pHWd3Khod3doJeS0wbzrS40QG7XM4LuhdhhaI+hjhyFsAFppWZPCyCRR8kVCr3eR/QHeNLbIHldOjoLMYYB8vozD4JAh/GXuX5gwnIrhu3ZsClfWzUDgOc4aTe6OSV8bEwHM60AR+Dzm8pjinxi6vYTd7l3qpPqeYMABCEwsy8EpTXMHZMSEjMXAnKNAVxvXm4TQm2nAM+CpoEScliCf8R6iUx6XQLcqiJ4HgSMR8q2vXvhQIYZ5tbVLHqRWg06AS9jd9SzlllIu+76txFkHOFIYodEiFTr2gUxyN4Hzq1au7jpoyzIIMLAzjBRA2WZLhcuPG14LeJZl/ubk5Gk74nYQXkziK6wcGdXsXcg6YMhIVv8D3CpEKD09fAx1E25tQeAJQ7QNHRlEu7lOdc+fOkJ5jK33ExYulYuXKpciGozREQpg3ZMKys4dXbbCMLMJsBtJxlOTmIPf9DC5HteXLF1UNOHPmVIm1IoShCuXGq0n6jcc13hW+R/s49mP/WbOmSUPR1asLJA4YcZucxHFAHNfNmZZB/avSNIn7KW/InEQohD4U+r3Ys2eLSE8frOMO3r3xat++reP559s6X3ihnYPnXhSkLlOFYQy5GUkcFDqBWgd1vFTJBZBJIzo6MsBbfyOB8Aab8llgdujQ3tGuXRv3uJ06dbTzJnrYsKHa2rU/k8ZZgspmJWZkLjPbgPKZ+0FvwYPvgm8B3w6+G312gYPc2W2TiumfqIk8njGNWI4NCgp6Jjy8ZaChJNpnKWPmGEawnf1gXCy/4/eUQ3mUq+Qze+1StJtOoT6cj9QP9PrDsWUu55oZGW/0QGWQcnUJ+53i9xj/NWSbb1VG+kBdtfdjKlbGFKj/S6DcB6rfzRqyZQXH8Ri3XPV94FVfhUwBBljLQbmOsPTAoFmgdFavLPrA+z0iLQl8IBc+5dF5oDeIGGR9Ri+ZUusdlcIrFb9jSu1l7M/VnN9TDuSNo1yMMZBriGncvqBEvE+hXkq/ybyVo97UH7KW2fibNGmsEYPm+PXkwvjv+SsrOyNYECITubAwtuapCQZYqBa4mzRA8U/xfgFrKvbDPHVxbpSWHhIWodZ5Re61D455tR073hM2ZAmhyhEB8salL3zw4BQxatQIaR4I6T4EiKWCCsmxZwoxt48ePYLlkCHHbw79mWnFfwGWB6omxVHfzgAAAABJRU5ErkJggg==",
+    name: 'Super_preloaderPlus_one_New',
+    shortname: 'Super-preloader',
+    'name-CN': 'Super_preloaderPlus_one_改',
+    namespace: 'https://github.com/machsix',
+    icon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAvCAYAAABOtfLKAAAL9UlEQVR42s1ZC1CU1xXee/9/dwGFFRU1SQURfCSaCCoaX6Py9gmDqBSN4zuKWvEFPqpGDGrjtLFJGzXO1FgfqNUYp2lim9hWGzH1hcT3pDHK2FidGtvqaIIi/b71/viz/wLL6tjuzJnz73/vf+455zv33HPvtSUm9hMgqUgjf1qUnBwvbeoXHBwcqGlaBynFSCHEa6C3pJT9MjPThY/yhM1khP1p8okTx2jHjx8QQUGBkVB6EmgvDLgCugeqVLSxd+8edhjti1xNGfOoYdCgFG3gwGSdPCUl3iLocfnQoQO0zZvXS6fT8aymyYVQ+JxS/D5Q4fM2GLYFvAJ8W2zsSzp0oB7QJ0F/pF9yNbkWZMaMyZLt2kUHhIU1DYyKigxs2zbanpTU315ZWSkqKx8IhgOfyZcsyddycibK1NREnwxJSOhrnz17moyN7eSAkkNAnysjboK267o2zOl0PtenT08d4ZZA40BbCwsXy/v3bwjKgW721q1bBTZrFhYE3QKyszMl5FqQgSHZbsghYBMG+gP4h+C/Af8V+BrQYgySA29m2O32PqA2LldIWHj4D5zvvPNTSQO3bt0gJ0x4RcIBFkN2794s4CQX5UDmvxhOeN4NmX2pIL+fPHmsBmfZdF1PRXs5kDqBPktAP2fIge+iXkq/TdA3YsWK14QFmWPHDgoITlIx+wB0hwLVc6UHse0qqASC94CvgGdHQ4mY0NBGTRYsmC2JIL1Kw/bt2y1cLlcY+q1THv8GY00LDm4YfOvW30Va2qAqww8d+pR6JKPPXY8xHyh97qjne9T3yJE/CwsyZ84ct9nteqry2Mfo2BPeTwASQ6go3s3A83K0b8Dz72iIMuh704Dfgv5KT4LSGjZs8FxFxU3RpEnjUH6nlDgNoxOBghw2LE33DMkvvvjcjAydNRO6jAYNgX4J0KUn3v2eeqJfyokTxTYLMsojSUasLl6cpxlzxMyHDBmgt2jRPIAhBmPb0mAInwqi1w8rgyqVnFN4vwJ8LagCVIr+3RhKSC4WQ8iLixUySo8DBz6Sanwy29Kl+ZLv2c5+xcX7rchcvHjWQOY+s0jnzp2QRarHPogJQRswIEmfMmW8LChYKA1DMzPTZOPGoY3hrVgMMhVy3gddN6H2FecalTLNKQsvLa1C5r4pm7kNJ+/SJUbH+yK2o1/yqVNHHyFj/kGJFOWRbd27d3XAez6nXSiIJPJDuXPne24DIyMjgiAvRk3aSoToMoshdSNT1K1bF+iRwHZ3euZ/6qeQSeFYVZGDwTri5StoLMTzHxnXZmT8X08GMkwpfzaNAZ9bVnbOCIlakDnsKzLU80/Um3OKdtjw57KKZ5UxwK3I+MUvXDhJtPMoE3zeuXMlDInHRKYzkdnqoW8F7XAjxFQJy3IRCj+uYc74xUtKDgkiopCZd/JkcZ3IoI/Pc4YVBPXG8z9oh01ZdrJ582Yh8Ej/+swZJgMkAi0jY4jX9vPnSzyQOeEHMp0NPXQiExfX2Txn4ps1axpC/UE0xgaviZNYwBohm6X4igzqI23OnOkaaqwIruwjR2bIJ4FMSYknMp1qy2ZJISHBjaB/qRmZUqZVWJroCzJZWcNkRsZQ1lADIfgjh8MRNWPGq5p3ZGS+Qibv7NnjTxqZJFQcjX1EJt5SYxUULJJt2kQFos9kxiroSmBgYNSqVcsEPcfJavCZM6do8F53GJQH3m3WrBzNaEeImg3RDU40iYxZDzMyXbtakcFz/ZChIczl7KdW9dvq20tEBtWzHhPzIsPAYeIMR53rCxda/ud7Tuq+fXsxO1Uz5Kkhk5MzSQYGBkQZgkwr+230/63ah2ynAj7wzRgrhousJzInTliQsVdHJrY2ZGw+IbN69esS7Wlou+GliuY39+pBt1mKFBVtFHUhAyRqRaZRI1f9kWH2wjsH9zPo86XJkGsQOgqUgO+T6BATT1TvE0z/yeMbNAhqOnx4umZF5rP6IhNaFzJFRMZzyzx4cKq2d2+R5KSGwEPGnMEOMdxcI5l5RER4ELYCTVq1Cg8yv8/KyuA81HxAhsaYkbHXgozwigzzOT3hbaEsKzsrUAG3VkXkJcyl6IUL51hCprCQm0Q5lnsY8PHMhEZ7Tfz48TqRsVdHJsQ/ZAxOj7799huSoYJvcgMCnC1ZCXgqdv3611xn5quqOe/q1a9sFgP8QEZKH5DR9dqQsRqEAxAN/ZhyOUktimE1r1YBoCIWdSPzl3oh43I9QgZUf2RMCnARpNFeFTtz5piNiChk5p4+fVTUjcx+n5HBFjrZb2TqUOSJIHPsWI3I6I+LjL+GKGSOiv8RMsG1IeMXv3jxNJHJU8jkX758zgdkDtaKTFycD8igxqkJGb8NwkIrqRictYGOQn0ma+tPOnx4v6DHHxpjQYbGeCIT+lSQIV+zZpVkobl+/RrvhpjJigz1+P9ABoumwELcF4MvB++zcuUyNWeslJ4+CNX1vwUVgscTTMhYEkCtyPBPSMiTR+bSpbPV5gxPZ8wGUD6OpgSQ46lnsMNhfwn9MkHu00/vyHT2Cxn74yLDhRV7nRjev5AbtVhSUj99/vxZcty40RJ1XVu0/wje/sTj0JBXGr/s3ftlbuRqRMblqhuZrT16xHECu3eMEOaXQVBepxxW21SK/3meBjR4P9OK4Yfx/qZ0KAedgqK/5toEx2YHBAREshYEQY943s3oPXt21+uLzE6c1gRHRLR0UhEexZ4/f1SYz3ypUG7uVMkBMJjXSb1hwy+4ZoyAvI/BM/kdqmcnnocb3gT9kwbg3SBcUbTIz8+V7PeoCr8jxo4dpWF3ase3ATiNaYj+O4zjWRhTKzL3FNyfwAMfqp3hetAKLHxzQNk8xUfV3LFBgwbP4BA9aPr0yVWH7DTciHGc6Aue4nMzRo6C1AVeiP+3QN+pHWd3Khod3doJeS0wbzrS40QG7XM4LuhdhhaI+hjhyFsAFppWZPCyCRR8kVCr3eR/QHeNLbIHldOjoLMYYB8vozD4JAh/GXuX5gwnIrhu3ZsClfWzUDgOc4aTe6OSV8bEwHM60AR+Dzm8pjinxi6vYTd7l3qpPqeYMABCEwsy8EpTXMHZMSEjMXAnKNAVxvXm4TQm2nAM+CpoEScliCf8R6iUx6XQLcqiJ4HgSMR8q2vXvhQIYZ5tbVLHqRWg06AS9jd9SzlllIu+76txFkHOFIYodEiFTr2gUxyN4Hzq1au7jpoyzIIMLAzjBRA2WZLhcuPG14LeJZl/ubk5Gk74nYQXkziK6wcGdXsXcg6YMhIVv8D3CpEKD09fAx1E25tQeAJQ7QNHRlEu7lOdc+fOkJ5jK33ExYulYuXKpciGozREQpg3ZMKys4dXbbCMLMJsBtJxlOTmIPf9DC5HteXLF1UNOHPmVIm1IoShCuXGq0n6jcc13hW+R/s49mP/WbOmSUPR1asLJA4YcZucxHFAHNfNmZZB/avSNIn7KW/InEQohD4U+r3Ys2eLSE8frOMO3r3xat++reP559s6X3ihnYPnXhSkLlOFYQy5GUkcFDqBWgd1vFTJBZBJIzo6MsBbfyOB8Aab8llgdujQ3tGuXRv3uJ06dbTzJnrYsKHa2rU/k8ZZgspmJWZkLjPbgPKZ+0FvwYPvgm8B3w6+G312gYPc2W2TiumfqIk8njGNWI4NCgp6Jjy8ZaChJNpnKWPmGEawnf1gXCy/4/eUQ3mUq+Qze+1StJtOoT6cj9QP9PrDsWUu55oZGW/0QGWQcnUJ+53i9xj/NWSbb1VG+kBdtfdjKlbGFKj/S6DcB6rfzRqyZQXH8Ri3XPV94FVfhUwBBljLQbmOsPTAoFmgdFavLPrA+z0iLQl8IBc+5dF5oDeIGGR9Ri+ZUusdlcIrFb9jSu1l7M/VnN9TDuSNo1yMMZBriGncvqBEvE+hXkq/ybyVo97UH7KW2fibNGmsEYPm+PXkwvjv+SsrOyNYECITubAwtuapCQZYqBa4mzRA8U/xfgFrKvbDPHVxbpSWHhIWodZ5Re61D455tR073hM2ZAmhyhEB8salL3zw4BQxatQIaR4I6T4EiKWCCsmxZwoxt48ePYLlkCHHbw79mWnFfwGWB6omxVHfzgAAAABJRU5ErkJggg==',
     author: pkg.author,
     version: pkg.version,
     license: pkg.license,
-    changelog: "working mode",
-    greasyfork: "https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new",
+    changelog: 'working mode',
+    greasyfork: 'https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new',
     updateTime: `${now.getFullYear()}/${now.getMonth() + 1}/${now.getDate()}`,
-    homepageURL: "https://github.com/machsix/Super-preloader",
+    homepageURL: 'https://github.com/machsix/Super-preloader',
     // rewrite storage for these versions
-    rewriteStorage: "6.6.83"
+    rewriteStorage: '6.6.83'
   };
   SCRIPT_INFO.downloadURL = `${SCRIPT_INFO.greasyfork}/code/${SCRIPT_INFO.name}.user.js`;
   SCRIPT_INFO.metaURL = `${SCRIPT_INFO.greasyfork}/code/${SCRIPT_INFO.name}.meta.js`; // New notification to send
@@ -3492,11 +3492,11 @@
     onload: function onload() {},
     // eslint-disable-next-line no-unused-vars
     show: function show(oldVersion, newVersion) {
-      return compareVersions(oldVersion, "6.11.0") < 0 && compareVersions(newVersion, "6.11.0") >= 0;
+      return compareVersions(oldVersion, '6.11.0') < 0 && compareVersions(newVersion, '6.11.0') >= 0;
     },
     extratext: {
-      zh_CN: "你现在可以通过拖拽改变悬浮窗位置！",
-      en_US: "You can now change the location of the floatWindow by dragging it!"
+      zh_CN: '你现在可以通过拖拽改变悬浮窗位置！',
+      en_US: 'You can now change the location of the floatWindow by dragging it!'
     }
   }; // Meta for userscript
 
@@ -3527,11 +3527,11 @@
     var doc = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : document;
     var e = doc.createElement(type);
 
-    if (conf.hasOwnProperty("attr")) {
+    if (conf.hasOwnProperty('attr')) {
       setMultipleAttributes(e, conf.attr);
     }
 
-    if (conf.hasOwnProperty("innerHTML")) {
+    if (conf.hasOwnProperty('innerHTML')) {
       e.innerHTML = conf.innerHTML;
     }
 
@@ -3560,15 +3560,15 @@
    */
 
   function getProperty(obj) {
-    if (obj.nodeName === "INPUT") {
+    if (obj.nodeName === 'INPUT') {
       switch (obj.type) {
-        case "checkbox":
+        case 'checkbox':
           return obj.checked;
 
-        case "number":
+        case 'number':
           {
-            var min = obj.hasAttribute("min") ? parseInt(obj.min) : undefined;
-            var max = obj.hasAttribute("max") ? parseInt(obj.max) : undefined;
+            var min = obj.hasAttribute('min') ? parseInt(obj.min) : undefined;
+            var max = obj.hasAttribute('max') ? parseInt(obj.max) : undefined;
             if (min >= obj.valueAsNumber) return min;
             if (max < obj.valueAsNumber) return max;
             return obj.valueAsNumber;
@@ -3577,9 +3577,9 @@
         default:
           return obj.value;
       }
-    } else if (obj.nodeName === "SELECT") {
+    } else if (obj.nodeName === 'SELECT') {
       return obj.selectedOptions[0].value;
-    } else if (obj.nodeName === "A") {
+    } else if (obj.nodeName === 'A') {
       return obj.href;
     } else {
       return obj.innerHTML;
@@ -3593,21 +3593,21 @@
    */
 
   function setProperty(obj, value) {
-    if (obj.nodeName === "INPUT") {
+    if (obj.nodeName === 'INPUT') {
       switch (obj.type) {
-        case "checkbox":
+        case 'checkbox':
           obj.checked = !!value;
           break;
 
-        case "number":
+        case 'number':
           {
-            if (obj.hasAttribute("min")) {
+            if (obj.hasAttribute('min')) {
               if (value < obj.min) {
                 value = obj.min;
               }
             }
 
-            if (obj.hasAttribute("max")) {
+            if (obj.hasAttribute('max')) {
               if (value > obj.max) {
                 value = obj.max;
               }
@@ -3620,14 +3620,14 @@
         default:
           obj.value = value;
       }
-    } else if (obj.nodeName === "SELECT") {
+    } else if (obj.nodeName === 'SELECT') {
       for (var i = 0; i < obj.options.length; i++) {
         if (obj.options[i].value === value) {
           obj.selectedIndex = i;
           break;
         }
       }
-    } else if (obj.nodeName === "A") {
+    } else if (obj.nodeName === 'A') {
       obj.href = value;
     } else {
       obj.innerHTML = value;
@@ -3718,7 +3718,7 @@
     if (!selector) return [];
     contextNode = contextNode || doc;
 
-    if (typeof selector === "string") {
+    if (typeof selector === 'string') {
       if (selector.search(/^css;/i) === 0) {
         return getAllElementsByCSS(selector.slice(4), contextNode);
       } else {
@@ -3728,7 +3728,7 @@
       var query = selector(doc, win, _cplink);
 
       if (!Array.isArray(query)) {
-        throw new Error("Wrong type is returned by getAllElements");
+        throw new Error('Wrong type is returned by getAllElements');
       } else {
         return query;
       }
@@ -5494,10 +5494,10 @@
   function langDetect() {
     var userLang = navigator.language || navigator.userLanguage;
 
-    if (userLang.indexOf("zh") !== -1) {
-      return "zh_CN";
+    if (userLang.indexOf('zh') !== -1) {
+      return 'zh_CN';
     } else {
-      return "en_US";
+      return 'en_US';
     }
   }
 
@@ -5507,7 +5507,7 @@
       userLang = x;
       template = ejs[userLang];
     } else {
-      userLang = "en_US";
+      userLang = 'en_US';
       template = ejs[userLang];
     }
   }
@@ -5523,7 +5523,7 @@
       return `${val.toString()}`;
     }
 
-    if (typeof val === "function") {
+    if (typeof val === 'function') {
       return `${magicKey.function}${val.toString()}`;
     }
 
@@ -5539,7 +5539,7 @@
   }
 
   function reviver(_key, val) {
-    if (typeof val !== "string") {
+    if (typeof val !== 'string') {
       return val;
     }
 
@@ -9104,7 +9104,7 @@
   function buf2hex(buffer) {
     // buffer is an ArrayBuffer
     return Array.prototype.map.call(new Uint8Array(buffer), function (x) {
-      return ("00" + x.toString(16)).slice(-2);
+      return ('00' + x.toString(16)).slice(-2);
     });
   }
   /**
@@ -9116,10 +9116,10 @@
 
 
   function encode(text) {
-    var encoding = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "utf-8";
+    var encoding = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'utf-8';
     var buffer = null;
 
-    if (["utf8", "utf-8", "unicode-1-1-utf-8"].includes(encoding)) {
+    if (['utf8', 'utf-8', 'unicode-1-1-utf-8'].includes(encoding)) {
       buffer = new textEncoding_1().encode(text);
     } else {
       try {
@@ -9142,13 +9142,13 @@
    */
 
   function encodeHex(text) {
-    var encoding = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "utf-8";
+    var encoding = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'utf-8';
     return buf2hex(encode(text, encoding));
   }
   function encodeURIE(text) {
-    var encoding = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "utf-8";
+    var encoding = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'utf-8';
 
-    if (encoding === "utf-8") {
+    if (encoding === 'utf-8') {
       return encodeURIE(text);
     }
 
@@ -9162,9 +9162,9 @@
       } else {
         return `%${encodeHex(x, encoding).map(function (x) {
         return x.toUpperCase();
-      }).join("%")}`;
+      }).join('%')}`;
       }
-    }).join("");
+    }).join('');
   }
 
   var loglevel = createCommonjsModule(function (module) {
@@ -9460,11 +9460,11 @@
 
   var queryString = {
     parse(text) {
-      var query = text.replace(/^\?/, "");
+      var query = text.replace(/^\?/, '');
       var search = /([^&=]+)=?([^&]*)/g;
 
       var decode = function decode(s) {
-        return decodeURIComponent(s.replace(/\+/g, " "));
+        return decodeURIComponent(s.replace(/\+/g, ' '));
       };
 
       var searchParams = {};
@@ -9479,20 +9479,20 @@
 
     stringify(params) {
       return Object.keys(params).map(function (key) {
-        return key + "=" + params[key];
-      }).join("&");
+        return key + '=' + params[key];
+      }).join('&');
     }
 
   };
   var defaults = {
-    method: "GET",
+    method: 'GET',
     retry: 0,
     headers: {},
     stream: false,
     cache: true,
     dnsCache: false,
     encoding: null,
-    prefixUrl: "",
+    prefixUrl: '',
     timeout: 0,
     // wait forever
     searchParams: {},
@@ -9557,14 +9557,14 @@
       delete options.headers;
     }
 
-    keyNotMerge.push("headers"); // `options.prefixUrl`
+    keyNotMerge.push('headers'); // `options.prefixUrl`
 
     if (!isNullOrUndefined(options.prefixUrl)) {
       try {
         options.prefixUrl = options.prefixUrl.toString();
 
-        if (!options.prefixUrl.endsWith("/")) {
-          options.prefixUrl += "/";
+        if (!options.prefixUrl.endsWith('/')) {
+          options.prefixUrl += '/';
         }
       } catch (error) {
         delete options.prefixUrl;
@@ -9579,7 +9579,7 @@
     } // `options.html` and `options.encoding`
 
 
-    if (options.hasOwnProperty("html")) {
+    if (options.hasOwnProperty('html')) {
       if (options.html) {
         options.binary = false;
       }
@@ -9587,8 +9587,8 @@
       options.html = thisDefaults.html;
     }
 
-    keyNotMerge.push("encoding");
-    keyNotMerge.push("html"); // `options.searchParams` , searchParams must be encoded in "utf8"
+    keyNotMerge.push('encoding');
+    keyNotMerge.push('html'); // `options.searchParams` , searchParams must be encoded in "utf8"
 
     if (options.searchParams) {
       if (isString_1(options.searchParams)) {
@@ -9598,7 +9598,7 @@
       options.searchParams = {};
     }
 
-    keyNotMerge.push("searchParams"); // `options.body` => `options.data`
+    keyNotMerge.push('searchParams'); // `options.body` => `options.data`
 
     if (options.body) {
       options.data = options.body;
@@ -9621,7 +9621,7 @@
       }
 
       if (isString_1(options.cookie)) {
-        if (options.hasOwnProperty("headers")) {
+        if (options.hasOwnProperty('headers')) {
           options.headers.cookie = options.cookie;
         } else {
           options.headers = {
@@ -9656,7 +9656,7 @@
 
   function gotopt2gmopt(options) {
     var config = {};
-    ["method", "url", "timeout", "headers", "binary", "user", "password", "context", "withCredentials", "data"].forEach(function (key) {
+    ['method', 'url', 'timeout', 'headers', 'binary', 'user', 'password', 'context', 'withCredentials', 'data'].forEach(function (key) {
       if (!isNullOrUndefined(options[key])) {
         config[key] = options[key];
       }
@@ -9729,7 +9729,7 @@
       gotOptions = normalizeArguments(gotOptions, request.defaults); // got => gm
 
       var gmOptions = gotopt2gmopt(gotOptions);
-      logger.debug("[Super-preloader]", "GM_xmlhttpRequest", gmOptions); // helper functions
+      logger.debug("[Super-preloader]", 'GM_xmlhttpRequest', gmOptions); // helper functions
 
       var genCallback = function genCallback(executor, name, retryCount) {
         return function (xmlResponse) {
@@ -9755,8 +9755,8 @@
       var genPromise = function genPromise() {
         var retryCount = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
         return new Promise(function (resolve, reject) {
-          gmOptions.onload = genCallback(resolve, "onload", retryCount);
-          ["onabort", "onerror", "ontimeout"].forEach(function (method) {
+          gmOptions.onload = genCallback(resolve, 'onload', retryCount);
+          ['onabort', 'onerror', 'ontimeout'].forEach(function (method) {
             gmOptions[method] = genCallback(reject, method, retryCount);
           });
           GM.xmlHttpRequest(gmOptions);
@@ -9788,13 +9788,13 @@
 
     request.get = function (url, optionsIn) {
       var options = parseArgument(url, optionsIn);
-      options.method = "GET";
+      options.method = 'GET';
       return this(options);
     };
 
     request.post = function (url, optionsIn) {
       var options = parseArgument(url, optionsIn);
-      options.method = "POST";
+      options.method = 'POST';
       return this(options);
     };
 
@@ -9966,7 +9966,7 @@
                 logger.error("[Super-preloader]", `[UpdateRule] ${_this2.name} [Status] ${_context2.t0}`); // mimic Promise.allSettled
 
                 return _context2.abrupt("return", {
-                  status: "rejected",
+                  status: 'rejected',
                   reason: _context2.t0
                 });
 
@@ -9994,7 +9994,7 @@
                 _context2.prev = 22;
                 _context2.t1 = _context2["catch"](14);
                 return _context2.abrupt("return", {
-                  status: "rejected",
+                  status: 'rejected',
                   reason: _context2.t1
                 });
 
@@ -10007,7 +10007,7 @@
 
               case 28:
                 return _context2.abrupt("return", {
-                  status: "fulfilled",
+                  status: 'fulfilled',
                   value: _this2.rule
                 });
 
@@ -10023,10 +10023,10 @@
   } // Providers
 
 
-  var MyData = new RuleProvider("machsix.github.io", ["https://machsix.github.io/Super-preloader/mydata.json", "https://super-preloader.netlify.com/mydata.json"], "https://machsix.github.io/Super-preloader/mydata_detail.json");
-  var WeData = new RuleProvider("wedata.net", ["http://wedata.net/databases/AutoPagerize/items.json", "https://machsix.github.io/Super-preloader/wedata.json"], "http://wedata.net/databases/AutoPagerize.json", function (res) {
+  var MyData = new RuleProvider('machsix.github.io', ['https://machsix.github.io/Super-preloader/mydata.json', 'https://super-preloader.netlify.com/mydata.json'], 'https://machsix.github.io/Super-preloader/mydata_detail.json');
+  var WeData = new RuleProvider('wedata.net', ['http://wedata.net/databases/AutoPagerize/items.json', 'https://machsix.github.io/Super-preloader/wedata.json'], 'http://wedata.net/databases/AutoPagerize.json', function (res) {
     return (isString_1(res.data) ? JSON.parse(res.data) : res.data).filter(function (i) {
-      var nameFilter = ["Generic Posts Rule", "hAtom"];
+      var nameFilter = ['Generic Posts Rule', 'hAtom'];
 
       for (var j = 0; j < nameFilter.length; j++) {
         if (nameFilter[j].indexOf(i.name) >= 0) {
@@ -10052,11 +10052,11 @@
     rule: p.map(function () {
       return [];
     }),
-    expire: new Date("1992-05-15"),
+    expire: new Date('1992-05-15'),
     updatePeriodInDay: 1,
 
     resetExpire() {
-      this.expire = new Date("1992-05-15");
+      this.expire = new Date('1992-05-15');
     },
 
     getRule() {
@@ -10075,7 +10075,7 @@
               case 0:
                 saveDB = _arguments.length > 0 && _arguments[0] !== undefined ? _arguments[0] : true;
                 _context3.next = 3;
-                return GM.setValue("jsonRuleInfo", {
+                return GM.setValue('jsonRuleInfo', {
                   expire: _this3.expire,
                   updatePeriodInDay: _this3.updatePeriodInDay
                 });
@@ -10087,7 +10087,7 @@
                 }
 
                 _context3.next = 6;
-                return GM.setValue("SITEINFO_json", _this3.rule);
+                return GM.setValue('SITEINFO_json', _this3.rule);
 
               case 6:
               case "end":
@@ -10129,7 +10129,7 @@
                 return Promise.all(promises).then(function (values) {
                   var status = values.map(function (_ref) {
                     var status = _ref.status;
-                    return status === "fulfilled" || false;
+                    return status === 'fulfilled' || false;
                   });
 
                   if (status.every(function (x) {
@@ -10145,7 +10145,7 @@
                     _this4.saveRule();
                   } else {
                     _this4.expire = today;
-                    logger.error("[Super-preloader]", "[UpdateRule] Fail");
+                    logger.error("[Super-preloader]", '[UpdateRule] Fail');
 
                     _this4.saveRule(false);
                   }
@@ -10180,10 +10180,10 @@
               case 0:
                 forceUpdateRule = _arguments3.length > 0 && _arguments3[0] !== undefined ? _arguments3[0] : false;
                 _context5.next = 3;
-                return Promise.all([GM.getValue("jsonRuleInfo", {
+                return Promise.all([GM.getValue('jsonRuleInfo', {
                   expire: _this5.expire,
                   updatePeriodInDay: _this5.updatePeriodInDay
-                }), GM.getValue("SITEINFO_json", _this5.rule)]);
+                }), GM.getValue('SITEINFO_json', _this5.rule)]);
 
               case 3:
                 _yield$Promise$all = _context5.sent;
@@ -10270,9 +10270,9 @@
       // 把下一页链接添加到历史记录
       autoGetPreLink: false,
       // 一开始不自动查找上一页链接，改为调用时再查找
-      excludes: "",
-      custom_siteinfo: "[]",
-      lazyImgSrc: "zoomfile|file|original|load-src|_src|imgsrc|real_src|src2|data-lazyload-src|data-ks-lazyload|data-lazyload|data-src|data-original|data-thumb|data-imageurl|data-defer-src|data-placeholder",
+      excludes: '',
+      custom_siteinfo: '[]',
+      lazyImgSrc: 'zoomfile|file|original|load-src|_src|imgsrc|real_src|src2|data-lazyload-src|data-ks-lazyload|data-lazyload|data-src|data-original|data-thumb|data-imageurl|data-defer-src|data-placeholder',
       ChineseUI: false,
       dblclick_pause: false,
       factoryCheck: true,
@@ -10331,13 +10331,13 @@
           // 上一页关键字前面的字符,例如 "上一页" 要匹配 "[上一页" ,那么prefix要的设置要不小于1,并且character要包含字符 "["
           enable: true,
           maxPrefix: 3,
-          character: [" ", "　", "[", "［", "<", "＜", "?", "?", "<<", "『", "「", "【", "(", "←"]
+          character: [' ', '　', '[', '［', '<', '＜', '?', '?', '<<', '『', '「', '【', '(', '←']
         },
         next: {
           // 下一页关键字前面的字符
           enable: true,
           maxPrefix: 2,
-          character: [" ", "　", "[", "［", "『", "「", "【", "("]
+          character: [' ', '　', '[', '［', '『', '「', '【', '(']
         }
       },
       sfwordl: {
@@ -10346,13 +10346,13 @@
           // 上一页关键字后面的字符
           enable: true,
           maxSubfix: 2,
-          character: [" ", "　", "]", "］", "』", "」", "】", ")"]
+          character: [' ', '　', ']', '］', '』', '」', '】', ')']
         },
         next: {
           // 下一页关键字后面的字符
           enable: true,
           maxSubfix: 3,
-          character: [" ", "　", "]", "］", ">", "﹥", "?", "?", ">>", "』", "」", "】", ")", "→"]
+          character: [' ', '　', ']', '］', '>', '﹥', '?', '?', '>>', '』', '」', '】', ')', '→']
         }
       },
       useiframe: false,
@@ -10381,7 +10381,7 @@
 
       }
     },
-    version: "1.0.0" // set a small value for first-time installation
+    version: '1.0.0' // set a small value for first-time installation
 
   }; // const settingsKeys = ["prefs", "SITEINFO_D", "autoMatch", "version"];
 
@@ -10414,7 +10414,7 @@
     for (var _i = 0, _Object$keys = Object.keys(oldProp); _i < _Object$keys.length; _i++) {
       var k = _Object$keys[_i];
 
-      if (!Array.isArray(oldProp[k]) && typeof oldProp[k] === "object") {
+      if (!Array.isArray(oldProp[k]) && typeof oldProp[k] === 'object') {
         hasDifferency = hasDifferency || mergeProperty(oldProp[k], newProp[k]);
       }
     }
@@ -10432,7 +10432,7 @@
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              logger.info("[Super-preloader]", "settings are reset");
+              logger.info("[Super-preloader]", 'settings are reset');
               _context.next = 3;
               return Promise.all(settingsKeys.map(function (key) {
                 return GM.setValue(key, factorySettings[key]);
@@ -10516,14 +10516,14 @@
                 logger.info("[Super-preloader]", `[UpdateCheck] version is updated ${settings.version} => ${SCRIPT_INFO.version}`);
                 settings.version = SCRIPT_INFO.version;
                 settings.autoMatch.useiframe = settings.SITEINFO_D.useiframe || false;
-                postLoading.push(GM.setValue("version", settings.version));
+                postLoading.push(GM.setValue('version', settings.version));
                 hasDifferency = mergeProperty(settings, factorySettings);
                 settings.prefs.factoryCheck = false;
 
                 if (hasDifferency) {
-                  logger.info("[Super-preloader]", "[UpdateCheck] settings are updated");
+                  logger.info("[Super-preloader]", '[UpdateCheck] settings are updated');
                   Object.keys(settings).forEach(function (key) {
-                    if (key !== "version") {
+                    if (key !== 'version') {
                       postLoading.push(GM.setValue(key, settings[key]));
                     }
                   });
@@ -10533,19 +10533,19 @@
               } // set global variables based on prefs
 
 
-              if (typeof settings.prefs.debug !== "undefined") {
-                logger.setLevel(settings.prefs.debug ? "debug" : "info");
+              if (typeof settings.prefs.debug !== 'undefined') {
+                logger.setLevel(settings.prefs.debug ? 'debug' : 'info');
               }
 
               if (settings.prefs.ChineseUI) {
-                setLang("zh_CN");
+                setLang('zh_CN');
               } // send notification
 
 
               if (verDiff < 0) {
                 if (NOTIFICATION.show(settings.version, SCRIPT_INFO.version) || isInstalled) {
                   opts = {
-                    text: "",
+                    text: '',
                     title: NOTIFICATION.title,
                     image: NOTIFICATION.image,
                     onload: NOTIFICATION.onload
@@ -10555,7 +10555,7 @@
                     newversion: settings.version
                   });
 
-                  if (Object.keys(NOTIFICATION).includes("extratext")) {
+                  if (Object.keys(NOTIFICATION).includes('extratext')) {
                     if (Object.keys(NOTIFICATION.extratext).includes(userLang)) {
                       opts.text += NOTIFICATION.extratext[userLang];
                     } else {
@@ -10595,7 +10595,7 @@
   var domainSettings = [];
   var localSettingIndex = -1;
   function getLocalStorage() {
-    var key = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "spfwset";
+    var key = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'spfwset';
     var fallback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
     var valStr = localStorage.getItem(key);
 
@@ -10609,7 +10609,7 @@
     }
   }
   function setLocalStorage(val) {
-    var key = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "spfwset";
+    var key = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'spfwset';
     localStorage.setItem(key, JSONE.stringify(val));
   }
   /**
@@ -10620,7 +10620,7 @@
    */
 
   function loadLocalSetting(pageSetting) {
-    domainSettings = getLocalStorage("spfwset") || [];
+    domainSettings = getLocalStorage('spfwset') || [];
     if (!domainSettings) return pageSetting;
 
     for (var i = 0; i < domainSettings.length; i++) {
@@ -10636,7 +10636,7 @@
         }
 
         localSettingIndex = i;
-        logger.debug("[Super-preloader]", "Load local settings ", localSetting);
+        logger.debug("[Super-preloader]", 'Load local settings ', localSetting);
         return pageSetting;
       }
     }
@@ -10672,15 +10672,15 @@
   }
   function wildcardToRegExpStr(urlstr) {
     if (urlstr.source) return urlstr.source;
-    var reg = urlstr.replace(/[()\[\]{}|+.,^$?\\]/g, "\\$&").replace(/\*+/g, function (str) {
-      return str === "*" ? ".*" : "[^/]*";
+    var reg = urlstr.replace(/[()\[\]{}|+.,^$?\\]/g, '\\$&').replace(/\*+/g, function (str) {
+      return str === '*' ? '.*' : '[^/]*';
     });
-    return "^" + reg + "$";
+    return '^' + reg + '$';
   }
 
   function addStyle(aCss, aId, doc) {
     doc = doc || document;
-    var head = doc.getElementsByTagName("head");
+    var head = doc.getElementsByTagName('head');
 
     if (!head) {
       head = doc.documentElement;
@@ -10688,13 +10688,13 @@
       head = head[0];
     }
 
-    var style = doc.createElement("style");
+    var style = doc.createElement('style');
 
     if (aId) {
-      style.setAttribute("id", aId);
+      style.setAttribute('id', aId);
     }
 
-    style.setAttribute("type", "text/css");
+    style.setAttribute('type', 'text/css');
     style.textContent = aCss;
 
     if (head) {
@@ -10725,7 +10725,7 @@
    * @returns {Promise} promise when observed
    */
   function elementReady(element, type) {
-    var config = type === "attributes" ? {
+    var config = type === 'attributes' ? {
       attributes: true
     } : {
       childList: true
@@ -10743,8 +10743,8 @@
   }
 
   var jsGeneralRule = [{
-    name: "Discuz 论坛 - 搜索",
-    url: "^https?://bbs\\.[a-z]+\\.cn/search\\.php\\?mod=forum",
+    name: 'Discuz 论坛 - 搜索',
+    url: '^https?://bbs\\.[a-z]+\\.cn/search\\.php\\?mod=forum',
     preLink: '//div[@class="pages" or @class="pg"]/descendant::a[@class="prev"][@href]',
     nextLink: '//div[@class="pages" or @class="pg"]/descendant::a[@class="next" or @class="nxt"][@href]',
     autopager: {
@@ -10752,7 +10752,7 @@
       replaceE: '//div[@class="pg"][child::a[@class="nxt"]]'
     }
   }, {
-    name: "Discuz 论坛 - 导读",
+    name: 'Discuz 论坛 - 导读',
     url: /^https?:\/\/(?:bbs|u)\.[^\/]+\/(?:forum\.php\?mod=guide|home\.php\?mod=space)/i,
     preLink: '//div[@class="pages" or @class="pg"]/descendant::a[@class="prev"][@href]',
     nextLink: '//div[@class="pages" or @class="pg"]/descendant::a[@class="next" or @class="nxt"][@href]',
@@ -10761,28 +10761,28 @@
       replaceE: '//div[@class="pg"][child::a[@class="nxt"]]'
     }
   }, {
-    name: "Discuz论坛列表",
+    name: 'Discuz论坛列表',
     url: /^https?:\/\/(?:www\.[^\/]+\/|[^\/]+\/(?:bbs\/)?)(?:2b\/)?(?:(?:forum)|(?:showforum)|(?:viewforum)|(?:forumdisplay))+/i,
     preLink: '//div[@class="pages" or @class="pg"]/descendant::a[@class="prev"][@href]',
     nextLink: '//div[@class="pages" or @class="pg"]/descendant::a[@class="next" or @class="nxt"][@href] | //div[@class="p_bar"]/a[@class="p_curpage"]/following-sibling::a[@class="p_num"]',
     autopager: {
       pageElement: '//form[@method="post"][@name] | //div[@id="postlist"] | //div[@id="threadlist"]',
       replaceE: '//div[@class="pages" or @class="pg"][child::a[@class="next" or @class="nxt"][@href]]',
-      lazyImgSrc: "file|pagespeed_lsc_url"
+      lazyImgSrc: 'file|pagespeed_lsc_url'
     }
   }, {
-    name: "Discuz论坛帖子",
+    name: 'Discuz论坛帖子',
     url: /^https?:\/\/(?:www\.[^\/]+\/|[^\/]+\/(?:bbs\/)?)(?:2b\/)?(?:(?:thread)|(?:viewthread)|(?:showtopic)|(?:viewtopic))+/i,
     preLink: '//div[@class="pages" or @class="pg"]/descendant::a[@class="prev"][@href]',
     nextLink: '//div[@class="pages" or @class="pg"]/descendant::a[@class="next" or @class="nxt"][@href] | //div[@class="p_bar"]/descendant::a[text()="??"]',
     autopager: {
       pageElement: '//div[@id="postlist"] | //form[@method="post"][@name]',
       replaceE: '//div[@class="pages" or @class="pg"][child::a[@class="next" or @class="nxt"][@href]]',
-      lazyImgSrc: "zoomfile",
+      lazyImgSrc: 'zoomfile',
       stylish: '.mbbs_code{font-family:Monaco,Consolas,"Lucida Console","Courier New",serif;font-size:12px;line-height:1.8em;list-style-type:decimal-leading-zero;padding-left:10px;background:none repeat scroll 0 0 #f7f7f7;color:#666;border:1px solid #ccc;overflow:hidden;padding:10px 0 5px 10px}',
       filter: function filter(_pages) {
         // 回复后插入到最后一页
-        var replays = document.querySelectorAll("#postlistreply");
+        var replays = document.querySelectorAll('#postlistreply');
 
         if (replays.length > 1) {
           var first = replays[0];
@@ -10798,12 +10798,12 @@
         // 卡饭论坛的下一页代码区域可能无法着色，所以手动修改并添加样式
         var pres = doc.querySelectorAll('pre[class^="brush:"]');
         [].forEach.call(pres, function (pre) {
-          pre.classList.add("mbbs_code");
+          pre.classList.add('mbbs_code');
         });
       }
     }
   }, {
-    name: "phpWind论坛列表",
+    name: 'phpWind论坛列表',
     url: /^https?:\/\/(?:www\.[^\/]+\/|[^\/]+\/(?:bbs\/)?)?thread/i,
     preLink: '//div[starts-with(@class,"pages")]/b[1]/preceding-sibling::a[1][not(@class)][@href] | //div[starts-with(@class,"pages")]/ul[1]/li[b]/preceding-sibling::li/a[1][not(@class)][@href]',
     nextLink: '//div[starts-with(@class,"pages")]/b[1]/following-sibling::a[1][not(@class)] | //div[starts-with(@class,"pages")]/ul[1]/li[b]/following-sibling::li/a[1][not(@class)]',
@@ -10811,7 +10811,7 @@
       pageElement: '//div[@class="t z"] | //div[@class="z"] | //div[@id="ajaxtable"]'
     }
   }, {
-    name: "phpWind论坛帖子",
+    name: 'phpWind论坛帖子',
     url: /^https?:\/\/(?:www\.[^\/]+\/|[^\/]+\/(?:bbs\/)?)?read/i,
     preLink: '//div[starts-with(@class,"pages")]/b[1]/preceding-sibling::a[1][not(@class)][@href] | //div[starts-with(@class,"pages")]/ul[1]/li[b]/preceding-sibling::li/a[1][not(@class)][@href]',
     nextLink: '//div[starts-with(@class,"pages")]/b[1]/following-sibling::a[1][not(@class)] | //div[starts-with(@class,"pages")]/ul[1]/li[b]/following-sibling::li/a[1][not(@class)]',
@@ -10819,88 +10819,88 @@
       pageElement: '//div[@class="t5"] | //div[@class="read_t"] | //div[@id="pw_content"]'
     }
   }, {
-    name: "phpBB列表",
+    name: 'phpBB列表',
     url: /^https?:\/\/[^\/]+(\/[a-z,0-9]+)?\/viewforum/i,
-    exampleUrl: "http://www.firefox.net.cn/forum/viewforum.php?f=4",
-    nextLink: "auto;",
+    exampleUrl: 'http://www.firefox.net.cn/forum/viewforum.php?f=4',
+    nextLink: 'auto;',
     autopager: {
       pageElement: '(//div[@id="page-body"]/div[@class="forumbg"]|//table[@class="forumline"]|//table[@class="tablebg"])',
       // replaceE:'//fildset[@class="display-options")]',
       remain: 1 / 3
     }
   }, {
-    name: "phpBB帖子",
+    name: 'phpBB帖子',
     url: /^https?:\/\/[^\/]+(\/[a-z,0-9]+)?\/viewtopic/i,
-    exampleUrl: "http://www.firefox.net.cn/forum/viewtopic.php?t=34339",
-    nextLink: "auto;",
+    exampleUrl: 'http://www.firefox.net.cn/forum/viewtopic.php?t=34339',
+    nextLink: 'auto;',
     autopager: {
       // pageElement:'//div[@id="page-body"]',
       pageElement: '(//div[@id="page-body"]/div[contains(@class,"post")]|//table[@class="forumline"]|//table[@class="tablebg"])' // replaceE:"//fildset[@class='display-options']",
 
     }
   }, {
-    name: "phpBB Search",
+    name: 'phpBB Search',
     url: /^https?:\/\/forum\.[^\/]+\/search\.php/i,
-    exampleUrl: "http://forum.everedit.net/search.php?keywords=%E5%A4%A7%E7%BA%B2",
-    nextLink: "auto;",
+    exampleUrl: 'http://forum.everedit.net/search.php?keywords=%E5%A4%A7%E7%BA%B2',
+    nextLink: 'auto;',
     autopager: {
       pageElement: 'id("page-body")/div[starts-with(@class, "search post")]',
       replaceE: 'id("page-body")/ul[@class="linklist"]'
     }
   }, {
-    name: "discuz论坛通用搜索",
-    url: "^https?://[^/]+/f/(?:discuz|search)",
-    nextLink: "auto;",
+    name: 'discuz论坛通用搜索',
+    url: '^https?://[^/]+/f/(?:discuz|search)',
+    nextLink: 'auto;',
     pageElement: 'id("result-items")'
   }, {
-    name: "View forum - 通用",
-    url: "^https?://.+?/viewforum\\.php\\?",
+    name: 'View forum - 通用',
+    url: '^https?://.+?/viewforum\\.php\\?',
     nextLink: '//span[@class="gensmall"]/b/b/following-sibling::a[1] | (//table/tbody/tr/td[@class="nav"])[last()]/b[last()]/following-sibling::a[1]  | //div[@class="pagination"]/span/strong/following-sibling::a[1] | //a[text()="Next"]',
     pageElement: '//ul[contains(concat(" ",@class," ")," topics ")]|//form[table/@class="forumline"]'
   }, {
-    name: "wiki 通用",
-    url: ".\\?(?:.+&)?search=",
+    name: 'wiki 通用',
+    url: '.\\?(?:.+&)?search=',
     nextLink: '//a[@class="mw-nextlink"]',
     pageElement: '//ul[@class="mw-search-results"]'
   }, {
-    name: "通用 Forum 规则1",
-    url: "^https?://.*((showthread\\.php\\?)|(forum|thread))",
+    name: '通用 Forum 规则1',
+    url: '^https?://.*((showthread\\.php\\?)|(forum|thread))',
     nextLink: '//a[@rel="next"]',
     pageElement: '//div[@id="posts"]|//ol[@id="posts"]/li',
     separatorReal: false
   }, {
-    name: "通用 Forum 规则2 vBulletin threads",
-    url: "^https?://[^?#]+?/showthread\\.php\\?",
+    name: '通用 Forum 规则2 vBulletin threads',
+    url: '^https?://[^?#]+?/showthread\\.php\\?',
     nextLink: '//tr[@valign="top"]//div[@class="pagenav"]//a[contains(text(), ">")]',
     pageElement: '(//div[@class="pagenav"])[1]|//div[@id="posts"]/node()',
     separatorReal: false
   }, {
-    name: "通用 Forum 规则3 vBulletin thread_list",
-    url: "^https?://.*((forumdisplay\\.php\\?)|forum)",
-    nextLink: "auto;",
+    name: '通用 Forum 规则3 vBulletin thread_list',
+    url: '^https?://.*((forumdisplay\\.php\\?)|forum)',
+    nextLink: 'auto;',
     pageElement: '//div[@id="posts"]/div[@align="center"] | //table[@class="tborder"][@id="threadslist"]',
     separatorReal: false
   }, {
-    name: "通用 Forum 规则4",
+    name: '通用 Forum 规则4',
     url: /^https?:\/\/forums\..*\/threads/i,
-    nextLink: '(//div[@class="PageNav"])[1]//a[contains(text(),' > ")]",
+    nextLink: '(//div[@class="PageNav"])[1]//a[contains(text(),' > ')]',
     pageElement: '//ol[@id="messageList"]/li',
     separatorReal: false
   }, {
-    name: "PHPWind 5.3.0 / 6.0.0 / 6.3.2 / 7.0.0 / 7.5.0 - View Thread",
-    url: "^https?://.+/read\\.php\\?.*tid((=[0-9]+.*)|(-[0-9]+.*\\.html?))$",
-    nextLink: "auto;",
+    name: 'PHPWind 5.3.0 / 6.0.0 / 6.3.2 / 7.0.0 / 7.5.0 - View Thread',
+    url: '^https?://.+/read\\.php\\?.*tid((=[0-9]+.*)|(-[0-9]+.*\\.html?))$',
+    nextLink: 'auto;',
     pageElement: '//form[@name="delatc"]',
-    exampleUrl: "http://www.yydzh.com/read.php?tid=1584013"
+    exampleUrl: 'http://www.yydzh.com/read.php?tid=1584013'
   }, {
-    name: "Typecho",
-    url: "^https?://",
+    name: 'Typecho',
+    url: '^https?://',
     nextLink: "//ol[@class='page-navigator']/li[@class='next']/a",
     autopager: {
       pageElement: function pageElement(doc, _win, _cplink) {
         var gen = getElementByXpath("//head/meta[@name='generator']", doc, doc);
 
-        if (!gen || !gen.content.includes("Typecho") || !doc.documentElement.outerHTML.includes("Typecho")) {
+        if (!gen || !gen.content.includes('Typecho') || !doc.documentElement.outerHTML.includes('Typecho')) {
           return null;
         }
 
@@ -10913,16 +10913,16 @@
       relatedObj: true
     }
   }, {
-    name: "WordPress",
-    url: "^https?://[^/]+(/page/\\d+)?",
+    name: 'WordPress',
+    url: '^https?://[^/]+(/page/\\d+)?',
     nextLink: function nextLink(_doc, _win, _cplink) {
-      var cplink = _cplink.replace(/^(.*)(#[^\/]*)?$/, "$1");
+      var cplink = _cplink.replace(/^(.*)(#[^\/]*)?$/, '$1');
 
-      if (cplink.slice(cplink.length - 5, cplink.length) === ".html") {
+      if (cplink.slice(cplink.length - 5, cplink.length) === '.html') {
         return undefined;
       }
 
-      if (cplink.slice(cplink.length - 4, cplink.length) === ".htm") {
+      if (cplink.slice(cplink.length - 4, cplink.length) === '.htm') {
         return undefined;
       }
 
@@ -10930,9 +10930,9 @@
 
       if (a[2]) {
         var b = Number(/\/page\/(\d+)/.exec(a[2])[1]) + 1;
-        return cplink.replace(/^(https?:\/\/.*?\/page\/)\d+(.*)$/, "$1" + String(b) + "$2");
+        return cplink.replace(/^(https?:\/\/.*?\/page\/)\d+(.*)$/, '$1' + String(b) + '$2');
       } else {
-        return cplink.replace(/^(.*?)\/?$/, "$1") + "/page/2";
+        return cplink.replace(/^(.*?)\/?$/, '$1') + '/page/2';
       }
     },
     autopager: {
@@ -10946,7 +10946,7 @@
         } // detect if this is wordpress
 
 
-        var wpText = ["wp-content", "wp-plugin", "wp-comment"];
+        var wpText = ['wp-content', 'wp-plugin', 'wp-comment'];
         var isWP = false;
 
         for (i = 0; i < wpText.length; i++) {
@@ -10961,7 +10961,7 @@
         } // if this is the page of an article, return null
 
 
-        var submitComment = ["发表评论", "提交评论", "添加留言", "提交留言", "コメントを送信", "SUBMIT COMMENT", "POST COMMENT", "Submit Comment", "Post comment", "Post Comment"];
+        var submitComment = ['发表评论', '提交评论', '添加留言', '提交留言', 'コメントを送信', 'SUBMIT COMMENT', 'POST COMMENT', 'Submit Comment', 'Post comment', 'Post Comment'];
 
         for (i = 0; i < submitComment.length; i++) {
           if (getElementByXpath("//input[@value='" + submitComment[i] + "']", doc, doc)) {
@@ -11014,9 +11014,9 @@
       relatedObj: true
     }
   }, {
-    name: "Generic Posts Rule created by swdyh",
-    exampleUrl: "http://wedata.net/items/400.json",
-    url: "^https?://.+",
+    name: 'Generic Posts Rule created by swdyh',
+    exampleUrl: 'http://wedata.net/items/400.json',
+    url: '^https?://.+',
     pageElement: "(//article[not(contains(../@class,'widget'))][not(contains(@class,'columns four'))][not(ancestor::*[starts-with(@class,'sidebar')])]|//*[starts-with(@id,'post-')][not(contains(@id,'post-rating'))])[not(.//*[contains(@class,'admz')])][not(id('load-more-posts') or @id='fpost' or contains(@class,'carousel'))][parent::node()[not(self::h2)][not(@id='side')][not(contains(@class,'thumbnail'))][not(following-sibling::*[not(@id='side')][article or *[starts-with(@id,'post-')]])]/*[self::article or starts-with(@id,'post-')]/following-sibling::*[self::article or starts-with(@id,'post-')][not(contains(@id,'nav'))]]|id('content')[count(div)>1]/div[contains(@class,'post')][not(contains(div/@class,'breadcrumb'))][not(contains(div/@class,'nav'))]",
     nextLink: "(//*[not(contains(@class,'_inactive'))]/a[starts-with(@class,'nextpostslink') or contains(@class,'next page-numbers') or (.|..)[normalize-space(@rel)='next' or normalize-space(@class)='next' or contains(@class,'pagination-next')]][not(span/@class='link-text')]|//*[contains(@class,'nav-previous')][not(contains(@class,'pull'))]/a|(//*[contains(@class,'current')][number()>0]/following-sibling::a[1]|(//li|//span|//div)[(.//*|.)[contains(@class,'current')]][number()>0]/following-sibling::*[self::li or self::span or self::div][1]/a))[not(starts-with(@href, '#'))]",
     autopager: {
@@ -11029,8 +11029,8 @@
       var emoji = parseInt(unifiedValue, 16);
       return String.fromCodePoint(emoji);
     } else {
-      logger.error("[Super-preloader]", "Shame on your browser!");
-      return "";
+      logger.error("[Super-preloader]", 'Shame on your browser!');
+      return '';
     }
   }
 
@@ -11041,10 +11041,10 @@
   function _arrayLikeToArray$2(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
   var jsSiteRule = [{
     // 站点名字...(可选)             // 站点正则...(~~必须~~)
-    name: "Google搜索",
-    url: "^https?://(?:(?:www|encrypted)\\.google(?:stable)?\\..{2,9}|wen\\.lu)/(?:webhp|search|#|$|\\?)",
+    name: 'Google搜索',
+    url: '^https?://(?:(?:www|encrypted)\\.google(?:stable)?\\..{2,9}|wen\\.lu)/(?:webhp|search|#|$|\\?)',
     // url:'wildc;http://www.google.com.hk/search*',
-    exampleUrl: "http://www.google.com",
+    exampleUrl: 'http://www.google.com',
     // 站点实例...(可选)
     enable: true,
     // 启用.(总开关)(可选)
@@ -11092,7 +11092,7 @@
       // filter:'//li[@class="g"]',                                                                        //(此项功能未完成)xpath 或 CSS选择器从匹配到的节点里面过滤掉符合的节点.
       remain: 1 / 3,
       // 剩余页面的高度..是显示高度的 remain 倍开始翻页(可选)
-      relatedObj: ["css;div#navcnt", "bottom"],
+      relatedObj: ['css;div#navcnt', 'bottom'],
       // 以这个元素当做最底的元素,计算页面总高度的计算.(可选)
       replaceE: '//div[@id="navcnt"]',
       // 需要替换的部分 xpath或 CSS选择器 一般是页面的本来的翻页导航(可选);
@@ -11119,7 +11119,7 @@
       // 是否使用手动翻页.
       // HT_insert: ['//div[@id="res"]', 0], // 插入方式此项为一个数组: [节点xpath或CSS选择器,插入方式(0: 插入到给定节点之后 1：插入到给定节点之前;2：附加到给定节点的里面;)](可选);
       // HT_insert:['css;div#res',2],
-      lazyImgSrc: "imgsrc",
+      lazyImgSrc: 'imgsrc',
       documentFilter: function documentFilter(doc, _nextLink) {
         // 作用于xhr或iframe加载的下一页
         // 可以是一个函数 接收doc, nextLink 两个参数，也可以是字符串'startFilter'
@@ -11127,13 +11127,13 @@
 
         if (x) {
           try {
-            new Function("document", "window", "google", x.nodeValue)(doc, unsafeWindow, unsafeWindow.google);
+            new Function('document', 'window', 'google', x.nodeValue)(doc, unsafeWindow, unsafeWindow.google);
           } catch (e) {}
         } // Fix images
         // add horizontal flexibly first
 
 
-        var imgPs = getAllElementsByXpath("//g-scrolling-carousel/div/div/div", doc, doc);
+        var imgPs = getAllElementsByXpath('//g-scrolling-carousel/div/div/div', doc, doc);
 
         if (imgPs.length > 0) {
           var _iterator = _createForOfIteratorHelper$1(imgPs),
@@ -11142,7 +11142,7 @@
           try {
             for (_iterator.s(); !(_step = _iterator.n()).done;) {
               var d = _step.value;
-              d.style.cssText += "display: flex;flex-wrap: nowrap;width: 600px;white-space: nowrap;overflow-x: auto;";
+              d.style.cssText += 'display: flex;flex-wrap: nowrap;width: 600px;white-space: nowrap;overflow-x: auto;';
             }
           } catch (err) {
             _iterator.e(err);
@@ -11151,7 +11151,7 @@
           }
         }
 
-        var hiddenImgs = getAllElementsByXpath("//g-scrolling-carousel/div/div/div/div[not(@data-vis)]//g-img/img", doc, doc);
+        var hiddenImgs = getAllElementsByXpath('//g-scrolling-carousel/div/div/div/div[not(@data-vis)]//g-img/img', doc, doc);
 
         if (hiddenImgs.length > 0) {
           var _iterator2 = _createForOfIteratorHelper$1(hiddenImgs),
@@ -11161,7 +11161,7 @@
             for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
               var _d = _step2.value;
 
-              _d.setAttribute("src", _d.getAttribute("data-src"));
+              _d.setAttribute('src', _d.getAttribute('data-src'));
 
               _d.style.opacity = 1;
             }
@@ -11172,7 +11172,7 @@
           }
         }
 
-        var brs = doc.getElementById("brs");
+        var brs = doc.getElementById('brs');
 
         if (brs) {
           brs.remove();
@@ -11185,8 +11185,8 @@
         // 只作用一次, 用于打开的页面
         // 函数： 接收doc, win 两个参数
         // 移除 Google 重定向
-        var script = doc.createElement("script");
-        script.type = "text/javascript";
+        var script = doc.createElement('script');
+        script.type = 'text/javascript';
         script.textContent = '\
                   Object.defineProperty(window, "rwt", {\
                       configurable: false,\
@@ -11199,48 +11199,48 @@
         doc.documentElement.appendChild(script);
         doc.documentElement.removeChild(script); // change id of related search
 
-        var brs = doc.getElementById("brs");
+        var brs = doc.getElementById('brs');
 
         if (brs) {
-          brs.id = "ibrs";
+          brs.id = 'ibrs';
         }
 
-        console.log("%cGoogle    is %s", "font-weight:bold;color:red", emoji("1F4A9"));
+        console.log('%cGoogle    is %s', 'font-weight:bold;color:red', emoji('1F4A9'));
         var keyword = getElementByXpath("//input[@title='Search']", doc, doc);
 
         if (keyword) {
-          console.log("%cMicrosoft is %s %csearch with Bing %s", "font-weight:bold;color:00bbee", emoji("1F451"), "font-weight:bold;color:00bbee", encodeURI("https://www.bing.com/search?q=" + keyword.value));
+          console.log('%cMicrosoft is %s %csearch with Bing %s', 'font-weight:bold;color:00bbee', emoji('1F451'), 'font-weight:bold;color:00bbee', encodeURI('https://www.bing.com/search?q=' + keyword.value));
         } else {
-          console.log("%cMicrosoft is %s", "font-weight:bold;color:00bbee", emoji("1F451"));
+          console.log('%cMicrosoft is %s', 'font-weight:bold;color:00bbee', emoji('1F451'));
         }
       }
     }
   }, {
-    name: "百度搜索",
-    url: "^https?://www\\.baidu\\.com/",
+    name: '百度搜索',
+    url: '^https?://www\\.baidu\\.com/',
     // 由于 Super_preloader 默认去掉了 # 后面部分
     // url: "^https?://www\\.baidu\\.com/(s|baidu|#wd=)",
     enable: true,
     nextLink: '//div[@id="page"]/a[contains(text(),"下一页")][@href]',
     preLink: '//div[@id="page"]/a[contains(text(),"上一页")][@href]',
     autopager: {
-      pageElement: "css;div#content_left > *",
-      HT_insert: ["css;div#content_left", 2],
-      replaceE: "css;#page",
-      stylish: ".autopagerize_page_info, div.sp-separator {margin-bottom: 10px !important;}",
+      pageElement: 'css;div#content_left > *',
+      HT_insert: ['css;div#content_left', 2],
+      replaceE: 'css;#page',
+      stylish: '.autopagerize_page_info, div.sp-separator {margin-bottom: 10px !important;}',
       startFilter: function startFilter(_doc, win) {
         // 设置百度搜索类型为 s?wd=
         try {
-          win.document.cookie = "ISSW=1";
+          win.document.cookie = 'ISSW=1';
         } catch (ex) {}
       }
     }
   }, {
-    name: "kongregate",
-    url: "^https?://www\\.kongregate\\.com",
+    name: 'kongregate',
+    url: '^https?://www\\.kongregate\\.com',
     nextLink: "(//li[@class='next_link']/a)[1]",
     autopager: {
-      scriptFilter: "renderPosts",
+      scriptFilter: 'renderPosts',
       pageElement: "//table[@class='posts']/tbody",
       filter: function filter(pageElements) {
         var scripts = getAllElementsByXpath(".//script[contains(text(), 'renderPosts')]", pageElements[0], document);
@@ -11266,32 +11266,32 @@
       }
     }
   }, {
-    name: "kongregate_list",
-    url: "^https?://www\\.kongregate\\.com",
+    name: 'kongregate_list',
+    url: '^https?://www\\.kongregate\\.com',
     nextLink: "(//li[@class='next_link']/a)[1]",
     pageElement: "//div[@id='featurewide']/table/tbody"
   }, {
-    name: "小木虫-帖子",
-    url: "^https?://(www\\.)?muchong\\.com/t-.*$",
-    nextLink: "auto;",
+    name: '小木虫-帖子',
+    url: '^https?://(www\\.)?muchong\\.com/t-.*$',
+    nextLink: 'auto;',
     pageElement: "//div[@id='maincontent']/table/tbody[@id]",
     autopager: {
       relatedObj: true,
       sepdivDom: function sepdivDom(doc, sepdiv) {
-        var td = doc.createElement("td");
+        var td = doc.createElement('td');
         td.appendChild(sepdiv);
-        var tr = doc.createElement("tr");
-        td.setAttribute("colspan", 2);
+        var tr = doc.createElement('tr');
+        td.setAttribute('colspan', 2);
         tr.appendChild(td);
-        var tbody = doc.createElement("tbody");
+        var tbody = doc.createElement('tbody');
         tbody.appendChild(td);
         return tbody;
       }
     }
   }, {
-    name: "smzdm-comment",
+    name: 'smzdm-comment',
     url: /^https?:\/\/\w+\.smzdm\.com(\/\w+)?\/p\/[\d\w\W]+/i,
-    exampleUrl: "https://post.smzdm.com/p/559992/",
+    exampleUrl: 'https://post.smzdm.com/p/559992/',
     // 还有另外一种评论
     // exampleUrl: 'https://www.smzdm.com/p/11496450/ | https://test.smzdm.com/pingce/p/70095121/',
     nextLink: '//ul[@class="pagination"]/li[@class="pagedown"]/a',
@@ -11300,7 +11300,7 @@
       excludeElement: '//div[@class="article-card J_trigger_ani"]',
       replaceE: '(//ul[@class="pagination"])[1]',
       startFilter: function startFilter(doc) {
-        var firstDiv = doc.querySelector(".pagination");
+        var firstDiv = doc.querySelector('.pagination');
 
         if (firstDiv) {
           firstDiv.parentNode.removeChild(firstDiv);
@@ -11308,48 +11308,48 @@
       }
     }
   }, {
-    name: "和讯博客",
+    name: '和讯博客',
     url: /^https?:\/\/\w+\.blog\.hexun\.com\//i,
-    exampleUrl: "http://23802543.blog.hexun.com/",
+    exampleUrl: 'http://23802543.blog.hexun.com/',
     nextLink: function nextLink(doc) {
-      var url = doc.querySelector('.PageSkip_1 a[title="下一页"]').getAttribute("href");
-      url = url.replace(/(\/p\d+\/).*/, "$1default.html");
+      var url = doc.querySelector('.PageSkip_1 a[title="下一页"]').getAttribute('href');
+      url = url.replace(/(\/p\d+\/).*/, '$1default.html');
       return url;
     },
     autopager: {
       pageElement: 'id("DefaultContainer1_ArticleList_Panel1")'
     }
   }, {
-    name: "m-team artist detail",
-    url: "^https?://pt\\.m-team\\.cc/artist\\.php?",
+    name: 'm-team artist detail',
+    url: '^https?://pt\\.m-team\\.cc/artist\\.php?',
     nextLink: '//b[@title="Alt+Pagedown"]/parent::a',
     autopager: {
       pageElement: '//form[@id="form2"]/table',
       relatedObj: true,
-      documentFilter: "startFilter",
+      documentFilter: 'startFilter',
       startFilter: function startFilter(doc) {
         var trs = getAllElementsByXpath("//div[@class='artist']/div[@class='atl']/form/table/tbody/tr/td[@colspan='5']/parent::tr", doc, doc);
 
         if (trs.length > 0) {
           for (var i = 0; i < trs.length; i++) {
-            var img = trs[i].getElementsByTagName("img");
+            var img = trs[i].getElementsByTagName('img');
 
             if (img) {
               img = img[0];
-              var imgSrc = img.getAttribute("src");
-              var newtr = createDOM("tr", {
+              var imgSrc = img.getAttribute('src');
+              var newtr = createDOM('tr', {
                 attr: {
-                  align: "center"
+                  align: 'center'
                 },
-                children: [createDOM("td", {
+                children: [createDOM('td', {
                   attr: {
                     colspan: 5,
-                    style: "border-bottom:1px dashed black;"
+                    style: 'border-bottom:1px dashed black;'
                   },
-                  children: [createDOM("img", {
+                  children: [createDOM('img', {
                     attr: {
                       src: imgSrc,
-                      style: "display:block; width:100%; height:auto;"
+                      style: 'display:block; width:100%; height:auto;'
                     }
                   })]
                 })]
@@ -11361,32 +11361,32 @@
       }
     }
   }, {
-    name: "m-team adults",
-    url: "^https?://pt\\.m-team\\.cc/adult\\.php",
+    name: 'm-team adults',
+    url: '^https?://pt\\.m-team\\.cc/adult\\.php',
     nextLink: '//b[@title="Alt+Pagedown"]/parent::a',
     autopager: {
       pageElement: '//table[@class="torrents"]',
       startFilter: function startFilter(doc) {
-        var tds = doc.getElementsByClassName("torrentimg");
+        var tds = doc.getElementsByClassName('torrentimg');
         [].forEach.call(tds, function (td) {
-          var imgSrc = td.getElementsByTagName("img");
+          var imgSrc = td.getElementsByTagName('img');
 
           if (imgSrc) {
-            var newImg = createDOM("img", {
+            var newImg = createDOM('img', {
               attr: {
-                src: imgSrc[0].getAttribute("src"),
-                style: "display:block; width:100%; height:auto;"
+                src: imgSrc[0].getAttribute('src'),
+                style: 'display:block; width:100%; height:auto;'
               }
             });
-            var newtd = createDOM("td", {
+            var newtd = createDOM('td', {
               attr: {
                 colspan: 2,
-                style: "border-bottom:1px solid black;"
+                style: 'border-bottom:1px solid black;'
               }
             });
-            var newtr = createDOM("tr", {
+            var newtr = createDOM('tr', {
               attr: {
-                align: "center"
+                align: 'center'
               }
             });
             newtd.appendChild(newImg);
@@ -11395,23 +11395,23 @@
           }
         });
       },
-      documentFilter: "startFilter"
+      documentFilter: 'startFilter'
     }
   }, {
-    name: "idope.se",
+    name: 'idope.se',
     url: /^https?:\/\/idope\.se\/torrent-list\/.+/i,
-    exampleUrl: "https://idope.se/torrent-list/transformer/?p=3",
+    exampleUrl: 'https://idope.se/torrent-list/transformer/?p=3',
     preLink: {
-      startAfter: "?p=",
+      startAfter: '?p=',
       inc: -1,
       min: 1
     },
     nextLink: {
-      startAfter: "?p=",
-      mFails: [/^https?:\/\/idope\.se\/torrent-list\/.+/i, "/?p=1"],
+      startAfter: '?p=',
+      mFails: [/^https?:\/\/idope\.se\/torrent-list\/.+/i, '/?p=1'],
       inc: 1,
       isLast: function isLast(doc, _win, _lhref) {
-        var pageSel = doc.getElementById("next");
+        var pageSel = doc.getElementById('next');
 
         if (!pageSel) {
           return true;
@@ -11423,14 +11423,14 @@
       useiframe: true
     }
   }, {
-    name: "天涯论坛帖子",
+    name: '天涯论坛帖子',
     url: /^https?:\/\/bbs\.tianya\.cn\/.+\.shtml/i,
-    exampleUrl: "http://bbs.tianya.cn/post-feeling-2792523-1.shtml",
+    exampleUrl: 'http://bbs.tianya.cn/post-feeling-2792523-1.shtml',
     nextLink: '//div[@class="atl-pages"]/descendant::a[text()="下页"][@href]',
     autopager: {
       useiframe: true,
       pageElement: '//div[@class="atl-main"]',
-      lazyImgSrc: "original",
+      lazyImgSrc: 'original',
       filter: function filter(_pages) {
         var see_only_uname = unsafeWindow.see_only_uname;
         var setOnlyUser = unsafeWindow.setOnlyUser;
@@ -11441,22 +11441,22 @@
       }
     }
   }, {
-    name: "Firefox中文社区 - 列表",
-    url: "^https?://www\\.firefox\\.net\\.cn/thread",
+    name: 'Firefox中文社区 - 列表',
+    url: '^https?://www\\.firefox\\.net\\.cn/thread',
     nextLink: '//div[@class="pages"]/a[contains(text(), "下一页")]',
     autopager: {
       pageElement: 'id("J_posts_list")',
-      replaceE: "css;.pages",
+      replaceE: 'css;.pages',
       documentFilter: function documentFilter(doc) {
         // 头像载入出错的修正
-        [].forEach.call(doc.querySelectorAll("img.J_avatar"), function (img) {
-          img.setAttribute("onerror", 'this.src="http://www.firefox.net.cn/res/images/face/face_small.jpg";');
+        [].forEach.call(doc.querySelectorAll('img.J_avatar'), function (img) {
+          img.setAttribute('onerror', 'this.src="http://www.firefox.net.cn/res/images/face/face_small.jpg";');
         });
       }
     }
   }, {
-    name: "小米手机官方论坛",
-    url: "^https?://bbs\\.xiaomi\\.cn/",
+    name: '小米手机官方论坛',
+    url: '^https?://bbs\\.xiaomi\\.cn/',
     nextLink: "//a[@class='nxt' and (text()='下一页')]",
     autopager: {
       pageElement: "id('postlist') | id('threadlist')",
@@ -11470,9 +11470,9 @@
       }
     }
   }, {
-    name: "游民星空",
+    name: '游民星空',
     url: /^https?:\/\/www\.gamersky\.com\/\w+\/\d{6}\/.*.shtml/i,
-    exampleUrl: "https://www.gamersky.com/ent/201510/671493.shtml | https://www.gamersky.com/handbook/201707/922480.shtml",
+    exampleUrl: 'https://www.gamersky.com/ent/201510/671493.shtml | https://www.gamersky.com/handbook/201707/922480.shtml',
     nextLink: function nextLink(doc, _win, cplink) {
       var node = getElementByXpath('//div[@class="page_css"]//a[(text()="下一页")]', doc, doc);
 
@@ -11484,11 +11484,11 @@
       var a = /^(https)?:\/\/.*$/.exec(cplink);
 
       if (a) {
-        var b = /^https?:\/\/(.*)$/.exec(node.getAttribute("href"));
-        return a[1] + "://" + b[1];
+        var b = /^https?:\/\/(.*)$/.exec(node.getAttribute('href'));
+        return a[1] + '://' + b[1];
       }
 
-      return node.getAttribute("href");
+      return node.getAttribute('href');
     },
     autopager: {
       relatedObj: true,
@@ -11497,9 +11497,9 @@
     } // credit : https://greasyfork.org/en/forum/discussion/42040/x
 
   }, {
-    name: "ali213 - 攻略",
+    name: 'ali213 - 攻略',
     url: /^http:\/\/gl\.ali213\.net\/html/,
-    exampleUrl: "http://gl.ali213.net/html/2011/25399_2.html",
+    exampleUrl: 'http://gl.ali213.net/html/2011/25399_2.html',
     nextLink: "id('after_this_page')",
     autopager: {
       useiframe: true,
@@ -11509,52 +11509,52 @@
         var comments = getElementByXpath('//div[@class="glzjshow_plun"]', doc, doc);
 
         if (comments) {
-          comments.style.display = "none";
+          comments.style.display = 'none';
         }
       }
     }
   }, {
-    name: "多玩 - 攻略",
+    name: '多玩 - 攻略',
     url: /^https?:\/\/tv\.duowan\.com\/\d+\/\d+\.html/,
-    exampleUrl: "http://tv.duowan.com/1801/380717306538.html",
+    exampleUrl: 'http://tv.duowan.com/1801/380717306538.html',
     nextLink: "id('pageNum')//a[text()='下一页']",
     autopager: {
       useiframe: true,
       replaceE: "id('pageNum')",
       pageElement: "//div[@class='box-bd'][last()]",
       startFilter: function startFilter(doc) {
-        var pager = doc.querySelector("#pageNum");
+        var pager = doc.querySelector('#pageNum');
 
         if (pager) {
           getElementByXpath("//div[@class='box-bd'][last()]", doc, doc).after(pager);
         } //删除侧边栏
 
 
-        var ad = doc.querySelector(".aside-wrap");
+        var ad = doc.querySelector('.aside-wrap');
 
         if (ad) {
-          ad.style.display = "none";
+          ad.style.display = 'none';
         }
       },
       documentFilter: function documentFilter(doc) {
-        var pager = doc.querySelector("#pageNum");
+        var pager = doc.querySelector('#pageNum');
 
         if (pager) {
-          pager.style.display = "none";
+          pager.style.display = 'none';
         }
       }
     }
   }, {
-    name: "yuyouge.com",
-    url: "^https?://www\\.yuyouge\\.com",
-    nextLink: "auto;",
+    name: 'yuyouge.com',
+    url: '^https?://www\\.yuyouge\\.com',
+    nextLink: 'auto;',
     pageElement: "//article/div[@id='h1']|//article/div[@id='txtContent']",
     documentFilter: function documentFilter(doc) {
-      var style = document.querySelector("#txtContent").getAttribute("style");
-      var cls = document.querySelector("#txtContent").getAttribute("class");
-      [].forEach.call(doc.querySelectorAll("#txtContent"), function (div) {
-        div.setAttribute("style", style);
-        div.setAttribute("class", cls);
+      var style = document.querySelector('#txtContent').getAttribute('style');
+      var cls = document.querySelector('#txtContent').getAttribute('class');
+      [].forEach.call(doc.querySelectorAll('#txtContent'), function (div) {
+        div.setAttribute('style', style);
+        div.setAttribute('class', cls);
       });
     }
   }, // {
@@ -11579,31 +11579,31 @@
   //   }
   // },
   {
-    name: "电玩巴士 - 图文",
-    url: "^https?://pc\\.tgbus\\.com/.*\\d+/$",
-    exampleUrl: "http://pc.tgbus.com/tuwen_180/88983/",
+    name: '电玩巴士 - 图文',
+    url: '^https?://pc\\.tgbus\\.com/.*\\d+/$',
+    exampleUrl: 'http://pc.tgbus.com/tuwen_180/88983/',
     nextLink: "//div[contains(@class, 'art-page')]/a[text()='下一页']",
     autopager: {
       pageElement: "//div[@class='art-body']",
       documentFilter: function documentFilter(doc) {
         // 删除导航
-        var navigator = doc.querySelector(".art-pagination");
+        var navigator = doc.querySelector('.art-pagination');
 
         if (navigator) {
           navigator.parentNode.removeChild(navigator);
         } // 隐藏分页
 
 
-        doc.querySelector(".art-page").style.display = "none";
+        doc.querySelector('.art-page').style.display = 'none';
       }
     }
   }, {
-    name: "抽屉新热榜",
+    name: '抽屉新热榜',
     url: /^https?:\/\/dig\.chouti\.com\//i,
     nextLink: '//a[@class="ct_page_edge" and (text()="下一页")]',
     autopager: {
       pageElement: '//div[@id="content-list"]',
-      lazyImgSrc: "original",
+      lazyImgSrc: 'original',
       filter: function filter(_pages) {
         var chouti = unsafeWindow.chouti;
         var NS_links_comment_top = unsafeWindow.NS_links_comment_top;
@@ -11615,15 +11615,15 @@
       }
     }
   }, {
-    name: "koolshare扩展页面",
-    url: "^https?://koolshare\\.cn/home\\.php",
-    exampleUrl: "http://koolshare.cn/home.php",
+    name: 'koolshare扩展页面',
+    url: '^https?://koolshare\\.cn/home\\.php',
+    exampleUrl: 'http://koolshare.cn/home.php',
     nextLink: "//a[contains(text(),'下一页')]",
     pageElement: "id('ct')//tbody",
     autopager: {
       // 只执行一次，删除多余的表头
       documentFilter: function documentFilter(doc) {
-        var firstDiv = doc.querySelector(".th");
+        var firstDiv = doc.querySelector('.th');
 
         if (firstDiv) {
           firstDiv.parentNode.removeChild(firstDiv);
@@ -11631,14 +11631,14 @@
       }
     }
   }, {
-    name: "Jable",
+    name: 'Jable',
     url: /^https?:\/\/jable\.tv/i,
     nextLink: function nextLink(doc, _win, cplink) {
       var a = getElementByXpath("//ul[@class='pagination']/li[span[contains(@class,'active')]]/following-sibling::li[1]/a", doc, doc);
-      var blockID = a.getAttribute("data-block-id");
-      var parms = a.getAttribute("data-parameters").replace(/:/g, "=").replace(/;/g, "&"); // const containerID = a.getAttribute("data-container-id");
+      var blockID = a.getAttribute('data-block-id');
+      var parms = a.getAttribute('data-parameters').replace(/:/g, '=').replace(/;/g, '&'); // const containerID = a.getAttribute("data-container-id");
 
-      var nextLink = cplink + "?mode=async&function=get_block&block_id=" + blockID + "&" + parms + "&_=" + Date.now();
+      var nextLink = cplink + '?mode=async&function=get_block&block_id=' + blockID + '&' + parms + '&_=' + Date.now();
       return nextLink;
     },
     autopager: {
@@ -11646,13 +11646,13 @@
       useiframe: true,
       pageElement: "//ul[@class='pagination']/preceding-sibling::div/div"
     },
-    exampleUrl: "http://www.youyourentiyishu.com/rentiyishuzhaopian/20180506225810.html"
+    exampleUrl: 'http://www.youyourentiyishu.com/rentiyishuzhaopian/20180506225810.html'
   }, {
-    name: "Netflav",
-    url: "^https?://netflav\\.com",
+    name: 'Netflav',
+    url: '^https?://netflav\\.com',
     nextLink: {
-      startAfter: "?page=",
-      mFails: [/^https?:\/\/(?:netflav\.com)\/.+/i, "?page=1"],
+      startAfter: '?page=',
+      mFails: [/^https?:\/\/(?:netflav\.com)\/.+/i, '?page=1'],
       inc: 1,
       isLast: function isLast(doc, _win, _lhref) {
         var CurrentPage = Number(getElementByXpath("//div[@id='general-pagination']/div/a[@aria-current='true']", doc, doc).innerText);
@@ -11669,20 +11669,20 @@
       pageElement: "(//div[@id='general-pagination']/preceding-sibling::div)[last()]/div",
       HT_insert: ["(//div[@id='general-pagination']/preceding-sibling::div)[last()]", 2]
     },
-    exampleUrl: "https://netflav.com/chinese-sub?page=1"
+    exampleUrl: 'https://netflav.com/chinese-sub?page=1'
   }, {
-    name: "悠悠美图",
+    name: '悠悠美图',
     url: /^https?:\/\/www\.youyourentiyishu\.com/i,
     nextLink: function nextLink(doc, _win, cplink) {
       var m = cplink.match(/\d+-(\d+)\.html/);
 
       if (!m) {
-        return cplink.replace(".html", "-2.html");
+        return cplink.replace('.html', '-2.html');
       } else {
         var current = Number(m[1]);
         var next = current + 1;
-        var url = cplink.replace(m[1] + ".html", next + ".html");
-        var url2 = doc.querySelector("a.next").getAttribute("href");
+        var url = cplink.replace(m[1] + '.html', next + '.html');
+        var url2 = doc.querySelector('a.next').getAttribute('href');
 
         if (url != url2) {
           return undefined;
@@ -11696,24 +11696,24 @@
       pageElement: '//div[@class="showimg"]/a',
       ipages: [true, 30]
     },
-    exampleUrl: "http://www.youyourentiyishu.com/rentiyishuzhaopian/20180506225810.html"
+    exampleUrl: 'http://www.youyourentiyishu.com/rentiyishuzhaopian/20180506225810.html'
   }, {
-    name: "laomaoit - 老殁软件分享",
-    url: "^https?://www\\.(laomoit|mpyit)\\.com",
-    exampleUrl: "https://www.laomoit.com",
+    name: 'laomaoit - 老殁软件分享',
+    url: '^https?://www\\.(laomoit|mpyit)\\.com',
+    exampleUrl: 'https://www.laomoit.com',
     nextLink: '//div[@id="pagenavi"]//a[text()="下一页"]',
     autopager: {
       pageElement: 'id("post") | id("content")',
-      replaceE: "css;#pagenavi",
+      replaceE: 'css;#pagenavi',
       // 删除页面上不需要的元素
       documentFilter: function documentFilter(doc) {
-        var nodeBrowse = doc.querySelector(".browse");
+        var nodeBrowse = doc.querySelector('.browse');
 
         if (nodeBrowse) {
           nodeBrowse.parentNode.removeChild(nodeBrowse);
         }
 
-        var nodeMap = doc.querySelector("#map");
+        var nodeMap = doc.querySelector('#map');
 
         if (nodeMap) {
           nodeMap.parentNode.removeChild(nodeMap);
@@ -11721,14 +11721,14 @@
       }
     }
   }, {
-    name: "CSDN博客",
+    name: 'CSDN博客',
     url: /^https?:\/\/blog\.csdn\.net/i,
-    exampleUrl: "http://blog.csdn.net/wangjieest?viewmode=list",
+    exampleUrl: 'http://blog.csdn.net/wangjieest?viewmode=list',
     nextLink: function nextLink(doc, _win, _cplink) {
       for (var i = 0; i < doc.scripts.length; i++) {
         var scriptText = doc.scripts[i].text;
 
-        if (typeof scriptText != "undefined" && scriptText.indexOf("currentPage") > 0) {
+        if (typeof scriptText != 'undefined' && scriptText.indexOf('currentPage') > 0) {
           var pageMatches = scriptText.match(/currentPage[ ]?=[ ]?(\d+)/);
 
           if (pageMatches.length != 2) {
@@ -11741,7 +11741,7 @@
             continue;
           }
 
-          return baseUrlMatches[1] + "/" + (parseInt(pageMatches[1]) + 1);
+          return baseUrlMatches[1] + '/' + (parseInt(pageMatches[1]) + 1);
         }
       }
 
@@ -11751,29 +11751,29 @@
       pageElement: '//div[@id="article_list"] | // div[@class="article-list"]',
       documentFilter: function documentFilter(doc) {
         // 文档底部的 marginBottom 重置
-        var articleList = doc.querySelector(".article-list");
+        var articleList = doc.querySelector('.article-list');
 
         if (articleList) {
-          articleList.style.marginBottom = "0";
+          articleList.style.marginBottom = '0';
         }
       },
       startFilter: function startFilter(doc, _win) {
         // 文档底部的 marginBottom 重置
-        var articleList = doc.querySelector(".article-list");
+        var articleList = doc.querySelector('.article-list');
 
         if (articleList) {
-          articleList.style.marginBottom = "0";
+          articleList.style.marginBottom = '0';
         } // 移动分页位置
 
 
-        var pageBox = document.querySelector("#pageBox");
+        var pageBox = document.querySelector('#pageBox');
 
         if (pageBox) {
           pageBox.parentNode.parentNode.appendChild(pageBox);
         } // 删除广告
 
 
-        var adBox = document.querySelector(".box-box-large");
+        var adBox = document.querySelector('.box-box-large');
 
         if (adBox) {
           adBox.parentNode.removeChild(adBox);
@@ -11781,34 +11781,34 @@
       }
     }
   }, {
-    name: "CSDN话题",
+    name: 'CSDN话题',
     url: /^https?:\/\/bbs\.csdn\.net\/topics\//i,
-    exampleUrl: "http://bbs.csdn.net/topics/390244325",
+    exampleUrl: 'http://bbs.csdn.net/topics/390244325',
     nextLink: '(//div[@class="page_nav"])[1]/a[text()="下一页"]',
     autopager: {
       pageElement: 'id("bbs_detail_wrap")',
       documentFilter: function documentFilter(doc) {
         // 删除文档中的多余表头
-        var titleH = doc.querySelector(".bbs_title_h");
+        var titleH = doc.querySelector('.bbs_title_h');
 
         if (titleH) {
           titleH.parentNode.removeChild(titleH);
         }
 
-        var titleBar = doc.querySelector(".bbs_title_bar");
+        var titleBar = doc.querySelector('.bbs_title_bar');
 
         if (titleBar) {
           titleBar.parentNode.removeChild(titleBar);
         }
 
-        var breadWrap = doc.querySelector(".bbs_bread_wrap");
+        var breadWrap = doc.querySelector('.bbs_bread_wrap');
 
         if (breadWrap) {
           breadWrap.parentNode.removeChild(breadWrap);
         } // 尾页的分页信息隐藏
 
 
-        var pageNav = doc.querySelectorAll(".mod_fun_wrap");
+        var pageNav = doc.querySelectorAll('.mod_fun_wrap');
 
         if (pageNav) {
           var index = 0;
@@ -11817,12 +11817,12 @@
             index = 1;
           }
 
-          pageNav[index].style.display = "none";
+          pageNav[index].style.display = 'none';
         }
       },
       startFilter: function startFilter(doc) {
         // 尾页的分页信息隐藏
-        var pageNav = doc.querySelectorAll(".mod_fun_wrap");
+        var pageNav = doc.querySelectorAll('.mod_fun_wrap');
 
         if (pageNav) {
           var index = 0;
@@ -11831,37 +11831,37 @@
             index = 1;
           }
 
-          pageNav[index].style.display = "none";
+          pageNav[index].style.display = 'none';
         } // 扩展的其他话题信息移除，长度太长，导致翻页信息有点问题
 
 
-        var feedBox = doc.querySelector(".post_feed_box");
+        var feedBox = doc.querySelector('.post_feed_box');
 
         if (feedBox) {
           feedBox.parentNode.removeChild(feedBox);
         }
       },
       sepdivDom: function sepdivDom(_doc, sepdiv) {
-        sepdiv.className += " bbs_detail_wrap";
+        sepdiv.className += ' bbs_detail_wrap';
         return sepdiv;
       }
     }
   }, {
-    name: "bl-novel",
-    url: "^https?://bl-novel\\.in/novel",
+    name: 'bl-novel',
+    url: '^https?://bl-novel\\.in/novel',
     nextLink: "//a[@id='pb_next']",
     pageElement: "//div[@id='nr']",
     documentFilter: function documentFilter(doc, _nextLink) {
-      var scripts = doc.getElementsByTagName("script");
+      var scripts = doc.getElementsByTagName('script');
       var re = /chapter\s*=\s*secret\(['"](.*)['"],\s*['"](.*)['"],\s*(\w+)\s*\)/g;
       var c;
       [].forEach.call(scripts, function (x) {
-        if (x.innerText.indexOf("var chapter") >= 0) {
+        if (x.innerText.indexOf('var chapter') >= 0) {
           var temp = re.exec(x.innerText);
           var content = temp[1];
           var salt = temp[2]; // function secret is provided by the website
 
-          if (temp[3].indexOf("true") >= 0) {
+          if (temp[3].indexOf('true') >= 0) {
             // eslint-disable-next-line no-undef
             c = secret(content, salt, true);
           } else {
@@ -11869,38 +11869,38 @@
             c = secret(content, salt, false);
           }
 
-          doc.getElementById("nr1").innerHTML = c;
+          doc.getElementById('nr1').innerHTML = c;
         }
       });
     }
   }, {
-    name: "第一版主",
-    url: "^https?://www\\.diyibanzhu\\d?\\.(top|one|net|com)",
-    nextLink: "auto;",
+    name: '第一版主',
+    url: '^https?://www\\.diyibanzhu\\d?\\.(top|one|net|com)',
+    nextLink: 'auto;',
     pageElement: "//div[@id='content']"
   }, {
-    name: "第一版主",
-    url: "^https?://www\\.diyibanzhu\\d?\\.(top|one|net|com)",
+    name: '第一版主',
+    url: '^https?://www\\.diyibanzhu\\d?\\.(top|one|net|com)',
     pageElement: "//div[@id='content']",
     nextLink: function nextLink(doc, _win, cplink) {
       var chapters = getAllElementsByXpath("//div[@class='chapterPages']/a", doc);
-      var prefix = cplink.substr(0, cplink.lastIndexOf("/")) + "/";
+      var prefix = cplink.substr(0, cplink.lastIndexOf('/')) + '/';
       var i = 0;
 
       for (i = 0; i < chapters.length; i++) {
-        if (chapters[i].className === "curr") {
+        if (chapters[i].className === 'curr') {
           if (i + 1 < chapters.length) {
-            return prefix + chapters[i + 1].getAttribute("href");
+            return prefix + chapters[i + 1].getAttribute('href');
           } else {
-            return getDomain(cplink) + getElementByXpath("//span[@class='next']/a").getAttribute("href");
+            return getDomain(cplink) + getElementByXpath("//span[@class='next']/a").getAttribute('href');
           }
         }
       }
     }
   }, {
-    name: "起点文学-排行榜",
+    name: '起点文学-排行榜',
     url: /^https?:\/\/www\.(qidian)\.com(\/mm)?\/rank\/.*/i,
-    exampleUrl: "https://www.qidian.com/rank/collect",
+    exampleUrl: 'https://www.qidian.com/rank/collect',
     nextLink: function nextLink(doc, _win, cplink) {
       var res = getElementByXpath('//div[@id="page-container"]', doc);
 
@@ -11913,12 +11913,12 @@
       if (next > res.dataset.pagemax) {
         return undefined;
       } else {
-        if (cplink.indexOf("page=") != -1) {
-          return cplink.replace(/page=\d+/, "page=" + next);
-        } else if (cplink.indexOf("?") != -1) {
-          return cplink + "&page=" + next;
+        if (cplink.indexOf('page=') != -1) {
+          return cplink.replace(/page=\d+/, 'page=' + next);
+        } else if (cplink.indexOf('?') != -1) {
+          return cplink + '&page=' + next;
         } else {
-          return cplink + "?page=" + next;
+          return cplink + '?page=' + next;
         }
       }
     },
@@ -11926,23 +11926,23 @@
       pageElement: '//div[@class="rank-body"]'
     }
   }, {
-    name: "rushi.net",
-    url: "^https?://www.rushi.net/Home/Works",
-    nextLink: "css;.gopage .next-btn",
+    name: 'rushi.net',
+    url: '^https?://www.rushi.net/Home/Works',
+    nextLink: 'css;.gopage .next-btn',
     // 或者//div[@class='gopage']//a[contains(@class,'next-btn')]
     autopager: {
-      pageElement: "css;.work_list_line",
+      pageElement: 'css;.work_list_line',
       startFilter: function startFilter(_doc) {
-        var firstDiv = document.querySelector(".hot-company-job");
+        var firstDiv = document.querySelector('.hot-company-job');
 
         if (firstDiv) {
           firstDiv.parentNode.removeChild(firstDiv);
         }
       },
-      documentFilter: "startFilter"
+      documentFilter: 'startFilter'
     }
   }, {
-    name: "优书-书单|评论",
+    name: '优书-书单|评论',
     url: /^https?:\/\/www\.yousuu\.com\/(comments|booklist)/i,
     nextLink: function nextLink(doc, _win, cplink) {
       var res = getElementByXpath('//ul[contains(@class, "pagination")]', doc);
@@ -11960,7 +11960,7 @@
         // 其他类型 << 1 2(active) 3 ... >>
         // 找到active的后一项
         for (var i = res.childNodes.length - 1; i >= 0; i--) {
-          if (res.children[i].className == "active") {
+          if (res.children[i].className == 'active') {
             // 如果当前页是最后第二项，就不翻页
             if (i == res.childNodes.length - 2) {
               return undefined;
@@ -11977,23 +11977,23 @@
         return undefined;
       }
 
-      var pageInfo = findout[1] + "=" + findout[2];
+      var pageInfo = findout[1] + '=' + findout[2];
 
-      if (cplink.indexOf(findout[1] + "=") != -1) {
-        return cplink.replace(new RegExp(findout[1] + "=\\d+"), pageInfo);
-      } else if (cplink.indexOf("?") != -1) {
-        return cplink + "&" + pageInfo;
+      if (cplink.indexOf(findout[1] + '=') != -1) {
+        return cplink.replace(new RegExp(findout[1] + '=\\d+'), pageInfo);
+      } else if (cplink.indexOf('?') != -1) {
+        return cplink + '&' + pageInfo;
       } else {
-        return cplink + "?" + pageInfo;
+        return cplink + '?' + pageInfo;
       }
     },
     autopager: {
       pageElement: '//table[contains(@class, "shudanlist")] | //ul[contains(@class, "ys-comments")] | //div[@class="ro"]'
     }
   }, {
-    name: "动漫之家漫画网",
+    name: '动漫之家漫画网',
     url: /^https?:\/\/(www|manhua)\.(dmzj|178)\.com\/\w+\/\d+\.shtml/,
-    exampleUrl: "https://manhua.dmzj.com/yuanlian/36944.shtml#@page=1",
+    exampleUrl: 'https://manhua.dmzj.com/yuanlian/36944.shtml#@page=1',
     nextLink: function nextLink(doc, _win, cplink) {
       var current = Number(getElementByXpath('//*[@id="page_select"]/option[@selected][1]', doc).text.match(/(\d+)/)[1]);
       var xpath_last = '//*[@id="page_select"]/option[last()]';
@@ -12003,7 +12003,7 @@
       if (next > end_num) {
         return undefined;
       } else {
-        return cplink.replace(/\.shtml(?:#@page=\d+)?/, ".shtml#@page=" + next);
+        return cplink.replace(/\.shtml(?:#@page=\d+)?/, '.shtml#@page=' + next);
       }
     },
     autopager: {
@@ -12014,7 +12014,7 @@
       pageElement: '//div[@id="center_box"]/img'
     }
   }, {
-    name: "看漫画",
+    name: '看漫画',
     url: /^https?:\/\/www\.manhuagui\.com\/comic\/.+/i,
     // this is a set which uses hash to change page
     // we need to manually add hash
@@ -12027,7 +12027,7 @@
       if (next > end_num) {
         return undefined;
       } else {
-        return cplink.replace(/\.html(?:#p=\d+)?/, ".html#p=" + next);
+        return cplink.replace(/\.html(?:#p=\d+)?/, '.html#p=' + next);
       }
     },
     autopager: {
@@ -12038,23 +12038,23 @@
       pageElement: '//div[@class="clearfix"]',
       ipages: [true, 20]
     },
-    exampleUrl: "https://www.manhuagui.com/comic/17332/372862.html"
+    exampleUrl: 'https://www.manhuagui.com/comic/17332/372862.html'
   }, {
-    name: "SF在线漫画",
-    url: "^https?://(manhua\\.sfacg\\.com/mh|www\\.acg456\\.com)/.+",
-    exampleUrl: "https://manhua.sfacg.com/mh/YULINGSHI/20087/#p=2",
+    name: 'SF在线漫画',
+    url: '^https?://(manhua\\.sfacg\\.com/mh|www\\.acg456\\.com)/.+',
+    exampleUrl: 'https://manhua.sfacg.com/mh/YULINGSHI/20087/#p=2',
     preLink: {
-      startAfter: "#p=",
+      startAfter: '#p=',
       inc: -1,
       min: 1
     },
     nextLink: {
-      startAfter: "#p=",
-      mFails: [/^https?:\/\/(?:manhua\.sfacg\.com\/mh|www\.acg456\.com)\/.+/i, "#p=1"],
+      startAfter: '#p=',
+      mFails: [/^https?:\/\/(?:manhua\.sfacg\.com\/mh|www\.acg456\.com)\/.+/i, '#p=1'],
       inc: 1,
       isLast: function isLast(doc, _win, _lhref) {
-        var TotalPage = Number(doc.getElementById("TotalPage").innerText) - 1;
-        var CurrentPage = Number(doc.getElementById("CurrentPage").innerText);
+        var TotalPage = Number(doc.getElementById('TotalPage').innerText) - 1;
+        var CurrentPage = Number(doc.getElementById('CurrentPage').innerText);
 
         if (CurrentPage == TotalPage) {
           return true;
@@ -12068,15 +12068,15 @@
       replaceE: 'id("Pages")'
     }
   }, {
-    name: "哦漫画",
+    name: '哦漫画',
     url: /^https?:\/\/www\.omanhua\.com\/comic\//i,
-    exampleUrl: "http://www.omanhua.com/comic/2957/36463/index.html?p=2",
+    exampleUrl: 'http://www.omanhua.com/comic/2957/36463/index.html?p=2',
     nextLink: {
-      startAfter: "?p=",
-      mFails: [/^http:\/\/www\.omanhua\.com\/comic\/.+/i, "?p=1"],
+      startAfter: '?p=',
+      mFails: [/^http:\/\/www\.omanhua\.com\/comic\/.+/i, '?p=1'],
       inc: 1,
       isLast: function isLast(doc, _win, _lhref) {
-        var select = doc.getElementById("pageSelect");
+        var select = doc.getElementById('pageSelect');
 
         if (select) {
           var s2os = select.options;
@@ -12090,24 +12090,24 @@
       pageElement: '//img[@id="mangaFile"]'
     }
   }, {
-    name: "汗汗漫画",
+    name: '汗汗漫画',
     url: /^https?:\/\/\w+\.(?:vs20|3gmanhua|hhcomic|huhudm|huhumh|hhimm|hhmmoo)\.(?:com|net)\/\w+\/\d+\.html/i,
-    exampleUrl: "http://www.hhmmoo.com/page315224/1.html?s=1； http://www.hhmmoo.com/page315224/4.html?s=1&d=0",
+    exampleUrl: 'http://www.hhmmoo.com/page315224/1.html?s=1； http://www.hhmmoo.com/page315224/4.html?s=1&d=0',
     nextLink: function nextLink(_doc, _win, cplink) {
       // created based on http://www.hhmmoo.com/script/view.js
       var m = cplink.match(/(.*\d+\/)(\d+)(\.html\?s=\d+)((?:\?|&)d=.*)?/); // const url_head = m[1];
 
       var current = Number(m[2]);
       var dID = m[4];
-      if (!dID) dID = "&d=0";
+      if (!dID) dID = '&d=0';
       var next = current + 1; // const xpath = '//div[@class="cH1"]/b[1]';
 
-      var maxpage = document.getElementById("hdPageCount");
+      var maxpage = document.getElementById('hdPageCount');
 
       if (maxpage) {
         maxpage = Number(maxpage.value);
       } else {
-        maxpage = document.getElementById("spPageCount");
+        maxpage = document.getElementById('spPageCount');
 
         if (maxpage) {
           maxpage = Number(maxpage.innerText);
@@ -12128,16 +12128,16 @@
       ipages: [true, 20]
     }
   }, {
-    name: "99漫画",
+    name: '99漫画',
     url: /^https?:\/\/(cococomic|dm.99manga|99manga|99comic|www.99comic|www.hhcomic)\.(com|cc)/i,
-    exampleUrl: "http://dm.99manga.com/comic/35416/316645/?p=2&s=0",
+    exampleUrl: 'http://dm.99manga.com/comic/35416/316645/?p=2&s=0',
     nextLink: {
-      startAfter: "?p=",
+      startAfter: '?p=',
       inc: 1,
-      mFails: [/^https?:\/\/(?:cococomic|dm.99manga|99manga|99comic|www.99comic|www.hhcomic)\.(?:com|cc)\/.+/i, "?p=1&s=0"],
+      mFails: [/^https?:\/\/(?:cococomic|dm.99manga|99manga|99comic|www.99comic|www.hhcomic)\.(?:com|cc)\/.+/i, '?p=1&s=0'],
       isLast: function isLast(doc, _win, _lhref) {
-        var maxpage = Number(doc.getElementById("spPageCount").innerText);
-        var current = Number(doc.getElementById("spPageIndex").innerText);
+        var maxpage = Number(doc.getElementById('spPageCount').innerText);
+        var current = Number(doc.getElementById('spPageIndex').innerText);
         if (current == maxpage) return true;
       }
     },
@@ -12146,21 +12146,21 @@
       pageElement: '//*[@id="iBody"]'
     }
   }, {
-    name: "天使漫画网,TSDM漫画组",
+    name: '天使漫画网,TSDM漫画组',
     url: /^https?:\/\/mh\.tsdm\.net\/comic\/.+/i,
-    exampleUrl: "http://mh.tsdm.net/comic/4697/68059.html",
+    exampleUrl: 'http://mh.tsdm.net/comic/4697/68059.html',
     useiframe: true,
     preLink: {
-      startAfter: "?p=",
+      startAfter: '?p=',
       inc: -1,
       min: 1
     },
     nextLink: {
-      startAfter: "?p=",
-      mFails: [/^http:\/\/mh\.tsdm\.net\/comic\/.+\.html/i, "?p=1"],
+      startAfter: '?p=',
+      mFails: [/^http:\/\/mh\.tsdm\.net\/comic\/.+\.html/i, '?p=1'],
       inc: 1,
       isLast: function isLast(doc, _win, _lhref) {
-        var pageSelect = doc.getElementById("qTcms_select_i");
+        var pageSelect = doc.getElementById('qTcms_select_i');
 
         if (pageSelect) {
           var s2os = pageSelect.options;
@@ -12176,20 +12176,20 @@
       ipages: [true, 20]
     }
   }, {
-    name: "930mh",
+    name: '930mh',
     url: /^https?:\/\/www\.930mh\.com\/manhua\/.+/i,
-    exampleUrl: "http://www.930mh.com/manhua/13355/500671.html?p=2",
+    exampleUrl: 'http://www.930mh.com/manhua/13355/500671.html?p=2',
     preLink: {
-      startAfter: "?p=",
+      startAfter: '?p=',
       inc: -1,
       min: 1
     },
     nextLink: {
-      startAfter: "?p=",
-      mFails: [/^https?:\/\/www\.930mh\.com\/manhua\/.+\.html/i, "?p=1"],
+      startAfter: '?p=',
+      mFails: [/^https?:\/\/www\.930mh\.com\/manhua\/.+\.html/i, '?p=1'],
       inc: 1,
       isLast: function isLast(doc, _win, _lhref) {
-        var index = doc.getElementById("images").children[1].innerText;
+        var index = doc.getElementById('images').children[1].innerText;
         var nums = index.match(/\d+/g);
 
         if (Number(nums[0]) >= Number(nums[1])) {
@@ -12203,15 +12203,15 @@
       ipages: [true, 20]
     }
   }, {
-    name: "sis001.com",
+    name: 'sis001.com',
     url: /^https?:\/\/(\w+\.)?sis001\.com\/forum\/(forum|thread)[0-9\-]+\.html/i,
-    exampleUrl: "https://www.sis001.com/forum/forum-230-1.html",
+    exampleUrl: 'https://www.sis001.com/forum/forum-230-1.html',
     nextLink: '//div[@class="pages_btns"]//a[@class="next"]',
     autopager: {
       pageElement: '//div[@class="mainbox"]//table[last()]',
       replaceE: '//div[@class="pages_btns"]',
       startFilter: function startFilter(doc, _win) {
-        var firstDiv = doc.querySelector("#ad_text");
+        var firstDiv = doc.querySelector('#ad_text');
 
         if (firstDiv) {
           firstDiv.parentNode.removeChild(firstDiv);
@@ -12219,37 +12219,37 @@
       }
     }
   }, {
-    name: "腐漫画",
-    url: "^https?://www\\.fmhuaaa\\.net/manhua/\\d+/.+",
+    name: '腐漫画',
+    url: '^https?://www\\.fmhuaaa\\.net/manhua/\\d+/.+',
     enable: true,
     pageElement: '//div[@class="bi"] //a',
-    exampleUrl: "http://www.fmhuaaa.net/manhua/6265/832101.html",
+    exampleUrl: 'http://www.fmhuaaa.net/manhua/6265/832101.html',
     nextLink: '//div[@class="bp"]/a[text()="下一页"][@href]',
     autopager: {
       startFilter: function startFilter(d, _win) {
-        d.getElementById("bigpic").src = d.getElementById("bigpic").src.replace("fmvip.xzglasses.com", "fmvip.xzglasses.com");
-        Array.from(d.querySelectorAll("iframe")).forEach(function (frame) {
+        d.getElementById('bigpic').src = d.getElementById('bigpic').src.replace('fmvip.xzglasses.com', 'fmvip.xzglasses.com');
+        Array.from(d.querySelectorAll('iframe')).forEach(function (frame) {
           return frame.remove();
         });
       },
       documentFilter: function documentFilter(d, _nextLink) {
         var link = d.body.innerHTML.match(/imgurl = '(.+)';/);
-        if (link) link = "//fmvip.xzglasses.com" + link[1];
-        d.getElementById("bigpic").src = link;
-        d.getElementById("bigpic").dataset.link = link;
+        if (link) link = '//fmvip.xzglasses.com' + link[1];
+        d.getElementById('bigpic').src = link;
+        d.getElementById('bigpic').dataset.link = link;
       }
     }
   }, {
-    name: "xkcd",
-    url: "^https?://(?:www.)?xkcd.com",
+    name: 'xkcd',
+    url: '^https?://(?:www.)?xkcd.com',
     nextLink: function nextLink(doc, _win, cplink) {
       var m = cplink.match(/\d+/);
 
       if (!m) {
-        return cplink + "/2/";
+        return cplink + '/2/';
       } else {
-        var url = doc.querySelector("a[rel=next]").getAttribute("href");
-        url = "https://www.xkcd.com/" + url;
+        var url = doc.querySelector('a[rel=next]').getAttribute('href');
+        url = 'https://www.xkcd.com/' + url;
         return url;
       }
     },
@@ -12258,7 +12258,7 @@
 
   function getDomain(cplink) {
     // Get [PROTOCOL]://[DOMAIN]
-    var a = getAllIndexes(cplink, "/");
+    var a = getAllIndexes(cplink, '/');
 
     if (a.length > 2) {
       return cplink.substr(0, a[2]);
@@ -12281,9 +12281,9 @@
   var noticeDiv, noticeDivto, noticeDivto2;
   function notice(html_txt, showTime) {
     if (!noticeDiv) {
-      var div = createDOM("div", {
+      var div = createDOM('div', {
         attr: {
-          style: "\
+          style: '\
             position:fixed!important;\
             z-index:2147483647!important;\
             float:none!important;\
@@ -12303,7 +12303,7 @@
             -o-transition:opacity 0.3s ease-in-out;\
             -webkit-transition:opacity 0.3s ease-in-out;\
             -moz-transition:opacity 0.3s ease-in-out;\
-        "
+        '
         }
       });
       document.body.appendChild(div);
@@ -12313,8 +12313,8 @@
     clearTimeout(noticeDivto);
     clearTimeout(noticeDivto2);
     noticeDiv.innerHTML = html_txt;
-    noticeDiv.style.display = "block";
-    noticeDiv.style.opacity = "0.96";
+    noticeDiv.style.display = 'block';
+    noticeDiv.style.opacity = '0.96';
 
     if (showTime === undefined) {
       showTime = 1666;
@@ -12322,10 +12322,10 @@
 
     if (showTime > 0) {
       noticeDivto2 = setTimeout(function () {
-        noticeDiv.style.opacity = "0";
+        noticeDiv.style.opacity = '0';
       }, showTime);
       noticeDivto = setTimeout(function () {
-        noticeDiv.style.display = "none";
+        noticeDiv.style.display = 'none';
       }, showTime + 300);
     }
   }
@@ -12342,14 +12342,14 @@
       html: true,
       encoding: document.characterSet
     };
-    logger.setLevel("warn");
+    logger.setLevel('warn');
 
-    if (BROWSER.name === "firefox") {
-      if (SCRIPT_MANAGER.name === "Violentmonkey" && compareVersions(SCRIPT_MANAGER.version, "2.12.3") <= 0 || SCRIPT_MANAGER.name === "Tampermonkey") {
+    if (BROWSER.name === 'firefox') {
+      if (SCRIPT_MANAGER.name === 'Violentmonkey' && compareVersions(SCRIPT_MANAGER.version, '2.12.3') <= 0 || SCRIPT_MANAGER.name === 'Tampermonkey') {
         // `options.cookie`, dirty fix for TM and VM on Firefox
         // TODO: remove when TM releases new version
         logger.warn("[Super-preloader]", `${SCRIPT_MANAGER.name}  v${SCRIPT_MANAGER.version} has a flaw on Firefox, which may affect this script`);
-        logger.warn("[Super-preloader]", "Check https://github.com/Tampermonkey/tampermonkey/issues/786 and https://github.com/violentmonkey/violentmonkey/issues/606 to learn more");
+        logger.warn("[Super-preloader]", 'Check https://github.com/Tampermonkey/tampermonkey/issues/786 and https://github.com/violentmonkey/violentmonkey/issues/606 to learn more');
         gotConfig.cookie = true;
       }
     }
@@ -12360,12 +12360,12 @@
 
     var SSRules = []; // ----------------------------------
 
-    if (window.name === "mynovelreader-iframe") {
+    if (window.name === 'mynovelreader-iframe') {
       return;
     }
 
     function CheckIframe() {
-      if (window.name === "superpreloader-iframe") {
+      if (window.name === 'superpreloader-iframe') {
         return true;
       } else {
         return false;
@@ -12379,16 +12379,16 @@
       // 去掉了原版的另一种方法，因为新版本 chrome 已经支持。旧版本 chrome iframe里面 无法访问window.parent,返回undefined
       var domLoaded = function domLoaded() {
         //window.scroll(window.scrollX, 99999);
-        var mutationObserver = window.frameElement ? JSON.parse(window.frameElement.getAttribute("mutationObserver")) : null;
+        var mutationObserver = window.frameElement ? JSON.parse(window.frameElement.getAttribute('mutationObserver')) : null;
 
         if (!mutationObserver) {
-          window.parent.postMessage("superpreloader-iframe:DOMLoaded", "*");
+          window.parent.postMessage('superpreloader-iframe:DOMLoaded', '*');
         } else {
           var observers = mutationObserver.observers;
           var p = [];
 
           if (observers) {
-            ["attributes", "addedNodes", "removedNodes"].forEach(function (key) {
+            ['attributes', 'addedNodes', 'removedNodes'].forEach(function (key) {
               var el = getAllElements(observers[key]);
 
               if (el.length > 0) {
@@ -12426,14 +12426,14 @@
               } //window.scrollTo(0, scrollLocation);
 
 
-              window.parent.postMessage("superpreloader-iframe:DOMLoaded", "*");
+              window.parent.postMessage('superpreloader-iframe:DOMLoaded', '*');
             });
           }, timeout);
         }
       };
 
       if (window.opera) {
-        document.addEventListener("DOMContentLoaded", domLoaded, false);
+        document.addEventListener('DOMContentLoaded', domLoaded, false);
       } else {
         domLoaded();
       }
@@ -12442,18 +12442,18 @@
     } // 在以下网站上允许在非顶层窗口上加载JS..比如猫扑之类的框架集网页.
 
 
-    var DIExclude = [["猫扑帖子", true, /^https?:\/\/dzh\.mop\.com\/[a-z]{3,6}\/\d{8}\/.*\.shtml$/i], ["铁血社区", true, /^https?:\/\/bbs\.tiexue\.net\/.*\.html$/i], ["铁血社区-2", true, /^https?:\/\/bbs\.qichelian\.com\/bbsqcl\.php\?fid/i], // 像 http://so.baiduyun.me/ 内嵌的百度、Google 框架
-    ["百度网盘搜索引擎-百度", true, /^https?:\/\/www\.baidu\.com\/baidu/i], ["百度网盘搜索引擎-Google", true, /^https?:\/\/74\.125\.128\.147\/custom/i]]; // 页面不刷新的站点
+    var DIExclude = [['猫扑帖子', true, /^https?:\/\/dzh\.mop\.com\/[a-z]{3,6}\/\d{8}\/.*\.shtml$/i], ['铁血社区', true, /^https?:\/\/bbs\.tiexue\.net\/.*\.html$/i], ['铁血社区-2', true, /^https?:\/\/bbs\.qichelian\.com\/bbsqcl\.php\?fid/i], // 像 http://so.baiduyun.me/ 内嵌的百度、Google 框架
+    ['百度网盘搜索引擎-百度', true, /^https?:\/\/www\.baidu\.com\/baidu/i], ['百度网盘搜索引擎-Google', true, /^https?:\/\/74\.125\.128\.147\/custom/i]]; // 页面不刷新的站点
 
     var HashchangeSites = [{
       url: /^https?:\/\/(www|encrypted)\.google(stable)?\..{2,9}\/(webhp|#|$|\?)/,
       timer: 2000,
-      mutationSelector: "#main"
+      mutationSelector: '#main'
     }, // 运营商可能会在 #wd= 前面添加 ?tn=07084049_pg
     {
       url: /^https?:\/\/www\.baidu\.com\/($|#wd=)/,
       timer: 1000,
-      mutationSelector: "#wrapper_wrapper"
+      mutationSelector: '#wrapper_wrapper'
     }, {
       url: /^https?:\/\/www\.newsmth\.net/,
       timer: 1000
@@ -12461,37 +12461,37 @@
     // 分页导航的6个图标以及颜色设置:
 
     var sep_icons = {
-      top: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAWtJREFUeNrclE0rRGEUx8c1GUpRJIVIZGdhZCVr38GGhaI0ZXwCkliglChZEcvJxhdgYWOjLEUpm/EyiLzze+o8dTzdO3PljoVTv7rPc8/5d+6555xYrEhWop6boda5+6l9wjWcWpF+WIbqCJJ9hFRcDr3QAIkIhKugz5PDfkSixkphz5aiAnqgE8rgWRxGoSOPyBkswQuUwyscw4HrmFCZL8Kt/JAg7mEFPEmo4FdPwk0BUcsdzIap0TQ8qMAPuICcEjLnd+VjSjcfJNgIc/DkZGSymYGsnK9EZMrxe4MFaNGiZjC2fT5zQ3p7QDK1dR2GSljziclAvRUe8nHYVA4jjvC43NfAuk/smB2QNqcsWxKcLbAKTFnS0hWD6n27Fd6FLqiDI5iQmQ9jpiVT0sNJ6aYd7dAE3QHBbinSAX5JWWaxuLo8F35jh/bBK9Y+/r/Cl6pLcnna8NvuDGMnslpbZRpXZYT/3r4EGACZL3ZL2afNFAAAAABJRU5ErkJggg==",
-      bottom: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAXFJREFUeNrM1c8rBGEcx/FdtCEkLqYtpdwkKSUHUhxwITdK+Z3yM2cOLnJ39Cc44SgHScmJwlFxsIdlCScO6/2t76Onp52dXTtbnno1M8+Pz84+zzMzkcg/KA3oRTzM0A4cI4VTdIUVPIM3pPGO5aABJTkGx1BqjYmFFZxW7nnBwXmXogWX6bEGc2jEIU7+kNWDUSSwZyqndSvJ3N1g2Bm0oLtB2j+w7rQP4MpqXzRT0YRaPW/BthMedYLs60HsoE2vq9BsPwAJa8XFLUa0fUrvROo/saT1Q9adGimdlt8yj6TT6Q6d2vaida9YRbtP6EqmBZC5fHA6X+AAz1bwEc6cfk9+oaZM4NoZJL70+J2hTaZtNpet041zK8yP/Mgl+rOF1emr0UM1xnAfEPyISd0Jno6vtx+QuM6PZ22lpO7dbEV2Siv6rPeIjNs1HdYC7ixfG+YBqdTVDqPIv6iIWvO7iXGUFxAqi72PraJ9IH8EGACQcYjYRd5GHwAAAABJRU5ErkJggg==",
-      pre: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAASlJREFUeNpiYBjOoBiIrwJxFRAzUsvQViD+CMT/gfgTEPdRy9BPUENh+AsQ91JiaAuSS9HxZ3INb8Hi0v+UurwF6qL/ROBvQNxDrKFfkTT+A+JnQPwBKfJA/L9Ian7ic7kMEHcC8Q80F3UAcRsQv4by30INaUJT9weaWhSQDRUB4uVYvLkYiAWAOBopvEFBlArEPEA8G4ue9UAsATM4EYuCJUgKMtAMLoSKCwPxXCx6c1igClTQgmUZVPNrHMEGy3mgYCkCYiYgTkCSV4UZvA2IjYBYDIgvQbPvOyJTECid5wHxbyA2BuL3QLwRWYEsEJvg0IweFEU41IEMlgcxWJAEH0MxJeAsjMFEq6Jw+Br8BimVfMCTDEkG7EBcA8T3oWUJx4DVYwABBgCannnSzbgwIQAAAABJRU5ErkJggg==",
-      next: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAT1JREFUeNrc1b1KA0EYheEl/iARFFEkKl6D0UK8CrEVrCwEexFCtBIlRWIjsfEiLL0FKzs7QUWxM2piFMUkvhPOwLAs2TGuCn7wkNll5jC7+w0Jgv9avdjAObbQn1TwCu7QwhWW4xakPIOHMKzxGCaSCm6ioXHLZ0Hqpz7KrwRPIvvNvBlM2zYyNY8cMjhDHo9fCBzErnIqKNjgRSxpvIABbOLes2MKWHfuXdhXcR2avKrJ4zGhI9gLhQbq9XaZgGO1kutIOzIHpKp7NawhjYOINSeY6lFwHacw17P6NTWHd4xqnNbcS83LObtsaCPbEW+gXUW8ODswC27xoOsn3ODDmfOGss9XLuE54jGjvPqGuuG1mFDzZIfdNHynnde7DbW1r5DwTstJHP2iE55YqD36ebXZDvr+7L/sU4ABAIpVZWnoA5GkAAAAAElFTkSuQmCC",
-      next_gray: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAtxJREFUeNrclc9L2mEcx7/6NbVZqRVj7pIOlIUuZ1HMgv0BDcqT7JrskH13ELPBF7eTvz10HznWQBlBRIfBXIfBLmqXscvYZWPKrMNIU9Apmrr34/w6i0ovMZjw+H0+z/N8Xt+Pn/fn80hR/+WHYRhBIpFwRKPRz/F4/KnD4RB28xH0Ah4cHHyoUCjsIpFIIZPJHkml0m9Yfn2ZD78XcL1eH6rValIMCmMUtqKbD7/HbNQxaq15oxcH/lXpcmXgtnh2u/2mXC6/DqE+sSxLlUqlniE0TVPBYJAqFot6+GV9Pt+PJthms80sLS2xEonkhlgs/jgwMOBcXV3N5fP5rlCcp9bX1yWLi4uecrk8U6lUshDY3wRbLJYFGKZsNksq4N78/LwY9hOn05k5Ojqi+PzTGePxeFwZUl6vd8hkMvkPDg6sZJ2M5eXlr1wqUu2kA5JOpy2IAO+oO9fW1n5mMpk2nDjmcjkKNU25XC652Wx2pVIp65mXJ2nyjUPpqakpNZxuA8Y5T87OzsobjcYHpVKpGhsbe1CtVkXYqxQKhTdqtfqL1Wr1JpPJxxyU5Lq/vz8aCoX8TTDatYiFhF6vxx5tAJwm8OPj48m5ubmKSqUaAWwSa9eQw6JGo/luNBoNh4eHbAe0JhAINsLh8LNAIJCiudhxB+Qh2ludTifDAQLvI3AIch+Rkl8jJlrhCbOqgfoLmDepOF/BfGNra2sFFZFtvqgzMbFYjAiyp9Vqh4VC4cTJyYmQ90epIQJtHRO1bA5aRhAvdnZ2GI/H87cEz5YPgeOS2RsfHx9B7u+gOi68yQAtYX9zd3eXgZCna/s8By5ypGUUzhOISHgO9BfWXwG6chZ6IbiVc6LwnsFgGIVAepLzjk4rYW1ze3ubcbvd53fjZV2FaqGQ63fT09PDMO9i9BEoon0J9Rm/339xm3dr2f39fVLX7wFvoMVvoYWfRyIRFndD/Z/8nf0WYAA8EC1Z/ZNm4gAAAABJRU5ErkJggg==",
-      pre_gray: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAslJREFUeNrclTtMWmEUxz/uvTzlIUhpNMR0aGNjrNHSmHTqRJyadujQDbSGRwJUaYCmDizqUEw6ODVNGgbpYCfSpFINCQzFR9oyMXRsXFCsAXkIKNL/R7gGWxOsSdPEk5zc3O+e87vn+59zv0vIpbSJiQmyubn5LBKJpNbX11+4XC5Buxy2XYDNZiMOh2OW4ziPTCbTi8XikeHh4SsSieQTXnIxsN1uJ1ardVYgEDgPDw+V9Xqd1Go1Mcuyg7AuuVy+sra29ndgVEnGx8dnhEKhs1qtKgE/eXZ8fCzC+q3+/n6tSqVaSSQS5wM7nU5iMplmsF1XpVI5BeXt6OhIBFkGAe9SKpV/wNmzKjWbzRT6tFwuK86CUqPrkIVWPjQwMKBWKBSn4Ozv0LGxsRmRSDSFSjua0Do8TRWAS+B5+B68g/IhixCNvQPN1WjuieZsS/f1aNQ0wzBuaCqlUCQRtVr9Es1K4kVDWJNhrQjAIiqMlkqle804FnkjBoOhEzv4vrGxkW2ALRaLFrq+QoAV2nE8tLe3dzEYDE5vb2939vX1PcBkiKVSaQ1jForFYq+NRqMum83ebsYzmJq7sGu4xhkKxsDfB/AxnO860ev1oeXlZU8gEMgmk0kFqmw8o9dUKiWfn58vhMPh54h7S+OpQXNSLBYfejyeR1yzw9dbRon09PS8W11dnfL5fJl8Pk+0Wi3hk5vyCNBY4vV6f0Im9+joKJNOp818o8G70ah4aWnpIzSKYCa/dXd3B+PxuHNycjKzs7NzAms1+qFQy+VydDRz0WjUpdPp3tB8TFM0FAqFGxXPzc19plJrNJqraMoXt9tNt3Suc+Tg4ICeJfmFhQVLoVAwoKG7fr//B8cHAL6Fy9ZFDinaG/r5w77ya8y/OhEvKRhjtIup2YMTeBb3mXY53HnAmNkP+/v7NzHTTwAO4f79f/ud/RJgAOLcRNZqLojMAAAAAElFTkSuQmCC",
-      text_span_style: "color:#595959!important;"
+      top: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAWtJREFUeNrclE0rRGEUx8c1GUpRJIVIZGdhZCVr38GGhaI0ZXwCkliglChZEcvJxhdgYWOjLEUpm/EyiLzze+o8dTzdO3PljoVTv7rPc8/5d+6555xYrEhWop6boda5+6l9wjWcWpF+WIbqCJJ9hFRcDr3QAIkIhKugz5PDfkSixkphz5aiAnqgE8rgWRxGoSOPyBkswQuUwyscw4HrmFCZL8Kt/JAg7mEFPEmo4FdPwk0BUcsdzIap0TQ8qMAPuICcEjLnd+VjSjcfJNgIc/DkZGSymYGsnK9EZMrxe4MFaNGiZjC2fT5zQ3p7QDK1dR2GSljziclAvRUe8nHYVA4jjvC43NfAuk/smB2QNqcsWxKcLbAKTFnS0hWD6n27Fd6FLqiDI5iQmQ9jpiVT0sNJ6aYd7dAE3QHBbinSAX5JWWaxuLo8F35jh/bBK9Y+/r/Cl6pLcnna8NvuDGMnslpbZRpXZYT/3r4EGACZL3ZL2afNFAAAAABJRU5ErkJggg==',
+      bottom: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAXFJREFUeNrM1c8rBGEcx/FdtCEkLqYtpdwkKSUHUhxwITdK+Z3yM2cOLnJ39Cc44SgHScmJwlFxsIdlCScO6/2t76Onp52dXTtbnno1M8+Pz84+zzMzkcg/KA3oRTzM0A4cI4VTdIUVPIM3pPGO5aABJTkGx1BqjYmFFZxW7nnBwXmXogWX6bEGc2jEIU7+kNWDUSSwZyqndSvJ3N1g2Bm0oLtB2j+w7rQP4MpqXzRT0YRaPW/BthMedYLs60HsoE2vq9BsPwAJa8XFLUa0fUrvROo/saT1Q9adGimdlt8yj6TT6Q6d2vaida9YRbtP6EqmBZC5fHA6X+AAz1bwEc6cfk9+oaZM4NoZJL70+J2hTaZtNpet041zK8yP/Mgl+rOF1emr0UM1xnAfEPyISd0Jno6vtx+QuM6PZ22lpO7dbEV2Siv6rPeIjNs1HdYC7ixfG+YBqdTVDqPIv6iIWvO7iXGUFxAqi72PraJ9IH8EGACQcYjYRd5GHwAAAABJRU5ErkJggg==',
+      pre: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAASlJREFUeNpiYBjOoBiIrwJxFRAzUsvQViD+CMT/gfgTEPdRy9BPUENh+AsQ91JiaAuSS9HxZ3INb8Hi0v+UurwF6qL/ROBvQNxDrKFfkTT+A+JnQPwBKfJA/L9Ian7ic7kMEHcC8Q80F3UAcRsQv4by30INaUJT9weaWhSQDRUB4uVYvLkYiAWAOBopvEFBlArEPEA8G4ue9UAsATM4EYuCJUgKMtAMLoSKCwPxXCx6c1igClTQgmUZVPNrHMEGy3mgYCkCYiYgTkCSV4UZvA2IjYBYDIgvQbPvOyJTECid5wHxbyA2BuL3QLwRWYEsEJvg0IweFEU41IEMlgcxWJAEH0MxJeAsjMFEq6Jw+Br8BimVfMCTDEkG7EBcA8T3oWUJx4DVYwABBgCannnSzbgwIQAAAABJRU5ErkJggg==',
+      next: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAT1JREFUeNrc1b1KA0EYheEl/iARFFEkKl6D0UK8CrEVrCwEexFCtBIlRWIjsfEiLL0FKzs7QUWxM2piFMUkvhPOwLAs2TGuCn7wkNll5jC7+w0Jgv9avdjAObbQn1TwCu7QwhWW4xakPIOHMKzxGCaSCm6ioXHLZ0Hqpz7KrwRPIvvNvBlM2zYyNY8cMjhDHo9fCBzErnIqKNjgRSxpvIABbOLes2MKWHfuXdhXcR2avKrJ4zGhI9gLhQbq9XaZgGO1kutIOzIHpKp7NawhjYOINSeY6lFwHacw17P6NTWHd4xqnNbcS83LObtsaCPbEW+gXUW8ODswC27xoOsn3ODDmfOGss9XLuE54jGjvPqGuuG1mFDzZIfdNHynnde7DbW1r5DwTstJHP2iE55YqD36ebXZDvr+7L/sU4ABAIpVZWnoA5GkAAAAAElFTkSuQmCC',
+      next_gray: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAtxJREFUeNrclc9L2mEcx7/6NbVZqRVj7pIOlIUuZ1HMgv0BDcqT7JrskH13ELPBF7eTvz10HznWQBlBRIfBXIfBLmqXscvYZWPKrMNIU9Apmrr34/w6i0ovMZjw+H0+z/N8Xt+Pn/fn80hR/+WHYRhBIpFwRKPRz/F4/KnD4RB28xH0Ah4cHHyoUCjsIpFIIZPJHkml0m9Yfn2ZD78XcL1eH6rValIMCmMUtqKbD7/HbNQxaq15oxcH/lXpcmXgtnh2u/2mXC6/DqE+sSxLlUqlniE0TVPBYJAqFot6+GV9Pt+PJthms80sLS2xEonkhlgs/jgwMOBcXV3N5fP5rlCcp9bX1yWLi4uecrk8U6lUshDY3wRbLJYFGKZsNksq4N78/LwY9hOn05k5Ojqi+PzTGePxeFwZUl6vd8hkMvkPDg6sZJ2M5eXlr1wqUu2kA5JOpy2IAO+oO9fW1n5mMpk2nDjmcjkKNU25XC652Wx2pVIp65mXJ2nyjUPpqakpNZxuA8Y5T87OzsobjcYHpVKpGhsbe1CtVkXYqxQKhTdqtfqL1Wr1JpPJxxyU5Lq/vz8aCoX8TTDatYiFhF6vxx5tAJwm8OPj48m5ubmKSqUaAWwSa9eQw6JGo/luNBoNh4eHbAe0JhAINsLh8LNAIJCiudhxB+Qh2ludTifDAQLvI3AIch+Rkl8jJlrhCbOqgfoLmDepOF/BfGNra2sFFZFtvqgzMbFYjAiyp9Vqh4VC4cTJyYmQ90epIQJtHRO1bA5aRhAvdnZ2GI/H87cEz5YPgeOS2RsfHx9B7u+gOi68yQAtYX9zd3eXgZCna/s8By5ypGUUzhOISHgO9BfWXwG6chZ6IbiVc6LwnsFgGIVAepLzjk4rYW1ze3ubcbvd53fjZV2FaqGQ63fT09PDMO9i9BEoon0J9Rm/339xm3dr2f39fVLX7wFvoMVvoYWfRyIRFndD/Z/8nf0WYAA8EC1Z/ZNm4gAAAABJRU5ErkJggg==',
+      pre_gray: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAslJREFUeNrclTtMWmEUxz/uvTzlIUhpNMR0aGNjrNHSmHTqRJyadujQDbSGRwJUaYCmDizqUEw6ODVNGgbpYCfSpFINCQzFR9oyMXRsXFCsAXkIKNL/R7gGWxOsSdPEk5zc3O+e87vn+59zv0vIpbSJiQmyubn5LBKJpNbX11+4XC5Buxy2XYDNZiMOh2OW4ziPTCbTi8XikeHh4SsSieQTXnIxsN1uJ1ardVYgEDgPDw+V9Xqd1Go1Mcuyg7AuuVy+sra29ndgVEnGx8dnhEKhs1qtKgE/eXZ8fCzC+q3+/n6tSqVaSSQS5wM7nU5iMplmsF1XpVI5BeXt6OhIBFkGAe9SKpV/wNmzKjWbzRT6tFwuK86CUqPrkIVWPjQwMKBWKBSn4Ozv0LGxsRmRSDSFSjua0Do8TRWAS+B5+B68g/IhixCNvQPN1WjuieZsS/f1aNQ0wzBuaCqlUCQRtVr9Es1K4kVDWJNhrQjAIiqMlkqle804FnkjBoOhEzv4vrGxkW2ALRaLFrq+QoAV2nE8tLe3dzEYDE5vb2939vX1PcBkiKVSaQ1jForFYq+NRqMum83ebsYzmJq7sGu4xhkKxsDfB/AxnO860ev1oeXlZU8gEMgmk0kFqmw8o9dUKiWfn58vhMPh54h7S+OpQXNSLBYfejyeR1yzw9dbRon09PS8W11dnfL5fJl8Pk+0Wi3hk5vyCNBY4vV6f0Im9+joKJNOp818o8G70ah4aWnpIzSKYCa/dXd3B+PxuHNycjKzs7NzAms1+qFQy+VydDRz0WjUpdPp3tB8TFM0FAqFGxXPzc19plJrNJqraMoXt9tNt3Suc+Tg4ICeJfmFhQVLoVAwoKG7fr//B8cHAL6Fy9ZFDinaG/r5w77ya8y/OhEvKRhjtIup2YMTeBb3mXY53HnAmNkP+/v7NzHTTwAO4f79f/ud/RJgAOLcRNZqLojMAAAAAElFTkSuQmCC',
+      text_span_style: 'color:#595959!important;'
     }; // 悬浮窗的状态颜色.
 
     var FWKG_color = {
-      loading: "#8B00E8",
+      loading: '#8B00E8',
       // 读取中状态
-      prefetcher: "#5564AF",
+      prefetcher: '#5564AF',
       // 预读状态
-      autopager: "#038B00",
+      autopager: '#038B00',
       // 翻页状态
-      Apause: "#B7B700",
+      Apause: '#B7B700',
       // 翻页状态(暂停).
-      Astop: "#A00000",
+      Astop: '#A00000',
       // 翻页状态(停止)(翻页完成,或者被异常停止.)(无法再开启)
-      dot: "#00FF05" // 读取完后,会显示一个小点,那么小点的颜色.
+      dot: '#00FF05' // 读取完后,会显示一个小点,那么小点的颜色.
 
     }; // 上一页关键字
 
-    var prePageKey = ["上一页", "上一頁", "上1页", "上1頁", "上页", "上頁", "翻上頁", "翻上页", "上一张", "上一張", "上一幅", "上一章", "上一节", "上一節", "上一篇", "前一页", "前一頁", "后退", "後退", "上篇", "previous", "previous Page", "前へ", "前のページ"]; // 下一页关键字
+    var prePageKey = ['上一页', '上一頁', '上1页', '上1頁', '上页', '上頁', '翻上頁', '翻上页', '上一张', '上一張', '上一幅', '上一章', '上一节', '上一節', '上一篇', '前一页', '前一頁', '后退', '後退', '上篇', 'previous', 'previous Page', '前へ', '前のページ']; // 下一页关键字
 
-    var nextPageKey = ["下一页", "下一頁", "下1页", "下1頁", "下页", "下页 ›", "下頁", "翻页", "翻頁", "翻下頁", "翻下页", "下一张", "下一張", "下一幅", "下一章", "下一节", "下一節", "下一篇", "前进", "下篇", "后页", "往后", "Next", "Next Page", "次へ", "次のページ", "次のページ »", "下一页 →", "下一頁 →", "下1页 →", "下1頁 →", "下页 →", "下頁 →", "翻页 →", "翻頁 →", "翻下頁 →", "翻下页 →", "下一张 →", "下一張 →", "下一幅 →", "下一章 →", "下一节 →", "下一節 →", "下一篇 →", "前进 →", "下篇 →", "后页 →", "往后 →", "Next →", "Next Page →", "次へ →", "次のページ →", "下一页 »", "下一頁 »", "下1页 »", "下1頁 »", "下页 »", "下頁 »", "翻页 »", "翻頁 »", "翻下頁 »", "翻下页 »", "下一张 »", "下一張 »", "下一幅 »", "下一章 »", "下一节 »", "下一節 »", "下一篇 »", "前进 »", "下篇 »", "后页 »", "往后 »", "Next »", "Next Page »", "次へ »", "后一页", "後一頁", "下一页 ›", "下一頁 ›", "下1页 ›", "下1頁 ›", "下頁 ›", "翻页 ›", "翻頁 ›", "翻下頁 ›", "翻下页 ›", "下一张 ›", "下一張 ›", "下一幅 ›", "下一章 ›", "下一节 ›", "下一節 ›", "下一篇 ›", "前进 ›", "下篇 ›", "后页 ›", "往后 ›", "Next ›", "Next >", "Next Page ›", "次へ ›", "次のページ ›", "»", "→", "早期文章→"]; // THX to https://greasyfork.org/en/forum/discussion/39361/x
+    var nextPageKey = ['下一页', '下一頁', '下1页', '下1頁', '下页', '下页 ›', '下頁', '翻页', '翻頁', '翻下頁', '翻下页', '下一张', '下一張', '下一幅', '下一章', '下一节', '下一節', '下一篇', '前进', '下篇', '后页', '往后', 'Next', 'Next Page', '次へ', '次のページ', '次のページ »', '下一页 →', '下一頁 →', '下1页 →', '下1頁 →', '下页 →', '下頁 →', '翻页 →', '翻頁 →', '翻下頁 →', '翻下页 →', '下一张 →', '下一張 →', '下一幅 →', '下一章 →', '下一节 →', '下一節 →', '下一篇 →', '前进 →', '下篇 →', '后页 →', '往后 →', 'Next →', 'Next Page →', '次へ →', '次のページ →', '下一页 »', '下一頁 »', '下1页 »', '下1頁 »', '下页 »', '下頁 »', '翻页 »', '翻頁 »', '翻下頁 »', '翻下页 »', '下一张 »', '下一張 »', '下一幅 »', '下一章 »', '下一节 »', '下一節 »', '下一篇 »', '前进 »', '下篇 »', '后页 »', '往后 »', 'Next »', 'Next Page »', '次へ »', '后一页', '後一頁', '下一页 ›', '下一頁 ›', '下1页 ›', '下1頁 ›', '下頁 ›', '翻页 ›', '翻頁 ›', '翻下頁 ›', '翻下页 ›', '下一张 ›', '下一張 ›', '下一幅 ›', '下一章 ›', '下一节 ›', '下一節 ›', '下一篇 ›', '前进 ›', '下篇 ›', '后页 ›', '往后 ›', 'Next ›', 'Next >', 'Next Page ›', '次へ ›', '次のページ ›', '»', '→', '早期文章→']; // THX to https://greasyfork.org/en/forum/discussion/39361/x
     // 出在自动翻页信息附加显示真实相对页面信息，一般能智能识别出来。如果还有站点不能识别，可以把地址的特征字符串加到下面
     // 最好不要乱加，一些不规律的站点显示出来的数字也没有意义
 
-    var REALPAGE_SITE_PATTERN = ["search?", "search_", "forum", "thread"]; // ------------------------下面的不要管他-----------------
+    var REALPAGE_SITE_PATTERN = ['search?', 'search_', 'forum', 'thread']; // ------------------------下面的不要管他-----------------
     /// ////////////////////////////////////////////////////////////////
     // eslint-disable-next-line prettier/prettier
 
@@ -12504,36 +12504,36 @@
           blackList = values.blackList;
 
       if (prefs.debug) {
-        logger.setLevel("debug");
+        logger.setLevel('debug');
       } else {
         logger.setLevel(5);
       }
 
       logger.debug("[Super-preloader]", `Script Manager: ${SCRIPT_MANAGER.name}  v${SCRIPT_MANAGER.version}`);
-      logger.debug("[Super-preloader]", "Browser: ", JSON.stringify(BROWSER));
+      logger.debug("[Super-preloader]", 'Browser: ', JSON.stringify(BROWSER));
 
       var setup = function setup() {
         var d = document;
 
         var $ = function $(s) {
-          return d.getElementById("sp-prefs-" + s);
+          return d.getElementById('sp-prefs-' + s);
         };
 
-        if ($("setup")) return;
-        var styleNode = addStyle(spcss["sp-prefs-setup"]);
-        var div = d.createElement("div");
-        div.id = "sp-prefs-setup";
-        div.style.position = "fixed";
+        if ($('setup')) return;
+        var styleNode = addStyle(spcss['sp-prefs-setup']);
+        var div = d.createElement('div');
+        div.id = 'sp-prefs-setup';
+        div.style.position = 'fixed';
 
         if (prefs.FW_position !== 2) {
-          div.style.right = "38px";
-          div.style.top = "20px";
+          div.style.right = '38px';
+          div.style.top = '20px';
         } else {
           div.style.right = `${prefs.FW_offset[1]}px`;
           div.style.top = `${prefs.FW_offset[0]}px`;
         }
 
-        div.innerHTML = template["sp-prefs"]({
+        div.innerHTML = template['sp-prefs']({
           prefs,
           scriptInfo,
           nextUpdateDate: jsonRuleLoader.expire.toDateString()
@@ -12545,7 +12545,7 @@
             styleNode.parentNode.removeChild(styleNode);
           }
 
-          var div = $("setup");
+          var div = $('setup');
           div.parentNode.removeChild(div);
         };
 
@@ -12553,25 +12553,25 @@
           node.addEventListener(e, f, false);
         };
 
-        on($("ok"), "click", function () {
-          prefs.ChineseUI = !!$("ChineseUI").checked;
-          prefs.custom_siteinfo = $("custom_siteinfo").value;
-          prefs.debug = !!$("debug").checked;
+        on($('ok'), 'click', function () {
+          prefs.ChineseUI = !!$('ChineseUI').checked;
+          prefs.custom_siteinfo = $('custom_siteinfo').value;
+          prefs.debug = !!$('debug').checked;
 
           if (prefs.debug) {
-            logger.setLevel("debug");
+            logger.setLevel('debug');
           } else {
             logger.setLevel(5);
           }
 
-          prefs.enableHistory = !!$("enableHistory").checked;
-          prefs.dblclick_pause = !!$("dblclick_pause").checked;
-          prefs.excludes = $("excludes").value;
-          prefs.arrowKeyPage = !!$("arrowKeyPage").checked;
-          prefs.floatWindow = !!$("floatWindow").checked;
-          SITEINFO_D.useiframe = !!$("SITEINFO_D-useiframe").checked;
-          SITEINFO_D.autopager.enable = !!$("SITEINFO_D-a_enable").checked;
-          SITEINFO_D.autopager.force_enable = !!$("SITEINFO_D-a_force_enable").checked;
+          prefs.enableHistory = !!$('enableHistory').checked;
+          prefs.dblclick_pause = !!$('dblclick_pause').checked;
+          prefs.excludes = $('excludes').value;
+          prefs.arrowKeyPage = !!$('arrowKeyPage').checked;
+          prefs.floatWindow = !!$('floatWindow').checked;
+          SITEINFO_D.useiframe = !!$('SITEINFO_D-useiframe').checked;
+          SITEINFO_D.autopager.enable = !!$('SITEINFO_D-a_enable').checked;
+          SITEINFO_D.autopager.force_enable = !!$('SITEINFO_D-a_force_enable').checked;
           autoMatch.useiframe = SITEINFO_D.useiframe;
           saveSettings({
             prefs,
@@ -12583,16 +12583,16 @@
             location.reload();
           });
         });
-        on($("reset"), "click", function () {
-          $("setup").innerHTML = template.spinner.reset;
-          addStyle(spcss["sp-prefs-spinner"]);
+        on($('reset'), 'click', function () {
+          $('setup').innerHTML = template.spinner.reset;
+          addStyle(spcss['sp-prefs-spinner']);
           resetSettings().then(function () {
             location.reload();
           });
         });
-        on($("updaterule"), "click", function () {
-          $("setup").innerHTML = template.spinner.update;
-          addStyle(spcss["sp-prefs-spinner"]);
+        on($('updaterule'), 'click', function () {
+          $('setup').innerHTML = template.spinner.update;
+          addStyle(spcss['sp-prefs-spinner']);
           jsonRuleLoader.updateRule(true).then(function () {
             jsonRule = jsonRuleLoader.getRule();
             SP.loadSetting();
@@ -12600,34 +12600,34 @@
             location.reload();
           });
         });
-        on($("cancel"), "click", close);
-        $("debug").checked = logger.getLevel() === logger.levels.DEBUG;
-        $("ChineseUI").checked = prefs.ChineseUI;
-        $("floatWindow").checked = prefs.floatWindow;
-        $("enableHistory").checked = prefs.enableHistory; // $('forceTargetWindow').checked = prefs.forceTargetWindow;
+        on($('cancel'), 'click', close);
+        $('debug').checked = logger.getLevel() === logger.levels.DEBUG;
+        $('ChineseUI').checked = prefs.ChineseUI;
+        $('floatWindow').checked = prefs.floatWindow;
+        $('enableHistory').checked = prefs.enableHistory; // $('forceTargetWindow').checked = prefs.forceTargetWindow;
 
-        $("dblclick_pause").checked = prefs.dblclick_pause;
-        $("SITEINFO_D-useiframe").checked = SITEINFO_D.useiframe;
-        $("SITEINFO_D-a_enable").checked = SITEINFO_D.autopager.enable;
-        $("arrowKeyPage").checked = prefs.arrowKeyPage;
-        $("SITEINFO_D-a_force_enable").checked = SITEINFO_D.autopager.force_enable;
-        $("excludes").value = prefs.excludes;
-        $("custom_siteinfo").value = prefs.custom_siteinfo;
+        $('dblclick_pause').checked = prefs.dblclick_pause;
+        $('SITEINFO_D-useiframe').checked = SITEINFO_D.useiframe;
+        $('SITEINFO_D-a_enable').checked = SITEINFO_D.autopager.enable;
+        $('arrowKeyPage').checked = prefs.arrowKeyPage;
+        $('SITEINFO_D-a_force_enable').checked = SITEINFO_D.autopager.force_enable;
+        $('excludes').value = prefs.excludes;
+        $('custom_siteinfo').value = prefs.custom_siteinfo;
       }; // main functions
 
 
       var SP = {
         spinit: function spinit() {
-          if (document.body.getAttribute("name") === "MyNovelReader") {
+          if (document.body.getAttribute('name') === 'MyNovelReader') {
             return;
           }
 
           this.loadSetting();
 
-          if (userLang === "zh_CN") {
-            GM.registerMenuCommand("Super_preloaderPlus_one_New 设置", setup);
+          if (userLang === 'zh_CN') {
+            GM.registerMenuCommand('Super_preloaderPlus_one_New 设置', setup);
           } else {
-            GM.registerMenuCommand("Super_preloaderPlus_one_New Settings", setup);
+            GM.registerMenuCommand('Super_preloaderPlus_one_New Settings', setup);
           } // 查找是否是页面不刷新的站点
 
 
@@ -12640,7 +12640,7 @@
           if (hashSite) {
             isHashchangeSite = true;
             hashchangeTimer = hashSite.timer;
-            logger.debug("[Super-preloader]", "当前是页面不刷新的站点", hashSite);
+            logger.debug("[Super-preloader]", '当前是页面不刷新的站点', hashSite);
             var p1 = new Promise(function (resolve, reject) {
               setTimeout(resolve, hashchangeTimer);
             });
@@ -12653,7 +12653,7 @@
 
 
           if (window.screen.height > window.screen.width) {
-            addStyle("div.sp-separator { min-width:auto !important; }");
+            addStyle('div.sp-separator { min-width:auto !important; }');
           }
         },
         loadSetting: function loadSetting() {
@@ -12679,9 +12679,9 @@
 
             try {
               // eslint-disable-next-line no-new-func
-              userRules = new Function("", "return " + prefs.custom_siteinfo)();
+              userRules = new Function('', 'return ' + prefs.custom_siteinfo)();
             } catch (e) {
-              logger.error("[Super-preloader]", "自定义站点规则错误", prefs.custom_siteinfo);
+              logger.error("[Super-preloader]", '自定义站点规则错误', prefs.custom_siteinfo);
             }
 
             if (isArray_1(userRules)) {
@@ -12701,7 +12701,7 @@
         var nullFn = function nullFn() {}; // 空函数.
 
 
-        var url = document.location.href.replace(/#.*$/, ""); // url 去掉hash
+        var url = document.location.href.replace(/#.*$/, ''); // url 去掉hash
 
         var cplink = url; // 翻上来的最近的页面的url;
 
@@ -12721,10 +12721,10 @@
 
         function floatWindow(SSS) {
           // inject css
-          addStyle(spcss["sp-fw"]); // create container
+          addStyle(spcss['sp-fw']); // create container
 
-          var div = document.createElement("div");
-          div.id = "sp-fw-container";
+          var div = document.createElement('div');
+          div.id = 'sp-fw-container';
           div.innerHTML = template.floatWindow();
           document.body.appendChild(div); // helper function to get element
 
@@ -12732,67 +12732,67 @@
             return document.getElementById(id);
           }
 
-          var rect = $("sp-fw-rect"); // 悬浮窗的小正方形,用颜色描述当前的状态.
+          var rect = $('sp-fw-rect'); // 悬浮窗的小正方形,用颜色描述当前的状态.
 
-          var spanel = $("sp-fw-content"); // 设置面板.
+          var spanel = $('sp-fw-content'); // 设置面板.
           // 设置面板显隐
 
           var spanelc = {
             show: function show() {
-              spanel.style.display = "block";
+              spanel.style.display = 'block';
             },
             hide: function hide() {
-              spanel.style.display = "none";
+              spanel.style.display = 'none';
             }
           };
           var rectt1, rectt2;
-          rect.addEventListener("mouseover", function (e) {
+          rect.addEventListener('mouseover', function (e) {
             rectt1 = setTimeout(spanelc.show, 100);
           }, false);
-          rect.addEventListener("mouseleave", function (e) {
+          rect.addEventListener('mouseleave', function (e) {
             clearTimeout(rectt1);
           }, false);
-          div.addEventListener("mouseover", function (e) {
+          div.addEventListener('mouseover', function (e) {
             clearTimeout(rectt2);
           }, false);
-          div.addEventListener("mouseleave", function (e) {
+          div.addEventListener('mouseleave', function (e) {
             // Firefox bug
             // https://stackoverflow.com/questions/46831247/select-triggers-mouseleave-event-on-parent-element-in-mozilla-firefox
             if (e.relatedTarget === null) return;
             rectt2 = setTimeout(spanelc.hide, 288);
           }, false);
-          var dot = $("sp-fw-dot"); // 载入完成后,显示的小点
+          var dot = $('sp-fw-dot'); // 载入完成后,显示的小点
 
           dot.style.backgroundColor = FWKG_color.dot;
-          var cur_mode = $("sp-fw-cur-mode"); // 当载入状态时,用来描述当前是翻页模式,还是预读模式.
+          var cur_mode = $('sp-fw-cur-mode'); // 当载入状态时,用来描述当前是翻页模式,还是预读模式.
 
           cur_mode.style.backgroundColor = SSS.a_enable ? FWKG_color.autopager : FWKG_color.prefetcher;
-          var a_enable = $("sp-fw-a_enable"); // 启用翻页模式
+          var a_enable = $('sp-fw-a_enable'); // 启用翻页模式
 
-          var autopager_field = $("sp-fw-autopager-field"); // 翻页设置区域
+          var autopager_field = $('sp-fw-autopager-field'); // 翻页设置区域
           // 预读设置
 
-          var useiframe = $("sp-fw-useiframe");
-          var viewcontent = $("sp-fw-viewcontent"); // 翻页设置
+          var useiframe = $('sp-fw-useiframe');
+          var viewcontent = $('sp-fw-viewcontent'); // 翻页设置
 
-          var a_useiframe = $("sp-fw-a_useiframe");
-          var a_iloaded = $("sp-fw-a_iloaded");
-          var a_itimeout = $("sp-fw-a_itimeout");
-          var a_manualA = $("sp-fw-a_manualA");
-          var a_remain = $("sp-fw-a_remain");
-          var a_maxpage = $("sp-fw-a_maxpage");
-          var a_separator = $("sp-fw-a_separator");
-          var a_ipages_0 = $("sp-fw-a_ipages_0");
-          var a_ipages_1 = $("sp-fw-a_ipages_1");
-          var a_force = $("sp-fw-a_force"); // newIframe 输入框的点击
+          var a_useiframe = $('sp-fw-a_useiframe');
+          var a_iloaded = $('sp-fw-a_iloaded');
+          var a_itimeout = $('sp-fw-a_itimeout');
+          var a_manualA = $('sp-fw-a_manualA');
+          var a_remain = $('sp-fw-a_remain');
+          var a_maxpage = $('sp-fw-a_maxpage');
+          var a_separator = $('sp-fw-a_separator');
+          var a_ipages_0 = $('sp-fw-a_ipages_0');
+          var a_ipages_1 = $('sp-fw-a_ipages_1');
+          var a_force = $('sp-fw-a_force'); // newIframe 输入框的点击
 
-          var a_newIframe = $("sp-fw-a_newIframe");
-          a_newIframe.addEventListener("click", function () {
+          var a_newIframe = $('sp-fw-a_newIframe');
+          a_newIframe.addEventListener('click', function () {
             a_useiframe.checked = a_newIframe.checked;
           }, false);
-          var a_starti = $("sp-fw-a_starti"); // 开始立即翻页
+          var a_starti = $('sp-fw-a_starti'); // 开始立即翻页
 
-          a_starti.addEventListener("click", function (e) {
+          a_starti.addEventListener('click', function (e) {
             if (e.currentTarget.disabled) return;
             var value = parseInt(a_ipages_1.value);
 
@@ -12804,11 +12804,11 @@
             autoPO.startipages(value);
           }, false); // 总开关
 
-          var enable = $("sp-fw-enable");
-          $("sp-fw-setup").addEventListener("click", setup, false); // 保存设置按钮.
+          var enable = $('sp-fw-enable');
+          $('sp-fw-setup').addEventListener('click', setup, false); // 保存设置按钮.
 
-          var savebutton = $("sp-fw-savebutton");
-          savebutton.addEventListener("click", function (e) {
+          var savebutton = $('sp-fw-savebutton');
+          savebutton.addEventListener('click', function (e) {
             var value = {
               Rurl: SSS.Rurl,
               useiframe: getProperty(useiframe),
@@ -12817,7 +12817,7 @@
             };
 
             if (SSS.a_enable !== undefined) {
-              value.a_enable = getProperty(a_enable) === "autopager";
+              value.a_enable = getProperty(a_enable) === 'autopager';
               value.a_useiframe = getProperty(a_useiframe);
               value.a_newIframe = getProperty(a_newIframe);
               value.a_iloaded = getProperty(a_iloaded);
@@ -12847,9 +12847,9 @@
           if (SSS.a_enable === undefined) {
             // 未定义翻页功能.
             a_enable.disabled = true;
-            autopager_field.style.display = "none";
+            autopager_field.style.display = 'none';
           } else {
-            setProperty(a_enable, SSS.a_enable ? "autopager" : "preloader");
+            setProperty(a_enable, SSS.a_enable ? 'autopager' : 'preloader');
             setProperty(a_useiframe, SSS.a_useiframe);
             setProperty(a_newIframe, SSS.a_newIframe);
             setProperty(a_iloaded, SSS.a_iloaded);
@@ -12879,60 +12879,60 @@
 
           setProperty(enable, SSS.enable);
           var FWKG_state = {
-            loading: "读取中状态",
-            prefetcher: "预读状态",
-            autopager: "翻页状态",
-            Apause: "翻页状态(暂停)",
-            Astop: "翻页状态(停止)(翻页完成,或者被异常停止)(无法再开启)",
-            dot: "读取完后"
+            loading: '读取中状态',
+            prefetcher: '预读状态',
+            autopager: '翻页状态',
+            Apause: '翻页状态(暂停)',
+            Astop: '翻页状态(停止)(翻页完成,或者被异常停止)(无法再开启)',
+            dot: '读取完后'
           };
 
-          if (userLang !== "zh_CN") {
-            FWKG_state.loading = "Loading";
-            FWKG_state.prefetcher = "Prefetching";
-            FWKG_state.autopager = "Autopagger (Running)";
-            FWKG_state.Apause = "Autopagger (Pause)";
-            FWKG_state.Astop = "Autopagger (Stop)";
-            FWKG_state.dot = "Finish loading";
+          if (userLang !== 'zh_CN') {
+            FWKG_state.loading = 'Loading';
+            FWKG_state.prefetcher = 'Prefetching';
+            FWKG_state.autopager = 'Autopagger (Running)';
+            FWKG_state.Apause = 'Autopagger (Pause)';
+            FWKG_state.Astop = 'Autopagger (Stop)';
+            FWKG_state.dot = 'Finish loading';
           }
 
           floatWO = {
             updateColor: function updateColor(state) {
               rect.style.backgroundColor = FWKG_color[state];
-              rect.setAttribute("title", FWKG_state[state]);
+              rect.setAttribute('title', FWKG_state[state]);
             },
             loadedIcon: function loadedIcon(command) {
-              dot.style.display = command == "show" ? "block" : "none";
+              dot.style.display = command == 'show' ? 'block' : 'none';
             },
             CmodeIcon: function CmodeIcon(command) {
-              cur_mode.style.display = command == "show" ? "block" : "none";
+              cur_mode.style.display = command == 'show' ? 'block' : 'none';
             }
           };
           var vertical = parseInt(prefs.FW_offset[0], 10);
           var horiz = parseInt(prefs.FW_offset[1], 10);
           var FW_position = prefs.FW_position; // 非opera用fixed定位.
 
-          div.style.position = "fixed";
+          div.style.position = 'fixed';
 
           switch (FW_position) {
             case 1:
-              div.style.top = vertical + "px";
-              div.style.left = horiz + "px";
+              div.style.top = vertical + 'px';
+              div.style.left = horiz + 'px';
               break;
 
             case 2:
-              div.style.top = vertical + "px";
-              div.style.right = horiz + "px";
+              div.style.top = vertical + 'px';
+              div.style.right = horiz + 'px';
               break;
 
             case 3:
-              div.style.bottom = vertical + "px";
-              div.style.right = horiz + "px";
+              div.style.bottom = vertical + 'px';
+              div.style.right = horiz + 'px';
               break;
 
             case 4:
-              div.style.bottom = vertical + "px";
-              div.style.left = horiz + "px";
+              div.style.bottom = vertical + 'px';
+              div.style.left = horiz + 'px';
               break;
           }
         }
@@ -12978,7 +12978,7 @@
           function getRelativeDiv(which) {
             var id = div.id;
             id = id.replace(/(sp-separator-)(.+)/, function (a, b, c) {
-              return b + String(Number(c) + (which == "pre" ? -1 : 1));
+              return b + String(Number(c) + (which == 'pre' ? -1 : 1));
             });
             return id ? document.getElementById(id) : null;
           }
@@ -12995,13 +12995,13 @@
           var o_scrollY, divS;
 
           switch (target.className) {
-            case "sp-sp-gotop":
+            case 'sp-sp-gotop':
               scrollIt(window.scrollY, 0);
               break;
 
-            case "sp-sp-gopre":
+            case 'sp-sp-gopre':
               {
-                var prediv = getRelativeDiv("pre");
+                var prediv = getRelativeDiv('pre');
                 if (!prediv) return;
                 o_scrollY = window.scrollY;
                 var preDS = prediv.getBoundingClientRect().top;
@@ -13017,9 +13017,9 @@
                 break;
               }
 
-            case "sp-sp-gonext":
+            case 'sp-sp-gonext':
               {
-                var nextdiv = getRelativeDiv("next");
+                var nextdiv = getRelativeDiv('next');
                 if (!nextdiv) return;
                 o_scrollY = window.scrollY;
                 var nextDS = nextdiv.getBoundingClientRect().top;
@@ -13035,7 +13035,7 @@
                 break;
               }
 
-            case "sp-sp-gobottom":
+            case 'sp-sp-gobottom':
               scrollIt(window.scrollY, Math.max(document.documentElement.scrollHeight, document.body.scrollHeight));
               break;
           }
@@ -13050,7 +13050,7 @@
         function autopager(SSS, floatWO) {
           // return;
           // 更新悬浮窗的颜色.
-          floatWO.updateColor("autopager"); // 获取插入位置节点.
+          floatWO.updateColor('autopager'); // 获取插入位置节点.
 
           var insertPoint;
           var pageElement;
@@ -13064,22 +13064,22 @@
 
             if (pageElement.length > 0) {
               var pELast = pageElement[pageElement.length - 1];
-              insertPoint = pELast.nextSibling ? pELast.nextSibling : pELast.parentNode.appendChild(document.createTextNode(" "));
+              insertPoint = pELast.nextSibling ? pELast.nextSibling : pELast.parentNode.appendChild(document.createTextNode(' '));
             }
 
             insertMode = -1;
           }
 
           if (insertPoint) {
-            logger.debug("[Super-preloader]", "验证是否能找到插入位置节点:成功", insertPoint);
+            logger.debug("[Super-preloader]", '验证是否能找到插入位置节点:成功', insertPoint);
           } else {
-            logger.error("[Super-preloader]", "验证是否能找到插入位置节点:失败  JS执行终止", SSS.a_HT_insert ? SSS.a_HT_insert[0] : "");
-            floatWO.updateColor("Astop");
+            logger.error("[Super-preloader]", '验证是否能找到插入位置节点:失败  JS执行终止', SSS.a_HT_insert ? SSS.a_HT_insert[0] : '');
+            floatWO.updateColor('Astop');
             return;
           }
 
-          if (window.navigator.language != "en") {
-            logger.debug("[Super-preloader]", "Language: ", window.navigator.language);
+          if (window.navigator.language != 'en') {
+            logger.debug("[Super-preloader]", 'Language: ', window.navigator.language);
           }
 
           if (pageElement === undefined) {
@@ -13087,16 +13087,16 @@
           }
 
           if (pageElement.length > 0) {
-            logger.debug("[Super-preloader]", "验证是否能找到主要元素:成功", pageElement);
+            logger.debug("[Super-preloader]", '验证是否能找到主要元素:成功', pageElement);
           } else {
-            logger.error("[Super-preloader]", "验证是否能找到主要元素:失败", SSS.a_pageElement);
-            floatWO.updateColor("Astop");
+            logger.error("[Super-preloader]", '验证是否能找到主要元素:失败', SSS.a_pageElement);
+            floatWO.updateColor('Astop');
             return;
           }
 
           if (SSS.a_stylish) {
             // 插入自定义样式
-            addStyle(SSS.a_stylish, "Super_preloader-style");
+            addStyle(SSS.a_stylish, 'Super_preloader-style');
           }
 
           var insertPointP;
@@ -13128,27 +13128,27 @@
             doc = win = createDocumentByString(str);
 
             if (!doc) {
-              logger.error("[Super-preloader]", "文档对象创建失败");
+              logger.error("[Super-preloader]", '文档对象创建失败');
               removeL();
               return;
             }
 
-            floatWO.updateColor("autopager");
-            floatWO.CmodeIcon("hide");
-            floatWO.loadedIcon("show");
+            floatWO.updateColor('autopager');
+            floatWO.CmodeIcon('hide');
+            floatWO.loadedIcon('show');
             working = false;
             scroll();
           }
 
           function XHRNotLoaded(res) {
-            logger.error("[Super-preloader]", "XHR is failed to be loaded");
+            logger.error("[Super-preloader]", 'XHR is failed to be loaded');
             logger.error("[Super-preloader]", res);
             removeL();
           }
 
           function removeL(isRemoveAddPage) {
-            logger.debug("[Super-preloader]", "移除各种事件监听");
-            floatWO.updateColor("Astop");
+            logger.debug("[Super-preloader]", '移除各种事件监听');
+            floatWO.updateColor('Astop');
             var _remove = remove;
 
             for (var i = 0, ii = _remove.length; i < ii; i++) {
@@ -13156,7 +13156,7 @@
             }
 
             if (isRemoveAddPage) {
-              var separator = document.querySelector(".sp-separator");
+              var separator = document.querySelector('.sp-separator');
 
               if (separator) {
                 var insertBefore = insertPoint;
@@ -13181,7 +13181,7 @@
                 }
               }
 
-              var style = document.getElementById("Super_preloader-style");
+              var style = document.getElementById('Super_preloader-style');
 
               if (style) {
                 style.parentNode.removeChild(style);
@@ -13190,16 +13190,16 @@
           }
 
           if (isHashchangeSite && !hashchangeAdded) {
-            window.addEventListener("hashchange", onhashChange, false);
+            window.addEventListener('hashchange', onhashChange, false);
             hashchangeAdded = true;
-            logger.debug("[Super-preloader]", "成功添加 hashchange 事件");
+            logger.debug("[Super-preloader]", '成功添加 hashchange 事件');
           }
 
           function onhashChange(event) {
-            logger.debug("[Super-preloader]", "触发 Hashchang 事件");
+            logger.debug("[Super-preloader]", '触发 Hashchang 事件');
             removeL(true);
             setTimeout(function () {
-              nextlink = getElement(SSS.nextLink || "auto;");
+              nextlink = getElement(SSS.nextLink || 'auto;');
               nextlink = getFullHref(nextlink); // preLink = getElement(SSS.preLink || 'auto;');
 
               autopager(SSS, floatWO);
@@ -13218,9 +13218,9 @@
                 doc = iframe.contentDocument;
                 removeScripts(doc, SSS.a_scriptFilter);
                 win = iframe.contentWindow || doc;
-                floatWO.updateColor("autopager");
-                floatWO.CmodeIcon("hide");
-                floatWO.loadedIcon("show");
+                floatWO.updateColor('autopager');
+                floatWO.CmodeIcon('hide');
+                floatWO.loadedIcon('show');
                 working = false;
                 scroll();
               }, SSS.a_itimeout);
@@ -13232,17 +13232,17 @@
 
             if (SSS.a_newIframe || !iframe) {
               var insertLoc = null;
-              var i = document.createElement("iframe");
+              var i = document.createElement('iframe');
               iframe = i;
-              i.name = "superpreloader-iframe";
-              i.width = "100%";
-              i.height = "0";
-              i.frameBorder = "0";
-              i.style.cssText = "\
+              i.name = 'superpreloader-iframe';
+              i.width = '100%';
+              i.height = '0';
+              i.frameBorder = '0';
+              i.style.cssText = '\
                     margin:0!important;\
                     padding:0!important;\
                     visibility:hidden!important;\
-                ";
+                ';
 
               if (SSS.a_sandbox != false) {
                 i.sandbox = SSS.a_sandbox;
@@ -13251,7 +13251,7 @@
               i.src = link;
 
               if (SSS.a_mutationObserver) {
-                i.setAttribute("mutationObserver", JSON.stringify(SSS.a_mutationObserver));
+                i.setAttribute('mutationObserver', JSON.stringify(SSS.a_mutationObserver));
 
                 if (SSS.a_mutationObserver.relatedObj) {
                   insertLoc = getAllElements(SSS.a_mutationObserver.relatedObj);
@@ -13265,27 +13265,27 @@
               }
 
               if (SSS.a_iloaded) {
-                i.addEventListener("load", iframeLoaded, false);
+                i.addEventListener('load', iframeLoaded, false);
                 remove.push(function () {
-                  i.removeEventListener("load", iframeLoaded, false);
+                  i.removeEventListener('load', iframeLoaded, false);
                 });
               } else {
                 var messagehandler = function messagehandler(e) {
-                  if (!messageR && e.data == "superpreloader-iframe:DOMLoaded") {
+                  if (!messageR && e.data == 'superpreloader-iframe:DOMLoaded') {
                     messageR = true;
                     iframeLoaded.call(i, {
                       currentTarget: i
                     });
 
                     if (SSS.a_newIframe) {
-                      window.removeEventListener("message", messagehandler, false);
+                      window.removeEventListener('message', messagehandler, false);
                     }
                   }
                 };
 
-                window.addEventListener("message", messagehandler, false);
+                window.addEventListener('message', messagehandler, false);
                 remove.push(function () {
-                  window.removeEventListener("message", messagehandler, false);
+                  window.removeEventListener('message', messagehandler, false);
                 });
               }
 
@@ -13308,9 +13308,10 @@
 
           function doRequest() {
             working = true;
-            floatWO.updateColor("loading");
-            floatWO.CmodeIcon("show");
-            logger.debug("[Super-preloader]", "获取下一页", SSS.a_useiframe ? "(iframe方式)" : "(XHR方式)", nextlink);
+            floatWO.updateColor('loading');
+            floatWO.CmodeIcon('show');
+            logger.debug("[Super-preloader]", '获取下一页', SSS.a_useiframe ? '(iframe方式)' : '(XHR方式)', nextlink);
+            pagedLinks.push(nextlink);
 
             if (SSS.a_useiframe) {
               iframeRequest(nextlink);
@@ -13322,7 +13323,7 @@
               };
               got$1.get(nextlink, reqConf).then(function (res) {
                 if (res.finalUrl === cplink) {
-                  logger.debug("[Super-preloader]", "最终地址相同");
+                  logger.debug("[Super-preloader]", '最终地址相同');
                   XHRNotLoaded(res);
                 } else {
                   XHRLoaded(res);
@@ -13330,7 +13331,7 @@
               }).catch(function (res) {
                 XHRNotLoaded(res);
               });
-              logger.debug("[Super-preloader]", "读取完成");
+              logger.debug("[Super-preloader]", '读取完成');
             }
           }
 
@@ -13359,7 +13360,7 @@
 
           function manualAdiv() {
             if (!manualDiv) {
-              addStyle(spcss["sp-separator"]);
+              addStyle(spcss['sp-separator']);
 
               var spage = function spage(el) {
                 if (doc) {
@@ -13375,26 +13376,26 @@
                 }
               };
 
-              var div = createDOM("div", {
+              var div = createDOM('div', {
                 attr: {
-                  id: "sp-sp-manualdiv",
-                  class: "sp-separator"
+                  id: 'sp-sp-manualdiv',
+                  class: 'sp-separator'
                 },
-                children: [createDOM("span", {
+                children: [createDOM('span', {
                   attr: {
-                    class: "sp-md-span"
+                    class: 'sp-md-span'
                   },
-                  innerHTML: userLang === "zh_CN" ? "下" : "Next"
-                }), createDOM("input", {
+                  innerHTML: userLang === 'zh_CN' ? '下' : 'Next'
+                }), createDOM('input', {
                   attr: {
-                    type: "number",
+                    type: 'number',
                     value: 1,
                     min: 1,
-                    title: userLang === "zh_CN" ? "输入你想要拼接的页数(必须>=1),然后按回车." : "Type number of pageringzing and press enter",
-                    id: "sp-sp-md-number"
+                    title: userLang === 'zh_CN' ? '输入你想要拼接的页数(必须>=1),然后按回车.' : 'Type number of pageringzing and press enter',
+                    id: 'sp-sp-md-number'
                   },
                   eventListener: [{
-                    type: "keyup",
+                    type: 'keyup',
                     listener: function listener(e) {
                       if (e.keyCode == 13) {
                         // 回车
@@ -13402,35 +13403,35 @@
                       }
                     }
                   }]
-                }), createDOM("span", {
+                }), createDOM('span', {
                   attr: {
-                    class: "sp-md-span"
+                    class: 'sp-md-span'
                   },
-                  innerHTML: userLang === "zh_CN" ? "页" : "page"
-                }), createDOM("img", {
+                  innerHTML: userLang === 'zh_CN' ? '页' : 'page'
+                }), createDOM('img', {
                   attr: {
-                    id: "sp-sp-md-imgnext",
+                    id: 'sp-sp-md-imgnext',
                     src: _sep_icons.next
                   }
-                }), createDOM("div", {
+                }), createDOM('div', {
                   attr: {
-                    class: "sp-someinfo",
-                    id: "sp-separator-hover"
+                    class: 'sp-someinfo',
+                    id: 'sp-separator-hover'
                   },
-                  children: [createDOM("a", {
+                  children: [createDOM('a', {
                     attr: {
-                      href: "https://github.com/machsix/Super-preloader",
-                      target: "_blank"
+                      href: 'https://github.com/machsix/Super-preloader',
+                      target: '_blank'
                     },
-                    innerHTML: "Powered by Super-preloader"
+                    innerHTML: 'Powered by Super-preloader'
                   })]
                 })]
               });
               manualDiv = div;
               document.body.appendChild(div);
-              div.addEventListener("click", function (e) {
-                if (e.target.id == "sp-sp-md-number") return;
-                spage(document.getElementById("sp-sp-md-number"));
+              div.addEventListener('click', function (e) {
+                if (e.target.id == 'sp-sp-md-number') return;
+                spage(document.getElementById('sp-sp-md-number'));
                 manualDiv.remove();
               }, false);
             }
@@ -13443,11 +13444,11 @@
 
             if (SSS.a_manualA && !ipagesmode) {
               // 显示手动翻页触发条.
-              logger.debug("[Super-preloader]", "手动拼接");
+              logger.debug("[Super-preloader]", '手动拼接');
               manualAdiv();
             } else {
               // 直接拼接.
-              logger.debug("[Super-preloader]", "直接拼接");
+              logger.debug("[Super-preloader]", '直接拼接');
               insertedIntoDoc();
             }
           }
@@ -13459,53 +13460,53 @@
           var curNumber = sNumber;
 
           function createSep(lastUrl, currentUrl, nextUrl) {
-            var div = document.createElement("div");
+            var div = document.createElement('div');
 
             if (SSS.a_separator) {
               if (!sepStyle) {
-                sepStyle = addStyle(spcss["sp-separator"]);
+                sepStyle = addStyle(spcss['sp-separator']);
               }
 
-              div.className = "sp-separator";
-              div.id = "sp-separator-" + curNumber;
-              div.addEventListener("click", sepHandler, false);
-              var pageStr = "";
+              div.className = 'sp-separator';
+              div.id = 'sp-separator-' + curNumber;
+              div.addEventListener('click', sepHandler, false);
+              var pageStr = '';
 
-              if (userLang === "zh_CN") {
-                pageStr = '<b>第 <span style="' + sep_icons.text_span_style + '">' + curNumber + "</span> 页</b>" + (SSS.a_separatorReal ? getRalativePageStr(lastUrl, currentUrl, nextUrl) : "");
+              if (userLang === 'zh_CN') {
+                pageStr = '<b>第 <span style="' + sep_icons.text_span_style + '">' + curNumber + '</span> 页</b>' + (SSS.a_separatorReal ? getRalativePageStr(lastUrl, currentUrl, nextUrl) : '');
               } else {
-                pageStr = '<b>Page <span style="' + sep_icons.text_span_style + '">' + curNumber + "</span></b>" + (SSS.a_separatorReal ? getRalativePageStr(lastUrl, currentUrl, nextUrl) : "");
+                pageStr = '<b>Page <span style="' + sep_icons.text_span_style + '">' + curNumber + '</span></b>' + (SSS.a_separatorReal ? getRalativePageStr(lastUrl, currentUrl, nextUrl) : '');
               }
 
-              div.appendChild(createDOM("a", {
+              div.appendChild(createDOM('a', {
                 attr: {
-                  class: "sp-sp-nextlink",
-                  target: "_blank",
+                  class: 'sp-sp-nextlink',
+                  target: '_blank',
                   href: currentUrl,
                   title: currentUrl
                 },
                 innerHTML: pageStr
               }));
-              div.appendChild(createDOM("img", {
+              div.appendChild(createDOM('img', {
                 attr: {
                   src: _sep_icons.top,
-                  class: "sp-sp-gotop",
-                  alt: userLang === "zh_CN" ? "去到顶部" : "To Top",
-                  title: userLang === "zh_CN" ? "去到顶部" : "To Top"
+                  class: 'sp-sp-gotop',
+                  alt: userLang === 'zh_CN' ? '去到顶部' : 'To Top',
+                  title: userLang === 'zh_CN' ? '去到顶部' : 'To Top'
                 }
               }));
-              div.appendChild(createDOM("img", {
+              div.appendChild(createDOM('img', {
                 attr: {
                   src: curNumber == sNumber ? _sep_icons.pre_gray : _sep_icons.pre,
-                  class: "sp-sp-gopre",
-                  title: userLang === "zh_CN" ? "上滚一页" : "Scroll up a page"
+                  class: 'sp-sp-gopre',
+                  title: userLang === 'zh_CN' ? '上滚一页' : 'Scroll up a page'
                 }
               }));
-              var i_next = createDOM("img", {
+              var i_next = createDOM('img', {
                 attr: {
                   src: _sep_icons.next_gray,
-                  class: "sp-sp-gonext",
-                  title: userLang === "zh_CN" ? "下滚一页" : "Scroll down a page"
+                  class: 'sp-sp-gonext',
+                  title: userLang === 'zh_CN' ? '下滚一页' : 'Scroll down a page'
                 }
               });
 
@@ -13515,30 +13516,30 @@
 
               goNextImg.push(i_next);
               div.appendChild(i_next);
-              div.appendChild(createDOM("img", {
+              div.appendChild(createDOM('img', {
                 attr: {
                   src: _sep_icons.bottom,
-                  class: "sp-sp-gobottom",
-                  alt: userLang === "zh_CN" ? "去到底部" : "To Bottom",
-                  title: userLang === "zh_CN" ? "去到底部" : "To Bottom"
+                  class: 'sp-sp-gobottom',
+                  alt: userLang === 'zh_CN' ? '去到底部' : 'To Bottom',
+                  title: userLang === 'zh_CN' ? '去到底部' : 'To Bottom'
                 }
               }));
-              div.appendChild(createDOM("div", {
+              div.appendChild(createDOM('div', {
                 attr: {
-                  class: "sp-someinfo",
-                  id: "sp-separator-hover"
+                  class: 'sp-someinfo',
+                  id: 'sp-separator-hover'
                 },
-                children: [createDOM("a", {
+                children: [createDOM('a', {
                   attr: {
-                    href: "https://github.com/machsix/Super-preloader",
-                    target: "_blank"
+                    href: 'https://github.com/machsix/Super-preloader',
+                    target: '_blank'
                   },
-                  innerHTML: "Powered by Super-preloader"
+                  innerHTML: 'Powered by Super-preloader'
                 })]
               }));
               curNumber += 1;
             } else {
-              div.style.cssText = "\
+              div.style.cssText = '\
                     height:0!important;\
                     width:0!important;\
                     margin:0!important;\
@@ -13547,7 +13548,7 @@
                     clear:both!important;\
                     display:block!important;\
                     visibility:hidden!important;\
-                ";
+                ';
             }
 
             return div;
@@ -13557,30 +13558,30 @@
 
           function insertedIntoDoc() {
             if (!doc) {
-              logger.error("[Super-preloader]", "No document");
+              logger.error("[Super-preloader]", 'No document');
               return;
             }
 
             if (SSS.a_documentFilter) {
               try {
                 SSS.a_documentFilter(doc, nextlink);
-                logger.debug("[Super-preloader]", "执行 documentFilter 成功");
+                logger.debug("[Super-preloader]", '执行 documentFilter 成功');
               } catch (e) {
-                logger.error("[Super-preloader]", "执行 documentFilter 错误", e, SSS.a_documentFilter.toString());
+                logger.error("[Super-preloader]", '执行 documentFilter 错误', e, SSS.a_documentFilter.toString());
               }
             }
 
-            var docTitle = getElementByCSS("title", doc).textContent;
+            var docTitle = getElementByCSS('title', doc).textContent;
             var fragment = document.createDocumentFragment();
             var pageElements = getAllElements(SSS.a_pageElement, false, doc, win, nextlink);
             var ii = pageElements.length;
 
             if (ii <= 0) {
-              logger.error("[Super-preloader]", "获取下一页的主要内容失败", SSS.a_pageElement);
+              logger.error("[Super-preloader]", '获取下一页的主要内容失败', SSS.a_pageElement);
               removeL();
               return;
             } else {
-              logger.debug("[Super-preloader]", "获取下一页的主要内容成功", pageElements);
+              logger.debug("[Super-preloader]", '获取下一页的主要内容成功', pageElements);
             } // 提前查找下一页链接，后面再赋值
 
 
@@ -13607,11 +13608,11 @@
             for (i = 0; i < ii; i++) {
               pe_x = pageElements[i];
               pe_x_nn = pe_x.nodeName;
-              if (pe_x_nn == "BODY" || pe_x_nn == "HTML" || pe_x_nn == "SCRIPT") continue;
+              if (pe_x_nn == 'BODY' || pe_x_nn == 'HTML' || pe_x_nn == 'SCRIPT') continue;
               fragment.appendChild(pe_x);
             }
 
-            if (SSS.filter && typeof SSS.filter === "string") {
+            if (SSS.filter && typeof SSS.filter === 'string') {
               // 功能未完善.
               var nodes = [];
 
@@ -13635,18 +13636,18 @@
             var imgs;
 
             if (!window.opera && SSS.a_useiframe && !SSS.a_iloaded) {
-              imgs = getAllElements("css;img[src]", fragment); // 收集所有图片
+              imgs = getAllElements('css;img[src]', fragment); // 收集所有图片
             } // 处理下一页内容部分链接是否新标签页打开
 
 
             if (prefs.forceTargetWindow) {
               var arr = Array.prototype.slice.call(fragment.querySelectorAll('a[href]:not([href^="mailto:"]):not([href^="javascript:"]):not([href^="#"])'));
               arr.forEach(function (elem) {
-                elem.setAttribute("target", "_blank");
+                elem.setAttribute('target', '_blank');
 
-                if (elem.getAttribute("onclick") == "atarget(this)") {
+                if (elem.getAttribute('onclick') == 'atarget(this)') {
                   // 卡饭论坛的控制是否在新标签页打开
-                  elem.removeAttribute("onclick");
+                  elem.removeAttribute('onclick');
                 }
               });
             }
@@ -13654,40 +13655,40 @@
             var sepdiv = createSep(lastUrl, cplink, nextlink);
             var toInsert = sepdiv;
 
-            if (SSS.a_sepdivDom !== undefined && typeof SSS.a_sepdivDom === "function") {
+            if (SSS.a_sepdivDom !== undefined && typeof SSS.a_sepdivDom === 'function') {
               toInsert = SSS.a_sepdivDom(doc, sepdiv);
-            } else if (pageElements[0] && pageElements[0].tagName === "TR" && pageElements[pageElements.length - 1].tagName === "TR") {
+            } else if (pageElements[0] && pageElements[0].tagName === 'TR' && pageElements[pageElements.length - 1].tagName === 'TR') {
               var insertParent = insertPoint.parentNode;
-              var colNodes = getAllElements("child::tr[1]/child::*[self::td or self::th]", insertParent);
+              var colNodes = getAllElements('child::tr[1]/child::*[self::td or self::th]', insertParent);
 
               if (colNodes.length == 0) {
-                colNodes = getAllElements("child::*[self::td or self::th]", pageElements[0]);
+                colNodes = getAllElements('child::*[self::td or self::th]', pageElements[0]);
               }
 
               var _ncol = [].reduce.call(colNodes, function (acc, cur) {
-                return acc + (parseInt(cur.getAttribute("colspan"), 10) || 1);
+                return acc + (parseInt(cur.getAttribute('colspan'), 10) || 1);
               }, 0);
 
-              toInsert = createDOM("tr", {
-                children: [createDOM("td", {
+              toInsert = createDOM('tr', {
+                children: [createDOM('td', {
                   attr: {
                     colspan: _ncol
                   },
                   children: [sepdiv]
                 })]
               });
-            } else if (pageElements[0] && pageElements[0].tagName === "TBODY" && pageElements[pageElements.length - 1].tagName === "TBODY") {
+            } else if (pageElements[0] && pageElements[0].tagName === 'TBODY' && pageElements[pageElements.length - 1].tagName === 'TBODY') {
               // https://bbs.kafan.cn/forum-8-1.html
-              var trs = pageElements[pageElements.length - 1].getElementsByTagName("tr");
+              var trs = pageElements[pageElements.length - 1].getElementsByTagName('tr');
 
               if (trs) {
                 var _ncol2 = [].reduce.call(trs[trs.length - 1].children, function (acc, cur) {
-                  return acc + (parseInt(cur.getAttribute("colspan"), 10) || 1);
+                  return acc + (parseInt(cur.getAttribute('colspan'), 10) || 1);
                 }, 0);
 
-                toInsert = createDOM("tbody", {
-                  children: [createDOM("tr", {
-                    children: [createDOM("td", {
+                toInsert = createDOM('tbody', {
+                  children: [createDOM('tr', {
+                    children: [createDOM('td', {
                       attr: {
                         colspan: _ncol2
                       },
@@ -13696,19 +13697,19 @@
                   })]
                 });
               } else {
-                logger.warn("[Super-preloader]", "No trs found");
+                logger.warn("[Super-preloader]", 'No trs found');
               }
             }
 
             fragment.insertBefore(toInsert, fragment.firstChild);
             addIntoDoc(fragment); // filter
 
-            if (SSS.filter && typeof SSS.filter === "function") {
+            if (SSS.filter && typeof SSS.filter === 'function') {
               try {
                 SSS.filter(pageElements);
-                logger.debug("[Super-preloader]", "执行 filter(pages) 成功");
+                logger.debug("[Super-preloader]", '执行 filter(pages) 成功');
               } catch (e) {
-                logger.error("[Super-preloader]", "执行 filter(pages) 错误", e, SSS.filter.toString());
+                logger.error("[Super-preloader]", '执行 filter(pages) 错误', e, SSS.filter.toString());
               }
             }
 
@@ -13754,15 +13755,15 @@
               ipagesmode = false;
             }
 
-            floatWO.loadedIcon("hide");
+            floatWO.loadedIcon('hide');
 
             if (manualDiv) {
-              manualDiv.style.display = "none";
+              manualDiv.style.display = 'none';
             }
 
             if (goNextImg[0]) goNextImg[0].src = _sep_icons.next;
-            var ev = document.createEvent("Event");
-            ev.initEvent("Super_preloaderPageLoaded", true, false);
+            var ev = document.createEvent('Event');
+            ev.initEvent('Super_preloaderPageLoaded', true, false);
             document.dispatchEvent(ev);
 
             if (prefs.enableHistory) {
@@ -13773,7 +13774,7 @@
 
             if (paged >= SSS.a_maxpage) {
               logger.debug("[Super-preloader]", `到达所设定的最大翻页数 ${SSS.a_maxpage}`);
-              notice("<b>状态</b>:" + '到达所设定的最大翻页数:<b style="color:red">' + SSS.a_maxpage + "</b>");
+              notice('<b>状态</b>:' + '到达所设定的最大翻页数:<b style="color:red">' + SSS.a_maxpage + '</b>');
               removeL();
               return;
             }
@@ -13782,7 +13783,7 @@
               setTimeout(fn, 199);
             };
 
-            if (nextlink) {
+            if (nextlink && !pagedLinks.includes(nextlink)) {
               // debug('找到下一页链接:', nextlink);
               doc = win = null;
 
@@ -13803,7 +13804,7 @@
                 }
               }
             } else {
-              logger.error("[Super-preloader]", "没有找到下一页链接", SSS.nextLink);
+              logger.error("[Super-preloader]", '没有找到下一页链接', SSS.nextLink);
               removeL();
             }
           } // 返回,剩余高度是总高度的比值.
@@ -13817,7 +13818,7 @@
               relatedObj_1 = SSS.a_relatedObj[1];
             } else {
               relatedObj_0 = SSS.a_pageElement;
-              relatedObj_1 = "bottom";
+              relatedObj_1 = 'bottom';
             }
           }
 
@@ -13840,8 +13841,8 @@
           var pause = false;
 
           if (prefs.pauseA) {
-            var Sbutton = ["target", "shiftKey", "ctrlKey", "altKey"];
-            var ltype = prefs.mouseA ? "mousedown" : "dblclick";
+            var Sbutton = ['target', 'shiftKey', 'ctrlKey', 'altKey'];
+            var ltype = prefs.mouseA ? 'mousedown' : 'dblclick';
             var button_1 = Sbutton[prefs.Pbutton[0]];
             var button_2 = Sbutton[prefs.Pbutton[1]];
             var button_3 = Sbutton[prefs.Pbutton[2]];
@@ -13851,21 +13852,21 @@
               if (prefs.stop_ipage) ipagesmode = false;
 
               if (pause) {
-                floatWO.updateColor("Apause");
+                floatWO.updateColor('Apause');
 
-                if (userLang === "zh_CN") {
-                  notice("<b>状态</b>:" + '自动翻页<span style="color:red!important;"><b> 暂停</b></span>.', prefs.disappearDelay);
+                if (userLang === 'zh_CN') {
+                  notice('<b>状态</b>:' + '自动翻页<span style="color:red!important;"><b> 暂停</b></span>.', prefs.disappearDelay);
                 } else {
-                  notice("<b>Status</b>:" + 'Autopagger<span style="color:red!important;"><b> Pause</b></span>.', prefs.disappearDelay);
+                  notice('<b>Status</b>:' + 'Autopagger<span style="color:red!important;"><b> Pause</b></span>.', prefs.disappearDelay);
                 }
               } else {
-                floatWO.updateColor("autopager");
-                floatWO.CmodeIcon("hide");
+                floatWO.updateColor('autopager');
+                floatWO.CmodeIcon('hide');
 
-                if (userLang === "zh_CN") {
-                  notice("<b>状态</b>:" + '自动翻页<span style="color:red!important;"><b> 启用</b></span>.');
+                if (userLang === 'zh_CN') {
+                  notice('<b>状态</b>:' + '自动翻页<span style="color:red!important;"><b> 启用</b></span>.');
                 } else {
-                  notice("<b>Status</b>:" + 'Autopagger<span style="color:red!important;"><b> Enable</b></span>.');
+                  notice('<b>Status</b>:' + 'Autopagger<span style="color:red!important;"><b> Enable</b></span>.');
                 }
               }
 
@@ -13876,14 +13877,14 @@
 
             var clearPause = function clearPause() {
               clearTimeout(Sctimeout);
-              document.removeEventListener("mouseup", clearPause, false);
+              document.removeEventListener('mouseup', clearPause, false);
             };
 
             var pausehandler = function pausehandler(e) {
               if (!SSS.a_manualA || ipagesmode) {
                 if (e[button_1] && e[button_2] && e[button_3]) {
-                  if (e.type == "mousedown") {
-                    document.addEventListener("mouseup", clearPause, false);
+                  if (e.type == 'mousedown') {
+                    document.addEventListener('mouseup', clearPause, false);
                     Sctimeout = setTimeout(pauseIt, prefs.Atimeout);
                   } else {
                     pauseIt();
@@ -13917,16 +13918,16 @@
             timeout = setTimeout(scroll, 100);
           }
 
-          window.addEventListener("scroll", timeoutfn, false);
+          window.addEventListener('scroll', timeoutfn, false);
           remove.push(function () {
-            window.removeEventListener("scroll", timeoutfn, false);
+            window.removeEventListener('scroll', timeoutfn, false);
           });
           autoPO = {
             startipages: function startipages(value) {
               if (value > 0) {
                 ipagesmode = true;
                 ipagesnumber = value + paged;
-                notice("<b>状态</b>:" + "当前已翻页数量:<b>" + paged + "</b>," + '连续翻页到第<b style="color:red!important;">' + ipagesnumber + "</b>页.");
+                notice('<b>状态</b>:' + '当前已翻页数量:<b>' + paged + '</b>,' + '连续翻页到第<b style="color:red!important;">' + ipagesnumber + '</b>页.');
                 if (SSS.a_manualA) insertedIntoDoc();
                 scroll();
               }
@@ -13937,10 +13938,10 @@
 
         function prefetcher(SSS, floatWO) {
           function cContainer() {
-            var div = document.createElement("div");
+            var div = document.createElement('div');
             var div2 = div.cloneNode(false);
-            var hr = document.createElement("hr");
-            div.style.cssText = "\
+            var hr = document.createElement('hr');
+            div.style.cssText = '\
                 margin:3px!important;\
                 padding:5px!important;\
                 border-radius:8px!important;\
@@ -13949,20 +13950,20 @@
                 border-top:1px solid #E30005!important;\
                 background-color:#F5F5F5!important;\
                 float:none!important;\
-            ";
-            div.title = "预读的内容";
-            div2.style.cssText = "\
+            ';
+            div.title = '预读的内容';
+            div2.style.cssText = '\
                 text-align:left!important;\
                 color:red!important;\
                 font-size:13px!important;\
                 display:block!important;\
                 float:none!important;\
                 position:static!important;\
-            ";
-            hr.style.cssText = "\
+            ';
+            hr.style.cssText = '\
                 display:block!important;\
                 border:1px inset #000!important;\
-            ";
+            ';
             div.appendChild(div2);
             div.appendChild(hr);
             document.body.appendChild(div);
@@ -13972,29 +13973,29 @@
             };
           }
 
-          floatWO.updateColor("prefetcher");
-          floatWO.updateColor("loading");
-          floatWO.CmodeIcon("show");
+          floatWO.updateColor('prefetcher');
+          floatWO.updateColor('loading');
+          floatWO.CmodeIcon('show');
 
           if (SSS.useiframe) {
-            var iframe = document.createElement("iframe");
-            iframe.name = "superpreloader-iframe";
+            var iframe = document.createElement('iframe');
+            iframe.name = 'superpreloader-iframe';
             iframe.src = nextlink;
-            iframe.width = "100%";
-            iframe.height = "0";
-            iframe.frameBorder = "0";
-            iframe.style.cssText = "\
+            iframe.width = '100%';
+            iframe.height = '0';
+            iframe.frameBorder = '0';
+            iframe.style.cssText = '\
                 margin:0!important;\
                 padding:0!important;\
-            ";
-            iframe.addEventListener("load", function (e) {
+            ';
+            iframe.addEventListener('load', function (e) {
               var body = e.currentTarget.contentDocument.body;
 
               if (body && body.firstChild) {
-                floatWO.updateColor("prefetcher");
-                floatWO.CmodeIcon("hide");
-                floatWO.loadedIcon("show");
-                e.currentTarget.removeEventListener("load", arguments.callee, false);
+                floatWO.updateColor('prefetcher');
+                floatWO.CmodeIcon('hide');
+                floatWO.loadedIcon('show');
+                e.currentTarget.removeEventListener('load', arguments.callee, false);
 
                 if (SSS.lazyImgSrc) {
                   handleLazyImgSrc(SSS.lazyImgSrc, body);
@@ -14004,8 +14005,8 @@
 
             if (SSS.viewcontent) {
               var container = cContainer();
-              container.div2.innerHTML = "iframe全预读: " + "<br />" + "预读网址: " + "<b>" + nextlink + "</b>";
-              iframe.height = "300px";
+              container.div2.innerHTML = 'iframe全预读: ' + '<br />' + '预读网址: ' + '<b>' + nextlink + '</b>';
+              iframe.height = '300px';
               container.div.appendChild(iframe);
             } else {
               document.body.appendChild(iframe);
@@ -14020,7 +14021,7 @@
               var doc = createDocumentByString(res.data);
 
               if (!doc) {
-                logger.error("[Super-preloader]", "文档对象创建失败!");
+                logger.error("[Super-preloader]", '文档对象创建失败!');
                 return;
               }
 
@@ -14037,7 +14038,7 @@
               var isrc;
 
               for (i = isl - 1; i >= 0; i--) {
-                isrc = images[i].getAttribute("src");
+                isrc = images[i].getAttribute('src');
 
                 if (!isrc || existSRC[isrc]) {
                   continue;
@@ -14045,7 +14046,7 @@
                   existSRC[isrc] = true;
                 }
 
-                img = document.createElement("img");
+                img = document.createElement('img');
                 img.src = isrc;
                 iarray.push(img);
               }
@@ -14054,26 +14055,26 @@
                 var containter = cContainer();
                 var div = containter.div;
                 i = iarray.length;
-                containter.div2.innerHTML = "预读取图片张数: " + "<b>" + i + "</b>" + "<br />" + "预读网址: " + "<b>" + nextlink + "</b>";
+                containter.div2.innerHTML = '预读取图片张数: ' + '<b>' + i + '</b>' + '<br />' + '预读网址: ' + '<b>' + nextlink + '</b>';
 
                 for (i -= 1; i >= 0; i--) {
                   div.appendChild(iarray[i]);
                 }
               }
 
-              floatWO.updateColor("prefetcher");
-              floatWO.loadedIcon("show");
-              floatWO.CmodeIcon("hide");
+              floatWO.updateColor('prefetcher');
+              floatWO.loadedIcon('show');
+              floatWO.CmodeIcon('hide');
             });
           }
         } // 执行开始..///////////////////
         // 分析黑名单
 
 
-        var blackList_re = new RegExp(blackList.map(wildcardToRegExpStr).join("|"));
+        var blackList_re = new RegExp(blackList.map(wildcardToRegExpStr).join('|'));
 
         if (blackList_re.test(url)) {
-          logger.debug("[Super-preloader]", "匹配黑名单，js执行终止");
+          logger.debug("[Super-preloader]", '匹配黑名单，js执行终止');
           return;
         } // 是否在frame上加载..
 
@@ -14095,10 +14096,11 @@
 
         if (!prefs.numOfRule || prefs.numOfRule != SSRules.length) {
           prefs.numOfRule = SSRules.length;
-          GM.setValue("prefs", prefs);
+          GM.setValue('prefs', prefs);
         } // 重要的变量两枚.
 
 
+        var pagedLinks = [document.location.href];
         var nextlink;
         var prelink; //= ==============
 
@@ -14109,7 +14111,7 @@
           var Rurl;
           var ii = SSRules.length;
 
-          if (userLang === "zh_CN") {
+          if (userLang === 'zh_CN') {
             logger.debug("[Super-preloader]", `高级规则数目:${ii}`);
             logger.debug("[Super-preloader]", `规则数 > ${ii - jsonRule.length} 来自其他来源, 比如: wedata.net`);
           } else {
@@ -14121,11 +14123,11 @@
             Rurl = toRE(SII.url);
 
             if (Rurl.test(url)) {
-              if (userLang === "zh_CN") {
-                logger.debug("[Super-preloader]", "找到当前站点规则:", SII);
+              if (userLang === 'zh_CN') {
+                logger.debug("[Super-preloader]", '找到当前站点规则:', SII);
                 logger.debug("[Super-preloader]", `规则ID: ${i + 1}`);
               } else {
-                logger.debug("[Super-preloader]", "Find rule for this website:", SII);
+                logger.debug("[Super-preloader]", 'Find rule for this website:', SII);
                 logger.debug("[Super-preloader]", `Rule ID: ${i + 1}`);
               } // 运行规则的 startFilter
 
@@ -14133,16 +14135,16 @@
               if (SII.autopager && SII.autopager.startFilter) {
                 try {
                   SII.autopager.startFilter(document, window);
-                  logger.debug("[Super-preloader]", "执行 startFilter 成功");
+                  logger.debug("[Super-preloader]", '执行 startFilter 成功');
                 } catch (e) {
-                  logger.error("[Super-preloader]", "执行 startFilter 错误", e);
+                  logger.error("[Super-preloader]", '执行 startFilter 错误', e);
                 }
               }
 
-              nextlink = getElement(SII.nextLink || "auto;");
+              nextlink = getElement(SII.nextLink || 'auto;');
 
               if (!nextlink) {
-                logger.warn("[Super-preloader]", "无法找到下一页链接,继续查找其他规则,跳过规则:", SII);
+                logger.warn("[Super-preloader]", '无法找到下一页链接,继续查找其他规则,跳过规则:', SII);
                 return "continue";
               } // 如果匹配到的下一页链接和当前页一致，继续查找下一条规则
 
@@ -14152,18 +14154,18 @@
                 return "continue";
               }
 
-              if (SII.preLink && SII.preLink != "auto;") {
+              if (SII.preLink && SII.preLink != 'auto;') {
                 // 如果设定了具体的preLink
                 prelink = getElement(SII.preLink);
               } else {
                 if (prefs.autoGetPreLink) {
-                  getElement("auto;");
+                  getElement('auto;');
                 }
               }
 
               SSS = {};
               SSS.Rurl = String(Rurl);
-              SSS.nextLink = SII.nextLink || "auto;";
+              SSS.nextLink = SII.nextLink || 'auto;';
               SSS.viewcontent = SII.viewcontent;
               SSS.enable = SII.enable === undefined ? SITEINFO_D.enable : SII.enable;
               SSS.useiframe = SII.useiframe === undefined ? SITEINFO_D.useiframe : SII.useiframe;
@@ -14203,10 +14205,10 @@
                 SSS.filter = SII.filter || SIIA.filter; // 新增了函数的形式，原来的功能是移除 pageElement
 
                 SSS.a_documentFilter = SII.documentFilter || SIIA.documentFilter;
-                SSS.a_scriptFilter = SIIA.scriptFilter === undefined ? "" : SIIA.scriptFilter;
+                SSS.a_scriptFilter = SIIA.scriptFilter === undefined ? '' : SIIA.scriptFilter;
 
-                if (typeof SSS.a_documentFilter === "string") {
-                  if (SSS.a_documentFilter === "startFilter") {
+                if (typeof SSS.a_documentFilter === 'string') {
+                  if (SSS.a_documentFilter === 'startFilter') {
                     SSS.a_documentFilter = function (doc, nextLink) {
                       return SII.autopager.startFilter(doc);
                     };
@@ -14230,7 +14232,7 @@
 
               if (!pageElement || Array.isArray(pageElement) && pageElement.length === 0) {
                 nextlink = null;
-                logger.error("[Super-preloader]", "无法找到内容,跳过规则:", SII, "继续查找其他规则");
+                logger.error("[Super-preloader]", '无法找到内容,跳过规则:', SII, '继续查找其他规则');
                 return "continue";
               }
 
@@ -14252,19 +14254,19 @@
           }
 
           if (!SSS.hasRule) {
-            logger.warn("[Super-preloader]", "未找到合适的高级规则,开始自动匹配."); // 自动搜索.
+            logger.warn("[Super-preloader]", '未找到合适的高级规则,开始自动匹配.'); // 自动搜索.
 
             if (!autoMatch.keyMatch) {
-              logger.debug("[Super-preloader]", "自动匹配功能被禁用了.");
+              logger.debug("[Super-preloader]", '自动匹配功能被禁用了.');
             } else {
               nextlink = autoGetLink();
 
               if (nextlink) {
                 // 强制模式.
                 var FA = autoMatch.FA;
-                SSS.Rurl = window.localStorage ? "am:" + (url.match(/^https?:\/\/[^:]*\//i) || [])[0] : "am:automatch";
+                SSS.Rurl = window.localStorage ? 'am:' + (url.match(/^https?:\/\/[^:]*\//i) || [])[0] : 'am:automatch';
                 SSS.enable = true;
-                SSS.nextLink = "auto;";
+                SSS.nextLink = 'auto;';
                 SSS.viewcontent = autoMatch.viewcontent;
                 SSS.useiframe = autoMatch.useiframe;
                 SSS.a_force = true;
@@ -14297,8 +14299,8 @@
           logger.warn("[Super-preloader]", `未找到相关链接, JS执行停止. 共耗时:${new Date() - startTime}ms`);
           return;
         } else {
-          logger.debug("[Super-preloader]", "上一页链接:", prelink);
-          logger.debug("[Super-preloader]", "下一页链接:", nextlink);
+          logger.debug("[Super-preloader]", '上一页链接:', prelink);
+          logger.debug("[Super-preloader]", '下一页链接:', nextlink);
           nextlink = nextlink ? nextlink.href || nextlink : undefined;
           prelink = prelink ? prelink.href || prelink : undefined;
         }
@@ -14308,16 +14310,16 @@
             if (nextlink) window.location.href = nextlink;
           },
           back: function back() {
-            if (!prelink) getElement("auto;");
+            if (!prelink) getElement('auto;');
             if (prelink) window.location.href = prelink;
           }
         };
 
         if (prefs.arrowKeyPage) {
-          logger.debug("[Super-preloader]", "添加键盘左右方向键翻页监听.");
-          document.addEventListener("keyup", function (e) {
+          logger.debug("[Super-preloader]", '添加键盘左右方向键翻页监听.');
+          document.addEventListener('keyup', function (e) {
             var tarNN = e.target.nodeName;
-            if (tarNN != "BODY" && tarNN != "HTML") return; // check is a combo pressed
+            if (tarNN != 'BODY' && tarNN != 'HTML') return; // check is a combo pressed
 
             if (e.ctrlKey || e.shiftKey || e.altKey || e.metaKey) {
               return;
@@ -14336,17 +14338,17 @@
         } // 监听下一页事件.
 
 
-        logger.debug("[Super-preloader]", "添加鼠标手势翻页监听");
-        document.addEventListener("superPreloader.go", function () {
+        logger.debug("[Super-preloader]", '添加鼠标手势翻页监听');
+        document.addEventListener('superPreloader.go', function () {
           superPreloader.go();
         }, false); // 监听下一页事件.
 
-        document.addEventListener("superPreloader.back", function () {
+        document.addEventListener('superPreloader.back', function () {
           superPreloader.back();
         }, false); // 没找到下一页的链接
 
         if (!nextlink) {
-          logger.error("[Super-preloader]", "下一页链接不存在,JS无法继续.");
+          logger.error("[Super-preloader]", '下一页链接不存在,JS无法继续.');
           logger.debug("[Super-preloader]", `全部过程耗时:${new Date() - startTime}ms`);
           return;
         }
@@ -14358,18 +14360,18 @@
         }
 
         if (SSS.a_force) {
-          SSS.a_pageElement = "//body/*";
+          SSS.a_pageElement = '//body/*';
           SSS.a_HT_insert = undefined;
           SSS.a_relatedObj = undefined;
         }
 
         if (prefs.floatWindow) {
-          logger.debug("[Super-preloader]", "创建悬浮窗");
+          logger.debug("[Super-preloader]", '创建悬浮窗');
           floatWindow(SSS);
-          var floatWindowWidth = userLang === "zh_CN" ? 231 : 366; //px
+          var floatWindowWidth = userLang === 'zh_CN' ? 231 : 366; //px
 
-          var d = displace(document.getElementById("sp-fw-container"), {
-            handle: document.getElementById("sp-fw-rect"),
+          var d = displace(document.getElementById('sp-fw-container'), {
+            handle: document.getElementById('sp-fw-rect'),
             customMove: function customMove(el, x, y) {
               delete el.style.left;
               delete el.style.bottom;
@@ -14377,17 +14379,17 @@
               el.style.top = `${y}px`;
             },
             onMouseUp: function onMouseUp(el) {
-              prefs.FW_offset[0] = parseInt(el.style.top.replace("px", ""), 10);
-              prefs.FW_offset[1] = parseInt(el.style.right.replace("px", ""), 10);
+              prefs.FW_offset[0] = parseInt(el.style.top.replace('px', ''), 10);
+              prefs.FW_offset[1] = parseInt(el.style.right.replace('px', ''), 10);
               prefs.FW_position = 2;
-              GM.setValue("prefs", prefs);
+              GM.setValue('prefs', prefs);
             }
           });
-          document.getElementById("sp-fw-container").style.position = "fixed";
+          document.getElementById('sp-fw-container').style.position = 'fixed';
         }
 
         if (!SSS.enable) {
-          logger.warn("[Super-preloader]", "本规则被关闭,脚本执行停止");
+          logger.warn("[Super-preloader]", '本规则被关闭,脚本执行停止');
           logger.debug("[Super-preloader]", `全部过程耗时:${new Date() - startTime}ms`);
           return;
         }
@@ -14395,10 +14397,10 @@
         logger.debug("[Super-preloader]", `全部过程耗时:${new Date() - startTime}ms`); // 预读或者翻页.
 
         if (SSS.a_enable) {
-          logger.debug("[Super-preloader]", "初始化,翻页模式.");
+          logger.debug("[Super-preloader]", '初始化,翻页模式.');
           autopager(SSS, floatWO);
         } else {
-          logger.debug("[Super-preloader]", "初始化,预读模式.");
+          logger.debug("[Super-preloader]", '初始化,预读模式.');
           prefetcher(SSS, floatWO);
         }
 
@@ -14413,15 +14415,15 @@
           contextNode = contextNode || doc;
           var type = typeof selector;
 
-          if (type == "string") {
+          if (type == 'string') {
             if (selector.search(/^css;/i) === 0) {
               ret = getElementByCSS(selector.slice(4), contextNode);
-            } else if (selector.toLowerCase() == "auto;") {
+            } else if (selector.toLowerCase() == 'auto;') {
               ret = autoGetLink(doc);
             } else {
               ret = getElementByXpath(selector, contextNode, doc);
             }
-          } else if (type == "function") {
+          } else if (type == 'function') {
             ret = selector(doc, win, _cplink);
           } else if (selector instanceof Array) {
             for (var i = 0, l = selector.length; i < l; i++) {
@@ -14495,17 +14497,17 @@
           var aimgs, j, jj, aimg_x, xbreak, k, keytext;
 
           function finalCheck(a, type) {
-            var ahref = a.getAttribute("href"); // 在chrome上当是非当前页面文档对象的时候直接用a.href访问,不返回href
+            var ahref = a.getAttribute('href'); // 在chrome上当是非当前页面文档对象的时候直接用a.href访问,不返回href
 
-            if (ahref == "#") {
+            if (ahref == '#') {
               return null;
             }
 
             ahref = _getFullHref(ahref); // 从相对路径获取完全的href;
             // 3个条件:http协议链接,非跳到当前页面的链接,非跨域
 
-            if (/^https?:/i.test(ahref) && ahref.replace(/#.*$/, "") != curLHref && ahref.match(/https?:\/\/([^\/]+)/)[1] == _domain_port) {
-              logger.debug("[Super-preloader]", type == "pre" ? "上一页" : "下一页" + "匹配到的关键字为:", atext);
+            if (/^https?:/i.test(ahref) && ahref.replace(/#.*$/, '') != curLHref && ahref.match(/https?:\/\/([^\/]+)/)[1] == _domain_port) {
+              logger.debug("[Super-preloader]", type == 'pre' ? '上一页' : '下一页' + '匹配到的关键字为:', atext);
               return a; // 返回对象A
               // return ahref;
             }
@@ -14551,12 +14553,12 @@
                     searchedD = initSD > 0;
 
                     if (preS1 || preS2) {
-                      pSNText = preS1 ? preS1.textContent.match(DCRE) : "";
+                      pSNText = preS1 ? preS1.textContent.match(DCRE) : '';
 
                       if (pSNText) {
                         preSS = preS1;
                       } else {
-                        pSNText = preS2 ? preS2.textContent.match(DCRE) : "";
+                        pSNText = preS2 ? preS2.textContent.match(DCRE) : '';
                         preSS = preS2;
                       }
 
@@ -14566,8 +14568,8 @@
                         if (_Number(pSNText) == _Number(numtext) - 1) {
                           nodeType = preSS.nodeType;
 
-                          if (nodeType == 3 || nodeType == 1 && (searchedD ? _getAllElementsByXpath("./descendant-or-self::a[@href]", preSS, doc).length === 0 : !preSS.hasAttribute("href") || _getFullHref(preSS.getAttribute("href")) == curLHref)) {
-                            _nextlink = finalCheck(a, "next");
+                          if (nodeType == 3 || nodeType == 1 && (searchedD ? _getAllElementsByXpath('./descendant-or-self::a[@href]', preSS, doc).length === 0 : !preSS.hasAttribute('href') || _getFullHref(preSS.getAttribute('href')) == curLHref)) {
+                            _nextlink = finalCheck(a, 'next');
                           }
 
                           continue;
@@ -14594,12 +14596,12 @@
                     searchedD = initSD > 0;
 
                     if (nextS1 || nextS2) {
-                      nSNText = nextS1 ? nextS1.textContent.match(DCRE) : "";
+                      nSNText = nextS1 ? nextS1.textContent.match(DCRE) : '';
 
                       if (nSNText) {
                         nextSS = nextS1;
                       } else {
-                        nSNText = nextS2 ? nextS2.textContent.match(DCRE) : "";
+                        nSNText = nextS2 ? nextS2.textContent.match(DCRE) : '';
                         nextSS = nextS2;
                       }
 
@@ -14609,8 +14611,8 @@
                         if (_Number(nSNText) == _Number(numtext) + 1) {
                           nodeType = nextSS.nodeType;
 
-                          if (nodeType == 3 || nodeType == 1 && (searchedD ? _getAllElementsByXpath("./descendant-or-self::a[@href]", nextSS, doc).length === 0 : !nextSS.hasAttribute("href") || _getFullHref(nextSS.getAttribute("href")) == curLHref)) {
-                            _prelink = finalCheck(a, "pre");
+                          if (nodeType == 3 || nodeType == 1 && (searchedD ? _getAllElementsByXpath('./descendant-or-self::a[@href]', nextSS, doc).length === 0 : !nextSS.hasAttribute('href') || _getFullHref(nextSS.getAttribute('href')) == curLHref)) {
+                            _prelink = finalCheck(a, 'pre');
                           }
                         }
                       }
@@ -14625,7 +14627,7 @@
             }
 
             if (!atext) {
-              aimgs = a.getElementsByTagName("img");
+              aimgs = a.getElementsByTagName('img');
 
               for (j = 0, jj = aimgs.length; j < jj; j++) {
                 aimg_x = aimgs[j];
@@ -14642,7 +14644,7 @@
               for (k = 0; k < _nPKL; k++) {
                 keytext = _nextPageKey[k];
                 if (!keytext.test(atext)) continue;
-                _nextlink = finalCheck(a, "next");
+                _nextlink = finalCheck(a, 'next');
                 xbreak = true;
                 break;
               }
@@ -14654,7 +14656,7 @@
               for (k = 0; k < _pPKL; k++) {
                 keytext = _prePageKey[k];
                 if (!keytext.test(atext)) continue;
-                _prelink = finalCheck(a, "pre");
+                _prelink = finalCheck(a, 'pre');
                 break;
               }
             }
@@ -14674,7 +14676,7 @@
         function parseKWRE() {
           function modifyPageKey(name, pageKey, pageKeyLength) {
             function strMTE(str) {
-              return str.replace(/\\/g, "\\\\").replace(/\+/g, "\\+").replace(/\./g, "\\.").replace(/\?/g, "\\?").replace(/\{/g, "\\{").replace(/\}/g, "\\}").replace(/\[/g, "\\[").replace(/\]/g, "\\]").replace(/\^/g, "\\^").replace(/\$/g, "\\$").replace(/\*/g, "\\*").replace(/\(/g, "\\(").replace(/\)/g, "\\)").replace(/\|/g, "\\|").replace(/\//g, "\\/");
+              return str.replace(/\\/g, '\\\\').replace(/\+/g, '\\+').replace(/\./g, '\\.').replace(/\?/g, '\\?').replace(/\{/g, '\\{').replace(/\}/g, '\\}').replace(/\[/g, '\\[').replace(/\]/g, '\\]').replace(/\^/g, '\\^').replace(/\$/g, '\\$').replace(/\*/g, '\\*').replace(/\(/g, '\\(').replace(/\)/g, '\\)').replace(/\|/g, '\\|').replace(/\//g, '\\/');
             }
 
             var pfwordl = autoMatch.pfwordl;
@@ -14686,11 +14688,11 @@
             var RE_maxSubfix = sfwordl[name].maxSubfix;
             var RE_character_b = sfwordl[name].character;
             var plwords, slwords, rep;
-            plwords = RE_maxPrefix > 0 ? "[" + (RE_enable_a ? strMTE(RE_character_a.join("")) : ".") + "]{0," + RE_maxPrefix + "}" : "";
-            plwords = "^\\s*" + plwords;
-            slwords = RE_maxSubfix > 0 ? "[" + (RE_enable_b ? strMTE(RE_character_b.join("")) : ".") + "]{0," + RE_maxSubfix + "}" : "";
-            slwords = slwords + "\\s*$";
-            rep = prefs.cases ? "" : "i";
+            plwords = RE_maxPrefix > 0 ? '[' + (RE_enable_a ? strMTE(RE_character_a.join('')) : '.') + ']{0,' + RE_maxPrefix + '}' : '';
+            plwords = '^\\s*' + plwords;
+            slwords = RE_maxSubfix > 0 ? '[' + (RE_enable_b ? strMTE(RE_character_b.join('')) : '.') + ']{0,' + RE_maxSubfix + '}' : '';
+            slwords = slwords + '\\s*$';
+            rep = prefs.cases ? '' : 'i';
 
             for (var i = 0; i < pageKeyLength; i++) {
               pageKey[i] = new RegExp(plwords + strMTE(pageKey[i]) + slwords, rep);
@@ -14700,8 +14702,8 @@
           } // 转成正则.
 
 
-          prePageKey = modifyPageKey("previous", prePageKey, prePageKey.length);
-          nextPageKey = modifyPageKey("next", nextPageKey, nextPageKey.length);
+          prePageKey = modifyPageKey('previous', prePageKey, prePageKey.length);
+          nextPageKey = modifyPageKey('next', nextPageKey, nextPageKey.length);
         }
       } // By lastDream2013 略加修改，原版只能用于 Firefox
 
@@ -14720,7 +14722,7 @@
 
           var handleInfo = function handleInfo(s) {
             if (s) {
-              return s.replace(/^p/, "");
+              return s.replace(/^p/, '');
             }
 
             return s;
@@ -14731,7 +14733,7 @@
             lasturl_info = handleInfo(lasturlarray.pop());
 
             if (url_info != lasturl_info) {
-              if (/[0-9]+/.test(url_info) && (url_info == "2" || /[0-9]+/.test(lasturl_info))) {
+              if (/[0-9]+/.test(url_info) && (url_info == '2' || /[0-9]+/.test(lasturl_info))) {
                 return [parseInt(lasturl_info) || 1, parseInt(url_info)];
               }
             }
@@ -14756,7 +14758,7 @@
 
 
         if (isNaN(relativePageNumarray[0]) || isNaN(relativePageNumarray[1])) {
-          return "";
+          return '';
         }
 
         var realPageSiteMatch = false;
@@ -14791,13 +14793,13 @@
 
         if (realPageSiteMatch) {
           // 如果匹配就显示实际网页信息
-          if (userLang === "zh_CN") {
+          if (userLang === 'zh_CN') {
             if (relativePageNumarray[1] - relativePageNumarray[0] > 1) {
               // 一般是搜索引擎的第xx - xx项……
-              relativePageStr = ' [ 实际：第 <span style="' + sep_icons.text_span_style + '">' + relativePageNumarray[0] + " - " + relativePageNumarray[1] + "</span> 项 ]";
+              relativePageStr = ' [ 实际：第 <span style="' + sep_icons.text_span_style + '">' + relativePageNumarray[0] + ' - ' + relativePageNumarray[1] + '</span> 项 ]';
             } else if (relativePageNumarray[1] - relativePageNumarray[0] === 1) {
               // 一般的翻页数，差值应该是1
-              relativePageStr = ' [ 实际：第 <span style="' + sep_icons.text_span_style + '">' + relativePageNumarray[0] + "</span> 页 ]";
+              relativePageStr = ' [ 实际：第 <span style="' + sep_icons.text_span_style + '">' + relativePageNumarray[0] + '</span> 页 ]';
             } else if ((relativePageNumarray[0] === 0 && relativePageNumarray[1]) === 0) {
               // 找不到的话……
               relativePageStr = ' [ <span style="' + sep_icons.text_span_style + '">实际网页结束</span> ]';
@@ -14805,20 +14807,20 @@
           } else {
             if (relativePageNumarray[1] - relativePageNumarray[0] > 1) {
               // 一般是搜索引擎的第xx - xx项……
-              relativePageStr = ' [ Actual elements/pages: <span style="' + sep_icons.text_span_style + '">' + relativePageNumarray[0] + " - " + relativePageNumarray[1] + "</span> ]";
+              relativePageStr = ' [ Actual elements/pages: <span style="' + sep_icons.text_span_style + '">' + relativePageNumarray[0] + ' - ' + relativePageNumarray[1] + '</span> ]';
             } else if (relativePageNumarray[1] - relativePageNumarray[0] === 1) {
               // 一般的翻页数，差值应该是1
-              relativePageStr = ' [ Actual elements/pages: <span style="' + sep_icons.text_span_style + '">' + relativePageNumarray[0] + "</span> ]";
+              relativePageStr = ' [ Actual elements/pages: <span style="' + sep_icons.text_span_style + '">' + relativePageNumarray[0] + '</span> ]';
             } else if ((relativePageNumarray[0] === 0 && relativePageNumarray[1]) === 0) {
               // 找不到的话……
               relativePageStr = ' [ <span style="' + sep_icons.text_span_style + '">Actual elements ends</span> ]';
             }
           }
         } else {
-          relativePageStr = "";
+          relativePageStr = '';
         }
 
-        return relativePageStr || "";
+        return relativePageStr || '';
       }
     }).catch(function (err) {
       console.log(err);
@@ -14838,7 +14840,7 @@
         if (!mFails) return href;
         var str;
 
-        if (typeof mFails === "string") {
+        if (typeof mFails === 'string') {
           str = mFails;
         } else {
           var array = [];
@@ -14847,8 +14849,8 @@
             var fx = mFails[i];
             if (!fx) continue;
 
-            if (typeof fx !== "string" || fx.indexOf("re;") === 0) {
-              var fxre = typeof fx === "string" ? toRE(fx.slice(3)) : fx;
+            if (typeof fx !== 'string' || fx.indexOf('re;') === 0) {
+              var fxre = typeof fx === 'string' ? toRE(fx.slice(3)) : fx;
               var mValue = href.match(fxre);
               if (!mValue) return href;
               array.push(mValue);
@@ -14857,7 +14859,7 @@
             }
           }
 
-          str = array.join("");
+          str = array.join('');
         }
 
         return str;
@@ -14867,8 +14869,8 @@
       var saType = typeof sa;
       var index;
 
-      if (saType == "string") {
-        if (sa[0] == "#") {
+      if (saType == 'string') {
+        if (sa[0] == '#') {
           _cplink = doc.location.href;
         }
 
@@ -15095,20 +15097,20 @@
         }
       }
     };
-    var TweenM = ["Linear", "Quad", "Cubic", "Quart", "Quint", "Sine", "Expo", "Circ", "Elastic", "Back", "Bounce"];
-    var TweenEase = ["easeIn", "easeOut", "easeInOut"];
+    var TweenM = ['Linear', 'Quad', 'Cubic', 'Quart', 'Quint', 'Sine', 'Expo', 'Circ', 'Elastic', 'Back', 'Bounce'];
+    var TweenEase = ['easeIn', 'easeOut', 'easeInOut'];
     /* jshint ignore:end */
     // ====================  functions  ==============================
 
     function handleLazyImgSrc(rule, doc) {
-      var imgAttrs = rule.split("|");
+      var imgAttrs = rule.split('|');
       imgAttrs.forEach(function (attr) {
         attr = attr.trim();
-        [].forEach.call(doc.querySelectorAll("img[" + attr + "]"), function (img) {
+        [].forEach.call(doc.querySelectorAll('img[' + attr + ']'), function (img) {
           var newSrc = img.getAttribute(attr);
 
           if (newSrc && newSrc != img.src) {
-            img.setAttribute("src", newSrc);
+            img.setAttribute('src', newSrc);
             img.removeAttribute(attr);
           }
         });
@@ -15117,7 +15119,7 @@
 
     function removeScripts(node, scriptFilter) {
       // 移除元素的 script
-      var scripts = getAllElements("css;script", node);
+      var scripts = getAllElements('css;script', node);
       var regFilter;
 
       if (scriptFilter) {
@@ -15131,7 +15133,7 @@
         var iremove = false;
 
         if (regFilter) {
-          if (scripts_x.hasOwnProperty("src")) {
+          if (scripts_x.hasOwnProperty('src')) {
             if (!regFilter.test(scripts_x.src)) {
               iremove = true;
             }
@@ -15155,19 +15157,19 @@
     function createDocumentByString(str) {
       // string转为DOM
       if (!str) {
-        logger.error("[Super-preloader]", "没有找到要转成DOM的字符串");
+        logger.error("[Super-preloader]", '没有找到要转成DOM的字符串');
         return;
       }
 
-      if (document.documentElement.nodeName != "HTML") {
-        return new DOMParser().parseFromString(str, "application/xhtml+xml");
+      if (document.documentElement.nodeName != 'HTML') {
+        return new DOMParser().parseFromString(str, 'application/xhtml+xml');
       }
 
       var doc;
 
       try {
         // firefox and chrome 30+，Opera 12 会报错
-        doc = new DOMParser().parseFromString(str, "text/html");
+        doc = new DOMParser().parseFromString(str, 'text/html');
       } catch (ex) {}
 
       if (doc) {
@@ -15175,13 +15177,13 @@
       }
 
       if (document.implementation.createHTMLDocument) {
-        doc = document.implementation.createHTMLDocument("superPreloader");
+        doc = document.implementation.createHTMLDocument('superPreloader');
       } else {
         try {
           doc = document.cloneNode(false);
           doc.appendChild(doc.importNode(document.documentElement, false));
-          doc.documentElement.appendChild(doc.createElement("head"));
-          doc.documentElement.appendChild(doc.createElement("body"));
+          doc.documentElement.appendChild(doc.createElement('head'));
+          doc.documentElement.appendChild(doc.createElement('body'));
         } catch (e) {}
       }
 
@@ -15212,12 +15214,12 @@
 
 
     function getFullHref(href) {
-      if (typeof href !== "string") href = href.getAttribute("href"); // if(href.search(/^https?:/)==0)return href;//http打头,不一定就是完整的href;
+      if (typeof href !== 'string') href = href.getAttribute('href'); // if(href.search(/^https?:/)==0)return href;//http打头,不一定就是完整的href;
 
       var a = getFullHref.a;
 
       if (!a) {
-        getFullHref.a = a = document.createElement("a");
+        getFullHref.a = a = document.createElement('a');
       }
 
       a.href = href;

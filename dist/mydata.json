@@ -1,8 +1,8 @@
 [
   {
     "name": "wnacg",
-    "url": "^https?://(www\\.)?wnacg\\.(org|net|com)/photos-view-id.*\\.html",
-    "pageElement": "//img[@id='picarea']",
+    "url": "^https?://(www\\.)?wnacg\\.(org|net|com)/(\\?ctl=photos.*|photos-view-id.*\\.html)",
+    "pageElement": "//span[@id='imgarea']",
     "exampleUrl": "http://www.wnacg.org/photos-index-aid-42394.html",
     "nextLink": "//a[text()='下一頁']",
     "useiframe": false,
