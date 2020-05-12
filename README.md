@@ -24,11 +24,6 @@
   - Waterfox 56.3 + Greasemonkey 4.9
   - Chrome 48 + Tampermonkey
 
-- Known issue:
-  - ~~Firefox < 62 + Tampermonkey is incompatible with the script < v6.9.3 because of incompatability between Tampermonkey and core-js@3 because https://github.com/Tampermonkey/tampermonkey/issues/834 . The solution is to bundle it with core-js@2.~~
-  - ~~Except GM4, all other userscript manger don't send `cookie` for `xhr` request. VM fixes this in PR: [https://github.com/violentmonkey/violentmonkey/pull/743](https://github.com/violentmonkey/violentmonkey/pull/743), which is not released yet. I currently add `document.cookie` manually to the header, which has some limitations. -- Dec 18th 2019~~
-  - Firefox + Tampermonkey won't send cookie with `GM_xmlhttpRequest`. Unless [this issue](https://github.com/Tampermonkey/tampermonkey/issues/786) is resolved, I can do nothing with special websites.  -Dec 31th 2019
-
 ## Introduction
 
 A gm script for auto loading paginated web pages. It will join pages together based on the rules.
@@ -49,38 +44,33 @@ I appreciate anyone who is interested in devoting their time to the development.
 
 1. Check the [Document](https://machsix.github.io/Super-preloader/) and learn the structure of the rule
 2. Modify file `dist/mydata.json` for simple json rules
-3. Modify file `src/index.js` for complex js rules
+3. Modify file `src/rules/jsSiteRule.js` for complex js rules
+
+### To modify document
+
+1. Modify content in `docs/`
 
 ### To improve the script
 
-0. Get familiar with `javascript`, `xpath/css selector` and `node js`
 1. Clone the whole repo and install modules by `npm install`
-1. Make your modifications
-1. Run `npm run test` to do a static check
-1. Run `npm run dev` to launch `webpack-dev-server` and install the script from [http://localhost:8081/Super_preloaderPlus_one_New_dev.user.js](http://localhost:8081/Super_preloaderPlus_one_New_dev.user.js).
-1. Test the script. You need to make sure functions like updating rules work and the script works on the following websites
-   - https://www.google.com Regular XHR fetch
-   - https://www.pcdvd.com.tw Website using non utf-8 charset
-   - https://idope.se/torrent-list/transformer/?p=3 Website using iframe
-1. Run `npm run publish:patch` to bump up the version
-1. Commit and submit pull request!
+1. Make your modifications with your favoriate IDE. You IDE should support eslint and prettier to ease your life.
+1. Run `npm run check` to do a static check with eslint and prettier
+1. Run `npm run test` to test the script on certain websites with puppeteer
+1. Run `npm run dev` to launch the dev server and install the script from [http://localhost:8081/Super_preloaderPlus_one_New.user.js](http://localhost:8081/Super_preloaderPlus_one_New_dev.user.js). Test it on the website your added
+1. **Only if all previous tests pass**, you can now run `npm run publish:patch` to bump up the version and build the script. The file `dist/Super_preloaderPlus_one_New.user.js` will be updated.
+1. Commit all the changes you make and submit a pull request.
 
-Note:
+### Note:
 
-1. You shouldn't commit changes of `package.json`, `package-lock.json`, and `.eslintrc.json`.
-2. I won't check the PR until travis ci test passes. You can simulate travis ci test locally by running `npm run:test` and `npm run docs:build`.
+1. You shouldn't commit changes of `package.json`, `package-lock.json`, and `.eslintrc.json` unless you have a good reason to do that.
+2. I won't check the PR until travis ci test passes. You can simulate travis ci test locally by running `npm run check` and `npm run test`.
 
 Check more at [Document](https://machsix.github.io/Super-preloader/)
 
-## Contributers
+## Known issues:
 
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore -->
-<table><tr><td align="center"><a href="https://github.com/machsix"><img src="https://avatars0.githubusercontent.com/u/28209092?v=4" width="100px;" alt="MachX"/><br /><sub><b>MachX</b></sub></a><br /><a href="https://github.com/machsix/Super-preloader/commits?author=machsix" title="Code">💻</a> <a href="#design-machsix" title="Design">🎨</a> <a href="#content-machsix" title="Content">🖋</a> <a href="#review-machsix" title="Reviewed Pull Requests">👀</a></td><td align="center"><a href="https://github.com/suchunchen"><img src="https://avatars3.githubusercontent.com/u/17309819?v=4" width="100px;" alt="suchunchen"/><br /><sub><b>suchunchen</b></sub></a><br /><a href="https://github.com/machsix/Super-preloader/commits?author=suchunchen" title="Code">💻</a> <a href="#content-suchunchen" title="Content">🖋</a></td><td align="center"><a href="http://wiki.mozilla.org/User:YFdyh000"><img src="https://avatars0.githubusercontent.com/u/1769875?v=4" width="100px;" alt="YFdyh000"/><br /><sub><b>YFdyh000</b></sub></a><br /><a href="https://github.com/machsix/Super-preloader/commits?author=yfdyh000" title="Code">💻</a> <a href="#design-yfdyh000" title="Design">🎨</a></td></tr></table>
-
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-
-<!--This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!-->
+- Firefox + Tampermonkey won't send cookie with `GM_xmlhttpRequest`. Unless [this issue](https://github.com/Tampermonkey/tampermonkey/issues/786) is resolved, I can do nothing with special websites. -Dec 31th 2019
+- Violentmonkey doesn't inject the scripts correctly on [https://nhentai.org](https://nhentai.org). Check [this issue](https://github.com/violentmonkey/violentmonkey/issues/991) The new release candidate v2.12.8 may fix the issuse.
 
 ## Donation
 
