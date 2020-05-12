@@ -1141,6 +1141,18 @@ export const jsSiteRule = [
       }
     },
     pageElement: 'id("middleContainer")'
+  },
+  {
+    name: 'javdb.com',
+    url: 'https?://javdb.com',
+    nextLink: "//li[a[contains(@class,'is-current')]]/following-sibling::li[1]/a",
+    pageElement: "//div[@class='grid columns']",
+    documentFilter: function (doc, _nextLink) {
+      const item = document.querySelector('.grid-item.column:nth-of-type(2)');
+      const width = item.offsetLeft || 168;
+      const grid = doc.querySelector('.grid.columns');
+      grid.setAttribute('style', `display: grid; grid-template-columns: repeat( auto-fit, ${width}px);justify-content: center;`);
+    }
   }
 ];
 
