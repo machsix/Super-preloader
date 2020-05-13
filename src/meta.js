@@ -1,4 +1,5 @@
 import compareVersions from 'compare-versions';
+import emoji from './utils/emoji';
 import pkg from '../package.json'; // this feature is provided by @rollup/plugin-json
 
 // Information of script
@@ -13,7 +14,7 @@ export const SCRIPT_INFO = {
   author: pkg.author,
   version: pkg.version,
   license: pkg.license,
-  changelog: 'working mode',
+  changelog: `${emoji('1F92A')} Add 2048`,
   greasyfork: 'https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new',
   updateTime: `${now.getFullYear()}/${now.getMonth() + 1}/${now.getDate()}`,
   homepageURL: 'https://github.com/machsix/Super-preloader',

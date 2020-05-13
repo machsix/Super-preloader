@@ -1,6 +1,57 @@
 import {getAllElements, getAllElementsByXpath, getElementByXpath} from '../utils/domSelector';
+import {createDOM} from '../utils/domTools';
 // General rules for CMS like phpwind
 export const jsGeneralRule = [
+  {
+    name: '2048 image mode',
+    url: 'https?://[^/]*/2048/',
+    pageElement: '//ul[@id="waterfall"]/li',
+    nextLink: '//div[@class="pages"]/b/following-sibling::a'
+  },
+  {
+    name: '2048 text mode',
+    url: 'https?://[^/]*/2048/',
+    pageElement: '//table[@id="ajaxtable"]/tbody[2]/tr[contains(@class,"tr3")]',
+    nextLink: '//div[@class="pages"]/b/following-sibling::a',
+    autopager: {
+      relatedObj: true,
+      documentFilter: 'startFilter',
+      startFilter: function startFilter(doc) {
+        try {
+          doc.querySelector('tr[onmouseover]').remove();
+        } catch (_err) {}
+        var trs = doc.querySelectorAll('#ajaxtable .tr3');
+
+        if (trs.length > 0) {
+          for (var i = 0; i < trs.length; i++) {
+            const thisTrs = trs[i];
+            const postLink = thisTrs.querySelector('td:nth-of-type(2) a').href;
+            if (postLink) {
+              fetch(postLink)
+                .then((r) => r.text())
+                .then((html) => {
+                  const doc = new DOMParser().parseFromString(html, 'text/html');
+                  const imgNode = doc.querySelector('td.r_one img');
+                  if (imgNode) {
+                    thisTrs.querySelector('td:nth-of-type(1)').innerHTML = '';
+                    thisTrs.querySelector('td:nth-of-type(1)').appendChild(
+                      createDOM('IMG', {
+                        attr: {
+                          src: imgNode.src,
+                          width: '840',
+                          title: 'Powered by Super-Preloader Plus',
+                          onload: 'if(this.height>"840")this.width=this.width*840/this.height;'
+                        }
+                      })
+                    );
+                  }
+                });
+            }
+          }
+        }
+      }
+    }
+  },
   {
     name: 'Discuz 论坛 - 搜索',
     url: '^https?://bbs\\.[a-z]+\\.cn/search\\.php\\?mod=forum',
