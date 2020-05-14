@@ -1559,20 +1559,6 @@
     "nextLink": "//a[@class=\"now\"]/following-sibling::a[1][not(@class=\"last\") ]"
   },
   {
-    "name": "Flickr photos",
-    "url": "^https?://www\\.flickr\\.com/photos/[^/]+/favorites(?:[/?#]|$)",
-    "pageElement": "//div[@role=\"main\"]/div[contains(@class,\"photo-list\")]",
-    "exampleUrl": "https://www.flickr.com/photos/129049306@N04/favorites/page2",
-    "nextLink": "//div[contains(@class,\"pagination\")]/a[@rel=\"next\"]",
-    "useiframe": true,
-    "autopager": {
-      "lazyImgSrc": "data-lazyload-src|data-ks-lazyload",
-      "iloaded": true,
-      "newIframe": true,
-      "itimeout": 1000
-    }
-  },
-  {
     "name": "照片处理网",
     "url": "^https?://www\\.photops\\.com/Article/.+",
     "pageElement": "//body/table[last()-2]",
