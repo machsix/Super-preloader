@@ -79,7 +79,8 @@ async function main() {
       timeout: 30 * 1000
     });
     console.log('FloatWindow: \u2714');
-  } catch (_err) {
+  } catch (err) {
+    console.log('Error', err.name, err.message);
     throw new Error('FloatWindow: \u274c');
   }
 
@@ -92,12 +93,15 @@ async function main() {
       timeout: 30 * 1000
     });
     console.log('Seperator: \u2714');
-  } catch (_err) {
+  } catch (err) {
+    console.log('Error', err.name, err.message);
     throw new Error('Seperator: \u274c');
   }
 
   // check CSP
-  await targetPage.goto('https://rarbg.to/torrents.php');
+  await targetPage.goto('https://rarbg.to/torrents.php', {
+    waitUntil: 'networkidle2'
+  });
   await targetPage.evaluate((_) => {
     window.scrollTo(0, document.body.scrollHeight + 20);
   });
@@ -106,7 +110,8 @@ async function main() {
       timeout: 30 * 1000
     });
     console.log('CSP: \u2714');
-  } catch (_err) {
+  } catch (err) {
+    console.log('Error', err.name, err.message);
     throw new Error('CSP: \u274c');
   }
 
@@ -120,7 +125,8 @@ async function main() {
       timeout: 30 * 1000
     });
     console.log('Iframe: \u2714');
-  } catch (_err) {
+  } catch (err) {
+    console.log('Error', err.name, err.message);
     throw new Error('Iframe: \u274c');
   }
   await browser.close();
