@@ -1748,6 +1748,7 @@ import notice from './utils/notice';
                 border-top:1px solid #E30005!important;\
                 background-color:#F5F5F5!important;\
                 float:none!important;\
+                display:none!important;\
             ';
             div.title = '预读的内容';
             div2.style.cssText =
@@ -1755,8 +1756,8 @@ import notice from './utils/notice';
                 text-align:left!important;\
                 color:red!important;\
                 font-size:13px!important;\
-                display:block!important;\
                 float:none!important;\
+                display:block!important;\
                 position:static!important;\
             ';
             hr.style.cssText = '\
@@ -1807,6 +1808,7 @@ import notice from './utils/notice';
             );
             if (SSS.viewcontent) {
               const container = cContainer();
+              container.div.style.display = 'block';
               container.div2.innerHTML = 'iframe全预读: ' + '<br />' + '预读网址: ' + '<b>' + nextlink + '</b>';
               iframe.height = '300px';
               container.div.appendChild(iframe);
@@ -1837,6 +1839,7 @@ import notice from './utils/notice';
               var isrc;
               for (i = isl - 1; i >= 0; i--) {
                 isrc = images[i].getAttribute('src');
+
                 if (!isrc || existSRC[isrc]) {
                   continue;
                 } else {
@@ -1846,14 +1849,17 @@ import notice from './utils/notice';
                 img.src = isrc;
                 iarray.push(img);
               }
+              var container = cContainer();
+              var div = container.div;
+              i = iarray.length;
+              container.div2.innerHTML = '预读取图片张数: ' + '<b>' + i + '</b>' + '<br />' + '预读网址: ' + '<b>' + nextlink + '</b>';
+              logger.info('预读取图片张数: ' + i + '预读网址: ' + nextlink);
+
+              for (i -= 1; i >= 0; i--) {
+                div.appendChild(iarray[i]);
+              }
               if (SSS.viewcontent) {
-                const containter = cContainer();
-                const div = containter.div;
-                i = iarray.length;
-                containter.div2.innerHTML = '预读取图片张数: ' + '<b>' + i + '</b>' + '<br />' + '预读网址: ' + '<b>' + nextlink + '</b>';
-                for (i -= 1; i >= 0; i--) {
-                  div.appendChild(iarray[i]);
-                }
+                container.div.style.display = 'block';
               }
               floatWO.updateColor('prefetcher');
               floatWO.loadedIcon('show');
