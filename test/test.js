@@ -1,5 +1,6 @@
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-process-exit */
+/* eslint-disable no-process-env */
 const {platform} = require('process');
 const {promisify} = require('util');
 // node --experimental-repl-await
@@ -31,42 +32,58 @@ async function main() {
     file: path.join(__dirname, 'violentmonkey-v2.12.7.zip'),
     folder: path.join(__dirname, 'violentmonkey')
   };
-  await download(violentmonkey.url, violentmonkey.file);
-  console.log('Download VM');
-  await extract(violentmonkey.file, {dir: violentmonkey.folder});
-  console.log('Unzip VM');
-  var browser = await puppeteer.launch({
-    headless: false, //NOTE Extensions in Chrome / Chromium currently only work in non-headless mode.
-    timeout: 60 * 1000,
-    args: [`--disable-extensions-except=${violentmonkey.folder}`, '--no-sandbox', `--load-extension=${violentmonkey.folder}`]
-  });
-  console.log('Launch Chrome');
-
-  // open script page
-  let pages = await browser.pages(); // get list of tabs
-  let targetPage = pages[0];
   const scriptPath = path.resolve(__dirname, '../dist/Super_preloaderPlus_one_New.user.js');
   let link = `file://${scriptPath}`;
   if (platform.includes('win')) {
     link = `file:///${scriptPath}`.replace(/\\/g, '/');
   }
-  try {
-    await targetPage.goto(link);
-  } catch (error) {}
 
-  pages = await browser.pages();
-  while (pages.length === 1) {
-    await waitSeconds(5);
-    pages = await browser.pages();
-  }
-  targetPage = pages[1];
-  await waitSeconds(3);
-  await targetPage.click('body > div > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > button:nth-child(2)');
-  await targetPage.waitFor(() => document.querySelector('.page-confirm .ellipsis+div').innerHTML.includes('Script installed'), {
-    timeout: 10 * 1000
+  await download(violentmonkey.url, violentmonkey.file);
+  console.log('Download VM \u2714');
+
+  await extract(violentmonkey.file, {dir: violentmonkey.folder});
+  console.log('Unzip VM \u2714');
+
+  // launch browser
+  const browser = await puppeteer.launch({
+    headless: false, //NOTE Extensions in Chrome / Chromium currently only work in non-headless mode.
+    timeout: 60 * 1000,
+    args: [`--disable-extensions-except=${violentmonkey.folder}`, '--no-sandbox', `--load-extension=${violentmonkey.folder}`]
   });
-  await targetPage.click('body > div > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > button:nth-child(3)');
-  console.log('Script installation: \u2714');
+  console.log('Launch Chrome \u2714');
+
+  let pages, targetPage;
+  for (let itry = 1; itry <= 5; itry++) {
+    // open script page
+    pages = await browser.pages(); // get list of tabs
+    targetPage = pages[0];
+    while (pages.length === 1) {
+      try {
+        await targetPage.goto(link);
+      } catch (error) {}
+      await waitSeconds(5);
+      pages = await browser.pages();
+    }
+
+    // handle installation
+    targetPage = pages[1];
+    await waitSeconds(3);
+    await targetPage.click('body > div > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > button:nth-child(2)');
+    try {
+      await targetPage.waitFor(() => document.querySelector('.page-confirm .ellipsis+div').innerHTML.includes('Script installed'), {
+        timeout: 5 * 1000
+      });
+    } catch (err) {
+      // it may fail due to dependency
+      console.log('Error', err.name, err.message);
+      console.log(`Script installation ${itry}/5: X`);
+      await targetPage.close();
+      continue;
+    }
+    await targetPage.click('body > div > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > button:nth-child(3)');
+    console.log(`Script installation ${itry}/5: \u2714`);
+    break;
+  }
 
   // open website
   pages = await browser.pages();
@@ -99,20 +116,24 @@ async function main() {
   }
 
   // check CSP
-  await targetPage.goto('https://rarbg.to/torrents.php', {
-    waitUntil: 'networkidle2'
-  });
-  await targetPage.evaluate((_) => {
-    window.scrollTo(0, document.body.scrollHeight + 20);
-  });
-  try {
-    await targetPage.waitFor('#sp-separator-2', {
-      timeout: 30 * 1000
+  if (process.env.TRAVIS !== 'true') {
+    await targetPage.goto('https://rarbg.to/torrents.php', {
+      waitUntil: 'networkidle2'
     });
-    console.log('CSP: \u2714');
-  } catch (err) {
-    console.log('Error', err.name, err.message);
-    throw new Error('CSP: \u274c');
+    await targetPage.evaluate((_) => {
+      window.scrollTo(0, document.body.scrollHeight + 20);
+    });
+    try {
+      await targetPage.waitFor('#sp-separator-2', {
+        timeout: 30 * 1000
+      });
+      console.log('CSP: \u2714');
+    } catch (err) {
+      console.log('Error', err.name, err.message);
+      throw new Error('CSP: \u274c');
+    }
+  } else {
+    console.log('SKIP CSP test for travis');
   }
 
   // check iframe
