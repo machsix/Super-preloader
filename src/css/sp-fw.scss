@@ -50,21 +50,21 @@ $fieldset-margin: 2px;
   cursor: pointer !important;
 }
 
-#sp-fw-container input[type="number"] {
+#sp-fw-container input[type='number'] {
   width: $input-number-width !important;
   text-align: left !important;
   margin: 0 $input-margin !important;
 }
 
-#sp-fw-container input[type="number"]:hover::-webkit-inner-spin-button {
+#sp-fw-container input[type='number']:hover::-webkit-inner-spin-button {
   height: 60px;
 }
 
-#sp-fw-container input[type="checkbox"] {
+#sp-fw-container input[type='checkbox'] {
   position: static !important;
 }
 
-#sp-fw-container input[type="button"] {
+#sp-fw-container input[type='button'] {
   width: auto !important;
   height: auto !important;
 }
@@ -193,4 +193,9 @@ $fieldset-margin: 2px;
 #sp-fw-container #sp-fw-savebutton {
   position: absolute !important;
   right: $fieldset-margin !important;
+}
+
+#sp-fw-container label {
+  cursor: pointer;
+  user-select: none;
 }
