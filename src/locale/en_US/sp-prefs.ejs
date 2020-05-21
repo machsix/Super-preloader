@@ -10,20 +10,20 @@
   <li>Number of Rules: <b><%= locals.prefs.numOfRule %></b> Next update: <b><%= locals.nextUpdateDate %></b> <button
       id="sp-prefs-updaterule">Update rules</button></li>
   <li>
-    <input type="checkbox" id="sp-prefs-debug" /> Debug mode
-    <input class="inputShift" type="checkbox" tile="English/Chinese UI" id="sp-prefs-ChineseUI" /> Chinese UI
-    <input class="inputShift" type="checkbox" id="sp-prefs-floatWindow" /> Float window
+    <label for="sp-prefs-debug"><input type="checkbox" id="sp-prefs-debug" /> Debug mode</label>
+    <label for="sp-prefs-ChineseUI"><input class="inputShift" type="checkbox" tile="English/Chinese UI" id="sp-prefs-ChineseUI" /> Chinese UI</label>
+    <label for="sp-prefs-floatWindow"><input class="inputShift" type="checkbox" id="sp-prefs-floatWindow" /> Float window</label>
   </li>
-  <li><input type="checkbox" id="sp-prefs-enableHistory" /> Add next page to history</li>
+  <li><label for="sp-prefs-enableHistory"><input type="checkbox" id="sp-prefs-enableHistory" /> Add next page to history</label></li>
   <li>
-    <input type="checkbox" id="sp-prefs-dblclick_pause" /> Double click to stop preload (Default: Ctrl + Long Left)
+    <label for="sp-prefs-dblclick_pause"><input type="checkbox" id="sp-prefs-dblclick_pause" /> Double click to stop preload (Default: Ctrl + Long Left)</label>
   </li>
-  <li><input type="checkbox" id="sp-prefs-SITEINFO_D-useiframe" /> Enable iframe mode globally</li>
-  <li><input type="checkbox" title="Enable autopagger, otherwise only prefetcher is enabled"
-      id="sp-prefs-SITEINFO_D-a_enable" checked /> Enable autopagger globally</li>
-  <li><input type="checkbox" id="sp-prefs-arrowKeyPage" /> Turn to the next page with ← →</li>
-  <li><input type="checkbox" id="sp-prefs-SITEINFO_D-a_force_enable" /> Mandatorily join pages if not covered by the
-    rules</li>
+  <li><label for="sp-prefs-SITEINFO_D-useiframe"><input type="checkbox" id="sp-prefs-SITEINFO_D-useiframe" /> Enable iframe mode globally</label></li>
+  <li><label for="sp-prefs-SITEINFO_D-a_enable"><input type="checkbox" title="Enable autopagger, otherwise only prefetcher is enabled"
+      id="sp-prefs-SITEINFO_D-a_enable" checked /> Enable autopagger globally</label></li>
+  <li><label for="sp-prefs-arrowKeyPage"><input type="checkbox" id="sp-prefs-arrowKeyPage" /> Turn to the next page with ← →</label></li>
+  <li><label for="sp-prefs-SITEINFO_D-a_force_enable"><input type="checkbox" id="sp-prefs-SITEINFO_D-a_force_enable" /> Mandatorily join pages if not covered by the
+    rules</label></li>
   <li>Custom excludes:
     <div><textarea id="sp-prefs-excludes"
         placeholder="Customized excludes, support regex\nEx: http://*.douban.com/*"></textarea></div>
