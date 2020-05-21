@@ -36,5 +36,6 @@ git checkout gh-pages -- wedata.json || true
 git checkout gh-pages -- wedata_detail.json || true
 cp wedata.json          ${DOCS_DIR}/wedata.json || true
 cp wedata_detail.json   ${DOCS_DIR}/wedata_detail.json || true
+cp dist/Super_preloaderPlus_one_New.user.js ${DOCS_DIR}/ || true
 curl http://wedata.net/databases/AutoPagerize/items_all.json -X GET -H 'Content-Type: application/json'  -o ${DOCS_DIR}/wedata.json
 curl http://wedata.net/databases/AutoPagerize.json -X GET -H 'Content-Type: application/json' -o ${DOCS_DIR}/wedata_detail.json
