@@ -1,3 +1,3 @@
 [build]
-  command = "sed -i \"s|base: '.*'|base: '/'|\" docs/.vuepress/config.js && npm run docs:build && cp dist/*.json docs/.vuepress/dist/"
+  command = "sed -i \"s|base: '.*'|base: '/'|\" docs/.vuepress/config.js && npm run build && npm run docs:build && cp dist/*.{json,js} docs/.vuepress/dist/"
   publish = "docs/.vuepress/dist"
