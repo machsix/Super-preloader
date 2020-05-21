@@ -82,3 +82,11 @@
 #sp-prefs-setup button:disabled {
   color: gray;
 }
+#sp-prefs-setup label {
+  cursor: pointer;
+  user-select: none;
+}
+
+#sp-prefs-setup label input[type='checkbox'] {
+  vertical-align: middle;
+}
