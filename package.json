@@ -55,7 +55,7 @@
     "@rollup/plugin-babel": "5.0.2",
     "@rollup/plugin-commonjs": "11.1.0",
     "@rollup/plugin-json": "4.0.3",
-    "@rollup/plugin-node-resolve": "7.1.3",
+    "@rollup/plugin-node-resolve": "8.0.0",
     "@sinonjs/text-encoding": "0.7.1",
     "babel-plugin-lodash": "3.3.4",
     "babel-plugin-wildcard": "6.0.0",
