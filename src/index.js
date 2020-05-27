@@ -390,6 +390,9 @@ import notice from './utils/notice';
           prefs.excludes = $('excludes').value;
           prefs.arrowKeyPage = !!$('arrowKeyPage').checked;
           prefs.floatWindow = !!$('floatWindow').checked;
+          prefs.disableBuiltinRules = !!$('disableBuiltinRules').checked;
+          prefs.disableBuiltinSubscriptionRules = !!$('disableBuiltinSubscriptionRules').checked;
+          autoMatch.keyMatch = !$('autoMatch.keyMatch').checked;
 
           SITEINFO_D.useiframe = !!$('SITEINFO_D-useiframe').checked;
           SITEINFO_D.autopager.enable = !!$('SITEINFO_D-a_enable').checked;
@@ -446,6 +449,9 @@ import notice from './utils/notice';
         $('SITEINFO_D-a_force_enable').checked = SITEINFO_D.autopager.force_enable;
         $('excludes').value = prefs.excludes;
         $('custom_siteinfo').value = prefs.custom_siteinfo;
+        $('disableBuiltinRules').checked = prefs.disableBuiltinRules;
+        $('disableBuiltinSubscriptionRules').checked = prefs.disableBuiltinSubscriptionRules;
+        $('autoMatch.keyMatch').checked = !autoMatch.keyMatch;
       };
 
       // main functions
