@@ -42,7 +42,9 @@ const factorySettings = {
     dblclick_pause: false,
     factoryCheck: true,
     disappearDelay: -1, //暂停翻页状态栏disappearDelay ms后消失, -1为不消失
-    numOfRule: 4308
+    numOfRule: 4308,
+    disableBuiltinRules: false, //禁用内建打包在代码里的规则
+    disableBuiltinSubscriptionRules: false //禁用内建订阅远程的规则
   },
   SITEINFO_D: {
     enable: true, // 启用
@@ -181,26 +183,30 @@ export async function loadSettings() {
 
   // check the consistency of settings and merge prefs
   const postLoading = []; // async function to run after loading settings
-  if (verDiff !== 0 || settings.prefs.factoryCheck !== false) {
-    postLoading.push(jsonRuleLoader.loadRule(true));
+  if (!settings.prefs.disableBuiltinSubscriptionRules) {
+    if (verDiff !== 0 || settings.prefs.factoryCheck !== false) {
+      postLoading.push(jsonRuleLoader.loadRule(true));
 
-    logger.info(`[UpdateCheck] version is updated ${settings.version} => ${scriptInfo.version}`);
-    settings.version = scriptInfo.version;
-    settings.autoMatch.useiframe = settings.SITEINFO_D.useiframe || false;
-    postLoading.push(GM.setValue('version', settings.version));
+      logger.info(`[UpdateCheck] version is updated ${settings.version} => ${scriptInfo.version}`);
+      settings.version = scriptInfo.version;
+      settings.autoMatch.useiframe = settings.SITEINFO_D.useiframe || false;
+      postLoading.push(GM.setValue('version', settings.version));
 
-    const hasDifferency = mergeProperty(settings, factorySettings);
-    settings.prefs.factoryCheck = false;
-    if (hasDifferency) {
-      logger.info('[UpdateCheck] settings are updated');
-      Object.keys(settings).forEach((key) => {
-        if (key !== 'version') {
-          postLoading.push(GM.setValue(key, settings[key]));
-        }
-      });
+      const hasDifferency = mergeProperty(settings, factorySettings);
+      settings.prefs.factoryCheck = false;
+      if (hasDifferency) {
+        logger.info('[UpdateCheck] settings are updated');
+        Object.keys(settings).forEach((key) => {
+          if (key !== 'version') {
+            postLoading.push(GM.setValue(key, settings[key]));
+          }
+        });
+      }
+    } else {
+      postLoading.push(jsonRuleLoader.loadRule());
     }
   } else {
-    postLoading.push(jsonRuleLoader.loadRule());
+    postLoading.push(Promise.resolve([])); //insert an empty jsonRule
   }
 
   // set global variables based on prefs

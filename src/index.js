@@ -416,7 +416,12 @@ import notice from './utils/notice';
           });
         });
 
+        if (prefs.disableBuiltinSubscriptionRules) {
+          $('updaterule').setAttribute('disabled', '');
+        }
+
         on($('updaterule'), 'click', function () {
+          if (prefs.disableBuiltinSubscriptionRules) return;
           $('setup').innerHTML = template.spinner.update;
           addStyle(spcss['sp-prefs-spinner']);
           jsonRuleLoader.updateRule(true).then(() => {
@@ -1892,7 +1897,9 @@ import notice from './utils/notice';
         logger.debug(`url为:${url}的页面,JS加载成功`);
 
         // 第一阶段..分析高级模式..
-        SSRules = SSRules.concat(jsSiteRule, jsonRule, jsGeneralRule);
+        if (!prefs.disableBuiltinSubscriptionRules) SSRules = SSRules.concat(jsonRule);
+        if (!prefs.disableBuiltinRules) SSRules = SSRules.concat(jsSiteRule, jsGeneralRule);
+
         if (!prefs.numOfRule || prefs.numOfRule != SSRules.length) {
           prefs.numOfRule = SSRules.length;
           GM.setValue('prefs', prefs);
