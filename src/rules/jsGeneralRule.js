@@ -290,6 +290,10 @@ export const jsGeneralRule = [
             return null;
           }
         }
+        if ((document.documentElement.textContent || document.documentElement.innerText).indexOf('comment-form')) {
+          // https://www.vlchelp.com/how-to-disable-building-font-cache/
+          return null;
+        }
 
         const postXpath = ["//button[@id='submit']", "//div[@class='single-post-box']", "//div[@class='single_post']"];
         for (i = 0; i < postXpath.length; i++) {
