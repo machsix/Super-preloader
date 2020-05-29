@@ -1,5 +1,20 @@
 [
 {
+  "resource_url": "http://wedata.net/items/85358",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_at": "2020-05-29T10:31:25+09:00",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//div[@class=\"entry_detail_body1\"]",
+    "exampleUrl": "https://www.tv-tokyo.co.jp/plus/drama/entry/2020/021067.html",
+    "nextLink": "//div[@class=\"entry_detail_next\"]/a",
+    "url": "^https?://www\\.tv-tokyo\\.co\\.jp/plus/"
+  },
+  "updated_at": "2020-05-29T10:31:25+09:00",
+  "name": "テレ東プラス (記事)",
+  "created_by": "brib2"
+},
+{
   "resource_url": "http://wedata.net/items/85357",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_at": "2020-05-29T09:49:17+09:00",
@@ -19477,17 +19492,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/76647",
-  "name": "テレビ東京・あにてれ アニメマシテ",
-  "created_by": "t_f_m",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2016-04-13T12:28:52+09:00",
+  "created_at": "2014-12-11T09:59:11+09:00",
   "data": {
-    "exampleUrl": "http://www.tv-tokyo.co.jp/anime/animemashite/backnumber/ http://www.tv-tokyo.co.jp/douga/txod/",
-    "url": "^http://www\\.tv-tokyo\\.co\\.jp/",
-    "pageElement": "id('content_r')/div[contains(@class,'entry')]|id('txdouga_resultList')//li",
-    "nextLink": "id('epinav')/span/following-sibling::a|//a[@rel='next']"
+    "pageElement": "id('txdouga_resultList')//li",
+    "exampleUrl": "http://www.tv-tokyo.co.jp/douga/txod/",
+    "url": "^https?://www\\.tv-tokyo\\.co\\.jp/douga/txod/",
+    "nextLink": "//a[@rel='next']"
   },
-  "created_at": "2014-12-11T09:59:11+09:00"
+  "updated_at": "2020-05-29T10:02:33+09:00",
+  "name": "テレビ東京オンデマンド",
+  "created_by": "t_f_m"
 },
 {
   "resource_url": "http://wedata.net/items/76508",
@@ -22201,17 +22216,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/74928",
-  "name": "Riverfront Times, SF Weekly - Article",
-  "created_by": "Tanookirby",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2016-05-08T04:05:22+09:00",
+  "created_at": "2014-06-28T09:52:47+09:00",
   "data": {
-    "exampleUrl": "http://www.riverfronttimes.com/stlouis/ArticleArchives?section=2348800 http://www.sfweekly.com/sanfrancisco/gag-order-sex-workers-allege-mistreatment-at-kinkcom/Content?oid=2188021 http://www.sfweekly.com/sanfrancisco/ArticleArchives?categoryType=Blog",
-    "url": "^http://.+\\.(riverfronttimes|sfweekly)\\.com/",
-    "pageElement": "//div[@class='archiveListing clearfix']|id('searchResults')/*[h4]|//div[contains(@id,'storyBody')]/*[not(@class='pageNumber' or @class='content_insert' or @class='storyPagination')]",
-    "nextLink": "//a[@class='next']"
+    "pageElement": "//div[@class=\"storyPagination\"]/preceding-sibling::*",
+    "exampleUrl": "https://archives.sfweekly.com/sanfrancisco/gag-order-sex-workers-allege-mistreatment-at-kinkcom/Content?oid=2188021",
+    "url": "^https://.+\\.(riverfronttimes|sfweekly)\\.com/",
+    "nextLink": "//div[@class=\"storyPagination\"]//a[@class=\"next\"]"
   },
-  "created_at": "2014-06-28T09:52:47+09:00"
+  "updated_at": "2020-05-29T13:46:53+09:00",
+  "name": "Riverfront Times, SF Weekly - Article",
+  "created_by": "Tanookirby"
 },
 {
   "resource_url": "http://wedata.net/items/74927",
@@ -22229,158 +22244,115 @@
 },
 {
   "resource_url": "http://wedata.net/items/74925",
-  "name": "KAI-YOU.net",
-  "created_by": "taizooo",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-05-21T11:28:44+09:00",
+  "created_at": "2014-06-27T14:01:04+09:00",
   "data": {
-    "exampleUrl": "http://kai-you.net/article/4811\r\nhttp://kai-you.net/article/4811/page/2\r\nhttp://kai-you.net/recent",
-    "url": "^http://kai-you\\.net/",
-    "pageElement": "//div[@class=\"m-article-text-main is-normal\"]/node()|//div[@class=\"m-recent-list\"]/*",
-    "nextLink": "//link[@rel=\"next\"]"
+    "pageElement": "//div[@class='m-article-text-main is-normal']/node()|//div[@class='js-ajax-load-contents']/*",
+    "exampleUrl": "https://kai-you.net/article/4811\r\nhttps://kai-you.net/article/4811/page/2\r\nhttps://kai-you.net/recent",
+    "url": "^https://kai-you\\.net/",
+    "nextLink": "//link[@rel='next']"
   },
-  "created_at": "2014-06-27T14:01:04+09:00"
+  "updated_at": "2020-05-29T11:41:16+09:00",
+  "name": "KAI-YOU.net",
+  "created_by": "taizooo"
 },
 {
   "resource_url": "http://wedata.net/items/74923",
-  "name": "PMC Brands",
-  "created_by": "Tanookirby",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-06-23T04:55:57+09:00",
+  "created_at": "2014-06-26T02:58:29+09:00",
   "data": {
+    "pageElement": "//div[starts-with(@class,'row content-section')][div//article]|//div[contains(@class,'a-archive-grid__story')]|//div[@class='l-river__content']/ul[@class='l-list']/li|//section[@class='pmc-u-margin-tb-1']//article|//div[@class='story_list_blk']/*",
     "exampleUrl": "https://bgr.com/\r\nhttps://www.deadline.com/ https://deadline.com/vcategory/the-contenders-emmys/page/2/\r\nhttps://www.bollywoodlife.com/\r\nhttps://footwearnews.com/",
     "url": "^https?://.*(?:bgr|bollywoodlife|deadline|footwearnews)\\.com/",
-    "pageElement": "//div[starts-with(@class,'row content-section')][div//article]|//div[@class='story_list_blk' or contains(@class,'a-archive-grid__story')]|//div[@class='l-river__content']/ul[@class='l-list']/li|//section[@class='pmc-u-margin-tb-1']//article",
-    "nextLink": "//a[@class='next page-numbers']|//link[@rel='next']"
+    "nextLink": "//a[@class='next page-numbers' or @class='next']|//link[@rel='next']"
   },
-  "created_at": "2014-06-26T02:58:29+09:00"
-},
-{
-  "resource_url": "http://wedata.net/items/74918",
-  "name": "Diply",
-  "created_by": "Tanookirby",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-05-21T08:56:55+09:00",
-  "data": {
-    "exampleUrl": "http://diply.com/princess-etiquette-rules?publisher=different-solutions",
-    "url": "^https?://diply\\.com/",
-    "pageElement": "//article[@class='article-body']",
-    "nextLink": "id('feature-article-next-btn')"
-  },
-  "created_at": "2014-06-24T09:36:43+09:00"
-},
-{
-  "resource_url": "http://wedata.net/items/74913",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "data": {
-    "exampleUrl": "http://www.xinhuaxia.jp/social/37841",
-    "pageElement": "id(\"main_contents\")//div[@class=\"news_body\"]",
-    "nextLink": "//div[@class=\"pagination\"]/span/following-sibling::a",
-    "url": "^http://www\\.xinhuaxia\\.jp/",
-    "insertBefore": ""
-  },
-  "created_by": "jigendaddy_be",
-  "name": "新華ニュース",
-  "created_at": "2014-06-21T21:00:48+09:00",
-  "updated_at": "2014-06-21T21:00:48+09:00"
+  "updated_at": "2020-05-29T11:33:42+09:00",
+  "name": "PMC Brands",
+  "created_by": "Tanookirby"
 },
 {
   "resource_url": "http://wedata.net/items/74912",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "data": {
-    "exampleUrl": "http://www.crunchyroll.com/forumtopic-852431/crunchyroll-is-now-on-chromecast http://www.crunchyroll.com/forumcategory-391016/movies-and-tv-shows",
-    "pageElement": "id('template_body')//tr[td]",
-    "nextLink": "//a[@class=\"paginator-lite\" and @title=\"Next\"]",
-    "url": "^http://www\\.crunchyroll\\.com/forum(?:topic|category)-"
-  },
-  "created_by": "gyve",
-  "name": "Crunchyroll Forums",
   "created_at": "2014-06-21T10:41:12+09:00",
-  "updated_at": "2014-07-19T04:10:59+09:00"
-},
-{
-  "resource_url": "http://wedata.net/items/74911",
-  "name": "ドロップブックス",
-  "created_by": "jack_1888",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-05-21T20:04:52+09:00",
   "data": {
-    "exampleUrl": "http://dropbooks.tv/ http://dropbooks.tv/search/index/word:クリムゾン",
-    "url": "^https?://dropbooks\\.tv/",
-    "pageElement": "id('main2col')/div[@class='content_list']/div[@class='list']",
-    "nextLink": "id('main2col')/div[@class='content' or @class='content_mb_none']/div[@class='navigationbox']/ul[@class='morelink']/li[@class='next']/a"
+    "pageElement": "id('template_body')//tr[td]",
+    "exampleUrl": "https://www.crunchyroll.com/forumtopic-852431/crunchyroll-is-now-on-chromecast https://www.crunchyroll.com/forumcategory-391016/movies-and-tv-shows",
+    "url": "^https://(www\\.)?crunchyroll\\.com/forum(?:topic|category)-",
+    "nextLink": "//a[@class='paginator-lite' and @title='Next']"
   },
-  "created_at": "2014-06-21T09:31:04+09:00"
+  "updated_at": "2020-05-29T11:13:54+09:00",
+  "name": "Crunchyroll Forums",
+  "created_by": "gyve"
 },
 {
   "resource_url": "http://wedata.net/items/74910",
-  "name": "いいなまえネット",
-  "created_by": "mori",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2016-05-07T04:44:52+09:00",
+  "created_at": "2014-06-20T06:06:22+09:00",
   "data": {
-    "exampleUrl": "http://www.iinamae.net/beboard/",
-    "url": "^http://www\\.iinamae\\.net/",
     "pageElement": "//div[@class='frame2']",
+    "exampleUrl": "https://www.iinamae.net/beboard/",
+    "url": "^https://(www\\.)?iinamae\\.net/",
     "nextLink": "//a[contains(.,'＞')]"
   },
-  "created_at": "2014-06-20T06:06:22+09:00"
+  "updated_at": "2020-05-29T10:52:13+09:00",
+  "name": "いいなまえネット",
+  "created_by": "mori"
 },
 {
   "resource_url": "http://wedata.net/items/74909",
-  "name": "エコーニュース",
-  "created_by": "terepandasan",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2016-05-07T04:19:03+09:00",
+  "created_at": "2014-06-19T18:18:21+09:00",
   "data": {
-    "exampleUrl": "http://echo-news.net/japan/nsa-sigint-in-fukushima-disaster-reported-fuels-uncovered-in-unit-2",
-    "url": "^http://echo-news\\.net/",
-    "pageElement": "id('single_wrap')",
+    "pageElement": "id('single_wrap')|//div[@class='top_article_black']",
+    "exampleUrl": "http://echo-news.net/japan/nsa-sigint-in-fukushima-disaster-reported-fuels-uncovered-in-unit-2 https://echo-news.net/foreign-news",
+    "url": "^https://echo-news\\.net/",
     "nextLink": "//a[@class='nextpostslink']"
   },
-  "created_at": "2014-06-19T18:18:21+09:00"
+  "updated_at": "2020-05-29T10:47:41+09:00",
+  "name": "エコーニュース",
+  "created_by": "terepandasan"
 },
 {
   "resource_url": "http://wedata.net/items/74907",
-  "name": "Archive Of Our Own",
-  "created_by": "Ben Goldberg",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-05-21T08:44:27+09:00",
+  "created_at": "2014-06-19T08:09:26+09:00",
   "data": {
-    "exampleUrl": "http://archiveofourown.org/works/1377508/chapters/3548546",
-    "url": "^https?://archiveofourown\\.org/works/",
-    "pageElement": "//blockquote",
-    "nextLink": "//ul[@class='series']/li/a"
+    "pageElement": "//div[@class='chapter']|//ol[@class='work index group']/li",
+    "exampleUrl": "https://archiveofourown.org/works/1377508/chapters/3548546 https://archiveofourown.org/works/search?utf8=%E2%9C%93&commit=Search&work_search%5Bquery%5D=of&work_search%5Btitle%5D=&work_search%5Bcreators%5D=&work_search%5Brevised_at%5D=&work_search%5Bcomplete%5D=&work_search%5Bcrossover%5D=&work_search%5Bsingle_chapter%5D=0&work_search%5Bword_count%5D=&work_search%5Blanguage_id%5D=&work_search%5Bfandom_names%5D=&work_search%5Brating_ids%5D=&work_search%5Bcharacter_names%5D=&work_search%5Brelationship_names%5D=&work_search%5Bfreeform_names%5D=&work_search%5Bhits%5D=&work_search%5Bkudos_count%5D=&work_search%5Bcomments_count%5D=&work_search%5Bbookmarks_count%5D=&work_search%5Bsort_column%5D=_score&work_search%5Bsort_direction%5D=desc",
+    "url": "^https://archiveofourown\\.org/works/",
+    "nextLink": "//a[.='Next Chapter →' or @rel='next']"
   },
-  "created_at": "2014-06-19T08:09:26+09:00"
+  "updated_at": "2020-05-29T10:45:00+09:00",
+  "name": "Archive Of Our Own",
+  "created_by": "Ben Goldberg"
 },
 {
   "resource_url": "http://wedata.net/items/74901",
-  "name": "Songle",
-  "created_by": "t_f_m",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2016-05-06T13:11:15+09:00",
+  "created_at": "2014-06-16T15:42:13+09:00",
   "data": {
-    "exampleUrl": "http://songle.jp/songs/search?q=Fm&submit=%E6%A4%9C%E7%B4%A2\r\nhttp://songle.jp/artists\r\nhttp://songle.jp/playlists\r\nhttp://songle.jp/songs\r\nhttp://songle.jp/edits",
-    "url": "^http://songle\\.jp/",
     "pageElement": "//div[@class='content']/*[@class='songlist' or @class='artists' or @class='playlists' or @class='edits']//*[self::li or starts-with(@class,'song clearfix')]",
+    "exampleUrl": "https://songle.jp/songs/search?q=Fm&submit=%E6%A4%9C%E7%B4%A2\r\nhttp://songle.jp/artists\r\nhttp://songle.jp/playlists\r\nhttp://songle.jp/songs\r\nhttp://songle.jp/edits",
+    "url": "^https://songle\\.jp/",
     "nextLink": "//a[@rel='next']"
   },
-  "created_at": "2014-06-16T15:42:13+09:00"
+  "updated_at": "2020-05-29T10:34:15+09:00",
+  "name": "Songle",
+  "created_by": "t_f_m"
 },
 {
   "resource_url": "http://wedata.net/items/74897",
-  "name": "dot asahi",
-  "created_by": "t_f_m",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-06-06T18:11:38+09:00",
+  "created_at": "2014-06-13T17:32:13+09:00",
   "data": {
-    "exampleUrl": "https://dot.asahi.com/aera/2017091100078.html?page=1\r\nhttps://dot.asahi.com/dot/photoarticle/2019060500079.html?page=1",
+    "pageElement": "//nav[@class='articlePager']/preceding-sibling::node()[not(@class='MarginT10')]|//li[@class='listAtcl']",
+    "exampleUrl": "https://dot.asahi.com/aera/2017091100078.html?page=1\r\nhttps://dot.asahi.com/dot/photoarticle/2019060500079.html?page=1\r\nhttps://dot.asahi.com/ent/",
     "url": "^https?://dot\\.asahi\\.com/",
-    "pageElement": "//nav[@class=\"articlePager\"]/preceding-sibling::node()[not(@class=\"MarginT10\")]",
-    "nextLink": "//li[@class='articlePagerNext']/a"
+    "nextLink": "//li[@class=\"articlePagerNext\" or @class=\"longR\"]/a"
   },
-  "created_at": "2014-06-13T17:32:13+09:00"
+  "updated_at": "2020-05-29T10:58:23+09:00",
+  "name": "dot asahi",
+  "created_by": "t_f_m"
 },
 {
   "resource_url": "http://wedata.net/items/74895",
@@ -22440,48 +22412,6 @@
   "created_at": "2014-06-06T14:38:56+09:00"
 },
 {
-  "resource_url": "http://wedata.net/items/74884",
-  "name": "ブライダルネット日記",
-  "created_by": "bnuser",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-05-21T06:15:08+09:00",
-  "data": {
-    "exampleUrl": "https://www.bridalnet.co.jp/search-petit/interest1/",
-    "url": "^https://(www\\.)?bridalnet\\.co\\.jp/search",
-    "pageElement": "//div[@class='trend-list-box clearfix']|//div[@class='trend-list-box clearfix']/following-sibling::a",
-    "nextLink": "//div[contains(@class,'pageSending f-right')]/ul/li/strong/following-sibling::a[1]"
-  },
-  "created_at": "2014-06-06T10:19:18+09:00"
-},
-{
-  "resource_url": "http://wedata.net/items/74883",
-  "name": "ASOS 中国心愿单",
-  "created_by": "oumu",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2016-05-06T10:58:18+09:00",
-  "data": {
-    "exampleUrl": "https://www.asos.cn/my-account/wishlists?page=1",
-    "url": "https://www\\.asos\\.cn/my-account/wishlists",
-    "pageElement": "id('your_wishlist')/tbody/tr[td]",
-    "nextLink": "//ol[@class='pager']/li/a[contains(.,'前进')]"
-  },
-  "created_at": "2014-06-06T09:43:21+09:00"
-},
-{
-  "resource_url": "http://wedata.net/items/74881",
-  "name": "jp.reuters.com",
-  "created_by": "Col Lynch",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-06-15T14:48:50+09:00",
-  "data": {
-    "exampleUrl": "http://jp.reuters.com/article/japan-disaster-return-idJPKCN0WA0D2\r\nhttps://jp.reuters.com/article/philippines-militants-battle-idJPKBN1900QY",
-    "url": "^https?://jp\\.reuters\\.com/article/",
-    "pageElement": "id(\"articleText\")",
-    "nextLink": "//ul/li[@class=\"next\"]/a"
-  },
-  "created_at": "2014-06-05T20:45:28+09:00"
-},
-{
   "resource_url": "http://wedata.net/items/74880",
   "name": "PriceFinder search",
   "created_by": "Tanookirby",
@@ -22497,17 +22427,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/74879",
-  "name": "The Globe and Mail",
-  "created_by": "Tanookirby",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-05-21T06:07:10+09:00",
+  "created_at": "2014-06-04T15:29:13+09:00",
   "data": {
-    "exampleUrl": "https://www.theglobeandmail.com/news/world/tiananmen-square-25-years-later-unrecognized-by-todays-youth/article18878891/?page=1",
+    "pageElement": "//div[@class=\"c-card\"]",
+    "exampleUrl": "https://www.theglobeandmail.com/search/?q=abc&mode=all&page=2&S=relevant",
     "url": "^https://(www\\.)?theglobeandmail\\.com/",
-    "pageElement": "//div[@class='entry-pagination']/preceding-sibling::*",
-    "nextLink": "//a[.='Next']"
+    "nextLink": "//ul[@class=\"c-search-pager__list\"]/li[last()-1]/a"
   },
-  "created_at": "2014-06-04T15:29:13+09:00"
+  "updated_at": "2020-05-29T10:10:12+09:00",
+  "name": "The Globe and Mail",
+  "created_by": "Tanookirby"
 },
 {
   "resource_url": "http://wedata.net/items/74875",
@@ -22557,11 +22487,11 @@
   "created_at": "2014-05-29T19:42:20+09:00",
   "data": {
     "pageElement": "//div[@class='p-article-container l-fb-between-tablet']/*",
-    "exampleUrl": "http://dramanavi.net/column/2013/02/smash-2.php",
+    "exampleUrl": "https://dramanavi.net/drama/column/",
     "url": "^https?://dramanavi\\.net/",
     "nextLink": "//a[@class='link_next']"
   },
-  "updated_at": "2020-05-29T09:32:06+09:00",
+  "updated_at": "2020-05-29T10:05:27+09:00",
   "name": "海外ドラマNAVI",
   "created_by": "terepandasan"
 },
@@ -22570,12 +22500,12 @@
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_at": "2014-05-26T19:08:39+09:00",
   "data": {
-    "pageElement": "//body/*[preceding-sibling::header][following-sibling::div/@class='w3-row w3-padding']",
+    "pageElement": "//header/following-sibling::*[./following-sibling::div[@class=\"w3-row w3-padding\"]]",
     "exampleUrl": "https://mgng.mugbum.info/1219 https://mgng.mugbum.info/2\r\n\r\n",
-    "url": "^https?://mgng\\.mugbum\\.info/\\d",
-    "nextLink": "//div[@class='w3-col s6 w3-left-align']/a"
+    "url": "^https?://mgng\\.mugbum\\.info/",
+    "nextLink": "//a[./i[@class=\"fas fa-caret-right\"]]"
   },
-  "updated_at": "2020-05-29T08:37:17+09:00",
+  "updated_at": "2020-05-29T10:01:17+09:00",
   "name": "犬ターネット",
   "created_by": "taizooo"
 },
