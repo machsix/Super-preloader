@@ -14,7 +14,7 @@ export const SCRIPT_INFO = {
   author: pkg.author,
   version: pkg.version,
   license: pkg.license,
-  changelog: `${emoji('1F92A')} Add 2048`,
+  changelog: `${emoji('1F92A')} Allow to disable bultin rules`,
   greasyfork: 'https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new',
   updateTime: `${now.getFullYear()}/${now.getMonth() + 1}/${now.getDate()}`,
   homepageURL: 'https://github.com/machsix/Super-preloader',
@@ -47,7 +47,7 @@ export const METADATA = `// ==UserScript==
 // @description:zh-CN  预读+翻页..全加速你的浏览体验
 // @description:zh-TW  预读+翻页..全加速你的浏览体验
 // @author       ${SCRIPT_INFO.author}
-// @contributers YFdyh000, suchunchen
+// @contributers heroboy, suchunchen, YFdyh000
 // @thanksto     ywzhaiqi, NLF
 // @version      ${SCRIPT_INFO.version}
 // @license      ${SCRIPT_INFO.license}

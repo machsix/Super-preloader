@@ -7,12 +7,17 @@
   </li>
   <li>Maintainer: <b><a href="https://greasyfork.org/en/users/32861-mach6">Mach6</a></b> Changelog:
     <b><%= locals.scriptInfo.changelog %></b></li>
-  <li>Number of Rules: <b><%= locals.prefs.numOfRule %></b> Next update: <b><%= locals.nextUpdateDate %></b> <button
+  <li>Number of rules: <b><%= locals.prefs.numOfRule %></b> Next update: <b><%= locals.nextUpdateDate %></b> <button
       id="sp-prefs-updaterule">Update rules</button></li>
   <li>
     <label for="sp-prefs-debug"><input type="checkbox" id="sp-prefs-debug" /> Debug mode</label>
     <label for="sp-prefs-ChineseUI"><input class="inputShift" type="checkbox" tile="English/Chinese UI" id="sp-prefs-ChineseUI" /> Chinese UI</label>
     <label for="sp-prefs-floatWindow"><input class="inputShift" type="checkbox" id="sp-prefs-floatWindow" /> Float window</label>
+  </li>
+  <li>
+    <label for="sp-prefs-disableBuiltinRules"><input type="checkbox" id="sp-prefs-disableBuiltinRules"  title="Disable builtin js rules"/> Disable builtin rules</label>
+    <label for="sp-prefs-disableBuiltinSubscriptionRules"><input class="inputShift" type="checkbox" id="sp-prefs-disableBuiltinSubscriptionRules" title="Disable the subscription of rules from wedata.net and etc."/> Disable rule subscription</label>
+    <label for="sp-prefs-autoMatchKeyMatch"><input class="inputShift" type="checkbox" id="sp-prefs-autoMatchKeyMatch" /> Disable auto match</label>
   </li>
   <li><label for="sp-prefs-enableHistory"><input type="checkbox" id="sp-prefs-enableHistory" /> Add next page to history</label></li>
   <li>

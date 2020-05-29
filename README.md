@@ -30,14 +30,17 @@ A userscript for auto loading paginated web pages. It will join pages together b
 
 The script is forked from https://greasyfork.org/en/scripts/10433-super-preloaderplus-one. However, it is refactored since v6.8.xx. Now we are embracing new techniques (features of ES6) and ~~webpack~~rollup to pack the script.
 
-Thanks to 
+Thanks to
+
+- Contributers: https://github.com/machsix/Super-preloader/graphs/contributors
 - [swdyh](https://github.com/swdyh) initial idea of autopagger and preloader. (swdyh is still actively improving [rules](http://wedata.net/databases/AutoPagerize/items) and developping the extension version,[AutoPagerize](https://addons.mozilla.org/en-US/firefox/addon/autopagerize/). )
 - NLF: initial version of the Preloader
 - Users of Opera China forum: contributions to the rules
 - [ywzhaiqi](https://github.com/ywzhaiqi/userscript/tree/master/scripts/Super_preloaderPlus): Autopagger
 
 Thanks to 红叶舞秋山, who introduced the history of the script to me
->ywzhaiqi也不是原创，这是个很久远的故事啊！还记得很多年以前，那时候我们还用Opera的旧版，总拿着它看小说之类的。然后在当年的Opera中国官方论坛，NLF 开始写这么个脚本的最初版，开始叫Preloader还是PreloaderPlus有点儿记不起来了！我们帮着测试，大家一起顺便也写写规则之类的。当年好像还有个简化版，只能预读不能拼接的，后来还有Firefox版，Chrome版等等，甚至自己还考虑过自己写个外接可定制网页的GUI...。开始时候这东西没啥按钮Debug什么的，都是一点点加的，还记得当年为了找个函数翻Xml等等文档翻了两天终于搞定的日子。后来基本功能有了，也没啥人维护了，大部分都是遇到问题自己写个规则用了。。。再后来Opera中国论坛也散了，很久之后ywzhaiqi接手改了个Super_preloader，然后Super_preloader one的合一版他到
+
+> ywzhaiqi 也不是原创，这是个很久远的故事啊！还记得很多年以前，那时候我们还用 Opera 的旧版，总拿着它看小说之类的。然后在当年的 Opera 中国官方论坛，NLF 开始写这么个脚本的最初版，开始叫 Preloader 还是 PreloaderPlus 有点儿记不起来了！我们帮着测试，大家一起顺便也写写规则之类的。当年好像还有个简化版，只能预读不能拼接的，后来还有 Firefox 版，Chrome 版等等，甚至自己还考虑过自己写个外接可定制网页的 GUI...。开始时候这东西没啥按钮 Debug 什么的，都是一点点加的，还记得当年为了找个函数翻 Xml 等等文档翻了两天终于搞定的日子。后来基本功能有了，也没啥人维护了，大部分都是遇到问题自己写个规则用了。。。再后来 Opera 中国论坛也散了，很久之后 ywzhaiqi 接手改了个 Super_preloader，然后 Super_preloader one 的合一版他到
 
 Please leave feedback at [Greasefork page](https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new) or Github issue
 
