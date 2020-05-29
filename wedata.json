@@ -22132,17 +22132,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/74947",
-  "name": "India.com (ZeeNews, DNAIndia, Videos)",
-  "created_by": "Tanookirby",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-05-23T09:32:08+09:00",
+  "created_at": "2014-07-05T09:58:28+09:00",
   "data": {
-    "exampleUrl": "http://zeenews.india.com/nation/index.html http://zeenews.india.com/world/index.html http://zeenews.india.com/business/companies/index.html http://www.dnaindia.com/topic/badminton http://www.dnaindia.com/entertainment?page=1 http://video.india.com/category/1/events.html http://video.india.com/tv-gossip.html http://video.india.com/promo.html\r\n",
-    "url": "^https?://.+india\\.com/.+",
-    "pageElement": "//div[starts-with(div/@class,'col-sm-12 col-md-12 mrgn-tp1')]|//div[starts-with(@id,'block-views-list-topic')]//div[starts-with(@class,'media-list ')]/div|id('categoryVideos1')/div",
-    "nextLink": "//a[@class='next_pg' or ..[@class='next' or @class='next last'] or .='»']"
+    "pageElement": "//li[@class='catPgListitem']|//div[@class='phg-latest-list']/figure",
+    "exampleUrl": "https://www.india.com/photos/all/2/ https://www.india.com/news/world/",
+    "url": "^https://(www\\.)?india\\.com/.",
+    "nextLink": "//section[@data-event-sub-cat='Next' or class='next-list']/a"
   },
-  "created_at": "2014-07-05T09:58:28+09:00"
+  "updated_at": "2020-05-30T05:07:26+09:00",
+  "name": "India.com",
+  "created_by": "Tanookirby"
 },
 {
   "resource_url": "http://wedata.net/items/74943",
@@ -22161,17 +22161,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/74942",
-  "name": "People",
-  "created_by": "Tanookirby",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2016-05-08T13:23:20+09:00",
+  "created_at": "2014-07-03T07:26:00+09:00",
   "data": {
-    "exampleUrl": "http://www.people.com/people/package/category/0,,20395222_2,00.html\r\nhttp://www.people.com/people/country/\r\nhttp://www.people.com/people/tvwatch/category/0,,20419260,00.html\r\nhttp://celebritybabies.people.com/\r\nhttp://celebritybabies.people.com/photos/\r\n",
-    "url": "^http://.+\\.people\\.com/",
-    "pageElement": "//div[@class='news-item' or @class='toutSection ' or (@class='tout' and parent::div/@id='toutList') or (starts-with(@class,'blogEntry') and not(starts-with(@id,'adLeft')))]",
-    "nextLink": "//li[@class='nav-next' or @class='next' or @class='nextPost']/a"
+    "pageElement": "//div[@class='category-page-item ']",
+    "exampleUrl": "https://people.com/tag/news/",
+    "url": "^https://people\\.com/",
+    "nextLink": "//link[@rel='next']"
   },
-  "created_at": "2014-07-03T07:26:00+09:00"
+  "updated_at": "2020-05-30T04:54:40+09:00",
+  "name": "People",
+  "created_by": "Tanookirby"
 },
 {
   "resource_url": "http://wedata.net/items/74940",
