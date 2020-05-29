@@ -240,7 +240,7 @@ function(currentDocument, sepdiv) {
 
 1. [JS function]() <Jbadge :json="false"/>
    - **description**: 一个作用预读内容 element 的 js 函数，执行于预读内容被插入到当前页面后。
-   - **content**: `function (pageElement) {return null}`
+   - **content**: `function (pageElements) {return null}`
 
 ### stylish
 

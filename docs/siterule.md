@@ -231,7 +231,7 @@ Function(currentDocument, sepdiv) {
 
 1. [JS function]() <Jbadge :json="false"/>
    - **description**: a js function to manipulate with the preloaded content once it is inserted into the page
-   - **content**: `function (pageElement) {return null}`
+   - **content**: `function (pageElements) {return null}`
 
 ### stylish
 
