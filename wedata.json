@@ -1,5 +1,19 @@
 [
 {
+  "resource_url": "http://wedata.net/items/85359",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_at": "2020-05-30T06:01:07+09:00",
+  "data": {
+    "pageElement": "//div[@class=\"entry_post\"]/div[@class=\"page-links\"]/preceding-sibling::*",
+    "exampleUrl": "https://mag.japaaan.com/archives/120126",
+    "url": "^https://mag\\.japaaan\\.com/archives/",
+    "nextLink": "//p[@class=\"go_next\"]/a"
+  },
+  "updated_at": "2020-05-30T06:02:55+09:00",
+  "name": "Japaaan",
+  "created_by": "t_f_m_"
+},
+{
   "resource_url": "http://wedata.net/items/85358",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_at": "2020-05-29T10:31:25+09:00",
@@ -21991,88 +22005,73 @@
 },
 {
   "resource_url": "http://wedata.net/items/74962",
-  "name": "BuzzLamp",
-  "created_by": "Tanookirby",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2016-05-09T05:14:58+09:00",
+  "created_at": "2014-07-11T06:52:52+09:00",
   "data": {
-    "exampleUrl": "http://buzzlamp.com/24-actors-died-middle-filming-something/",
-    "url": "^http://buzzlamp\\.com/.",
-    "pageElement": "id('content-reload')/*[self::h2 or self::p]",
-    "nextLink": "id('pageNext')/span/a"
+    "pageElement": "id('post-wrapper')/*",
+    "exampleUrl": "http://buzzlamp.com/",
+    "url": "^https?://buzzlamp\\.com/.",
+    "nextLink": "//a[@class='next page-numbers']"
   },
-  "created_at": "2014-07-11T06:52:52+09:00"
+  "updated_at": "2020-05-30T06:05:26+09:00",
+  "name": "BuzzLamp",
+  "created_by": "Tanookirby"
 },
 {
   "resource_url": "http://wedata.net/items/74961",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "data": {
-    "exampleUrl": "http://www.superherohype.com/features/305969-11-more-superhero-movies-that-almost-happened/11\r\nhttp://www.superherohype.com/news",
-    "pageElement": "//article[@class='clearfix listed-article']|//div[@class='article-content']//td/*",
-    "nextLink": "//a[@class='nextpostslink']",
-    "url": "^http://www\\.superherohype\\.com/"
-  },
-  "created_by": "Tanookirby",
-  "name": "SuperHeroHype",
   "created_at": "2014-07-11T06:42:55+09:00",
-  "updated_at": "2014-07-11T06:55:33+09:00"
+  "data": {
+    "pageElement": "id('main-container')/*[not(@class='pagination-article footer-nav')]",
+    "exampleUrl": "https://www.superherohype.com/features/305969-11-more-superhero-movies-that-almost-happened/10\r\nhttp://www.superherohype.com/news",
+    "url": "^https://(www\\.)?superherohype\\.com/",
+    "nextLink": "//a[span/@class='arrow with-corner corner-bottom-right']"
+  },
+  "updated_at": "2020-05-30T06:01:21+09:00",
+  "name": "SuperHeroHype",
+  "created_by": "Tanookirby"
 },
 {
   "resource_url": "http://wedata.net/items/74959",
-  "name": "thehealthsite.com",
-  "created_by": "Tanookirby",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2016-05-09T05:07:37+09:00",
+  "created_at": "2014-07-10T09:44:11+09:00",
   "data": {
-    "exampleUrl": "http://www.thehealthsite.com/articles/mens-health/page/2\r\nhttp://www.thehealthsite.com/questions-answers/recent/2/\r\nhttp://www.thehealthsite.com/news/",
-    "url": "^http://www\\.thehealthsite\\.com/",
-    "pageElement": "//figure[@class='h-listing']|//section[@class='inner-box']",
-    "nextLink": "//a[@class='next page-numbers']|//div[@class='qpages ajax eventtracker']/em/following-sibling::a[1]"
+    "pageElement": "//figure[@class='h-listing']",
+    "exampleUrl": "https://www.thehealthsite.com/articles/mens-health/page/2/\r\nhttp://www.thehealthsite.com/questions-answers/recent/2/\r\nhttp://www.thehealthsite.com/news/",
+    "url": "^https://(www\\.)?thehealthsite\\.com/",
+    "nextLink": "//a[@class='next page-numbers']"
   },
-  "created_at": "2014-07-10T09:44:11+09:00"
+  "updated_at": "2020-05-30T05:51:30+09:00",
+  "name": "thehealthsite.com",
+  "created_by": "Tanookirby"
 },
 {
   "resource_url": "http://wedata.net/items/74958",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "data": {
-    "exampleUrl": "http://www.comiczin.jp/diary/",
-    "pageElement": "id(\"fw_main_contents_area\")/div/div",
-    "nextLink": "id(\"div_diary_pagenavi_area\")/text()[normalize-space()][string-length()>16 or number()>0]/following-sibling::a",
-    "url": "^http://www\\.comiczin\\.jp/diary/",
-    "insertBefore": ""
-  },
-  "created_by": "t_f_m",
-  "name": "COMIC ZIN 日記",
   "created_at": "2014-07-09T11:38:13+09:00",
-  "updated_at": "2014-07-09T11:38:13+09:00"
-},
-{
-  "resource_url": "http://wedata.net/items/74955",
-  "name": "vosbooks",
-  "created_by": "lhurgoyf",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-05-23T10:40:03+09:00",
   "data": {
-    "exampleUrl": "http://www.vosbooks.tv/category/revues-magazines",
-    "url": "^https?://(www\\.)?vosbooks\\.tv/",
-    "pageElement": "//div[@class='cover_global']",
-    "nextLink": "//a[.='>']\r\n"
+    "pageElement": "id('fw_main_contents_area')/div/div",
+    "exampleUrl": "http://www.comiczin.jp/diary/",
+    "url": "^https://(www\\.)?comiczin\\.jp/diary/",
+    "nextLink": "id('div_diary_pagenavi_area')/text()[normalize-space()][string-length()>16 or number()>0]/following-sibling::a"
   },
-  "created_at": "2014-07-09T01:02:04+09:00"
+  "updated_at": "2020-05-30T05:47:43+09:00",
+  "name": "COMIC ZIN 日記",
+  "created_by": "t_f_m"
 },
 {
   "resource_url": "http://wedata.net/items/74954",
-  "name": "boookservice",
-  "created_by": "t_f_m",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2016-05-09T04:40:43+09:00",
+  "created_at": "2014-07-08T09:09:46+09:00",
   "data": {
-    "exampleUrl": "http://www.bookservice.jp/SearchItem?CID=10&LAYER=1&LINK_NO=2&FREE_WORD=SF\r\nhttp://www.bookservice.jp/SearchItemPaging?LAYER=1&LINK_NO=2&FREE_WORD=SF&CID=10&PAGE_INDEX=5&DISP_COUNT=10",
-    "url": "^http://www\\.bookservice\\.jp/SearchItem",
-    "pageElement": "//div[@class='item']",
-    "nextLink": "//li[a/@class='act']/following-sibling::li[1]/a"
+    "pageElement": "id('tile-3')/*[not(@id)]",
+    "exampleUrl": "https://www.bookservice.jp/page-10/",
+    "url": "^https://(www\\.)?bookservice\\.jp/",
+    "nextLink": "//link[@rel='next']"
   },
-  "created_at": "2014-07-08T09:09:46+09:00"
+  "updated_at": "2020-05-30T05:45:49+09:00",
+  "name": "boookservice",
+  "created_by": "t_f_m"
 },
 {
   "resource_url": "http://wedata.net/items/74953",
@@ -22090,31 +22089,31 @@
 },
 {
   "resource_url": "http://wedata.net/items/74952",
-  "name": "Cricket Country",
-  "created_by": "Tanookirby",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-05-23T10:10:05+09:00",
+  "created_at": "2014-07-07T06:00:42+09:00",
   "data": {
-    "exampleUrl": "http://www.cricketcountry.com/news\r\nhttp://www.cricketcountry.com/articles\r\nhttp://www.cricketcountry.com/articles/humour\r\nhttp://www.cricketcountry.com/photos\r\nhttp://www.cricketcountry.com/videos\r\nhttp://www.cricketcountry.com/authors/page/2\r\nhttp://www.cricketcountry.com/cricket-fan/posts-page/all/1",
-    "url": "^https?://(www\\.)?cricketcountry\\.com/",
-    "pageElement": "//aside/ul[contains(@class,'series-photo features-wrap eventtracker')]/li|//section[@class='authors']/section/figure",
+    "pageElement": "//aside/ul[contains(@class,'series-photo features-wrap eventtracker')]/li|//div[@class='featuredauthors eventtracker']/figure",
+    "exampleUrl": "https://www.cricketcountry.com/articles\r\nhttps://www.cricketcountry.com/photos\r\nhttps://www.cricketcountry.com/videos\r\nhttps://www.cricketcountry.com/authors/page/2",
+    "url": "^https://(www\\.)?cricketcountry\\.com/",
     "nextLink": "//a[@rel='next']"
   },
-  "created_at": "2014-07-07T06:00:42+09:00"
+  "updated_at": "2020-05-30T05:24:19+09:00",
+  "name": "Cricket Country",
+  "created_by": "Tanookirby"
 },
 {
   "resource_url": "http://wedata.net/items/74949",
-  "name": "Get Satisfaction",
-  "created_by": "oumu",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-01-30T13:59:42+09:00",
+  "created_at": "2014-07-05T18:22:38+09:00",
   "data": {
-    "exampleUrl": "https://getsatisfaction.com/newsblur/topics?page=2 https://getsatisfaction.com/newsblur/searches?query=blurblog&x=0&y=0&style=topics https://getsatisfaction.com/mozilla/topics ",
-    "url": "https://getsatisfaction\\.com/.",
-    "pageElement": "//ul[@class='topic_list' or @class='result_list']/li|id('search-results')/article",
-    "nextLink": "//span[@class='next_link translate']/a|//link[@rel='next']"
+    "pageElement": "//ul[@class='result_list']/li",
+    "exampleUrl": "https://getsatisfaction.com/newsblur/searches?query=blurblog&x=0&y=0&style=topics",
+    "url": "https://getsatisfaction\\.com/newsblur",
+    "nextLink": "//span[@class='next_link translate']/a"
   },
-  "created_at": "2014-07-05T18:22:38+09:00"
+  "updated_at": "2020-05-30T05:13:48+09:00",
+  "name": "Get Satisfaction",
+  "created_by": "oumu"
 },
 {
   "resource_url": "http://wedata.net/items/74948",
