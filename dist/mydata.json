@@ -117,6 +117,12 @@
     "nextLink": "//div[@class='paginator']/span[@class='next']/a"
   },
   {
+    "name": "fuxsb",
+    "url": "https?://fuxsb\\.com",
+    "nextLink": "css;li.thisclass+li>a",
+    "pageElement": "css;div.nr_bzm"
+  },
+  {
     "name": "豆瓣全站",
     "url": "^https?://.*\\.douban\\.com/(\\w*)(?!statuses)$",
     "pageElement": "id('miniblog') | //*[@class='photolst clearfix' or @class='photolst clearbox' or @class='event-photo-list' or @class='poster-col4 clearfix'] | //div[@id='comment-section'] | //table[@class='olt' or @class='list-b']/tbody | //div[contains(@class,'clearfix')]/div[@class='article' and not(.//div[@class='stream-items'])]",
