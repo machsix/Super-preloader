@@ -572,12 +572,13 @@ import notice from './utils/notice';
           // 设置面板显隐
           const spanelc = {
             show: function () {
-              spanel.style.display = 'block';
+              spanel.style.visibility = 'visible';
             },
             hide: function () {
-              spanel.style.display = 'none';
+              spanel.style.visibility = 'hidden';
             }
           };
+          spanelc.hide();
           let rectt1, rectt2;
           rect.addEventListener(
             'mouseover',
@@ -2187,14 +2188,24 @@ import notice from './utils/notice';
         if (prefs.floatWindow) {
           logger.debug('创建悬浮窗');
           floatWindow(SSS);
-          const floatWindowWidth = userLang === 'zh_CN' ? 231 : 366; //px
+          const floatWindowWidth = document.getElementById('sp-fw-content').offsetWidth;
           const d = displace(document.getElementById('sp-fw-container'), {
             handle: document.getElementById('sp-fw-rect'),
             customMove: (el, x, y) => {
               delete el.style.left;
               delete el.style.bottom;
-              el.style.right = `${window.innerWidth - x - floatWindowWidth}px`;
-              el.style.top = `${y}px`;
+              let right = document.body.clientWidth - floatWindowWidth - x;
+              if (right < 0) {
+                right = 0;
+              }
+              let top = y;
+              if (top > window.innerHeight - document.getElementById('sp-fw-rect').scrollHeight) {
+                top = window.innerHeight - document.getElementById('sp-fw-rect').scrollHeight;
+              } else if (top < 0) {
+                top = 0;
+              }
+              el.style.right = `${right}px`;
+              el.style.top = `${top}px`;
             },
             onMouseUp: (el) => {
               prefs.FW_offset[0] = parseInt(el.style.top.replace('px', ''), 10);
