@@ -572,10 +572,10 @@ import notice from './utils/notice';
           // 设置面板显隐
           const spanelc = {
             show: function () {
-              spanel.style.visibility = 'visible';
+              spanel.style.display = 'block';
             },
             hide: function () {
-              spanel.style.visibility = 'hidden';
+              spanel.style.display = 'none';
             }
           };
           spanelc.hide();
@@ -2188,7 +2188,7 @@ import notice from './utils/notice';
         if (prefs.floatWindow) {
           logger.debug('创建悬浮窗');
           floatWindow(SSS);
-          const floatWindowWidth = document.getElementById('sp-fw-content').offsetWidth;
+          const floatWindowWidth = getFloatWindowWith();
           const d = displace(document.getElementById('sp-fw-container'), {
             handle: document.getElementById('sp-fw-rect'),
             customMove: (el, x, y) => {
@@ -2197,7 +2197,10 @@ import notice from './utils/notice';
               let right = document.body.clientWidth - floatWindowWidth - x;
               if (right < 0) {
                 right = 0;
+              } else if (right > window.innerWidth - floatWindowWidth) {
+                right = window.innerWidth - floatWindowWidth;
               }
+
               let top = y;
               if (top > window.innerHeight - document.getElementById('sp-fw-rect').scrollHeight) {
                 top = window.innerHeight - document.getElementById('sp-fw-rect').scrollHeight;
@@ -2849,5 +2852,17 @@ import notice from './utils/notice';
     }
     a.href = href;
     return a.href;
+  }
+
+  function getFloatWindowWith() {
+    const el = document.getElementById('sp-fw-container');
+    const elc = el.cloneNode(true);
+    elc.id = `${el.id}`;
+    elc.style.visibility = 'hidden';
+    elc.querySelector('#sp-fw-content').style.display = 'block';
+    document.body.appendChild(elc);
+    const width = elc.querySelector('#sp-fw-content').offsetWidth;
+    elc.remove();
+    return width;
   }
 })();
