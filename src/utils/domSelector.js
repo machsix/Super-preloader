@@ -22,14 +22,15 @@ export function getAllElementsByCSS(css, contextNode = document) {
 /**
  * Select an element by xpath selector
  * @param {string} xpath a string representing the XPath to be evaluated, the attribute will be removed
- * @param {Node} contextNode contextNode specifies the context node for the query (see the XPath specification). It's common to pass document as the context node.
- * @param {HTMLDocument} doc the document to select from
- * @returns {Node} a dom node
+ * @param {Node=} contextNode contextNode specifies the context node for the query (see the XPath specification). It's common to pass document as the context node.
+ * @param {HTMLDocument=} doc the document to select from
+ * @returns {HTMLElement} a dom node
  */
 export function getElementByXpath(xpath, contextNode, doc = document) {
   contextNode = contextNode || doc;
   try {
     const result = doc.evaluate(xpath, contextNode, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
+    //@ts-ignore
     return result.singleNodeValue;
   } catch (err) {
     throw new Error(`Invalid xpath: ${xpath}`);
@@ -41,7 +42,7 @@ export function getElementByXpath(xpath, contextNode, doc = document) {
  * @param {string} xpath a string representing the XPath to be evaluated
  * @param {Node} contextNode contextNode specifies the context node for the query (see the XPath specification). It's common to pass document as the context node.
  * @param {Document} doc the document to select from
- * @returns {Node[]} an array of Nodes
+ * @returns {HTMLElement[]} an array of Nodes
  */
 export function getAllElementsByXpath(xpath, contextNode, doc = document) {
   contextNode = contextNode || doc;
@@ -54,6 +55,7 @@ export function getAllElementsByXpath(xpath, contextNode, doc = document) {
   } catch (err) {
     throw new Error(`Invalid xpath: ${xpath}`);
   }
+  //@ts-ignore
   return result;
 }
 
@@ -63,7 +65,7 @@ export function getAllElementsByXpath(xpath, contextNode, doc = document) {
  * @param {Element|Document|DocumentFragment} contextNode contextNode specifies the context node for the query (see the XPath specification). It's common to pass document as the context node.
  * @param {Document} doc the document to select from
  * @param {Window} win window of the browser
- * @param {any} _cplink current page link
+ * @param {string} _cplink current page link
  * @returns {HTMLElement[]} an array of nodes
  */
 export function getAllElements(selector, contextNode = undefined, doc = document, win = window, _cplink = undefined) {
@@ -90,7 +92,7 @@ export function getAllElements(selector, contextNode = undefined, doc = document
 /**
  *
  * @param {string|Function} selector selector
- * @param {any=} _cplink _cplink
+ * @param {string=} _cplink _cplink
  * @param {HTMLElement=} contextNode contextNode
  * @param {HTMLDocument=} doc doc
  * @param {Window=} win win

@@ -52,6 +52,7 @@ import notice from './utils/notice';
 
   // ----------------------------------
   // all rules
+  /** @type {IRule[]} */
   let SSRules = [];
   // ----------------------------------
 
@@ -554,7 +555,8 @@ import notice from './utils/notice';
        */
       function init(window, document) {
         const startTime = new Date();
-
+        // eslint-disable-next-line valid-jsdoc
+        /**@type {(...rest:any[])=>void} */
         const nullFn = function () {}; // 空函数.
         const url = document.location.href.replace(/#.*$/, ''); // url 去掉hash
         var cplink = url; // 翻上来的最近的页面的url;
@@ -2296,7 +2298,7 @@ import notice from './utils/notice';
         // 获取单个元素,混合
         /**
          *
-         * @param {string|Function|Array} selector selector
+         * @param {string|Function|Array|IHrefIncObject} selector selector
          * @param {Element|Document=} contextNode element
          * @param {Document=} doc document
          * @param {Window=} win window
@@ -2332,6 +2334,12 @@ import notice from './utils/notice';
           return ret;
         }
 
+        /**
+         *
+         * @param {Document=} doc document
+         * @param {Window=} win window
+         * @returns {HTMLElement} a
+         */
         function autoGetLink(doc, win) {
           if (!autoMatch.keyMatch) return;
           //@ts-ignore
@@ -2433,6 +2441,7 @@ import notice from './utils/notice';
                       aP = aP.parentNode;
                       if (aP) {
                         preS1 = aP.previousSibling;
+                        //@ts-ignore
                         preS2 = aP.previousElementSibling;
                       }
                       initSD++;
@@ -2491,6 +2500,7 @@ import notice from './utils/notice';
                           nodeType = nextSS.nodeType;
                           if (
                             nodeType == 3 ||
+                            // @ts-ignore
                             (nodeType == 1 && (searchedD ? _getAllElementsByXpath('./descendant-or-self::a[@href]', nextSS, doc).length === 0 : !nextSS.hasAttribute('href') || _getFullHref(nextSS.getAttribute('href')) == curLHref))
                           ) {
                             _prelink = finalCheck(a, 'pre');
@@ -2731,7 +2741,15 @@ import notice from './utils/notice';
   var hashchangeTimer = 0;
 
   // ====================  libs  ==============================
-  // 地址栏递增处理函数.
+  /**
+   *
+   * @param {IHrefIncObject} obj obj
+   * @param {Document=} doc document
+   * @param {Window=} win window
+   * @param {string=} cplink cplink
+   * @returns {string} next link
+   * @description 地址栏递增处理函数
+   */
   function hrefInc(obj, doc, win, cplink) {
     var _cplink = cplink;
 
@@ -2764,7 +2782,7 @@ import notice from './utils/notice';
     const saType = typeof sa;
     var index;
 
-    if (saType == 'string') {
+    if (typeof sa === 'string') {
       if (sa[0] == '#') {
         _cplink = doc.location.href;
       }

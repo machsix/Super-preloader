@@ -78,3 +78,59 @@ interface ISettings {
   autoMatch: IAutoMatchSettings;
   version: string;
 }
+
+interface IHrefIncObject {
+  min?: number;
+  max?: number;
+  mFails?: string | (string | RegExp)[];
+  startAfter?: string | RegExp;
+  inc: number;
+  isLast?: Function;
+}
+interface IRule {
+  name: string;
+  url: string | RegExp;
+  enable?: boolean;
+  useiframe?: boolean;
+  exampleUrl?: string;
+  nextLink?: string | Function | IHrefIncObject | Array<string | Function | IHrefIncObject>;
+  preLink?: IRule['nextLink'];
+  pageElement?: string | (() => HTMLElement[]);
+  documentFilter?: (doc: Document) => void; //todo
+  viewcontent?: boolean;
+  separatorReal?: boolean;
+  insertBefore?: string; //todo
+  filter?: (pageElements: HTMLElement[]) => void;
+  stylish?: string;
+  autopager?: {
+    enable?: boolean;
+    useiframe?: boolean;
+    iloaded?: boolean;
+    itimeout?: number;
+    newIframe?: boolean;
+    reload?: boolean;
+    force_enable?: boolean;
+    headers?: {[key: string]: string};
+    remain?: number;
+    maxpage?: number;
+    ipages?: [boolean, number];
+    separator?: boolean;
+    sepdivDom?: Function; //todo
+    startFilter?: (doc: Document, win?: Window) => void; //todo
+    documentFilter?: ((doc: Document) => void) | 'startFilter'; //todo
+    scriptFilter?: string;
+    filter?: (pageElements: HTMLElement[]) => void;
+    stylish?: string;
+    replaceE?: Function | string; //todo
+    pageElement?: string | ((doc: Document) => void); //todo
+    relatedObj?: any; //todo
+    separatorReal?: boolean; //todo
+    manualA?: boolean; //todo
+    lazyImgSrc?: string; //todo
+    HT_insert?: [string, number]; //todo
+    excludeElement?: any; //todo
+    preLink?: IRule['preLink']; //todo
+    mutationObserver?: any; //todo
+    sandbox?: boolean;
+  };
+}
