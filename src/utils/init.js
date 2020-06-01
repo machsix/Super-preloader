@@ -4,7 +4,6 @@ import {SCRIPT_INFO as scriptInfo, NOTIFICATION as upgradeNotification} from '..
 import {setLang, template, userLang} from '../locale/locale';
 import JSONE from '../utils/stringify';
 import _ from 'lodash';
-// @ts-ignore
 import compareVersions from 'compare-versions';
 import jsonRuleLoader from './json-rule';
 import logger from './logger';

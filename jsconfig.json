@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node"
   },
-  "exclude": ["node_modules", "node_modules/got"]
+  "exclude": ["node_modules"]
 }

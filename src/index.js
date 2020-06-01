@@ -18,7 +18,6 @@ import {toRE, wildcardToRegExpStr} from './utils/regex';
 
 import _ from 'lodash';
 import {addStyle} from './utils/gm-enhanced';
-// @ts-ignore
 import compareVersions from 'compare-versions';
 import displace from 'displacejs';
 import elementReady from './utils/element-ready';
