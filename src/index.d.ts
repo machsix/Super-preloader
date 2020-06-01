@@ -1,3 +1,5 @@
+//todo: add document
+
 interface IPrefs {
   floatWindow: boolean;
   FW_position: number;
@@ -87,6 +89,7 @@ interface IHrefIncObject {
   inc: number;
   isLast?: Function;
 }
+
 interface IRule {
   name: string;
   url: string | RegExp;
@@ -115,7 +118,7 @@ interface IRule {
     maxpage?: number;
     ipages?: [boolean, number];
     separator?: boolean;
-    sepdivDom?: Function; //todo
+    sepdivDom?: (doc: Document, sep: HTMLElement) => HTMLElement;
     startFilter?: (doc: Document, win?: Window) => void; //todo
     documentFilter?: ((doc: Document) => void) | 'startFilter'; //todo
     scriptFilter?: string;
