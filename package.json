@@ -57,6 +57,7 @@
     "@rollup/plugin-json": "4.0.3",
     "@rollup/plugin-node-resolve": "8.0.0",
     "@sinonjs/text-encoding": "0.7.1",
+    "@types/greasemonkey": "^4.0.0",
     "babel-plugin-lodash": "3.3.4",
     "babel-plugin-wildcard": "6.0.0",
     "compare-versions": "3.6.0",

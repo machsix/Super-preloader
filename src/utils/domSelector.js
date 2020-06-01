@@ -1,3 +1,4 @@
+//@ts-check
 /**
  * Select a single element by css selector
  * @param {string} css css of dom
@@ -11,8 +12,8 @@ export function getElementByCSS(css, contextNode = document) {
 /**
  * Select multiple elements by css selector
  * @param {string} css css of dom
- * @param {object} contextNode dom contextNode
- * @returns {object} an array of Nodes
+ * @param {ParentNode} contextNode dom contextNode
+ * @returns {HTMLElement[]} an array of Nodes
  */
 export function getAllElementsByCSS(css, contextNode = document) {
   return [].slice.call(contextNode.querySelectorAll(css));
@@ -21,9 +22,9 @@ export function getAllElementsByCSS(css, contextNode = document) {
 /**
  * Select an element by xpath selector
  * @param {string} xpath a string representing the XPath to be evaluated, the attribute will be removed
- * @param {object} contextNode contextNode specifies the context node for the query (see the XPath specification). It's common to pass document as the context node.
- * @param {object} doc the document to select from
- * @returns {object} a dom node
+ * @param {Node} contextNode contextNode specifies the context node for the query (see the XPath specification). It's common to pass document as the context node.
+ * @param {HTMLDocument} doc the document to select from
+ * @returns {Node} a dom node
  */
 export function getElementByXpath(xpath, contextNode, doc = document) {
   contextNode = contextNode || doc;
@@ -38,9 +39,9 @@ export function getElementByXpath(xpath, contextNode, doc = document) {
 /**
  * Select multiple elements by xpath selector
  * @param {string} xpath a string representing the XPath to be evaluated
- * @param {object} contextNode contextNode specifies the context node for the query (see the XPath specification). It's common to pass document as the context node.
- * @param {object} doc the document to select from
- * @returns {object} an array of Nodes
+ * @param {Node} contextNode contextNode specifies the context node for the query (see the XPath specification). It's common to pass document as the context node.
+ * @param {Document} doc the document to select from
+ * @returns {Node[]} an array of Nodes
  */
 export function getAllElementsByXpath(xpath, contextNode, doc = document) {
   contextNode = contextNode || doc;
@@ -58,20 +59,22 @@ export function getAllElementsByXpath(xpath, contextNode, doc = document) {
 
 /**
  *
- * @param {string} selector css selector or xpath selector
- * @param {object} contextNode contextNode specifies the context node for the query (see the XPath specification). It's common to pass document as the context node.
- * @param {object} doc the document to select from
- * @param {object} win window of the browser
- * @param {link} _cplink current page link
- * @returns {object} an array of nodes
+ * @param {string|Function} selector css selector or xpath selector
+ * @param {Element|Document|DocumentFragment} contextNode contextNode specifies the context node for the query (see the XPath specification). It's common to pass document as the context node.
+ * @param {Document} doc the document to select from
+ * @param {Window} win window of the browser
+ * @param {any} _cplink current page link
+ * @returns {HTMLElement[]} an array of nodes
  */
-export function getAllElements(selector, contextNode, doc = document, win = window, _cplink = undefined) {
+export function getAllElements(selector, contextNode = undefined, doc = document, win = window, _cplink = undefined) {
   if (!selector) return [];
+  //@ts-ignore
   contextNode = contextNode || doc;
   if (typeof selector === 'string') {
     if (selector.search(/^css;/i) === 0) {
       return getAllElementsByCSS(selector.slice(4), contextNode);
     } else {
+      //@ts-ignore
       return getAllElementsByXpath(selector, contextNode, doc);
     }
   } else {
@@ -84,7 +87,15 @@ export function getAllElements(selector, contextNode, doc = document, win = wind
   }
 }
 
-// 获取最后一个元素.
+/**
+ *
+ * @param {string|Function} selector selector
+ * @param {any=} _cplink _cplink
+ * @param {HTMLElement=} contextNode contextNode
+ * @param {HTMLDocument=} doc doc
+ * @param {Window=} win win
+ * @returns {HTMLElement} 最后一个元素.
+ */
 export function getLastElement(selector, _cplink, contextNode, doc, win) {
   const eles = getAllElements(selector, contextNode, doc, win, _cplink);
   const l = eles.length;

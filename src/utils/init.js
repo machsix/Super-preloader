@@ -1,12 +1,16 @@
+//@ts-check
+///<reference path="../index.d.ts"/>
 import {SCRIPT_INFO as scriptInfo, NOTIFICATION as upgradeNotification} from '../meta';
 import {setLang, template, userLang} from '../locale/locale';
 import JSONE from '../utils/stringify';
 import _ from 'lodash';
+// @ts-ignore
 import compareVersions from 'compare-versions';
 import jsonRuleLoader from './json-rule';
 import logger from './logger';
 
 // ---------------------- Settings stored in GM storaged, changed by control pannel ---------------
+/**@type {ISettings} */
 const factorySettings = {
   prefs: {
     floatWindow: true, // 显示悬浮窗
@@ -121,7 +125,11 @@ const factorySettings = {
 };
 
 // const settingsKeys = ["prefs", "SITEINFO_D", "autoMatch", "version"];
+/** @type {string[]} */
 const settingsKeys = Object.keys(factorySettings);
+
+/** @type {ISettings} */
+//@ts-ignore Partial<ISettings> is temp.
 const settings = {};
 
 /**
@@ -182,6 +190,7 @@ export async function loadSettings() {
   const isInstalled = compareVersions(settings.version, factorySettings.version) === 0;
 
   // check the consistency of settings and merge prefs
+  /** @type {Array<Promise>} */
   const postLoading = []; // async function to run after loading settings
   if (verDiff !== 0 || settings.prefs.factoryCheck !== false) {
     if (settings.prefs.disableBuiltinSubscriptionRules !== true) {
@@ -239,12 +248,15 @@ export async function loadSettings() {
           opts.text += upgradeNotification.extratext.en_US;
         }
       }
+      //@ts-ignore
+      //todo: patch the type
       GM.notification(opts);
     }
   }
 
   const [jsonRule] = await Promise.all(postLoading);
 
+  /** @type {string[]} */
   const blackList = [].concat(settings.prefs.excludes.split(/[\n\r]+/).map((line) => line.trim()));
 
   return {jsonRule, blackList, ...settings};
