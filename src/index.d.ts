@@ -71,7 +71,17 @@ interface IAutoMatchSettings {
   sfwordl: any;
   useiframe: boolean;
   viewcontent: boolean;
-  FA: any;
+  FA: {
+    enable: boolean;
+    manualA: boolean;
+    useiframe: boolean;
+    iloaded: boolean;
+    itimeout: number;
+    remain: number;
+    maxpage: number;
+    ipages: [boolean, number];
+    separator: boolean;
+  };
 }
 
 interface ISettings {

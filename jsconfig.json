@@ -3,6 +3,5 @@
     "target": "es6",
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node"
-  },
-  "exclude": ["node_modules"]
+  }
 }

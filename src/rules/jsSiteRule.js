@@ -199,7 +199,7 @@ export const jsSiteRule = [
         const td = doc.createElement('td');
         td.appendChild(sepdiv);
         const tr = doc.createElement('tr');
-        td.setAttribute('colspan', 2);
+        td.setAttribute('colspan', '2');
         tr.appendChild(td);
         const tbody = doc.createElement('tbody');
         tbody.appendChild(td);
