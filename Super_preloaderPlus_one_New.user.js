@@ -9,9 +9,9 @@
 // @author       Mach6
 // @contributers heroboy, suchunchen, YFdyh000
 // @thanksto     ywzhaiqi, NLF
-// @version      6.13.13
+// @version      6.13.14
 // @license      GPL-3.0
-// @update       2020/6/1
+// @update       2020/6/2
 // @homepageURL  https://github.com/machsix/Super-preloader
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
 // @contributionURL https://ko-fi.com/machsix
@@ -3751,7 +3751,7 @@
     }
   }
 
-  var name="super-preloader";var version="6.13.13";var description="Super-preloader";var main="dist/Super_preloaderPlus_one_New.user.js";var author="Mach6";var license="GPL-3.0";var bugs={url:"https://github.com/machsix/Super-preloader/issues"};var homepage="https://github.com/machsix/Super-preloader";var directories={doc:"docs"};var repository={type:"git",url:"git+https://github.com/machsix/Super-preloader.git"};var scripts={lint:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.js\"",format:"prettier --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"","format:check":"prettier --check \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"","format:staged":"pretty-quick --verbose --staged --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"",check:"npm run lint && npm run format:staged",test:"cd test && node test.js",dev:"rollup -c --dev -w",build:"rollup -c","docs:dev":"vuepress dev docs","docs:build":"vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh",preversion:"npm run check",version:"npm run build  && git add dist/*.js && git add dist/*.json",postversion:"git add package.json package-lock.json && npm run test","publish:patch":"npm --no-git-tag-version version patch",publish:"npm --no-git-tag-version version minor"};var husky={hooks:{"pre-commit":"npm run check"}};var keywords=["userscript"];var devDependencies={"@vuepress/plugin-back-to-top":"1.5.0","@vuepress/plugin-google-analytics":"1.5.0","@vuepress/plugin-pwa":"1.5.0",vuepress:"1.5.0"};var dependencies={"@babel/core":"7.10.2","@babel/plugin-transform-runtime":"7.10.1","@babel/preset-env":"7.10.2","@rollup/plugin-babel":"5.0.2","@rollup/plugin-commonjs":"12.0.0","@rollup/plugin-json":"4.0.3","@rollup/plugin-node-resolve":"8.0.0","@sinonjs/text-encoding":"0.7.1","babel-plugin-lodash":"3.3.4","babel-plugin-wildcard":"6.0.0","compare-versions":"3.6.0",displacejs:"1.4.1",eslint:"7.1.0","eslint-config-prettier":"6.11.0","eslint-plugin-json":"2.1.1","eslint-plugin-prettier":"3.1.3","extract-zip":"2.0.0",got:"11.2.0",husky:"4.2.5",lodash:"4.17.15",loglevel:"1.6.8",prettier:"2.0.5","pretty-quick":"2.0.1",puppeteer:"2.1.0",rollup:"2.12.0","rollup-plugin-banner":"git+https://git@github.com/machsix/rollup-plugin-banner.git#v0.2.2","rollup-plugin-dev":"1.1.2","rollup-plugin-ejs":"2.2.0","rollup-plugin-re":"1.0.7","rollup-plugin-scss-string":"0.1.0",yargs:"15.3.1"};var pkg = {name:name,version:version,description:description,main:main,author:author,license:license,bugs:bugs,homepage:homepage,directories:directories,repository:repository,scripts:scripts,husky:husky,keywords:keywords,devDependencies:devDependencies,dependencies:dependencies};
+  var name="super-preloader";var version="6.13.14";var description="Super-preloader";var main="dist/Super_preloaderPlus_one_New.user.js";var author="Mach6";var license="GPL-3.0";var bugs={url:"https://github.com/machsix/Super-preloader/issues"};var homepage="https://github.com/machsix/Super-preloader";var directories={doc:"docs"};var repository={type:"git",url:"git+https://github.com/machsix/Super-preloader.git"};var scripts={lint:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.js\"",format:"prettier --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"","format:check":"prettier --check \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"","format:staged":"pretty-quick --verbose --staged --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"",check:"npm run lint && npm run format:staged",test:"cd test && node test.js",dev:"rollup -c --dev -w",build:"rollup -c","docs:dev":"vuepress dev docs","docs:build":"vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh",preversion:"npm run check",version:"npm run build  && git add dist/*.js && git add dist/*.json",postversion:"git add package.json package-lock.json && npm run test","publish:patch":"npm --no-git-tag-version version patch",publish:"npm --no-git-tag-version version minor"};var husky={hooks:{"pre-commit":"npm run check"}};var keywords=["userscript"];var devDependencies={"@vuepress/plugin-back-to-top":"1.5.0","@vuepress/plugin-google-analytics":"1.5.0","@vuepress/plugin-pwa":"1.5.0",vuepress:"1.5.0"};var dependencies={"@babel/core":"7.10.2","@babel/plugin-transform-runtime":"7.10.1","@babel/preset-env":"7.10.2","@rollup/plugin-babel":"5.0.2","@rollup/plugin-commonjs":"12.0.0","@rollup/plugin-json":"4.0.3","@rollup/plugin-node-resolve":"8.0.0","@sinonjs/text-encoding":"0.7.1","@types/greasemonkey":"4.0.0","@types/lodash":"^4.14.154","babel-plugin-lodash":"3.3.4","babel-plugin-wildcard":"6.0.0","compare-versions":"3.6.0",displacejs:"1.4.1",eslint:"7.1.0","eslint-config-prettier":"6.11.0","eslint-plugin-json":"2.1.1","eslint-plugin-prettier":"3.1.3","extract-zip":"2.0.0",got:"11.2.0",husky:"4.2.5",lodash:"4.17.15",loglevel:"1.6.8",prettier:"2.0.5","pretty-quick":"2.0.1",puppeteer:"2.1.0",rollup:"2.12.0","rollup-plugin-banner":"git+https://git@github.com/machsix/rollup-plugin-banner.git#v0.2.2","rollup-plugin-dev":"1.1.2","rollup-plugin-ejs":"2.2.0","rollup-plugin-re":"1.0.7","rollup-plugin-scss-string":"0.1.0",yargs:"15.3.1"};var pkg = {name:name,version:version,description:description,main:main,author:author,license:license,bugs:bugs,homepage:homepage,directories:directories,repository:repository,scripts:scripts,husky:husky,keywords:keywords,devDependencies:devDependencies,dependencies:dependencies};
 
   // Information of script
 
@@ -3984,8 +3984,8 @@
    * Create a dom element
    * @param {string} type element type
    * @param {object} conf configuration of the dom, could be 'attr', 'innnerHTML', 'children', 'eventListner'
-   * @param {object} doc dom to attach
-   * @returns {object} dom element
+   * @param {Document} doc dom to attach
+   * @returns {HTMLElement} dom element
    */
 
   function createDOM(type, conf) {
@@ -4020,8 +4020,8 @@
   }
   /**
    * Get attributes for settings
-   * @param {object} obj dom element
-   * @returns {string/boolean} dom element main property
+   * @param {HTMLElement} obj dom element
+   * @returns {string|boolean|number} dom element main property
    */
 
   function getProperty(obj) {
@@ -4099,6 +4099,8 @@
     }
   }
 
+  //@ts-check
+
   /**
    * Select a single element by css selector
    * @param {string} css css of dom
@@ -4112,8 +4114,8 @@
   /**
    * Select multiple elements by css selector
    * @param {string} css css of dom
-   * @param {object} contextNode dom contextNode
-   * @returns {object} an array of Nodes
+   * @param {ParentNode} contextNode dom contextNode
+   * @returns {HTMLElement[]} an array of Nodes
    */
 
   function getAllElementsByCSS(css) {
@@ -4123,9 +4125,9 @@
   /**
    * Select an element by xpath selector
    * @param {string} xpath a string representing the XPath to be evaluated, the attribute will be removed
-   * @param {object} contextNode contextNode specifies the context node for the query (see the XPath specification). It's common to pass document as the context node.
-   * @param {object} doc the document to select from
-   * @returns {object} a dom node
+   * @param {Node=} contextNode contextNode specifies the context node for the query (see the XPath specification). It's common to pass document as the context node.
+   * @param {HTMLDocument=} doc the document to select from
+   * @returns {HTMLElement} a dom node
    */
 
   function getElementByXpath(xpath, contextNode) {
@@ -4133,7 +4135,8 @@
     contextNode = contextNode || doc;
 
     try {
-      var result = doc.evaluate(xpath, contextNode, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
+      var result = doc.evaluate(xpath, contextNode, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null); //@ts-ignore
+
       return result.singleNodeValue;
     } catch (err) {
       throw new Error(`Invalid xpath: ${xpath}`);
@@ -4142,9 +4145,9 @@
   /**
    * Select multiple elements by xpath selector
    * @param {string} xpath a string representing the XPath to be evaluated
-   * @param {object} contextNode contextNode specifies the context node for the query (see the XPath specification). It's common to pass document as the context node.
-   * @param {object} doc the document to select from
-   * @returns {object} an array of Nodes
+   * @param {Node} contextNode contextNode specifies the context node for the query (see the XPath specification). It's common to pass document as the context node.
+   * @param {Document} doc the document to select from
+   * @returns {HTMLElement[]} an array of Nodes
    */
 
   function getAllElementsByXpath(xpath, contextNode) {
@@ -4160,33 +4163,37 @@
       }
     } catch (err) {
       throw new Error(`Invalid xpath: ${xpath}`);
-    }
+    } //@ts-ignore
+
 
     return result;
   }
   /**
    *
-   * @param {string} selector css selector or xpath selector
-   * @param {object} contextNode contextNode specifies the context node for the query (see the XPath specification). It's common to pass document as the context node.
-   * @param {object} doc the document to select from
-   * @param {object} win window of the browser
-   * @param {link} _cplink current page link
-   * @returns {object} an array of nodes
+   * @param {string|Function} selector css selector or xpath selector
+   * @param {Element|Document|DocumentFragment} contextNode contextNode specifies the context node for the query (see the XPath specification). It's common to pass document as the context node.
+   * @param {Document} doc the document to select from
+   * @param {Window} win window of the browser
+   * @param {string} _cplink current page link
+   * @returns {HTMLElement[]} an array of nodes
    */
 
-  function getAllElements(selector, contextNode) {
+  function getAllElements(selector) {
+    var contextNode = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : undefined;
     var doc = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : document;
     var win = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : window;
 
     var _cplink = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : undefined;
 
-    if (!selector) return [];
+    if (!selector) return []; //@ts-ignore
+
     contextNode = contextNode || doc;
 
     if (typeof selector === 'string') {
       if (selector.search(/^css;/i) === 0) {
         return getAllElementsByCSS(selector.slice(4), contextNode);
       } else {
+        //@ts-ignore
         return getAllElementsByXpath(selector, contextNode, doc);
       }
     } else {
@@ -4198,7 +4205,16 @@
         return query;
       }
     }
-  } // 获取最后一个元素.
+  }
+  /**
+   *
+   * @param {string|Function} selector selector
+   * @param {string=} _cplink _cplink
+   * @param {HTMLElement=} contextNode contextNode
+   * @param {HTMLDocument=} doc doc
+   * @param {Window=} win win
+   * @returns {HTMLElement} 最后一个元素.
+   */
 
   function getLastElement(selector, _cplink, contextNode, doc, win) {
     var eles = getAllElements(selector, contextNode, doc, win, _cplink);
@@ -10418,6 +10434,8 @@
 
   function _objectSpread$2(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$2(Object(source), true).forEach(function (key) { defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$2(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
+  /**@type {ISettings} */
+
   var factorySettings = {
     prefs: {
       floatWindow: true,
@@ -10585,7 +10603,12 @@
 
   }; // const settingsKeys = ["prefs", "SITEINFO_D", "autoMatch", "version"];
 
+  /** @type {string[]} */
+
   var settingsKeys = Object.keys(factorySettings);
+  /** @type {ISettings} */
+  //@ts-ignore Partial<ISettings> is temp.
+
   var settings = {};
   /**
    * Merge a new object to the old one
@@ -10709,6 +10732,8 @@
               verDiff = compareVersions(settings.version, SCRIPT_INFO.version);
               isInstalled = compareVersions(settings.version, factorySettings.version) === 0; // check the consistency of settings and merge prefs
 
+              /** @type {Array<Promise>} */
+
               postLoading = []; // async function to run after loading settings
 
               if (verDiff !== 0 || settings.prefs.factoryCheck !== false) {
@@ -10768,7 +10793,9 @@
                     } else {
                       opts.text += NOTIFICATION.extratext.en_US;
                     }
-                  }
+                  } //@ts-ignore
+                  //todo: patch the type
+
 
                   GM.notification(opts);
                 }
@@ -10781,6 +10808,8 @@
               _yield$Promise$all = _context3.sent;
               _yield$Promise$all2 = slicedToArray(_yield$Promise$all, 1);
               jsonRule = _yield$Promise$all2[0];
+
+              /** @type {string[]} */
               blackList = [].concat(settings.prefs.excludes.split(/[\n\r]+/).map(function (line) {
                 return line.trim();
               }));
@@ -10949,6 +10978,10 @@
     });
   }
 
+  //@ts-check
+
+  /**@type {IRule[]} */
+
   var jsGeneralRule = [{
     name: '2048 image mode',
     url: 'https?://[^/]*/2048/',
@@ -10971,7 +11004,8 @@
 
         if (trs.length > 0) {
           var _loop = function _loop() {
-            var thisTrs = trs[i];
+            var thisTrs = trs[i]; //@ts-ignore
+
             var postLink = thisTrs.querySelector('td:nth-of-type(2) a').href;
 
             if (postLink) {
@@ -10985,6 +11019,7 @@
                   thisTrs.querySelector('td:nth-of-type(1)').innerHTML = '';
                   thisTrs.querySelector('td:nth-of-type(1)').appendChild(createDOM('IMG', {
                     attr: {
+                      //@ts-ignore
                       src: imgNode.src,
                       width: '840',
                       title: 'Powered by Super-Preloader Plus',
@@ -11143,7 +11178,7 @@
   }, {
     name: '通用 Forum 规则4',
     url: /^https?:\/\/forums\..*\/threads/i,
-    nextLink: '(//div[@class="PageNav"])[1]//a[contains(text(),' > ')]',
+    nextLink: `(//div[@class="PageNav"])[1]//a[contains(text(),' > ')]`,
     pageElement: '//ol[@id="messageList"]/li',
     separatorReal: false
   }, {
@@ -11158,7 +11193,7 @@
     nextLink: "//ol[@class='page-navigator']/li[@class='next']/a",
     autopager: {
       pageElement: function pageElement(doc, _win, _cplink) {
-        var gen = getElementByXpath("//head/meta[@name='generator']", doc, doc);
+        var gen = getElementByXpath("//head/meta[@name='generator']", doc, doc); //@ts-ignore
 
         if (!gen || !gen.content.includes('Typecho') || !doc.documentElement.outerHTML.includes('Typecho')) {
           return null;
@@ -11294,6 +11329,8 @@
   function _unsupportedIterableToArray$2(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray$2(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray$2(o, minLen); }
 
   function _arrayLikeToArray$2(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+  /**@type {Array<IRule>} */
+
   var jsSiteRule = [{
     // 站点名字...(可选)             // 站点正则...(~~必须~~)
     name: 'Google搜索',
@@ -11382,6 +11419,7 @@
 
         if (x) {
           try {
+            //@ts-ignore
             new Function('document', 'window', 'google', x.nodeValue)(doc, unsafeWindow, unsafeWindow.google);
           } catch (e) {}
         } // Fix images
@@ -11418,7 +11456,7 @@
 
               _d.setAttribute('src', _d.getAttribute('data-src'));
 
-              _d.style.opacity = 1;
+              _d.style.opacity = '1';
             }
           } catch (err) {
             _iterator2.e(err);
@@ -11464,6 +11502,7 @@
         var keyword = getElementByXpath("//input[@title='Search']", doc, doc);
 
         if (keyword) {
+          //@ts-ignore
           console.log('%cMicrosoft is %s %csearch with Bing %s', 'font-weight:bold;color:00bbee', emoji('1F451'), 'font-weight:bold;color:00bbee', encodeURI('https://www.bing.com/search?q=' + keyword.value));
         } else {
           console.log('%cMicrosoft is %s', 'font-weight:bold;color:00bbee', emoji('1F451'));
@@ -11536,7 +11575,7 @@
         var td = doc.createElement('td');
         td.appendChild(sepdiv);
         var tr = doc.createElement('tr');
-        td.setAttribute('colspan', 2);
+        td.setAttribute('colspan', '2');
         tr.appendChild(td);
         var tbody = doc.createElement('tbody');
         tbody.appendChild(td);
@@ -11587,10 +11626,10 @@
 
         if (trs.length > 0) {
           for (var i = 0; i < trs.length; i++) {
-            var img = trs[i].getElementsByTagName('img');
+            var imgs = trs[i].getElementsByTagName('img');
 
-            if (img) {
-              img = img[0];
+            if (imgs) {
+              var img = imgs[0];
               var imgSrc = img.getAttribute('src');
               var newtr = createDOM('tr', {
                 attr: {
@@ -11687,7 +11726,9 @@
       pageElement: '//div[@class="atl-main"]',
       lazyImgSrc: 'original',
       filter: function filter(_pages) {
-        var see_only_uname = unsafeWindow.see_only_uname;
+        //@ts-ignore
+        var see_only_uname = unsafeWindow.see_only_uname; //@ts-ignore
+
         var setOnlyUser = unsafeWindow.setOnlyUser;
 
         if (see_only_uname) {
@@ -11788,6 +11829,7 @@
         var ad = doc.querySelector('.aside-wrap');
 
         if (ad) {
+          //@ts-ignore
           ad.style.display = 'none';
         }
       },
@@ -11795,6 +11837,7 @@
         var pager = doc.querySelector('#pageNum');
 
         if (pager) {
+          //@ts-ignore
           pager.style.display = 'none';
         }
       }
@@ -11847,6 +11890,7 @@
         if (navigator) {
           navigator.parentNode.removeChild(navigator);
         } // 隐藏分页
+        //@ts-ignore
 
 
         doc.querySelector('.art-page').style.display = 'none';
@@ -11860,7 +11904,9 @@
       pageElement: '//div[@id="content-list"]',
       lazyImgSrc: 'original',
       filter: function filter(_pages) {
-        var chouti = unsafeWindow.chouti;
+        //@ts-ignore
+        var chouti = unsafeWindow.chouti; //@ts-ignore
+
         var NS_links_comment_top = unsafeWindow.NS_links_comment_top;
         chouti.vote();
         chouti.addCollect();
@@ -12009,6 +12055,7 @@
         var articleList = doc.querySelector('.article-list');
 
         if (articleList) {
+          //@ts-ignore
           articleList.style.marginBottom = '0';
         }
       },
@@ -12017,6 +12064,7 @@
         var articleList = doc.querySelector('.article-list');
 
         if (articleList) {
+          //@ts-ignore
           articleList.style.marginBottom = '0';
         } // 移动分页位置
 
@@ -12070,7 +12118,8 @@
 
           if (pageNav.length == 2) {
             index = 1;
-          }
+          } //@ts-ignore
+
 
           pageNav[index].style.display = 'none';
         }
@@ -12084,7 +12133,8 @@
 
           if (pageNav.length == 2) {
             index = 1;
-          }
+          } //@ts-ignore
+
 
           pageNav[index].style.display = 'none';
         } // 扩展的其他话题信息移除，长度太长，导致翻页信息有点问题
@@ -12117,9 +12167,11 @@
           var salt = temp[2]; // function secret is provided by the website
 
           if (temp[3].indexOf('true') >= 0) {
+            //@ts-ignore
             // eslint-disable-next-line no-undef
             c = secret(content, salt, true);
           } else {
+            //@ts-ignore
             // eslint-disable-next-line no-undef
             c = secret(content, salt, false);
           }
@@ -12163,7 +12215,7 @@
         return undefined;
       }
 
-      var next = Number(res.dataset.page) + 1;
+      var next = Number(res.dataset.page) + 1; //@ts-ignore
 
       if (next > res.dataset.pagemax) {
         return undefined;
@@ -12224,7 +12276,8 @@
             nextNode = res.childNodes[i + 1];
           }
         }
-      }
+      } //@ts-ignore
+
 
       var findout = /jumpurl\('(\w+)','?(\d+)'?\)/.exec(nextNode.innerHTML);
 
@@ -12250,8 +12303,10 @@
     url: /^https?:\/\/(www|manhua)\.(dmzj|178)\.com\/\w+\/\d+\.shtml/,
     exampleUrl: 'https://manhua.dmzj.com/yuanlian/36944.shtml#@page=1',
     nextLink: function nextLink(doc, _win, cplink) {
+      //@ts-ignore
       var current = Number(getElementByXpath('//*[@id="page_select"]/option[@selected][1]', doc).text.match(/(\d+)/)[1]);
-      var xpath_last = '//*[@id="page_select"]/option[last()]';
+      var xpath_last = '//*[@id="page_select"]/option[last()]'; //@ts-ignore
+
       var end_num = Number(getElementByXpath(xpath_last, doc).text.match(/(\d+)/)[1]);
       var next = current + 1;
 
@@ -12275,7 +12330,8 @@
     // we need to manually add hash
     nextLink: function nextLink(doc, _win, cplink) {
       var current = Number(getElementByXpath('//*[@id="page"]', doc).innerHTML);
-      var xpath_last = '//div[@id="pagination"]/a[contains(@href,"javascript") and not(@class)][last()]';
+      var xpath_last = '//div[@id="pagination"]/a[contains(@href,"javascript") and not(@class)][last()]'; //@ts-ignore
+
       var end_num = Number(getElementByXpath(xpath_last, doc).text);
       var next = current + 1;
 
@@ -12360,16 +12416,19 @@
       var maxpage = document.getElementById('hdPageCount');
 
       if (maxpage) {
+        //@ts-ignore
         maxpage = Number(maxpage.value);
       } else {
         maxpage = document.getElementById('spPageCount');
 
         if (maxpage) {
+          //@ts-ignore
           maxpage = Number(maxpage.innerText);
         } else {
           return undefined;
         }
-      }
+      } //@ts-ignore
+
 
       if (next == maxpage + 1) {
         return undefined;
@@ -12482,6 +12541,7 @@
     nextLink: '//div[@class="bp"]/a[text()="下一页"][@href]',
     autopager: {
       startFilter: function startFilter(d, _win) {
+        //@ts-ignore
         d.getElementById('bigpic').src = d.getElementById('bigpic').src.replace('fmvip.xzglasses.com', 'fmvip.xzglasses.com');
         Array.from(d.querySelectorAll('iframe')).forEach(function (frame) {
           return frame.remove();
@@ -12515,7 +12575,8 @@
     nextLink: "//li[a[contains(@class,'is-current')]]/following-sibling::li[1]/a",
     pageElement: "//div[@class='grid columns']",
     documentFilter: function documentFilter(doc, _nextLink) {
-      var item = document.querySelector('.grid-item.column:nth-of-type(2)');
+      var item = document.querySelector('.grid-item.column:nth-of-type(2)'); //@ts-ignore
+
       var width = item.offsetLeft || 168;
       var grid = doc.querySelector('.grid.columns');
       grid.setAttribute('style', `display: grid; grid-template-columns: repeat( auto-fit, ${width}px);justify-content: center;`);
@@ -12624,6 +12685,8 @@
     var scriptInfo = SCRIPT_INFO;
     // all rules
 
+    /** @type {IRule[]} */
+
     var SSRules = []; // ----------------------------------
 
     if (window.name === 'mynovelreader-iframe') {
@@ -12651,7 +12714,12 @@
           window.parent.postMessage('superpreloader-iframe:DOMLoaded', '*');
         } else {
           var observers = mutationObserver.observers;
-          var p = [];
+          /**@type {Promise} */
+
+          var p = null;
+          /**@type {Array<Promise>} */
+
+          var parr = [];
 
           if (observers) {
             ['attributes', 'addedNodes', 'removedNodes'].forEach(function (key) {
@@ -12662,18 +12730,18 @@
                   //el.forEach((x) => {
                   //  p.push(elementReady(x, key));
                   //});
-                  p.push(elementReady(el[el.length - 1], key));
+                  parr.push(elementReady(el[el.length - 1], key));
                   el[0].scrollIntoView();
                   el[el.length - 1].scrollIntoView();
                 } else {
-                  p.push(elementReady(el[el.length - 1], key));
+                  parr.push(elementReady(el[el.length - 1], key));
                 }
               }
             });
           }
 
           if (p) {
-            p = Promise.all(p);
+            p = Promise.all(parr);
           } else {
             p = Promise.resolve(undefined);
           }
@@ -12696,7 +12764,8 @@
             });
           }, timeout);
         }
-      };
+      }; //@ts-ignore
+
 
       if (window.opera) {
         document.addEventListener('DOMContentLoaded', domLoaded, false);
@@ -12780,8 +12849,14 @@
 
       var setup = function setup() {
         var d = document;
+        /**
+         *
+         * @param {string} s s
+         * @returns {HTMLInputElement} elem
+         */
 
         var $ = function $(s) {
+          //@ts-ignore
           return d.getElementById('sp-prefs-' + s);
         };
 
@@ -12904,8 +12979,11 @@
           this.loadSetting();
 
           if (userLang === 'zh_CN') {
+            //@ts-ignore
+            //todo: patch the type
             GM.registerMenuCommand('Super_preloaderPlus_one_New 设置', setup);
           } else {
+            //@ts-ignore
             GM.registerMenuCommand('Super_preloaderPlus_one_New Settings', setup);
           } // 查找是否是页面不刷新的站点
 
@@ -12973,9 +13051,17 @@
         }
       };
       SP.spinit();
+      /**
+       *
+       * @param {Window} window window
+       * @param {Document} document document
+       * @returns {void}
+       */
 
       function init(window, document) {
-        var startTime = new Date();
+        var startTime = new Date(); // eslint-disable-next-line valid-jsdoc
+
+        /**@type {(...rest:any[])=>void} */
 
         var nullFn = function nullFn() {}; // 空函数.
 
@@ -13007,7 +13093,14 @@
           div.innerHTML = template.floatWindow();
           document.body.appendChild(div); // helper function to get element
 
+          /**
+           *
+           * @param {string} id id
+           * @returns {HTMLInputElement} return
+           * */
+
           function $(id) {
+            //@ts-ignore
             return document.getElementById(id);
           }
 
@@ -13073,11 +13166,13 @@
           var a_starti = $('sp-fw-a_starti'); // 开始立即翻页
 
           a_starti.addEventListener('click', function (e) {
+            //@ts-ignore
             if (e.currentTarget.disabled) return;
             var value = parseInt(a_ipages_1.value);
 
             if (isNaN(value) || value < 0) {
-              value = SSS.a_ipages[1];
+              value = SSS.a_ipages[1]; //@ts-ignore
+
               a_ipages_1.value = value;
             }
 
@@ -13097,19 +13192,22 @@
             };
 
             if (SSS.a_enable !== undefined) {
+              /** @type {(s:HTMLElement)=>number} */
+              //@ts-ignore
+              var getPropertyNumber = getProperty;
               value.a_enable = getProperty(a_enable) === 'autopager';
               value.a_useiframe = getProperty(a_useiframe);
               value.a_newIframe = getProperty(a_newIframe);
               value.a_iloaded = getProperty(a_iloaded);
               value.a_manualA = getProperty(a_manualA);
               value.a_force = getProperty(a_force);
-              var t_a_itimeout = getProperty(a_itimeout);
+              var t_a_itimeout = getPropertyNumber(a_itimeout);
               value.a_itimeout = isNaN(t_a_itimeout) ? SSS.a_itimeout : t_a_itimeout >= 0 ? t_a_itimeout : 0;
-              var t_a_remain = getProperty(a_remain);
+              var t_a_remain = getPropertyNumber(a_remain);
               value.a_remain = isNaN(t_a_remain) ? SSS.a_remain : Number(t_a_remain);
-              var t_a_maxpage = getProperty(a_maxpage);
+              var t_a_maxpage = getPropertyNumber(a_maxpage);
               value.a_maxpage = isNaN(t_a_maxpage) ? SSS.a_maxpage : t_a_maxpage >= 1 ? t_a_maxpage : 1;
-              var t_a_ipages_1 = getProperty(a_ipages_1);
+              var t_a_ipages_1 = getPropertyNumber(a_ipages_1);
               value.a_ipages = [getProperty(a_ipages_0), isNaN(t_a_ipages_1) ? SSS.a_ipages[1] : t_a_ipages_1 >= 0 ? t_a_ipages_1 : 1];
               value.a_separator = getProperty(a_separator);
             }
@@ -13188,8 +13286,8 @@
               cur_mode.style.display = command == 'show' ? 'block' : 'none';
             }
           };
-          var vertical = parseInt(prefs.FW_offset[0], 10);
-          var horiz = parseInt(prefs.FW_offset[1], 10);
+          var vertical = parseInt(prefs.FW_offset[0] + '', 10);
+          var horiz = parseInt(prefs.FW_offset[1] + '', 10);
           var FW_position = prefs.FW_position; // 非opera用fixed定位.
 
           div.style.position = 'fixed';
@@ -13218,11 +13316,13 @@
         }
 
         function sp_transition(start, end) {
+          //@ts-ignore
           var TweenF = sp_transition.TweenF;
 
           if (!TweenF) {
             TweenF = Tween[TweenM[prefs.s_method]];
-            TweenF = TweenF[TweenEase[prefs.s_ease]] || TweenF;
+            TweenF = TweenF[TweenEase[prefs.s_ease]] || TweenF; //@ts-ignore
+
             sp_transition.TweenF = TweenF;
           }
 
@@ -13323,6 +13423,7 @@
 
 
         var autoPO = {
+          /**@type {(value?:number)=>void} f*/
           startipages: nullFn
         };
         var hashchangeAdded = false;
@@ -13525,7 +13626,9 @@
                 ';
 
               if (SSS.a_sandbox != false) {
-                i.sandbox = SSS.a_sandbox;
+                //sandbox is readonly property
+                //i.sandbox = SSS.a_sandbox;
+                i.setAttribute('sandbox', '');
               }
 
               i.src = link;
@@ -13710,7 +13813,8 @@
               manualDiv = div;
               document.body.appendChild(div);
               div.addEventListener('click', function (e) {
-                if (e.target.id == 'sp-sp-md-number') return;
+                //@ts-ignore
+                if (e.target.id === 'sp-sp-md-number') return;
                 spage(document.getElementById('sp-sp-md-number'));
                 manualDiv.remove();
               }, false);
@@ -13733,8 +13837,9 @@
             }
           }
 
-          var sepStyle;
-          var goNextImg = [false];
+          var sepStyle; //looks like goNextImg is useless here.
+          //const goNextImg = [false];
+
           var sNumber = prefs.sepStartN;
           var _sep_icons = sep_icons;
           var curNumber = sNumber;
@@ -13788,13 +13893,11 @@
                   class: 'sp-sp-gonext',
                   title: userLang === 'zh_CN' ? '下滚一页' : 'Scroll down a page'
                 }
-              });
+              }); //if (goNextImg.length == 2) {
+              //  goNextImg.shift();
+              //}
+              //goNextImg.push(i_next);
 
-              if (goNextImg.length == 2) {
-                goNextImg.shift();
-              }
-
-              goNextImg.push(i_next);
               div.appendChild(i_next);
               div.appendChild(createDOM('img', {
                 attr: {
@@ -13853,7 +13956,7 @@
 
             var docTitle = getElementByCSS('title', doc).textContent;
             var fragment = document.createDocumentFragment();
-            var pageElements = getAllElements(SSS.a_pageElement, false, doc, win, nextlink);
+            var pageElements = getAllElements(SSS.a_pageElement, undefined, doc, win, nextlink);
             var ii = pageElements.length;
 
             if (ii <= 0) {
@@ -13867,7 +13970,9 @@
 
             var lastUrl = cplink;
             cplink = nextlink;
-            var nl = getElement(SSS.nextLink, false, doc, win);
+            /** @type {HTMLElement|string} */
+
+            var nl = getElement(SSS.nextLink, undefined, doc, win);
 
             if (nl) {
               nl = getFullHref(nl);
@@ -13913,7 +14018,7 @@
               handleLazyImgSrc(SSS.lazyImgSrc, fragment);
             }
 
-            var imgs;
+            var imgs; //@ts-ignore
 
             if (!window.opera && SSS.a_useiframe && !SSS.a_iloaded) {
               imgs = getAllElements('css;img[src]', fragment); // 收集所有图片
@@ -13931,6 +14036,8 @@
                 }
               });
             }
+            /** @type {HTMLElement} */
+
 
             var sepdiv = createSep(lastUrl, cplink, nextlink);
             var toInsert = sepdiv;
@@ -14012,7 +14119,7 @@
               var oldE_lt = oldE.length;
 
               if (oldE_lt > 0) {
-                var newE = getAllElements(SSS.a_replaceE, false, doc, win);
+                var newE = getAllElements(SSS.a_replaceE, undefined, doc, win);
                 var newE_lt = newE.length;
 
                 if (newE_lt == oldE_lt) {
@@ -14039,9 +14146,9 @@
 
             if (manualDiv) {
               manualDiv.style.display = 'none';
-            }
+            } //if (goNextImg[0]) goNextImg[0].src = _sep_icons.next;
 
-            if (goNextImg[0]) goNextImg[0].src = _sep_icons.next;
+
             var ev = document.createEvent('Event');
             ev.initEvent('Super_preloaderPageLoaded', true, false);
             document.dispatchEvent(ev);
@@ -14219,6 +14326,9 @@
         function prefetcher(SSS, floatWO) {
           function cContainer() {
             var div = document.createElement('div');
+            /** @type {HTMLElement} */
+            //@ts-ignore
+
             var div2 = div.cloneNode(false);
             var hr = document.createElement('hr');
             div.style.cssText = '\
@@ -14270,12 +14380,14 @@
                 padding:0!important;\
             ';
             iframe.addEventListener('load', function (e) {
+              //@ts-ignore
               var body = e.currentTarget.contentDocument.body;
 
               if (body && body.firstChild) {
                 floatWO.updateColor('prefetcher');
                 floatWO.CmodeIcon('hide');
-                floatWO.loadedIcon('show');
+                floatWO.loadedIcon('show'); //@ts-ignore
+
                 e.currentTarget.removeEventListener('load', arguments.callee, false);
 
                 if (SSS.lazyImgSrc) {
@@ -14366,6 +14478,7 @@
 
         if (prefs.DisableI && window.self != window.parent) {
           var isReturn = !find_1(DIExclude, function (x) {
+            //@ts-ignore
             return x[1] && x[2].test(url);
           });
 
@@ -14394,14 +14507,20 @@
         }
 
         if (!prefs.numOfRule || prefs.numOfRule != SSRules.length) {
-          prefs.numOfRule = SSRules.length;
+          prefs.numOfRule = SSRules.length; //@ts-ignore
+
           GM.setValue('prefs', prefs);
         } // 重要的变量两枚.
+
+        /** @type {Array<string|HTMLElement>} */
 
 
         var pagedLinks = [document.location.href];
         var nextlink;
         var prelink; //= ==============
+
+        /**@type {any} */
+        //todo: add SSS type
 
         var SSS = {};
 
@@ -14589,18 +14708,20 @@
             SSS.lazyImgSrc = prefs.lazyImgSrc;
           }
 
-          logger.debug("[Super-preloader]", `搜索高级规则和自动匹配过程总耗时:${new Date() - startTime}ms`);
+          logger.debug("[Super-preloader]", `搜索高级规则和自动匹配过程总耗时:${new Date().getTime() - startTime.getTime()}ms`);
         };
 
         findCurSiteInfo(); // 上下页都没有找到啊
 
         if (!nextlink && !prelink) {
-          logger.warn("[Super-preloader]", `未找到相关链接, JS执行停止. 共耗时:${new Date() - startTime}ms`);
+          logger.warn("[Super-preloader]", `未找到相关链接, JS执行停止. 共耗时:${new Date().getTime() - startTime.getTime()}ms`);
           return;
         } else {
           logger.debug("[Super-preloader]", '上一页链接:', prelink);
-          logger.debug("[Super-preloader]", '下一页链接:', nextlink);
-          nextlink = nextlink ? nextlink.href || nextlink : undefined;
+          logger.debug("[Super-preloader]", '下一页链接:', nextlink); //@ts-ignore
+
+          nextlink = nextlink ? nextlink.href || nextlink : undefined; //@ts-ignore
+
           prelink = prelink ? prelink.href || prelink : undefined;
         }
 
@@ -14617,6 +14738,7 @@
         if (prefs.arrowKeyPage) {
           logger.debug("[Super-preloader]", '添加键盘左右方向键翻页监听.');
           document.addEventListener('keyup', function (e) {
+            //@ts-ignore
             var tarNN = e.target.nodeName;
             if (tarNN != 'BODY' && tarNN != 'HTML') return; // check is a combo pressed
 
@@ -14648,7 +14770,7 @@
 
         if (!nextlink) {
           logger.error("[Super-preloader]", '下一页链接不存在,JS无法继续.');
-          logger.debug("[Super-preloader]", `全部过程耗时:${new Date() - startTime}ms`);
+          logger.debug("[Super-preloader]", `全部过程耗时:${new Date().getTime() - startTime.getTime()}ms`);
           return;
         }
 
@@ -14695,7 +14817,8 @@
             onMouseUp: function onMouseUp(el) {
               prefs.FW_offset[0] = parseInt(el.style.top.replace('px', ''), 10);
               prefs.FW_offset[1] = parseInt(el.style.right.replace('px', ''), 10);
-              prefs.FW_position = 2;
+              prefs.FW_position = 2; //@ts-ignore
+
               GM.setValue('prefs', prefs);
             }
           });
@@ -14704,11 +14827,11 @@
 
         if (!SSS.enable) {
           logger.warn("[Super-preloader]", '本规则被关闭,脚本执行停止');
-          logger.debug("[Super-preloader]", `全部过程耗时:${new Date() - startTime}ms`);
+          logger.debug("[Super-preloader]", `全部过程耗时:${new Date().getTime() - startTime.getTime()}ms`);
           return;
         }
 
-        logger.debug("[Super-preloader]", `全部过程耗时:${new Date() - startTime}ms`); // 预读或者翻页.
+        logger.debug("[Super-preloader]", `全部过程耗时:${new Date().getTime() - startTime.getTime()}ms`); // 预读或者翻页.
 
         if (SSS.a_enable) {
           logger.debug("[Super-preloader]", '初始化,翻页模式.');
@@ -14720,6 +14843,15 @@
 
         var docChecked; // 获取单个元素,混合
 
+        /**
+         *
+         * @param {string|Function|Array|IHrefIncObject} selector selector
+         * @param {Element|Document=} contextNode element
+         * @param {Document=} doc document
+         * @param {Window=} win window
+         * @returns {HTMLElement} element
+         */
+
         function getElement(selector, contextNode, doc, win) {
           var _cplink = cplink;
           var ret;
@@ -14727,9 +14859,8 @@
           doc = doc || document;
           win = win || window;
           contextNode = contextNode || doc;
-          var type = typeof selector;
 
-          if (type == 'string') {
+          if (typeof selector === 'string') {
             if (selector.search(/^css;/i) === 0) {
               ret = getElementByCSS(selector.slice(4), contextNode);
             } else if (selector.toLowerCase() == 'auto;') {
@@ -14737,7 +14868,7 @@
             } else {
               ret = getElementByXpath(selector, contextNode, doc);
             }
-          } else if (type == 'function') {
+          } else if (typeof selector === 'function') {
             ret = selector(doc, win, _cplink);
           } else if (selector instanceof Array) {
             for (var i = 0, l = selector.length; i < l; i++) {
@@ -14753,12 +14884,20 @@
 
           return ret;
         }
+        /**
+         *
+         * @param {Document=} doc document
+         * @param {Window=} win window
+         * @returns {HTMLElement} a
+         */
+
 
         function autoGetLink(doc, win) {
-          if (!autoMatch.keyMatch) return;
+          if (!autoMatch.keyMatch) return; //@ts-ignore
 
           if (!parseKWRE.done) {
-            parseKWRE();
+            parseKWRE(); //@ts-ignore
+
             parseKWRE.done = true;
           }
 
@@ -14785,7 +14924,8 @@
 
           var _nextlink;
 
-          var _prelink;
+          var _prelink; //@ts-ignore
+
 
           if (!autoGetLink.checked) {
             // 第一次检查
@@ -14857,7 +14997,8 @@
                       aP = aP.parentNode;
 
                       if (aP) {
-                        preS1 = aP.previousSibling;
+                        preS1 = aP.previousSibling; //@ts-ignore
+
                         preS2 = aP.previousElementSibling;
                       }
 
@@ -14925,7 +15066,8 @@
                         if (_Number(nSNText) == _Number(numtext) + 1) {
                           nodeType = nextSS.nodeType;
 
-                          if (nodeType == 3 || nodeType == 1 && (searchedD ? _getAllElementsByXpath('./descendant-or-self::a[@href]', nextSS, doc).length === 0 : !nextSS.hasAttribute('href') || _getFullHref(nextSS.getAttribute('href')) == curLHref)) {
+                          if (nodeType == 3 || // @ts-ignore
+                          nodeType == 1 && (searchedD ? _getAllElementsByXpath('./descendant-or-self::a[@href]', nextSS, doc).length === 0 : !nextSS.hasAttribute('href') || _getFullHref(nextSS.getAttribute('href')) == curLHref)) {
                             _prelink = finalCheck(a, 'pre');
                           }
                         }
@@ -14956,7 +15098,8 @@
               xbreak = false;
 
               for (k = 0; k < _nPKL; k++) {
-                keytext = _nextPageKey[k];
+                keytext = _nextPageKey[k]; //@ts-ignore
+
                 if (!keytext.test(atext)) continue;
                 _nextlink = finalCheck(a, 'next');
                 xbreak = true;
@@ -14968,7 +15111,8 @@
 
             if (!_prelink) {
               for (k = 0; k < _pPKL; k++) {
-                keytext = _prePageKey[k];
+                keytext = _prePageKey[k]; //@ts-ignore
+
                 if (!keytext.test(atext)) continue;
                 _prelink = finalCheck(a, 'pre');
                 break;
@@ -14976,11 +15120,12 @@
             }
           }
 
-          logger.debug("[Super-preloader]", `搜索链接数量:${i} 耗时:${new Date() - startTime}ms`);
+          logger.debug("[Super-preloader]", `搜索链接数量:${i} 耗时:${new Date().getTime() - startTime.getTime()}ms`); //@ts-ignore
 
           if (!autoGetLink.checked) {
             // 只在第一次检测的时候,抛出上一页链接.
-            prelink = _prelink;
+            prelink = _prelink; //@ts-ignore
+
             autoGetLink.checked = true;
           }
 
@@ -15006,7 +15151,7 @@
             plwords = '^\\s*' + plwords;
             slwords = RE_maxSubfix > 0 ? '[' + (RE_enable_b ? strMTE(RE_character_b.join('')) : '.') + ']{0,' + RE_maxSubfix + '}' : '';
             slwords = slwords + '\\s*$';
-            rep = prefs.cases ? '' : 'i';
+            rep = autoMatch.cases ? '' : 'i';
 
             for (var i = 0; i < pageKeyLength; i++) {
               pageKey[i] = new RegExp(plwords + strMTE(pageKey[i]) + slwords, rep);
@@ -15144,7 +15289,16 @@
 
     var isHashchangeSite = false;
     var hashchangeTimer = 0; // ====================  libs  ==============================
-    // 地址栏递增处理函数.
+
+    /**
+     *
+     * @param {IHrefIncObject} obj obj
+     * @param {Document=} doc document
+     * @param {Window=} win window
+     * @param {string=} cplink cplink
+     * @returns {string} next link
+     * @description 地址栏递增处理函数
+     */
 
     function hrefInc(obj, doc, win, cplink) {
       var _cplink = cplink;
@@ -15180,10 +15334,9 @@
       }
 
       var sa = obj.startAfter;
-      var saType = typeof sa;
       var index;
 
-      if (saType == 'string') {
+      if (typeof sa === 'string') {
         if (sa[0] == '#') {
           _cplink = doc.location.href;
         }
@@ -15260,10 +15413,13 @@
       if (scriptFilter) {
         regFilter = toRE(scriptFilter);
       }
+      /** @type {HTMLScriptElement} */
+
 
       var scripts_x;
 
       for (var i = scripts.length - 1; i >= 0; i--) {
+        //@ts-ignore
         scripts_x = scripts[i];
         var iremove = false;
 
@@ -15288,6 +15444,12 @@
         }
       }
     }
+    /**
+     *
+     * @param {string} str str
+     * @returns {HTMLDocument} document
+     */
+
 
     function createDocumentByString(str) {
       // string转为DOM
@@ -15299,6 +15461,8 @@
       if (document.documentElement.nodeName != 'HTML') {
         return new DOMParser().parseFromString(str, 'application/xhtml+xml');
       }
+      /**@type {HTMLDocument} */
+
 
       var doc;
 
@@ -15315,6 +15479,7 @@
         doc = document.implementation.createHTMLDocument('superPreloader');
       } else {
         try {
+          //@ts-ignore
           doc = document.cloneNode(false);
           doc.appendChild(doc.importNode(document.documentElement, false));
           doc.documentElement.appendChild(doc.createElement('head'));
@@ -15345,15 +15510,23 @@
       }
 
       return doc;
-    } // 从相对路径的a.href获取完全的href值.
+    }
+    /**
+     *
+     * @param {string|HTMLElement} href href
+     * @returns {string} href
+     * @description 从相对路径的a.href获取完全的href值.
+     */
 
 
     function getFullHref(href) {
       if (typeof href !== 'string') href = href.getAttribute('href'); // if(href.search(/^https?:/)==0)return href;//http打头,不一定就是完整的href;
+      //@ts-ignore
 
       var a = getFullHref.a;
 
       if (!a) {
+        //@ts-ignore
         getFullHref.a = a = document.createElement('a');
       }
 
@@ -15363,11 +15536,16 @@
 
     function getFloatWindowWith() {
       var el = document.getElementById('sp-fw-container');
+      /** @type {HTMLElement} */
+      //@ts-ignore
+
       var elc = el.cloneNode(true);
       elc.id = `${el.id}`;
-      elc.style.visibility = 'hidden';
+      elc.style.visibility = 'hidden'; //@ts-ignore
+
       elc.querySelector('#sp-fw-content').style.display = 'block';
-      document.body.appendChild(elc);
+      document.body.appendChild(elc); //@ts-ignore
+
       var width = elc.querySelector('#sp-fw-content').offsetWidth;
       elc.remove();
       return width;
