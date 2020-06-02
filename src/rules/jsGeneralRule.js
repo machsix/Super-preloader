@@ -1,6 +1,9 @@
+//@ts-check
+///<reference path="../index.d.ts"/>
 import {getAllElements, getAllElementsByXpath, getElementByXpath} from '../utils/domSelector';
 import {createDOM} from '../utils/domTools';
 // General rules for CMS like phpwind
+/**@type {IRule[]} */
 export const jsGeneralRule = [
   {
     name: '2048 image mode',
@@ -25,6 +28,7 @@ export const jsGeneralRule = [
         if (trs.length > 0) {
           for (var i = 0; i < trs.length; i++) {
             const thisTrs = trs[i];
+            //@ts-ignore
             const postLink = thisTrs.querySelector('td:nth-of-type(2) a').href;
             if (postLink) {
               fetch(postLink)
@@ -37,6 +41,7 @@ export const jsGeneralRule = [
                     thisTrs.querySelector('td:nth-of-type(1)').appendChild(
                       createDOM('IMG', {
                         attr: {
+                          //@ts-ignore
                           src: imgNode.src,
                           width: '840',
                           title: 'Powered by Super-Preloader Plus',
@@ -210,7 +215,7 @@ export const jsGeneralRule = [
   {
     name: '通用 Forum 规则4',
     url: /^https?:\/\/forums\..*\/threads/i,
-    nextLink: '(//div[@class="PageNav"])[1]//a[contains(text(),' > ')]',
+    nextLink: `(//div[@class="PageNav"])[1]//a[contains(text(),' > ')]`,
     pageElement: '//ol[@id="messageList"]/li',
     separatorReal: false
   },
@@ -228,6 +233,7 @@ export const jsGeneralRule = [
     autopager: {
       pageElement: function (doc, _win, _cplink) {
         const gen = getElementByXpath("//head/meta[@name='generator']", doc, doc);
+        //@ts-ignore
         if (!gen || !gen.content.includes('Typecho') || !doc.documentElement.outerHTML.includes('Typecho')) {
           return null;
         }

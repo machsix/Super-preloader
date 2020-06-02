@@ -1,8 +1,11 @@
+//@ts-check
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-empty */
 
 // import "core-js";
 // import "regenerator-runtime/runtime";
+
+//@ts-ignore
 import * as spcss from './css';
 import {BROWSER, SCRIPT_MANAGER} from './utils/detect';
 import {NOTIFICATION, SCRIPT_INFO} from './meta';
@@ -49,6 +52,7 @@ import notice from './utils/notice';
 
   // ----------------------------------
   // all rules
+  /** @type {IRule[]} */
   let SSRules = [];
   // ----------------------------------
 
@@ -77,7 +81,10 @@ import notice from './utils/notice';
       } else {
         const observers = mutationObserver.observers;
 
-        let p = [];
+        /**@type {Promise} */
+        let p = null;
+        /**@type {Array<Promise>} */
+        const parr = [];
         if (observers) {
           ['attributes', 'addedNodes', 'removedNodes'].forEach((key) => {
             const el = getAllElements(observers[key]);
@@ -86,17 +93,17 @@ import notice from './utils/notice';
                 //el.forEach((x) => {
                 //  p.push(elementReady(x, key));
                 //});
-                p.push(elementReady(el[el.length - 1], key));
+                parr.push(elementReady(el[el.length - 1], key));
                 el[0].scrollIntoView();
                 el[el.length - 1].scrollIntoView();
               } else {
-                p.push(elementReady(el[el.length - 1], key));
+                parr.push(elementReady(el[el.length - 1], key));
               }
             }
           });
         }
         if (p) {
-          p = Promise.all(p);
+          p = Promise.all(parr);
         } else {
           p = Promise.resolve(undefined);
         }
@@ -114,7 +121,7 @@ import notice from './utils/notice';
         }, timeout);
       }
     };
-
+    //@ts-ignore
     if (window.opera) {
       document.addEventListener('DOMContentLoaded', domLoaded, false);
     } else {
@@ -340,7 +347,13 @@ import notice from './utils/notice';
       const setup = function () {
         const d = document;
 
+        /**
+         *
+         * @param {string} s s
+         * @returns {HTMLInputElement} elem
+         */
         const $ = function (s) {
+          //@ts-ignore
           return d.getElementById('sp-prefs-' + s);
         };
         if ($('setup')) return;
@@ -464,8 +477,11 @@ import notice from './utils/notice';
           this.loadSetting();
 
           if (userLang === 'zh_CN') {
+            //@ts-ignore
+            //todo: patch the type
             GM.registerMenuCommand('Super_preloaderPlus_one_New 设置', setup);
           } else {
+            //@ts-ignore
             GM.registerMenuCommand('Super_preloaderPlus_one_New Settings', setup);
           }
 
@@ -531,10 +547,16 @@ import notice from './utils/notice';
       };
 
       SP.spinit();
-
+      /**
+       *
+       * @param {Window} window window
+       * @param {Document} document document
+       * @returns {void}
+       */
       function init(window, document) {
         const startTime = new Date();
-
+        // eslint-disable-next-line valid-jsdoc
+        /**@type {(...rest:any[])=>void} */
         const nullFn = function () {}; // 空函数.
         const url = document.location.href.replace(/#.*$/, ''); // url 去掉hash
         var cplink = url; // 翻上来的最近的页面的url;
@@ -562,7 +584,13 @@ import notice from './utils/notice';
           document.body.appendChild(div);
 
           // helper function to get element
+          /**
+           *
+           * @param {string} id id
+           * @returns {HTMLInputElement} return
+           * */
           function $(id) {
+            //@ts-ignore
             return document.getElementById(id);
           }
 
@@ -653,10 +681,12 @@ import notice from './utils/notice';
           a_starti.addEventListener(
             'click',
             function (e) {
+              //@ts-ignore
               if (e.currentTarget.disabled) return;
               var value = parseInt(a_ipages_1.value);
               if (isNaN(value) || value < 0) {
                 value = SSS.a_ipages[1];
+                //@ts-ignore
                 a_ipages_1.value = value;
               }
               autoPO.startipages(value);
@@ -681,19 +711,22 @@ import notice from './utils/notice';
               };
 
               if (SSS.a_enable !== undefined) {
+                /** @type {(s:HTMLElement)=>number} */
+                //@ts-ignore
+                const getPropertyNumber = getProperty;
                 value.a_enable = getProperty(a_enable) === 'autopager';
                 value.a_useiframe = getProperty(a_useiframe);
                 value.a_newIframe = getProperty(a_newIframe);
                 value.a_iloaded = getProperty(a_iloaded);
                 value.a_manualA = getProperty(a_manualA);
                 value.a_force = getProperty(a_force);
-                const t_a_itimeout = getProperty(a_itimeout);
+                const t_a_itimeout = getPropertyNumber(a_itimeout);
                 value.a_itimeout = isNaN(t_a_itimeout) ? SSS.a_itimeout : t_a_itimeout >= 0 ? t_a_itimeout : 0;
-                const t_a_remain = getProperty(a_remain);
+                const t_a_remain = getPropertyNumber(a_remain);
                 value.a_remain = isNaN(t_a_remain) ? SSS.a_remain : Number(t_a_remain);
-                const t_a_maxpage = getProperty(a_maxpage);
+                const t_a_maxpage = getPropertyNumber(a_maxpage);
                 value.a_maxpage = isNaN(t_a_maxpage) ? SSS.a_maxpage : t_a_maxpage >= 1 ? t_a_maxpage : 1;
-                const t_a_ipages_1 = getProperty(a_ipages_1);
+                const t_a_ipages_1 = getPropertyNumber(a_ipages_1);
                 value.a_ipages = [getProperty(a_ipages_0), isNaN(t_a_ipages_1) ? SSS.a_ipages[1] : t_a_ipages_1 >= 0 ? t_a_ipages_1 : 1];
                 value.a_separator = getProperty(a_separator);
               }
@@ -776,8 +809,8 @@ import notice from './utils/notice';
             }
           };
 
-          const vertical = parseInt(prefs.FW_offset[0], 10);
-          const horiz = parseInt(prefs.FW_offset[1], 10);
+          const vertical = parseInt(prefs.FW_offset[0] + '', 10);
+          const horiz = parseInt(prefs.FW_offset[1] + '', 10);
           const FW_position = prefs.FW_position;
 
           // 非opera用fixed定位.
@@ -805,10 +838,12 @@ import notice from './utils/notice';
         }
 
         function sp_transition(start, end) {
+          //@ts-ignore
           var TweenF = sp_transition.TweenF;
           if (!TweenF) {
             TweenF = Tween[TweenM[prefs.s_method]];
             TweenF = TweenF[TweenEase[prefs.s_ease]] || TweenF;
+            //@ts-ignore
             sp_transition.TweenF = TweenF;
           }
           const frameSpeed = 1000 / prefs.s_FPS;
@@ -896,6 +931,7 @@ import notice from './utils/notice';
 
         // autopager
         var autoPO = {
+          /**@type {(value?:number)=>void} f*/
           startipages: nullFn
         };
         var hashchangeAdded = false;
@@ -1083,7 +1119,9 @@ import notice from './utils/notice';
                     visibility:hidden!important;\
                 ';
               if (SSS.a_sandbox != false) {
-                i.sandbox = SSS.a_sandbox;
+                //sandbox is readonly property
+                //i.sandbox = SSS.a_sandbox;
+                i.setAttribute('sandbox', '');
               }
               i.src = link;
               if (SSS.a_mutationObserver) {
@@ -1259,7 +1297,8 @@ import notice from './utils/notice';
               div.addEventListener(
                 'click',
                 function (e) {
-                  if (e.target.id == 'sp-sp-md-number') return;
+                  //@ts-ignore
+                  if (e.target.id === 'sp-sp-md-number') return;
                   spage(document.getElementById('sp-sp-md-number'));
                   manualDiv.remove();
                 },
@@ -1284,7 +1323,8 @@ import notice from './utils/notice';
           }
 
           var sepStyle;
-          const goNextImg = [false];
+          //looks like goNextImg is useless here.
+          //const goNextImg = [false];
           const sNumber = prefs.sepStartN;
           const _sep_icons = sep_icons;
           var curNumber = sNumber;
@@ -1346,10 +1386,10 @@ import notice from './utils/notice';
                 }
               });
 
-              if (goNextImg.length == 2) {
-                goNextImg.shift();
-              }
-              goNextImg.push(i_next);
+              //if (goNextImg.length == 2) {
+              //  goNextImg.shift();
+              //}
+              //goNextImg.push(i_next);
               div.appendChild(i_next);
 
               div.appendChild(
@@ -1417,7 +1457,7 @@ import notice from './utils/notice';
             const docTitle = getElementByCSS('title', doc).textContent;
 
             const fragment = document.createDocumentFragment();
-            const pageElements = getAllElements(SSS.a_pageElement, false, doc, win, nextlink);
+            const pageElements = getAllElements(SSS.a_pageElement, undefined, doc, win, nextlink);
             const ii = pageElements.length;
             if (ii <= 0) {
               logger.error('获取下一页的主要内容失败', SSS.a_pageElement);
@@ -1430,7 +1470,8 @@ import notice from './utils/notice';
             // 提前查找下一页链接，后面再赋值
             const lastUrl = cplink;
             cplink = nextlink;
-            var nl = getElement(SSS.nextLink, false, doc, win);
+            /** @type {HTMLElement|string} */
+            var nl = getElement(SSS.nextLink, undefined, doc, win);
             if (nl) {
               nl = getFullHref(nl);
               if (nl == nextlink) {
@@ -1471,6 +1512,7 @@ import notice from './utils/notice';
             }
 
             var imgs;
+            //@ts-ignore
             if (!window.opera && SSS.a_useiframe && !SSS.a_iloaded) {
               imgs = getAllElements('css;img[src]', fragment); // 收集所有图片
             }
@@ -1487,6 +1529,7 @@ import notice from './utils/notice';
               });
             }
 
+            /** @type {HTMLElement} */
             const sepdiv = createSep(lastUrl, cplink, nextlink);
             let toInsert = sepdiv;
             var ncol = 0;
@@ -1559,7 +1602,7 @@ import notice from './utils/notice';
               const oldE = getAllElements(SSS.a_replaceE);
               const oldE_lt = oldE.length;
               if (oldE_lt > 0) {
-                const newE = getAllElements(SSS.a_replaceE, false, doc, win);
+                const newE = getAllElements(SSS.a_replaceE, undefined, doc, win);
                 const newE_lt = newE.length;
                 if (newE_lt == oldE_lt) {
                   // 替换
@@ -1582,7 +1625,7 @@ import notice from './utils/notice';
             if (manualDiv) {
               manualDiv.style.display = 'none';
             }
-            if (goNextImg[0]) goNextImg[0].src = _sep_icons.next;
+            //if (goNextImg[0]) goNextImg[0].src = _sep_icons.next;
 
             const ev = document.createEvent('Event');
             ev.initEvent('Super_preloaderPageLoaded', true, false);
@@ -1750,6 +1793,8 @@ import notice from './utils/notice';
         function prefetcher(SSS, floatWO) {
           function cContainer() {
             const div = document.createElement('div');
+            /** @type {HTMLElement} */
+            //@ts-ignore
             const div2 = div.cloneNode(false);
             const hr = document.createElement('hr');
             div.style.cssText =
@@ -1806,11 +1851,13 @@ import notice from './utils/notice';
             iframe.addEventListener(
               'load',
               function (e) {
+                //@ts-ignore
                 const body = e.currentTarget.contentDocument.body;
                 if (body && body.firstChild) {
                   floatWO.updateColor('prefetcher');
                   floatWO.CmodeIcon('hide');
                   floatWO.loadedIcon('show');
+                  //@ts-ignore
                   e.currentTarget.removeEventListener('load', arguments.callee, false);
 
                   if (SSS.lazyImgSrc) {
@@ -1894,6 +1941,7 @@ import notice from './utils/notice';
         // 是否在frame上加载..
         if (prefs.DisableI && window.self != window.parent) {
           const isReturn = !_.find(DIExclude, function (x) {
+            //@ts-ignore
             return x[1] && x[2].test(url);
           });
           if (isReturn) {
@@ -1920,15 +1968,19 @@ import notice from './utils/notice';
 
         if (!prefs.numOfRule || prefs.numOfRule != SSRules.length) {
           prefs.numOfRule = SSRules.length;
+          //@ts-ignore
           GM.setValue('prefs', prefs);
         }
 
         // 重要的变量两枚.
+        /** @type {Array<string|HTMLElement>} */
         const pagedLinks = [document.location.href];
         var nextlink;
         var prelink;
         //= ==============
 
+        /**@type {any} */
+        //todo: add SSS type
         let SSS = {};
 
         const findCurSiteInfo = function () {
@@ -2092,19 +2144,21 @@ import notice from './utils/notice';
             SSS.lazyImgSrc = prefs.lazyImgSrc;
           }
 
-          logger.debug(`搜索高级规则和自动匹配过程总耗时:${new Date() - startTime}ms`);
+          logger.debug(`搜索高级规则和自动匹配过程总耗时:${new Date().getTime() - startTime.getTime()}ms`);
         };
 
         findCurSiteInfo();
 
         // 上下页都没有找到啊
         if (!nextlink && !prelink) {
-          logger.warn(`未找到相关链接, JS执行停止. 共耗时:${new Date() - startTime}ms`);
+          logger.warn(`未找到相关链接, JS执行停止. 共耗时:${new Date().getTime() - startTime.getTime()}ms`);
           return;
         } else {
           logger.debug('上一页链接:', prelink);
           logger.debug('下一页链接:', nextlink);
+          //@ts-ignore
           nextlink = nextlink ? nextlink.href || nextlink : undefined;
+          //@ts-ignore
           prelink = prelink ? prelink.href || prelink : undefined;
         }
 
@@ -2123,6 +2177,7 @@ import notice from './utils/notice';
           document.addEventListener(
             'keyup',
             function (e) {
+              //@ts-ignore
               const tarNN = e.target.nodeName;
               if (tarNN != 'BODY' && tarNN != 'HTML') return;
 
@@ -2168,7 +2223,7 @@ import notice from './utils/notice';
         // 没找到下一页的链接
         if (!nextlink) {
           logger.error('下一页链接不存在,JS无法继续.');
-          logger.debug(`全部过程耗时:${new Date() - startTime}ms`);
+          logger.debug(`全部过程耗时:${new Date().getTime() - startTime.getTime()}ms`);
 
           return;
         }
@@ -2214,6 +2269,7 @@ import notice from './utils/notice';
               prefs.FW_offset[0] = parseInt(el.style.top.replace('px', ''), 10);
               prefs.FW_offset[1] = parseInt(el.style.right.replace('px', ''), 10);
               prefs.FW_position = 2;
+              //@ts-ignore
               GM.setValue('prefs', prefs);
             }
           });
@@ -2222,11 +2278,11 @@ import notice from './utils/notice';
 
         if (!SSS.enable) {
           logger.warn('本规则被关闭,脚本执行停止');
-          logger.debug(`全部过程耗时:${new Date() - startTime}ms`);
+          logger.debug(`全部过程耗时:${new Date().getTime() - startTime.getTime()}ms`);
 
           return;
         }
-        logger.debug(`全部过程耗时:${new Date() - startTime}ms`);
+        logger.debug(`全部过程耗时:${new Date().getTime() - startTime.getTime()}ms`);
 
         // 预读或者翻页.
         if (SSS.a_enable) {
@@ -2240,6 +2296,14 @@ import notice from './utils/notice';
         var docChecked;
 
         // 获取单个元素,混合
+        /**
+         *
+         * @param {string|Function|Array|IHrefIncObject} selector selector
+         * @param {Element|Document=} contextNode element
+         * @param {Document=} doc document
+         * @param {Window=} win window
+         * @returns {HTMLElement} element
+         */
         function getElement(selector, contextNode, doc, win) {
           const _cplink = cplink;
           var ret;
@@ -2247,8 +2311,7 @@ import notice from './utils/notice';
           doc = doc || document;
           win = win || window;
           contextNode = contextNode || doc;
-          const type = typeof selector;
-          if (type == 'string') {
+          if (typeof selector === 'string') {
             if (selector.search(/^css;/i) === 0) {
               ret = getElementByCSS(selector.slice(4), contextNode);
             } else if (selector.toLowerCase() == 'auto;') {
@@ -2256,7 +2319,7 @@ import notice from './utils/notice';
             } else {
               ret = getElementByXpath(selector, contextNode, doc);
             }
-          } else if (type == 'function') {
+          } else if (typeof selector === 'function') {
             ret = selector(doc, win, _cplink);
           } else if (selector instanceof Array) {
             for (var i = 0, l = selector.length; i < l; i++) {
@@ -2271,10 +2334,18 @@ import notice from './utils/notice';
           return ret;
         }
 
+        /**
+         *
+         * @param {Document=} doc document
+         * @param {Window=} win window
+         * @returns {HTMLElement} a
+         */
         function autoGetLink(doc, win) {
           if (!autoMatch.keyMatch) return;
+          //@ts-ignore
           if (!parseKWRE.done) {
             parseKWRE();
+            //@ts-ignore
             parseKWRE.done = true;
           }
 
@@ -2302,6 +2373,7 @@ import notice from './utils/notice';
           const curLHref = cplink;
           var _nextlink;
           var _prelink;
+          //@ts-ignore
           if (!autoGetLink.checked) {
             // 第一次检查
             _nextlink = nextlink;
@@ -2369,6 +2441,7 @@ import notice from './utils/notice';
                       aP = aP.parentNode;
                       if (aP) {
                         preS1 = aP.previousSibling;
+                        //@ts-ignore
                         preS2 = aP.previousElementSibling;
                       }
                       initSD++;
@@ -2427,6 +2500,7 @@ import notice from './utils/notice';
                           nodeType = nextSS.nodeType;
                           if (
                             nodeType == 3 ||
+                            // @ts-ignore
                             (nodeType == 1 && (searchedD ? _getAllElementsByXpath('./descendant-or-self::a[@href]', nextSS, doc).length === 0 : !nextSS.hasAttribute('href') || _getFullHref(nextSS.getAttribute('href')) == curLHref))
                           ) {
                             _prelink = finalCheck(a, 'pre');
@@ -2454,6 +2528,7 @@ import notice from './utils/notice';
               xbreak = false;
               for (k = 0; k < _nPKL; k++) {
                 keytext = _nextPageKey[k];
+                //@ts-ignore
                 if (!keytext.test(atext)) continue;
                 _nextlink = finalCheck(a, 'next');
                 xbreak = true;
@@ -2464,17 +2539,19 @@ import notice from './utils/notice';
             if (!_prelink) {
               for (k = 0; k < _pPKL; k++) {
                 keytext = _prePageKey[k];
+                //@ts-ignore
                 if (!keytext.test(atext)) continue;
                 _prelink = finalCheck(a, 'pre');
                 break;
               }
             }
           }
-          logger.debug(`搜索链接数量:${i} 耗时:${new Date() - startTime}ms`);
-
+          logger.debug(`搜索链接数量:${i} 耗时:${new Date().getTime() - startTime.getTime()}ms`);
+          //@ts-ignore
           if (!autoGetLink.checked) {
             // 只在第一次检测的时候,抛出上一页链接.
             prelink = _prelink;
+            //@ts-ignore
             autoGetLink.checked = true;
           }
 
@@ -2523,7 +2600,7 @@ import notice from './utils/notice';
             plwords = '^\\s*' + plwords;
             slwords = RE_maxSubfix > 0 ? '[' + (RE_enable_b ? strMTE(RE_character_b.join('')) : '.') + ']{0,' + RE_maxSubfix + '}' : '';
             slwords = slwords + '\\s*$';
-            rep = prefs.cases ? '' : 'i';
+            rep = autoMatch.cases ? '' : 'i';
 
             for (var i = 0; i < pageKeyLength; i++) {
               pageKey[i] = new RegExp(plwords + strMTE(pageKey[i]) + slwords, rep);
@@ -2664,7 +2741,15 @@ import notice from './utils/notice';
   var hashchangeTimer = 0;
 
   // ====================  libs  ==============================
-  // 地址栏递增处理函数.
+  /**
+   *
+   * @param {IHrefIncObject} obj obj
+   * @param {Document=} doc document
+   * @param {Window=} win window
+   * @param {string=} cplink cplink
+   * @returns {string} next link
+   * @description 地址栏递增处理函数
+   */
   function hrefInc(obj, doc, win, cplink) {
     var _cplink = cplink;
 
@@ -2697,7 +2782,7 @@ import notice from './utils/notice';
     const saType = typeof sa;
     var index;
 
-    if (saType == 'string') {
+    if (typeof sa === 'string') {
       if (sa[0] == '#') {
         _cplink = doc.location.href;
       }
@@ -2764,9 +2849,10 @@ import notice from './utils/notice';
     if (scriptFilter) {
       regFilter = toRE(scriptFilter);
     }
-
+    /** @type {HTMLScriptElement} */
     var scripts_x;
     for (var i = scripts.length - 1; i >= 0; i--) {
+      //@ts-ignore
       scripts_x = scripts[i];
       var iremove = false;
       if (regFilter) {
@@ -2789,6 +2875,11 @@ import notice from './utils/notice';
     }
   }
 
+  /**
+   *
+   * @param {string} str str
+   * @returns {HTMLDocument} document
+   */
   function createDocumentByString(str) {
     // string转为DOM
     if (!str) {
@@ -2798,7 +2889,7 @@ import notice from './utils/notice';
     if (document.documentElement.nodeName != 'HTML') {
       return new DOMParser().parseFromString(str, 'application/xhtml+xml');
     }
-
+    /**@type {HTMLDocument} */
     var doc;
     try {
       // firefox and chrome 30+，Opera 12 会报错
@@ -2813,6 +2904,7 @@ import notice from './utils/notice';
       doc = document.implementation.createHTMLDocument('superPreloader');
     } else {
       try {
+        //@ts-ignore
         doc = document.cloneNode(false);
         doc.appendChild(doc.importNode(document.documentElement, false));
         doc.documentElement.appendChild(doc.createElement('head'));
@@ -2842,12 +2934,19 @@ import notice from './utils/notice';
     return doc;
   }
 
-  // 从相对路径的a.href获取完全的href值.
+  /**
+   *
+   * @param {string|HTMLElement} href href
+   * @returns {string} href
+   * @description 从相对路径的a.href获取完全的href值.
+   */
   function getFullHref(href) {
     if (typeof href !== 'string') href = href.getAttribute('href');
     // if(href.search(/^https?:/)==0)return href;//http打头,不一定就是完整的href;
+    //@ts-ignore
     var a = getFullHref.a;
     if (!a) {
+      //@ts-ignore
       getFullHref.a = a = document.createElement('a');
     }
     a.href = href;
@@ -2856,11 +2955,15 @@ import notice from './utils/notice';
 
   function getFloatWindowWith() {
     const el = document.getElementById('sp-fw-container');
+    /** @type {HTMLElement} */
+    //@ts-ignore
     const elc = el.cloneNode(true);
     elc.id = `${el.id}`;
     elc.style.visibility = 'hidden';
+    //@ts-ignore
     elc.querySelector('#sp-fw-content').style.display = 'block';
     document.body.appendChild(elc);
+    //@ts-ignore
     const width = elc.querySelector('#sp-fw-content').offsetWidth;
     elc.remove();
     return width;

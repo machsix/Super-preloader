@@ -1,7 +1,9 @@
+//@ts-check
+///<reference path="../index.d.ts"/>
 import {getAllElementsByXpath, getElementByXpath} from '../utils/domSelector';
 import {createDOM} from '../utils/domTools';
 import emoji from '../utils/emoji';
-
+/**@type {Array<IRule>} */
 export const jsSiteRule = [
   {
     // 站点名字...(可选)             // 站点正则...(~~必须~~)
@@ -75,6 +77,7 @@ export const jsSiteRule = [
         const x = doc.evaluate('//script/text()[contains(self::text(), "setImagesSrc")]', doc, null, 9, null).singleNodeValue;
         if (x) {
           try {
+            //@ts-ignore
             new Function('document', 'window', 'google', x.nodeValue)(doc, unsafeWindow, unsafeWindow.google);
           } catch (e) {}
         }
@@ -91,7 +94,7 @@ export const jsSiteRule = [
         if (hiddenImgs.length > 0) {
           for (const d of hiddenImgs) {
             d.setAttribute('src', d.getAttribute('data-src'));
-            d.style.opacity = 1;
+            d.style.opacity = '1';
           }
         }
 
@@ -131,6 +134,7 @@ export const jsSiteRule = [
 
         const keyword = getElementByXpath("//input[@title='Search']", doc, doc);
         if (keyword) {
+          //@ts-ignore
           console.log('%cMicrosoft is %s %csearch with Bing %s', 'font-weight:bold;color:00bbee', emoji('1F451'), 'font-weight:bold;color:00bbee', encodeURI('https://www.bing.com/search?q=' + keyword.value));
         } else {
           console.log('%cMicrosoft is %s', 'font-weight:bold;color:00bbee', emoji('1F451'));
@@ -195,7 +199,7 @@ export const jsSiteRule = [
         const td = doc.createElement('td');
         td.appendChild(sepdiv);
         const tr = doc.createElement('tr');
-        td.setAttribute('colspan', 2);
+        td.setAttribute('colspan', '2');
         tr.appendChild(td);
         const tbody = doc.createElement('tbody');
         tbody.appendChild(td);
@@ -247,9 +251,9 @@ export const jsSiteRule = [
         const trs = getAllElementsByXpath("//div[@class='artist']/div[@class='atl']/form/table/tbody/tr/td[@colspan='5']/parent::tr", doc, doc);
         if (trs.length > 0) {
           for (var i = 0; i < trs.length; i++) {
-            var img = trs[i].getElementsByTagName('img');
-            if (img) {
-              img = img[0];
+            var imgs = trs[i].getElementsByTagName('img');
+            if (imgs) {
+              const img = imgs[0];
               const imgSrc = img.getAttribute('src');
               const newtr = createDOM('tr', {
                 attr: {
@@ -355,7 +359,9 @@ export const jsSiteRule = [
       pageElement: '//div[@class="atl-main"]',
       lazyImgSrc: 'original',
       filter: function (_pages) {
+        //@ts-ignore
         const see_only_uname = unsafeWindow.see_only_uname;
+        //@ts-ignore
         const setOnlyUser = unsafeWindow.setOnlyUser;
         if (see_only_uname) {
           setOnlyUser(see_only_uname);
@@ -451,12 +457,14 @@ export const jsSiteRule = [
         //删除侧边栏
         const ad = doc.querySelector('.aside-wrap');
         if (ad) {
+          //@ts-ignore
           ad.style.display = 'none';
         }
       },
       documentFilter: function (doc) {
         const pager = doc.querySelector('#pageNum');
         if (pager) {
+          //@ts-ignore
           pager.style.display = 'none';
         }
       }
@@ -511,6 +519,7 @@ export const jsSiteRule = [
           navigator.parentNode.removeChild(navigator);
         }
         // 隐藏分页
+        //@ts-ignore
         doc.querySelector('.art-page').style.display = 'none';
       }
     }
@@ -523,7 +532,9 @@ export const jsSiteRule = [
       pageElement: '//div[@id="content-list"]',
       lazyImgSrc: 'original',
       filter: function (_pages) {
+        //@ts-ignore
         const chouti = unsafeWindow.chouti;
+        //@ts-ignore
         const NS_links_comment_top = unsafeWindow.NS_links_comment_top;
         chouti.vote();
         chouti.addCollect();
@@ -665,6 +676,7 @@ export const jsSiteRule = [
         // 文档底部的 marginBottom 重置
         const articleList = doc.querySelector('.article-list');
         if (articleList) {
+          //@ts-ignore
           articleList.style.marginBottom = '0';
         }
       },
@@ -672,6 +684,7 @@ export const jsSiteRule = [
         // 文档底部的 marginBottom 重置
         const articleList = doc.querySelector('.article-list');
         if (articleList) {
+          //@ts-ignore
           articleList.style.marginBottom = '0';
         }
         // 移动分页位置
@@ -717,6 +730,7 @@ export const jsSiteRule = [
           if (pageNav.length == 2) {
             index = 1;
           }
+          //@ts-ignore
           pageNav[index].style.display = 'none';
         }
       },
@@ -728,6 +742,7 @@ export const jsSiteRule = [
           if (pageNav.length == 2) {
             index = 1;
           }
+          //@ts-ignore
           pageNav[index].style.display = 'none';
         }
         // 扩展的其他话题信息移除，长度太长，导致翻页信息有点问题
@@ -758,9 +773,11 @@ export const jsSiteRule = [
           var salt = temp[2];
           // function secret is provided by the website
           if (temp[3].indexOf('true') >= 0) {
+            //@ts-ignore
             // eslint-disable-next-line no-undef
             c = secret(content, salt, true);
           } else {
+            //@ts-ignore
             // eslint-disable-next-line no-undef
             c = secret(content, salt, false);
           }
@@ -805,7 +822,7 @@ export const jsSiteRule = [
       }
 
       const next = Number(res.dataset.page) + 1;
-
+      //@ts-ignore
       if (next > res.dataset.pagemax) {
         return undefined;
       } else {
@@ -863,6 +880,7 @@ export const jsSiteRule = [
           }
         }
       }
+      //@ts-ignore
       var findout = /jumpurl\('(\w+)','?(\d+)'?\)/.exec(nextNode.innerHTML);
       if (findout === null || findout.length != 3) {
         return undefined;
@@ -887,8 +905,10 @@ export const jsSiteRule = [
     url: /^https?:\/\/(www|manhua)\.(dmzj|178)\.com\/\w+\/\d+\.shtml/,
     exampleUrl: 'https://manhua.dmzj.com/yuanlian/36944.shtml#@page=1',
     nextLink: function (doc, _win, cplink) {
+      //@ts-ignore
       const current = Number(getElementByXpath('//*[@id="page_select"]/option[@selected][1]', doc).text.match(/(\d+)/)[1]);
       const xpath_last = '//*[@id="page_select"]/option[last()]';
+      //@ts-ignore
       const end_num = Number(getElementByXpath(xpath_last, doc).text.match(/(\d+)/)[1]);
       const next = current + 1;
       if (next > end_num) {
@@ -912,6 +932,7 @@ export const jsSiteRule = [
     nextLink: function (doc, _win, cplink) {
       const current = Number(getElementByXpath('//*[@id="page"]', doc).innerHTML);
       const xpath_last = '//div[@id="pagination"]/a[contains(@href,"javascript") and not(@class)][last()]';
+      //@ts-ignore
       const end_num = Number(getElementByXpath(xpath_last, doc).text);
       const next = current + 1;
       if (next > end_num) {
@@ -994,15 +1015,18 @@ export const jsSiteRule = [
       // const xpath = '//div[@class="cH1"]/b[1]';
       var maxpage = document.getElementById('hdPageCount');
       if (maxpage) {
+        //@ts-ignore
         maxpage = Number(maxpage.value);
       } else {
         maxpage = document.getElementById('spPageCount');
         if (maxpage) {
+          //@ts-ignore
           maxpage = Number(maxpage.innerText);
         } else {
           return undefined;
         }
       }
+      //@ts-ignore
       if (next == maxpage + 1) {
         return undefined;
       } else {
@@ -1116,6 +1140,7 @@ export const jsSiteRule = [
     nextLink: '//div[@class="bp"]/a[text()="下一页"][@href]',
     autopager: {
       startFilter: (d, _win) => {
+        //@ts-ignore
         d.getElementById('bigpic').src = d.getElementById('bigpic').src.replace('fmvip.xzglasses.com', 'fmvip.xzglasses.com');
         Array.from(d.querySelectorAll('iframe')).forEach((frame) => frame.remove());
       },
@@ -1149,6 +1174,7 @@ export const jsSiteRule = [
     pageElement: "//div[@class='grid columns']",
     documentFilter: function (doc, _nextLink) {
       const item = document.querySelector('.grid-item.column:nth-of-type(2)');
+      //@ts-ignore
       const width = item.offsetLeft || 168;
       const grid = doc.querySelector('.grid.columns');
       grid.setAttribute('style', `display: grid; grid-template-columns: repeat( auto-fit, ${width}px);justify-content: center;`);

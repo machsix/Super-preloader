@@ -14,8 +14,8 @@ export function setMultipleAttributes(el, attr) {
  * Create a dom element
  * @param {string} type element type
  * @param {object} conf configuration of the dom, could be 'attr', 'innnerHTML', 'children', 'eventListner'
- * @param {object} doc dom to attach
- * @returns {object} dom element
+ * @param {Document} doc dom to attach
+ * @returns {HTMLElement} dom element
  */
 export function createDOM(type, conf, doc = document) {
   const e = doc.createElement(type);
@@ -48,8 +48,8 @@ export function createDOM(type, conf, doc = document) {
 
 /**
  * Get attributes for settings
- * @param {object} obj dom element
- * @returns {string/boolean} dom element main property
+ * @param {HTMLElement} obj dom element
+ * @returns {string|boolean|number} dom element main property
  */
 export function getProperty(obj) {
   if (obj.nodeName === 'INPUT') {
