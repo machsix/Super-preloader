@@ -1,6 +1,6 @@
 {
   "name": "super-preloader",
-  "version": "6.13.13",
+  "version": "6.13.14",
   "description": "Super-preloader",
   "main": "dist/Super_preloaderPlus_one_New.user.js",
   "author": "Mach6",
@@ -57,8 +57,8 @@
     "@rollup/plugin-json": "4.0.3",
     "@rollup/plugin-node-resolve": "8.0.0",
     "@sinonjs/text-encoding": "0.7.1",
-    "@types/greasemonkey": "^4.0.0",
-    "@types/lodash": "^4.14.154",
+    "@types/greasemonkey": "4.0.0",
+    "@types/lodash": "4.14.154",
     "babel-plugin-lodash": "3.3.4",
     "babel-plugin-wildcard": "6.0.0",
     "compare-versions": "3.6.0",
