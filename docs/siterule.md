@@ -225,7 +225,7 @@ Function(currentDocument, sepdiv) {
 ### scriptFilter
 
 - **type**: String <Jbadge/>
-- **description**: The script will delete all `<script>` nodes before inserting the preloaded content into the page. You can set `scriptFilter` as a Regex string to match the `src` or inline content of the `<script>` node to keep some nodes. In this way, you can use these inline js scripts in the [filter](/en/siterule.md#filter)
+- **description**: The script will delete all `<script>` nodes before inserting the preloaded content into the page. You can set `scriptFilter` as a Regex string to match the `src` or inline content of the `<script>` node to keep some nodes. In this way, you can use these inline js scripts in the [filter](/en/siterule.md#filter). This only take effect in `iframe` mode
 
 ### filter
 

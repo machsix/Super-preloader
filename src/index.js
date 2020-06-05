@@ -2841,9 +2841,15 @@ import notice from './utils/notice';
     });
   }
 
-  function removeScripts(node, scriptFilter) {
-    // 移除元素的 script
-    const scripts = getAllElements('css;script', node);
+  /**
+   *
+   * @param {HTMLElement} doc Document Fragment
+   * @param {String} scriptFilter Regex string
+   * @description Remove scripts node from doc
+   * @returns {void}
+   */
+  function removeScripts(doc, scriptFilter) {
+    const scripts = getAllElements('css;script', doc);
 
     var regFilter;
     if (scriptFilter) {

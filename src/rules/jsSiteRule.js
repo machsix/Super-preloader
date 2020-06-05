@@ -90,6 +90,7 @@ export const jsSiteRule = [
           }
         }
 
+        // Fix image of Youtube Video
         const hiddenImgs = getAllElementsByXpath('//g-scrolling-carousel/div/div/div/div[not(@data-vis)]//g-img/img', doc, doc);
         if (hiddenImgs.length > 0) {
           for (const d of hiddenImgs) {
@@ -97,6 +98,16 @@ export const jsSiteRule = [
             d.style.opacity = '1';
           }
         }
+
+        // Fix g-img
+        const w = getAllElementsByXpath("//script[contains(text(), '_setImagesSrc') and contains(text(), 'data:image')]", doc, doc);
+        w.forEach((x) => {
+          const script = x.innerHTML.replace(/^\(function\(\){(.*)}\)\(\);?$/, '$1').replace(/_setImagesSrc.*/, '');
+          const lzLoad = new Function(script + 'return {ii, s}')();
+          lzLoad.ii.forEach((i) => {
+            doc.getElementById(i).setAttribute('src', lzLoad.s);
+          });
+        });
 
         const brs = doc.getElementById('brs');
         if (brs) {
@@ -521,26 +532,6 @@ export const jsSiteRule = [
         // 隐藏分页
         //@ts-ignore
         doc.querySelector('.art-page').style.display = 'none';
-      }
-    }
-  },
-  {
-    name: '抽屉新热榜',
-    url: /^https?:\/\/dig\.chouti\.com\//i,
-    nextLink: '//a[@class="ct_page_edge" and (text()="下一页")]',
-    autopager: {
-      pageElement: '//div[@id="content-list"]',
-      lazyImgSrc: 'original',
-      filter: function (_pages) {
-        //@ts-ignore
-        const chouti = unsafeWindow.chouti;
-        //@ts-ignore
-        const NS_links_comment_top = unsafeWindow.NS_links_comment_top;
-        chouti.vote();
-        chouti.addCollect();
-        chouti.shareweibo();
-        chouti.playVido();
-        NS_links_comment_top.init();
       }
     }
   },
