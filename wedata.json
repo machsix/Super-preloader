@@ -16489,18 +16489,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/77244",
-  "created_by": "Wolfram",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "name": "SZ-Magazin Bildergalerie",
-  "created_at": "2015-05-22T00:02:49+09:00",
   "data": {
-    "exampleUrl": "http://sz-magazin.sueddeutsche.de/texte/bildergalerie/43065/1/Es-gibt-mehr-Gruende-zu-protestieren-als-je-zuvor",
-    "pageElement": "//div[@id='bilder-galerie-content']",
-    "url": "^http:\\/\\/sz-magazin.sueddeutsche.de\\/.*\\/bildergalerie",
-    "insertBefore": "",
-    "nextLink": "//a[@class='next-arrow']"
+    "pageElement": "//div[@class='teaser-collection__content']|//main[@class='page-main-container']/section[contains(concat(' ', normalize-space(@class), ' '), ' teaser-row ')]",
+    "nextLink": "//a[contains(concat(' ', normalize-space(@class), ' '), ' page-navigation__item--left ')]",
+    "url": "^https://sz-magazin\\.sueddeutsche\\.de/heft",
+    "exampleUrl": "https://sz-magazin.sueddeutsche.de/hefte/2020\r\nhttps://sz-magazin.sueddeutsche.de/heft/2018/1"
   },
-  "updated_at": "2015-05-22T00:02:49+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "Wolfram",
+  "name": "SZ-Magazin",
+  "created_at": "2015-05-22T00:02:49+09:00",
+  "updated_at": "2020-06-08T21:08:24+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/77243",
