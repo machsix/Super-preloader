@@ -54,7 +54,7 @@
     "@babel/preset-env": "7.10.2",
     "@rollup/plugin-babel": "5.0.2",
     "@rollup/plugin-commonjs": "12.0.0",
-    "@rollup/plugin-json": "4.0.3",
+    "@rollup/plugin-json": "4.1.0",
     "@rollup/plugin-node-resolve": "8.0.0",
     "@sinonjs/text-encoding": "0.7.1",
     "@types/greasemonkey": "4.0.0",
