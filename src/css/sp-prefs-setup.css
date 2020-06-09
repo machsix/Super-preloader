@@ -41,6 +41,7 @@
   padding: 2px;
   background: white;
   margin: 0px;
+  height: auto;
 }
 #sp-prefs-setup input[type='checkbox'] {
   cursor: pointer !important;
@@ -85,6 +86,7 @@
 #sp-prefs-setup label {
   cursor: pointer;
   user-select: none;
+  display: inline;
 }
 
 #sp-prefs-setup label input[type='checkbox'] {

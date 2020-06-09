@@ -7,13 +7,14 @@ $fieldset-margin: 2px;
 #sp-fw-container {
   z-index: 999999 !important;
   text-align: left !important;
-  line-height: $font-size !important;
 }
 
 #sp-fw-container * {
   font-size: $font-size !important;
   color: black !important;
   float: none !important;
+  line-height: $font-size !important;
+  width: auto;
 }
 
 #sp-fw-main-head {
@@ -36,6 +37,7 @@ $fieldset-margin: 2px;
 
 #sp-fw-main select {
   background: white;
+  height: auto;
 }
 
 #sp-fw-container input {
@@ -48,6 +50,7 @@ $fieldset-margin: 2px;
   background: white;
   border: 1px solid gray;
   cursor: pointer !important;
+  height: auto;
 }
 
 #sp-fw-container input[type='number'] {
@@ -198,4 +201,5 @@ $fieldset-margin: 2px;
 #sp-fw-container label {
   cursor: pointer;
   user-select: none;
+  display: inline;
 }
