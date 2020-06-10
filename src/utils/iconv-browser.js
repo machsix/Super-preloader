@@ -1,6 +1,7 @@
-import {TextDecoder, TextEncoder} from '@sinonjs/text-encoding';
-
 // #if IS_REMOVE
+// lite verions of https://github.com/machsix/iconv-browser
+//
+//
 // another option: https://github.com/r12a/r12a.github.io/blob/master/apps/conversion/conversionfunctions.js
 // to use rollup, you need to set `ignoreGlobal = true` for commonjs
 //                or manually commented out
@@ -47,34 +48,21 @@ function hex2buf(text) {
 }
 
 /**
- * Encode a string into arraybuffer
+ * Encode a string into utf8 arraybuffer
  * @param {string} text string to encode
- * @param {string} encoding charset
  * @returns {ArrayBuffer} encoded string
  */
-export function encode(text, encoding = 'utf-8') {
-  let buffer = null;
-  if (['utf8', 'utf-8', 'unicode-1-1-utf-8'].includes(encoding)) {
-    buffer = new TextEncoder().encode(text);
-  } else {
-    try {
-      buffer = new TextEncoder(encoding, {NONSTANDARD_allowLegacyEncoding: true}).encode(text);
-    } catch (error) {
-      console.log(`Fail to encode ${text} into ${encoding}`);
-      buffer = new TextEncoder().encode(text);
-    }
-  }
-  return buffer;
+export function encode(text) {
+  return new TextEncoder().encode(text);
 }
 
 /**
  *
  * @param {string} text string to encode
- * @param {string} encoding charset
  * @returns {array} array of hex value for the corresponding arraybuffer
  */
-export function encodeHex(text, encoding = 'utf-8') {
-  return buf2hex(encode(text, encoding));
+export function encodeHex(text) {
+  return buf2hex(encode(text));
 }
 
 export function decode(uint8array, encoding = 'utf-8') {
@@ -85,10 +73,8 @@ export function decodeHex(stringArray, encoding = 'utf-8') {
   return decode(hex2buf(stringArray), encoding);
 }
 
-export function encodeURIE(text, encoding = 'utf-8') {
-  if (encoding === 'utf-8') {
-    return encodeURIE(text);
-  }
+export function encodeURIE(text) {
+  const encoding = 'utf-8';
   function isURIcomponent(str) {
     return /^[A-Za-z0-9;,/?:@&=+$-_.!~*'()#]*$/.test(str);
   }

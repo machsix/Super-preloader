@@ -196,11 +196,7 @@ function gotopt2gmopt(options) {
     config.url += `?${queryString.stringify(options.searchParams)}`;
   }
 
-  if (options.encoding) {
-    config.url = encodeURIE(config.url, options.encoding);
-  } else {
-    config.url = encodeURI(config.url);
-  }
+  config.url = encodeURIE(config.url);
   return config;
 }
 

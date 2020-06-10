@@ -1,6 +1,6 @@
 {
   "name": "super-preloader",
-  "version": "6.13.15",
+  "version": "6.13.16",
   "description": "Super-preloader",
   "main": "dist/Super_preloaderPlus_one_New.user.js",
   "author": "Mach6",
@@ -43,10 +43,10 @@
     "userscript"
   ],
   "devDependencies": {
-    "@vuepress/plugin-back-to-top": "1.5.0",
-    "@vuepress/plugin-google-analytics": "1.5.0",
-    "@vuepress/plugin-pwa": "1.5.0",
-    "vuepress": "1.5.0"
+    "@vuepress/plugin-back-to-top": "1.5.1",
+    "@vuepress/plugin-google-analytics": "1.5.1",
+    "@vuepress/plugin-pwa": "1.5.1",
+    "vuepress": "1.5.1"
   },
   "dependencies": {
     "@babel/core": "7.10.2",
@@ -56,7 +56,6 @@
     "@rollup/plugin-commonjs": "13.0.0",
     "@rollup/plugin-json": "4.1.0",
     "@rollup/plugin-node-resolve": "8.0.1",
-    "@sinonjs/text-encoding": "0.7.1",
     "@types/greasemonkey": "4.0.0",
     "@types/lodash": "4.14.155",
     "babel-plugin-lodash": "3.3.4",
