@@ -219,6 +219,20 @@ export const jsSiteRule = [
     }
   },
   {
+    name: 'gelbooru.com',
+    url: 'https?://gelbooru\\.com',
+    nextLink: "css;.pagination > a[alt='next']",
+    autopager: {
+      pageElement: "//div[contains(@class,'thumbnail-preview')]",
+      filter: function (pageElements) {
+        // 头像载入出错的修正
+        [].forEach.call(pageElements, function (div) {
+          div.querySelector('a').removeAttribute('target');
+        });
+      }
+    }
+  },
+  {
     name: 'smzdm-comment',
     url: /^https?:\/\/\w+\.smzdm\.com(\/\w+)?\/p\/[\d\w\W]+/i,
     exampleUrl: 'https://post.smzdm.com/p/559992/',
