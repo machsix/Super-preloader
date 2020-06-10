@@ -139,8 +139,7 @@ function normalizeArguments(options, thisDefaults = defaults) {
     }
   }
 
-  // `options.cookie`, dirty fix for TM and VM on Firefox
-  // TODO: remove when TM and VM releases new version
+  // `options.cookie`, dirty fix for older versions of TM and VM on Firefox
   if (!isNullOrUndefined(options.cookie)) {
     if (_.isBoolean(options.cookie) && options.cookie) {
       options.cookie = document.cookie;
