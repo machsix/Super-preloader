@@ -36,10 +36,11 @@ import notice from './utils/notice';
   };
   logger.setLevel('warn');
 
+  // `options.cookie`, dirty fix for older versions of TM and VM on Firefox
+  // TODO: remove when TM releases new version
   if (BROWSER.name === 'firefox') {
-    if ((SCRIPT_MANAGER.name === 'Violentmonkey' && compareVersions(SCRIPT_MANAGER.version, '2.12.3') <= 0) || SCRIPT_MANAGER.name === 'Tampermonkey') {
-      // `options.cookie`, dirty fix for TM and VM on Firefox
-      // TODO: remove when TM releases new version
+    if ((SCRIPT_MANAGER.name === 'Violentmonkey' && compareVersions(SCRIPT_MANAGER.version, '2.12.3') <= 0) ||
+        (SCRIPT_MANAGER.name === 'Tampermonkey') && compareVersions(SCRIPT_MANAGER.version, '4.10.6103') < 0) {
       logger.warn(`${SCRIPT_MANAGER.name}  v${SCRIPT_MANAGER.version} has a flaw on Firefox, which may affect this script`);
       logger.warn('Check https://github.com/Tampermonkey/tampermonkey/issues/786 and https://github.com/violentmonkey/violentmonkey/issues/606 to learn more');
       gotConfig.cookie = true;
