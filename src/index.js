@@ -1917,7 +1917,7 @@ import notice from './utils/notice';
               var container = cContainer();
               var div = container.div;
               i = iarray.length;
-              container.div2.innerHTML ='Number of prefetched pictures: ' + '<b>' + i + '</b>' + '<br />' + 'Prefetch URL:' + '<b>' + nextlink + '</b>';
+              container.div2.innerHTML = 'Number of prefetched pictures: ' + '<b>' + i + '</b>' + '<br />' + 'Prefetch URL:' + '<b>' + nextlink + '</b>';
               logger.info('Number of prefetched pictures: ' + i + 'Prefetch URL: ' + nextlink);
 
               for (i -= 1; i >= 0; i--) {
@@ -1954,7 +1954,6 @@ import notice from './utils/notice';
           }
         }
         logger.debug(`Page url is: ${url}, JS loaded successfully`);
-
 
         // 第一阶段..分析高级模式..
         if (prefs.disableBuiltinRules) {
