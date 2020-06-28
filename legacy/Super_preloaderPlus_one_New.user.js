@@ -2418,7 +2418,7 @@
         if (hashSite) {
           isHashchangeSite = true;
           hashchangeTimer = hashSite.timer;
-          debug("%c[Super-preloader]当前是页面不刷新的站点 %o", debugStyle, "", hashSite);
+          debug("%c[Super-preloader]This site does not refresh the page %o", debugStyle, "", hashSite);
           const p1 = new Promise(function(resolve, reject) {
             setTimeout(resolve, hashchangeTimer);
           });
@@ -2458,8 +2458,8 @@
           try {
             infos = new Function("", "return " + prefs.custom_siteinfo)();
           } catch (e) {
-            console.error("自定义站点规则错误", prefs.custom_siteinfo);
-            // alert('自定义站点规则错误');
+            console.error("Custom site rule error", prefs.custom_siteinfo);
+            // alert('Custom site rule error');
           }
 
           if (_.isArray(infos)) {
@@ -3196,9 +3196,9 @@
         }
 
         if (insertPoint) {
-          debug("%c[Super-preloader] %c验证是否能找到插入位置节点:成功,%o", debugStyle, "", insertPoint);
+          debug("%c[Super-preloader] %cVerify that the insertion location node can be found: success,%o", debugStyle, "", insertPoint);
         } else {
-          console.error("%c[Super-preloader] %c验证是否能找到插入位置节点:失败 %o JS执行终止", debugStyle, "", SSS.a_HT_insert ? SSS.a_HT_insert[0] : "");
+          console.error("%c[Super-preloader] %cVerify that the insertion location node can be found: failure,%o. JS execution terminated", debugStyle, "", SSS.a_HT_insert ? SSS.a_HT_insert[0] : "");
           floatWO.updateColor("Astop");
           return;
         }
@@ -3210,9 +3210,9 @@
           pageElement = getAllElements(SSS.a_pageElement);
         }
         if (pageElement.length > 0) {
-          debug("%c[Super-preloader] %c验证是否能找到主要元素:成功,%o", debugStyle, "", pageElement);
+          debug("%c[Super-preloader] %cVerify that the main element can be found: success,%o", debugStyle, "", pageElement);
         } else {
-          console.error("%c[Super-preloader] %c验证是否能找到主要元素:失败,%o", debugStyle, "", SSS.a_pageElement);
+          console.error("%c[Super-preloader] %cVerify that the main element can be found: failure,%o", debugStyle, "", SSS.a_pageElement);
           floatWO.updateColor("Astop");
           return;
         }
@@ -3249,7 +3249,7 @@
           doc = win = createDocumentByString(str);
 
           if (!doc) {
-            console.error("%c[Super-preloader] %c文档对象创建失败", debugStyle, "");
+            console.error("%c[Super-preloader] %cDocument object creation failed", debugStyle, "");
             removeL();
             return;
           }
@@ -3267,7 +3267,7 @@
         }
 
         function removeL(isRemoveAddPage) {
-          debug("%c[Super-preloader] %c移除各种事件监听", debugStyle, "");
+          debug("%c[Super-preloader] %cRemoving various event listeners", debugStyle, "");
           floatWO.updateColor("Astop");
           const _remove = remove;
           for (var i = 0, ii = _remove.length; i < ii; i++) {
@@ -3305,11 +3305,11 @@
         if (isHashchangeSite && !hashchangeAdded) {
           window.addEventListener("hashchange", onhashChange, false);
           hashchangeAdded = true;
-          debug("%c[Super-preloader] %c成功添加 hashchange 事件", debugStyle, "");
+          debug("%c[Super-preloader] %cSuccessfully added hashchange event", debugStyle, "");
         }
 
         function onhashChange(event) {
-          debug("%c[Super-preloader] %c触发 Hashchang 事件", debugStyle, "");
+          debug("%c[Super-preloader] %chashchange event triggered", debugStyle, "");
           removeL(true);
 
           setTimeout(function() {
@@ -3397,7 +3397,7 @@
           floatWO.updateColor("loading");
           floatWO.CmodeIcon("show");
 
-          debug("%c[Super-preloader] %c获取下一页 %o %o", debugStyle, "", SSS.a_useiframe ? "(iframe方式)" : "(XHR方式)", nextlink);
+          debug("%c[Super-preloader] %cGet next page %o %o", debugStyle, "", SSS.a_useiframe ? "(iframe method)" : "(XHR method)", nextlink);
           if (SSS.a_useiframe) {
             iframeRequest(nextlink);
           } else {
@@ -3409,7 +3409,7 @@
               .get(nextlink, reqConf)
               .then(function(res) {
                 if (res.finalUrl === cplink) {
-                  debug("%c[Super-preloader] %c最终地址相同", debugStyle, "");
+                  debug("%c[Super-preloader] %cSame final address", debugStyle, "");
                   XHRNotLoaded(res);
                 } else {
                   XHRLoaded(res);
@@ -3418,7 +3418,7 @@
               .catch(function(res) {
                 XHRNotLoaded(res);
               });
-            debug("%c[Super-preloader] %c读取完成", debugStyle, "");
+            debug("%c[Super-preloader] %cReading complete", debugStyle, "");
           }
         }
 
@@ -3606,11 +3606,11 @@
           working = true;
           if (SSS.a_manualA && !ipagesmode) {
             // 显示手动翻页触发条.
-            debug("%c[Super-preloader] %c手动拼接", debugStyle, "");
+            debug("%c[Super-preloader] %cManual stitching", debugStyle, "");
             manualAdiv();
           } else {
             // 直接拼接.
-            debug("%c[Super-preloader] %c直接拼接", debugStyle, "");
+            debug("%c[Super-preloader] %cDirect stitching", debugStyle, "");
             insertedIntoDoc();
           }
         }
@@ -3775,16 +3775,16 @@
 
         function insertedIntoDoc() {
           if (!doc) {
-            console.error("%c[Super-preloader]%c %s", debugStyle, "", "没有找到doc");
+            console.error("%c[Super-preloader]%c %s", debugStyle, "", "Could not find doc");
             return;
           }
 
           if (SSS.a_documentFilter) {
             try {
               SSS.a_documentFilter(doc, nextlink);
-              debug("%c[Super-preloader] %c执行 documentFilter 成功", debugStyle, "");
+              debug("%c[Super-preloader] %cdocumentFilter executed successfully", debugStyle, "");
             } catch (e) {
-              console.error("%c[Super-preloader] %c执行 documentFilter 错误 %o %s", debugStyle, "", e, SSS.a_documentFilter.toString());
+              console.error("%c[Super-preloader] %cError executing documentFilter %o %s", debugStyle, "", e, SSS.a_documentFilter.toString());
             }
           }
 
@@ -3794,11 +3794,11 @@
           const pageElements = getAllElements(SSS.a_pageElement, false, doc, win, nextlink);
           const ii = pageElements.length;
           if (ii <= 0) {
-            console.error("获取下一页的主要内容失败", SSS.a_pageElement);
+            console.error("Failed to get the main content of the next page", SSS.a_pageElement);
             removeL();
             return;
           } else {
-            debug("%c[Super-preloader] %c获取下一页的主要内容成功 %o", debugStyle, "", pageElements);
+            debug("%c[Super-preloader] %cSuccessfully got the main content of the next page %o", debugStyle, "", pageElements);
           }
 
           // 提前查找下一页链接，后面再赋值
@@ -3910,9 +3910,9 @@
           if (SSS.filter && typeof SSS.filter === "function") {
             try {
               SSS.filter(pageElements);
-              debug("%c[Super-preloader] %c执行 filter(pages) 成功", debugStyle, "");
+              debug("%c[Super-preloader] %cSuccessful execution of filter(pages)", debugStyle, "");
             } catch (e) {
-              console.error("%c[Super-preloader] %c执行 filter(pages) 错误 %o %e", debugStyle, "", e, SSS.filter.toString());
+              console.error("%c[Super-preloader] %cError executing filter(pages) %o %e", debugStyle, "", e, SSS.filter.toString());
             }
           }
 
@@ -3971,8 +3971,8 @@
           }
 
           if (paged >= SSS.a_maxpage) {
-            debug("%c[Super-preloader] %c到达所设定的最大翻页数", debugStyle, "", SSS.a_maxpage);
-            notice("<b>状态</b>:" + '到达所设定的最大翻页数:<b style="color:red">' + SSS.a_maxpage + "</b>");
+            debug("%c[Super-preloader] %cReached the maximum number of page turns", debugStyle, "", SSS.a_maxpage);
+            notice("<b>status</b>:" + 'Reached the maximum number of page turns:<b style="color:red">' + SSS.a_maxpage + "</b>");
             removeL();
             return;
           }
@@ -3980,7 +3980,7 @@
             setTimeout(fn, 199);
           };
           if (nextlink) {
-            // debug('找到下一页链接:', nextlink);
+            // debug('Found the next page link:', nextlink);
             doc = win = null;
             if (ipagesmode) {
               if (SSS.a_useiframe) {
@@ -3998,7 +3998,7 @@
               }
             }
           } else {
-            console.error("%c[Super-preloader] %c没有找到下一页链接%o", debugStyle, "", SSS.nextLink);
+            console.error("%c[Super-preloader] %cNext page link not found %o", debugStyle, "", SSS.nextLink);
             removeL();
           }
         }
@@ -4114,7 +4114,7 @@
             if (value > 0) {
               ipagesmode = true;
               ipagesnumber = value + paged;
-              notice("<b>状态</b>:" + "当前已翻页数量:<b>" + paged + "</b>," + '连续翻页到第<b style="color:red!important;">' + ipagesnumber + "</b>页.");
+              notice("<b>status</b>:" + "Number of pages turned:<b>" + paged + "</b>," + 'turning to page <b style="color:red!important;">' + ipagesnumber + "</b>.");
               if (SSS.a_manualA) insertedIntoDoc();
               scroll();
             }
@@ -4139,7 +4139,7 @@
                 background-color:#F5F5F5!important;\
                 float:none!important;\
             ";
-          div.title = "预读的内容";
+          div.title = "Prefetched content";
           div2.style.cssText =
             "\
                 text-align:left!important;\
@@ -4197,7 +4197,7 @@
           );
           if (SSS.viewcontent) {
             const container = cContainer();
-            container.div2.innerHTML = "iframe全预读: " + "<br />" + "预读网址: " + "<b>" + nextlink + "</b>";
+            container.div2.innerHTML = "iframe full prefetch: " + "<br />" + "prefetch URL: " + "<b>" + nextlink + "</b>";
             iframe.height = "300px";
             container.div.appendChild(iframe);
           } else {
@@ -4212,7 +4212,7 @@
               const str = req.responseText;
               const doc = createDocumentByString(str);
               if (!doc) {
-                console.error("%c[Super-preloader] %c文档对象创建失败!", debugStyle, "");
+                console.error("%c[Super-preloader] %cDocument object creation failed!", debugStyle, "");
                 return;
               }
 
@@ -4242,7 +4242,7 @@
                 const containter = cContainer();
                 const div = containter.div;
                 i = iarray.length;
-                containter.div2.innerHTML = "预读取图片张数: " + "<b>" + i + "</b>" + "<br />" + "预读网址: " + "<b>" + nextlink + "</b>";
+                containter.div2.innerHTML = "Number of prefetched pictures: " + "<b>" + i + "</b>" + "<br />" + "prefetch URL: " + "<b>" + nextlink + "</b>";
                 for (i -= 1; i >= 0; i--) {
                   div.appendChild(iarray[i]);
                 }
@@ -4260,7 +4260,7 @@
       // 分析黑名单
       const blackList_re = new RegExp(blackList.map(wildcardToRegExpStr).join("|"));
       if (blackList_re.test(url)) {
-        debug("%c[Super-preloader] %c匹配黑名单，js执行终止", debugStyle, "");
+        debug("%c[Super-preloader] %cMatched blacklist, JS execution stopped", debugStyle, "");
         return;
       }
 
@@ -4270,11 +4270,11 @@
           return x[1] && x[2].test(url);
         });
         if (isReturn) {
-          debug("%c[Super-preloader] %curl为:%s的页面为非顶层窗口,JS执行终止", debugStyle, "", url);
+          debug("%c[Super-preloader] %cURL %s is a not a top-level window, JS execution stopped", debugStyle, "", url);
           return;
         }
       }
-      debug("%c[Super-preloader] %curl为:%s的页面,JS加载成功", debugStyle, "", url);
+      debug("%c[Super-preloader] %cJS loaded successfully for URL:%s", debugStyle, "", url);
 
       // 第一阶段..分析高级模式..
       SITEINFO = SITEINFO.concat(SITEINFO_json, SITEINFO_TP, SITEINFO_comp);
@@ -4300,7 +4300,7 @@
           debug("%c[Super-preloader] %c规则数 > %i 来自其他来源, 比如: wedata.net", debugStyle, "", ii - SITEINFO_json.length);
         } else {
           debug("%c[Super-preloader] %cNumber of advanced rules:%i", debugStyle, "", ii);
-          debug("%c[Super-preloader] %cRules with ID > %i 来自其他来源, 比如: wedata.net", debugStyle, "", ii - SITEINFO_json.length);
+          debug("%c[Super-preloader] %cRules with ID > %i from other sources, such as: wedata.net", debugStyle, "", ii - SITEINFO_json.length);
         }
 
         for (var i = 0; i < ii; i++) {
@@ -4319,15 +4319,15 @@
             if (SII.autopager && SII.autopager.startFilter) {
               try {
                 SII.autopager.startFilter(document, window);
-                debug("%c[Super-preloader] %c执行 startFilter 成功", debugStyle, "");
+                debug("%c[Super-preloader] %cstartFilter execution successful", debugStyle, "");
               } catch (e) {
-                console.error("%c[Super-preloader] %c执行 startFilter 错误 %o", debugStyle, "", e);
+                console.error("%c[Super-preloader] %cError executing startFilter %o", debugStyle, "", e);
               }
             }
 
             nextlink = getElement(SII.nextLink || "auto;");
             if (!nextlink) {
-              console.warn("%c[Super-preloader] %c无法找到下一页链接,继续查找其他规则,跳过规则:%o", debugStyle, "", SII);
+              console.warn("%c[Super-preloader] %cCould not find the link to the next page, continue searching other rules, skiping rule:%o", debugStyle, "", SII);
               continue;
             }
             // 如果匹配到的下一页链接和当前页一致，继续查找下一条规则
@@ -4418,7 +4418,7 @@
             const pageElement = getElement(SSS.a_pageElement);
             if (!pageElement || (Array.isArray(pageElement) && pageElement.length === 0)) {
               nextlink = null;
-              console.error("%c[Super-preloader] %c无法找到内容,跳过规则:%o %s", debugStyle, "", SII, "继续查找其他规则");
+              console.error("%c[Super-preloader] %cNo content found, skiping rule:%o %s", debugStyle, "", SII, "Continue searching other rules");
               continue;
             }
 
@@ -4428,10 +4428,10 @@
         }
 
         if (!SSS.hasRule) {
-          console.warn("%c[Super-preloader] %c未找到合适的高级规则,开始自动匹配.", debugStyle, "");
+          console.warn("%c[Super-preloader] %cNo suitable advanced rule found, start automatic matching.", debugStyle, "");
           // 自动搜索.
           if (!autoMatch.keyMatch) {
-            debug("%c[Super-preloader] %c自动匹配功能被禁用了.", debugStyle, "");
+            debug("%c[Super-preloader] %cAuto-matching is disabled.", debugStyle, "");
           } else {
             nextlink = autoGetLink();
             // alert(nextlink);
@@ -4464,18 +4464,18 @@
           SSS.lazyImgSrc = prefs.lazyImgSrc;
         }
 
-        debug("%c[Super-preloader] %c搜索高级规则和自动匹配过程总耗时:%ims", debugStyle, "", new Date() - startTime);
+        debug("%c[Super-preloader] %cTotal time spent on searching for advanced rules and automatic matching:%ims", debugStyle, "", new Date() - startTime);
       };
 
       findCurSiteInfo();
 
       // 上下页都没有找到啊
       if (!nextlink && !prelink) {
-        console.warn("%c[Super-preloader] %c未找到相关链接, JS执行停止. 共耗时:%ims", debugStyle, "", new Date() - startTime);
+        console.warn("%c[Super-preloader] %cNo related links found, JS execution stopped. Total time spent:%ims", debugStyle, "", new Date() - startTime);
         return;
       } else {
-        debug("%c[Super-preloader] %c上一页链接:%o", debugStyle, "", prelink);
-        debug("%c[Super-preloader] %c下一页链接:%o", debugStyle, "", nextlink);
+        debug("%c[Super-preloader] %cPrevious Link:%o", debugStyle, "", prelink);
+        debug("%c[Super-preloader] %cNext link:%o", debugStyle, "", nextlink);
         nextlink = nextlink ? nextlink.href || nextlink : undefined;
         prelink = prelink ? prelink.href || prelink : undefined;
       }
@@ -4491,7 +4491,7 @@
       };
 
       if (prefs.arrowKeyPage) {
-        debug("%c[Super-preloader] %c添加键盘左右方向键翻页监听.", debugStyle, "");
+        debug("%c[Super-preloader] %cAdd left and right arrow keys to autopager listener.", debugStyle, "");
         document.addEventListener(
           "keyup",
           function(e) {
@@ -4519,7 +4519,7 @@
       }
 
       // 监听下一页事件.
-      debug("%c[Super-preloader] %c添加鼠标手势翻页监听", debugStyle, "");
+      debug("%c[Super-preloader] %cAdd mouse gesture to autopager listener", debugStyle, "");
       document.addEventListener(
         "superPreloader.go",
         function() {
@@ -4539,15 +4539,15 @@
 
       // 没找到下一页的链接
       if (!nextlink) {
-        console.error("%c[Super-preloader] %c下一页链接不存在,JS无法继续.", debugStyle, "");
-        debug("%c[Super-preloader] %c全部过程耗时:%ims", debugStyle, "", new Date() - startTime);
+        console.error("%c[Super-preloader] %cNext page link does not exist, JS cannot continue.", debugStyle, "");
+        debug("%c[Super-preloader] %cTotal time spent::%ims", debugStyle, "", new Date() - startTime);
 
         return;
       }
 
       // 载入设置..
       const loadLocalSetting = function() {
-        debug("%c[Super-preloader] %c加载设置", debugStyle, "");
+        debug("%c[Super-preloader] %cLoad settings", debugStyle, "");
         var savedValue = getValue("spfwset");
         if (savedValue) {
           try {
@@ -4591,24 +4591,24 @@
       }
 
       if (prefs.floatWindow) {
-        debug("%c[Super-preloader] %c创建悬浮窗", debugStyle, "");
+        debug("%c[Super-preloader] %cCreating a floating window", debugStyle, "");
         floatWindow(SSS);
       }
 
       if (!SSS.enable) {
-        console.warn("%c[Super-preloader] %c本规则被关闭,脚本执行停止", debugStyle, "");
-        debug("%c[Super-preloader] %c全部过程耗时:%ims", debugStyle, "", new Date() - startTime);
+        console.warn("%c[Super-preloader] %cThis rule is disabled, script execution is stopped.", debugStyle, "");
+        debug("%c[Super-preloader] %cTotal time spent:%ims", debugStyle, "", new Date() - startTime);
 
         return;
       }
-      debug("%c[Super-preloader] %c全部过程耗时:%ims", debugStyle, "", new Date() - startTime);
+      debug("%c[Super-preloader] %ccTotal time spent:%ims", debugStyle, "", new Date() - startTime);
 
       // 预读或者翻页.
       if (SSS.a_enable) {
-        debug("%c[Super-preloader] %c初始化,翻页模式.", debugStyle, "");
+        debug("%c[Super-preloader] %cInitialization, autopager mode.", debugStyle, "");
         autopager(SSS, floatWO);
       } else {
-        debug("%c[Super-preloader] %c初始化,预读模式.", debugStyle, "");
+        debug("%c[Super-preloader] %cInitialization, preloader mode.", debugStyle, "");
         prefetcher(SSS, floatWO);
       }
 
@@ -4713,7 +4713,7 @@
           // 3个条件:http协议链接,非跳到当前页面的链接,非跨域
           if (/^https?:/i.test(ahref) && ahref.replace(/#.*$/, "") != curLHref && ahref.match(/https?:\/\/([^\/]+)/)[1] == _domain_port) {
             if (xbug) {
-              debug((type == "pre" ? "上一页" : "下一页") + "匹配到的关键字为:", atext);
+              debug((type == "pre" ? "previous" : "next") + "matched keyword:", atext);
             }
             return a; // 返回对象A
             // return ahref;
@@ -4721,7 +4721,7 @@
         }
 
         if (xbug) {
-          debug("%c[Super-preloader] %c全文档链接数量:%i", debugStyle, "", alllinksl);
+          debug("%c[Super-preloader] %cNumber of full document links: %i", debugStyle, "", alllinksl);
         }
 
         for (i = 0; i < alllinksl; i++) {
@@ -4866,7 +4866,7 @@
             }
           }
         }
-        debug("%c[Super-preloader] %c搜索链接数量:%i 耗时:%ims ", debugStyle, "", i, new Date() - startTime);
+        debug("%c[Super-preloader] %cNumber of links found:%i Time spent:%ims ", debugStyle, "", i, new Date() - startTime);
 
         if (!autoGetLink.checked) {
           // 只在第一次检测的时候,抛出上一页链接.
@@ -5061,12 +5061,12 @@
       return;
     }
 
-    button.innerHTML = "正在更新中...";
+    button.innerHTML = "Update in progress...";
     button.disabled = "disabled";
 
     const reset = function() {
       isUpdating = false;
-      button.innerHTML = "马上更新";
+      button.innerHTML = "Update now";
       button.disabled = "";
     };
 
@@ -5080,7 +5080,7 @@
         if (latestVersion) {
           latestVersion = latestVersion[1];
         } else {
-          alert("解析版本号错误");
+          alert("Error parsing version number");
           return;
         }
 
@@ -5104,7 +5104,7 @@
         }
 
         if (needUpdate) {
-          alert("本脚本从版本 " + scriptInfo.version + "  更新到了版本 " + latestVersion + ".\n请点击脚本主页进行安装");
+          alert("This script was updated from version " + scriptInfo.version + " to version " + latestVersion + ".\nPlease click on the home page of the script to install it.");
           document.getElementById("sp-prefs-homepageURL").boxShadow = "0 0 2px 2px #FF5555";
         }
 
@@ -5704,7 +5704,7 @@
   function createDocumentByString(str) {
     // string转为DOM
     if (!str) {
-      console.error("%c[Super-preloader] %c没有找到要转成DOM的字符串", debugStyle, "");
+      console.error("%c[Super-preloader] %cNo strings were found to convert to DOM.", debugStyle, "");
       return;
     }
     if (document.documentElement.nodeName != "HTML") {
