@@ -1642,7 +1642,7 @@ import notice from './utils/notice';
             }
 
             if (paged >= SSS.a_maxpage) {
-              logger.debug(`Reached the set maximum number of page turns ${SSS.a_maxpage}`));
+              logger.debug(`Reached the set maximum number of page turns ${SSS.a_maxpage}`);
               notice('<b>Status</b>:' + 'Reached the set maximum number of page turns:<b style="color:red">' + SSS.a_maxpage + '</b>');
               removeL();
               return;
