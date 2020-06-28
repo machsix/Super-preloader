@@ -964,7 +964,7 @@ import notice from './utils/notice';
           if (insertPoint) {
             logger.debug('Verify that the insertion position node can be found: success', insertPoint);
           } else {
-            logger.error('Verify that the insertion position node can be found: failed. JS execution terminated', SSS.a_HT_insert ? SSS.a_HT_insert[0] : '');
+            logger.error('Verify that the insertion position node can be found: failed. JS execution stopped', SSS.a_HT_insert ? SSS.a_HT_insert[0] : '');
             floatWO.updateColor('Astop');
             return;
           }
@@ -1642,7 +1642,7 @@ import notice from './utils/notice';
             }
 
             if (paged >= SSS.a_maxpage) {
-              logger.debug(`Reached the set maximum number of page turns ${SSS.a_maxpage}`) );
+              logger.debug(`Reached the set maximum number of page turns ${SSS.a_maxpage}`));
               notice('<b>Status</b>:' + 'Reached the set maximum number of page turns:<b style="color:red">' + SSS.a_maxpage + '</b>');
               removeL();
               return;
@@ -1785,7 +1785,7 @@ import notice from './utils/notice';
               if (value > 0) {
                 ipagesmode = true;
                 ipagesnumber = value + paged;
-                notice('<b>Status</b>:' + 'Current number of pages turned: <b>' + paged + '</b>,' + 'Continue to turn to the <b style="color:red !important;">' + ipagesnumber + '</b> Page.');
+                notice('<b>Status</b>:' + 'Current number of pages turned: <b>' + paged + '</b>,' + 'Continue to turn page <b style="color:red!important;">' + ipagesnumber + '</b>');
                 if (SSS.a_manualA) insertedIntoDoc();
                 scroll();
               }
@@ -1874,7 +1874,7 @@ import notice from './utils/notice';
             if (SSS.viewcontent) {
               const container = cContainer();
               container.div.style.display = 'block';
-              container.div2.innerHTML = 'iframe full prefetch: ' + '<br />' + 'Prefetch URL: ' + '<b>' + nextlink + '< /b>';
+              container.div2.innerHTML = 'iframe full prefetch: ' + '<br />' + 'Prefetch URL: ' + '<b>' + nextlink + '</b>';
               iframe.height = '300px';
               container.div.appendChild(iframe);
             } else {
@@ -1938,7 +1938,7 @@ import notice from './utils/notice';
         // 分析黑名单
         const blackList_re = new RegExp(blackList.map(wildcardToRegExpStr).join('|'));
         if (blackList_re.test(url)) {
-          logger.debug('Matched blacklist, JS execution terminated');
+          logger.debug('Matched blacklist, JS execution stopped');
           return;
         }
 
@@ -1949,7 +1949,7 @@ import notice from './utils/notice';
             return x[1] && x[2].test(url);
           });
           if (isReturn) {
-            logger.debug(`The page with url:${url} is not a top-level window, JS execution terminates`) ;
+            logger.debug(`The page with url:${url} is not a top-level window, JS execution stopped`);
             return;
           }
         }

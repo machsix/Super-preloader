@@ -3198,7 +3198,7 @@
         if (insertPoint) {
           debug("%c[Super-preloader] %cVerify that the insertion location node can be found: success,%o", debugStyle, "", insertPoint);
         } else {
-          console.error("%c[Super-preloader] %cVerify that the insertion location node can be found: failure,%o. JS execution terminated", debugStyle, "", SSS.a_HT_insert ? SSS.a_HT_insert[0] : "");
+          console.error("%c[Super-preloader] %cVerify that the insertion location node can be found: failure,%o. JS execution stopped", debugStyle, "", SSS.a_HT_insert ? SSS.a_HT_insert[0] : "");
           floatWO.updateColor("Astop");
           return;
         }

@@ -7466,7 +7466,7 @@
                 }
 
                 if (needUpdate) {
-                    alert('This script has updated from version ' + scriptInfo.version + ' To version ' + latestVersion + '. \Please click on the script home page to install it');
+                    alert('This script has updated from version ' + scriptInfo.version + ' To version ' + latestVersion + '. \nPlease click on the script home page to install it');
                     document.getElementById("sp-prefs-homepageURL").boxShadow = '0 0 2px 2px #FF5555';
                 }
 
@@ -8227,7 +8227,7 @@
             if (insertPoint) {
                 debug('Verify that the insertion position node can be found: success,', insertPoint);
             } else {
-                C.error('Verification of whether the insertion location node can be found: failed', (SSS.a_HT_ insert ? SSS.a_HT_insert[0] : ''), 'JS execution terminated');
+                C.error('Verification of whether the insertion location node can be found: failed', (SSS.a_HT_ insert ? SSS.a_HT_insert[0] : ''), 'JS execution stopped');
                 floatWO.updateColor('Astop');
                 return;
             }
@@ -8977,11 +8977,11 @@
                     if (prefs.stop_ipage) ipagesmode = false;
                     if (pause) {
                         floatWO.updateColor('Apause');
-                        notice('<b>Status</b>:' + 'Autopager<span style="color:red!important;"><b> paused</b></span>.'');
+                        notice('<b>Status</b>:' + 'Autopager<span style="color:red!important;"><b> paused</b></span>.');
                     } else {
                         floatWO.updateColor('autopager');
                         floatWO.CmodeIcon('hide');
-                        notice('<b>Status</b>:' + 'Autopager<span style=" color:red!important;"><b> enabled</b></span>.'). ;
+                        notice('<b>Status</b>:' + 'Autopager<span style=" color:red!important;"><b> enabled</b></span>.');
                     }
                     scroll();
                 };
@@ -9039,7 +9039,7 @@
                     if (value > 0) {
                         ipagesmode = true;
                         ipagesnumber = value + paged;
-                        notice('<b>Status</b>:' + 'Number of pages turned:<b>' + paged + '</b>,' + ' continue to page <b style="color:red! important;">' + ipagesnumber + '</b>');
+                        notice('<b>Status</b>:' + 'Number of pages turned:<b>' + paged + '</b>,' + ' continue to page <b style="color:red!important;">' + ipagesnumber + '</b>');
                         if (SSS.a_manualA) insertedIntoDoc();
                         scroll();
                     }
@@ -9116,7 +9116,7 @@
                 }, false);
                 if (SSS.viewcontent) {
                     var container = cContainer();
-                    container.div2.innerHTML = 'iframe full preload: ' + '<br />' + 'Preload URL: ' + '<b>' + nextlink + '< /b>';
+                    container.div2.innerHTML = 'iframe full preload: ' + '<br />' + 'Preload URL: ' + '<b>' + nextlink + '</b>';
                     iframe.height = '300px';
                     container.div.appendChild(iframe);
                 } else {
@@ -9161,7 +9161,7 @@
                             var containter = cContainer();
                             var div = containter.div;
                             i = iarray.length;
-                            containter.div2.innerHTML = 'Preloaded image count: ' + ' <b>' + i + '</b>' + '<br />' + 'Pre;pad URL: ' + ' <b>' + nextlink + '</b>';
+                            containter.div2.innerHTML = 'Preloaded image count: ' + '<b>' + i + '</b>' + '<br />' + 'Pre;pad URL: ' + '<b>' + nextlink + '</b>';
                             for (i -= 1; i >= 0; i--) {
                                 div.appendChild(iarray[i]);
                             }
@@ -9190,7 +9190,7 @@
                 return x[1] && x[2].test(url);
             });
             if (isReturn) {
-                debug('URL is:', url, 'The page is not a top level window, JS execution is stopped.') ;) ;
+                debug('URL is:', url, 'The page is not a top level window, JS execution is stopped.');
                 return;
             }
         }
@@ -9219,7 +9219,7 @@
                 SII = SITEINFO[i];
                 Rurl = toRE(SII.url);
                 if (Rurl.test(url)) {
-                    debug('The rule matching the current site:', SII,' is the', i + 1, 'rule');
+                    debug('The rule matching the current site:', SII, ' is the', i + 1, ' rule');
 
                     // 运行规则的 startFilter
                     if (SII.autopager && SII.autopager.startFilter) {
@@ -9341,7 +9341,7 @@
 
         //上下页都没有找到啊
         if (!nextlink && !prelink) {
-            debug('No related links found, JS execution stopped. Total time spent:' + (new Date()-startTime) + 'ms');
+            debug('No related links found, JS execution stopped. Total time spent:' + (new Date() - startTime) + 'ms');
             return;
         } else {
             debug('Previous Link:', prelink);

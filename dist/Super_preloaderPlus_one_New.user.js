@@ -10083,7 +10083,7 @@
           if (insertPoint) {
             logger.debug("[Super-preloader]", 'Verify that the insertion position node can be found: success', insertPoint);
           } else {
-            logger.error("[Super-preloader]", 'Verify that the insertion position node can be found: failed. JS execution terminated', SSS.a_HT_insert ? SSS.a_HT_insert[0] : '');
+            logger.error("[Super-preloader]", 'Verify that the insertion position node can be found: failed. JS execution stopped', SSS.a_HT_insert ? SSS.a_HT_insert[0] : '');
             floatWO.updateColor('Astop');
             return;
           }
@@ -11028,7 +11028,7 @@
             if (SSS.viewcontent) {
               var container = cContainer();
               container.div.style.display = 'block';
-              container.div2.innerHTML = 'iframe full prefetch: ' + '<br />' + 'Prefetch URL: ' + '<b>' + nextlink + '< /b>';
+              container.div2.innerHTML = 'iframe full prefetch: ' + '<br />' + 'Prefetch URL: ' + '<b>' + nextlink + '</b>';
               iframe.height = '300px';
               container.div.appendChild(iframe);
             } else {
@@ -11590,7 +11590,7 @@
             // 3个条件:http协议链接,非跳到当前页面的链接,非跨域
 
             if (/^https?:/i.test(ahref) && ahref.replace(/#.*$/, '') != curLHref && ahref.match(/https?:\/\/([^\/]+)/)[1] == _domain_port) {
-              logger.debug("[Super-preloader]", type == ' pre' ? 'previous' : 'next' + 'match:', atext);
+              logger.debug("[Super-preloader]", type == 'pre' ? 'previous' : 'next' + 'match:', atext);
               return a; // 返回对象A
               // return ahref;
             }
