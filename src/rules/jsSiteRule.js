@@ -1151,8 +1151,11 @@ export const jsSiteRule = [
       },
       documentFilter: (d, _nextLink) => {
         var link = d.body.innerHTML.match(/imgurl = '(.+)';/);
+        //@ts-ignore
         if (link) link = '//fmvip.xzglasses.com' + link[1];
+        //@ts-ignore
         d.getElementById('bigpic').src = link;
+        //@ts-ignore
         d.getElementById('bigpic').dataset.link = link;
       }
     }

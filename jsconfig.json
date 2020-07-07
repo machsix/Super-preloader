@@ -2,6 +2,8 @@
   "compilerOptions": {
     "target": "es6",
     "allowSyntheticDefaultImports": true,
-    "moduleResolution": "node"
-  }
+    "moduleResolution": "node",
+    "noEmit": true
+  },
+  "include": ["src/**/*.js"]
 }
