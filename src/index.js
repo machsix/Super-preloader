@@ -498,7 +498,7 @@ import notice from './utils/notice';
           if (hashSite) {
             isHashchangeSite = true;
             hashchangeTimer = hashSite.timer;
-            logger.debug('当前是页面不刷新的站点', hashSite);
+            logger.debug('This site does not refresh the page.', hashSite);
             const p1 = new Promise(function (resolve, reject) {
               setTimeout(resolve, hashchangeTimer);
             });
@@ -536,7 +536,7 @@ import notice from './utils/notice';
               // eslint-disable-next-line no-new-func
               userRules = new Function('', 'return ' + prefs.custom_siteinfo)();
             } catch (e) {
-              logger.error('自定义站点规则错误', prefs.custom_siteinfo);
+              logger.error('Custom site rule error:', prefs.custom_siteinfo);
             }
 
             if (_.isArray(userRules)) {
@@ -962,9 +962,9 @@ import notice from './utils/notice';
           }
 
           if (insertPoint) {
-            logger.debug('验证是否能找到插入位置节点:成功', insertPoint);
+            logger.debug('Verify that the insertion position node can be found: success', insertPoint);
           } else {
-            logger.error('验证是否能找到插入位置节点:失败  JS执行终止', SSS.a_HT_insert ? SSS.a_HT_insert[0] : '');
+            logger.error('Verify that the insertion position node can be found: failed. JS execution stopped', SSS.a_HT_insert ? SSS.a_HT_insert[0] : '');
             floatWO.updateColor('Astop');
             return;
           }
@@ -976,9 +976,9 @@ import notice from './utils/notice';
             pageElement = getAllElements(SSS.a_pageElement);
           }
           if (pageElement.length > 0) {
-            logger.debug('验证是否能找到主要元素:成功', pageElement);
+            logger.debug('Verify that the main element can be found: success', pageElement);
           } else {
-            logger.error('验证是否能找到主要元素:失败', SSS.a_pageElement);
+            logger.error('Verify that the main element can be found: failure', SSS.a_pageElement);
             floatWO.updateColor('Astop');
             return;
           }
@@ -1015,7 +1015,7 @@ import notice from './utils/notice';
             doc = win = createDocumentByString(str);
 
             if (!doc) {
-              logger.error('文档对象创建失败');
+              logger.error('Document object creation failed');
               removeL();
               return;
             }
@@ -1033,7 +1033,7 @@ import notice from './utils/notice';
           }
 
           function removeL(isRemoveAddPage) {
-            logger.debug('移除各种事件监听');
+            logger.debug('Remove various event listeners');
             floatWO.updateColor('Astop');
             const _remove = remove;
             for (var i = 0, ii = _remove.length; i < ii; i++) {
@@ -1071,11 +1071,11 @@ import notice from './utils/notice';
           if (isHashchangeSite && !hashchangeAdded) {
             window.addEventListener('hashchange', onhashChange, false);
             hashchangeAdded = true;
-            logger.debug('成功添加 hashchange 事件');
+            logger.debug('Successfully added hashchange event');
           }
 
           function onhashChange(event) {
-            logger.debug('触发 Hashchang 事件');
+            logger.debug('hashchange event triggered');
             removeL(true);
 
             setTimeout(function () {
@@ -1180,7 +1180,7 @@ import notice from './utils/notice';
             floatWO.updateColor('loading');
             floatWO.CmodeIcon('show');
 
-            logger.debug('获取下一页', SSS.a_useiframe ? '(iframe方式)' : '(XHR方式)', nextlink);
+            logger.debug('Get next page', SSS.a_useiframe ? '(iframe method)' : '(XHR method)', nextlink);
             pagedLinks.push(nextlink);
             if (SSS.a_useiframe) {
               iframeRequest(nextlink);
@@ -1192,7 +1192,7 @@ import notice from './utils/notice';
                 .get(nextlink, reqConf)
                 .then(function (res) {
                   if (res.finalUrl === cplink) {
-                    logger.debug('最终地址相同');
+                    logger.debug('Same final address');
                     XHRNotLoaded(res);
                   } else {
                     XHRLoaded(res);
@@ -1201,7 +1201,7 @@ import notice from './utils/notice';
                 .catch(function (res) {
                   XHRNotLoaded(res);
                 });
-              logger.debug('读取完成');
+              logger.debug('Reading complete.');
             }
           }
 
@@ -1317,11 +1317,11 @@ import notice from './utils/notice';
             working = true;
             if (SSS.a_manualA && !ipagesmode) {
               // 显示手动翻页触发条.
-              logger.debug('手动拼接');
+              logger.debug('Manual stitching');
               manualAdiv();
             } else {
               // 直接拼接.
-              logger.debug('直接拼接');
+              logger.debug('Direct stitching');
               insertedIntoDoc();
             }
           }
@@ -1452,9 +1452,9 @@ import notice from './utils/notice';
             if (SSS.a_documentFilter) {
               try {
                 SSS.a_documentFilter(doc, nextlink);
-                logger.debug('执行 documentFilter 成功');
+                logger.debug('Successfully executeed documentFilter');
               } catch (e) {
-                logger.error('执行 documentFilter 错误', e, SSS.a_documentFilter.toString());
+                logger.error('Error executing documentFilter', e, SSS.a_documentFilter.toString());
               }
             }
 
@@ -1464,11 +1464,11 @@ import notice from './utils/notice';
             const pageElements = getAllElements(SSS.a_pageElement, undefined, doc, win, nextlink);
             const ii = pageElements.length;
             if (ii <= 0) {
-              logger.error('获取下一页的主要内容失败', SSS.a_pageElement);
+              logger.error('Failed to get the main content of the next page', SSS.a_pageElement);
               removeL();
               return;
             } else {
-              logger.debug('获取下一页的主要内容成功', pageElements);
+              logger.debug('Successfully got the main content of the next page', pageElements);
             }
 
             // 提前查找下一页链接，后面再赋值
@@ -1583,9 +1583,9 @@ import notice from './utils/notice';
             if (SSS.filter && typeof SSS.filter === 'function') {
               try {
                 SSS.filter(pageElements);
-                logger.debug('执行 filter(pages) 成功');
+                logger.debug('Execution of filter(pages) succeeded');
               } catch (e) {
-                logger.error('执行 filter(pages) 错误', e, SSS.filter.toString());
+                logger.error('Error executing filter(pages)', e, SSS.filter.toString());
               }
             }
 
@@ -1642,8 +1642,8 @@ import notice from './utils/notice';
             }
 
             if (paged >= SSS.a_maxpage) {
-              logger.debug(`到达所设定的最大翻页数 ${SSS.a_maxpage}`);
-              notice('<b>状态</b>:' + '到达所设定的最大翻页数:<b style="color:red">' + SSS.a_maxpage + '</b>');
+              logger.debug(`Reached the set maximum number of page turns ${SSS.a_maxpage}`);
+              notice('<b>Status</b>:' + 'Reached the set maximum number of page turns:<b style="color:red">' + SSS.a_maxpage + '</b>');
               removeL();
               return;
             }
@@ -1651,7 +1651,7 @@ import notice from './utils/notice';
               setTimeout(fn, 199);
             };
             if (nextlink && !pagedLinks.includes(nextlink)) {
-              // debug('找到下一页链接:', nextlink);
+              // debug('Found the next page link:', nextlink);
               doc = win = null;
               if (ipagesmode) {
                 if (SSS.a_useiframe) {
@@ -1669,7 +1669,7 @@ import notice from './utils/notice';
                 }
               }
             } else {
-              logger.error('没有找到下一页链接', SSS.nextLink);
+              logger.error('No next page link found.', SSS.nextLink);
               removeL();
             }
           }
@@ -1785,7 +1785,7 @@ import notice from './utils/notice';
               if (value > 0) {
                 ipagesmode = true;
                 ipagesnumber = value + paged;
-                notice('<b>状态</b>:' + '当前已翻页数量:<b>' + paged + '</b>,' + '连续翻页到第<b style="color:red!important;">' + ipagesnumber + '</b>页.');
+                notice('<b>Status</b>:' + 'Current number of pages turned: <b>' + paged + '</b>,' + 'Continue to turn page <b style="color:red!important;">' + ipagesnumber + '</b>');
                 if (SSS.a_manualA) insertedIntoDoc();
                 scroll();
               }
@@ -1813,7 +1813,7 @@ import notice from './utils/notice';
                 float:none!important;\
                 display:none!important;\
             ';
-            div.title = '预读的内容';
+            div.title = 'Prefetched content';
             div2.style.cssText =
               '\
                 text-align:left!important;\
@@ -1874,7 +1874,7 @@ import notice from './utils/notice';
             if (SSS.viewcontent) {
               const container = cContainer();
               container.div.style.display = 'block';
-              container.div2.innerHTML = 'iframe全预读: ' + '<br />' + '预读网址: ' + '<b>' + nextlink + '</b>';
+              container.div2.innerHTML = 'iframe full prefetch: ' + '<br />' + 'Prefetch URL: ' + '<b>' + nextlink + '</b>';
               iframe.height = '300px';
               container.div.appendChild(iframe);
             } else {
@@ -1887,7 +1887,7 @@ import notice from './utils/notice';
             got.get(nextlink, reqConf).then((res) => {
               const doc = createDocumentByString(res.data);
               if (!doc) {
-                logger.error('文档对象创建失败!');
+                logger.error('Document object creation failed!');
                 return;
               }
 
@@ -1917,8 +1917,8 @@ import notice from './utils/notice';
               var container = cContainer();
               var div = container.div;
               i = iarray.length;
-              container.div2.innerHTML = '预读取图片张数: ' + '<b>' + i + '</b>' + '<br />' + '预读网址: ' + '<b>' + nextlink + '</b>';
-              logger.info('预读取图片张数: ' + i + '预读网址: ' + nextlink);
+              container.div2.innerHTML = 'Number of prefetched pictures: ' + '<b>' + i + '</b>' + '<br />' + 'Prefetch URL:' + '<b>' + nextlink + '</b>';
+              logger.info('Number of prefetched pictures: ' + i + 'Prefetch URL: ' + nextlink);
 
               for (i -= 1; i >= 0; i--) {
                 div.appendChild(iarray[i]);
@@ -1938,7 +1938,7 @@ import notice from './utils/notice';
         // 分析黑名单
         const blackList_re = new RegExp(blackList.map(wildcardToRegExpStr).join('|'));
         if (blackList_re.test(url)) {
-          logger.debug('匹配黑名单，js执行终止');
+          logger.debug('Matched blacklist, JS execution stopped');
           return;
         }
 
@@ -1949,11 +1949,11 @@ import notice from './utils/notice';
             return x[1] && x[2].test(url);
           });
           if (isReturn) {
-            logger.debug(`url为:${url}的页面为非顶层窗口,JS执行终止`);
+            logger.debug(`The page with url:${url} is not a top-level window, JS execution stopped`);
             return;
           }
         }
-        logger.debug(`url为:${url}的页面,JS加载成功`);
+        logger.debug(`Page url is: ${url}, JS loaded successfully`);
 
         // 第一阶段..分析高级模式..
         if (prefs.disableBuiltinRules) {
@@ -1994,7 +1994,7 @@ import notice from './utils/notice';
 
           if (userLang === 'zh_CN') {
             logger.debug(`高级规则数目:${ii}`);
-            logger.debug(`规则数 > ${ii - jsonRule.length} 来自其他来源, 比如: wedata.net`);
+            logger.debug(`Number of rules > ${ii - jsonRule.length} from other sources, such as: wedata.net`);
           } else {
             logger.debug(`Number of advanced rules:${ii}`);
           }
@@ -2004,7 +2004,7 @@ import notice from './utils/notice';
             Rurl = toRE(SII.url);
             if (Rurl.test(url)) {
               if (userLang === 'zh_CN') {
-                logger.debug('找到当前站点规则:', SII);
+                logger.debug('Find current site rules:', SII);
                 logger.debug(`规则ID: ${i + 1}`);
               } else {
                 logger.debug('Find rule for this website:', SII);
@@ -2015,15 +2015,15 @@ import notice from './utils/notice';
               if (SII.autopager && SII.autopager.startFilter) {
                 try {
                   SII.autopager.startFilter(document, window);
-                  logger.debug('执行 startFilter 成功');
+                  logger.debug('startFilter executed successfully');
                 } catch (e) {
-                  logger.error('执行 startFilter 错误', e);
+                  logger.error('Error executing startFilter', e);
                 }
               }
 
               nextlink = getElement(SII.nextLink || 'auto;');
               if (!nextlink) {
-                logger.warn('无法找到下一页链接,继续查找其他规则,跳过规则:', SII);
+                logger.warn('Could not find the next page link, continue searching for other rules, skiping rule:', SII);
                 continue;
               }
               // 如果匹配到的下一页链接和当前页一致，继续查找下一条规则
@@ -2104,7 +2104,7 @@ import notice from './utils/notice';
               const pageElement = getElement(SSS.a_pageElement);
               if (!pageElement || (Array.isArray(pageElement) && pageElement.length === 0)) {
                 nextlink = null;
-                logger.error('无法找到内容,跳过规则:', SII, '继续查找其他规则');
+                logger.error('Could not find content, skiping rule:', SII, 'Continue to search for other rules.');
                 continue;
               }
 
@@ -2148,18 +2148,18 @@ import notice from './utils/notice';
             SSS.lazyImgSrc = prefs.lazyImgSrc;
           }
 
-          logger.debug(`搜索高级规则和自动匹配过程总耗时:${new Date().getTime() - startTime.getTime()}ms`);
+          logger.debug(`Total time spent on searching for advanced rules and automatic matching: ${new Date().getTime() - startTime.getTime()}ms`);
         };
 
         findCurSiteInfo();
 
         // 上下页都没有找到啊
         if (!nextlink && !prelink) {
-          logger.warn(`未找到相关链接, JS执行停止. 共耗时:${new Date().getTime() - startTime.getTime()}ms`);
+          logger.warn(`No related links found, JS execution stopped. Total time spent: ${new Date().getTime() - startTime.getTime()}ms`);
           return;
         } else {
-          logger.debug('上一页链接:', prelink);
-          logger.debug('下一页链接:', nextlink);
+          logger.debug('Previous link:', prelink);
+          logger.debug('Next link:', nextlink);
           //@ts-ignore
           nextlink = nextlink ? nextlink.href || nextlink : undefined;
           //@ts-ignore
@@ -2177,7 +2177,7 @@ import notice from './utils/notice';
         };
 
         if (prefs.arrowKeyPage) {
-          logger.debug('添加键盘左右方向键翻页监听.');
+          logger.debug('Adding left and right arrow keys to autopager listener.');
           document.addEventListener(
             'keyup',
             function (e) {
@@ -2226,8 +2226,8 @@ import notice from './utils/notice';
 
         // 没找到下一页的链接
         if (!nextlink) {
-          logger.error('下一页链接不存在,JS无法继续.');
-          logger.debug(`全部过程耗时:${new Date().getTime() - startTime.getTime()}ms`);
+          logger.error('The link to the next page does not exist, JS cannot continue.');
+          logger.debug(`Total time spent:${new Date().getTime() - startTime.getTime()}ms`);
 
           return;
         }
@@ -2245,7 +2245,7 @@ import notice from './utils/notice';
         }
 
         if (prefs.floatWindow) {
-          logger.debug('创建悬浮窗');
+          logger.debug('Creating a floating window');
           floatWindow(SSS);
           const floatWindowWidth = getFloatWindowWith();
           const d = displace(document.getElementById('sp-fw-container'), {
@@ -2281,19 +2281,19 @@ import notice from './utils/notice';
         }
 
         if (!SSS.enable) {
-          logger.warn('本规则被关闭,脚本执行停止');
-          logger.debug(`全部过程耗时:${new Date().getTime() - startTime.getTime()}ms`);
+          logger.warn('This rule is disabled, script execution is stopped');
+          logger.debug(`Total time spent:${new Date().getTime() - startTime.getTime()}ms`);
 
           return;
         }
-        logger.debug(`全部过程耗时:${new Date().getTime() - startTime.getTime()}ms`);
+        logger.debug(`Total time spent:${new Date().getTime() - startTime.getTime()}ms`);
 
         // 预读或者翻页.
         if (SSS.a_enable) {
-          logger.debug('初始化,翻页模式.');
+          logger.debug('Initializing, autopager mode.');
           autopager(SSS, floatWO);
         } else {
-          logger.debug('初始化,预读模式.');
+          logger.debug('Initializing, prefetch mode.');
           prefetcher(SSS, floatWO);
         }
 
@@ -2412,13 +2412,13 @@ import notice from './utils/notice';
 
             // 3个条件:http协议链接,非跳到当前页面的链接,非跨域
             if (/^https?:/i.test(ahref) && ahref.replace(/#.*$/, '') != curLHref && ahref.match(/https?:\/\/([^\/]+)/)[1] == _domain_port) {
-              logger.debug(type == 'pre' ? '上一页' : '下一页' + '匹配到的关键字为:', atext);
+              logger.debug(type == 'pre' ? 'previous' : 'next' + 'match:', atext);
               return a; // 返回对象A
               // return ahref;
             }
           }
 
-          logger.debug(`全文档链接数量:${alllinksl}`);
+          logger.debug(`Number of full document links:${alllinksl}`);
 
           for (i = 0; i < alllinksl; i++) {
             if (_nextlink && _prelink) break;
@@ -2550,7 +2550,7 @@ import notice from './utils/notice';
               }
             }
           }
-          logger.debug(`搜索链接数量:${i} 耗时:${new Date().getTime() - startTime.getTime()}ms`);
+          logger.debug(`Time to search ${i} links:${new Date().getTime() - startTime.getTime()}ms`);
           //@ts-ignore
           if (!autoGetLink.checked) {
             // 只在第一次检测的时候,抛出上一页链接.
@@ -2893,7 +2893,7 @@ import notice from './utils/notice';
   function createDocumentByString(str) {
     // string转为DOM
     if (!str) {
-      logger.error('没有找到要转成DOM的字符串');
+      logger.error('No string found to be converted to DOM');
       return;
     }
     if (document.documentElement.nodeName != 'HTML') {

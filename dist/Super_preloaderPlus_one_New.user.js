@@ -7,11 +7,11 @@
 // @description:zh-CN  预读+翻页..全加速你的浏览体验
 // @description:zh-TW  预读+翻页..全加速你的浏览体验
 // @author       Mach6
-// @contributers heroboy, suchunchen, YFdyh000
+// @contributers alexolog, heroboy, suchunchen, YFdyh000
 // @thanksto     ywzhaiqi, NLF
-// @version      6.13.18
+// @version      6.13.19
 // @license      GPL-3.0
-// @update       2020/6/9
+// @update       2020/7/6
 // @homepageURL  https://github.com/machsix/Super-preloader
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
 // @contributionURL https://ko-fi.com/machsix
@@ -3751,7 +3751,7 @@
     }
   }
 
-  var name="super-preloader";var version="6.13.18";var description="Super-preloader";var main="dist/Super_preloaderPlus_one_New.user.js";var author="Mach6";var license="GPL-3.0";var bugs={url:"https://github.com/machsix/Super-preloader/issues"};var homepage="https://github.com/machsix/Super-preloader";var directories={doc:"docs"};var repository={type:"git",url:"git+https://github.com/machsix/Super-preloader.git"};var scripts={lint:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.js\"",format:"prettier --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"","format:check":"prettier --check \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"","format:staged":"pretty-quick --verbose --staged --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"",check:"npm run lint && npm run format:staged",test:"cd test && node test.js",dev:"rollup -c --dev -w",build:"rollup -c","docs:dev":"vuepress dev docs","docs:build":"vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh",preversion:"npm run check",version:"npm run build  && git add dist/*.js && git add dist/*.json",postversion:"git add package.json package-lock.json && npm run test","publish:patch":"npm --no-git-tag-version version patch",publish:"npm --no-git-tag-version version minor"};var husky={hooks:{"pre-commit":"npm run check"}};var keywords=["userscript"];var devDependencies={"@vuepress/plugin-back-to-top":"1.5.1","@vuepress/plugin-google-analytics":"1.5.1","@vuepress/plugin-pwa":"1.5.1",vuepress:"1.5.1"};var dependencies={"@babel/core":"7.10.2","@babel/plugin-transform-runtime":"7.10.1","@babel/preset-env":"7.10.2","@rollup/plugin-babel":"5.0.3","@rollup/plugin-commonjs":"13.0.0","@rollup/plugin-json":"4.1.0","@rollup/plugin-node-resolve":"8.0.1","@types/greasemonkey":"4.0.0","@types/lodash":"4.14.155","babel-plugin-lodash":"3.3.4","babel-plugin-wildcard":"6.0.0","compare-versions":"3.6.0",displacejs:"1.4.1",eslint:"7.2.0","eslint-config-prettier":"6.11.0","eslint-plugin-json":"2.1.1","eslint-plugin-prettier":"3.1.3","extract-zip":"2.0.0",got:"11.3.0",husky:"4.2.5",lodash:"4.17.15",loglevel:"1.6.8",prettier:"2.0.5","pretty-quick":"2.0.1",puppeteer:"2.1.0",rollup:"2.15.0","rollup-plugin-banner":"git+https://git@github.com/machsix/rollup-plugin-banner.git#v0.2.2","rollup-plugin-dev":"1.1.2","rollup-plugin-ejs":"2.2.0","rollup-plugin-re":"1.0.7","rollup-plugin-scss-string":"0.1.0",yargs:"15.3.1"};var pkg = {name:name,version:version,description:description,main:main,author:author,license:license,bugs:bugs,homepage:homepage,directories:directories,repository:repository,scripts:scripts,husky:husky,keywords:keywords,devDependencies:devDependencies,dependencies:dependencies};
+  var name="super-preloader";var version="6.13.19";var description="Super-preloader";var main="dist/Super_preloaderPlus_one_New.user.js";var author="Mach6";var license="GPL-3.0";var bugs={url:"https://github.com/machsix/Super-preloader/issues"};var homepage="https://github.com/machsix/Super-preloader";var directories={doc:"docs"};var repository={type:"git",url:"git+https://github.com/machsix/Super-preloader.git"};var scripts={lint:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.js\"",format:"prettier --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"","format:check":"prettier --check \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"","format:staged":"pretty-quick --verbose --staged --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"",check:"npm run lint && npm run format:staged",test:"cd test && node test.js",dev:"rollup -c --dev -w",build:"rollup -c","docs:dev":"vuepress dev docs","docs:build":"vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh",preversion:"npm run check",version:"npm run build  && git add dist/*.js && git add dist/*.json",postversion:"git add package.json package-lock.json && npm run test","publish:patch":"npm --no-git-tag-version version patch",publish:"npm --no-git-tag-version version minor"};var husky={hooks:{"pre-commit":"npm run check"}};var keywords=["userscript"];var devDependencies={"@vuepress/plugin-back-to-top":"1.5.2","@vuepress/plugin-google-analytics":"1.5.2","@vuepress/plugin-pwa":"1.5.2",vuepress:"1.5.2"};var dependencies={"@babel/core":"7.10.4","@babel/plugin-transform-runtime":"7.10.4","@babel/preset-env":"7.10.4","@rollup/plugin-babel":"5.0.4","@rollup/plugin-commonjs":"13.0.0","@rollup/plugin-json":"4.1.0","@rollup/plugin-node-resolve":"8.1.0","@types/greasemonkey":"4.0.0","@types/lodash":"4.14.157","babel-plugin-lodash":"3.3.4","babel-plugin-wildcard":"6.0.0","compare-versions":"3.6.0",displacejs:"1.4.1",eslint:"7.4.0","eslint-config-prettier":"6.11.0","eslint-plugin-json":"2.1.1","eslint-plugin-prettier":"3.1.4","extract-zip":"2.0.1",got:"11.4.0",husky:"4.2.5",lodash:"4.17.15",loglevel:"1.6.8",prettier:"2.0.5","pretty-quick":"2.0.1",puppeteer:"2.1.0",rollup:"2.19.0","rollup-plugin-banner":"git+https://git@github.com/machsix/rollup-plugin-banner.git#v0.2.2","rollup-plugin-dev":"1.1.2","rollup-plugin-ejs":"2.2.0","rollup-plugin-re":"1.0.7","rollup-plugin-scss-string":"0.1.0",yargs:"15.4.0"};var pkg = {name:name,version:version,description:description,main:main,author:author,license:license,bugs:bugs,homepage:homepage,directories:directories,repository:repository,scripts:scripts,husky:husky,keywords:keywords,devDependencies:devDependencies,dependencies:dependencies};
 
   // Information of script
 
@@ -9626,7 +9626,7 @@
           if (hashSite) {
             isHashchangeSite = true;
             hashchangeTimer = hashSite.timer;
-            logger.debug("[Super-preloader]", '当前是页面不刷新的站点', hashSite);
+            logger.debug("[Super-preloader]", 'This site does not refresh the page.', hashSite);
             var p1 = new Promise(function (resolve, reject) {
               setTimeout(resolve, hashchangeTimer);
             });
@@ -9667,7 +9667,7 @@
               // eslint-disable-next-line no-new-func
               userRules = new Function('', 'return ' + prefs.custom_siteinfo)();
             } catch (e) {
-              logger.error("[Super-preloader]", '自定义站点规则错误', prefs.custom_siteinfo);
+              logger.error("[Super-preloader]", 'Custom site rule error:', prefs.custom_siteinfo);
             }
 
             if (isArray_1(userRules)) {
@@ -10081,9 +10081,9 @@
           }
 
           if (insertPoint) {
-            logger.debug("[Super-preloader]", '验证是否能找到插入位置节点:成功', insertPoint);
+            logger.debug("[Super-preloader]", 'Verify that the insertion position node can be found: success', insertPoint);
           } else {
-            logger.error("[Super-preloader]", '验证是否能找到插入位置节点:失败  JS执行终止', SSS.a_HT_insert ? SSS.a_HT_insert[0] : '');
+            logger.error("[Super-preloader]", 'Verify that the insertion position node can be found: failed. JS execution stopped', SSS.a_HT_insert ? SSS.a_HT_insert[0] : '');
             floatWO.updateColor('Astop');
             return;
           }
@@ -10097,9 +10097,9 @@
           }
 
           if (pageElement.length > 0) {
-            logger.debug("[Super-preloader]", '验证是否能找到主要元素:成功', pageElement);
+            logger.debug("[Super-preloader]", 'Verify that the main element can be found: success', pageElement);
           } else {
-            logger.error("[Super-preloader]", '验证是否能找到主要元素:失败', SSS.a_pageElement);
+            logger.error("[Super-preloader]", 'Verify that the main element can be found: failure', SSS.a_pageElement);
             floatWO.updateColor('Astop');
             return;
           }
@@ -10138,7 +10138,7 @@
             doc = win = createDocumentByString(str);
 
             if (!doc) {
-              logger.error("[Super-preloader]", '文档对象创建失败');
+              logger.error("[Super-preloader]", 'Document object creation failed');
               removeL();
               return;
             }
@@ -10157,7 +10157,7 @@
           }
 
           function removeL(isRemoveAddPage) {
-            logger.debug("[Super-preloader]", '移除各种事件监听');
+            logger.debug("[Super-preloader]", 'Remove various event listeners');
             floatWO.updateColor('Astop');
             var _remove = remove;
 
@@ -10202,11 +10202,11 @@
           if (isHashchangeSite && !hashchangeAdded) {
             window.addEventListener('hashchange', onhashChange, false);
             hashchangeAdded = true;
-            logger.debug("[Super-preloader]", '成功添加 hashchange 事件');
+            logger.debug("[Super-preloader]", 'Successfully added hashchange event');
           }
 
           function onhashChange(event) {
-            logger.debug("[Super-preloader]", '触发 Hashchang 事件');
+            logger.debug("[Super-preloader]", 'hashchange event triggered');
             removeL(true);
             setTimeout(function () {
               nextlink = getElement(SSS.nextLink || 'auto;');
@@ -10322,7 +10322,7 @@
             working = true;
             floatWO.updateColor('loading');
             floatWO.CmodeIcon('show');
-            logger.debug("[Super-preloader]", '获取下一页', SSS.a_useiframe ? '(iframe方式)' : '(XHR方式)', nextlink);
+            logger.debug("[Super-preloader]", 'Get next page', SSS.a_useiframe ? '(iframe method)' : '(XHR method)', nextlink);
             pagedLinks.push(nextlink);
 
             if (SSS.a_useiframe) {
@@ -10335,7 +10335,7 @@
               };
               got$1.get(nextlink, reqConf).then(function (res) {
                 if (res.finalUrl === cplink) {
-                  logger.debug("[Super-preloader]", '最终地址相同');
+                  logger.debug("[Super-preloader]", 'Same final address');
                   XHRNotLoaded(res);
                 } else {
                   XHRLoaded(res);
@@ -10343,7 +10343,7 @@
               }).catch(function (res) {
                 XHRNotLoaded(res);
               });
-              logger.debug("[Super-preloader]", '读取完成');
+              logger.debug("[Super-preloader]", 'Reading complete.');
             }
           }
 
@@ -10457,11 +10457,11 @@
 
             if (SSS.a_manualA && !ipagesmode) {
               // 显示手动翻页触发条.
-              logger.debug("[Super-preloader]", '手动拼接');
+              logger.debug("[Super-preloader]", 'Manual stitching');
               manualAdiv();
             } else {
               // 直接拼接.
-              logger.debug("[Super-preloader]", '直接拼接');
+              logger.debug("[Super-preloader]", 'Direct stitching');
               insertedIntoDoc();
             }
           }
@@ -10577,9 +10577,9 @@
             if (SSS.a_documentFilter) {
               try {
                 SSS.a_documentFilter(doc, nextlink);
-                logger.debug("[Super-preloader]", '执行 documentFilter 成功');
+                logger.debug("[Super-preloader]", 'Successfully executeed documentFilter');
               } catch (e) {
-                logger.error("[Super-preloader]", '执行 documentFilter 错误', e, SSS.a_documentFilter.toString());
+                logger.error("[Super-preloader]", 'Error executing documentFilter', e, SSS.a_documentFilter.toString());
               }
             }
 
@@ -10589,11 +10589,11 @@
             var ii = pageElements.length;
 
             if (ii <= 0) {
-              logger.error("[Super-preloader]", '获取下一页的主要内容失败', SSS.a_pageElement);
+              logger.error("[Super-preloader]", 'Failed to get the main content of the next page', SSS.a_pageElement);
               removeL();
               return;
             } else {
-              logger.debug("[Super-preloader]", '获取下一页的主要内容成功', pageElements);
+              logger.debug("[Super-preloader]", 'Successfully got the main content of the next page', pageElements);
             } // 提前查找下一页链接，后面再赋值
 
 
@@ -10723,9 +10723,9 @@
             if (SSS.filter && typeof SSS.filter === 'function') {
               try {
                 SSS.filter(pageElements);
-                logger.debug("[Super-preloader]", '执行 filter(pages) 成功');
+                logger.debug("[Super-preloader]", 'Execution of filter(pages) succeeded');
               } catch (e) {
-                logger.error("[Super-preloader]", '执行 filter(pages) 错误', e, SSS.filter.toString());
+                logger.error("[Super-preloader]", 'Error executing filter(pages)', e, SSS.filter.toString());
               }
             }
 
@@ -10789,8 +10789,8 @@
             }
 
             if (paged >= SSS.a_maxpage) {
-              logger.debug("[Super-preloader]", `到达所设定的最大翻页数 ${SSS.a_maxpage}`);
-              notice('<b>状态</b>:' + '到达所设定的最大翻页数:<b style="color:red">' + SSS.a_maxpage + '</b>');
+              logger.debug("[Super-preloader]", `Reached the set maximum number of page turns ${SSS.a_maxpage}`);
+              notice('<b>Status</b>:' + 'Reached the set maximum number of page turns:<b style="color:red">' + SSS.a_maxpage + '</b>');
               removeL();
               return;
             }
@@ -10800,7 +10800,7 @@
             };
 
             if (nextlink && !pagedLinks.includes(nextlink)) {
-              // debug('找到下一页链接:', nextlink);
+              // debug('Found the next page link:', nextlink);
               doc = win = null;
 
               if (ipagesmode) {
@@ -10820,7 +10820,7 @@
                 }
               }
             } else {
-              logger.error("[Super-preloader]", '没有找到下一页链接', SSS.nextLink);
+              logger.error("[Super-preloader]", 'No next page link found.', SSS.nextLink);
               removeL();
             }
           } // 返回,剩余高度是总高度的比值.
@@ -10943,7 +10943,7 @@
               if (value > 0) {
                 ipagesmode = true;
                 ipagesnumber = value + paged;
-                notice('<b>状态</b>:' + '当前已翻页数量:<b>' + paged + '</b>,' + '连续翻页到第<b style="color:red!important;">' + ipagesnumber + '</b>页.');
+                notice('<b>Status</b>:' + 'Current number of pages turned: <b>' + paged + '</b>,' + 'Continue to turn page <b style="color:red!important;">' + ipagesnumber + '</b>');
                 if (SSS.a_manualA) insertedIntoDoc();
                 scroll();
               }
@@ -10971,7 +10971,7 @@
                 float:none!important;\
                 display:none!important;\
             ';
-            div.title = '预读的内容';
+            div.title = 'Prefetched content';
             div2.style.cssText = '\
                 text-align:left!important;\
                 color:red!important;\
@@ -11028,7 +11028,7 @@
             if (SSS.viewcontent) {
               var container = cContainer();
               container.div.style.display = 'block';
-              container.div2.innerHTML = 'iframe全预读: ' + '<br />' + '预读网址: ' + '<b>' + nextlink + '</b>';
+              container.div2.innerHTML = 'iframe full prefetch: ' + '<br />' + 'Prefetch URL: ' + '<b>' + nextlink + '</b>';
               iframe.height = '300px';
               container.div.appendChild(iframe);
             } else {
@@ -11044,7 +11044,7 @@
               var doc = createDocumentByString(res.data);
 
               if (!doc) {
-                logger.error("[Super-preloader]", '文档对象创建失败!');
+                logger.error("[Super-preloader]", 'Document object creation failed!');
                 return;
               }
 
@@ -11077,8 +11077,8 @@
               var container = cContainer();
               var div = container.div;
               i = iarray.length;
-              container.div2.innerHTML = '预读取图片张数: ' + '<b>' + i + '</b>' + '<br />' + '预读网址: ' + '<b>' + nextlink + '</b>';
-              logger.info("[Super-preloader]", '预读取图片张数: ' + i + '预读网址: ' + nextlink);
+              container.div2.innerHTML = 'Number of prefetched pictures: ' + '<b>' + i + '</b>' + '<br />' + 'Prefetch URL:' + '<b>' + nextlink + '</b>';
+              logger.info("[Super-preloader]", 'Number of prefetched pictures: ' + i + 'Prefetch URL: ' + nextlink);
 
               for (i -= 1; i >= 0; i--) {
                 div.appendChild(iarray[i]);
@@ -11100,7 +11100,7 @@
         var blackList_re = new RegExp(blackList.map(wildcardToRegExpStr).join('|'));
 
         if (blackList_re.test(url)) {
-          logger.debug("[Super-preloader]", '匹配黑名单，js执行终止');
+          logger.debug("[Super-preloader]", 'Matched blacklist, JS execution stopped');
           return;
         } // 是否在frame上加载..
 
@@ -11112,12 +11112,12 @@
           });
 
           if (isReturn) {
-            logger.debug("[Super-preloader]", `url为:${url}的页面为非顶层窗口,JS执行终止`);
+            logger.debug("[Super-preloader]", `The page with url:${url} is not a top-level window, JS execution stopped`);
             return;
           }
         }
 
-        logger.debug("[Super-preloader]", `url为:${url}的页面,JS加载成功`); // 第一阶段..分析高级模式..
+        logger.debug("[Super-preloader]", `Page url is: ${url}, JS loaded successfully`); // 第一阶段..分析高级模式..
 
         if (prefs.disableBuiltinRules) {
           logger.warn("[Super-preloader]", 'Builtin js rules are disabled');
@@ -11160,7 +11160,7 @@
 
           if (userLang === 'zh_CN') {
             logger.debug("[Super-preloader]", `高级规则数目:${ii}`);
-            logger.debug("[Super-preloader]", `规则数 > ${ii - jsonRule.length} 来自其他来源, 比如: wedata.net`);
+            logger.debug("[Super-preloader]", `Number of rules > ${ii - jsonRule.length} from other sources, such as: wedata.net`);
           } else {
             logger.debug("[Super-preloader]", `Number of advanced rules:${ii}`);
           }
@@ -11171,7 +11171,7 @@
 
             if (Rurl.test(url)) {
               if (userLang === 'zh_CN') {
-                logger.debug("[Super-preloader]", '找到当前站点规则:', SII);
+                logger.debug("[Super-preloader]", 'Find current site rules:', SII);
                 logger.debug("[Super-preloader]", `规则ID: ${i + 1}`);
               } else {
                 logger.debug("[Super-preloader]", 'Find rule for this website:', SII);
@@ -11182,16 +11182,16 @@
               if (SII.autopager && SII.autopager.startFilter) {
                 try {
                   SII.autopager.startFilter(document, window);
-                  logger.debug("[Super-preloader]", '执行 startFilter 成功');
+                  logger.debug("[Super-preloader]", 'startFilter executed successfully');
                 } catch (e) {
-                  logger.error("[Super-preloader]", '执行 startFilter 错误', e);
+                  logger.error("[Super-preloader]", 'Error executing startFilter', e);
                 }
               }
 
               nextlink = getElement(SII.nextLink || 'auto;');
 
               if (!nextlink) {
-                logger.warn("[Super-preloader]", '无法找到下一页链接,继续查找其他规则,跳过规则:', SII);
+                logger.warn("[Super-preloader]", 'Could not find the next page link, continue searching for other rules, skiping rule:', SII);
                 return "continue";
               } // 如果匹配到的下一页链接和当前页一致，继续查找下一条规则
 
@@ -11279,7 +11279,7 @@
 
               if (!pageElement || Array.isArray(pageElement) && pageElement.length === 0) {
                 nextlink = null;
-                logger.error("[Super-preloader]", '无法找到内容,跳过规则:', SII, '继续查找其他规则');
+                logger.error("[Super-preloader]", 'Could not find content, skiping rule:', SII, 'Continue to search for other rules.');
                 return "continue";
               }
 
@@ -11337,17 +11337,17 @@
             SSS.lazyImgSrc = prefs.lazyImgSrc;
           }
 
-          logger.debug("[Super-preloader]", `搜索高级规则和自动匹配过程总耗时:${new Date().getTime() - startTime.getTime()}ms`);
+          logger.debug("[Super-preloader]", `Total time spent on searching for advanced rules and automatic matching: ${new Date().getTime() - startTime.getTime()}ms`);
         };
 
         findCurSiteInfo(); // 上下页都没有找到啊
 
         if (!nextlink && !prelink) {
-          logger.warn("[Super-preloader]", `未找到相关链接, JS执行停止. 共耗时:${new Date().getTime() - startTime.getTime()}ms`);
+          logger.warn("[Super-preloader]", `No related links found, JS execution stopped. Total time spent: ${new Date().getTime() - startTime.getTime()}ms`);
           return;
         } else {
-          logger.debug("[Super-preloader]", '上一页链接:', prelink);
-          logger.debug("[Super-preloader]", '下一页链接:', nextlink); //@ts-ignore
+          logger.debug("[Super-preloader]", 'Previous link:', prelink);
+          logger.debug("[Super-preloader]", 'Next link:', nextlink); //@ts-ignore
 
           nextlink = nextlink ? nextlink.href || nextlink : undefined; //@ts-ignore
 
@@ -11365,7 +11365,7 @@
         };
 
         if (prefs.arrowKeyPage) {
-          logger.debug("[Super-preloader]", '添加键盘左右方向键翻页监听.');
+          logger.debug("[Super-preloader]", 'Adding left and right arrow keys to autopager listener.');
           document.addEventListener('keyup', function (e) {
             //@ts-ignore
             var tarNN = e.target.nodeName;
@@ -11398,8 +11398,8 @@
         }, false); // 没找到下一页的链接
 
         if (!nextlink) {
-          logger.error("[Super-preloader]", '下一页链接不存在,JS无法继续.');
-          logger.debug("[Super-preloader]", `全部过程耗时:${new Date().getTime() - startTime.getTime()}ms`);
+          logger.error("[Super-preloader]", 'The link to the next page does not exist, JS cannot continue.');
+          logger.debug("[Super-preloader]", `Total time spent:${new Date().getTime() - startTime.getTime()}ms`);
           return;
         }
 
@@ -11416,7 +11416,7 @@
         }
 
         if (prefs.floatWindow) {
-          logger.debug("[Super-preloader]", '创建悬浮窗');
+          logger.debug("[Super-preloader]", 'Creating a floating window');
           floatWindow(SSS);
           var floatWindowWidth = getFloatWindowWith();
           var d = displace(document.getElementById('sp-fw-container'), {
@@ -11455,18 +11455,18 @@
         }
 
         if (!SSS.enable) {
-          logger.warn("[Super-preloader]", '本规则被关闭,脚本执行停止');
-          logger.debug("[Super-preloader]", `全部过程耗时:${new Date().getTime() - startTime.getTime()}ms`);
+          logger.warn("[Super-preloader]", 'This rule is disabled, script execution is stopped');
+          logger.debug("[Super-preloader]", `Total time spent:${new Date().getTime() - startTime.getTime()}ms`);
           return;
         }
 
-        logger.debug("[Super-preloader]", `全部过程耗时:${new Date().getTime() - startTime.getTime()}ms`); // 预读或者翻页.
+        logger.debug("[Super-preloader]", `Total time spent:${new Date().getTime() - startTime.getTime()}ms`); // 预读或者翻页.
 
         if (SSS.a_enable) {
-          logger.debug("[Super-preloader]", '初始化,翻页模式.');
+          logger.debug("[Super-preloader]", 'Initializing, autopager mode.');
           autopager(SSS, floatWO);
         } else {
-          logger.debug("[Super-preloader]", '初始化,预读模式.');
+          logger.debug("[Super-preloader]", 'Initializing, prefetch mode.');
           prefetcher(SSS, floatWO);
         }
 
@@ -11590,13 +11590,13 @@
             // 3个条件:http协议链接,非跳到当前页面的链接,非跨域
 
             if (/^https?:/i.test(ahref) && ahref.replace(/#.*$/, '') != curLHref && ahref.match(/https?:\/\/([^\/]+)/)[1] == _domain_port) {
-              logger.debug("[Super-preloader]", type == 'pre' ? '上一页' : '下一页' + '匹配到的关键字为:', atext);
+              logger.debug("[Super-preloader]", type == 'pre' ? 'previous' : 'next' + 'match:', atext);
               return a; // 返回对象A
               // return ahref;
             }
           }
 
-          logger.debug("[Super-preloader]", `全文档链接数量:${alllinksl}`);
+          logger.debug("[Super-preloader]", `Number of full document links:${alllinksl}`);
 
           for (i = 0; i < alllinksl; i++) {
             if (_nextlink && _prelink) break;
@@ -11749,7 +11749,7 @@
             }
           }
 
-          logger.debug("[Super-preloader]", `搜索链接数量:${i} 耗时:${new Date().getTime() - startTime.getTime()}ms`); //@ts-ignore
+          logger.debug("[Super-preloader]", `Time to search ${i} links:${new Date().getTime() - startTime.getTime()}ms`); //@ts-ignore
 
           if (!autoGetLink.checked) {
             // 只在第一次检测的时候,抛出上一页链接.
@@ -12090,7 +12090,7 @@
     function createDocumentByString(str) {
       // string转为DOM
       if (!str) {
-        logger.error("[Super-preloader]", '没有找到要转成DOM的字符串');
+        logger.error("[Super-preloader]", 'No string found to be converted to DOM');
         return;
       }
 

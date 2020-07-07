@@ -47,7 +47,7 @@ export const METADATA = `// ==UserScript==
 // @description:zh-CN  预读+翻页..全加速你的浏览体验
 // @description:zh-TW  预读+翻页..全加速你的浏览体验
 // @author       ${SCRIPT_INFO.author}
-// @contributers heroboy, suchunchen, YFdyh000
+// @contributers alexolog, heroboy, suchunchen, YFdyh000
 // @thanksto     ywzhaiqi, NLF
 // @version      ${SCRIPT_INFO.version}
 // @license      ${SCRIPT_INFO.license}
