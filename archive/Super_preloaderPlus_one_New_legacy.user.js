@@ -7423,12 +7423,12 @@
             return;
         }
 
-        button.innerHTML = '正在更新中...';
+        button.innerHTML = 'Update in progress...';
         button.disabled = 'disabled';
 
         var reset = function () {
             isUpdating = false;
-            button.innerHTML = '马上更新';
+            button.innerHTML = 'Update now';
             button.disabled = '';
         };
 
@@ -7442,7 +7442,7 @@
                 if (latestVersion) {
                     latestVersion = latestVersion[1];
                 } else {
-                    alert('解析版本号错误');
+                    alert('Version number parsing error');
                     return;
                 }
 
@@ -7466,7 +7466,7 @@
                 }
 
                 if (needUpdate) {
-                    alert('本脚本从版本 ' + scriptInfo.version + '  更新到了版本 ' + latestVersion + '.\n请点击脚本主页进行安装');
+                    alert('This script has updated from version ' + scriptInfo.version + ' To version ' + latestVersion + '. \nPlease click on the script home page to install it');
                     document.getElementById("sp-prefs-homepageURL").boxShadow = '0 0 2px 2px #FF5555';
                 }
 
@@ -7516,7 +7516,7 @@
             if (hashSite) {
                 isHashchangeSite = true;
                 hashchangeTimer = hashSite.timer;
-                debug('当前是页面不刷新的站点', hashSite);
+                debug('This site does not refresh the page', hashSite);
                 setTimeout(function () {
                     init(window, document);
                 }, hashchangeTimer);
@@ -7550,8 +7550,8 @@
                 try {
                     infos = new Function('', 'return ' + prefs.custom_siteinfo)();
                 } catch (e) {
-                    console.error('自定义站点规则错误', prefs.custom_siteinfo);
-                    // alert('自定义站点规则错误');
+                    console.error('Custom site rule error', prefs.custom_siteinfo);
+                    // alert('Custom site rule error');
                 }
 
                 if (_.isArray(infos)) {
@@ -8225,9 +8225,9 @@
             }
 
             if (insertPoint) {
-                debug('验证是否能找到插入位置节点:成功,', insertPoint);
+                debug('Verify that the insertion position node can be found: success,', insertPoint);
             } else {
-                C.error('验证是否能找到插入位置节点:失败', (SSS.a_HT_insert ? SSS.a_HT_insert[0] : ''), 'JS执行终止');
+                C.error('Verification of whether the insertion location node can be found: failed', (SSS.a_HT_ insert ? SSS.a_HT_insert[0] : ''), 'JS execution stopped');
                 floatWO.updateColor('Astop');
                 return;
             }
@@ -8239,9 +8239,9 @@
                 pageElement = getAllElements(SSS.a_pageElement);
             }
             if (pageElement.length > 0) {
-                debug('验证是否能找到主要元素:成功,', pageElement);
+                debug('Verify that the main element can be found: success,', pageElement);
             } else {
-                C.error('验证是否能找到主要元素:失败,', SSS.a_pageElement, 'JS执行终止');
+                C.error('Verify that the main element can be found: failed', SSS.a_pageElement, 'JS execution stopped');
                 floatWO.updateColor('Astop');
                 return;
             }
@@ -8273,7 +8273,7 @@
                 doc = win = createDocumentByString(str);
 
                 if (!doc) {
-                    C.error('文档对象创建失败');
+                    C.error('Document object creation failure');
                     removeL();
                     return;
                 }
@@ -8285,7 +8285,7 @@
             }
 
             function removeL(isRemoveAddPage) {
-                debug('移除各种事件监听');
+                debug('Removing various event listeners');
                 floatWO.updateColor('Astop');
                 var _remove = remove;
                 for (var i = 0, ii = _remove.length; i < ii; i++) {
@@ -8321,11 +8321,11 @@
             if (isHashchangeSite && !hashchangeAdded) {
                 window.addEventListener("hashchange", onhashChange, false);
                 hashchangeAdded = true;
-                debug('成功添加 hashchange 事件');
+                debug('Successfully added hashchange event');
             }
 
             function onhashChange(event) {
-                debug("触发 Hashchang 事件");
+                debug("hashchange event triggered");
                 removeL(true);
 
                 setTimeout(function () {
@@ -8413,7 +8413,7 @@
                 floatWO.updateColor('loading');
                 floatWO.CmodeIcon('show');
 
-                debug('获取下一页' + (SSS.a_useiframe ? '(iframe方式)' : ''), nextlink);
+                debug('Get next page' + (SSS.a_useiframe ? '(iframe method)' : ''), nextlink);
                 if (SSS.a_useiframe) {
                     iframeRequest(nextlink);
                 } else {
@@ -8443,7 +8443,7 @@
                             });
                         }
                     }
-                    debug('读取完成');
+                    debug('Reading complete.');
                 }
             }
 
@@ -8537,7 +8537,7 @@
                         type: 'number',
                         value: 1,
                         min: 1,
-                        title: '输入你想要拼接的页数(必须>=1),然后按回车.',
+                        title: 'Enter the number of pages you want to stitch (must be >=1), and then press Enter.',
                         id: 'sp-sp-md-number'
                     });
 
@@ -8595,10 +8595,10 @@
             function beforeInsertIntoDoc() {
                 working = true;
                 if (SSS.a_manualA && !ipagesmode) { //显示手动翻页触发条.
-                    debug('手动拼接');
+                    debug('Manual stitching');
                     manualAdiv();
                 } else { //直接拼接.
-                    debug('直接拼接');
+                    debug('Direct stitching');
                     insertedIntoDoc();
                 }
             }
@@ -8743,7 +8743,7 @@
 
             function insertedIntoDoc() {
                 if (!doc) {
-                    debug('没有找到doc');
+                    debug('doc not found');
                     return;
                 }
 
@@ -8751,7 +8751,7 @@
                     try {
                         SSS.a_documentFilter(doc, nextlink);
                     } catch (e) {
-                        C.error("执行 documentFilter 错误", e, SSS.a_documentFilter.toString());
+                        C.error("Error executing documentFilter", e, SSS.a_documentFilter.toString());
                     }
                 }
 
@@ -8763,11 +8763,11 @@
                 var pageElements = getAllElements(SSS.a_pageElement, false, doc, win);
                 var ii = pageElements.length;
                 if (ii <= 0) {
-                    debug('获取下一页的主要内容失败', SSS.a_pageElement);
+                    debug('Failed to get the main content of the next page', SSS.a_pageElement);
                     removeL();
                     return;
                 } else {
-                    debug('获取下一页的主要内容成功');
+                    debug('Successfully got the main content of the next page');
                 }
 
                 // 提前查找下一页链接，后面再赋值
@@ -8852,9 +8852,9 @@
                 if (SSS.filter && typeof (SSS.filter) == 'function') {
                     try {
                         SSS.filter(pageElements);
-                        debug("执行 filter(pages) 成功");
+                        debug("Successfully executed filter(pages)");
                     } catch (e) {
-                        C.error("执行 filter(pages) 错误", e, SSS.filter.toString());
+                        C.error("Error executing filter(pages)", e, SSS.filter.toString());
                     }
                 }
 
@@ -8912,8 +8912,8 @@
                 }
 
                 if (paged >= SSS.a_maxpage) {
-                    debug('到达所设定的最大翻页数', SSS.a_maxpage);
-                    notice('<b>状态</b>:' + '到达所设定的最大翻页数:<b style="color:red">' + SSS.a_maxpage + '</b>');
+                    debug('Reached the set maximum number of page turns', SSS.a_maxpage);
+                    notice('<b>Status</b>:' + 'reached the maximum number of pages turned: <b style="color:red">' + SSS.a_maxpage + '</b>');
                     removeL();
                     return;
                 }
@@ -8921,7 +8921,7 @@
                     setTimeout(fn, 199);
                 };
                 if (nextlink) {
-                    // debug('找到下一页链接:', nextlink);
+                    // debug('Found the next page link:', nextlink);
                     doc = win = null;
                     if (ipagesmode) {
                         if (SSS.a_useiframe) { //延时点,firefox,太急会卡-_-!
@@ -8938,7 +8938,7 @@
                         }
                     }
                 } else {
-                    debug('没有找到下一页链接', SSS.nextLink);
+                    debug('Next page link not found.', SSS.nextLink);
                     removeL();
                     return;
                 }
@@ -8977,11 +8977,11 @@
                     if (prefs.stop_ipage) ipagesmode = false;
                     if (pause) {
                         floatWO.updateColor('Apause');
-                        notice('<b>状态</b>:' + '自动翻页<span style="color:red!important;"><b>暂停</b></span>.');
+                        notice('<b>Status</b>:' + 'Autopager<span style="color:red!important;"><b> paused</b></span>.');
                     } else {
                         floatWO.updateColor('autopager');
                         floatWO.CmodeIcon('hide');
-                        notice('<b>状态</b>:' + '自动翻页<span style="color:red!important;"><b>启用</b></span>.');
+                        notice('<b>Status</b>:' + 'Autopager<span style=" color:red!important;"><b> enabled</b></span>.');
                     }
                     scroll();
                 };
@@ -9039,7 +9039,7 @@
                     if (value > 0) {
                         ipagesmode = true;
                         ipagesnumber = value + paged;
-                        notice('<b>状态</b>:' + '当前已翻页数量:<b>' + paged + '</b>,' + '连续翻页到第<b style="color:red!important;">' + ipagesnumber + '</b>页.');
+                        notice('<b>Status</b>:' + 'Number of pages turned:<b>' + paged + '</b>,' + ' continue to page <b style="color:red!important;">' + ipagesnumber + '</b>');
                         if (SSS.a_manualA) insertedIntoDoc();
                         scroll();
                     }
@@ -9063,7 +9063,7 @@
                 background-color:#F5F5F5!important;\
                 float:none!important;\
             ';
-                div.title = '预读的内容';
+                div.title = 'Preloader content';
                 div2.style.cssText = '\
                 text-align:left!important;\
                 color:red!important;\
@@ -9116,7 +9116,7 @@
                 }, false);
                 if (SSS.viewcontent) {
                     var container = cContainer();
-                    container.div2.innerHTML = 'iframe全预读: ' + '<br />' + '预读网址: ' + '<b>' + nextlink + '</b>';
+                    container.div2.innerHTML = 'iframe full preload: ' + '<br />' + 'Preload URL: ' + '<b>' + nextlink + '</b>';
                     iframe.height = '300px';
                     container.div.appendChild(iframe);
                 } else {
@@ -9131,7 +9131,7 @@
                         var str = req.responseText;
                         var doc = createDocumentByString(str);
                         if (!doc) {
-                            C.error('文档对象创建失败!');
+                            C.error('Document object creation failed!');
                             return;
                         }
 
@@ -9161,7 +9161,7 @@
                             var containter = cContainer();
                             var div = containter.div;
                             i = iarray.length;
-                            containter.div2.innerHTML = '预读取图片张数: ' + '<b>' + i + '</b>' + '<br />' + '预读网址: ' + '<b>' + nextlink + '</b>';
+                            containter.div2.innerHTML = 'Preloaded image count: ' + '<b>' + i + '</b>' + '<br />' + 'Pre;pad URL: ' + '<b>' + nextlink + '</b>';
                             for (i -= 1; i >= 0; i--) {
                                 div.appendChild(iarray[i]);
                             }
@@ -9180,7 +9180,7 @@
         // 分析黑名单
         var blackList_re = new RegExp(blackList.map(wildcardToRegExpStr).join("|"));
         if (blackList_re.test(url)) {
-            debug('匹配黑名单，js执行终止');
+            debug('Matched blacklist, JS execution stopped');
             return;
         }
 
@@ -9190,11 +9190,11 @@
                 return x[1] && x[2].test(url);
             });
             if (isReturn) {
-                debug('url为:', url, '的页面为非顶层窗口,JS执行终止.');
+                debug('URL is:', url, 'The page is not a top level window, JS execution is stopped.');
                 return;
             }
         }
-        debug('url为:', url, 'JS加载成功');
+        debug('URL is:', url, 'JS loaded successfully');
 
         //第一阶段..分析高级模式..
         SITEINFO = SITEINFO.concat(SITEINFO_TP, SITEINFO_comp);
@@ -9213,23 +9213,23 @@
             var Rurl;
             var ii = SITEINFO.length;
 
-            debug('高级规则数量:', ii);
+            debug('Number of advanced rules:', ii);
 
             for (var i = 0; i < ii; i++) {
                 SII = SITEINFO[i];
                 Rurl = toRE(SII.url);
                 if (Rurl.test(url)) {
-                    debug('找到匹配当前站点的规则:', SII, '是第', i + 1, '规则');
+                    debug('The rule matching the current site:', SII, ' is the', i + 1, ' rule');
 
                     // 运行规则的 startFilter
                     if (SII.autopager && SII.autopager.startFilter) {
                         SII.autopager.startFilter(window, document);
-                        debug('成功运行 startFilter');
+                        debug('startFilter executed successfully');
                     }
 
                     nextlink = getElement(SII.nextLink || 'auto;');
                     if (!nextlink) {
-                        debug('无法找到下一页链接,跳过规则:', SII, '继续查找其他规则');
+                        debug('Unable to find the next page link, skiping rule:', SII, 'Continue searching for other rules');
                         continue;
                     }
 
@@ -9290,7 +9290,7 @@
                     // 检验是否存在内容
                     var pageElement = getElement(SSS.a_pageElement);
                     if (!pageElement) {
-                        debug('无法找到内容,跳过规则:', SII, '继续查找其他规则');
+                        debug('Cannot find content, skiping rule:', SII, 'Continue searching for other rules');
                         continue;
                     }
 
@@ -9299,10 +9299,10 @@
             }
 
             if (!SSS.hasRule) {
-                debug('未找到合适的高级规则,开始自动匹配.');
+                debug('No suitable advanced rule found, start auto-matching.');
                 //自动搜索.
                 if (!autoMatch.keyMatch) {
-                    debug('自动匹配功能被禁用了.');
+                    debug('Auto-matching is disabled.');
                 } else {
                     nextlink = autoGetLink();
                     //alert(nextlink);
@@ -9334,18 +9334,18 @@
                 SSS.lazyImgSrc = prefs.lazyImgSrc;
             }
 
-            debug('搜索高级规则和自动匹配过程总耗时:', new Date() - startTime, '毫秒');
+            debug('Total time for searching advanced rules and automatic matching:', new Date() - startTime, 'ms');
         };
 
         findCurSiteInfo();
 
         //上下页都没有找到啊
         if (!nextlink && !prelink) {
-            debug('未找到相关链接, JS执行停止. 共耗时' + (new Date() - startTime) + '毫秒');
+            debug('No related links found, JS execution stopped. Total time spent:' + (new Date() - startTime) + 'ms');
             return;
         } else {
-            debug('上一页链接:', prelink);
-            debug('下一页链接:', nextlink);
+            debug('Previous Link:', prelink);
+            debug('Next Link:', nextlink);
             nextlink = nextlink ? (nextlink.href || nextlink) : undefined;
             prelink = prelink ? (prelink.href || prelink) : undefined;
         }
@@ -9361,7 +9361,7 @@
         };
 
         if (prefs.arrowKeyPage) {
-            debug('添加键盘左右方向键翻页监听.');
+            debug('Add left and right arrow keys to autopager listener.');
             document.addEventListener('keyup', function (e) {
                 var tarNN = e.target.nodeName;
                 if (tarNN != 'BODY' && tarNN != 'HTML') return;
@@ -9379,7 +9379,7 @@
         }
 
         // 监听下一页事件.
-        debug('添加鼠标手势翻页监听.');
+        debug('Add mouse gesture to autopager listener.');
         document.addEventListener('superPreloader.go', function () {
             superPreloader.go();
         }, false);
@@ -9391,14 +9391,14 @@
 
         // 没找到下一页的链接
         if (!nextlink) {
-            debug('下一页链接不存在,JS无法继续.');
-            debug('全部过程耗时:', new Date() - startTime, '毫秒');
+            debug('Next link does not exist, JS cannot continue.');
+            debug('Total processing time:', new Date() - startTime, 'ms');
             return;
         }
 
         // 载入设置..
         var loadLocalSetting = function () {
-            debug('加载设置');
+            debug('Load settings');
             var savedValue = getValue('spfwset');
             if (savedValue) {
                 try {
@@ -9441,23 +9441,23 @@
         }
 
         if (prefs.floatWindow) {
-            debug('创建悬浮窗');
+            debug('Creating a floating window');
             floatWindow(SSS);
         }
 
         if (!SSS.enable) {
-            debug('本规则被关闭,脚本执行停止');
-            debug('全部过程耗时:', new Date() - startTime, '毫秒');
+            debug('This rule is disabled, script execution is stopped.');
+            debug('Total processing time:', new Date() - startTime, ' ms');
             return;
         }
-        debug('全部过程耗时:', new Date() - startTime, '毫秒');
+        debug('Total processing time:', new Date() - startTime, ' ms');
 
         // 预读或者翻页.
         if (SSS.a_enable) {
-            debug('初始化,翻页模式.');
+            debug('Initialization, autopager mode.');
             autopager(SSS, floatWO);
         } else {
-            debug('初始化,预读模式.');
+            debug('Initialization, preloader mode.');
             prefetcher(SSS, floatWO);
         }
 
@@ -9520,7 +9520,7 @@
                 //3个条件:http协议链接,非跳到当前页面的链接,非跨域
                 if (/^https?:/i.test(ahref) && ahref.replace(/#.*$/, '') != curLHref && ahref.match(/https?:\/\/([^\/]+)/)[1] == _domain_port) {
                     if (xbug) {
-                        debug((type == 'pre' ? '上一页' : '下一页') + '匹配到的关键字为:', atext);
+                        debug((type == 'pre' ? 'previous' : 'next') + 'Match:', atext);
                     }
                     return a; //返回对象A
                     //return ahref;
@@ -9528,7 +9528,7 @@
             }
 
             if (xbug) {
-                debug('全文档链接数量:', alllinksl);
+                debug('Number of full document links:', alllinksl);
             }
 
             for (i = 0; i < alllinksl; i++) {
@@ -9666,7 +9666,7 @@
                 }
             }
 
-            debug('搜索链接数量:', i, '耗时:', new Date() - startTime, '毫秒');
+            debug('Number of found links:', i, ' Time spent:', new Date() - startTime, 'ms');
 
             if (!autoGetLink.checked) { //只在第一次检测的时候,抛出上一页链接.
                 prelink = _prelink;
@@ -10433,7 +10433,7 @@
 
     function createDocumentByString(str) { // string转为DOM
         if (!str) {
-            C.error('没有找到要转成DOM的字符串');
+            C.error('No strings were found to convert to DOM.');
             return;
         }
         if (document.documentElement.nodeName != 'HTML') {
