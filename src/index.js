@@ -2179,7 +2179,7 @@ import notice from './utils/notice';
           //@ts-ignore
           nextlink = nextlink ? nextlink.href || nextlink : undefined;
           //@ts-ignore
-          nextlink = prelink ? prelink.href || prelink : undefined;
+          prelink = prelink ? prelink.href || prelink : undefined;
         }
 
         const superPreloader = {
