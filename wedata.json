@@ -2,8 +2,7 @@
 {
   "resource_url": "http://wedata.net/items/85401",
   "data": {
-    "insertBefore": "",
-    "pageElement": "//p[@class=\"main-txt\"] | //main[@class=\"main-body\"]/article/figure/*[@class=\"photo-link-main\" or @class=\"photo-caption\"] | //ul[@class=\"tag-list\"]",
+    "pageElement": "//p[@class=\"main-txt\"] | //*[@class=\"photo-link-main\" or @class=\"photo-caption\"] | //ul[@class=\"tag-list\"]",
     "nextLink": "//link[@rel=\"next\"] | //a[contains(span/text(),\"もっと見る\")]",
     "url": "^https?://www\\.crank-in\\.net/",
     "exampleUrl": "https://www.crank-in.net/column/78253/1\r\nhttps://www.crank-in.net/gallery/column/76673\r\nhttps://www.crank-in.net/news"
@@ -12,7 +11,7 @@
   "created_by": "brib2",
   "name": "クランクイン！",
   "created_at": "2020-07-06T18:13:04+09:00",
-  "updated_at": "2020-07-06T18:13:04+09:00"
+  "updated_at": "2020-07-06T21:08:35+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/85400",
