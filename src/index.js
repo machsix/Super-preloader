@@ -576,7 +576,11 @@ import notice from './utils/notice';
           loadedIcon: nullFn,
           CmodeIcon: nullFn
         };
-
+        /**
+         *
+         * @param {IRuntimeRule} SSS a rule
+         * @returns {void}
+         */
         function floatWindow(SSS) {
           // inject css
           addStyle(spcss['sp-fw']);
@@ -939,7 +943,11 @@ import notice from './utils/notice';
           startipages: nullFn
         };
         var hashchangeAdded = false;
-
+        /**
+         * @param {IRuntimeRule} SSS a rule
+         * @param {*} floatWO float window object
+         * @returns {void}
+         */
         function autopager(SSS, floatWO) {
           // return;
           // 更新悬浮窗的颜色.
@@ -1451,7 +1459,7 @@ import notice from './utils/notice';
 
             if (SSS.a_documentFilter) {
               try {
-                SSS.a_documentFilter(doc, nextlink);
+                SSS.a_documentFilter(doc, typeof nextlink === 'string' && nextlink);
                 logger.debug('Successfully executeed documentFilter');
               } catch (e) {
                 logger.error('Error executing documentFilter', e, SSS.a_documentFilter.toString());
@@ -1461,7 +1469,7 @@ import notice from './utils/notice';
             const docTitle = getElementByCSS('title', doc).textContent;
 
             const fragment = document.createDocumentFragment();
-            const pageElements = getAllElements(SSS.a_pageElement, undefined, doc, win, nextlink);
+            const pageElements = getAllElements(SSS.a_pageElement, undefined, doc, win, typeof nextlink === 'string' && nextlink);
             const ii = pageElements.length;
             if (ii <= 0) {
               logger.error('Failed to get the main content of the next page', SSS.a_pageElement);
@@ -1473,7 +1481,7 @@ import notice from './utils/notice';
 
             // 提前查找下一页链接，后面再赋值
             const lastUrl = cplink;
-            cplink = nextlink;
+            cplink = String(nextlink);
             /** @type {HTMLElement|string} */
             var nl = getElement(SSS.nextLink, undefined, doc, win);
             if (nl) {
@@ -1793,7 +1801,12 @@ import notice from './utils/notice';
           };
         }
 
-        // prefetcher
+        /**
+         * prefetcher
+         * @param {IRuntimeRule} SSS a rule
+         * @param {*} floatWO float window object
+         * @returns {void}
+         */
         function prefetcher(SSS, floatWO) {
           function cContainer() {
             const div = document.createElement('div');
@@ -1844,7 +1857,7 @@ import notice from './utils/notice';
           if (SSS.useiframe) {
             const iframe = document.createElement('iframe');
             iframe.name = 'superpreloader-iframe';
-            iframe.src = nextlink;
+            iframe.src = String(nextlink);
             iframe.width = '100%';
             iframe.height = '0';
             iframe.frameBorder = '0';
@@ -1979,12 +1992,14 @@ import notice from './utils/notice';
         // 重要的变量两枚.
         /** @type {Array<string|HTMLElement>} */
         const pagedLinks = [document.location.href];
+        /** @type {HTMLElement|string} */
         var nextlink;
+        /** @type {HTMLElement|string} */
         var prelink;
+
         //= ==============
 
-        /**@type {any} */
-        //todo: add SSS type
+        /**@type {IRuntimeRule} */
         let SSS = {};
 
         const findCurSiteInfo = function () {
@@ -2080,15 +2095,16 @@ import notice from './utils/notice';
 
                 // new
                 SSS.filter = SII.filter || SIIA.filter; // 新增了函数的形式，原来的功能是移除 pageElement
-                SSS.a_documentFilter = SII.documentFilter || SIIA.documentFilter;
-                SSS.a_scriptFilter = SIIA.scriptFilter === undefined ? '' : SIIA.scriptFilter;
-                if (typeof SSS.a_documentFilter === 'string') {
-                  if (SSS.a_documentFilter === 'startFilter') {
-                    SSS.a_documentFilter = function (doc, nextLink) {
-                      return SII.autopager.startFilter(doc);
-                    };
-                  }
+                const documentFilter = SII.documentFilter || SIIA.documentFilter;
+                if (documentFilter === 'startFilter') {
+                  SSS.a_documentFilter = (doc) => SII.autopager.startFilter(doc);
+                } else if (typeof documentFilter === 'function') {
+                  SSS.a_documentFilter = documentFilter;
+                } else {
+                  SSS.a_documentFilter = undefined;
                 }
+                SSS.a_scriptFilter = SIIA.scriptFilter === undefined ? '' : SIIA.scriptFilter;
+
                 SSS.a_stylish = SII.stylish || SIIA.stylish;
                 SSS.lazyImgSrc = SIIA.lazyImgSrc;
                 SSS.a_headers = SIIA.headers === undefined ? undefined : SIIA.headers; // custom header for XHRLoaded
@@ -2163,16 +2179,17 @@ import notice from './utils/notice';
           //@ts-ignore
           nextlink = nextlink ? nextlink.href || nextlink : undefined;
           //@ts-ignore
-          prelink = prelink ? prelink.href || prelink : undefined;
+          nextlink = prelink ? prelink.href || prelink : undefined;
         }
 
         const superPreloader = {
           go: function () {
-            if (nextlink) window.location.href = nextlink;
+            if (typeof nextlink === 'string') window.location.href = nextlink;
           },
           back: function () {
+            //fixme
             if (!prelink) getElement('auto;');
-            if (prelink) window.location.href = prelink;
+            if (typeof prelink === 'string') window.location.href = prelink;
           }
         };
 
@@ -2303,7 +2320,7 @@ import notice from './utils/notice';
         /**
          *
          * @param {string|Function|Array|IHrefIncObject} selector selector
-         * @param {Element|Document=} contextNode element
+         * @param {HTMLElement|Document=} contextNode element
          * @param {Document=} doc document
          * @param {Window=} win window
          * @returns {HTMLElement} element
@@ -2359,7 +2376,10 @@ import notice from './utils/notice';
 
           if (doc == document) {
             // 当前文档,只检查一次.
-            if (docChecked) return nextlink;
+            if (docChecked) {
+              // @ts-ignore
+              return nextlink;
+            }
             docChecked = true;
           }
 

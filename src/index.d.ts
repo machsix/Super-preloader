@@ -99,6 +99,9 @@ interface IHrefIncObject {
   inc: number;
   isLast?: Function;
 }
+/** 'css;<css selector>' | '<xpath>' | a function that select elements. */
+
+type ISelectorFunction = string | ((doc: Document, win?: Window, cplink?: string) => Array<HTMLElement>);
 
 interface IRule {
   name: string;
@@ -108,8 +111,8 @@ interface IRule {
   exampleUrl?: string;
   nextLink?: string | Function | IHrefIncObject | Array<string | Function | IHrefIncObject>;
   preLink?: IRule['nextLink'];
-  pageElement?: string | (() => HTMLElement[]);
-  documentFilter?: (doc: Document) => void; //todo
+  pageElement?: ISelectorFunction;
+  documentFilter?: (doc: Document, nextLink?: string) => void; //todo
   viewcontent?: boolean;
   separatorReal?: boolean;
   insertBefore?: string; //todo
@@ -129,13 +132,13 @@ interface IRule {
     ipages?: [boolean, number];
     separator?: boolean;
     sepdivDom?: (doc: Document, sep: HTMLElement) => HTMLElement;
-    startFilter?: (doc: Document, win?: Window) => void; //todo
-    documentFilter?: ((doc: Document) => void) | 'startFilter'; //todo
+    startFilter?: (doc: Document, win?: Window) => void;
+    documentFilter?: ((doc: Document, nextLink?: string) => void) | 'startFilter';
     scriptFilter?: string;
     filter?: (pageElements: HTMLElement[]) => void;
     stylish?: string;
-    replaceE?: Function | string; //todo
-    pageElement?: string | ((doc: Document) => void); //todo
+    replaceE?: ISelectorFunction;
+    pageElement?: ISelectorFunction;
     relatedObj?: any; //todo
     separatorReal?: boolean; //todo
     manualA?: boolean; //todo
@@ -146,4 +149,40 @@ interface IRule {
     mutationObserver?: any; //todo
     sandbox?: boolean;
   };
+}
+
+interface IRuntimeRule {
+  Rurl?: string;
+  nextLink?: IRule['nextLink'];
+  viewcontent?: boolean;
+  enable?: boolean;
+  useiframe?: boolean;
+  a_pageElement?: ISelectorFunction;
+  a_manualA?: boolean;
+  a_enable?: boolean;
+  a_useiframe?: boolean;
+  a_mutationObserver?: any;
+  a_newIframe?: boolean;
+  a_iloaded?: boolean;
+  a_itimeout?: number;
+  a_remain?: number;
+  a_maxpage?: number;
+  a_separator?: boolean;
+  a_sepdivDom?: (doc: Document, sep: HTMLElement) => HTMLElement;
+  a_separatorReal?: boolean;
+  a_replaceE?: ISelectorFunction;
+  a_HT_insert?: [string, number];
+  a_relatedObj?: any;
+  a_ipages?: [boolean, number];
+  filter?: (pageElements: HTMLElement[]) => void;
+  a_documentFilter?: (doc: Document, nextLink?: string) => void;
+  a_scriptFilter?: string;
+  a_stylish?: string;
+  lazyImgSrc?: string;
+  a_headers?: {[key: string]: string};
+  a_reload?: boolean;
+  a_sandbox?: boolean;
+  a_excludeElement?: any;
+  hasRule?: boolean;
+  a_force?: boolean;
 }
