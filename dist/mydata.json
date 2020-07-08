@@ -269,7 +269,7 @@
   {
     "name": "avgle",
     "url": "^https?://avgle\\.com/.*/",
-    "pageElement": "//div[@id=\"wrapper\"]/div[1]/div[@class=\"row\"]/div[1]",
+    "pageElement": "//div[@id='wrapper']/div[1]/div[@class='row']/div[script]",
     "exampleUrl": "https://avgle.com/search/videos?search_query=%E5%A5%B3%E6%95%99%E5%B8%AB&search_type=videos&o=tr",
     "nextLink": "//a[@class=\"prevnext\"]"
   },
@@ -3461,7 +3461,7 @@
   {
     "name": "XVideo",
     "url": "https?://www\\.xvideos\\.com",
-    "pageElement": "//div[@id='content']/div[1]",
+    "pageElement": "//div[@id='content']/div[@class='mozaique']",
     "exampleUrl": "https://www.xvideos.com/?k=sss",
     "nextLink": "(//a[contains(@class,'next-page')])[1]",
     "useiframe": true

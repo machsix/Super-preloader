@@ -1689,7 +1689,8 @@ import notice from './utils/notice';
           function getRemain() {
             const _cplink = cplink || undefined;
             const scrolly = window.scrollY;
-            const WI = window.innerHeight;
+            const windowHeight = window.innerHeight;
+            const domHeight = document.body.clientHeight;
             const obj = getLastElement(relatedObj_0, _cplink);
             const scrollH = obj && obj.nodeType == 1 ? obj.getBoundingClientRect()[relatedObj_1] + scrolly : Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
             var exElementHeight = 0;
@@ -1697,7 +1698,7 @@ import notice from './utils/notice';
               exElementHeight = getLastElement(SSS.a_excludeElement, _cplink).offsetHeight;
             }
 
-            return (scrollH - scrolly - WI - exElementHeight) / WI; // 剩余高度于页面总高度的比例.
+            return (scrollH - scrolly - exElementHeight) / windowHeight; // 剩余高度于页面总高度的比例.
           }
 
           let pause = false;

@@ -159,8 +159,8 @@ export const jsSiteRule = [
     // 由于 Super_preloader 默认去掉了 # 后面部分
     // url: "^https?://www\\.baidu\\.com/(s|baidu|#wd=)",
     enable: true,
-    nextLink: '//div[@id="page"]/a[contains(text(),"下一页")][@href]',
-    preLink: '//div[@id="page"]/a[contains(text(),"上一页")][@href]',
+    nextLink: '//div[@id="page"]//a[contains(text(),"下一页")][@href]',
+    preLink: '//div[@id="page"]//a[contains(text(),"上一页")][@href]',
     autopager: {
       pageElement: 'css;div#content_left > *',
       HT_insert: ['css;div#content_left', 2],

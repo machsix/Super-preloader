@@ -96,10 +96,40 @@ export function getAllElements(selector, contextNode = undefined, doc = document
  * @param {HTMLElement=} contextNode contextNode
  * @param {HTMLDocument=} doc doc
  * @param {Window=} win win
- * @returns {HTMLElement} 最后一个元素.
+ * @returns {HTMLElement} Last dom elements
  */
 export function getLastElement(selector, _cplink, contextNode, doc, win) {
-  const eles = getAllElements(selector, contextNode, doc, win, _cplink);
+  let firstElems = [];
+  if (typeof selector === 'string') {
+    if (selector.search(/^css;/i) !== 0) {
+      // prevent xpath like `//div[2]`
+      const strippedSelector = /(.*\w+)\[\d+\]$/.exec(selector);
+      if (strippedSelector) {
+        firstElems = getAllElements(selector, contextNode, doc, win, _cplink);
+        selector = strippedSelector[1];
+      }
+    }
+  }
+  const elems = getAllElements(selector, contextNode, doc, win, _cplink);
+  let eles = [];
+  if (firstElems) {
+    const childNodeCount = [];
+    for (let i = 0; i < firstElems.length; i++) {
+      childNodeCount.push([].reduce.call(elems[0].children, (x, y) => x + (y.nodeName != 'SCRIPT' ? 1 : 0), 0));
+      eles.push(firstElems[i]);
+    }
+    for (let i = 0; i < elems.length; i++) {
+      for (let j = 0; j < firstElems.length; j++) {
+        if (elems[i] === firstElems[j]) break;
+        if (elems[i].className === firstElems[j].className && elems[i].childElementCount === childNodeCount[j]) {
+          eles.push(elems[i]);
+          break;
+        }
+      }
+    }
+  } else {
+    eles = elems;
+  }
   const l = eles.length;
   if (l > 0) {
     return eles[l - 1];
