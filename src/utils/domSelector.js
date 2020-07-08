@@ -2,8 +2,8 @@
 /**
  * Select a single element by css selector
  * @param {string} css css of dom
- * @param {object} contextNode dom contextNode
- * @returns {object} a dom node
+ * @param {HTMLElement|Document} contextNode dom contextNode
+ * @returns {HTMLElement} a dom node
  */
 export function getElementByCSS(css, contextNode = document) {
   return contextNode.querySelector(css);
@@ -30,8 +30,8 @@ export function getElementByXpath(xpath, contextNode, doc = document) {
   contextNode = contextNode || doc;
   try {
     const result = doc.evaluate(xpath, contextNode, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
-    //@ts-ignore
-    return result.singleNodeValue;
+    //@ts-ignore should always return an element node
+    return result.singleNodeValue && result.singleNodeValue.nodeType === 1 && result.singleNodeValue;
   } catch (err) {
     throw new Error(`Invalid xpath: ${xpath}`);
   }
@@ -50,7 +50,9 @@ export function getAllElementsByXpath(xpath, contextNode, doc = document) {
   try {
     const query = doc.evaluate(xpath, contextNode, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
     for (let i = 0; i < query.snapshotLength; i++) {
-      result.push(query.snapshotItem(i));
+      const node = query.snapshotItem(i);
+      //if node is an element node
+      if (node.nodeType === 1) result.push(node);
     }
   } catch (err) {
     throw new Error(`Invalid xpath: ${xpath}`);
@@ -61,7 +63,7 @@ export function getAllElementsByXpath(xpath, contextNode, doc = document) {
 
 /**
  *
- * @param {string|Function} selector css selector or xpath selector
+ * @param {ISelectorFunction} selector css selector or xpath selector
  * @param {Element|Document|DocumentFragment} contextNode contextNode specifies the context node for the query (see the XPath specification). It's common to pass document as the context node.
  * @param {Document} doc the document to select from
  * @param {Window} win window of the browser
@@ -76,7 +78,6 @@ export function getAllElements(selector, contextNode = undefined, doc = document
     if (selector.search(/^css;/i) === 0) {
       return getAllElementsByCSS(selector.slice(4), contextNode);
     } else {
-      //@ts-ignore
       return getAllElementsByXpath(selector, contextNode, doc);
     }
   } else {
@@ -91,7 +92,7 @@ export function getAllElements(selector, contextNode = undefined, doc = document
 
 /**
  *
- * @param {string|Function} selector selector
+ * @param {ISelectorFunction} selector selector
  * @param {string=} _cplink _cplink
  * @param {HTMLElement=} contextNode contextNode
  * @param {HTMLDocument=} doc doc
