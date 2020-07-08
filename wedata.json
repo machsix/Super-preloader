@@ -1,5 +1,20 @@
 [
 {
+  "resource_url": "http://wedata.net/items/85404",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//tbody/tr",
+    "nextLink": "//a[@rel=\"next\"]",
+    "url": "^https?://annict\\.jp/forum",
+    "exampleUrl": "https://annict.jp/forum"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "KAWASAKICHIRO",
+  "name": "Annict Forum",
+  "created_at": "2020-07-08T22:01:39+09:00",
+  "updated_at": "2020-07-08T22:01:39+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/85403",
   "data": {
     "insertBefore": "",
@@ -2383,17 +2398,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/82291",
-  "created_by": "t_f_m",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "name": "annict user page",
   "data": {
-    "exampleUrl": "https://annict.jp/@matsudotsuyoshi/watched?page=2\r\nhttps://annict.jp/@matsudotsuyoshi/watching\r\nhttps://annict.jp/@matsudotsuyoshi/wanna_watch\r\nhttps://annict.jp/@matsudotsuyoshi/on_hold\r\nhttps://annict.jp/@matsudotsuyoshi/stop_watching\r\n",
+    "pageElement": "//div[contains(concat(\" \", normalize-space(@class), \" \"), \" mt-3 \")]",
     "nextLink": "//a[@rel=\"next\"]",
-    "url": "^https://annict\\.jp/@[^/]+/(?:on_hold|(?:(?:stop|wanna)_)?watch(?:ed|ing)?)",
-    "pageElement": "//div[contains(concat(\" \",@class,\" \"),\" p-application__content \")]/div[contains(concat(\" \",div/@class,\" \"),\" container-fluid \")]"
+    "url": "^https?://annict\\.jp/@[^/]+/(?:on_hold|(?:(?:stop|wanna)_)?watch(?:ed|ing)?)",
+    "exampleUrl": "https://annict.jp/@matsudotsuyoshi/watched?page=2\r\nhttps://annict.jp/@matsudotsuyoshi/watching\r\nhttps://annict.jp/@matsudotsuyoshi/wanna_watch\r\nhttps://annict.jp/@matsudotsuyoshi/on_hold\r\nhttps://annict.jp/@matsudotsuyoshi/stop_watching\r\n"
   },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m",
+  "name": "Annict user page",
   "created_at": "2019-09-24T20:03:04+09:00",
-  "updated_at": "2019-09-24T20:08:11+09:00"
+  "updated_at": "2020-07-08T21:57:48+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/82290",
@@ -2483,18 +2498,20 @@
 },
 {
   "resource_url": "http://wedata.net/items/82281",
-  "created_by": "t_f_m",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "name": "annict",
   "data": {
-    "exampleUrl": "https://annict.jp/search?q=%E3%82%A8",
-    "insertBefore": "",
+    "pageElement": "//div[contains(concat(\" \", normalize-space(@class), \" \"), \" pl-default__content \")]//div[contains(concat(\" \", normalize-space(@class), \" \"), \" row \") or contains(concat(\" \", normalize-space(@class), \" \"), \" c-card \")]/..",
+    "exampleUrl2": "https://annict.jp/search?q=%E3%82%A8&resource=character",
+    "exampleUrl3": "https://annict.jp/works/popular",
+    "exampleUrl4": "https://annict.jp/works/popular?display=grid",
     "nextLink": "//a[@rel=\"next\"]",
-    "pageElement": "//div[contains(concat(\" \",@class,\" \"),\" container \")]/div[contains(concat(\" \",@class,\" \"),\" c-card \")]/div",
-    "url": "^https://annict\\.jp/search"
+    "url": "^https?://annict\\.jp/(?:search|works).+",
+    "exampleUrl": "https://annict.jp/search?q=%E3%82%A8"
   },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m",
+  "name": "Annict",
   "created_at": "2019-09-22T18:02:10+09:00",
-  "updated_at": "2019-09-22T18:02:10+09:00"
+  "updated_at": "2020-07-08T21:53:55+09:00"
 },
 {
   "created_by": "sachi",
