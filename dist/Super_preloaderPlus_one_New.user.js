@@ -61,6 +61,7 @@
 // @exclude      http*://tpc.googlesyndication.com/*
 // @exclude      http*://ad.doubleclick.net/*
 // @exclude      http*://ad.agrantsem.com/*
+// @exclude      http*://www.youtube.com/embed/*
 // ==/UserScript==
 
 (function () {
