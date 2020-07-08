@@ -1,5 +1,34 @@
 [
 {
+  "resource_url": "http://wedata.net/items/85403",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "id(\"contentMain-inner\")",
+    "nextLink": "id(\"contentMain-nextEpisode\")/a",
+    "url": "^https://kakuyomu\\.jp/works/",
+    "exampleUrl": "https://kakuyomu.jp/works/1177354054880210298/episodes/1177354054880210374"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "kenzou_ogawa",
+  "name": "カクヨム works",
+  "created_at": "2020-07-08T09:14:37+09:00",
+  "updated_at": "2020-07-08T09:14:37+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85402",
+  "data": {
+    "pageElement": "//main/ul[contains(concat(' ',@class,' '),' widget-antennaList ')]/li",
+    "nextLink": "//a[i/@class='icon-next-large']",
+    "url": "^https://kakuyomu\\.jp/my/",
+    "exampleUrl": "https://kakuyomu.jp/my/antenna/works"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m_",
+  "name": "カクヨム 履歴",
+  "created_at": "2020-07-07T22:14:09+09:00",
+  "updated_at": "2020-07-07T22:14:17+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/85401",
   "data": {
     "pageElement": "//p[@class=\"main-txt\"] | //*[@class=\"photo-link-main\" or @class=\"photo-caption\"] | //ul[@class=\"tag-list\"]",
@@ -8994,18 +9023,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/81237",
-  "name": "imgsrc2",
-  "created_by": "ytb",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-03-18T21:23:43+09:00",
   "data": {
-    "exampleUrl": "",
-    "url": "http://imgsrc\\.ru/",
-    "pageElement": "/html/body/table/tbody/tr[3]/td/center",
-    "insertBefore": "",
-    "nextLink": "/html/body/table/tbody/tr[3]/td/center/table/tbody/tr[14]/td/a[last()]"
+    "pageElement": "id('next_url')",
+    "nextLink": "id('next_url')",
+    "url": "https://imgsrc\\.ru/.*?\\d{7,}",
+    "exampleUrl": "https://imgsrc.ru/sheva_vet/a2259858.html"
   },
-  "created_at": "2017-03-18T21:23:43+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "ytb",
+  "name": "imgsrc2",
+  "created_at": "2017-03-18T21:23:43+09:00",
+  "updated_at": "2020-07-07T20:36:16+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/81235",
@@ -9063,21 +9091,6 @@
   "name": "朝日新聞デジタル 記事画像",
   "created_at": "2017-03-13T15:08:38+09:00",
   "updated_at": "2020-07-06T18:54:51+09:00"
-},
-{
-  "resource_url": "http://wedata.net/items/81229",
-  "name": "２じげんけんさく",
-  "created_by": "うｙｔｆヴぃおひぎお",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-03-10T20:13:00+09:00",
-  "data": {
-    "exampleUrl": "http://search.pipa.jp/?PG=3&KWD=&SID=-1",
-    "url": "^http://search\\.pipa\\.jp/.*",
-    "pageElement": "//ul[@class=\"IllsutList\"]",
-    "insertBefore": "",
-    "nextLink": "//a[text()=\">\"]"
-  },
-  "created_at": "2017-03-10T20:13:00+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/81227",
@@ -9194,18 +9207,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/81210",
-  "name": "PC Gamer",
-  "created_by": "Tanookirby",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-02-23T17:02:00+09:00",
   "data": {
-    "exampleUrl": "http://www.pcgamer.com/best-minecraft-mods/ http://www.pcgamer.com/news/",
+    "pageElement": "//div[@data-page]",
+    "nextLink": "//link[@rel='next']",
     "url": "^https?://(www\\.)?pcgamer\\.com/",
-    "pageElement": "//div[@class='listingResults']/*|id('article-body')/*",
-    "insertBefore": "",
-    "nextLink": "//a[i/@class='icon icon-arrow-right' or @rel='next']"
+    "exampleUrl": "http://www.pcgamer.com/news/"
   },
-  "created_at": "2017-02-23T17:02:00+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "Tanookirby",
+  "name": "PC Gamer",
+  "created_at": "2017-02-23T17:02:00+09:00",
+  "updated_at": "2020-07-07T11:51:47+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/81209",
@@ -9280,17 +9292,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/81201",
-  "name": "Newswitch",
-  "created_by": "hatenaZZZ",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-02-13T23:48:00+09:00",
   "data": {
-    "exampleUrl": "http://newswitch.jp/p/7784 http://newswitch.jp/tag/1",
+    "pageElement": "//div[@class='post-body']|id('category-list')//div[@class='list-wrapper']",
+    "nextLink": "//div[@class='page-navigation']/a[@class='next'][1]",
     "url": "^https?://newswitch\\.jp/(tag|p)",
-    "pageElement": "//div[@class='article_text']|//section[@class='main']/a/article",
-    "nextLink": "//li[span/@class='page active']/following-sibling::li[1]/a"
+    "exampleUrl": "http://newswitch.jp/p/7784\r\nhttp://newswitch.jp/tag/1"
   },
-  "created_at": "2017-02-13T00:19:29+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "hatenaZZZ",
+  "name": "Newswitch",
+  "created_at": "2017-02-13T00:19:29+09:00",
+  "updated_at": "2020-07-07T11:32:59+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/81199",
@@ -10396,17 +10408,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/80984",
-  "name": "2kporns4u.com",
-  "created_by": "demo",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-03-21T16:58:20+09:00",
   "data": {
-    "exampleUrl": "http://2kporns4u.com/video_tag/censored/",
-    "url": "^https?://2kporns4u\\.com/",
     "pageElement": "//div[@class=\"section-header\"]/following-sibling::*[following::ul[@class=\"pagination\"]]",
-    "nextLink": "//a[@class=\"next page-numbers\"]"
+    "nextLink": "//a[@class=\"next page-numbers\"]",
+    "url": "^https://2kporns4u\\.xyz/.+",
+    "exampleUrl": "https://2kporns4u.xyz/video_tag/censored/"
   },
-  "created_at": "2016-09-23T14:43:03+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "demo",
+  "name": "2kporns4u.xyz",
+  "created_at": "2016-09-23T14:43:03+09:00",
+  "updated_at": "2020-07-07T18:51:37+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/80983",
@@ -12158,17 +12170,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/79966",
-  "name": "カクヨム",
-  "created_by": "t_f_m",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2016-02-29T18:32:52+09:00",
   "data": {
-    "exampleUrl": "https://kakuyomu.jp/recent_works https://kakuyomu.jp/tags/%E4%BA%BA%E5%A4%96 https://kakuyomu.jp/works/1177354054880210298/episodes/1177354054880210374",
+    "pageElement": "//div[starts-with(concat(' ',@class), ' widget-') and contains(concat(@class, ' '),'-right ')]/div[contains(concat(' ',@class,' '),' widget-work ')]|id('appliedWorksList-inner recentReviews-list searchResult-works recentUserNewsList')/*|//div[@class='userEvents-eventList']/section",
+    "nextLink": "//p[@class='widget-pagerNext']/a",
     "url": "^https://kakuyomu\\.jp/",
-    "pageElement": "//div[starts-with(concat(' ',@class), ' widget-') and contains(concat(@class, ' '),'-right ')]/div[contains(concat(' ',@class,' '),' widget-work ')]|id('contentMain-inner')",
-    "nextLink": "//p[@class='widget-pagerNext']/a|id('contentMain-nextEpisode')/a"
+    "exampleUrl": "https://kakuyomu.jp/recent_works https://kakuyomu.jp/tags/%E4%BA%BA%E5%A4%96 https://kakuyomu.jp/contests/musashino_bungaku https://kakuyomu.jp/recent_reviews https://kakuyomu.jp/search?genre_name=fantasy&order=last_episode_published_at https://kakuyomu.jp/user_events/closed https://kakuyomu.jp/recent_user_news"
   },
-  "created_at": "2016-02-29T11:49:17+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m",
+  "name": "カクヨム",
+  "created_at": "2016-02-29T11:49:17+09:00",
+  "updated_at": "2020-07-08T09:40:27+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/79964",
@@ -22659,21 +22671,6 @@
     "nextLink": "id(\"page_navi\")/li[@id=\"centerLi\"]/following-sibling::li/a|//dl[@class=\"pagenav\"]/dd[last()]/a"
   },
   "updated_at": "2015-04-18T13:36:49+09:00"
-},
-{
-  "resource_url": "http://wedata.net/items/72667",
-  "name": "楽天ウェブ検索（20130514頃～）",
-  "created_by": "kurute",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-03-11T08:34:20+09:00",
-  "data": {
-    "exampleUrl": "https://websearch.rakuten.co.jp/Web?qt=test&col=OW&svx=101210",
-    "bookmarklet": "if(location.protocol == 'http:') {\r\n  location.replace(location.href.replace(/http:/, 'https:'));\r\n}",
-    "url": "^https?://websearch\\.rakuten\\.co\\.jp/Web",
-    "pageElement": "//ul[@class=\"os-result\"]",
-    "nextLink": "//a[@class=\"next-sc-page-serp\"]"
-  },
-  "created_at": "2013-05-14T22:09:18+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/72645",
@@ -34617,17 +34614,18 @@
   "created_by": "ほへ太郎"
 },
 {
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "name": "macstack.net",
-  "created_by": "M K",
-  "updated_at": "2017-02-28T13:34:17+09:00",
   "resource_url": "http://wedata.net/items/34631",
   "data": {
-    "url": "^https://macstack\\.net/",
     "pageElement": "id('topiclist')//tr[td]|//div[@class='autopagerize'][not(id('topiclist'))]",
-    "nextLink": "//a[@class='nextpage']"
+    "nextLink": "//a[@class='nextpage']",
+    "url": "^https://macstack\\.net/.+",
+    "exampleUrl": "https://macstack.net/viewforum.php?f=10"
   },
-  "created_at": "2010-08-03T13:30:19+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "M K",
+  "name": "macstack.net",
+  "created_at": "2010-08-03T13:30:19+09:00",
+  "updated_at": "2020-07-07T12:36:00+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/34590",
@@ -34855,17 +34853,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/33992",
-  "name": "Extreme Tech",
-  "created_by": "triptoy",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-02-25T09:59:59+09:00",
   "data": {
-    "exampleUrl": "https://www.extremetech.com/article2/0,2845,2366522,00.asp https://www.extremetech.com/category/mobile",
+    "pageElement": "id('intelliTXT')/*[not(@class='paging')]|//ul[@class='block-grid-1']/li",
+    "nextLink": "//li[@class='next']/a[last()]|//a[@class='btn-prev']",
     "url": "^https://(www\\.)?extremetech\\.com/",
-    "pageElement": "id('intelliTXT')/*|//ul[@class='block-grid-1']/li",
-    "nextLink": "//a[../@class='next' or @class='btn-prev']"
+    "exampleUrl": "https://www.extremetech.com/gaming/83682-the-state-of-windows-7-gaming/2\r\nhttps://www.extremetech.com/category/mobile"
   },
-  "created_at": "2010-07-18T15:18:43+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "triptoy",
+  "name": "Extreme Tech",
+  "created_at": "2010-07-18T15:18:43+09:00",
+  "updated_at": "2020-07-07T12:31:05+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/33982",
@@ -36229,20 +36227,6 @@
   "created_by": "toshi"
 },
 {
-  "resource_url": "http://wedata.net/items/32695",
-  "name": "mobile.de",
-  "created_by": "toshi",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-02-23T04:02:28+09:00",
-  "data": {
-    "exampleUrl": "http://suchen.mobile.de/fahrzeuge/search.html?isSearchRequest=true&editSearch=&lang=de&export=NO_EXPORT&sortOption.sortOrder=ASCENDING&damageUnrepaired=NO_DAMAGE_UNREPAIRED&sortOption.sortBy=price.consumerGrossEuro&scopeId=C&makeModelVariant1.makeId=&maxPrice=&minFirstRegistrationDate=&maxMileage=&fuel=&ambitCountry=&zipcode=",
-    "url": "^https?://suchen\\.mobile\\.de/",
-    "pageElement": "//div[contains(@class,'--resultitem')]",
-    "nextLink": "//span[contains(@class,'next')]"
-  },
-  "created_at": "2010-05-12T19:27:33+09:00"
-},
-{
   "resource_url": "http://wedata.net/items/32693",
   "name": "Engadget",
   "created_by": "toshi",
@@ -37074,20 +37058,6 @@
   "name": "GOODSEARCH 検索",
   "created_at": "2010-05-09T14:02:10+09:00",
   "updated_at": "2020-06-14T18:05:52+09:00"
-},
-{
-  "resource_url": "http://wedata.net/items/32413",
-  "name": "Lycos Search Results",
-  "created_by": "toshi",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-02-16T02:52:35+09:00",
-  "data": {
-    "exampleUrl": "http://search.lycos.com/web/?q=food&keyvol=00ab893a6f4929862ea1\r\nhttp://jobs.lycos.com/search?q=Accounting+%2F+Finance\r\nhttp://yellowpages.lycos.com/search?what=Movie+Theatres&where=Albuquerque%2C+NM\r\nhttp://search.lycos.co.jp/?tab=news&query=google&Search=%E6%A4%9C%E7%B4%A2&searchArea=web\r\nhttp://search.lycos.co.jp/?tab=multi&loc=searchbox&sortMode=&safeSearch=On&cat=images&query=firefox&Search=%E6%A4%9C%E7%B4%A2&searchArea=web",
-    "url": "^https?://(?:news|search|jobs|yellowpages)\\.lycos\\.(?:[^.]{2,3}\\.)?[^.]{2,3}/",
-    "pageElement": "//div[@class='results search-results']/ul/li|id('jobs')/li",
-    "nextLink": "//a[@title='Next' or @class='next' or ../@class='forward']"
-  },
-  "created_at": "2010-05-09T13:10:33+09:00"
 },
 {
   "name": "Chaton Archives",
@@ -38640,17 +38610,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/30807",
-  "name": "DRBDユーザーズガイド",
-  "created_by": "sakazuki",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-02-04T12:55:21+09:00",
   "data": {
-    "exampleUrl": "https://blog.3ware.co.jp/drbd-users-guide-8.4/drbd-users-guide.html",
-    "url": "^https://blog\\.3ware\\.co\\.jp/drbd-users-guide",
     "pageElement": "//div[@class='navheader']/following-sibling::div[1]",
-    "nextLink": "//a[@accesskey='n']"
+    "nextLink": "//a[@accesskey='n']",
+    "url": "^https://blog\\.drbd\\.jp/drbd-users-guide",
+    "exampleUrl": "https://blog.drbd.jp/drbd-users-guide-8.4/drbd-users-guide.html"
   },
-  "created_at": "2009-12-17T07:54:00+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "sakazuki",
+  "name": "DRBDユーザーズガイド",
+  "created_at": "2009-12-17T07:54:00+09:00",
+  "updated_at": "2020-07-07T11:07:24+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/30784",
@@ -43657,17 +43627,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/2675",
-  "name": "ふたばちゃんねる",
-  "created_by": "think",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-03-19T19:17:07+09:00",
   "data": {
-    "exampleUrl": "http://nov.2chan.net/q/futaba.htm",
+    "pageElement": "//div[@data-res]|//div[@data-res]/following-sibling::hr",
+    "nextLink": "//tr[td//form/input[@accesskey=\"x\"]]/td/b/following-sibling::a",
     "url": "^https?://[^.]+\\.2chan\\.net/",
-    "pageElement": "//div[@class=\"delform\"]/preceding-sibling::hr[1]/preceding-sibling::*",
-    "nextLink": "//tr[td//form/input[@accesskey=\"x\"]]/td/b/following-sibling::a"
+    "exampleUrl": "http://nov.2chan.net/q/futaba.htm"
   },
-  "created_at": "2008-09-28T20:23:50+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "think",
+  "name": "ふたばちゃんねる",
+  "created_at": "2008-09-28T20:23:50+09:00",
+  "updated_at": "2020-07-07T18:47:27+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/2670",
@@ -47077,17 +47047,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/683",
-  "name": "Generic Posts Rule (alignleft)",
-  "created_by": "swdyh",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-06-15T06:21:41+09:00",
   "data": {
-    "exampleUrl": "http://unmatchedstyle.com/gallery/ http://www.unmatchedstyle.com/news/ http://mozillazine.jp/ http://blogs.discovermagazine.com/ http://bungu.blueblack.net/ http://blog.avenew.jp/ http://blog.bugyo.tk/lyrical/page/2 https://news.opensuse.org/page/2/ https://blog.arduino.cc/ http://www.protocolostomy.com/ http://blogs.fluidinfo.com/terry/ http://php6.jp/python/ https://blog.getfirebug.com/ https://blog.getfirebug.com/2012/10/09/firebug-1-10-4/ http://gimp.ironsand.net/page/2/ http://www.cuffs-sphere.jp/staff/ http://newalbumreleases.net/category/cat/ http://blogs.fluidinfo.com/terry/ http://blog.richardroeper.com/ http://magazine-k.jp/ http://magazine-k.jp/2012/12/28/more-books-for-low-vision/ http://wnyan.jp/page/2",
-    "url": "^https?://.*(unmatchedstyle|mozillazine|(discover)?magazine(-k\\.jp)?|blueblack|avenew|bugyo\\.tk/lyrical/|news\\.opensuse|arduino|protocolostomy|fluidinfo|php6\\.jp/python|new-jav|blogs?\\.(getfirebug|fluidinfo|richardroeper)|gimp\\.ironsand|cuffs-sphere|newalbumreleases|wynan)",
     "pageElement": "(//article|//div[starts-with(@id,'post-')])[not(id('load-more-posts') or ancestor::article or ancestor::*[starts-with(@id,'post-') or @id='fpost'])]|id('content')/div[contains(@class,'post')]",
-    "nextLink": "//div[contains(concat(' ',@class,' '),' alignleft ')]/a"
+    "nextLink": "//div[contains(concat(' ',@class,' '),' alignleft ')]/a",
+    "url": "^https?://.*(unmatchedstyle|mozillazine|(discover)?magazine(-k\\.jp)?|blueblack|bugyo\\.tk/lyrical/|news\\.opensuse|arduino|protocolostomy|fluidinfo|php6\\.jp/python|new-jav|blogs?\\.(getfirebug|fluidinfo|richardroeper)|gimp\\.ironsand|cuffs-sphere|newalbumreleases|wynan)",
+    "exampleUrl": "http://unmatchedstyle.com/gallery/ http://www.unmatchedstyle.com/news/ http://mozillazine.jp/ http://blogs.discovermagazine.com/ http://bungu.blueblack.net/ http://blog.bugyo.tk/lyrical/page/2 https://news.opensuse.org/page/2/ https://blog.arduino.cc/ http://www.protocolostomy.com/ http://blogs.fluidinfo.com/terry/ http://php6.jp/python/ https://blog.getfirebug.com/ https://blog.getfirebug.com/2012/10/09/firebug-1-10-4/ http://gimp.ironsand.net/page/2/ http://www.cuffs-sphere.jp/staff/ http://newalbumreleases.net/category/cat/ http://blogs.fluidinfo.com/terry/ http://blog.richardroeper.com/ http://magazine-k.jp/ http://magazine-k.jp/2012/12/28/more-books-for-low-vision/ http://wnyan.jp/page/2"
   },
-  "created_at": "2008-04-16T12:36:29+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "swdyh",
+  "name": "Generic Posts Rule (alignleft)",
+  "created_at": "2008-04-16T12:36:29+09:00",
+  "updated_at": "2020-07-07T11:22:42+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/681",

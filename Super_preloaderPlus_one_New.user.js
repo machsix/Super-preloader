@@ -9,9 +9,9 @@
 // @author       Mach6
 // @contributers alexolog, heroboy, suchunchen, YFdyh000
 // @thanksto     ywzhaiqi, NLF
-// @version      6.13.19
+// @version      6.13.21
 // @license      GPL-3.0
-// @update       2020/7/7
+// @update       2020/7/8
 // @homepageURL  https://github.com/machsix/Super-preloader
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
 // @contributionURL https://ko-fi.com/machsix
@@ -61,6 +61,7 @@
 // @exclude      http*://tpc.googlesyndication.com/*
 // @exclude      http*://ad.doubleclick.net/*
 // @exclude      http*://ad.agrantsem.com/*
+// @exclude      http*://www.youtube.com/embed/*
 // ==/UserScript==
 
 (function () {
@@ -3751,7 +3752,7 @@
     }
   }
 
-  var name="super-preloader";var version="6.13.19";var description="Super-preloader";var main="dist/Super_preloaderPlus_one_New.user.js";var author="Mach6";var license="GPL-3.0";var bugs={url:"https://github.com/machsix/Super-preloader/issues"};var homepage="https://github.com/machsix/Super-preloader";var directories={doc:"docs"};var repository={type:"git",url:"git+https://github.com/machsix/Super-preloader.git"};var scripts={lint:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.js\"",format:"prettier --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"","format:check":"prettier --check \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"","format:staged":"pretty-quick --verbose --staged --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"",check:"npm run lint && npm run format:staged",test:"cd test && node test.js",dev:"rollup -c --dev -w",build:"rollup -c","docs:dev":"vuepress dev docs","docs:build":"vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh",preversion:"npm run check",version:"npm run build  && git add dist/*.js && git add dist/*.json",postversion:"git add package.json package-lock.json && npm run test","publish:patch":"npm --no-git-tag-version version patch",publish:"npm --no-git-tag-version version minor"};var husky={hooks:{"pre-commit":"npm run check"}};var keywords=["userscript"];var devDependencies={"@vuepress/plugin-back-to-top":"1.5.2","@vuepress/plugin-google-analytics":"1.5.2","@vuepress/plugin-pwa":"1.5.2",vuepress:"1.5.2"};var dependencies={"@babel/core":"7.10.4","@babel/plugin-transform-runtime":"7.10.4","@babel/preset-env":"7.10.4","@rollup/plugin-babel":"5.0.4","@rollup/plugin-commonjs":"13.0.0","@rollup/plugin-json":"4.1.0","@rollup/plugin-node-resolve":"8.1.0","@types/greasemonkey":"4.0.0","@types/lodash":"4.14.157","babel-plugin-lodash":"3.3.4","babel-plugin-wildcard":"6.0.0","compare-versions":"3.6.0",displacejs:"1.4.1",eslint:"7.4.0","eslint-config-prettier":"6.11.0","eslint-plugin-json":"2.1.1","eslint-plugin-prettier":"3.1.4","extract-zip":"2.0.1",got:"11.4.0",husky:"4.2.5",lodash:"4.17.15",loglevel:"1.6.8",prettier:"2.0.5","pretty-quick":"2.0.1",puppeteer:"2.1.0",rollup:"2.19.0","rollup-plugin-banner":"git+https://git@github.com/machsix/rollup-plugin-banner.git#v0.2.2","rollup-plugin-dev":"1.1.2","rollup-plugin-ejs":"2.2.0","rollup-plugin-re":"1.0.7","rollup-plugin-scss-string":"0.1.0",yargs:"15.4.0"};var pkg = {name:name,version:version,description:description,main:main,author:author,license:license,bugs:bugs,homepage:homepage,directories:directories,repository:repository,scripts:scripts,husky:husky,keywords:keywords,devDependencies:devDependencies,dependencies:dependencies};
+  var name="super-preloader";var version="6.13.21";var description="Super-preloader";var main="dist/Super_preloaderPlus_one_New.user.js";var author="Mach6";var license="GPL-3.0";var bugs={url:"https://github.com/machsix/Super-preloader/issues"};var homepage="https://github.com/machsix/Super-preloader";var directories={doc:"docs"};var repository={type:"git",url:"git+https://github.com/machsix/Super-preloader.git"};var scripts={lint:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.js\"",format:"prettier --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"","format:check":"prettier --check \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"","format:staged":"pretty-quick --verbose --staged --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"",check:"npm run lint && npm run format:staged",test:"cd test && node test.js",dev:"rollup -c --dev -w",build:"rollup -c","docs:dev":"vuepress dev docs","docs:build":"vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh",preversion:"npm run check",version:"npm run build  && git add dist/*.js && git add dist/*.json",postversion:"git add package.json package-lock.json && npm run test","publish:patch":"npm --no-git-tag-version version patch",publish:"npm --no-git-tag-version version minor"};var husky={hooks:{"pre-commit":"npm run check"}};var keywords=["userscript"];var devDependencies={"@vuepress/plugin-back-to-top":"1.5.2","@vuepress/plugin-google-analytics":"1.5.2","@vuepress/plugin-pwa":"1.5.2",vuepress:"1.5.2"};var dependencies={"@babel/core":"7.10.4","@babel/plugin-transform-runtime":"7.10.4","@babel/preset-env":"7.10.4","@rollup/plugin-babel":"5.0.4","@rollup/plugin-commonjs":"13.0.0","@rollup/plugin-json":"4.1.0","@rollup/plugin-node-resolve":"8.1.0","@types/greasemonkey":"4.0.0","@types/lodash":"4.14.157","babel-plugin-lodash":"3.3.4","babel-plugin-wildcard":"6.0.0","compare-versions":"3.6.0",displacejs:"1.4.1",eslint:"7.4.0","eslint-config-prettier":"6.11.0","eslint-plugin-json":"2.1.1","eslint-plugin-prettier":"3.1.4","extract-zip":"2.0.1",got:"11.4.0",husky:"4.2.5",lodash:"4.17.15",loglevel:"1.6.8",prettier:"2.0.5","pretty-quick":"2.0.1",puppeteer:"2.1.0",rollup:"2.19.0","rollup-plugin-banner":"git+https://git@github.com/machsix/rollup-plugin-banner.git#v0.2.2","rollup-plugin-dev":"1.1.2","rollup-plugin-ejs":"2.2.0","rollup-plugin-re":"1.0.7","rollup-plugin-scss-string":"0.1.0",yargs:"15.4.0"};var pkg = {name:name,version:version,description:description,main:main,author:author,license:license,bugs:bugs,homepage:homepage,directories:directories,repository:repository,scripts:scripts,husky:husky,keywords:keywords,devDependencies:devDependencies,dependencies:dependencies};
 
   // Information of script
 
@@ -4213,11 +4214,51 @@
    * @param {HTMLElement=} contextNode contextNode
    * @param {HTMLDocument=} doc doc
    * @param {Window=} win win
-   * @returns {HTMLElement} 最后一个元素.
+   * @returns {HTMLElement} Last dom elements
    */
 
   function getLastElement(selector, _cplink, contextNode, doc, win) {
-    var eles = getAllElements(selector, contextNode, doc, win, _cplink);
+    var firstElems = [];
+
+    if (typeof selector === 'string') {
+      if (selector.search(/^css;/i) !== 0) {
+        // prevent xpath like `//div[2]`
+        var strippedSelector = /(.*\w+)\[\d+\]$/.exec(selector);
+
+        if (strippedSelector) {
+          firstElems = getAllElements(selector, contextNode, doc, win, _cplink);
+          selector = strippedSelector[1];
+        }
+      }
+    }
+
+    var elems = getAllElements(selector, contextNode, doc, win, _cplink);
+    var eles = [];
+
+    if (firstElems) {
+      var childNodeCount = [];
+
+      for (var i = 0; i < firstElems.length; i++) {
+        childNodeCount.push([].reduce.call(elems[0].children, function (x, y) {
+          return x + (y.nodeName != 'SCRIPT' ? 1 : 0);
+        }, 0));
+        eles.push(firstElems[i]);
+      }
+
+      for (var _i = 0; _i < elems.length; _i++) {
+        for (var j = 0; j < firstElems.length; j++) {
+          if (elems[_i] === firstElems[j]) break;
+
+          if (elems[_i].className === firstElems[j].className && elems[_i].childElementCount === childNodeCount[j]) {
+            eles.push(elems[_i]);
+            break;
+          }
+        }
+      }
+    } else {
+      eles = elems;
+    }
+
     var l = eles.length;
 
     if (l > 0) {
@@ -8147,8 +8188,8 @@
     // 由于 Super_preloader 默认去掉了 # 后面部分
     // url: "^https?://www\\.baidu\\.com/(s|baidu|#wd=)",
     enable: true,
-    nextLink: '//div[@id="page"]/a[contains(text(),"下一页")][@href]',
-    preLink: '//div[@id="page"]/a[contains(text(),"上一页")][@href]',
+    nextLink: '//div[@id="page"]//a[contains(text(),"下一页")][@href]',
+    preLink: '//div[@id="page"]//a[contains(text(),"上一页")][@href]',
     autopager: {
       pageElement: 'css;div#content_left > *',
       HT_insert: ['css;div#content_left', 2],
@@ -10842,7 +10883,8 @@
             var _cplink = cplink || undefined;
 
             var scrolly = window.scrollY;
-            var WI = window.innerHeight;
+            var windowHeight = window.innerHeight;
+            var domHeight = document.body.clientHeight;
             var obj = getLastElement(relatedObj_0, _cplink);
             var scrollH = obj && obj.nodeType == 1 ? obj.getBoundingClientRect()[relatedObj_1] + scrolly : Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
             var exElementHeight = 0;
@@ -10851,7 +10893,7 @@
               exElementHeight = getLastElement(SSS.a_excludeElement, _cplink).offsetHeight;
             }
 
-            return (scrollH - scrolly - WI - exElementHeight) / WI; // 剩余高度于页面总高度的比例.
+            return (scrollH - scrolly - windowHeight - exElementHeight) / windowHeight; // 剩余高度于页面总高度的比例.
           }
 
           var pause = false;
