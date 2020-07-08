@@ -1698,7 +1698,7 @@ import notice from './utils/notice';
               exElementHeight = getLastElement(SSS.a_excludeElement, _cplink).offsetHeight;
             }
 
-            return (scrollH - scrolly - exElementHeight) / windowHeight; // 剩余高度于页面总高度的比例.
+            return (scrollH - scrolly - windowHeight - exElementHeight) / windowHeight; // 剩余高度于页面总高度的比例.
           }
 
           let pause = false;
