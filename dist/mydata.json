@@ -274,6 +274,13 @@
     "nextLink": "//a[@class=\"prevnext\"]"
   },
   {
+    "name": "rule34",
+    "exampleUrl": "https://rule34.xxx/index.php?page=post&s=list&tags=3d",
+    "url": "https://rule34\\.xxx/index\\.php",
+    "pageElement": "//div[@class='content']/div[span[@class='thumb']]",
+    "nextLink": "//div[@class='pagination']/a[@alt='next']"
+  },
+  {
     "name": "jav777",
     "url": "^https?://www\\.jav777\\.cc",
     "pageElement": "//div[@class=\"content section-inner\"]",
