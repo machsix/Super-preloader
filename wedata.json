@@ -1,5 +1,19 @@
 [
 {
+  "resource_url": "http://wedata.net/items/85405",
+  "data": {
+    "pageElement": "//nav[@class=\"pagination dfont\"]/preceding-sibling::div[1]",
+    "nextLink": "//a[@class=\"next page-numbers\"]",
+    "url": "^https://everyday-evident\\.net/",
+    "exampleUrl": "https://everyday-evident.net/ https://everyday-evident.net/category/food/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "kenzou_ogawa",
+  "name": "ヘルシック",
+  "created_at": "2020-07-09T13:30:07+09:00",
+  "updated_at": "2020-07-09T13:33:49+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/85404",
   "data": {
     "insertBefore": "",
@@ -1160,18 +1174,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/85310",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "created_at": "2020-04-28T17:52:37+09:00",
   "data": {
-    "insertBefore": "",
-    "pageElement": "//div[@class=\"listWrapper\"]",
-    "exampleUrl": "https://movie.eroterest.net/?word=%E4%B8%AD%E5%87%BA%E3%81%97",
-    "nextLink": "//a[@class=\"sibling\"]",
-    "url": "^https?://movie\\.eroterest\\.net/"
+    "pageElement": "//div[@class=\"listWrapper\"]\r\n|//div[@class='pager']/following-sibling::div[@class='itemWrapper']",
+    "nextLink": "//span[@class='current']/following-sibling::a[1]",
+    "url": "^https?://(movie|antenna|anime)\\.eroterest\\.net/",
+    "exampleUrl": "https://movie.eroterest.net/?word=JK\r\nhttps://anime.eroterest.net/\r\nhttps://antenna.eroterest.net/"
   },
-  "updated_at": "2020-04-28T17:52:37+09:00",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "apuser4",
   "name": "動画エロタレスト",
-  "created_by": "apuser4"
+  "created_at": "2020-04-28T17:52:37+09:00",
+  "updated_at": "2020-07-09T13:48:37+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/85309",
@@ -2499,7 +2512,7 @@
 {
   "resource_url": "http://wedata.net/items/82281",
   "data": {
-    "pageElement": "//div[contains(concat(\" \", normalize-space(@class), \" \"), \" pl-default__content \")]//div[contains(concat(\" \", normalize-space(@class), \" \"), \" row \") or contains(concat(\" \", normalize-space(@class), \" \"), \" c-card \")]/..",
+    "pageElement": "//div[@class=\"c-subnav\"]/following-sibling::div[1]|//h1/following-sibling::div[2]",
     "exampleUrl2": "https://annict.jp/search?q=%E3%82%A8&resource=character",
     "exampleUrl3": "https://annict.jp/works/popular",
     "exampleUrl4": "https://annict.jp/works/popular?display=grid",
@@ -2511,7 +2524,7 @@
   "created_by": "t_f_m",
   "name": "Annict",
   "created_at": "2019-09-22T18:02:10+09:00",
-  "updated_at": "2020-07-08T21:53:55+09:00"
+  "updated_at": "2020-07-09T07:56:11+09:00"
 },
 {
   "created_by": "sachi",
@@ -8833,33 +8846,6 @@
   "created_at": "2017-03-27T17:54:23+09:00"
 },
 {
-  "resource_url": "http://wedata.net/items/81258",
-  "name": "celebjihad.com",
-  "created_by": "mikailz",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-03-27T07:47:09+09:00",
-  "data": {
-    "url": "^https?://(?:www\\.)?celebjihad\\.com",
-    "pageElement": "//div[@id='content']/article",
-    "nextLink": "//div[@id='nav_pages']/ul/li[@class='pager_next']/a"
-  },
-  "created_at": "2017-03-26T22:29:17+09:00"
-},
-{
-  "resource_url": "http://wedata.net/items/81254",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "name": "listal.com",
-  "created_by": "mikailz",
-  "updated_at": "2017-03-27T07:47:16+09:00",
-  "data": {
-    "url": "^https?://(?:www\\.)?listal\\.com",
-    "pageElement": "//div[starts-with(@id,'imageids')]",
-    "nextLink": "//span[@class='current']/following-sibling::a[1]",
-    "disableSeparator": "true"
-  },
-  "created_at": "2017-03-26T08:22:23+09:00"
-},
-{
   "resource_url": "http://wedata.net/items/81252",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "name": "porncomix.info comics-xxx.com freeadultcomix.com asianhotties.me",
@@ -8871,19 +8857,6 @@
     "nextLink": "//div[@class='paginator']/span[@class='current']/following-sibling::a[1]|//div[@class='next-link']/a"
   },
   "created_at": "2017-03-26T08:20:24+09:00"
-},
-{
-  "resource_url": "http://wedata.net/items/81251",
-  "name": "hot-jav.net",
-  "created_by": "mikailz",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-03-27T07:48:36+09:00",
-  "data": {
-    "url": "^https?://(?:www\\.)?hot-jav\\.net",
-    "pageElement": "//*[@class='general']/*[@class='container']/div[1]",
-    "nextLink": "//span[@class='current']/following-sibling::a[1]"
-  },
-  "created_at": "2017-03-26T08:08:01+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/81250",
@@ -8900,31 +8873,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/81249",
+  "data": {
+    "pageElement": "//div[contains(concat(' ', normalize-space(@class), ' '), ' fs_blog_module ')]\r\n|//div[contains(concat(' ', normalize-space(@class), ' '), ' blog_post_preview ')]",
+    "nextLink": "//li[a[contains(@class, 'current')]]/following-sibling::li[1]/a",
+    "url": "^https://www\\.redflava\\.com/",
+    "exampleUrl": "https://www.redflava.com/\r\nhttps://www.redflava.com/hot-picks/"
+  },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "mikailz",
   "name": "redflava.com",
-  "created_by": "mikailz",
-  "updated_at": "2017-03-27T07:49:05+09:00",
-  "data": {
-    "url": "^https?://(?:www\\.)?redflava\\.com",
-    "pageElement": "//div[@class='feed-vertical' and .//div[@class='article']]|//div[@class='content']/h1|//div[@class='post-content']/div[starts-with(@id,'post-') or starts-with(@style,'float') or @class='infobox-wrapper']",
-    "allowScripts": "true",
-    "nextLink": "//div[@class='pagination']/a[starts-with(.,'Next')]|//div[@class='post-content']/div/a[@rel='prev']"
-  },
-  "created_at": "2017-03-26T08:05:04+09:00"
-},
-{
-  "resource_url": "http://wedata.net/items/81247",
-  "name": "8muses.com",
-  "created_by": "mikailz",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-03-27T07:49:27+09:00",
-  "data": {
-    "url": "^https?://(?:www\\.)?8muses\\.com",
-    "pageElement": "//div[@class='gallery']/a[@class='image-box t-hover' and not(@href='/login')]",
-    "nextLink": "//span[@class='next']/a",
-    "disableSeparator": "true"
-  },
-  "created_at": "2017-03-26T08:01:21+09:00"
+  "created_at": "2017-03-26T08:05:04+09:00",
+  "updated_at": "2020-07-09T14:09:47+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/81246",
@@ -9009,20 +8968,6 @@
   "updated_at": "2020-05-21T15:36:47+09:00",
   "name": "@DIME ( https )",
   "created_by": "yomogi"
-},
-{
-  "resource_url": "http://wedata.net/items/81239",
-  "name": "chattit.com   ",
-  "created_by": "abrinizzze",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-03-23T00:33:43+09:00",
-  "data": {
-    "exampleUrl": "https://chattit.com/page/3/",
-    "url": "^https?:\\/\\/(www\\.)?chattit.com",
-    "pageElement": "//div[@class=\"row thumbs\"]",
-    "nextLink": "//div[@class=\"pagin\"]/a[last()]"
-  },
-  "created_at": "2017-03-22T23:06:45+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/81238",
@@ -11050,17 +10995,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/80861",
-  "name": "AUTOCAR JAPAN article",
-  "created_by": "jigendaddy_be",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-03-25T10:43:39+09:00",
   "data": {
-    "exampleUrl": "https://www.autocar.jp/firstdrives/2016/07/01/176555/ https://www.autocar.jp/news/2017/03/20/211785/",
-    "url": "^https?://www\\.autocar\\.jp/",
     "pageElement": "id(\"page_links\")[id(\"textArea\")[count(./div)=1]][./preceding-sibling::center]/preceding-sibling::center[1]/preceding-sibling::*|id(\"page_links\")[id(\"textArea\")[count(./div)=1]][not(./preceding-sibling::center)]/preceding-sibling::*|id(\"textArea\")[count(./div)>1]/div[1]|id(\"mainImage\")/img",
-    "nextLink": "//a[@class=\"next\"]"
+    "nextLink": "//a[@class=\"next\"]",
+    "url": "^https://www\\.autocar\\.jp/.+?/20[0-9]{2}/[0-9]{2}/[0-9]{2}/",
+    "exampleUrl": "https://www.autocar.jp/firstdrives/2016/07/01/176555/ https://www.autocar.jp/news/2017/03/20/211785/"
   },
-  "created_at": "2016-07-02T12:40:03+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "jigendaddy_be",
+  "name": "AUTOCAR JAPAN article",
+  "created_at": "2016-07-02T12:40:03+09:00",
+  "updated_at": "2020-07-09T13:57:03+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/80860",
@@ -11833,17 +11778,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/80690",
-  "name": "kabuline",
-  "created_by": "znskgm",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-08-28T02:34:31+09:00",
   "data": {
-    "exampleUrl": "http://kabuline.com/stock/map/ http://kabuline.com/twitter/account/411/ http://kabuline.com/twitter/",
-    "url": "^https?://kabuline\\.com/",
     "pageElement": "id('AccountList')/div[@class='ac_cell']|(//div[@class='TweetListWrap']|id('CodeListMainInner'))/ul/li",
-    "nextLink": "//span[@class='next']/a"
+    "nextLink": "//link[@rel='next']",
+    "url": "^https://kabuline\\.com/",
+    "exampleUrl": "https://kabuline.com/stock/map/ https://kabuline.com/twitter/account/411/ https://kabuline.com/twitter/"
   },
-  "created_at": "2016-04-08T19:03:24+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "znskgm",
+  "name": "kabuline",
+  "created_at": "2016-04-08T19:03:24+09:00",
+  "updated_at": "2020-07-09T13:08:27+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/80683",
@@ -11859,20 +11804,6 @@
     "nextLink": "//link[@rel=\"prev\"]"
   },
   "created_at": "2016-04-08T10:37:24+09:00"
-},
-{
-  "resource_url": "http://wedata.net/items/80682",
-  "name": "IT Pro",
-  "created_by": "Tanookirby",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-08-28T02:16:32+09:00",
-  "data": {
-    "exampleUrl": "http://www.itpro.co.uk/",
-    "url": "^https?://(www\\.)?itpro\\.co\\.uk/",
-    "pageElement": "//div[contains(@class,'view view-homepage-index')]/div[@class='view-content']/*",
-    "nextLink": "//li[@class='pager-next last']/a"
-  },
-  "created_at": "2016-04-07T09:45:58+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/80680",

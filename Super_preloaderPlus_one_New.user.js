@@ -11,7 +11,7 @@
 // @thanksto     ywzhaiqi, NLF
 // @version      6.13.21
 // @license      GPL-3.0
-// @update       2020/7/8
+// @update       2020/7/9
 // @homepageURL  https://github.com/machsix/Super-preloader
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
 // @contributionURL https://ko-fi.com/machsix
@@ -4105,8 +4105,8 @@
   /**
    * Select a single element by css selector
    * @param {string} css css of dom
-   * @param {HTMLElement|Document} contextNode dom contextNode
-   * @returns {HTMLElement} a dom node
+   * @param {object} contextNode dom contextNode
+   * @returns {object} a dom node
    */
   function getElementByCSS(css) {
     var contextNode = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : document;
@@ -4136,9 +4136,9 @@
     contextNode = contextNode || doc;
 
     try {
-      var result = doc.evaluate(xpath, contextNode, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null); //@ts-ignore should always return an element node
+      var result = doc.evaluate(xpath, contextNode, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null); //@ts-ignore
 
-      return result.singleNodeValue && result.singleNodeValue.nodeType === 1 && result.singleNodeValue;
+      return result.singleNodeValue;
     } catch (err) {
       throw new Error(`Invalid xpath: ${xpath}`);
     }
@@ -4160,9 +4160,7 @@
       var query = doc.evaluate(xpath, contextNode, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
 
       for (var i = 0; i < query.snapshotLength; i++) {
-        var node = query.snapshotItem(i); //if node is an element node
-
-        if (node.nodeType === 1) result.push(node);
+        result.push(query.snapshotItem(i));
       }
     } catch (err) {
       throw new Error(`Invalid xpath: ${xpath}`);
@@ -4173,7 +4171,7 @@
   }
   /**
    *
-   * @param {ISelectorFunction} selector css selector or xpath selector
+   * @param {string|Function} selector css selector or xpath selector
    * @param {Element|Document|DocumentFragment} contextNode contextNode specifies the context node for the query (see the XPath specification). It's common to pass document as the context node.
    * @param {Document} doc the document to select from
    * @param {Window} win window of the browser
@@ -4196,6 +4194,7 @@
       if (selector.search(/^css;/i) === 0) {
         return getAllElementsByCSS(selector.slice(4), contextNode);
       } else {
+        //@ts-ignore
         return getAllElementsByXpath(selector, contextNode, doc);
       }
     } else {
@@ -4210,7 +4209,7 @@
   }
   /**
    *
-   * @param {ISelectorFunction} selector selector
+   * @param {string|Function} selector selector
    * @param {string=} _cplink _cplink
    * @param {HTMLElement=} contextNode contextNode
    * @param {HTMLDocument=} doc doc
@@ -9216,12 +9215,9 @@
         });
       },
       documentFilter: function documentFilter(d, _nextLink) {
-        var link = d.body.innerHTML.match(/imgurl = '(.+)';/); //@ts-ignore
-
-        if (link) link = '//fmvip.xzglasses.com' + link[1]; //@ts-ignore
-
-        d.getElementById('bigpic').src = link; //@ts-ignore
-
+        var link = d.body.innerHTML.match(/imgurl = '(.+)';/);
+        if (link) link = '//fmvip.xzglasses.com' + link[1];
+        d.getElementById('bigpic').src = link;
         d.getElementById('bigpic').dataset.link = link;
       }
     }
@@ -9757,11 +9753,6 @@
           loadedIcon: nullFn,
           CmodeIcon: nullFn
         };
-        /**
-         *
-         * @param {IRuntimeRule} SSS a rule
-         * @returns {void}
-         */
 
         function floatWindow(SSS) {
           // inject css
@@ -10106,11 +10097,6 @@
           startipages: nullFn
         };
         var hashchangeAdded = false;
-        /**
-         * @param {IRuntimeRule} SSS a rule
-         * @param {*} floatWO float window object
-         * @returns {void}
-         */
 
         function autopager(SSS, floatWO) {
           // return;
@@ -10631,7 +10617,7 @@
 
             if (SSS.a_documentFilter) {
               try {
-                SSS.a_documentFilter(doc, typeof nextlink === 'string' && nextlink);
+                SSS.a_documentFilter(doc, nextlink);
                 logger.debug("[Super-preloader]", 'Successfully executeed documentFilter');
               } catch (e) {
                 logger.error("[Super-preloader]", 'Error executing documentFilter', e, SSS.a_documentFilter.toString());
@@ -10640,7 +10626,7 @@
 
             var docTitle = getElementByCSS('title', doc).textContent;
             var fragment = document.createDocumentFragment();
-            var pageElements = getAllElements(SSS.a_pageElement, undefined, doc, win, typeof nextlink === 'string' && nextlink);
+            var pageElements = getAllElements(SSS.a_pageElement, undefined, doc, win, nextlink);
             var ii = pageElements.length;
 
             if (ii <= 0) {
@@ -10653,7 +10639,7 @@
 
 
             var lastUrl = cplink;
-            cplink = String(nextlink);
+            cplink = nextlink;
             /** @type {HTMLElement|string} */
 
             var nl = getElement(SSS.nextLink, undefined, doc, win);
@@ -11005,13 +10991,7 @@
               }
             }
           };
-        }
-        /**
-         * prefetcher
-         * @param {IRuntimeRule} SSS a rule
-         * @param {*} floatWO float window object
-         * @returns {void}
-         */
+        } // prefetcher
 
 
         function prefetcher(SSS, floatWO) {
@@ -11062,7 +11042,7 @@
           if (SSS.useiframe) {
             var iframe = document.createElement('iframe');
             iframe.name = 'superpreloader-iframe';
-            iframe.src = String(nextlink);
+            iframe.src = nextlink;
             iframe.width = '100%';
             iframe.height = '0';
             iframe.frameBorder = '0';
@@ -11207,14 +11187,11 @@
 
 
         var pagedLinks = [document.location.href];
-        /** @type {HTMLElement|string} */
-
         var nextlink;
-        /** @type {HTMLElement|string} */
-
         var prelink; //= ==============
 
-        /**@type {IRuntimeRule} */
+        /**@type {any} */
+        //todo: add SSS type
 
         var SSS = {};
 
@@ -11316,19 +11293,17 @@
 
                 SSS.filter = SII.filter || SIIA.filter; // 新增了函数的形式，原来的功能是移除 pageElement
 
-                var documentFilter = SII.documentFilter || SIIA.documentFilter;
+                SSS.a_documentFilter = SII.documentFilter || SIIA.documentFilter;
+                SSS.a_scriptFilter = SIIA.scriptFilter === undefined ? '' : SIIA.scriptFilter;
 
-                if (documentFilter === 'startFilter') {
-                  SSS.a_documentFilter = function (doc) {
-                    return SII.autopager.startFilter(doc);
-                  };
-                } else if (typeof documentFilter === 'function') {
-                  SSS.a_documentFilter = documentFilter;
-                } else {
-                  SSS.a_documentFilter = undefined;
+                if (typeof SSS.a_documentFilter === 'string') {
+                  if (SSS.a_documentFilter === 'startFilter') {
+                    SSS.a_documentFilter = function (doc, nextLink) {
+                      return SII.autopager.startFilter(doc);
+                    };
+                  }
                 }
 
-                SSS.a_scriptFilter = SIIA.scriptFilter === undefined ? '' : SIIA.scriptFilter;
                 SSS.a_stylish = SII.stylish || SIIA.stylish;
                 SSS.lazyImgSrc = SIIA.lazyImgSrc;
                 SSS.a_headers = SIIA.headers === undefined ? undefined : SIIA.headers; // custom header for XHRLoaded
@@ -11423,12 +11398,11 @@
 
         var superPreloader = {
           go: function go() {
-            if (typeof nextlink === 'string') window.location.href = nextlink;
+            if (nextlink) window.location.href = nextlink;
           },
           back: function back() {
-            //fixme
             if (!prelink) getElement('auto;');
-            if (typeof prelink === 'string') window.location.href = prelink;
+            if (prelink) window.location.href = prelink;
           }
         };
 
@@ -11543,7 +11517,7 @@
         /**
          *
          * @param {string|Function|Array|IHrefIncObject} selector selector
-         * @param {HTMLElement|Document=} contextNode element
+         * @param {Element|Document=} contextNode element
          * @param {Document=} doc document
          * @param {Window=} win window
          * @returns {HTMLElement} element
@@ -11603,11 +11577,7 @@
 
           if (doc == document) {
             // 当前文档,只检查一次.
-            if (docChecked) {
-              // @ts-ignore
-              return nextlink;
-            }
-
+            if (docChecked) return nextlink;
             docChecked = true;
           }
 
