@@ -21,7 +21,7 @@
     "format": "prettier --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"",
     "format:check": "prettier --check \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"",
     "format:staged": "pretty-quick --verbose --staged --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"",
-    "check": "npm run lint && npm run format:staged",
+    "check": "npm run lint && npm run typecheck && npm run format:staged",
     "test": "cd test && node test.js",
     "dev": "rollup -c --dev -w",
     "build": "rollup -c",
@@ -32,7 +32,8 @@
     "version": "npm run build  && git add dist/*.js && git add dist/*.json",
     "postversion": "git add package.json package-lock.json && npm run test",
     "publish:patch": "npm --no-git-tag-version version patch",
-    "publish": "npm --no-git-tag-version version minor"
+    "publish": "npm --no-git-tag-version version minor",
+    "typecheck": "tsc -p jsconfig.json --noEmit"
   },
   "husky": {
     "hooks": {
@@ -46,6 +47,7 @@
     "@vuepress/plugin-back-to-top": "1.5.2",
     "@vuepress/plugin-google-analytics": "1.5.2",
     "@vuepress/plugin-pwa": "1.5.2",
+    "typescript": "^3.9.6",
     "vuepress": "1.5.2"
   },
   "dependencies": {
