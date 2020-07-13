@@ -74,7 +74,7 @@
     "prettier": "2.0.5",
     "pretty-quick": "2.0.1",
     "puppeteer": "2.1.0",
-    "rollup": "2.19.0",
+    "rollup": "2.21.0",
     "rollup-plugin-banner": "git+https://git@github.com/machsix/rollup-plugin-banner.git#v0.2.2",
     "rollup-plugin-dev": "1.1.2",
     "rollup-plugin-ejs": "2.2.0",
