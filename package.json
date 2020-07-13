@@ -80,6 +80,6 @@
     "rollup-plugin-ejs": "2.2.0",
     "rollup-plugin-re": "1.0.7",
     "rollup-plugin-scss-string": "0.1.0",
-    "yargs": "15.4.0"
+    "yargs": "15.4.1"
   }
 }
