@@ -1702,7 +1702,10 @@ import notice from './utils/notice';
             const scrollH = obj && obj.nodeType == 1 ? obj.getBoundingClientRect()[relatedObj_1] + scrolly : Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
             var exElementHeight = 0;
             if (SSS.a_excludeElement != undefined) {
-              exElementHeight = getLastElement(SSS.a_excludeElement, _cplink).offsetHeight;
+              var exElementNode = getLastElement(SSS.a_excludeElement, _cplink);
+              if (exElementNode !== null) {
+                exElementHeight = exElementNode.offsetHeight;
+              }
             }
 
             return (scrollH - scrolly - windowHeight - exElementHeight) / windowHeight; // 剩余高度于页面总高度的比例.

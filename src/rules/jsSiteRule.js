@@ -656,7 +656,7 @@ export const jsSiteRule = [
   {
     name: 'geekbench',
     url: /^https?:\/\/browser\.geekbench\.com/i,
-    nextLink: "//li[@class='page-item next next_page ']/a",
+    nextLink: "//li[contains(@class,'page-item next next_page')]/a",
     autopager: {
       pageElement: "//div[@class='row']/div[@class='col-12 list-col']",
       sepdivDom: function (_doc, sepdiv) {
