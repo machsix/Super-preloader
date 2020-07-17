@@ -4998,7 +4998,7 @@
     // as the regeneratorRuntime namespace. Otherwise create a new empty
     // object. Either way, the resulting object will be used to initialize
     // the regeneratorRuntime variable at the top of this file.
-     module.exports 
+     module.exports
   ));
 
   try {
@@ -10903,7 +10903,11 @@
             var exElementHeight = 0;
 
             if (SSS.a_excludeElement != undefined) {
-              exElementHeight = getLastElement(SSS.a_excludeElement, _cplink).offsetHeight;
+              excludeNodes = getAllElements(SSS.a_excludeElement);
+              // 只承认第一个 excludeNode，一般而言肯定是唯一的
+              if (excludeNodes.length > 0) {
+                  exElementHeight = excludeNodes[0].offsetHeight;
+              }
             }
 
             return (scrollH - scrolly - windowHeight - exElementHeight) / windowHeight; // 剩余高度于页面总高度的比例.
