@@ -97,7 +97,7 @@ export function getAllElements(selector, contextNode = undefined, doc = document
  * @param {HTMLElement=} contextNode contextNode
  * @param {HTMLDocument=} doc doc
  * @param {Window=} win win
- * @returns {HTMLElement} Last dom elements
+ * @returns {HTMLElement} Last dom element
  */
 export function getLastElement(selector, _cplink, contextNode, doc, win) {
   let firstElems = [];
@@ -113,7 +113,7 @@ export function getLastElement(selector, _cplink, contextNode, doc, win) {
   }
   const elems = getAllElements(selector, contextNode, doc, win, _cplink);
   let eles = [];
-  if (firstElems) {
+  if (firstElems.length > 0) {
     const childNodeCount = [];
     for (let i = 0; i < firstElems.length; i++) {
       childNodeCount.push([].reduce.call(elems[0].children, (x, y) => x + (y.nodeName != 'SCRIPT' ? 1 : 0), 0));

@@ -654,6 +654,18 @@ export const jsSiteRule = [
     }
   },
   {
+    name: 'geekbench',
+    url: /^https?:\/\/browser\.geekbench\.com/i,
+    nextLink: "//li[contains(@class,'page-item next next_page')]/a",
+    autopager: {
+      pageElement: "//div[@class='row']/div[@class='col-12 list-col']",
+      sepdivDom: function (_doc, sepdiv) {
+        sepdiv.className += ' col-12 list-col';
+        return sepdiv;
+      }
+    }
+  },
+  {
     name: 'CSDN博客',
     url: /^https?:\/\/blog\.csdn\.net/i,
     exampleUrl: 'http://blog.csdn.net/wangjieest?viewmode=list',

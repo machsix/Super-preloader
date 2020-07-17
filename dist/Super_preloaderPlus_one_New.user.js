@@ -9,9 +9,9 @@
 // @author       Mach6
 // @contributers alexolog, heroboy, suchunchen, YFdyh000
 // @thanksto     ywzhaiqi, NLF
-// @version      6.13.22
+// @version      6.13.23
 // @license      GPL-3.0
-// @update       2020/7/8
+// @update       2020/7/16
 // @homepageURL  https://github.com/machsix/Super-preloader
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
 // @contributionURL https://ko-fi.com/machsix
@@ -1600,10 +1600,6 @@
   };
 
   var isArguments_1 = isArguments;
-
-  function unwrapExports (x) {
-  	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
-  }
 
   function createCommonjsModule(fn, basedir, module) {
   	return module = {
@@ -3752,7 +3748,7 @@
     }
   }
 
-  var name="super-preloader";var version="6.13.22";var description="Super-preloader";var main="dist/Super_preloaderPlus_one_New.user.js";var author="Mach6";var license="GPL-3.0";var bugs={url:"https://github.com/machsix/Super-preloader/issues"};var homepage="https://github.com/machsix/Super-preloader";var directories={doc:"docs"};var repository={type:"git",url:"git+https://github.com/machsix/Super-preloader.git"};var scripts={lint:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.js\"",format:"prettier --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"","format:check":"prettier --check \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"","format:staged":"pretty-quick --verbose --staged --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"",check:"npm run lint && npm run format:staged",test:"cd test && node test.js",dev:"rollup -c --dev -w",build:"rollup -c","docs:dev":"vuepress dev docs","docs:build":"vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh",preversion:"npm run check",version:"npm run build  && git add dist/*.js && git add dist/*.json",postversion:"git add package.json package-lock.json && npm run test","publish:patch":"npm --no-git-tag-version version patch",publish:"npm --no-git-tag-version version minor"};var husky={hooks:{"pre-commit":"npm run check"}};var keywords=["userscript"];var devDependencies={"@vuepress/plugin-back-to-top":"1.5.2","@vuepress/plugin-google-analytics":"1.5.2","@vuepress/plugin-pwa":"1.5.2",vuepress:"1.5.2"};var dependencies={"@babel/core":"7.10.4","@babel/plugin-transform-runtime":"7.10.4","@babel/preset-env":"7.10.4","@rollup/plugin-babel":"5.0.4","@rollup/plugin-commonjs":"13.0.0","@rollup/plugin-json":"4.1.0","@rollup/plugin-node-resolve":"8.1.0","@types/greasemonkey":"4.0.0","@types/lodash":"4.14.157","babel-plugin-lodash":"3.3.4","babel-plugin-wildcard":"6.0.0","compare-versions":"3.6.0",displacejs:"1.4.1",eslint:"7.4.0","eslint-config-prettier":"6.11.0","eslint-plugin-json":"2.1.1","eslint-plugin-prettier":"3.1.4","extract-zip":"2.0.1",got:"11.4.0",husky:"4.2.5",lodash:"4.17.15",loglevel:"1.6.8",prettier:"2.0.5","pretty-quick":"2.0.1",puppeteer:"2.1.0",rollup:"2.19.0","rollup-plugin-banner":"git+https://git@github.com/machsix/rollup-plugin-banner.git#v0.2.2","rollup-plugin-dev":"1.1.2","rollup-plugin-ejs":"2.2.0","rollup-plugin-re":"1.0.7","rollup-plugin-scss-string":"0.1.0",yargs:"15.4.0"};var pkg = {name:name,version:version,description:description,main:main,author:author,license:license,bugs:bugs,homepage:homepage,directories:directories,repository:repository,scripts:scripts,husky:husky,keywords:keywords,devDependencies:devDependencies,dependencies:dependencies};
+  var name="super-preloader";var version="6.13.23";var description="Super-preloader";var main="dist/Super_preloaderPlus_one_New.user.js";var author="Mach6";var license="GPL-3.0";var bugs={url:"https://github.com/machsix/Super-preloader/issues"};var homepage="https://github.com/machsix/Super-preloader";var directories={doc:"docs"};var repository={type:"git",url:"git+https://github.com/machsix/Super-preloader.git"};var scripts={lint:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.js\"",format:"prettier --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"","format:check":"prettier --check \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"","format:staged":"pretty-quick --verbose --staged --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"",check:"npm run lint && npm run typecheck && npm run format:staged",test:"cd test && node test.js",dev:"rollup -c --dev -w",build:"rollup -c","docs:dev":"vuepress dev docs","docs:build":"vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh",preversion:"npm run check",version:"npm run build  && git add dist/*.js && git add dist/*.json",postversion:"git add package.json package-lock.json && npm run test","publish:patch":"npm --no-git-tag-version version patch",publish:"npm --no-git-tag-version version minor",typecheck:"tsc -p jsconfig.json --noEmit"};var husky={hooks:{"pre-commit":"npm run check"}};var keywords=["userscript"];var devDependencies={"@vuepress/plugin-back-to-top":"1.5.2","@vuepress/plugin-google-analytics":"1.5.2","@vuepress/plugin-pwa":"1.5.2",typescript:"^3.9.6",vuepress:"1.5.2"};var dependencies={"@babel/core":"7.10.4","@babel/plugin-transform-runtime":"7.10.4","@babel/preset-env":"7.10.4","@rollup/plugin-babel":"5.1.0","@rollup/plugin-commonjs":"13.0.1","@rollup/plugin-json":"4.1.0","@rollup/plugin-node-resolve":"8.4.0","@types/greasemonkey":"4.0.0","@types/lodash":"4.14.157","babel-plugin-lodash":"3.3.4","babel-plugin-wildcard":"6.0.0","compare-versions":"3.6.0",displacejs:"1.4.1",eslint:"7.4.0","eslint-config-prettier":"6.11.0","eslint-plugin-json":"2.1.1","eslint-plugin-prettier":"3.1.4","extract-zip":"2.0.1",got:"11.5.0",husky:"4.2.5",lodash:"4.17.19",loglevel:"1.6.8",prettier:"2.0.5","pretty-quick":"2.0.1",puppeteer:"2.1.0",rollup:"2.21.0","rollup-plugin-banner":"git+https://git@github.com/machsix/rollup-plugin-banner.git#v0.2.2","rollup-plugin-dev":"1.1.2","rollup-plugin-ejs":"2.2.0","rollup-plugin-re":"1.0.7","rollup-plugin-scss-string":"0.1.0",yargs:"15.4.1"};var pkg = {name:name,version:version,description:description,main:main,author:author,license:license,bugs:bugs,homepage:homepage,directories:directories,repository:repository,scripts:scripts,husky:husky,keywords:keywords,devDependencies:devDependencies,dependencies:dependencies};
 
   // Information of script
 
@@ -4215,7 +4211,7 @@
    * @param {HTMLElement=} contextNode contextNode
    * @param {HTMLDocument=} doc doc
    * @param {Window=} win win
-   * @returns {HTMLElement} Last dom elements
+   * @returns {HTMLElement} Last dom element
    */
 
   function getLastElement(selector, _cplink, contextNode, doc, win) {
@@ -4236,7 +4232,7 @@
     var elems = getAllElements(selector, contextNode, doc, win, _cplink);
     var eles = [];
 
-    if (firstElems) {
+    if (firstElems.length > 0) {
       var childNodeCount = [];
 
       for (var i = 0; i < firstElems.length; i++) {
@@ -7614,8 +7610,6 @@
   !function(e,t){module.exports=t();}(this,function(){return function(e){function t(n){if(o[n])return o[n].exports;var s=o[n]={exports:{},id:n,loaded:!1};return e[n].call(s.exports,s,s.exports,t),s.loaded=!0,s.exports}var o={};return t.m=e,t.c=o,t.p="",t(0)}([function(e,t,o){function n(e){return e&&e.__esModule?e:{default:e}}var s=o(1),i=n(s);e.exports=i.default;},function(e,t,o){function n(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function s(){var e=this,t=this.el,o=this.opts||c,n={};if(t.style.position="absolute",this.handle=o.handle||t,o.constrain){for(var s=o.relativeTo||t.parentNode,a=t,h=0,v=0;a!==s;)a=a.parentNode,(0, i.isRelative)(a)&&(h-=a.offsetLeft,v-=a.offsetTop),a===s&&(h+=a.offsetLeft,v+=a.offsetTop);var l=h+s.offsetWidth-t.offsetWidth,f=v+s.offsetHeight-t.offsetHeight;n.xClamp=(0, i.generateClamp)(h,l),n.yClamp=(0, i.generateClamp)(v,f);}this.opts=o,this.data=n,this.events={mousedown:u.mousedown.bind(this),mouseup:u.mouseup.bind(this),touchstart:u.touchstart.bind(this),touchstop:u.touchstop.bind(this),scrollFix:function(t){e.isDragging&&t.preventDefault();}},this.handleMove=r(this.opts.customMove),this.handle.addEventListener("mousedown",this.events.mousedown,!1),this.handle.addEventListener("touchstart",this.events.touchstart,!1),document.addEventListener("touchmove",this.events.scrollFix,{passive:!1});}Object.defineProperty(t,"__esModule",{value:!0});var i=o(2),u=o(3),r=(0, i.generateMoveFn)(),c={constrain:!1,relativeTo:null,handle:null,ignoreFn:null,highlightInputs:!1,onMouseDown:null,onMouseMove:null,onMouseUp:null,onTouchStart:null,onTouchMove:null,onTouchStop:null,customMove:null},a=function(){function e(t,o){if(n(this,e),!t)throw Error("Must include moveable element");this.el=t,this.opts=o,s.call(this);}return e.prototype.reinit=function(){this.destroy(),s.call(this);},e.prototype.destroy=function(){var e=this.events;this.handle.removeEventListener("mousedown",e.mousedown,!1),document.removeEventListener("mousemove",e.mousemove,!1),document.removeEventListener("mouseup",e.mouseup,!1),this.handle.removeEventListener("touchstart",e.touchstart,!1),document.removeEventListener("touchmove",e.touchmove,!1),document.removeEventListener("touchstop",e.touchstop,!1),document.removeEventListener("touchmove",this.events.scrollFix,{passive:!1});},e}();t.default=function(e,t){return new a(e,t)};},function(e,t){function o(e,t){return function(o){return Math.min(Math.max(o,e),t)}}function n(e){return "relative"===window.getComputedStyle(e).position}function s(){return window.requestAnimationFrame?function(e){var t=e||i;return function(e,o,n){window.requestAnimationFrame(function(){t(e,o,n);});}}:function(e){return function(t,o,n){var s=e||i;s(t,o,n);}}}function i(e,t,o){e.style.left=t+"px",e.style.top=o+"px";}Object.defineProperty(t,"__esModule",{value:!0}),t.generateClamp=o,t.isRelative=n,t.generateMoveFn=s;},function(e,t){function o(e){var t=this.opts;if(t.highlightInputs){var o=e.target.tagName.toLowerCase();if("input"===o||"textarea"===o)return}if(!t.ignoreFn||!t.ignoreFn(e)){if(0===e.button){var s=this.el,i=this.events;"function"==typeof t.onMouseDown&&t.onMouseDown(s,e);var u=e.clientX-s.offsetLeft,r=e.clientY-s.offsetTop;i.mousemove=n.bind(this,u,r),document.addEventListener("mousemove",i.mousemove,!1),document.addEventListener("mouseup",i.mouseup,!1);}e.preventDefault();}}function n(e,t,o){var n=this.el,s=this.opts,i=this.data;"function"==typeof s.onMouseMove&&s.onMouseMove(n,o);var u=o.clientX-e,r=o.clientY-t;return s.constrain&&(u=i.xClamp(u),r=i.yClamp(r)),this.handleMove(n,u,r),o.preventDefault(),!1}function s(e){var t=this.el,o=this.opts,n=this.events;"function"==typeof o.onMouseUp&&o.onMouseUp(t,e),document.removeEventListener("mouseup",n.mouseup,!1),document.removeEventListener("mousemove",n.mousemove,!1);}function i(e){var t=this.opts;if(t.highlightInputs){var o=e.target.tagName.toLowerCase();if("input"===o||"textarea"===o)return}if(!t.ignoreFn||!t.ignoreFn(e)){var n=this.el,s=this.events;"function"==typeof t.onTouchStart&&t.onTouchStart(n,e);var i=e.targetTouches[0],r=i.clientX-n.offsetLeft,c=i.clientY-n.offsetTop;s.touchmove=u.bind(this,r,c),this.isDragging=!0,document.addEventListener("touchmove",s.touchmove,!1),document.addEventListener("touchend",s.touchstop,!1),document.addEventListener("touchcancel",s.touchstop,!1);}}function u(e,t,o){var n=this.el,s=this.opts,i=this.data;"function"==typeof s.onTouchMove&&s.onTouchMove(n,o);var u=o.targetTouches[0],r=u.clientX-e,c=u.clientY-t;return s.constrain&&(r=i.xClamp(r),c=i.yClamp(c)),this.handleMove(n,r,c),o.preventDefault(),!1}function r(e){this.isDragging=!1;var t=this.el,o=this.opts,n=this.events;"function"==typeof o.onTouchStop&&o.onTouchStop(t,e),document.removeEventListener("touchmove",n.touchmove,!1),document.removeEventListener("touchend",n.touchstop,!1),document.removeEventListener("touchcancel",n.touchstop,!1);}Object.defineProperty(t,"__esModule",{value:!0}),t.mousedown=o,t.mousemove=n,t.mouseup=s,t.touchstart=i,t.touchmove=u,t.touchstop=r;}])});
   });
 
-  var displace = /*@__PURE__*/unwrapExports(displace_min);
-
   /**
    * Waits for an element satisfying selector to exist, then resolves promise with the element.
    * Useful for resolving race conditions.
@@ -8687,6 +8681,17 @@
         if (nodeMap) {
           nodeMap.parentNode.removeChild(nodeMap);
         }
+      }
+    }
+  }, {
+    name: 'geekbench',
+    url: /^https?:\/\/browser\.geekbench\.com/i,
+    nextLink: "//li[contains(@class,'page-item next next_page')]/a",
+    autopager: {
+      pageElement: "//div[@class='row']/div[@class='col-12 list-col']",
+      sepdivDom: function sepdivDom(_doc, sepdiv) {
+        sepdiv.className += ' col-12 list-col';
+        return sepdiv;
       }
     }
   }, {
@@ -10903,7 +10908,11 @@
             var exElementHeight = 0;
 
             if (SSS.a_excludeElement != undefined) {
-              exElementHeight = getLastElement(SSS.a_excludeElement, _cplink).offsetHeight;
+              var exElementNode = getLastElement(SSS.a_excludeElement, _cplink);
+
+              if (exElementNode !== null) {
+                exElementHeight = exElementNode.offsetHeight;
+              }
             }
 
             return (scrollH - scrolly - windowHeight - exElementHeight) / windowHeight; // 剩余高度于页面总高度的比例.
@@ -11486,7 +11495,7 @@
           logger.debug("[Super-preloader]", 'Creating a floating window');
           floatWindow(SSS);
           var floatWindowWidth = getFloatWindowWith();
-          var d = displace(document.getElementById('sp-fw-container'), {
+          var d = displace_min(document.getElementById('sp-fw-container'), {
             handle: document.getElementById('sp-fw-rect'),
             customMove: function customMove(el, x, y) {
               delete el.style.left;
