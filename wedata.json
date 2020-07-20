@@ -1,5 +1,49 @@
 [
 {
+  "resource_url": "http://wedata.net/items/85417",
+  "data": {
+    "pageElement": "id(\"main\")/article",
+    "nextLink": "//a[@class=\"next page-numbers\"]",
+    "url": "^https://(www\\.)?wwdjapan\\.com/category/(.+)?",
+    "exampleUrl": "https://www.wwdjapan.com/category/news"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "kenzou_ogawa",
+  "name": "WWD JAPAN category",
+  "created_at": "2020-07-20T18:47:41+09:00",
+  "updated_at": "2020-07-20T18:47:49+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85416",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "id('blog')/div[@class='entrylist']",
+    "nextLink": "//span[@aria-current='page']/following-sibling::a[1][@href]",
+    "url": "^https?://yaraon-blog\\.com/",
+    "exampleUrl": "http://yaraon-blog.com/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "replobfuscator",
+  "name": "やらおん！ | アニメ・漫画ラノベ・ゲームまとめサイト",
+  "created_at": "2020-07-17T23:14:01+09:00",
+  "updated_at": "2020-07-17T23:14:01+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85415",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//div[@class=\"mainWrap\"]/*[not(@id=\"nextPage\" or @id=\"pager\")]",
+    "nextLink": "id(\"nextPage\")/a",
+    "url": "^https?://www\\.fujitv\\.co\\.jp/sports/skate/figure/utako/",
+    "exampleUrl": "https://www.fujitv.co.jp/sports/skate/figure/utako/utako_50_1.html"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "brib2",
+  "name": "歌子の部屋 (フジテレビ フジスケ)",
+  "created_at": "2020-07-17T22:52:58+09:00",
+  "updated_at": "2020-07-17T22:52:58+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/85414",
   "data": {
     "insertBefore": "",
@@ -919,19 +963,19 @@
   "created_by": "replobfuscator"
 },
 {
-  "resource_url": "http://wedata.net/items/85337",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "created_at": "2020-05-14T14:56:20+09:00",
   "data": {
-    "insertBefore": "",
-    "pageElement": "id(\"main\")/article",
-    "exampleUrl": "https://www.wwdjapan.com/",
-    "nextLink": "//a[@class=\"next page-numbers\"]",
-    "url": "^https://www\\.wwdjapan\\.com/"
+    "pageElement": "//div[@class=\"gate-box\"]",
+    "comment": "This is a dummy code for 400.",
+    "nextLink": "id(\"other-menu\")/li[1]/a",
+    "url": "^https://(www\\.)?wwdjapan\\.com/(?!category)",
+    "exampleUrl": "https://www.wwdjapan.com/ https://www.wwdjapan.com/articles/1101373"
   },
-  "updated_at": "2020-05-14T14:56:20+09:00",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "kenzou_ogawa",
+  "resource_url": "http://wedata.net/items/85337",
   "name": "WWD JAPAN",
-  "created_by": "kenzou_ogawa"
+  "created_at": "2020-05-14T14:56:20+09:00",
+  "updated_at": "2020-07-20T18:42:04+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/85336",
@@ -7601,17 +7645,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/81546",
-  "name": "yomidr.yomiuri.co.jp",
-  "created_by": "japanasia",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-09-21T13:21:51+09:00",
   "data": {
-    "exampleUrl": "https://yomidr.yomiuri.co.jp/article/20160401-OYTET50022/?from=dyartcl_outbrain1",
-    "url": "^https://yomidr\\.yomiuri\\.co\\.jp/(article)/.+/.+",
-    "pageElement": "//*[@id=\"primary\"]/div[1]/article/div[1]",
-    "nextLink": "//*[@id=\"primary\"]/div[1]/article/div[2]/ul/li/a"
+    "pageElement": "//div[@class=\"edit-area\"] | //div[@class=\"articles-thumbList-btop underline\"]/article",
+    "nextLink": "//li[@class=\"button-right\"]/a",
+    "url": "^https?://yomidr\\.yomiuri\\.co\\.jp/",
+    "exampleUrl": "https://yomidr.yomiuri.co.jp/article/20160401-OYTET50022/\r\nhttps://yomidr.yomiuri.co.jp/column/iwaken/\r\n"
   },
-  "created_at": "2017-09-20T16:34:28+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "japanasia",
+  "name": "yomiDr./ヨミドクター（読売新聞）",
+  "created_at": "2017-09-20T16:34:28+09:00",
+  "updated_at": "2020-07-17T23:45:42+09:00"
 },
 {
   "name": "Aging Style",
@@ -8351,17 +8395,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/81376",
-  "name": "NyaaPantsu",
-  "created_by": "x5a",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-06-25T23:08:11+09:00",
   "data": {
-    "exampleUrl": "https://nyaa.pantsu.cat/ https://sukebei.nyoo.moe",
-    "url": "^https?://(?:sukebei|nyaa)\\.(?:pantsu|nyoo)\\.(?:cat|moe)/",
-    "pageElement": "id('content')/div[contains(@class, 'content')]/div[contains(@class, 'results')]/table/tbody/tr[contains(concat(' ',normalize-space(@class), ' '), ' torrent-info ')]",
-    "nextLink": "id('page-next')"
+    "pageElement": "id('torrentListResults')/tr[starts-with(@id, 'torrent_')]",
+    "nextLink": "//a[span/@class='active']/following-sibling::a[1]",
+    "url": "^https://nyaa\\.net/",
+    "exampleUrl": "https://nyaa.net/"
   },
-  "created_at": "2017-05-16T08:10:10+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "x5a",
+  "name": "NyaaPantsu",
+  "created_at": "2017-05-16T08:10:10+09:00",
+  "updated_at": "2020-07-19T19:23:19+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/81375",
@@ -8615,20 +8659,6 @@
     "nextLink": "//a[contains(.,\"→\")]"
   },
   "created_at": "2017-04-26T17:52:06+09:00"
-},
-{
-  "resource_url": "http://wedata.net/items/81291",
-  "name": "エロ漫画 − いやえろ",
-  "created_by": "kr28st",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-04-23T13:52:35+09:00",
-  "data": {
-    "exampleUrl": "http://iyashieromanga.com/page/2",
-    "url": "^https?://(syuuchisoku|iyashieromanga)\\.com",
-    "pageElement": "//div[@class='entry-wrap']",
-    "nextLink": "//a[@rel='next']"
-  },
-  "created_at": "2017-04-23T04:55:49+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/81286",
@@ -10230,16 +10260,16 @@
 {
   "resource_url": "http://wedata.net/items/81009",
   "data": {
-    "pageElement": "id('category-box-list')//ul|id('list_features_lazyload')/ul",
-    "nextLink": "//div[contains(@class,\"pagination\") and contains(@class,\"section\")]/a[@class=\"next\"]",
+    "pageElement": "id(\"contents_body\")//ul[.//a//img]",
+    "nextLink": "//a[@class='next']",
     "url": "^https://mikiki\\.tokyo\\.jp/.+",
-    "exampleUrl": "https://mikiki.tokyo.jp/category/topics\r\nhttps://mikiki.tokyo.jp/category/feature"
+    "exampleUrl": "https://mikiki.tokyo.jp/category/topics\r\nhttps://mikiki.tokyo.jp/category/feature\r\nhttps://mikiki.tokyo.jp/category/review/JAPAN"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "meltingpots",
   "name": "mikiki",
   "created_at": "2016-10-12T21:25:57+09:00",
-  "updated_at": "2020-06-21T13:47:10+09:00"
+  "updated_at": "2020-07-19T10:07:49+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/81007",
@@ -18919,17 +18949,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/76326",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "name": "大炎上",
-  "created_by": "kd_ty_zi",
-  "updated_at": "2017-06-15T08:10:11+09:00",
   "data": {
-    "exampleUrl": "http://beatarai.blog90.fc2.com/",
-    "url": "^https?://beatarai\\.blog90\\.fc2\\.com/",
     "pageElement": "id('mainBlock')/div[@class='mainEntryBlock'][count(./div)>2]",
-    "nextLink": "id('siteinfo-legal')/a[last()][not(@href='http://beatarai.blog90.fc2.com/')]"
+    "nextLink": "id('siteinfo-legal')/a[last()][not(@href='http://beatarai.blog90.fc2.com/')]",
+    "url": "^https?://beatarai\\.blog90\\.fc2\\.com/(this_string_is_required_to_exceed_628:)?",
+    "exampleUrl": "http://beatarai.blog90.fc2.com/"
   },
-  "created_at": "2014-09-14T06:53:31+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "kd_ty_zi",
+  "name": "大炎上",
+  "created_at": "2014-09-14T06:53:31+09:00",
+  "updated_at": "2020-07-19T19:15:11+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/76325",
@@ -36638,16 +36668,16 @@
 {
   "resource_url": "http://wedata.net/items/32485",
   "data": {
-    "pageElement": "id(\"videoCategory\") | \r\nid(\"videoSearchResult\") | \r\nid(\"mostRecentVideosSection\") | \r\nid(\"photosAlbumsSection\") | \r\nid(\"claimedRecentVideoSection\") |\r\n//div[@class='recommendedVideosContainer']/ul |\r\nid(\"popularPornstars\") |\r\n//ul[contains(concat(' ', normalize-space(@class), ' '), ' streamateContent ')] |\r\nid('filterChannelsSection') |\r\nid('playListSection')",
+    "pageElement": "id(\"videoCategory\") | \r\nid(\"incategoryVideos\") | \r\nid(\"videoSearchResult\") | \r\nid(\"mostRecentVideosSection\") | \r\nid(\"photosAlbumsSection\") | \r\nid(\"claimedRecentVideoSection\") | \r\n//div[@class='recommendedVideosContainer']/ul | \r\nid(\"popularPornstars\") | \r\n//ul[contains(concat(' ', normalize-space(@class), ' '), ' streamateContent ')] | \r\nid('filterChannelsSection') | \r\nid('playListSection')",
     "nextLink": "//li[contains(concat(\" \", normalize-space(@class), \" \"), \" page_next \")]/a",
     "url": "^https://[^.]+\\.pornhub\\.com/(?!view_video\\.php).+",
-    "exampleUrl": "https://www.pornhub.com/video \r\nhttps://www.pornhub.com/video/search?search=japanese \r\nhttps://www.pornhub.com/model/kristinaslut/videos\r\nhttps://jp.pornhub.com/albums\r\nhttps://jp.pornhub.com/recommended\r\nhttps://jp.pornhub.com/pornstars\r\nhttps://jp.pornhub.com/live\r\nhttps://jp.pornhub.com/channels?o=rk\r\nhttps://jp.pornhub.com/playlists"
+    "exampleUrl": "https://www.pornhub.com/video \r\nhttps://www.pornhub.com/video/incategories/teen/japanese \r\nhttps://www.pornhub.com/video/search?search=japanese \r\nhttps://www.pornhub.com/model/kristinaslut/videos\r\nhttps://jp.pornhub.com/albums\r\nhttps://jp.pornhub.com/recommended\r\nhttps://jp.pornhub.com/pornstars\r\nhttps://jp.pornhub.com/live\r\nhttps://jp.pornhub.com/channels?o=rk\r\nhttps://jp.pornhub.com/playlists"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "toshi",
   "name": "Pornhub.com",
   "created_at": "2010-05-10T14:45:37+09:00",
-  "updated_at": "2020-07-01T18:19:22+09:00"
+  "updated_at": "2020-07-17T16:58:27+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/32482",
@@ -42263,17 +42293,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/26587",
-  "name": "小説家になろう",
-  "created_by": "gede99",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-02-04T10:09:36+09:00",
   "data": {
-    "exampleUrl": "http://ncode.syosetu.com/n2251cd/29/\r\nhttps://ncode.syosetu.com/n2267be/1/",
+    "pageElement": "id(\"novel_honbun novel_a\")[not(./following-sibling::div[@class=\"novel_bn\"])]|//div[@class=\"novel_bn\"]/following-sibling::*[./following-sibling::div[@class=\"novel_bn\"]]",
+    "nextLink": "//a[@rel=\"next\"]|//div[@class=\"novel_bn\"][1][count(./a)>1 or ./a[contains(@href,\"/2/\")]]/a[last()]",
     "url": "^(https?://web\\.archive\\.org/web/\\d+/)*(?:https?://)?(?:mnlt|n(?:code|ovel18))\\.syosetu\\.com/",
-    "pageElement": "//div[@class=\"novel_bn\"]/following-sibling::*[./following-sibling::div[@class=\"novel_bn\"]]",
-    "nextLink": "//div[@class=\"novel_bn\"][1][count(./a)>1 or ./a[contains(@href,\"/2/\")]]/a[last()]"
+    "exampleUrl": "http://ncode.syosetu.com/n2251cd/29/\r\nhttps://ncode.syosetu.com/n2267be/1/"
   },
-  "created_at": "2009-01-06T20:46:03+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "gede99",
+  "name": "小説家になろう",
+  "created_at": "2009-01-06T20:46:03+09:00",
+  "updated_at": "2020-07-19T15:31:29+09:00"
 },
 {
   "name": "\u4eba\u5de5\u7121\u80fd\u3067\u30b1\u30fc\u30bf\u30a4\u5c0f\u8aac\uff1a\u3042\u305f\u3057\u30de\u30eb\u30b3\u30d5 by yamagata21",
