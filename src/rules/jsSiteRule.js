@@ -1174,7 +1174,7 @@ export const jsSiteRule = [
   },
   {
     name: 'xkcd',
-    url: '^https?://(?:www.)?xkcd.com',
+    url: '^https?://(?:www\\.)?xkcd\\.com',
     nextLink: function (doc, _win, cplink) {
       const m = cplink.match(/\d+/);
       if (!m) {
@@ -1189,7 +1189,7 @@ export const jsSiteRule = [
   },
   {
     name: 'javdb.com',
-    url: 'https?://javdb.com',
+    url: 'https?://javdb\\.com',
     nextLink: "//li[a[contains(@class,'is-current')]]/following-sibling::li[1]/a",
     pageElement: "//div[@class='grid columns']",
     documentFilter: function (doc, _nextLink) {
@@ -1201,10 +1201,11 @@ export const jsSiteRule = [
     }
   },
   {
-    name: 'avgle.com/videos',
-    url: '(avgle.com/videos.*)|(avgle.com/search/video.*)',
+    name: 'avgle.com/users/videos',
+    url: '^https?://avgle\\.com/user/\\w+/videos.*',
     nextLink: 'css;.pagination li:last-child .prevnext',
-    pageElement: 'css;.container .row .row',
+    pageElement: '//div[div[contains(@id,"video")] and @class="row"]',
+    exampleUrl: 'https://avgle.com/user/dksc/videos',
     filter: function (elems) {
       for (const elem of elems) {
         for (const img of elem.querySelectorAll('img')) {
@@ -1216,10 +1217,10 @@ export const jsSiteRule = [
     }
   },
   {
-    name: 'avgle.com/users/videos',
-    url: 'avgle.com/user/[a-zA-Z0-9]+/videos.*',
+    name: 'avgle.com',
+    url: '^https?://avgle\\.com',
     nextLink: 'css;.pagination li:last-child .prevnext',
-    pageElement: 'css;.container .col-md-8 .panel .panel-body .row',
+    pageElement: 'css;.container .row .row',
     filter: function (elems) {
       for (const elem of elems) {
         for (const img of elem.querySelectorAll('img')) {
