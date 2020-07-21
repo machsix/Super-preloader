@@ -1199,6 +1199,36 @@ export const jsSiteRule = [
       const grid = doc.querySelector('.grid.columns');
       grid.setAttribute('style', `display: grid; grid-template-columns: repeat( auto-fit, ${width}px);justify-content: center;`);
     }
+  },
+  {
+    name: 'avgle.com/videos',
+    url: '(avgle.com/videos.*)|(avgle.com/search/video.*)',
+    nextLink: 'css;.pagination li:last-child .prevnext',
+    pageElement: 'css;.container .row .row',
+    filter: function (elems) {
+      for (const elem of elems) {
+        for (const img of elem.querySelectorAll('img')) {
+          if (!img.getAttribute('data-original')) {
+            img.setAttribute('data-original', img.src);
+          }
+        }
+      }
+    }
+  },
+  {
+    name: 'avgle.com/users/videos',
+    url: 'avgle.com/user/[a-zA-Z0-9]+/videos.*',
+    nextLink: 'css;.pagination li:last-child .prevnext',
+    pageElement: 'css;.container .col-md-8 .panel .panel-body .row',
+    filter: function (elems) {
+      for (const elem of elems) {
+        for (const img of elem.querySelectorAll('img')) {
+          if (!img.getAttribute('data-original')) {
+            img.setAttribute('data-original', img.src);
+          }
+        }
+      }
+    }
   }
 ];
 
