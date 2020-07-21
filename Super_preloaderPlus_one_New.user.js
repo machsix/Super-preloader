@@ -9,9 +9,9 @@
 // @author       Mach6
 // @contributers alexolog, heroboy, suchunchen, YFdyh000
 // @thanksto     ywzhaiqi, NLF
-// @version      6.13.23
+// @version      6.14.0
 // @license      GPL-3.0
-// @update       2020/7/20
+// @update       2020/7/21
 // @homepageURL  https://github.com/machsix/Super-preloader
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
 // @contributionURL https://ko-fi.com/machsix
@@ -3748,7 +3748,7 @@
     }
   }
 
-  var name="super-preloader";var version="6.13.23";var description="Super-preloader";var main="dist/Super_preloaderPlus_one_New.user.js";var author="Mach6";var license="GPL-3.0";var bugs={url:"https://github.com/machsix/Super-preloader/issues"};var homepage="https://github.com/machsix/Super-preloader";var directories={doc:"docs"};var repository={type:"git",url:"git+https://github.com/machsix/Super-preloader.git"};var scripts={lint:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.js\"",format:"prettier --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"","format:check":"prettier --check \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"","format:staged":"pretty-quick --verbose --staged --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"",check:"npm run lint && npm run typecheck && npm run format:staged",test:"cd test && node test.js",dev:"rollup -c --dev -w",build:"rollup -c","docs:dev":"vuepress dev docs","docs:build":"vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh",preversion:"npm run check",version:"npm run build  && git add dist/*.js && git add dist/*.json",postversion:"git add package.json package-lock.json && npm run test","publish:patch":"npm --no-git-tag-version version patch",publish:"npm --no-git-tag-version version minor",typecheck:"tsc -p jsconfig.json --noEmit"};var husky={hooks:{"pre-commit":"npm run check"}};var keywords=["userscript"];var devDependencies={"@vuepress/plugin-back-to-top":"1.5.2","@vuepress/plugin-google-analytics":"1.5.2","@vuepress/plugin-pwa":"1.5.2",typescript:"^3.9.7",vuepress:"1.5.2"};var dependencies={"@babel/core":"7.10.5","@babel/plugin-transform-runtime":"7.10.5","@babel/preset-env":"7.10.4","@rollup/plugin-babel":"5.1.0","@rollup/plugin-commonjs":"14.0.0","@rollup/plugin-json":"4.1.0","@rollup/plugin-node-resolve":"8.4.0","@types/greasemonkey":"4.0.0","@types/lodash":"4.14.157","babel-plugin-lodash":"3.3.4","babel-plugin-wildcard":"6.0.0","compare-versions":"3.6.0",displacejs:"1.4.1",eslint:"7.5.0","eslint-config-prettier":"6.11.0","eslint-plugin-json":"2.1.1","eslint-plugin-prettier":"3.1.4","extract-zip":"2.0.1",got:"11.5.1",husky:"4.2.5",lodash:"4.17.19",loglevel:"1.6.8",prettier:"2.0.5","pretty-quick":"2.0.1",puppeteer:"2.1.0",rollup:"2.22.1","rollup-plugin-banner":"git+https://git@github.com/machsix/rollup-plugin-banner.git#v0.2.2","rollup-plugin-dev":"1.1.2","rollup-plugin-ejs":"2.2.0","rollup-plugin-re":"1.0.7","rollup-plugin-scss-string":"0.1.0",yargs:"15.4.1"};var pkg = {name:name,version:version,description:description,main:main,author:author,license:license,bugs:bugs,homepage:homepage,directories:directories,repository:repository,scripts:scripts,husky:husky,keywords:keywords,devDependencies:devDependencies,dependencies:dependencies};
+  var name="super-preloader";var version="6.14.0";var description="Super-preloader";var main="dist/Super_preloaderPlus_one_New.user.js";var author="Mach6";var license="GPL-3.0";var bugs={url:"https://github.com/machsix/Super-preloader/issues"};var homepage="https://github.com/machsix/Super-preloader";var directories={doc:"docs"};var repository={type:"git",url:"git+https://github.com/machsix/Super-preloader.git"};var scripts={lint:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.js\"",format:"prettier --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"","format:check":"prettier --check \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"","format:staged":"pretty-quick --verbose --staged --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"",check:"npm run lint && npm run typecheck && npm run format:staged",test:"cd test && node test.js",dev:"rollup -c --dev -w",build:"rollup -c","docs:dev":"vuepress dev docs","docs:build":"vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh",preversion:"npm run check",version:"npm run build  && git add dist/*.js && git add dist/*.json",postversion:"git add package.json package-lock.json && npm run test","publish:patch":"npm --no-git-tag-version version patch",publish:"npm --no-git-tag-version version minor",typecheck:"tsc -p jsconfig.json --noEmit"};var husky={hooks:{"pre-commit":"npm run check"}};var keywords=["userscript"];var devDependencies={"@vuepress/plugin-back-to-top":"1.5.2","@vuepress/plugin-google-analytics":"1.5.2","@vuepress/plugin-pwa":"1.5.2",typescript:"^3.9.7",vuepress:"1.5.2"};var dependencies={"@babel/core":"7.10.5","@babel/plugin-transform-runtime":"7.10.5","@babel/preset-env":"7.10.4","@rollup/plugin-babel":"5.1.0","@rollup/plugin-commonjs":"14.0.0","@rollup/plugin-json":"4.1.0","@rollup/plugin-node-resolve":"8.4.0","@types/greasemonkey":"4.0.0","@types/lodash":"4.14.157","babel-plugin-lodash":"3.3.4","babel-plugin-wildcard":"6.0.0","compare-versions":"3.6.0",displacejs:"1.4.1",eslint:"7.5.0","eslint-config-prettier":"6.11.0","eslint-plugin-json":"2.1.1","eslint-plugin-prettier":"3.1.4","extract-zip":"2.0.1",got:"11.5.1",husky:"4.2.5",lodash:"4.17.19",loglevel:"1.6.8",prettier:"2.0.5","pretty-quick":"2.0.1",puppeteer:"2.1.0",rollup:"2.22.1","rollup-plugin-banner":"git+https://git@github.com/machsix/rollup-plugin-banner.git#v0.2.2","rollup-plugin-dev":"1.1.2","rollup-plugin-ejs":"2.2.0","rollup-plugin-re":"1.0.7","rollup-plugin-scss-string":"0.1.0",yargs:"15.4.1"};var pkg = {name:name,version:version,description:description,main:main,author:author,license:license,bugs:bugs,homepage:homepage,directories:directories,repository:repository,scripts:scripts,husky:husky,keywords:keywords,devDependencies:devDependencies,dependencies:dependencies};
 
   // Information of script
 
@@ -4168,7 +4168,7 @@
     return result;
   }
   /**
-   *
+   * Get all elements matching the selector
    * @param {ISelectorFunction} selector css selector or xpath selector
    * @param {Element|Document|DocumentFragment} contextNode contextNode specifies the context node for the query (see the XPath specification). It's common to pass document as the context node.
    * @param {Document} doc the document to select from
@@ -4205,21 +4205,35 @@
     }
   }
   /**
-   *
-   * @param {ISelectorFunction} selector selector
-   * @param {string=} _cplink _cplink
-   * @param {HTMLElement=} contextNode contextNode
-   * @param {HTMLDocument=} doc doc
-   * @param {Window=} win win
-   * @returns {HTMLElement} Last dom element
+   * Get all elements matching the selector
+   * Some bad xpath like
+   * （1）//div[@id='content']/p
+   * （2） id('content')
+   * will only return the p element under the first div matching the id.
+   * The script can result in multiple div with the same id
+   * This function handles such kind of condition
+   * @param {ISelectorFunction} selector css selector or xpath selector
+   * @param {Element|Document|DocumentFragment} contextNode contextNode specifies the context node for the query (see the XPath specification). It's common to pass document as the context node.
+   * @param {Document} doc the document to select from
+   * @param {Window} win window of the browser
+   * @param {string} _cplink current page link
+   * @returns {HTMLElement[]} an array of nodes
    */
 
-  function getLastElement(selector, _cplink, contextNode, doc, win) {
+  function getAllElementsDuplicate(selector) {
+    var contextNode = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : undefined;
+    var doc = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : document;
+    var win = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : window;
+
+    var _cplink = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : undefined;
+
     var firstElems = [];
 
     if (typeof selector === 'string') {
       if (selector.search(/^css;/i) !== 0) {
-        // prevent xpath like `//div[2]`
+        // replace all id('x') by //*[@id='x']
+        selector = selector.replace(/^id\((.*)\)/g, '//*[@id=$1]'); // prevent xpath like `//div[2]`
+
         var strippedSelector = /(.*\w+)\[\d+\]$/.exec(selector);
 
         if (strippedSelector) {
@@ -4256,10 +4270,26 @@
       eles = elems;
     }
 
-    var l = eles.length;
+    return eles;
+  }
+  /**
+   * Get the last visible element matching the given selector
+   * @param {ISelectorFunction} selector selector
+   * @param {string=} _cplink _cplink
+   * @param {HTMLElement=} contextNode contextNode
+   * @param {HTMLDocument=} doc doc
+   * @param {Window=} win win
+   * @returns {HTMLElement} Last dom element
+   */
 
-    if (l > 0) {
-      return eles[l - 1];
+  function getLastVisibleElement(selector, _cplink, contextNode, doc, win) {
+    var eles = getAllElementsDuplicate(selector, contextNode, doc, win, _cplink);
+    eles = eles.filter(function (e) {
+      return e.offsetParent !== null;
+    });
+
+    if (eles.length > 0) {
+      return eles[eles.length - 1];
     } else {
       return null;
     }
@@ -9232,7 +9262,7 @@
     }
   }, {
     name: 'xkcd',
-    url: '^https?://(?:www.)?xkcd.com',
+    url: '^https?://(?:www\\.)?xkcd\\.com',
     nextLink: function nextLink(doc, _win, cplink) {
       var m = cplink.match(/\d+/);
 
@@ -9247,7 +9277,7 @@
     pageElement: 'id("middleContainer")'
   }, {
     name: 'javdb.com',
-    url: 'https?://javdb.com',
+    url: 'https?://javdb\\.com',
     nextLink: "//li[a[contains(@class,'is-current')]]/following-sibling::li[1]/a",
     pageElement: "//div[@class='grid columns']",
     documentFilter: function documentFilter(doc, _nextLink) {
@@ -9256,6 +9286,79 @@
       var width = item.offsetLeft || 168;
       var grid = doc.querySelector('.grid.columns');
       grid.setAttribute('style', `display: grid; grid-template-columns: repeat( auto-fit, ${width}px);justify-content: center;`);
+    }
+  }, {
+    name: 'avgle.com/users/videos',
+    url: '^https?://avgle\\.com/user/\\w+/videos.*',
+    nextLink: 'css;.pagination li:last-child .prevnext',
+    pageElement: '//div[div[contains(@id,"video")] and @class="row"]',
+    exampleUrl: 'https://avgle.com/user/dksc/videos',
+    filter: function filter(elems) {
+      var _iterator4 = _createForOfIteratorHelper$1(elems),
+          _step4;
+
+      try {
+        for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
+          var elem = _step4.value;
+
+          var _iterator5 = _createForOfIteratorHelper$1(elem.querySelectorAll('img')),
+              _step5;
+
+          try {
+            for (_iterator5.s(); !(_step5 = _iterator5.n()).done;) {
+              var img = _step5.value;
+
+              if (!img.getAttribute('data-original')) {
+                img.setAttribute('data-original', img.src);
+              }
+            }
+          } catch (err) {
+            _iterator5.e(err);
+          } finally {
+            _iterator5.f();
+          }
+        }
+      } catch (err) {
+        _iterator4.e(err);
+      } finally {
+        _iterator4.f();
+      }
+    }
+  }, {
+    name: 'avgle.com',
+    url: '^https?://avgle\\.com',
+    nextLink: 'css;.pagination li:last-child .prevnext',
+    pageElement: 'css;.container .row .row',
+    filter: function filter(elems) {
+      var _iterator6 = _createForOfIteratorHelper$1(elems),
+          _step6;
+
+      try {
+        for (_iterator6.s(); !(_step6 = _iterator6.n()).done;) {
+          var elem = _step6.value;
+
+          var _iterator7 = _createForOfIteratorHelper$1(elem.querySelectorAll('img')),
+              _step7;
+
+          try {
+            for (_iterator7.s(); !(_step7 = _iterator7.n()).done;) {
+              var img = _step7.value;
+
+              if (!img.getAttribute('data-original')) {
+                img.setAttribute('data-original', img.src);
+              }
+            }
+          } catch (err) {
+            _iterator7.e(err);
+          } finally {
+            _iterator7.f();
+          }
+        }
+      } catch (err) {
+        _iterator6.e(err);
+      } finally {
+        _iterator6.f();
+      }
     }
   }];
 
@@ -10903,12 +11006,12 @@
             var scrolly = window.scrollY;
             var windowHeight = window.innerHeight;
             var domHeight = document.body.clientHeight;
-            var obj = getLastElement(relatedObj_0, _cplink);
+            var obj = getLastVisibleElement(relatedObj_0, _cplink);
             var scrollH = obj && obj.nodeType == 1 ? obj.getBoundingClientRect()[relatedObj_1] + scrolly : Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
             var exElementHeight = 0;
 
             if (SSS.a_excludeElement != undefined) {
-              var exElementNode = getLastElement(SSS.a_excludeElement, _cplink);
+              var exElementNode = getLastVisibleElement(SSS.a_excludeElement, _cplink);
 
               if (exElementNode !== null) {
                 exElementHeight = exElementNode.offsetHeight;
