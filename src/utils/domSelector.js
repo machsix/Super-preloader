@@ -62,7 +62,7 @@ export function getAllElementsByXpath(xpath, contextNode, doc = document) {
 }
 
 /**
- *
+ * Get all elements matching the selector
  * @param {ISelectorFunction} selector css selector or xpath selector
  * @param {Element|Document|DocumentFragment} contextNode contextNode specifies the context node for the query (see the XPath specification). It's common to pass document as the context node.
  * @param {Document} doc the document to select from
@@ -91,18 +91,26 @@ export function getAllElements(selector, contextNode = undefined, doc = document
 }
 
 /**
- *
- * @param {ISelectorFunction} selector selector
- * @param {string=} _cplink _cplink
- * @param {HTMLElement=} contextNode contextNode
- * @param {HTMLDocument=} doc doc
- * @param {Window=} win win
- * @returns {HTMLElement} Last dom element
+ * Get all elements matching the selector
+ * Some bad xpath like
+ * （1）//div[@id='content']/p
+ * （2） id('content')
+ * will only return the p element under the first div matching the id.
+ * The script can result in multiple div with the same id
+ * This function handles such kind of condition
+ * @param {ISelectorFunction} selector css selector or xpath selector
+ * @param {Element|Document|DocumentFragment} contextNode contextNode specifies the context node for the query (see the XPath specification). It's common to pass document as the context node.
+ * @param {Document} doc the document to select from
+ * @param {Window} win window of the browser
+ * @param {string} _cplink current page link
+ * @returns {HTMLElement[]} an array of nodes
  */
-export function getLastElement(selector, _cplink, contextNode, doc, win) {
+function getAllElementsDuplicate(selector, contextNode = undefined, doc = document, win = window, _cplink = undefined) {
   let firstElems = [];
   if (typeof selector === 'string') {
     if (selector.search(/^css;/i) !== 0) {
+      // replace all id('x') by //*[@id='x']
+      selector = selector.replace(/^id\((.*)\)/g, '//*[@id=$1]');
       // prevent xpath like `//div[2]`
       const strippedSelector = /(.*\w+)\[\d+\]$/.exec(selector);
       if (strippedSelector) {
@@ -131,9 +139,41 @@ export function getLastElement(selector, _cplink, contextNode, doc, win) {
   } else {
     eles = elems;
   }
-  const l = eles.length;
-  if (l > 0) {
-    return eles[l - 1];
+  return eles;
+}
+
+/**
+ * Get the last element matching the given selector
+ * @param {ISelectorFunction} selector selector
+ * @param {string=} _cplink _cplink
+ * @param {HTMLElement=} contextNode contextNode
+ * @param {HTMLDocument=} doc doc
+ * @param {Window=} win win
+ * @returns {HTMLElement} Last dom element
+ */
+export function getLastElement(selector, _cplink, contextNode, doc, win) {
+  const eles = getAllElementsDuplicate(selector, contextNode, doc, win, _cplink);
+  if (eles.length > 0) {
+    return eles[eles.length - 1];
+  } else {
+    return null;
+  }
+}
+
+/**
+ * Get the last visible element matching the given selector
+ * @param {ISelectorFunction} selector selector
+ * @param {string=} _cplink _cplink
+ * @param {HTMLElement=} contextNode contextNode
+ * @param {HTMLDocument=} doc doc
+ * @param {Window=} win win
+ * @returns {HTMLElement} Last dom element
+ */
+export function getLastVisibleElement(selector, _cplink, contextNode, doc, win) {
+  let eles = getAllElementsDuplicate(selector, contextNode, doc, win, _cplink);
+  eles = eles.filter((e) => e.offsetParent !== null);
+  if (eles.length > 0) {
+    return eles[eles.length - 1];
   } else {
     return null;
   }

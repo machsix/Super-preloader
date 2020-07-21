@@ -11,7 +11,7 @@ import {BROWSER, SCRIPT_MANAGER} from './utils/detect';
 import {NOTIFICATION, SCRIPT_INFO} from './meta';
 import {Tween, TweenEase, TweenM} from './utils/tween';
 import {createDOM, getProperty, setProperty} from './utils/domTools';
-import {getAllElements, getAllElementsByXpath, getElementByCSS, getElementByXpath, getLastElement} from './utils/domSelector';
+import {getAllElements, getAllElementsByXpath, getElementByCSS, getElementByXpath, getLastVisibleElement} from './utils/domSelector';
 import {loadLocalSetting, loadSettings, resetSettings, saveLocalSetting, saveSettings} from './utils/init';
 import {setLang, template, userLang} from './locale/locale';
 import {toRE, wildcardToRegExpStr} from './utils/regex';
@@ -1698,11 +1698,11 @@ import notice from './utils/notice';
             const scrolly = window.scrollY;
             const windowHeight = window.innerHeight;
             const domHeight = document.body.clientHeight;
-            const obj = getLastElement(relatedObj_0, _cplink);
+            const obj = getLastVisibleElement(relatedObj_0, _cplink);
             const scrollH = obj && obj.nodeType == 1 ? obj.getBoundingClientRect()[relatedObj_1] + scrolly : Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
             let exElementHeight = 0;
             if (SSS.a_excludeElement != undefined) {
-              const exElementNode = getLastElement(SSS.a_excludeElement, _cplink);
+              const exElementNode = getLastVisibleElement(SSS.a_excludeElement, _cplink);
               if (exElementNode !== null) {
                 exElementHeight = exElementNode.offsetHeight;
               }
