@@ -3337,7 +3337,7 @@
   {
     "name": "github_changelog",
     "url": "^https?://github\\.com/(?:changelog|[^/]+/[^/]+/commits)",
-    "pageElement": "//*[starts-with(@class,\"commit-group\")]",
+    "pageElement": "//*[starts-with(@class,\"js-navigation-container\")]",
     "nextLink": "//a[contains(text(), \"Older\")]"
   },
   {
