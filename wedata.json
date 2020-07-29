@@ -1,5 +1,49 @@
 [
 {
+  "data": {
+    "insertBefore": "",
+    "pageElement": "id(\"searchResult\")//div[contains(@class,\"entryWrapper\")]",
+    "nextLink": "//div[@class=\"paging\"]/a[contains(text(),\"次\")]",
+    "url": "^https?://www\\.keisoshobo\\.co\\.jp/",
+    "exampleUrl": "http://www.keisoshobo.co.jp/search/g1136.html"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "brib2",
+  "resource_url": "http://wedata.net/items/85431",
+  "name": "勁草書房",
+  "created_at": "2020-07-29T23:10:50+09:00",
+  "updated_at": "2020-07-29T23:10:50+09:00"
+},
+{
+  "data": {
+    "insertBefore": "",
+    "pageElement": "id(\"grid_pref_spot\")//li",
+    "nextLink": "//div[@class=\"pagelink\"][last()][./preceding-sibling::div[contains(@class,\"pagelink\")]]/a",
+    "url": "^https://yakei\\.jp/",
+    "exampleUrl": "https://yakei.jp/japan/pref.php?p=1"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "kenzou_ogawa",
+  "resource_url": "http://wedata.net/items/85430",
+  "name": "yakei.jp",
+  "created_at": "2020-07-29T11:18:41+09:00",
+  "updated_at": "2020-07-29T11:18:41+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85429",
+  "data": {
+    "pageElement": "descendant::div[@class=\"alignItem_03\"][last()]/*",
+    "nextLink": "//a[@class=\"FS2_pager_link_next\"]",
+    "url": "^https?://www\\.musubi-online\\.com/",
+    "exampleUrl": "https://www.musubi-online.com/fs/furoshikimusubi/c/all?sort=03"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "brib2",
+  "name": "ふろしき むす美 オンライン",
+  "created_at": "2020-07-28T10:41:05+09:00",
+  "updated_at": "2020-07-28T10:55:33+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/85428",
   "data": {
     "pageElement": "//div[@class=\"c-pager-101\"]/preceding-sibling::section[1]/div",
@@ -11948,19 +11992,19 @@
   "updated_at": "2020-06-02T08:23:29+09:00"
 },
 {
-  "resource_url": "http://wedata.net/items/80568",
   "data": {
     "pageElement": "//table[@class=\"mytable1\"]//tr[./th]/following-sibling::tr|//li[@class=\"id6\"]/following-sibling::li",
     "comment": "cf.http://wedata.net/items/62424",
     "nextLink": "//a[@rel=\"next\"]|//li[@class=\"novelnb2\"][last()]/a[not(@href=\"#\")]",
     "url": "^https://syosetu\\.org/\\?mode=",
-    "exampleUrl": "https://syosetu.org/?mode=recommended_list https://syosetu.org/?mode=seek_list"
+    "exampleUrl": "https://syosetu.org/?mode=seek_list"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "est",
-  "name": "ハーメルン　推薦　捜索",
+  "resource_url": "http://wedata.net/items/80568",
+  "name": "ハーメルン　捜索",
   "created_at": "2016-03-18T09:58:05+09:00",
-  "updated_at": "2020-07-24T10:54:54+09:00"
+  "updated_at": "2020-07-29T12:29:31+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/80567",
@@ -26986,16 +27030,16 @@
 {
   "resource_url": "http://wedata.net/items/62424",
   "data": {
-    "pageElement": "//div[@class=\"section3\" or @class=\"search_box\"]|//div[@class=\"section3\"]/following-sibling::br",
+    "pageElement": "//div[@class=\"section3\" or @class=\"search_box\"]|//div[@class=\"section3\"]/following-sibling::br[not(./preceding-sibling::div[@id])]",
     "nextLink": "//a[@rel=\"next\"]|//li[@class=\"novelnb2\"][last()]/a[not(@href=\"#\")]",
     "url": "^https://((novel|search)\\.)?syosetu\\.org/",
-    "exampleUrl": "https://syosetu.org/?mode=recommended_list, https://search.syosetu.org/?mode=search&word=原作：モンスターハンター https://syosetu.org/?mode=review&nid=12"
+    "exampleUrl": "https://search.syosetu.org/?mode=search&word=原作：モンスターハンター https://syosetu.org/?mode=review&nid=12"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "doragora",
   "name": "ハーメルン",
   "created_at": "2012-07-20T20:44:43+09:00",
-  "updated_at": "2020-07-24T10:54:36+09:00"
+  "updated_at": "2020-07-29T10:56:49+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/62423",
