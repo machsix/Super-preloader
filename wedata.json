@@ -1,5 +1,79 @@
 [
 {
+  "resource_url": "http://wedata.net/items/85436",
+  "data": {
+    "pageElement": "//div[@class=\"page-links\"]/preceding-sibling::*|//footer//small[not(//div[@class=\"page-links\"])]",
+    "nextLink": "//span[@aria-current]/following-sibling::a|//a[@href=\"/privacy-policy/\"][not(//span[@aria-current])]",
+    "url": "^https://tsurinews\\.jp/\\d+",
+    "exampleUrl": "https://tsurinews.jp/93350/ https://tsurinews.jp/120306/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m_",
+  "name": "釣りニュース",
+  "created_at": "2020-08-03T12:32:23+09:00",
+  "updated_at": "2020-08-03T13:50:12+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85435",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//div[@class=\"article-edit\"] | //ul[@class=\"category-article-list\"]",
+    "nextLink": "//link[@rel=\"next\"]",
+    "url": "^https?://kakakumag\\.com/",
+    "exampleUrl": "https://kakakumag.com/av-kaden/?id=13771\r\nhttps://kakakumag.com/av-kaden/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "brib2",
+  "name": "価格.comマガジン",
+  "created_at": "2020-08-02T17:49:51+09:00",
+  "updated_at": "2020-08-02T17:49:51+09:00"
+},
+{
+  "data": {
+    "pageElement": "//*[@class=\"imgAreaShadow\" or @class=\"comment\"]",
+    "nextLink": "//div[@class=\"arrowImgNext\"]/a",
+    "url": "^https?://review\\.kakaku\\.com/review/.+/ImageID",
+    "exampleUrl": "https://review.kakaku.com/review/K0001259244/ReviewCD=1352063/ImageID=531521/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "brib2",
+  "resource_url": "http://wedata.net/items/85434",
+  "name": "kakaku.com (レビュワー投稿画像)",
+  "created_at": "2020-08-02T13:50:19+09:00",
+  "updated_at": "2020-08-02T15:22:34+09:00"
+},
+{
+  "data": {
+    "insertBefore": "",
+    "pageElement": "id(\"search_result_list\")",
+    "nextLink": "//a[@class=\"next\"]",
+    "url": "^https?://www\\.d-library\\.jp/",
+    "exampleUrl": "https://www.d-library.jp/sapporolib/g0108/newbooklist/\r\nhttps://www.d-library.jp/dnp1/g0102/libcontents/search/?ny1=&sbtn=keyword"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "brib2",
+  "resource_url": "http://wedata.net/items/85433",
+  "name": "電子図書館 (DNP)",
+  "created_at": "2020-08-02T10:53:35+09:00",
+  "updated_at": "2020-08-02T10:53:35+09:00"
+},
+{
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//div[@class=\"copyright\"]",
+    "comment": "This is a dummy code for 649.",
+    "nextLink": "//div[@class=\"logo\"]/a",
+    "url": "^https://career\\.joi\\.media/category/",
+    "exampleUrl": "https://career.joi.media/category/covid19/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "kenzou_ogawa",
+  "resource_url": "http://wedata.net/items/85432",
+  "name": "ジョイキャリア",
+  "created_at": "2020-08-01T12:06:38+09:00",
+  "updated_at": "2020-08-01T12:06:38+09:00"
+},
+{
   "data": {
     "insertBefore": "",
     "pageElement": "id(\"searchResult\")//div[contains(@class,\"entryWrapper\")]",
@@ -11964,19 +12038,19 @@
   "updated_at": "2020-06-02T08:23:29+09:00"
 },
 {
+  "resource_url": "http://wedata.net/items/80568",
   "data": {
-    "pageElement": "//table[@class=\"mytable1\"]//tr[./th]/following-sibling::tr|//li[@class=\"id6\"]/following-sibling::li",
+    "pageElement": "//div[@class=\"search_box\"]|//li[@class=\"id5\"]/following-sibling::li[not(@class)][not(//div[@class=\"search_box\"])]",
     "comment": "cf.http://wedata.net/items/62424",
-    "nextLink": "//a[@rel=\"next\"]|//li[@class=\"novelnb2\"][last()]/a[not(@href=\"#\")]",
-    "url": "^https://syosetu\\.org/\\?mode=",
-    "exampleUrl": "https://syosetu.org/?mode=seek_list"
+    "nextLink": "//li[@class=\"novelnb2\"][last()]/a[not(@href=\"#\")]",
+    "url": "^https://((novel|search)\\.)?syosetu\\.org/?",
+    "exampleUrl": "https://syosetu.org/?mode=seek_list https://syosetu.org/?mode=kappo_view_list&uid=1 https://syosetu.org/search/?mode=search&word=%E5%8E%9F%E4%BD%9C%EF%BC%9A%E3%83%A2%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%8F%E3%83%B3%E3%82%BF%E3%83%BC"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "est",
-  "resource_url": "http://wedata.net/items/80568",
-  "name": "ハーメルン　捜索",
+  "name": "ハーメルン for mobile",
   "created_at": "2016-03-18T09:58:05+09:00",
-  "updated_at": "2020-07-29T12:29:31+09:00"
+  "updated_at": "2020-08-01T19:58:48+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/80567",
@@ -27002,16 +27076,16 @@
 {
   "resource_url": "http://wedata.net/items/62424",
   "data": {
-    "pageElement": "//div[@class=\"section3\" or @class=\"search_box\"]|//div[@class=\"section3\"]/following-sibling::br[not(./preceding-sibling::div[@id])]",
-    "nextLink": "//a[@rel=\"next\"]|//li[@class=\"novelnb2\"][last()]/a[not(@href=\"#\")]",
+    "pageElement": "//div[@class=\"section3\"]|//div[@class=\"section3\"]/following-sibling::*[1][self::br]|//table[@class=\"mytable1\"]//tr[./th]/following-sibling::tr",
+    "nextLink": "//a[@rel=\"next\"]",
     "url": "^https://((novel|search)\\.)?syosetu\\.org/",
-    "exampleUrl": "https://search.syosetu.org/?mode=search&word=原作：モンスターハンター https://syosetu.org/?mode=review&nid=12"
+    "exampleUrl": "https://search.syosetu.org/?mode=search&word=原作：モンスターハンター https://syosetu.org/?mode=review&nid=12 https://syosetu.org/?mode=seek_list"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "doragora",
   "name": "ハーメルン",
   "created_at": "2012-07-20T20:44:43+09:00",
-  "updated_at": "2020-07-29T10:56:49+09:00"
+  "updated_at": "2020-08-01T19:45:12+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/62423",
@@ -44135,17 +44209,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/2207",
-  "name": "Gガイド.テレビ王国　検索結果",
-  "created_by": "pixe",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2018-06-30T15:22:19+09:00",
   "data": {
-    "exampleUrl": "http://tv.so-net.ne.jp/s/drama\r\nhttp://tv.so-net.ne.jp/schedulesBySearch.action?condition.keyword=NHK",
-    "url": "^https?://tv\\.so-net\\.ne\\.jp/(?:m/schedulesByFilter\\.action\\?|s(?:chedulesBySearch\\.action\\?|/))",
     "pageElement": "//div[@class='contBlockNB']/div[starts-with(@class,'utileList')]",
-    "nextLink": "//li[@class='next']/a"
+    "nextLink": "//li[@class='next']/a",
+    "url": "^https?://(www\\.)?tvkingdom\\.jp/(?:m/schedulesByFilter\\.action\\?|s(?:chedulesBySearch\\.action\\?|/))",
+    "exampleUrl": "http://tv.so-net.ne.jp/s/drama\r\nhttp://tv.so-net.ne.jp/schedulesBySearch.action?condition.keyword=NHK"
   },
-  "created_at": "2008-08-15T14:42:26+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "pixe",
+  "name": "Gガイド.テレビ王国　検索結果",
+  "created_at": "2008-08-15T14:42:26+09:00",
+  "updated_at": "2020-08-02T07:52:09+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/2205",
@@ -45611,18 +45685,18 @@
   "updated_at": "2020-03-28T09:51:26+09:00"
 },
 {
+  "data": {
+    "pageElement": "id(\"chartColumn\")",
+    "nextLink": "//a[descendant::img[@src=\"/tv/digital/img/btn/btn_arrow_j.gif\"]]",
+    "url": "^https?://(www\\.)?tvkingdom\\.jp/(?:chart/[\\w/]+?\\.action|m/)",
+    "exampleUrl": "https://www.tvkingdom.jp/chart/23.action"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "k2jp",
   "resource_url": "http://wedata.net/items/1751",
   "name": "Gガイド.テレビ王国",
-  "created_by": "k2jp",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2018-07-01T16:42:28+09:00",
-  "data": {
-    "exampleUrl": "http://tv.so-net.ne.jp/chart/23.action?menuOpen=false&descriptive=true",
-    "url": "^https?://tv\\.so-net\\.ne\\.jp/(?:chart/[\\w/]+?\\.action|m/)",
-    "pageElement": "id(\"chartColumn\")",
-    "nextLink": "//a[descendant::img[@src=\"/tv/digital/img/btn/btn_arrow_j.gif\"]]"
-  },
-  "created_at": "2008-06-17T16:15:38+09:00"
+  "created_at": "2008-06-17T16:15:38+09:00",
+  "updated_at": "2020-08-02T07:52:45+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/1747",
