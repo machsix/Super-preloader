@@ -1,5 +1,19 @@
 [
 {
+  "resource_url": "http://wedata.net/items/85437",
+  "data": {
+    "pageElement": "id(\"list\")/a[./article]",
+    "nextLink": "//link[@rel=\"next\"]|//a[@class=\"next page-numbers\"]",
+    "url": "^https?://...",
+    "exampleUrl": "https://oiio.jp/ https://otayado.com/ https://thainokoe.com/ "
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "kenzou_ogawa",
+  "name": "listing a_tag",
+  "created_at": "2020-08-04T20:11:24+09:00",
+  "updated_at": "2020-08-04T20:24:53+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/85436",
   "data": {
     "pageElement": "//div[@class=\"page-links\"]/preceding-sibling::*|//footer//small[not(//div[@class=\"page-links\"])]",
@@ -916,21 +930,6 @@
   "name": "Macleans.ca",
   "created_at": "2020-06-01T15:05:15+09:00",
   "updated_at": "2020-06-01T15:57:01+09:00"
-},
-{
-  "resource_url": "http://wedata.net/items/85365",
-  "data": {
-    "insertBefore": "",
-    "pageElement": "id(\"list\")/a",
-    "nextLink": "//a[@class=\"next page-numbers\"]",
-    "url": "^https://otayado\\.com/",
-    "exampleUrl": "https://otayado.com/"
-  },
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "created_by": "kenzou_ogawa",
-  "name": "おたくのやどかり",
-  "created_at": "2020-05-31T14:23:42+09:00",
-  "updated_at": "2020-05-31T14:23:42+09:00"
 },
 {
   "data": {
@@ -3853,21 +3852,6 @@
   "created_at": "2019-05-16T12:22:58+09:00"
 },
 {
-  "name": "ヨシダップ",
-  "created_by": "jigendaddy_be",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-05-14T10:10:32+09:00",
-  "resource_url": "http://wedata.net/items/82150",
-  "data": {
-    "exampleUrl": "https://yoshida.netank.net/",
-    "url": "^https://yoshida\\.netank\\.net/",
-    "pageElement": "id(\"list\")/a",
-    "insertBefore": "",
-    "nextLink": "//link[@rel=\"next\"]"
-  },
-  "created_at": "2019-05-14T10:10:32+09:00"
-},
-{
   "resource_url": "http://wedata.net/items/82149",
   "name": "CamShowHub",
   "data": {
@@ -4419,23 +4403,6 @@
     "nextLink": "//div[@class=\"pagination\"]/div[@class=\"ctr_next\"]/a"
   },
   "created_at": "2019-03-19T17:46:08+09:00"
-},
-{
-  "resource_url": "http://wedata.net/items/82100",
-  "name": "お、いいねいいね面白いと思ったコトを書くブログ",
-  "created_by": "jigendaddy_be",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-03-19T11:49:31+09:00",
-  "data": {
-    "Stylus": ".autopagerize_page_separator{display:none;}",
-    "exampleUrl": "https://oiio.jp/",
-    "bookmarklet": "Array.prototype.forEach.call(document.querySelectorAll('img'), function(img) { var lazySrc = img.hasAttribute('data-src') ? img.getAttribute('data-src') : img.getAttribute('data-original'); if (lazySrc) { img.src = lazySrc;} });",
-    "url": "^https://oiio\\.jp/",
-    "pageElement": "id(\"list\")/a",
-    "insertBefore": "",
-    "nextLink": "//link[@rel=\"next\"]"
-  },
-  "created_at": "2019-03-19T11:49:31+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/82099",
@@ -9163,17 +9130,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/81244",
-  "name": "Wowma! for au",
-  "created_by": "jooonni33",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-09-05T04:21:39+09:00",
   "data": {
-    "exampleUrl": "https://wowma.jp/bep/m/klist3?sk=BB8187859A5B96E436F8s1&categ_id=5305&at=FP&e_scope=O&non_gr=ex https://wowma.jp/bep/m/klist2?user=24793691&e_scope=O https://wowma.jp/bep/m/klist2?user=24793691&e_scope=O&srm=Y&sort1=price%252CA",
+    "pageElement": "//div[@class='searchListingItems ']/ul/li",
+    "nextLink": "//li[@class='next']/a",
     "url": "^https://wowma\\.jp/",
-    "pageElement": "id('js-switchView-pannel')/ul/li",
-    "nextLink": "//nav[@class='pageNumber']/ol/li[span]/following-sibling::li[1]/a"
+    "exampleUrl": "https://wowma.jp/bep/m/klist3?sk=BB8187859A5B96E436F8s1&categ_id=5305&at=FP&e_scope=O&non_gr=ex https://wowma.jp/bep/m/klist2?user=24793691&e_scope=O https://wowma.jp/bep/m/klist2?user=24793691&e_scope=O&srm=Y&sort1=price%252CA"
   },
-  "created_at": "2017-03-25T17:15:47+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "jooonni33",
+  "name": "Wowma! for au",
+  "created_at": "2017-03-25T17:15:47+09:00",
+  "updated_at": "2020-08-05T13:27:54+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/81243",
@@ -9216,20 +9183,6 @@
   "updated_at": "2020-05-21T15:36:47+09:00",
   "name": "@DIME ( https )",
   "created_by": "yomogi"
-},
-{
-  "resource_url": "http://wedata.net/items/81238",
-  "name": "battle.net forum",
-  "created_by": "oumu_",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-09-05T04:05:18+09:00",
-  "data": {
-    "exampleUrl": "https://us.battle.net/forums/en/wow/1011699/?page=2",
-    "url": "^https?://us\\.battle\\.net/forums/en/wow/",
-    "pageElement": "//div[@class='Forum-ForumTopicList']/a",
-    "nextLink": "//a[@class='Pagination-button Pagination-button--onlyNext']"
-  },
-  "created_at": "2017-03-21T22:53:16+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/81237",
@@ -15010,20 +14963,6 @@
   "created_at": "2015-07-09T02:06:03+09:00"
 },
 {
-  "resource_url": "http://wedata.net/items/77344",
-  "data": {
-    "pageElement": "id(\"list\")/a",
-    "nextLink": "//link[@rel=\"next\"]",
-    "url": "^https?://shogipenclublog\\.com/blog/",
-    "exampleUrl": "https://shogipenclublog.com/blog/"
-  },
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "created_by": "jigendaddy_be",
-  "name": "将棋ペンクラブログ",
-  "created_at": "2015-07-08T09:31:54+09:00",
-  "updated_at": "2020-07-25T10:51:17+09:00"
-},
-{
   "resource_url": "http://wedata.net/items/77342",
   "name": "941::blog",
   "created_by": "jigendaddy_be",
@@ -17418,17 +17357,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/76843",
-  "name": "minne(ミンネ)",
-  "created_by": "jigendaddy_be",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2018-03-29T00:55:06+09:00",
   "data": {
-    "exampleUrl": "http://minne.com/category/saleonly/accessories/hair",
+    "pageElement": "//*[contains(@class,\"List__content\")]|//h2[not(@class)]/following-sibling::*[contains(@class,\"_list\") or contains(@class,\"_wrap\")]",
+    "nextLink": "//a[@rel=\"next\"] | //a[@class=\"c-pagination__link\"][contains(text(),\"次\")]",
     "url": "^https?://minne\\.com/",
-    "pageElement": "//div[contains(@class, 'searchItemList')]/ul/li[@class='searchItemList__item']",
-    "nextLink": "//div[contains(@class, 'minne_pagination')]/span[contains(@class, 'next')]/a"
+    "exampleUrl": "https://minne.com/category/saleonly/accessories/hair\r\nhttps://minne.com/@asakusachika/favorites\r\nhttps://minne.com/@asakusachika\r\nhttps://minne.com/@asakusachika/reviews\r\n"
   },
-  "created_at": "2015-01-18T20:54:24+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "jigendaddy_be",
+  "name": "minne (ミンネ)",
+  "created_at": "2015-01-18T20:54:24+09:00",
+  "updated_at": "2020-08-04T08:03:08+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/76842",
@@ -33157,18 +33096,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/39790",
-  "name": "夢美坂Ⅱ",
-  "created_by": "xKafiristan",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2016-03-16T08:31:01+09:00",
   "data": {
-    "Stylish": "@-moz-document domain(\"yumeminosora.web.fc2.com\") {\r\n  .autopagerize_page_separator~img+img{\r\n  display:block;\r\n  clear:both;\r\n  margin-top:60px;}\r\n}",
-    "exampleUrl": "http://yumeminosora.web.fc2.com/karesatu01.html http://yumeminosora.web.fc2.com/karesatu3-1.html http://yumeminosora.web.fc2.com/karesatu3-3.html  http://yumeminosora.web.fc2.com/karesatu3-4.html http://yumeminosora.web.fc2.com/karesatu3-8.html http://yumeminosora.web.fc2.com/karesatu3-12.html http://yumeminosora.web.fc2.com/karesatu4-4.html http://yumeminosora.web.fc2.com/enngarudo-01.html http://yumeminosora.web.fc2.com/dennpa-1-1.html http://yumeminosora.web.fc2.com/dennpa-1-2.html",
+    "pageElement": "(descendant::div[1]|descendant::div[1]/following-sibling::div)[./following-sibling::script]",
+    "nextLink": "descendant::a[not(contains(@href,\"index\")) and not(contains(@href,\"karesatu01.html\"))][@href][1]",
     "url": "^http://yumeminosora\\.web\\.fc2\\.com/[^/]+\\d+\\.html",
-    "pageElement": "//font[@color=\"#ccccff\"][./img]/*|//font[@color=\"#ccccff\"]/following-sibling::*[self::img[not(@alt=\"inserted by FC2 system\")] or self::br or self::big or self::b]|//font[@color=\"#ccccff\"]/preceding-sibling::*[self::img or self::br]|//div[@style=\"text-align: center;\"][not(./font[@color=\"#ccccff\"])]/font[@color=\"#990000\"][last()]/following-sibling::*",
-    "nextLink": "//div/descendant::img/following::a[@href and not(contains(@href, 'rank') or contains(@href,'index') or @href='http://fc2.com/')]|//big//a[1][not(@href='index.html')]"
+    "exampleUrl": "http://yumeminosora.web.fc2.com/karesatu01.html http://yumeminosora.web.fc2.com/karesatu3-1.html http://yumeminosora.web.fc2.com/karesatu3-3.html  http://yumeminosora.web.fc2.com/karesatu3-4.html http://yumeminosora.web.fc2.com/karesatu3-8.html http://yumeminosora.web.fc2.com/karesatu3-12.html http://yumeminosora.web.fc2.com/karesatu4-4.html http://yumeminosora.web.fc2.com/enngarudo-01.html http://yumeminosora.web.fc2.com/dennpa-1-1.html http://yumeminosora.web.fc2.com/dennpa-1-2.html"
   },
-  "created_at": "2010-11-28T12:52:58+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "xKafiristan",
+  "name": "夢美坂Ⅱ",
+  "created_at": "2010-11-28T12:52:58+09:00",
+  "updated_at": "2020-08-04T19:16:45+09:00"
 },
 {
   "name": "\u9b54\u6cd5\u4f7f\u3044DOUTEI",
@@ -47099,21 +47037,36 @@
   "created_at": "2008-04-16T12:36:21+09:00"
 },
 {
-  "resource_url": "http://wedata.net/items/649",
-  "name": "hAtom",
-  "created_by": "swdyh",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-08-24T01:00:50+09:00",
+  "resource_url": "http://wedata.net/items/650",
   "data": {
-    "exampleUrl": "http://www.aoao.org.cn/blog/2008/05/hatom/ http://samuraishockdo.info/blog/hentry-114.html http://wp-and.me/microformats/ http://blog.nicovideo.jp/3d/2014/06/pmx.html http://esseries.blog.jp/archives/1000006904.html http://techlife.cookpad.com/ http://jkondo.hatenablog.com/ http://oinume.hatenablog.com/ http://oceanofgames.com/ http://freeware.easylife.tw/",
-    "exampleMicroformats": "microformat : http://microformats.org/wiki/Main_Page hAtom : http://microformats.org/wiki/hatom rel-next & rel-prev : http://microformats.org/wiki/existing-rel-values microformat 2 : http://microformats.org/wiki/microformats-2 h-entry : http://microformats.org/wiki/h-entry",
-    "url": "^https?://.",
-    "pageElement": "//*[contains(concat(' ', normalize-space(@class), ' '), ' hentry ') or contains(concat(' ', normalize-space(@class), ' '), ' h-entry ')]",
-    "comment_ja": "この SITEINFO は、Microformats の hAtom に適用されます。 AutoPagerize はページを継ぎ足す際に url の評価を行ないますが、文字列の長い順に適用されます。この SITEINFO は url の正規表現としては最短になりますので、一番最後に適用されます。つまり一致する url が一つも無い場合に適用されるわけです。 もしも、この SITEINFO が適用されないようにしたいサイトがある場合には、以下のような対応をするのが適切だと思われます。 (1) AutoPagerize, AutoPatchwork といった拡張、userscrpt の設定で特定のサイトの url が無効になるようにする (2) そのサイトで適切に動作する SITEINFO を書く Microformats に対応した SITEINFO は、サイト運営者にとっても利用者にとっても利益があるものです。本 SITEINFO を無効または削除などせずに、適切な対応をされることを期待します。 original text from: http://wedata.net/items/63493?rev=105018",
+    "pageElement": "descendant::*[contains(@class,\"hentry\") or contains(@class,\"h-entry\")][not(./following-sibling::* or ./preceding-sibling::*)][position()>1]/ancestor::*[./following-sibling::* or ./preceding-sibling::*][1]/parent::*/*[.//*[contains(@class,\"hentry\") or contains(@class,\"h-entry\")]]",
+    "comment": "http://wedata.net/items/649 で意図しない継ぎ足し方をしてしまうケースの対策",
     "nextLink": "(//link|//a)[contains(concat(' ', translate(normalize-space(@rel),'NEXT','next'), ' '), ' next ')]",
+    "url": "^https?://..",
+    "exampleUrl": "http://majikichi.com/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "swdyh",
+  "name": "hAtom (wrapped)",
+  "created_at": "2008-04-16T12:36:20+09:00",
+  "updated_at": "2020-08-07T07:03:36+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/649",
+  "data": {
+    "pageElement": "//*[contains(concat(' ', normalize-space(@class), ' '), ' hentry ') or contains(concat(' ', normalize-space(@class), ' '), ' h-entry ')][not(ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' hentry ') or contains(concat(' ', normalize-space(@class), ' '), ' h-entry ')])]",
+    "exampleMicroformats": "microformat : http://microformats.org/wiki/Main_Page hAtom : http://microformats.org/wiki/hatom rel-next & rel-prev : http://microformats.org/wiki/existing-rel-values microformat 2 : http://microformats.org/wiki/microformats-2 h-entry : http://microformats.org/wiki/h-entry",
+    "nextLink": "(//link|//a)[contains(concat(' ', translate(normalize-space(@rel),'NEXT','next'), ' '), ' next ')]",
+    "comment_ja": "この SITEINFO は、Microformats の hAtom に適用されます。 AutoPagerize はページを継ぎ足す際に url の評価を行ないますが、文字列の長い順に適用されます。この SITEINFO は url の正規表現としては最短になりますので、一番最後に適用されます。つまり一致する url が一つも無い場合に適用されるわけです。 もしも、この SITEINFO が適用されないようにしたいサイトがある場合には、以下のような対応をするのが適切だと思われます。 (1) AutoPagerize, AutoPatchwork といった拡張、userscrpt の設定で特定のサイトの url が無効になるようにする (2) そのサイトで適切に動作する SITEINFO を書く Microformats に対応した SITEINFO は、サイト運営者にとっても利用者にとっても利益があるものです。本 SITEINFO を無効または削除などせずに、適切な対応をされることを期待します。 original text from: http://wedata.net/items/63493?rev=105018",
+    "url": "^https?://.",
+    "exampleUrl": "http://blog.nicovideo.jp/3d/2014/06/pmx.html https://cpoint-lab.co.jp/article/202001/13316/",
     "comment_en": "This SITEINFO is applied to the web site in compliance with hAtom of Microformats. AutoPagerize evaluates url when it works, and then apply SITEINFO in the order of long url string. Because this SITEINFO is the shortest as a regular expression of the url, it will apply to the last. In other words, it is applied when no one url to match. If you want AutoPagerize to exclude web site matching this SITEINFO, please take actions as follows: (1) set your extension(AutoPagerize, AutoPatchWork, and more) to disable pagerizing at the specific url ( and DO NOT MODIFY this SITEINFO ). (2) write down new SITEINFO applied to the specific url. / This SITEINFO is generally use but roughly applied. Although you may sometimes meet a problem, please DO NOT MODIFY this SITEINFO. Best is to make new and suitable SITEINFO for the url. Otherwise, disable this SITEINFO only your local environment. Thanks.\r\n"
   },
-  "created_at": "2008-04-16T12:36:19+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "swdyh",
+  "name": "hAtom",
+  "created_at": "2008-04-16T12:36:19+09:00",
+  "updated_at": "2020-08-04T19:49:10+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/632",
@@ -47131,17 +47084,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/628",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "created_at": "2008-04-16T12:36:15+09:00",
   "data": {
-    "pageElement": "id('main main-column center main_block Main primary-column blog content')[1]/div[(@class='main_block' and div/@class='main_title') or @class='content'] | id('contents Contents')[1]/div[not(@id)] | id('main')/table[starts-with(@class,'entry')] | id('blog_content')/div[@class] | id('right')/div[@class='contents'] | id('primary')/div[@class='entry'] | id('mainBlock')/div[div] | id('entry') | id('box_main')/table | id('left')/*[self::div/@class='body' or self::a[contains(.,'月')]] | //div[@align='center']/table[@width='740']//table[@width='660'] | id('topentry')/*[not(contains(@class,'navi'))] | //table[@id='layout']//td[@class='center']/table[.//h2/@class='entry_title'] | //article[@class='entry-m'] | id('main_contents')/div[contains(@class, 'grid_content')]",
-    "exampleUrl": "http://freesoftfile.blog122.fc2.com/blog-category-0.html\r\nhttp://tofukko.blog113.fc2.com/\r\nhttp://syn2.blog98.fc2.com/page-1.html\r\nhttp://daijyoyuukoharu.blog62.fc2.com/page-1.html\r\nhttp://killerworldend.blog.fc2.com/blog-category-0-1.html",
+    "pageElement": "id('main main-column center main_block Main primary-column blog content')[1]/div[(@class='main_block' and div/@class='main_title') or @class='content'] | id('contents Contents')[1]/div[not(@id)] | id('main')/table[starts-with(@class,'entry')] | id('blog_content')/div[@class] | id('right')/div[@class='contents'] | id('primary')/div[@class='entry'] | id('mainBlock')/div[div] | //div[@id='entry'] | id('box_main')/table | id('left')/*[self::div/@class='body' or self::a[contains(.,'月')]] | //div[@align='center']/table[@width='740']//table[@width='660'] | id('topentry')/*[not(contains(@class,'navi'))] | //table[@id='layout']//td[@class='center']/table[.//h2/@class='entry_title'] | //article[@class='entry-m'] | id('main_contents')/div[contains(@class, 'grid_content')]",
+    "nextLink": "(//link[@rel=\"next\"]|//li[@class=\"next\"]/a)[not(contains(@href,\"-entry-\"))]|//a[contains(text(),\"古いページへ\")]",
     "url": "^https?://[^.]+\\.blog(?:[^.]+)?\\.fc2\\.com/",
-    "nextLink": "descendant::a[contains(@href,\"fc2.com/page-\")][last()] | /descendant::a[contains(translate(text(), \"ENTX\", \"entx\"), \"next\")][last()]|//a[.='古いページへ']|//link[@rel='next']"
+    "exampleUrl": "http://freesoftfile.blog122.fc2.com/blog-category-0.html\r\nhttp://tofukko.blog113.fc2.com/\r\nhttp://daijyoyuukoharu.blog62.fc2.com/page-1.html\r\nhttp://killerworldend.blog.fc2.com/blog-category-0-1.html\r\nhttp://nofootynolife.blog.fc2.com/"
   },
-  "updated_at": "2020-05-10T13:09:51+09:00",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "swdyh",
   "name": "FC2 BLOG",
-  "created_by": "swdyh"
+  "created_at": "2008-04-16T12:36:15+09:00",
+  "updated_at": "2020-08-04T15:03:21+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/614",
