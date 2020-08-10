@@ -17441,18 +17441,18 @@
 },
 {
   "resource_url": "http://wedata.net/items/76807",
-  "name": "やねうら王 公式サイト",
-  "created_by": "jigendaddy_be",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-05-30T07:53:47+09:00",
   "data": {
-    "Stylish": "@-moz-document domain(\"yaneu.com\") {\r\n.autopagerize_page_separator~#content #comments #respond{display:none !important;}\r\n}",
-    "exampleUrl": "http://yaneuraou.yaneu.com/2015/01/07/%E5%B0%86%E6%A3%8B%E9%9B%BB%E7%8E%8B%E6%88%A6%E3%83%AA%E3%83%99%E3%83%B3%E3%82%B8%E3%83%9E%E3%83%83%E3%83%81%E8%A6%B3%E6%88%A6%E8%A8%98/",
-    "url": "^http://yaneuraou\\.yaneu\\.com",
     "pageElement": "id(\"content\")",
-    "nextLink": "//link[@rel=\"prev\"]"
+    "Stylish": "@-moz-document domain(\"yaneu.com\") {\r\n.autopagerize_page_separator~#content #comments #respond{display:none !important;}\r\n}",
+    "nextLink": "//link[@rel=\"prev\"]",
+    "url": "^https?://yaneuraou\\.yaneu\\.com/(this_string_is_required_to_exceed_65332_in_2020/08/02/yaneuraou-ryzen-threadripper-3990x-optimization/)?(thread_is_applied_to_65532_URL)?",
+    "exampleUrl": "http://yaneuraou.yaneu.com/2015/01/07/%E5%B0%86%E6%A3%8B%E9%9B%BB%E7%8E%8B%E6%88%A6%E3%83%AA%E3%83%99%E3%83%B3%E3%82%B8%E3%83%9E%E3%83%83%E3%83%81%E8%A6%B3%E6%88%A6%E8%A8%98/"
   },
-  "created_at": "2015-01-09T14:06:39+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "jigendaddy_be",
+  "name": "やねうら王 公式サイト",
+  "created_at": "2015-01-09T14:06:39+09:00",
+  "updated_at": "2020-08-09T21:21:44+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/76805",
