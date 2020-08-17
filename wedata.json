@@ -1,5 +1,241 @@
 [
 {
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//div[contains(@class,'block') and contains(@data-href,'inline')]",
+    "comment": "This is used for VOZ thread list page",
+    "nextLink": "(//div[contains(@class,'pageNav')]//a[contains(@class,'pageNav-jump--next')])[last()]",
+    "url": "https://voz.vn/f/*",
+    "exampleUrl": "https://voz.vn/f/diem-bao.33/page-2"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "Here Spam",
+  "resource_url": "http://wedata.net/items/85454",
+  "name": "VOZ Next List of Threads",
+  "created_at": "2020-08-16T23:10:39+09:00",
+  "updated_at": "2020-08-16T23:10:39+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85453",
+  "data": {
+    "pageElement": "//div[contains(@class,'block--messages')]",
+    "type_no_page_bar": "//div[contains(@class,'block-container') and contains(@class,'lbContainer')]",
+    "type_contain_page_bar": "//div[contains(@class,'block--messages')]",
+    "comment": "This is used for VOZ.vn. It uses xenforo but somehow general rules does not work anymore. I have to make a custom rule.",
+    "nextLink": "(//div[contains(@class,'pageNav')]//a[contains(@class,'pageNav-jump--next')])[last()]",
+    "url": "https://voz.vn/t/*",
+    "exampleUrl": "https://voz.vn/t/apple-sap-bay-tuyen-chien-voi-ca-nganh-game.107707/page-50"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "Here Spam",
+  "name": "VOZ Next",
+  "created_at": "2020-08-16T22:59:07+09:00",
+  "updated_at": "2020-08-16T23:03:08+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85451",
+  "data": {
+    "pageElement": "//div[contains(@class,\"related-nav-container\")]/preceding-sibling::div[not(@id)]",
+    "nextLink": "//link[@rel=\"next\"]",
+    "url": "^https?://hellogiggles\\.com/.+/\\?page",
+    "exampleUrl": "https://hellogiggles.com/beauty/?page=2"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "kenzou_ogawa",
+  "name": "HelloGiggles",
+  "created_at": "2020-08-13T15:46:39+09:00",
+  "updated_at": "2020-08-14T06:36:43+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85450",
+  "data": {
+    "pageElement": "//article/a",
+    "nextLink": "//a[@rel='next']",
+    "url": "^https?://autoprove\\.net/",
+    "exampleUrl": "https://autoprove.net/automobile_study_group/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "kenzou_ogawa",
+  "name": "オートプルーブ",
+  "created_at": "2020-08-13T15:35:47+09:00",
+  "updated_at": "2020-08-16T06:34:22+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85449",
+  "data": {
+    "pageElement": "//div[contains(@class,\"hentry\")][not(./figure)]",
+    "nextLink": "//link[@rel=\"next\"]",
+    "url": "^https?://socialitelife\\.com/category/",
+    "exampleUrl": "https://socialitelife.com/category/entertainment/celebrity/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "kenzou_ogawa",
+  "name": "Socialite Life",
+  "created_at": "2020-08-13T15:30:19+09:00",
+  "updated_at": "2020-08-14T06:41:25+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85448",
+  "data": {
+    "pageElement": "id(\"posts\")",
+    "nextLink": "//li[@class=\"page-item\"][position()>1]/a|//li[@class=\"page-item\"][1][not(./following-sibling::li)]/a[@href=\"/page/2\"]",
+    "url": "^https?://(www\\.)?ryuzee\\.com/",
+    "exampleUrl": "https://www.ryuzee.com/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "kenzou_ogawa",
+  "name": "Ryuzee.com",
+  "created_at": "2020-08-13T15:21:56+09:00",
+  "updated_at": "2020-08-14T06:29:22+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85447",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//article",
+    "nextLink": "//span[@class=\"current\"]/following-sibling::a[1]",
+    "url": "^https?://i\\.impressrd\\.jp/",
+    "exampleUrl": "https://i.impressrd.jp/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "kenzou_ogawa",
+  "name": "IMPRESS INNOVATION LAB",
+  "created_at": "2020-08-13T14:59:11+09:00",
+  "updated_at": "2020-08-13T14:59:11+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85446",
+  "data": {
+    "pageElement": "//*[count(./article)>3]/article",
+    "nextLink": "//a[@class=\"next page-numbers\"]|//a[@rel=\"next\"][not(//a[@class=\"next page-numbers\"])][@href]",
+    "url": "^https?://(www\\.)?winandmac\\.com/",
+    "exampleUrl": "https://www.winandmac.com/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "kenzou_ogawa",
+  "name": "winandmac.com",
+  "created_at": "2020-08-13T14:40:31+09:00",
+  "updated_at": "2020-08-14T06:45:50+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85445",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "id(\"main\")/div[./div]",
+    "nextLink": "//a[@class=\"next\"]",
+    "url": "^https?://youpouch\\.com/",
+    "exampleUrl": "https://youpouch.com/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "kenzou_ogawa",
+  "name": "Pouch［ポーチ］",
+  "created_at": "2020-08-13T13:21:19+09:00",
+  "updated_at": "2020-08-13T13:21:19+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85444",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//article",
+    "nextLink": "//link[@rel=\"next\"]",
+    "url": "^https?://(www\\.)?baitoru\\.com/",
+    "exampleUrl": "https://www.baitoru.com/kanto/jlist/wrd%e3%83%86%e3%82%b9%e3%83%88/?pname=search_fw1&from=toparea1"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "kenzou_ogawa",
+  "name": "バイトル",
+  "created_at": "2020-08-13T13:00:47+09:00",
+  "updated_at": "2020-08-13T13:00:47+09:00"
+},
+{
+  "data": {
+    "pageElement": "//div[@class=\"x-colophon-content\"]",
+    "comment": "This is a dummy code for 400.",
+    "nextLink": "id(\"menu-navigation-1\")/li[last()]/a",
+    "url": "^https?://(www\\.)?justskins\\.com/",
+    "exampleUrl": "http://www.justskins.com/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "kenzou_ogawa",
+  "resource_url": "http://wedata.net/items/85443",
+  "name": "Just Skins",
+  "created_at": "2020-08-13T12:09:59+09:00",
+  "updated_at": "2020-08-13T12:10:34+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85442",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//article",
+    "nextLink": "//link[@rel=\"next\"]",
+    "url": "^https://(www\\.)?webcreatorbox\\.com/",
+    "exampleUrl": "https://www.webcreatorbox.com/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "kenzou_ogawa",
+  "name": "Webクリエイターボックス",
+  "created_at": "2020-08-13T11:54:41+09:00",
+  "updated_at": "2020-08-13T11:54:41+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85441",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//article",
+    "nextLink": "//link[@rel=\"next\"]",
+    "url": "^https://(www\\.)?appinn\\.com/",
+    "exampleUrl": "https://www.appinn.com/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "kenzou_ogawa",
+  "name": "小众软件",
+  "created_at": "2020-08-13T11:39:27+09:00",
+  "updated_at": "2020-08-13T11:39:27+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85440",
+  "data": {
+    "pageElement": "//div[@class=\"navi_all\"]/following-sibling::*[./following-sibling::div[@class=\"navi_all\"]]|//div[@class=\"smpnovel_list\"]",
+    "nextLink": "//a[@title=\"次のページ\"]",
+    "url": "^https?://yomou\\.syosetu\\.com/",
+    "exampleUrl": "https://yomou.syosetu.com/nolist/nopointlist/ https://yomou.syosetu.com/nolist/noimpressionlist/ https://yomou.syosetu.com/userlist/avgranklist/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "kenzou_ogawa",
+  "name": "小説を読もう！ 特殊検索",
+  "created_at": "2020-08-12T10:07:57+09:00",
+  "updated_at": "2020-08-12T10:12:09+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85439",
+  "data": {
+    "pageElement": "//div[@class=\"novel_box\"]",
+    "nextLink": "//a[@class=\"nextlink\"]",
+    "url": "^https?://pdfnovels\\.net/",
+    "exampleUrl": "https://pdfnovels.net/novel/all/?word=a"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "kenzou_ogawa",
+  "name": "タテ書き小説ネット",
+  "created_at": "2020-08-12T08:05:29+09:00",
+  "updated_at": "2020-08-12T08:06:03+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85438",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "id(\"contents\")/ul[contains(@class,\"List\")]/li",
+    "nextLink": "//li[@class=\"next\"]/a",
+    "url": "^https?://shaboten\\.co\\.jp/",
+    "exampleUrl": "https://shaboten.co.jp/media/\r\nhttps://shaboten.co.jp/press/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "brib2",
+  "name": "伊豆シャボテン動物公園グループ",
+  "created_at": "2020-08-11T10:01:15+09:00",
+  "updated_at": "2020-08-11T10:01:15+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/85437",
   "data": {
     "pageElement": "id(\"list\")/a[./article]",
@@ -10716,14 +10952,14 @@
   "data": {
     "pageElement": "//div[@class=\"kensaku\"]/following-sibling::*[following-sibling::div[@class=\"kensaku\"]]",
     "nextLink": "//div[@class=\"kensaku\"]/span/following-sibling::a",
-    "url": "^https://narou\\.nar\\.jp/rank/",
-    "exampleUrl": "https://narou.nar.jp/rank/"
+    "url": "^https://narou\\.nar\\.jp/",
+    "exampleUrl": "https://narou.nar.jp/rank/ https://narou.nar.jp/search.php https://narou.nar.jp/writer.php"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "t_f_m",
   "name": "小説家になろう 勝手にランキング",
   "created_at": "2016-08-17T18:30:42+09:00",
-  "updated_at": "2020-06-20T23:41:22+09:00"
+  "updated_at": "2020-08-12T10:19:10+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/80949",
@@ -11993,17 +12229,17 @@
 {
   "resource_url": "http://wedata.net/items/80568",
   "data": {
-    "pageElement": "//div[@class=\"search_box\"]|//li[@class=\"id5\"]/following-sibling::li[not(@class)][not(//div[@class=\"search_box\"])]",
+    "pageElement": "//div[@class=\"search_box\"]|//ul[@class=\"entry\"]/li[.//a][not(//div[@class=\"search_box\"])]",
     "comment": "cf.http://wedata.net/items/62424",
     "nextLink": "//li[@class=\"novelnb2\"][last()]/a[not(@href=\"#\")]",
     "url": "^https://((novel|search)\\.)?syosetu\\.org/?",
-    "exampleUrl": "https://syosetu.org/?mode=seek_list https://syosetu.org/?mode=kappo_view_list&uid=1 https://syosetu.org/search/?mode=search&word=%E5%8E%9F%E4%BD%9C%EF%BC%9A%E3%83%A2%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%8F%E3%83%B3%E3%82%BF%E3%83%BC"
+    "exampleUrl": "https://syosetu.org/?mode=seek_list https://syosetu.org/?mode=recommended_list https://syosetu.org/?mode=kappo_view_list&uid=1 https://syosetu.org/search/?mode=search&word=%E5%8E%9F%E4%BD%9C%EF%BC%9A%E3%83%A2%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%8F%E3%83%B3%E3%82%BF%E3%83%BC"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "est",
   "name": "ハーメルン for mobile",
   "created_at": "2016-03-18T09:58:05+09:00",
-  "updated_at": "2020-08-01T19:58:48+09:00"
+  "updated_at": "2020-08-11T21:31:03+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/80567",
@@ -18371,17 +18607,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/76421",
-  "created_by": "yuta25",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "name": "オモコロ あたまゆるゆるインターネット (記事)",
   "data": {
-    "exampleUrl": "http://omocoro.jp/kiji/33805/ https://omocoro.jp/kiji/183672/",
+    "pageElement": "//div[@class=\"social\"]/following-sibling::*[./following-sibling::div[@class=\"page-navi\"]]",
     "nextLink": "//div[@class=\"page-navi\"]/span/following-sibling::a",
     "url": "^https?://omocoro\\.jp/kiji/",
-    "pageElement": "//div[contains(@class,\"article-body\")]"
+    "exampleUrl": "http://omocoro.jp/kiji/33805/ https://omocoro.jp/kiji/183672/"
   },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "yuta25",
+  "name": "オモコロ あたまゆるゆるインターネット (記事)",
   "created_at": "2014-10-10T15:45:40+09:00",
-  "updated_at": "2019-08-07T10:03:45+09:00"
+  "updated_at": "2020-08-15T06:33:22+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/76419",
@@ -19191,17 +19427,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/76304",
-  "created_by": "bimi",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "name": "ZDNet Japan",
   "data": {
-    "exampleUrl": "https://japan.zdnet.com/sp/ziddy/20197967/\r\nhttps://japan.zdnet.com/sp/enterprise-trend/35011766/\r\n",
-    "nextLink": "//a[@id='script_pagination_next' or @class='mediaNext noluke']",
+    "pageElement": "//div[@class='article_body' or @class='story_photoreport' or @class='article-contents']",
+    "nextLink": "//a[@id='script_pagination_next' and @data-ga_category='zd_article_pagination']|//a[ @class='mediaNext noluke']",
     "url": "^https://japan\\.zdnet\\.com/",
-    "pageElement": "//div[@class='article_body' or @class='story_photoreport' or @class='article-contents']"
+    "exampleUrl": "https://japan.zdnet.com/sp/ziddy/20197967/\r\nhttps://japan.zdnet.com/sp/enterprise-trend/35011766/\r\nhttps://japan.zdnet.com/article/35148978/\r\n"
   },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "bimi",
+  "name": "ZDNet Japan",
   "created_at": "2014-09-09T15:49:10+09:00",
-  "updated_at": "2019-11-15T11:09:42+09:00"
+  "updated_at": "2020-08-12T09:38:29+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/76302",
@@ -30129,17 +30365,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/55132",
-  "name": "小説をよもう！　小説検索",
-  "created_by": "t_f_m",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2018-10-04T23:49:04+09:00",
   "data": {
-    "exampleUrl": "http://yomou.syosetu.com/search.php?word=%E9%AD%94%E6%B3%95&order=&genre=&type=",
-    "url": "^https?://yomou\\.syosetu\\.com/search\\.php",
-    "pageElement": "//div[@class=\"searchkekka_box\"]",
-    "nextLink": "//a[@class=\"nextlink\"]"
+    "pageElement": "//div[@class=\"searchkekka_box\" or @class=\"smpnovel_list\"]",
+    "nextLink": "//a[@class=\"nextlink\"]",
+    "url": "^https?://yomou\\.syosetu\\.com/search",
+    "exampleUrl": "http://yomou.syosetu.com/search.php?word=%E9%AD%94%E6%B3%95&order=&genre=&type= https://yomou.syosetu.com/search/search/"
   },
-  "created_at": "2011-08-07T06:04:34+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m",
+  "name": "小説をよもう！　小説検索",
+  "created_at": "2011-08-07T06:04:34+09:00",
+  "updated_at": "2020-08-12T07:40:34+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/55131",
@@ -42366,7 +42602,7 @@
 {
   "resource_url": "http://wedata.net/items/26587",
   "data": {
-    "pageElement": "id(\"novel_color\")/*[not(.//a)]",
+    "pageElement": "//div[@class=\"novel_bn\"]/following-sibling::*[not(@class=\"novel_bn\")]",
     "nextLink": "//a[@rel=\"next\"]|//div[@class=\"novel_bn\"][1][count(./a)>1 or ./a[contains(@href,\"/2/\")]]/a[last()]",
     "url": "^(https?://web\\.archive\\.org/web/\\d+/)*(?:https?://)?(?:mnlt|n(?:code|ovel18))\\.syosetu\\.com/",
     "exampleUrl": "http://ncode.syosetu.com/n2251cd/29/\r\nhttps://ncode.syosetu.com/n2267be/1/"
@@ -42375,7 +42611,7 @@
   "created_by": "gede99",
   "name": "小説家になろう",
   "created_at": "2009-01-06T20:46:03+09:00",
-  "updated_at": "2020-07-23T15:24:57+09:00"
+  "updated_at": "2020-08-14T12:15:51+09:00"
 },
 {
   "name": "\u4eba\u5de5\u7121\u80fd\u3067\u30b1\u30fc\u30bf\u30a4\u5c0f\u8aac\uff1a\u3042\u305f\u3057\u30de\u30eb\u30b3\u30d5 by yamagata21",
@@ -48001,16 +48237,21 @@
 {
   "resource_url": "http://wedata.net/items/400",
   "data": {
-    "pageElement": "(//article[not(contains(../@class,'widget'))][not(contains(@class,'columns four'))][not(contains(@class,'side-contents'))][not(ancestor::*[starts-with(@class,'sidebar')])][not(ancestor::*[contains(@class,'featured') and not(self::body)])]|//*[starts-with(@id,'post-')][not(contains(@id,'nav'))][not(contains(@id,'post-rating'))])[not(.//*[contains(@class,'admz')])][not(self::h2)][not(self::h3)][not(ancestor::*[@id='side' or @class='pickup'])][not(ancestor::aside)][not(id('load-more-posts') or @id='fpost' or contains(@class,'carousel'))][parent::node()[not(@id='side')][not(contains(@class,'thumbnail'))][not(./following-sibling::*[@id='side'])][article or *[starts-with(@id,'post-')]]/*[self::article or starts-with(@id,'post-')]/following-sibling::*[self::article or starts-with(@id,'post-')][not(contains(@id,'nav'))]]|id('content')[count(div)>1]/div[contains(@class,'post')][not(contains(div/@class,'breadcrumb'))][not(contains(div/@class,'nav'))]",
-    "comment": "nextLink:563 pageElement:954",
+    "pageElement": "(//article[not(contains(../@class,\"widget\"))][not(contains(@class,\"columns four\"))][not(contains(@class,\"side-contents\"))][not(ancestor::*[starts-with(@class,\"sidebar\")])][not(ancestor::*[contains(@class,\"featured\") and not(self::body)])]|//*[starts-with(@id,\"post-\")][not(contains(@id,\"nav\"))][not(contains(@id,\"post-rating\"))])[not(.//*[contains(@class,\"admz\")])][not(self::h2)][not(self::h3)][not(ancestor::*[@id=\"side\" or @class=\"pickup\" or starts-with(@id,\"post-\")])][not(ancestor::aside or ancestor::li or ancestor::article)][not(id(\"load-more-posts\") or @id=\"fpost\" or contains(@class,\"carousel\"))][parent::node()[not(@id=\"side\")][not(contains(@class,\"thumbnail\"))][not(./following-sibling::*[@id=\"side\"])]][count(//*[self::article or starts-with(@id,\"post-\")])>1][./following-sibling::* or ./preceding-sibling::*][count(//article)=count(//*[starts-with(@id,\"post-\")]) or count(//article)=count(//*[starts-with(@id,\"post-\")])*2 or count(//article)=0 or count(//*[starts-with(@id,\"post-\")])=0]|id(\"content\")[count(div)>1]/div[contains(@class,\"post\")][not(contains(div/@class,\"breadcrumb\"))]",
+    "comment": "nextLink:563 pageElement:1096",
+    "comment2": "cf.https://tanyao.hatenadiary.jp/entry/2020/08/13/135253",
     "nextLink": "(//*[not(contains(@class,'_inactive'))]/a[starts-with(@class,'nextpostslink') or contains(@class,'next page-numbers') or (.|..)[normalize-space(@rel)='next' or normalize-space(@class)='next' or contains(@class,'pagination-next')]][not(span/@class='link-text')]|//*[contains(@class,'nav-previous')][not(contains(@class,'pull'))]/a|(//*[contains(@class,'current')][number()>0]/following-sibling::a[1]|(//li|//span|//div)[(.//*|.)[contains(@class,'current')]][number()>0]/following-sibling::*[self::li or self::span or self::div][1]/a))[not(starts-with(@href, '#'))]",
     "url": "^https?://.+",
-    "exampleUrl": "http://www.jinnsblog.com/ http://starcasm.net/ http://www.newyorker.com/magazine/food-and-drink http://moherou.net/page/2/ http://anjo.dekiteharu.jp/category/3d_animation http://blog.archive.org/ http://www.celebdirtylaundry.com/ http://www.sonyalpharumors.com/ http://octech.jp/modules/wordpress/ http://www.octech.jp/review/?s=a https://www.evilmadscientist.com/ http://www.synthtopia.com/ https://ieiri.net/blog http://dannnao.net/blog/ http://dannnao.net/blog/page/2/ http://dannnao.net/blog/2013/01/2000px/ http://tvline.com/ http://blog.nrpg-a.com/ http://gadget-shot.com/ http://www.bijin-snap.com/ http://www.appinn.com/page/2/ http://www.askasu.idv.tw/ http://shingeki.tv/news/ https://www.ama-dan.com/news http://www.stuff-review.com/ http://blog.jquery.com/ http://4koma.takeshobo.co.jp/category/flash/ https://petitetomo.com/ http://fail.in.th/ https://www.webcreatorbox.com/ https://xperia-freaks.org/ http://www.43rumors.com/ http://web-engineer.buyuden.net/series/buyuden/ http://allanhutchison.net/ http://www.caelum-lex.com/ http://skaz.jp/page/2 http://yaneuraou.yaneu.com/ http://dl-zip.com/ https://www.flickeringmyth.com/category/movies http://www.justskins.com/ http://insidepulse.com/ http://wrestling.insidepulse.com/ http://diehardgamefan.com/category/nintendo_wii/ http://bestwebgallery.com/page/2/ http://4koma.takeshobo.co.jp/date/2016/02/ http://haaya.net/ http://info.yadoku.com/ http://www.baitoru.com/kanto/jlist/wrd%E3%83%86%E3%82%B9%E3%83%88/?pname=search_fw1&from=toparea1 http://youpouch.com/ http://littlebigdetails.com/page/2 http://littlebigdetails.com/tagged/chrome/page/2 http://bash.org.pl/latest/ http://www.geeksnack.com/ https://www.raymond.cc/blog/ http://templated.co/ http://www.asagei.com/ http://ptm-net.com/news http://ptm-net.com/report https://opentrackers.org/ http://www.techbang.com/posts?page=1 http://www.blogherald.com/ https://www.smashingmagazine.com/category/graphics/ https://templated.co/ http://www.adweek.com/vertical/tv-video/ http://rexdl.com/ https://ihackedit.com/ https://tnzwtmfm.net/articles/news/ http://oceanofgames.com/ http://www.mkph.com/ http://s0ft4pc.com/ http://www.zeit.de/suche/index?q=2 https://getsatisfaction.com/imdb/categories/imdb_i_need_to_know https://www.limemo.net/blog/page/2 https://www.winandmac.com/ http://blog.gsmarena.com/ https://danbooru.donmai.us/forum_topics/9127 http://www.justjared.com/ http://qoly.jp/category/news http://gameganba.com/category/news/ http://13dl.net/page/2 http://www.j-n.co.jp/searchresult.html?mgenre_id=76 http://cartermatt.com/category/tv/news/ https://www.kitguru.net/tag/news/ http://wotopi.jp/archives/date/2017/02 https://screenrant.com/movie-news/page/2/ http://hollywoodlife.com/ https://netsurfinkenbunki.com/ https://nationalinterest.org/tag/military https://axia.co.jp/blog https://blog.qiita.com/page/2/ https://www.geekjob.jp/ https://www.alistapart.com/articles/ https://alistapart.com/?s=list https://i.impressrd.jp/page/2 https://techreport.com/category/news/ https://appsafari.com/ https://alpha.mixi.co.jp/?p=566 https://lineblog.me/kurakimai/ https://deadspin.com/c/nhl https://kotaku.com/ https://jalopnik.com/ https://jezebel.com/ https://io9.com/ https://us.gizmodo.com/ https://us.lifehacker.com/ https://www.theroot.com/ https://www.ryuzee.com/ https://ikubon.com/wp/ https://www.modmy.com/category/ios-jailbreak https://www.nginx.com/blog/ https://seattletransitblog.com/category/orphan-road/ http://vr-zone.com/?s=drive https://socialitelife.com/category/entertainment/celebrity/ http://lightroomkillertips.com/?s=photoshop http://monchicon.jugem.jp/?page=1 https://www.washingtontimes.com/news/politics/ https://autoprove.net/automobile_study_group/ https://www.osnews.com/ https://montrealpython.org/en/blog/ https://www.hirosegawa-net.com/interview/new/18_01.html https://www.macappdownload.com/ https://seigura.com/?s=2 https://moxile.net/blog/?paged=2 http://apachan.net/all.html https://shogi1.com/?s=2 https://hellogiggles.com/beauty/"
+    "exampleUrl_a": "https://starcasm.net/\r\nhttps://www.newyorker.com/magazine/food-and-drink\r\nhttps://shingeki.tv/news/\r\nhttps://www.stuff-review.com/\r\nhttp://web-engineer.buyuden.net/series/buyuden/\r\nhttps://insidepulse.com/\r\nhttps://insidepulse.com/zone/wrestling/\r\nhttp://diehardgamefan.com/category/nintendo_wii/\r\nhttps://littlebigdetails.com/page/2\r\nhttps://littlebigdetails.com/tagged/chrome/page/2",
+    "exampleUrl_b": "https://gadget-shot.com/\r\nhttps://www.ama-dan.com/news\r\nhttp://4koma.takeshobo.co.jp/category/4koma/\r\nhttp://4koma.takeshobo.co.jp/date/2016/02/",
+    "exampleUrl_c": "https://www.jinnsblog.com/\r\nhttps://blog.archive.org/\r\nhttps://www.celebdirtylaundry.com/\r\nhttps://www.evilmadscientist.com/\r\nhttp://www.synthtopia.com/\r\nhttps://ieiri.net/blog\r\nhttps://blog.jquery.com/\r\nhttps://petitetomo.com/\r\nhttps://xperia-freaks.org/\r\nhttps://allanhutchison.net/\r\nhttps://caelum-lex.com/\r\nhttp://skaz.jp/page/2\r\nhttp://yaneuraou.yaneu.com/\r\nhttps://dl-zip.com/\r\nhttps://www.flickeringmyth.com/category/movies/\r\nhttp://haaya.net/\r\nhttps://info.yadoku.com/",
+    "exampleUrl_d": "http://bash.org.pl/latest/",
+    "exampleUrl_e": "http://moherou.net/page/2/\r\nhttp://octech.jp/modules/wordpress/\r\nhttp://dannnao.net/blog/\r\nhttp://dannnao.net/blog/page/2/\r\nhttp://dannnao.net/blog/2013/01/2000px/\r\nhttps://www.askasu.idv.tw/\r\nhttp://fail.in.th/\r\nhttp://anjo.dekiteharu.jp/category/3d_animation\r\nhttp://www.octech.jp/review/?s=a\r\nhttp://blog.nrpg-a.com/\r\nhttps://www.bijin-snap.com/"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "swdyh",
   "name": "Generic Posts Rule",
   "created_at": "2008-04-16T12:35:17+09:00",
-  "updated_at": "2020-07-20T21:09:16+09:00"
+  "updated_at": "2020-08-17T20:45:23+09:00"
 }
 ]
