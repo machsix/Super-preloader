@@ -27,7 +27,7 @@ self.addEventListener('message', (event) => {
 self.__precacheManifest = [
   {
     "url": "404.html",
-    "revision": "7bb4772bc0f15ef78ab0118088a6900f"
+    "revision": "1ff9ebc223c24d8239a9ffce09e005b6"
   },
   {
     "url": "assets/css/0.styles.1a35368b.css",
@@ -38,16 +38,16 @@ self.__precacheManifest = [
     "revision": "83621669651b9a3d4bf64d1a670ad856"
   },
   {
-    "url": "assets/js/10.6755061b.js",
-    "revision": "8be7cf4aaa3367f1b6eb297a76f64dea"
+    "url": "assets/js/10.d0dda731.js",
+    "revision": "ce978db97a17914fcacff6693ece1e01"
   },
   {
-    "url": "assets/js/11.acff178f.js",
-    "revision": "9ef28e34d0a05bb1eba6613bcb29db8d"
+    "url": "assets/js/11.0b25af34.js",
+    "revision": "e870f8dfd369695ae43d6c769c72423c"
   },
   {
-    "url": "assets/js/12.ad54c6d4.js",
-    "revision": "cc1485b71f89a3c0151bf84efb1febb9"
+    "url": "assets/js/12.f821f6dd.js",
+    "revision": "a3e391b4c1e070fb4465348bef293591"
   },
   {
     "url": "assets/js/13.c83ee63d.js",
@@ -102,36 +102,36 @@ self.__precacheManifest = [
     "revision": "746fb9cc186572b8c30063c44582eb13"
   },
   {
-    "url": "assets/js/7.15e5fabc.js",
-    "revision": "776df85ea2080d65f0527e9b49aaf346"
+    "url": "assets/js/7.f80ff0f2.js",
+    "revision": "c89f4c962160f577c48a501b6a9c7bc6"
   },
   {
-    "url": "assets/js/8.8bf407a5.js",
-    "revision": "15963e744af3224a900147899ace1eb9"
+    "url": "assets/js/8.eecc131d.js",
+    "revision": "99cb887bd481752243692b340cd07cfb"
   },
   {
-    "url": "assets/js/9.d323b744.js",
-    "revision": "51034a004e5d2ad21a26ad0c428b308d"
+    "url": "assets/js/9.c4f08fcb.js",
+    "revision": "4688c9338639de0138ae3a90f2ee4c37"
   },
   {
-    "url": "assets/js/app.0cf838cb.js",
-    "revision": "b0b369c0c82b5b537d2806f6b77c3453"
+    "url": "assets/js/app.cdb84eb6.js",
+    "revision": "aefe4da9f3e9aa32f92a79588d785629"
   },
   {
     "url": "compatibility.html",
-    "revision": "70713acd88690ab8fcaf2230d275c0ad"
+    "revision": "7dfbdbbd3cbf86514cfe03a339cee3fa"
   },
   {
     "url": "database.html",
-    "revision": "97973aed705cfe9032a4a352d1cc485a"
+    "revision": "8bf833b178daa76393679b5e43a4f87a"
   },
   {
     "url": "example.html",
-    "revision": "b11a643ffc0fd213f503bdeedab1e5c9"
+    "revision": "3c6453b2d36e3b52b98a5795b1cbdf61"
   },
   {
     "url": "faq.html",
-    "revision": "1565e39251d69a2905b627acbe43347f"
+    "revision": "60aff88714b6f361ddacda16290f32ac"
   },
   {
     "url": "image/example/baidu.png",
@@ -151,7 +151,7 @@ self.__precacheManifest = [
   },
   {
     "url": "index.html",
-    "revision": "446a4772e8ace591a5f58e715ea255c1"
+    "revision": "5c56bbc1cdcafa64e1bc468731385bac"
   },
   {
     "url": "logo.png",
@@ -159,35 +159,35 @@ self.__precacheManifest = [
   },
   {
     "url": "siterule.html",
-    "revision": "cb73d2c303aa29f7f0092082f7497f08"
+    "revision": "d413cf789f46bc687f776eb581d2c73f"
   },
   {
     "url": "zh-cn/compatibility.html",
-    "revision": "7361e2116a9278cfe954678b5dbbc5cc"
+    "revision": "94fe93d9834e304db96a9ff0d7e21adb"
   },
   {
     "url": "zh-cn/database.html",
-    "revision": "647862d49e7f9170b86ce50582258b9f"
+    "revision": "83a505a25f99304d5b593e20faa88c18"
   },
   {
     "url": "zh-cn/develop.html",
-    "revision": "8b3f63377fb704471574b8ef74bd8aa1"
+    "revision": "862b8299d391f457517b85b72f1dc5e6"
   },
   {
     "url": "zh-cn/example.html",
-    "revision": "cc4cc8430938b1a6ffd812125442a058"
+    "revision": "85788524e6e960a184aa7bafa31a0a27"
   },
   {
     "url": "zh-cn/faq.html",
-    "revision": "8cef2bc75eca2dc456083216965e93d4"
+    "revision": "ff6df45625ff1ee780befda1ed2c1194"
   },
   {
     "url": "zh-cn/index.html",
-    "revision": "caf23d35b67d109d289968f1d9ea420b"
+    "revision": "70ed70df861eeed826f4b6f37f4639a1"
   },
   {
     "url": "zh-cn/siterule.html",
-    "revision": "548a86ae2222b90b272eb3ec7ecefe32"
+    "revision": "2ebd6031515044f2ee12802b6a3412d0"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
