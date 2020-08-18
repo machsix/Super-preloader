@@ -3589,5 +3589,19 @@
     "exampleUrl": "https://www.cool18.com/bbs4/index.php?app=forum&act=cachepage&cp=tree1",
     "nextLink": "//*[@id='d_list_page']/a[contains(text(),'下一页')]",
     "category": ["forum", "nsfw"]
+  },
+  {
+    "name": "F95zone Others",
+    "url": "^https?:\/\/f95zone.to\/forums\/(?!general)",
+    "pageElement": "//*[@id='top']/div[4]/div/div[1]/div/div/div/div[4]/div[2]/div[2]",
+    "nextLink": "auto;",
+    "category": ["forum", "nsfw"]
+  },
+  {
+    "name": "F95zone General Discussions",
+    "url": "^https?://f95zone.to/forums/general-discussions",
+    "pageElement": "//*[@id='top']/div[4]/div/div[1]/div/div/div/div[2]/div[2]/div[2]",
+    "nextLink": "auto;",
+    "category": ["forum", "nsfw"]
   }
 ]
