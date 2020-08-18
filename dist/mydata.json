@@ -3612,10 +3612,10 @@
     "category": ["forum", "nsfw"]
   },
   {
-  "name": "south-plus-thread",
-  "url": "^https?://www.south-plus.org/thread",
-  "pageElement": "//*[@id='ajaxtable']/tbody[2]",
-  "nextLink": "//div[@class='pages']//li[b]/following-sibling::li[1]/a",
-  "category": ["forum", "nsfw"]
+    "name": "south-plus-thread",
+    "url": "^https?://www.south-plus.org/thread",
+    "pageElement": "//*[@id='ajaxtable']/tbody[2]",
+    "nextLink": "//div[@class='pages']//li[b]/following-sibling::li[1]/a",
+    "category": ["forum", "nsfw"]
   }
 ]
