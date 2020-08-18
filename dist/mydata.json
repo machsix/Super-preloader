@@ -3603,5 +3603,19 @@
     "pageElement": "//*[@id='top']/div[4]/div/div[1]/div/div/div/div[2]/div[2]/div[2]",
     "nextLink": "auto;",
     "category": ["forum", "nsfw"]
+  },
+  {
+    "name": "south-plus-post",
+    "url": "^https?://www.south-plus.org",
+    "pageElement": "//div[@id='ajaxtable'] | //form[@name='delatc']",
+    "nextLink": "//div[@class='pages']//li[b]/following-sibling::li[1]/a",
+    "category": ["forum", "nsfw"]
+  },
+  {
+  "name": "south-plus-thread",
+  "url": "^https?://www.south-plus.org/thread",
+  "pageElement": "//*[@id='ajaxtable']/tbody[2]",
+  "nextLink": "//div[@class='pages']//li[b]/following-sibling::li[1]/a",
+  "category": ["forum", "nsfw"]
   }
 ]
