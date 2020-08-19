@@ -1219,7 +1219,7 @@
   },
   {
     "name": "Discuz 页面跳转修复",
-    "url": "^https?://(bbs.pcbeta|bbs.besgold|www.pt80)\\.(com|net)",
+    "url": "^https?://(bbs\\.pcbeta|bbs\\.besgold|www\\.pt80)\\.(com|net)",
     "pageElement": "//div[@id=\"postlist\"] | //form[@id=\"moderate\"]",
     "nextLink": "//div[@class=\"pg\"]/descendant::a[@class=\"nxt\"]",
     "autopager": {
@@ -1335,7 +1335,7 @@
   },
   {
     "name": "3DMGAME",
-    "url": "^https://.*.3dmgame.com/*",
+    "url": "^https://.*\\.3dmgame\\.com/*",
     "pageElement": "//div[@class=\"news_warp_center\"] | //ul[@class=\"list\"]",
     "exampleUrl": "https://www.3dmgame.com/news/201312/2310792.html|https://www.3dmgame.com/news/",
     "nextLink": "//li[(@class=\"next\")]//a",
@@ -2159,7 +2159,7 @@
   },
   {
     "name": "UserStyles, GreasyFork",
-    "url": "^https?://(forum.userstyles|greasyfork).org",
+    "url": "^https?://(forum\\.userstyles|greasyfork)\\.org",
     "pageElement": "//div[@class=\"styles boxes\"] | id(\"browse-script-list\")/li | id(\"Content\")//ul[contains(@class,\"DataList\")]/li | id(\"Log\") | //div[@class=\"styles\"]/div[@class=\"style_card overrideHref\"] | id(\"search-results\")/li | id(\"main-article\")/article",
     "exampleUrl": "https://forum.userstyles.org;https://forum.userstyles.org/discussion/40694/;https://forum.userstyles.org/search?Page=p3&Search=xml;https://greasyfork.org/scripts?page=2;https://greasyfork.org/forum/categories/script-discussions/p2;https://greasyfork.org/forum/dashboard/log/edits;https://greasyfork.org/forum/profile/comments/1/JasonBarnabe",
     "nextLink": "//a[@rel=\"next\" or div/@id=\"right-arrow\"] | id(\"PagerMore\")/a"
@@ -2988,14 +2988,14 @@
   },
   {
     "name": "DesignCrowd",
-    "url": "^https://.+.designcrowd.com/.",
+    "url": "^https://.+\\.designcrowd\\.com/.",
     "pageElement": "//table[@class=\"table table-striped\"]//tr|//div[@class=\"row small-up-1 medium-up-2 large-up-4\"]|id(\"communityContests\")",
     "exampleUrl": "https://jobs.designcrowd.com/graphic-design-jobs https://designers.designcrowd.com/3 https://www.designcrowd.com/community/",
     "nextLink": "//li[@class=\"active\" or @class=\"current\"]/following-sibling::li[1]/a"
   },
   {
     "name": "Nyaa",
-    "url": "^https?://(?:sukebei.)?nyaa.si/",
+    "url": "^https?://(?:sukebei\\.)?nyaa\\.si/",
     "pageElement": "//div[@class='table-responsive']/table[contains(@class, torrent-list)]/tbody/tr",
     "exampleUrl": "http://www.nyaa.se/",
     "nextLink": "//li[@class='active']/following-sibling::li[1]/a"
@@ -3010,13 +3010,13 @@
   },
   {
     "name": "ACGNX",
-    "url": "^https?://(?:ero|www).\\acgnx.se",
+    "url": "^https?://(?:ero|www)\\.acgnx\\.se",
     "pageElement": "//*[@id=\"listTable\"]",
     "nextLink": "//div[contains(@class,\"page\")]/a[@class=\"nextprev\"]"
   },
   {
     "name": "BTDigg Search",
-    "url": "^https?://btdigg.org/search*",
+    "url": "^https?://btdigg\\.org/search*",
     "pageElement": "//body/div/div/center",
     "nextLink": "//a[contains(text(),\"→\")]"
   },
@@ -3197,13 +3197,13 @@
   },
   {
     "name": "google_groupsearch",
-    "url": "^https?://groups\\.google(?:\\.[^./]{2,3}){1,2}/groups/search",
+    "url": "^https?://groups\\.google(?:\\.[^\\./]{2,3}){1,2}/groups/search",
     "pageElement": "id(\"res\")/*[self::div or self::br]",
     "nextLink": "id(\"navbar\")//td[last()][@class=\"b\"]/a"
   },
   {
     "name": "Google Scholar",
-    "url": "^https?://scholar.google.(?:[^.]{2,3}.)?[^./]{2,3}/scholar",
+    "url": "^https?://scholar\\.google\\.(?:[^\\.]{2,3}\\.)?[^\\./]{2,3}/scholar",
     "pageElement": "//div[@class=\"gs_r gs_or gs_scl\"]",
     "exampleUrl": "https://scholar.google.com/scholar?q=wii&hl=ja",
     "nextLink": "//a[./span[@class=\"gs_ico gs_ico_nav_next\"]]"
@@ -3216,19 +3216,19 @@
   },
   {
     "name": "google_history",
-    "url": "^https?://www\\.google\\.(?:[^.]{2,3}\\.)?[^./]{2,3}/history/",
+    "url": "^https?://www\\.google\\.(?:[^\\.]{2,3}\\.)?[^\\./]{2,3}/history/",
     "pageElement": "//table[@class=\"res\"]",
     "nextLink": "//td[@class=\"bl\"][last()-1]/a|//div[@class=\"nn\"]/parent::a"
   },
   {
     "name": "google_logos",
-    "url": "^https?://www\\.google\\.[^./]{2,3}(?:\\.[^./]{2,3})?/logos/",
+    "url": "^https?://www\\.google\\.[^\\./]{2,3}(?:\\.[^\\./]{2,3})?/logos/",
     "pageElement": "id(\"doodles\")|//div[contains(concat(\" \", @class, \" \"), \" title \")]",
     "nextLink": "//div[@class=\"base-nav\"]//a[contains(., \"?\")]"
   },
   {
     "name": "google_books",
-    "url": "^https?://books\\.google\\.(?:[^.]{2,3}\\.)?[^./]{2,3}/books",
+    "url": "^https?://books\\.google\\.(?:[^\\.]{2,3}\\.)?[^\\./]{2,3}/books",
     "pageElement": "id(\"main_content\")/*",
     "nextLink": "id(\"navbar\")//span[@class=\"navlink\"]/parent::a"
   },
@@ -3404,7 +3404,7 @@
   },
   {
     "name": "e-hentaidb",
-    "url": "^https://e-hentaidb.com/",
+    "url": "^https://e-hentaidb\\.com/",
     "pageElement": "//div[@class=\"preview\"]/div",
     "exampleUrl": "https://e-hentaidb.com/?female=%E5%87%A6%E5%A5%B3%E5%96%AA%E5%A4%B1",
     "nextLink": "//div[@class=\"pageUnit\"]/a[b]/following-sibling::a"
@@ -3425,7 +3425,7 @@
   },
   {
     "name": "DL.Getchu.com",
-    "url": "^https?://dl.getchu.com/",
+    "url": "^https?://dl\\.getchu\\.com/",
     "pageElement": "//td[@bgcolor=\"white\" and @align=\"center\" and not(@class)]/*",
     "exampleUrl": "http://dl.getchu.com/search/dojin_circle_detail.php?id=1447&pageID=3",
     "nextLink": "//div[@class=\"pgr2\"]/b/following-sibling::a[1]"
@@ -3442,7 +3442,7 @@
   },
   {
     "name": "namethatpornstar",
-    "url": "^https?://namethatpornstar.com",
+    "url": "^https?://namethatpornstar\\.com",
     "pageElement": "//*[@id=\"content\"]",
     "exampleUrl": "http://namethatpornstar.com/all-requests.php?page=2",
     "nextLink": "//*[@id=\"pagination\"]/a[./div[contains(@class,\"selected\")]]/following-sibling::a[1]",
@@ -3460,7 +3460,7 @@
   },
   {
     "name": "PornHub.com",
-    "url": "^https://[^.]+.pornhub.com/",
+    "url": "^https://[^\\.]+\\.pornhub\\.com",
     "pageElement": "//li[contains(concat(\" \", @class, \" \"), \" videoblock \")] | //li[contains(concat(\" \", @class, \" \"), \" photoAlbumListContainer \")] ",
     "exampleUrl": "http://www.pornhub.com/video http://www.pornhub.com/album",
     "nextLink": "//li[contains(concat(\" \", @class, \" \"), \" page_next \")]/a"
@@ -3475,48 +3475,48 @@
   },
   {
     "name": "YouAV",
-    "url": "^https://www.youav.com/search|videos",
+    "url": "^https://www\\.youav\\.com/search|videos",
     "pageElement": "//div[@class=\"container\"]/div[@class=\"row\"]/div/div[@class=\"row\"]",
     "exampleUrl": "",
     "nextLink": "//div[@class=\"hidden-xs\"]/ul/li/a[@class=\"prevnext\"]"
   },
   {
     "name": "Creema",
-    "url": "^https://(www.)?creema.jp/(listing|c)/",
+    "url": "^https://(www\\.)?creema\\.jp/(listing|c)/",
     "pageElement": "//ul[@class=\"p-items-article-list\"]",
     "exampleUrl": "https://www.creema.jp/listing?sort=newer",
     "nextLink": "//link[@rel=\"next\"]"
   },
   {
     "name": "qyule",
-    "url": "^https?://[^.]+.qyule.tv/",
+    "url": "^https?://[^\\.]+\\.qyule\\.tv",
     "pageElement": "//li[div[@class='video']]",
     "nextLink": "(//a[@class='prevnext'])[last()]",
     "preLink": "(//a[@class='prevnext'])[1]/@href"
   },
   {
     "name": "chaturbate",
-    "url": "^https?://([^.]+.)?chaturbate.com/",
+    "url": "^https?://([^\\.]+\\.)?chaturbate\\.com",
     "pageElement": "//div[@class=\"c-1 endless_page_template\"]",
     "nextLink": "auto;"
   },
   {
     "name": "Gamefaqs",
-    "url": "^https://gamefaqs.gamespot.com/",
+    "url": "^https://gamefaqs\\.gamespot\\.com/",
     "pageElement": "//div[@class=\"ffaq ffaqbody\"]//div[@class=\"section\" and not(contains(h2,\"(Continued)\")) or @class=\"section_box\"]|//table[starts-with(@class,\"board topics tlist\") or starts-with(@class,\"board message\") or @class=\"results\"]/tbody/tr",
     "exampleUrl": "https://gamefaqs.gamespot.com/boards/631516-wii-u",
     "nextLink": "//a[i/@class=\"fa fa-angle-right\"]"
   },
   {
     "name": "Screen Rant",
-    "url": "^https?://screenrant.com/.+",
+    "url": "^https?://screenrant\\.com/.+",
     "pageElement": "(//a[@class=\"next-btn icon i-arrow-2\"]/preceding-sibling::*[preceding-sibling::h2/@class=\"item-title\"]|//h2[@class=\"item-title\"]|//h2[@style=\"text-align: center;\"][a]/preceding-sibling::*[preceding-sibling::p])[not(//div/@class=\"wp-pagenavi\")]|//div[@itemprop=\"articleBody\"]/div[@class=\"wp-pagenavi\"]/preceding-sibling::*[not(self::h3 or self::h2[@style=\"text-align: center;\"]/a)]",
     "exampleUrl": "http://screenrant.com/most-powerful-dc-comic-superheroes http://screenrant.com/fantastic-four-movie-rights-fox-marvel-studios-2015/2/ https://screenrant.com/movies-didnt-know-had-post-credits-scenes/4/?view=lista",
     "nextLink": "//*[@rel=\"next\"]"
   },
   {
     "name": "rarbg",
-    "url": "^https?://(proxy)?rarbg(mirror|proxy|to|2018)?.(to|net|org)/",
+    "url": "^https?://(proxy)?rarbg(mirror|proxy|to|2018)?\\.(to|net|org)/",
     "pageElement": "//table[@class=\"lista2t\"]/tbody/tr[td/@class=\"lista\"]",
     "exampleUrl": "https://rarbg.to/torrents.php?category=movies",
     "nextLink": "//a[@title=\"next page\"]"
@@ -3532,7 +3532,7 @@
   },
   {
     "name": "models",
-    "url": "^https?://([^.]+.)?models.com/models/",
+    "url": "^https?://([^\\.]+\\.)?models\\.com/models/",
     "pageElement": "//div[@class=\"work-div\"]",
     "nextLink": "(//ul[@id=\"tabnavB\"]/li)[last()]/a"
   },
@@ -3544,33 +3544,33 @@
   },
   {
     "name": "Zophars Domain Music",
-    "url": "^https://(www.)?zophar.net/music/",
+    "url": "^https://(www\\.)?zophar\\.net/music/",
     "pageElement": "id(\"gamelist\")//tr[contains(@class,\"regularrow\")]",
     "exampleUrl": "https://www.zophar.net/music/nintendo-nes-nsf",
     "nextLink": "//a[@title=\"Next\"]"
   },
   {
     "name": "Headline Planet",
-    "url": "^https?://headlineplanet.com/home/",
+    "url": "^https?://headlineplanet\\.com/home/",
     "pageElement": "//div[@id=\"primary\"]/div/div/ul[@class=\"g1-collection-items\"]/li",
     "exampleUrl": "https://headlineplanet.com/home/ https://headlineplanet.com/home/category/music/music-news/ https://headlineplanet.com/home/category/music/reviews-music/",
     "nextLink": "//link[@rel=\"next\"]"
   },
   {
     "name": "south-plus-post",
-    "url": "^https?://south-plus.net",
-    "pageElement": "//div[@id='ajaxtable'] | //form[@name='delatc']",
+    "url": "^https?://([^\\.]+\\.)?(south|level|white)-plus\\.(net|org)",
+    "pageElement": "//table[@id='ajaxtable'] | //form[@name='delatc']",
     "nextLink": "//div[@class='pages']//li[b]/following-sibling::li[1]/a"
   },
   {
     "name": "Steam Workshop",
-    "url": "https?://steamcommunity.com/workshop",
+    "url": "https?://steamcommunity\\.com/workshop",
     "pageElement": "//div[@class='workshopBrowseRow']",
     "nextLink": "//a[@class='pagebtn']"
   },
   {
     "name": "Steam discussion",
-    "url": "https?://steamcommunity.com/app/\\d+/discussions/",
+    "url": "https?://steamcommunity\\.com/app/\\d+/discussions/",
     "pageElement": "//div[@class='forum_topics']",
     "nextLink": "//a[@class='pagebtn' and contains(@id,'next')]"
   },
