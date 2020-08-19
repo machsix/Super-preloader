@@ -47,20 +47,6 @@
   "updated_at": "2020-08-14T06:36:43+09:00"
 },
 {
-  "resource_url": "http://wedata.net/items/85450",
-  "data": {
-    "pageElement": "//article/a",
-    "nextLink": "//a[@rel='next']",
-    "url": "^https?://autoprove\\.net/",
-    "exampleUrl": "https://autoprove.net/automobile_study_group/"
-  },
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "created_by": "kenzou_ogawa",
-  "name": "オートプルーブ",
-  "created_at": "2020-08-13T15:35:47+09:00",
-  "updated_at": "2020-08-16T06:34:22+09:00"
-},
-{
   "resource_url": "http://wedata.net/items/85449",
   "data": {
     "pageElement": "//div[contains(@class,\"hentry\")][not(./figure)]",
@@ -87,21 +73,6 @@
   "name": "Ryuzee.com",
   "created_at": "2020-08-13T15:21:56+09:00",
   "updated_at": "2020-08-14T06:29:22+09:00"
-},
-{
-  "resource_url": "http://wedata.net/items/85447",
-  "data": {
-    "insertBefore": "",
-    "pageElement": "//article",
-    "nextLink": "//span[@class=\"current\"]/following-sibling::a[1]",
-    "url": "^https?://i\\.impressrd\\.jp/",
-    "exampleUrl": "https://i.impressrd.jp/"
-  },
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "created_by": "kenzou_ogawa",
-  "name": "IMPRESS INNOVATION LAB",
-  "created_at": "2020-08-13T14:59:11+09:00",
-  "updated_at": "2020-08-13T14:59:11+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/85446",
@@ -48237,14 +48208,14 @@
 {
   "resource_url": "http://wedata.net/items/400",
   "data": {
-    "pageElement": "(//article[not(contains(../@class,\"widget\"))][not(contains(@class,\"columns four\"))][not(contains(@class,\"side-contents\"))][not(ancestor::*[starts-with(@class,\"sidebar\")])][not(ancestor::*[contains(@class,\"featured\") and not(self::body)])]|//*[starts-with(@id,\"post-\")][not(contains(@id,\"nav\"))][not(contains(@id,\"post-rating\"))])[not(.//*[contains(@class,\"admz\")])][not(self::h2)][not(self::h3)][not(ancestor::*[@id=\"side\" or @class=\"pickup\" or starts-with(@id,\"post-\")])][not(ancestor::aside or ancestor::li or ancestor::article)][not(id(\"load-more-posts\") or @id=\"fpost\" or contains(@class,\"carousel\"))][parent::node()[not(@id=\"side\")][not(contains(@class,\"thumbnail\"))][not(./following-sibling::*[@id=\"side\"])]][count(//*[self::article or starts-with(@id,\"post-\")])>1][./following-sibling::* or ./preceding-sibling::*][count(//article)=count(//*[starts-with(@id,\"post-\")]) or count(//article)=count(//*[starts-with(@id,\"post-\")])*2 or count(//article)=0 or count(//*[starts-with(@id,\"post-\")])=0]|id(\"content\")[count(div)>1]/div[contains(@class,\"post\")][not(contains(div/@class,\"breadcrumb\"))]",
-    "comment": "nextLink:563 pageElement:1096",
+    "pageElement": "(//article[not(contains(../@class,\"widget\"))][not(contains(@class,\"columns four\"))][not(contains(@class,\"side-contents\"))][not(ancestor::*[starts-with(@class,\"sidebar\")])][not(ancestor::*[contains(@class,\"featured\") and not(self::body)])]|//*[starts-with(@id,\"post-\")][not(contains(@id,\"nav\"))][not(contains(@id,\"post-rating\"))])[not(.//*[contains(@class,\"admz\")])][not(self::h2)][not(self::h3)][not(ancestor::*[@id=\"side\" or @class=\"pickup\"])][not(ancestor::aside or ancestor::li)][not(id(\"load-more-posts\") or @id=\"fpost\" or contains(@class,\"carousel\"))][parent::node()[not(@id=\"side\")][not(contains(@class,\"thumbnail\"))][not(./following-sibling::*[@id=\"side\"])][count(./article)>1 or count(./*[starts-with(@id,\"post-\")])>1]][count(//article)=count(//*[starts-with(@id,\"post-\")])*2 or count(//article)*2=count(//*[starts-with(@id,\"post-\")]) or count(//*[./article/following-sibling::article]) + count(//*[./*[starts-with(@id,\"post-\")]/following-sibling::*[starts-with(@id,\"post-\")]]) - count(//*[./article[starts-with(@id,\"post-\")]/following-sibling::article[starts-with(@id,\"post-\")]])=1]|id(\"content\")[count(div)>1]/div[contains(@class,\"post\")][not(contains(div/@class,\"breadcrumb\"))]",
+    "comment": "nextLink:563 pageElement:1188",
     "comment2": "cf.https://tanyao.hatenadiary.jp/entry/2020/08/13/135253",
     "nextLink": "(//*[not(contains(@class,'_inactive'))]/a[starts-with(@class,'nextpostslink') or contains(@class,'next page-numbers') or (.|..)[normalize-space(@rel)='next' or normalize-space(@class)='next' or contains(@class,'pagination-next')]][not(span/@class='link-text')]|//*[contains(@class,'nav-previous')][not(contains(@class,'pull'))]/a|(//*[contains(@class,'current')][number()>0]/following-sibling::a[1]|(//li|//span|//div)[(.//*|.)[contains(@class,'current')]][number()>0]/following-sibling::*[self::li or self::span or self::div][1]/a))[not(starts-with(@href, '#'))]",
     "url": "^https?://.+",
     "exampleUrl_a": "https://starcasm.net/\r\nhttps://www.newyorker.com/magazine/food-and-drink\r\nhttps://shingeki.tv/news/\r\nhttps://www.stuff-review.com/\r\nhttp://web-engineer.buyuden.net/series/buyuden/\r\nhttps://insidepulse.com/\r\nhttps://insidepulse.com/zone/wrestling/\r\nhttp://diehardgamefan.com/category/nintendo_wii/\r\nhttps://littlebigdetails.com/page/2\r\nhttps://littlebigdetails.com/tagged/chrome/page/2",
-    "exampleUrl_b": "https://gadget-shot.com/\r\nhttps://www.ama-dan.com/news\r\nhttp://4koma.takeshobo.co.jp/category/4koma/\r\nhttp://4koma.takeshobo.co.jp/date/2016/02/",
-    "exampleUrl_c": "https://www.jinnsblog.com/\r\nhttps://blog.archive.org/\r\nhttps://www.celebdirtylaundry.com/\r\nhttps://www.evilmadscientist.com/\r\nhttp://www.synthtopia.com/\r\nhttps://ieiri.net/blog\r\nhttps://blog.jquery.com/\r\nhttps://petitetomo.com/\r\nhttps://xperia-freaks.org/\r\nhttps://allanhutchison.net/\r\nhttps://caelum-lex.com/\r\nhttp://skaz.jp/page/2\r\nhttp://yaneuraou.yaneu.com/\r\nhttps://dl-zip.com/\r\nhttps://www.flickeringmyth.com/category/movies/\r\nhttp://haaya.net/\r\nhttps://info.yadoku.com/",
+    "exampleUrl_b": "https://gadget-shot.com/\r\nhttps://www.ama-dan.com/news\r\nhttp://4koma.takeshobo.co.jp/category/4koma/\r\nhttp://4koma.takeshobo.co.jp/date/2016/02/\r\nhttps://autoprove.net/automobile_study_group/",
+    "exampleUrl_c": "https://www.jinnsblog.com/\r\nhttps://blog.archive.org/\r\nhttps://www.celebdirtylaundry.com/\r\nhttps://www.evilmadscientist.com/\r\nhttp://www.synthtopia.com/\r\nhttps://ieiri.net/blog\r\nhttps://blog.jquery.com/\r\nhttps://petitetomo.com/\r\nhttps://xperia-freaks.org/\r\nhttps://allanhutchison.net/\r\nhttps://caelum-lex.com/\r\nhttp://skaz.jp/page/2\r\nhttp://yaneuraou.yaneu.com/\r\nhttps://dl-zip.com/\r\nhttps://www.flickeringmyth.com/category/movies/\r\nhttp://haaya.net/\r\nhttps://info.yadoku.com/\r\nhttps://i.impressrd.jp/",
     "exampleUrl_d": "http://bash.org.pl/latest/",
     "exampleUrl_e": "http://moherou.net/page/2/\r\nhttp://octech.jp/modules/wordpress/\r\nhttp://dannnao.net/blog/\r\nhttp://dannnao.net/blog/page/2/\r\nhttp://dannnao.net/blog/2013/01/2000px/\r\nhttps://www.askasu.idv.tw/\r\nhttp://fail.in.th/\r\nhttp://anjo.dekiteharu.jp/category/3d_animation\r\nhttp://www.octech.jp/review/?s=a\r\nhttp://blog.nrpg-a.com/\r\nhttps://www.bijin-snap.com/"
   },
@@ -48252,6 +48223,6 @@
   "created_by": "swdyh",
   "name": "Generic Posts Rule",
   "created_at": "2008-04-16T12:35:17+09:00",
-  "updated_at": "2020-08-17T20:45:23+09:00"
+  "updated_at": "2020-08-19T15:17:39+09:00"
 }
 ]
