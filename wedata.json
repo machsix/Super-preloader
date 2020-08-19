@@ -48050,17 +48050,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/430",
-  "name": "Blogger",
-  "created_by": "swdyh",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2016-10-22T15:03:01+09:00",
   "data": {
-    "exampleUrl": "http://52pairplunge.blogspot.com/\r\nhttp://portableappz.blogspot.com/\r\nhttp://blog.friendfeed.com/\r\nhttp://blog.kamicopi.net/\r\nhttp://movies.india.as/\r\nhttp://blog.kassyi.com/\r\nhttp://www.gkec.info/\r\nhttp://blog.cs.kanagawa-it.ac.jp/\r\nhttp://www.tastefullyoffensive.com/\r\nhttp://www.tastefullyoffensive.com/2014/07/84-year-old-man-surprises-americas-got.html\r\nhttp://www.irasutoya.com/search/label/%E3%82%B9%E3%83%9E%E3%83%BC%E3%83%88%E3%83%95%E3%82%A9%E3%83%B3\r\nhttp://www.nowimyourblog.com/\r\n",
+    "pageElement": "//div[@class='date-outer'] | //div[@class='entry' and div[@class='entrybody']] | //article[@class='post-outer-container']",
+    "nextLink": "id('Blog1_blog-pager-older-link') | //a[contains(concat(' ', normalize-space(@class), ' '), ' blog-pager-older-link ') ]",
     "url": "^https?://.",
-    "pageElement": "//div[@class='date-outer'] | //div[@class='entry' and div[@class='entrybody']]",
-    "nextLink": "id('Blog1_blog-pager-older-link')"
+    "exampleUrl": "http://52pairplunge.blogspot.com/\r\nhttp://portableappz.blogspot.com/\r\nhttp://blog.friendfeed.com/\r\nhttp://blog.kamicopi.net/\r\nhttp://blog.kassyi.com/\r\nhttp://www.gkec.info/\r\nhttp://blog.cs.kanagawa-it.ac.jp/\r\nhttp://www.irasutoya.com/search/label/%E3%82%B9%E3%83%9E%E3%83%BC%E3%83%88%E3%83%95%E3%82%A9%E3%83%B3\r\nhttps://looxu.blogspot.com/\r\n"
   },
-  "created_at": "2008-04-16T12:35:27+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "swdyh",
+  "name": "Blogger",
+  "created_at": "2008-04-16T12:35:27+09:00",
+  "updated_at": "2020-08-19T22:35:37+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/425",
@@ -48208,8 +48208,8 @@
 {
   "resource_url": "http://wedata.net/items/400",
   "data": {
-    "pageElement": "(//article[not(contains(../@class,\"widget\"))][not(contains(@class,\"columns four\"))][not(contains(@class,\"side-contents\"))][not(ancestor::*[starts-with(@class,\"sidebar\")])][not(ancestor::*[contains(@class,\"featured\") and not(self::body)])]|//*[starts-with(@id,\"post-\")][not(contains(@id,\"nav\"))][not(contains(@id,\"post-rating\"))])[not(.//*[contains(@class,\"admz\")])][not(self::h2)][not(self::h3)][not(ancestor::*[@id=\"side\" or @class=\"pickup\"])][not(ancestor::aside or ancestor::li)][not(id(\"load-more-posts\") or @id=\"fpost\" or contains(@class,\"carousel\"))][parent::node()[not(@id=\"side\")][not(contains(@class,\"thumbnail\"))][not(./following-sibling::*[@id=\"side\"])][count(./article)>1 or count(./*[starts-with(@id,\"post-\")])>1]][count(//article)=count(//*[starts-with(@id,\"post-\")])*2 or count(//article)*2=count(//*[starts-with(@id,\"post-\")]) or count(//*[./article/following-sibling::article]) + count(//*[./*[starts-with(@id,\"post-\")]/following-sibling::*[starts-with(@id,\"post-\")]]) - count(//*[./article[starts-with(@id,\"post-\")]/following-sibling::article[starts-with(@id,\"post-\")]])=1]|id(\"content\")[count(div)>1]/div[contains(@class,\"post\")][not(contains(div/@class,\"breadcrumb\"))]",
-    "comment": "nextLink:563 pageElement:1188",
+    "pageElement": "(//article[not(contains(../@class,\"widget\"))][not(contains(@class,\"columns four\"))][not(contains(@class,\"side-contents\"))][not(ancestor::*[starts-with(@class,\"sidebar\")])][not(ancestor::*[contains(@class,\"featured\") and not(self::body)])]|//*[starts-with(@id,\"post-\")][not(contains(@id,\"nav\"))][not(contains(@id,\"post-rating\"))])[not(.//*[contains(@class,\"admz\")])][not(self::h2)][not(self::h3)][not(ancestor::*[@id=\"side\" or @class=\"pickup\"])][not(ancestor::aside or ancestor::li)][not(id(\"load-more-posts\") or @id=\"fpost\" or contains(@class,\"carousel\"))][parent::node()[not(@id=\"side\")][not(contains(@class,\"thumbnail\"))][not(./following-sibling::*[@id=\"side\"])][count(./article)>1 or count(./*[starts-with(@id,\"post-\")])>1]][//article[./following-sibling::article][count(.//*[starts-with(@id,\"post-\")])=2] or //*[starts-with(@id,\"post-\")][./following-sibling::*[starts-with(@id,\"post-\")][count(.//article)=2]] or count(//*[./article/following-sibling::article]) + count(//*[./*[starts-with(@id,\"post-\")]/following-sibling::*[starts-with(@id,\"post-\")]]) - count(//*[./article[starts-with(@id,\"post-\")]/following-sibling::article[starts-with(@id,\"post-\")]])=1]|id(\"content\")[count(div)>1]/div[contains(@class,\"post\")][not(contains(div/@class,\"breadcrumb\"))]",
+    "comment": "nextLink:563 pageElement:1258",
     "comment2": "cf.https://tanyao.hatenadiary.jp/entry/2020/08/13/135253",
     "nextLink": "(//*[not(contains(@class,'_inactive'))]/a[starts-with(@class,'nextpostslink') or contains(@class,'next page-numbers') or (.|..)[normalize-space(@rel)='next' or normalize-space(@class)='next' or contains(@class,'pagination-next')]][not(span/@class='link-text')]|//*[contains(@class,'nav-previous')][not(contains(@class,'pull'))]/a|(//*[contains(@class,'current')][number()>0]/following-sibling::a[1]|(//li|//span|//div)[(.//*|.)[contains(@class,'current')]][number()>0]/following-sibling::*[self::li or self::span or self::div][1]/a))[not(starts-with(@href, '#'))]",
     "url": "^https?://.+",
@@ -48223,6 +48223,6 @@
   "created_by": "swdyh",
   "name": "Generic Posts Rule",
   "created_at": "2008-04-16T12:35:17+09:00",
-  "updated_at": "2020-08-19T15:17:39+09:00"
+  "updated_at": "2020-08-19T21:26:30+09:00"
 }
 ]
