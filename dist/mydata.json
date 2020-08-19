@@ -3589,5 +3589,12 @@
     "exampleUrl": "https://www.cool18.com/bbs4/index.php?app=forum&act=cachepage&cp=tree1",
     "nextLink": "//*[@id='d_list_page']/a[contains(text(),'下一页')]",
     "category": ["forum", "nsfw"]
+  },
+  {
+    "name": "F95zone",
+    "url": "^https?://f95zone\\.to/forums",
+    "pageElement": "//*[@class='block-container uix_discussionList']/div[@class='block-body']",
+    "nextLink": "auto;",
+    "category": ["forum", "nsfw"]
   }
 ]
