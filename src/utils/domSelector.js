@@ -110,7 +110,7 @@ function getAllElementsDuplicate(selector, contextNode = undefined, doc = docume
   if (typeof selector === 'string') {
     if (selector.search(/^css;/i) !== 0) {
       // replace all id('x') by //*[@id='x']
-      selector = selector.replace(/^id\((.*)\)/g, '//*[@id=$1]');
+      selector = selector.replace(/^id\((.*?)\)/g, '//*[@id=$1]');
       // prevent xpath like `//div[2]`
       const strippedSelector = /(.*\w+)\[\d+\]$/.exec(selector);
       if (strippedSelector) {

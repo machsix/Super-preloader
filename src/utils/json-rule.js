@@ -105,7 +105,7 @@ const WeData = new RuleProvider('wedata.net', ['http://wedata.net/databases/Auto
       }
       return true;
     })
-    .map((i) => ({...i.data, name: i.name}))
+    .map((i) => ({name: i.name, resource_url: i.resource_url, ...i.data}))
 );
 
 const p = [MyData, WeData];
