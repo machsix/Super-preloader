@@ -56,7 +56,7 @@ export const METADATA = `// ==UserScript==
 // @supportURL   ${SCRIPT_INFO.greasyfork}/feedback
 // @contributionURL https://ko-fi.com/machsix
 // @icon         ${SCRIPT_INFO.icon}
-// @require https://greasyfork.org/scripts/373124-gm4-polyfill-mach6-legacy/code/gm4-polyfill-mach6-legacy.js?version=839554
+// @require      https://greasyfork.org/scripts/373124-gm4-polyfill-mach6-legacy/code/gm4-polyfill-mach6-legacy.js?version=839554
 // @grant        GM.getValue
 // @grant        GM_getValue
 // @grant        GM.setValue
@@ -102,5 +102,6 @@ export const METADATA = `// ==UserScript==
 // @exclude      http*://ad.doubleclick.net/*
 // @exclude      http*://ad.agrantsem.com/*
 // @exclude      http*://www.youtube.com/embed/*
+// @exclude      https://assets.tumblr.com/*
 // ==/UserScript==
 `;
