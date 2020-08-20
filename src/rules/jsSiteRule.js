@@ -1230,6 +1230,60 @@ export const jsSiteRule = [
         }
       }
     }
+  },
+  {
+    name: 'mygalgame',
+    url: '^https://www\\.kkgal\\.com(/page/)?',
+    nextLink: 'css;.pagination-zan li:last-child a',
+    pageElement: 'css;#article-list',
+    /**
+     * @callback
+     * @description 一个作用预读内容 element 的 js 函数，执行于预读内容被插入到当前页面后。
+     * @param {HTMLElement[]} pageElements 页面元素
+     * @returns {void}
+     */
+    filter: function (pageElements) {
+      /**@type {NodeListOf<HTMLDivElement>} */
+      const article = pageElements[0].querySelectorAll('.article');
+      if (!(article[0].getAttribute('aos') == 'flip-up')) {
+        return;
+      }
+      let firstFlag = true;
+      // eslint-disable-next-line valid-jsdoc
+      /**@type {IntersectionObserverCallback} */
+      const intersectionCallback = (entries) => {
+        // 第一次进入不执行
+        entries.some((entry) => {
+          const mainElement = entry.target.firstElementChild;
+          if (!mainElement) {
+            return;
+          }
+          if (entry.boundingClientRect.top > window.innerHeight - entry.boundingClientRect.height * 0.3) {
+            if (firstFlag) {
+              firstFlag = false;
+              return true;
+            }
+            if (mainElement.classList.contains('aos-animate')) {
+              mainElement.classList.remove('aos-animate');
+              return;
+            }
+            mainElement.classList.add('aos-animate');
+          } else {
+            mainElement.classList.add('aos-animate');
+          }
+          if (entry.intersectionRatio > 0.5) {
+            mainElement.classList.add('aos-animate');
+          }
+        });
+      };
+      const observer = new IntersectionObserver(intersectionCallback, {threshold: [0.2, 1]});
+      pageElements[0].querySelectorAll('.article').forEach((element) => {
+        const divElement = document.createElement('div');
+        element.parentElement.insertBefore(divElement, element);
+        divElement.appendChild(element);
+        observer.observe(divElement);
+      });
+    }
   }
 ];
 
