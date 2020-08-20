@@ -49,6 +49,10 @@ import notice from './utils/notice';
     gotConfig.cookie = true;
   }
 
+  if (SCRIPT_MANAGER.name.toLowerCase().includes('adguard')) {
+    logger.warn(`${SCRIPT_MANAGER.name} has issues with some specific like Google due to the way it injects script`);
+  }
+
   const got = gotStock.create(gotConfig);
   const scriptInfo = SCRIPT_INFO;
   const upgradeNotification = NOTIFICATION;
