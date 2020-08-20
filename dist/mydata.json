@@ -3606,7 +3606,7 @@
   },
   {
     "name": "GAMECORES",
-    "url": "^https?://www\\.gcores\\.com/",
+    "url": "^https?://www\\.gcores\\.com/(radios|articles|videos)",
     "pageElement": "//div[contains(@class,'loadingPlaceholder loading')]/parent::div",
     "nextLink": "auto;"
   }
