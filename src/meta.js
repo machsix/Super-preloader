@@ -14,7 +14,7 @@ export const SCRIPT_INFO = {
   author: pkg.author,
   version: pkg.version,
   license: pkg.license,
-  changelog: `${emoji('1F92A')} Allow to disable bultin rules`,
+  changelog: `${emoji('1F92A')} Adguard is supported`,
   greasyfork: 'https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new',
   updateTime: `${now.getFullYear()}/${now.getMonth() + 1}/${now.getDate()}`,
   homepageURL: 'https://github.com/machsix/Super-preloader',
@@ -56,7 +56,7 @@ export const METADATA = `// ==UserScript==
 // @supportURL   ${SCRIPT_INFO.greasyfork}/feedback
 // @contributionURL https://ko-fi.com/machsix
 // @icon         ${SCRIPT_INFO.icon}
-// @require      https://greasyfork.org/scripts/373124-gm4-polyfill-mach6-legacy/code/gm4-polyfill-mach6-legacy.js?version=758289
+// @require https://greasyfork.org/scripts/373124-gm4-polyfill-mach6-legacy/code/gm4-polyfill-mach6-legacy.js?version=839554
 // @grant        GM.getValue
 // @grant        GM_getValue
 // @grant        GM.setValue
