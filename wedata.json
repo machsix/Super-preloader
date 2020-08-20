@@ -149,21 +149,6 @@
   "updated_at": "2020-08-13T11:54:41+09:00"
 },
 {
-  "resource_url": "http://wedata.net/items/85441",
-  "data": {
-    "insertBefore": "",
-    "pageElement": "//article",
-    "nextLink": "//link[@rel=\"next\"]",
-    "url": "^https://(www\\.)?appinn\\.com/",
-    "exampleUrl": "https://www.appinn.com/"
-  },
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "created_by": "kenzou_ogawa",
-  "name": "小众软件",
-  "created_at": "2020-08-13T11:39:27+09:00",
-  "updated_at": "2020-08-13T11:39:27+09:00"
-},
-{
   "resource_url": "http://wedata.net/items/85440",
   "data": {
     "pageElement": "//div[@class=\"navi_all\"]/following-sibling::*[./following-sibling::div[@class=\"navi_all\"]]|//div[@class=\"smpnovel_list\"]",
@@ -48213,7 +48198,7 @@
     "comment2": "cf.https://tanyao.hatenadiary.jp/entry/2020/08/13/135253",
     "nextLink": "(//*[not(contains(@class,'_inactive'))]/a[starts-with(@class,'nextpostslink') or contains(@class,'next page-numbers') or (.|..)[normalize-space(@rel)='next' or normalize-space(@class)='next' or contains(@class,'pagination-next')]][not(span/@class='link-text')]|//*[contains(@class,'nav-previous')][not(contains(@class,'pull'))]/a|(//*[contains(@class,'current')][number()>0]/following-sibling::a[1]|(//li|//span|//div)[(.//*|.)[contains(@class,'current')]][number()>0]/following-sibling::*[self::li or self::span or self::div][1]/a))[not(starts-with(@href, '#'))]",
     "url": "^https?://.+",
-    "exampleUrl_a": "https://starcasm.net/\r\nhttps://www.newyorker.com/magazine/food-and-drink\r\nhttps://shingeki.tv/news/\r\nhttps://www.stuff-review.com/\r\nhttp://web-engineer.buyuden.net/series/buyuden/\r\nhttps://insidepulse.com/\r\nhttps://insidepulse.com/zone/wrestling/\r\nhttp://diehardgamefan.com/category/nintendo_wii/\r\nhttps://littlebigdetails.com/page/2\r\nhttps://littlebigdetails.com/tagged/chrome/page/2",
+    "exampleUrl_a": "https://starcasm.net/\r\nhttps://www.newyorker.com/magazine/food-and-drink\r\nhttps://shingeki.tv/news/\r\nhttps://www.stuff-review.com/\r\nhttp://web-engineer.buyuden.net/series/buyuden/\r\nhttps://insidepulse.com/\r\nhttps://insidepulse.com/zone/wrestling/\r\nhttp://diehardgamefan.com/category/nintendo_wii/\r\nhttps://littlebigdetails.com/page/2\r\nhttps://littlebigdetails.com/tagged/chrome/page/2\r\nhttps://www.appinn.com/",
     "exampleUrl_b": "https://gadget-shot.com/\r\nhttps://www.ama-dan.com/news\r\nhttp://4koma.takeshobo.co.jp/category/4koma/\r\nhttp://4koma.takeshobo.co.jp/date/2016/02/\r\nhttps://autoprove.net/automobile_study_group/",
     "exampleUrl_c": "https://www.jinnsblog.com/\r\nhttps://blog.archive.org/\r\nhttps://www.celebdirtylaundry.com/\r\nhttps://www.evilmadscientist.com/\r\nhttp://www.synthtopia.com/\r\nhttps://ieiri.net/blog\r\nhttps://blog.jquery.com/\r\nhttps://petitetomo.com/\r\nhttps://xperia-freaks.org/\r\nhttps://allanhutchison.net/\r\nhttps://caelum-lex.com/\r\nhttp://skaz.jp/page/2\r\nhttp://yaneuraou.yaneu.com/\r\nhttps://dl-zip.com/\r\nhttps://www.flickeringmyth.com/category/movies/\r\nhttp://haaya.net/\r\nhttps://info.yadoku.com/\r\nhttps://i.impressrd.jp/",
     "exampleUrl_d": "http://bash.org.pl/latest/",
@@ -48223,6 +48208,6 @@
   "created_by": "swdyh",
   "name": "Generic Posts Rule",
   "created_at": "2008-04-16T12:35:17+09:00",
-  "updated_at": "2020-08-19T21:26:30+09:00"
+  "updated_at": "2020-08-20T07:27:34+09:00"
 }
 ]

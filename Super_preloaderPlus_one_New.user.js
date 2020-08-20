@@ -11,7 +11,7 @@
 // @thanksto     ywzhaiqi, NLF
 // @version      6.14.1
 // @license      GPL-3.0
-// @update       2020/8/19
+// @update       2020/8/20
 // @homepageURL  https://github.com/machsix/Super-preloader
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
 // @contributionURL https://ko-fi.com/machsix
@@ -9368,6 +9368,71 @@
       } finally {
         _iterator6.f();
       }
+    }
+  }, {
+    name: 'mygalgame',
+    url: '^https://www\\.kkgal\\.com(/page/)?',
+    nextLink: 'css;.pagination-zan li:last-child a',
+    pageElement: 'css;#article-list',
+
+    /**
+     * @callback
+     * @description 一个作用预读内容 element 的 js 函数，执行于预读内容被插入到当前页面后。
+     * @param {HTMLElement[]} pageElements 页面元素
+     * @returns {void}
+     */
+    filter: function filter(pageElements) {
+      /**@type {NodeListOf<HTMLDivElement>} */
+      var article = pageElements[0].querySelectorAll('.article');
+
+      if (!(article[0].getAttribute('aos') == 'flip-up')) {
+        return;
+      }
+
+      var firstFlag = true; // eslint-disable-next-line valid-jsdoc
+
+      /**@type {IntersectionObserverCallback} */
+
+      var intersectionCallback = function intersectionCallback(entries) {
+        // 第一次进入不执行
+        entries.some(function (entry) {
+          var mainElement = entry.target.firstElementChild;
+
+          if (!mainElement) {
+            return;
+          }
+
+          if (entry.boundingClientRect.top > window.innerHeight - entry.boundingClientRect.height * 0.3) {
+            if (firstFlag) {
+              firstFlag = false;
+              return true;
+            }
+
+            if (mainElement.classList.contains('aos-animate')) {
+              mainElement.classList.remove('aos-animate');
+              return;
+            }
+
+            mainElement.classList.add('aos-animate');
+          } else {
+            mainElement.classList.add('aos-animate');
+          }
+
+          if (entry.intersectionRatio > 0.5) {
+            mainElement.classList.add('aos-animate');
+          }
+        });
+      };
+
+      var observer = new IntersectionObserver(intersectionCallback, {
+        threshold: [0.2, 1]
+      });
+      pageElements[0].querySelectorAll('.article').forEach(function (element) {
+        var divElement = document.createElement('div');
+        element.parentElement.insertBefore(divElement, element);
+        divElement.appendChild(element);
+        observer.observe(divElement);
+      });
     }
   }];
 
