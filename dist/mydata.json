@@ -3603,5 +3603,11 @@
     "pageElement": "//*[@class='block-container uix_discussionList']/div[@class='block-body']",
     "nextLink": "auto;",
     "category": ["forum", "nsfw"]
+  },
+  {
+    "name": "GAMECORES",
+    "url": "^https?://www\\.gcores\\.com/",
+    "pageElement": "//div[contains(@class,'loadingPlaceholder loading')]/parent::div",
+    "nextLink": "auto;"
   }
 ]
