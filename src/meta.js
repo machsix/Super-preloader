@@ -30,10 +30,10 @@ export const NOTIFICATION = {
   image: SCRIPT_INFO.icon,
   onload: function () {},
   // eslint-disable-next-line no-unused-vars
-  show: (oldVersion, newVersion) => compareVersions(oldVersion, '6.11.0') < 0 && compareVersions(newVersion, '6.11.0') >= 0,
+  show: (oldVersion, newVersion) => compareVersions(oldVersion, '6.15.1') < 0 && compareVersions(newVersion, '6.15.1') >= 0,
   extratext: {
-    zh_CN: '你现在可以通过拖拽改变悬浮窗位置！',
-    en_US: 'You can now change the location of the floatWindow by dragging it!'
+    zh_CN: '你现在可以修改css自定义外观！',
+    en_US: 'You can now change the appearence by CustomCSS!'
   }
 };
 

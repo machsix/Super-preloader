@@ -2,6 +2,7 @@
 
 interface IPrefs {
   floatWindow: boolean;
+  customCSS: string;
   FW_position: number;
   FW_offset: [number, number];
   FW_RAS: boolean;

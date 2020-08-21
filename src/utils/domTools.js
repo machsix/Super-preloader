@@ -55,7 +55,7 @@ export function getProperty(obj) {
   if (obj.nodeName === 'INPUT') {
     switch (obj.type) {
       case 'checkbox':
-        return obj.checked;
+        return !!obj.checked;
       case 'number': {
         const min = obj.hasAttribute('min') ? parseInt(obj.min) : undefined;
         const max = obj.hasAttribute('max') ? parseInt(obj.max) : undefined;
@@ -68,6 +68,8 @@ export function getProperty(obj) {
     }
   } else if (obj.nodeName === 'SELECT') {
     return obj.selectedOptions[0].value;
+  } else if (obj.nodeName === 'TEXTAREA') {
+    return obj.value;
   } else if (obj.nodeName === 'A') {
     return obj.href;
   } else {
@@ -111,6 +113,8 @@ export function setProperty(obj, value) {
         break;
       }
     }
+  } else if (obj.nodeName === 'TEXTAREA') {
+    obj.value = value;
   } else if (obj.nodeName === 'A') {
     obj.href = value;
   } else {

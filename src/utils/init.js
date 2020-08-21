@@ -10,9 +10,10 @@ import logger from './logger';
 
 // ---------------------- Settings stored in GM storaged, changed by control pannel ---------------
 /**@type {ISettings} */
-const factorySettings = {
+export const factorySettings = {
   prefs: {
     floatWindow: true, // 显示悬浮窗
+    customCSS: '',
     FW_position: 2, // 1:出现在左上角;2:出现在右上角;3：出现在右下角;4：出现在左下角;
     FW_offset: [20, 38], // 偏离版边的垂直和水平方向的数值..(单位:像素)
     FW_RAS: true, // 点击悬浮窗上的保存按钮..立即刷新页面;
@@ -229,7 +230,7 @@ export async function loadSettings() {
 
   // send notification
   if (verDiff < 0) {
-    if (upgradeNotification.show(settings.version, scriptInfo.version) || isInstalled) {
+    if (upgradeNotification.show(myOldVersion, scriptInfo.version) || isInstalled) {
       const opts = {
         text: '',
         title: upgradeNotification.title,
