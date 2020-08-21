@@ -1,6 +1,6 @@
 {
   "name": "super-preloader",
-  "version": "6.15.1",
+  "version": "6.15.2",
   "description": "Super-preloader",
   "main": "dist/Super_preloaderPlus_one_New.user.js",
   "author": "Mach6",
@@ -51,7 +51,7 @@
     "vuepress": "1.5.3"
   },
   "dependencies": {
-    "@babel/core": "7.11.1",
+    "@babel/core": "7.11.4",
     "@babel/plugin-transform-runtime": "7.11.0",
     "@babel/preset-env": "7.11.0",
     "@rollup/plugin-babel": "5.2.0",
@@ -74,9 +74,9 @@
     "lodash": "4.17.20",
     "loglevel": "1.6.8",
     "prettier": "2.0.5",
-    "pretty-quick": "2.0.1",
+    "pretty-quick": "3.0.0",
     "puppeteer": "2.1.0",
-    "rollup": "2.26.3",
+    "rollup": "2.26.4",
     "rollup-plugin-banner": "git+https://git@github.com/machsix/rollup-plugin-banner.git#v0.2.2",
     "rollup-plugin-dev": "1.1.2",
     "rollup-plugin-ejs": "2.2.0",
