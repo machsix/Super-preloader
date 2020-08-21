@@ -59,7 +59,7 @@
   },
   {
     "name": "v2ex",
-    "url": "^https?://(www|s).v2ex\\.com/(recent|go)",
+    "url": "^https?://(www|s)\\.v2ex\\.com/(recent|go)",
     "pageElement": "//div[@class='cell item']|//div[contains(@class, 'cell from')]",
     "exampleUrl": "https://www.v2ex.com/recent?p=3",
     "nextLink": "//link[@rel='next']",
@@ -70,7 +70,7 @@
   },
   {
     "name": "v2ex Thread",
-    "url": "^https?://(www|s).v2ex\\.com/t/",
+    "url": "^https?://(www|s)\\.v2ex\\.com/t/",
     "pageElement": "//*[@id='Main']/div[@class='box']/div[contains(@id,'r_')]",
     "nextLink": "auto;",
     "category": ["forum"]
