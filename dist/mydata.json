@@ -3447,6 +3447,17 @@
     }
   },
   {
+    "name": "图集谷",
+    "url": "^https?://www\\.tujigu\\.com",
+    "pageElement": "//div[@class=\"content\"]",
+    "exampleUrl": "https://www.tujigu.com/a/19060/12.html",
+    "nextLink": "//a[contains(text(),'下一页')]",
+    "category": ["gallery", "nsfw"],
+    "autopager": {
+      "ipages": [true, 3]
+    }
+  },
+  {
     "name": "namethatpornstar",
     "url": "^https?://namethatpornstar\\.com",
     "pageElement": "//*[@id=\"content\"]",
