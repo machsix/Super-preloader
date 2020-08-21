@@ -3575,6 +3575,13 @@
     "nextLink": "//a[@class='pagebtn' and contains(@id,'next')]"
   },
   {
+    "name": "Steam Workshop个人",
+    "url": "https?://steamcommunity\\.com/id",
+    "pageElement": "//div[@class='workshopBrowseItems']|//div[@class='workshopBrowsePaging']",
+    "nextLink": "(//div[@class='workshopBrowsePagingControls'])[last()]/a[@class='pagebtn' and contains(text(),'>')]",
+    "useiframe": true
+  },
+  {
     "name": "春滿四合院",
     "url": "^https?://(www\\.)?spring4u\\.info/forumdisplay\\.php",
     "pageElement": "//html/body/center/form[1]",
