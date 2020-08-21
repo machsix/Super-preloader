@@ -349,7 +349,7 @@ import notice from './utils/notice';
       } else {
         logger.setLevel(5);
       }
-      logger.debug(`Script Manager: ${SCRIPT_MANAGER.name}  v${SCRIPT_MANAGER.version}`);
+      logger.debug('Script Manager: ', JSON.stringify({name: SCRIPT_MANAGER.name, version: SCRIPT_MANAGER.version || 'unknown'}));
       logger.debug('Browser: ', JSON.stringify(BROWSER));
       const setup = function () {
         const d = document;

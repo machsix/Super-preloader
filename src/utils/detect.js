@@ -13,6 +13,7 @@ const userAgentRules = [
   ['chrome', /(?!Chrom.*OPR)Chrom(?:e|ium)\/([0-9\.]+)(:?\s|$)/],
   ['phantomjs', /PhantomJS\/([0-9\.]+)(:?\s|$)/],
   ['crios', /CriOS\/([0-9\.]+)(:?\s|$)/],
+  ['waterfox', /Waterfox\/([0-9\.]+)(?:\s|$)/],
   ['firefox', /Firefox\/([0-9\.]+)(?:\s|$)/],
   ['fxios', /FxiOS\/([0-9\.]+)/],
   ['opera-mini', /Opera Mini.*Version\/([0-9\.]+)/],
@@ -80,6 +81,12 @@ function parseUserAgent(ua) {
 export const BROWSER = parseUserAgent(navigator.userAgent);
 
 const INFO = GM.info || GM_info;
+if (!('scriptHandler' in INFO) || !('version' in INFO)) {
+  console.warn('[Super-preloader] You may use an unsupported userscript manager');
+  if (!('scriptHander' in INFO)) {
+    INFO.scriptHandler = 'Greasemonkey'; // GM3's GM_info API doesn't provide scriptHander
+  }
+}
 export const SCRIPT_MANAGER = {
   name: INFO.scriptHandler,
   version: INFO.version
