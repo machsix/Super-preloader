@@ -9123,32 +9123,31 @@
 },
 {
   "resource_url": "http://wedata.net/items/81276",
-  "name": "Billboard Music",
-  "created_by": "Tanookirby",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-09-05T05:05:16+09:00",
   "data": {
-    "exampleUrl": "http://www.spin.com/page/2/ http://www.vibe.com/category/news/national/ http://www.deathandtaxesmag.com/ http://www.stereogum.com/page/2/",
+    "pageElement": "//div[@class='col-sm-8 left-col']//div[@class='post row']|//div[@class='col-holder__left-col']/div[@class='feed feed--split']",
+    "nextLink": "//div[@class='sp-pagination row']//div[contains(@class,'next')]//a|//a[@class='page-link page-link--next']",
     "url": "^https?://(www\\.)?(spin|vibe|deathandtaxesmag|stereogum).com/",
-    "pageElement": "//div[@class='col-sm-8 left-col']//div[@class='post row']",
-    "nextLink": "//div[@class='sp-pagination row']//div[contains(@class,'next')]//a"
+    "exampleUrl": "http://www.spin.com/page/2/ http://www.vibe.com/category/news/national/ http://www.deathandtaxesmag.com/ http://www.stereogum.com/page/2/"
   },
-  "created_at": "2017-04-10T10:59:57+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "Tanookirby",
+  "name": "Billboard Music",
+  "created_at": "2017-04-10T10:59:57+09:00",
+  "updated_at": "2020-08-21T06:14:53+09:00"
 },
 {
-  "name": "fastcut records",
-  "created_by": "march-am",
-  "updated_at": "2017-04-08T12:32:29+09:00",
   "resource_url": "http://wedata.net/items/81275",
   "data": {
-    "exampleUrl": "http://fastcutrecords.com/?mode=cate&cbid=90531&csid=0&sort=n",
+    "pageElement": "id('inn-box')/div[@class='itemlist-container']",
+    "nextLink": "//ul[@class='page']/li[span[number()>0]]/following-sibling::li[1]/a",
     "url": "^https?://fastcutrecords\\.com/",
-    "pageElement": "//div[@class=\"itemlist-container\"]",
-    "nextLink": "//ul[@class=\"page\"]/li[last()]/a",
-    "insertBefore": "//div[@class=\"pickup\"]"
+    "exampleUrl": "http://fastcutrecords.com/?mode=cate&cbid=90531&csid=0&sort=n"
   },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "meltingpots",
+  "name": "fastcut records",
   "created_at": "2017-04-08T12:18:31+09:00",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize"
+  "updated_at": "2020-08-21T06:06:32+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/81270",

@@ -9,14 +9,14 @@
 // @author       Mach6
 // @contributers alexolog, heroboy, suchunchen, YFdyh000
 // @thanksto     ywzhaiqi, NLF
-// @version      6.15.0
+// @version      6.15.1
 // @license      GPL-3.0
-// @update       2020/8/20
+// @update       2020/8/21
 // @homepageURL  https://github.com/machsix/Super-preloader
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
 // @contributionURL https://ko-fi.com/machsix
 // @icon         data:image/png;base64,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
-// @require https://greasyfork.org/scripts/373124-gm4-polyfill-mach6-legacy/code/gm4-polyfill-mach6-legacy.js?version=839554
+// @require      https://greasyfork.org/scripts/373124-gm4-polyfill-mach6-legacy/code/gm4-polyfill-mach6-legacy.js?version=839554
 // @grant        GM.getValue
 // @grant        GM_getValue
 // @grant        GM.setValue
@@ -62,6 +62,7 @@
 // @exclude      http*://ad.doubleclick.net/*
 // @exclude      http*://ad.agrantsem.com/*
 // @exclude      http*://www.youtube.com/embed/*
+// @exclude      https://assets.tumblr.com/*
 // ==/UserScript==
 
 (function () {
@@ -3755,7 +3756,7 @@
     }
   }
 
-  var name="super-preloader";var version="6.15.0";var description="Super-preloader";var main="dist/Super_preloaderPlus_one_New.user.js";var author="Mach6";var license="GPL-3.0";var bugs={url:"https://github.com/machsix/Super-preloader/issues"};var homepage="https://github.com/machsix/Super-preloader";var directories={doc:"docs"};var repository={type:"git",url:"git+https://github.com/machsix/Super-preloader.git"};var scripts={lint:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.js\"",format:"prettier --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"","format:check":"prettier --check \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"","format:staged":"pretty-quick --verbose --staged --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"",check:"npm run lint && npm run typecheck && npm run format:staged",test:"cd test && node test.js",dev:"rollup -c --dev -w",build:"rollup -c","docs:dev":"vuepress dev docs","docs:build":"vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh",preversion:"npm run check",version:"npm run build  && git add dist/*.js && git add dist/*.json",postversion:"git add package.json package-lock.json && npm run test","publish:patch":"npm --no-git-tag-version version patch",publish:"npm --no-git-tag-version version minor",typecheck:"tsc -p jsconfig.json --noEmit"};var husky={hooks:{"pre-commit":"npm run check"}};var keywords=["userscript"];var devDependencies={"@vuepress/plugin-back-to-top":"1.5.3","@vuepress/plugin-google-analytics":"1.5.3","@vuepress/plugin-pwa":"1.5.3",typescript:"^3.9.7",vuepress:"1.5.3"};var dependencies={"@babel/core":"7.11.1","@babel/plugin-transform-runtime":"7.11.0","@babel/preset-env":"7.11.0","@rollup/plugin-babel":"5.2.0","@rollup/plugin-commonjs":"15.0.0","@rollup/plugin-json":"4.1.0","@rollup/plugin-node-resolve":"9.0.0","@types/greasemonkey":"4.0.0","@types/lodash":"4.14.159","babel-plugin-lodash":"3.3.4","babel-plugin-wildcard":"6.0.0","compare-versions":"3.6.0",displacejs:"1.4.1",eslint:"7.7.0","eslint-config-prettier":"6.11.0","eslint-plugin-json":"2.1.2","eslint-plugin-prettier":"3.1.4","extract-zip":"2.0.1",got:"11.5.2",husky:"4.2.5",lodash:"4.17.20",loglevel:"1.6.8",prettier:"2.0.5","pretty-quick":"2.0.1",puppeteer:"2.1.0",rollup:"2.26.3","rollup-plugin-banner":"git+https://git@github.com/machsix/rollup-plugin-banner.git#v0.2.2","rollup-plugin-dev":"1.1.2","rollup-plugin-ejs":"2.2.0","rollup-plugin-re":"1.0.7","rollup-plugin-scss-string":"0.1.0",yargs:"15.4.1"};var pkg = {name:name,version:version,description:description,main:main,author:author,license:license,bugs:bugs,homepage:homepage,directories:directories,repository:repository,scripts:scripts,husky:husky,keywords:keywords,devDependencies:devDependencies,dependencies:dependencies};
+  var name="super-preloader";var version="6.15.1";var description="Super-preloader";var main="dist/Super_preloaderPlus_one_New.user.js";var author="Mach6";var license="GPL-3.0";var bugs={url:"https://github.com/machsix/Super-preloader/issues"};var homepage="https://github.com/machsix/Super-preloader";var directories={doc:"docs"};var repository={type:"git",url:"git+https://github.com/machsix/Super-preloader.git"};var scripts={lint:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.js\"",format:"prettier --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"","format:check":"prettier --check \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"","format:staged":"pretty-quick --verbose --staged --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"",check:"npm run lint && npm run typecheck && npm run format:staged",test:"cd test && node test.js",dev:"rollup -c --dev -w",build:"rollup -c","docs:dev":"vuepress dev docs","docs:build":"vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh",preversion:"npm run check",version:"npm run build  && git add dist/*.js && git add dist/*.json",postversion:"git add package.json package-lock.json && npm run test","publish:patch":"npm --no-git-tag-version version patch",publish:"npm --no-git-tag-version version minor",typecheck:"tsc -p jsconfig.json --noEmit"};var husky={hooks:{"pre-commit":"npm run check"}};var keywords=["userscript"];var devDependencies={"@vuepress/plugin-back-to-top":"1.5.3","@vuepress/plugin-google-analytics":"1.5.3","@vuepress/plugin-pwa":"1.5.3",typescript:"^3.9.7",vuepress:"1.5.3"};var dependencies={"@babel/core":"7.11.1","@babel/plugin-transform-runtime":"7.11.0","@babel/preset-env":"7.11.0","@rollup/plugin-babel":"5.2.0","@rollup/plugin-commonjs":"15.0.0","@rollup/plugin-json":"4.1.0","@rollup/plugin-node-resolve":"9.0.0","@types/greasemonkey":"4.0.0","@types/lodash":"4.14.159","babel-plugin-lodash":"3.3.4","babel-plugin-wildcard":"6.0.0","compare-versions":"3.6.0",displacejs:"1.4.1",eslint:"7.7.0","eslint-config-prettier":"6.11.0","eslint-plugin-json":"2.1.2","eslint-plugin-prettier":"3.1.4","extract-zip":"2.0.1",got:"11.5.2",husky:"4.2.5",lodash:"4.17.20",loglevel:"1.6.8",prettier:"2.0.5","pretty-quick":"2.0.1",puppeteer:"2.1.0",rollup:"2.26.3","rollup-plugin-banner":"git+https://git@github.com/machsix/rollup-plugin-banner.git#v0.2.2","rollup-plugin-dev":"1.1.2","rollup-plugin-ejs":"2.2.0","rollup-plugin-re":"1.0.7","rollup-plugin-scss-string":"0.1.0",yargs:"15.4.1"};var pkg = {name:name,version:version,description:description,main:main,author:author,license:license,bugs:bugs,homepage:homepage,directories:directories,repository:repository,scripts:scripts,husky:husky,keywords:keywords,devDependencies:devDependencies,dependencies:dependencies};
 
   // Information of script
 
@@ -3785,11 +3786,11 @@
     onload: function onload() {},
     // eslint-disable-next-line no-unused-vars
     show: function show(oldVersion, newVersion) {
-      return compareVersions(oldVersion, '6.11.0') < 0 && compareVersions(newVersion, '6.11.0') >= 0;
+      return compareVersions(oldVersion, '6.15.1') < 0 && compareVersions(newVersion, '6.15.1') >= 0;
     },
     extratext: {
-      zh_CN: '你现在可以通过拖拽改变悬浮窗位置！',
-      en_US: 'You can now change the location of the floatWindow by dragging it!'
+      zh_CN: '你现在可以修改css自定义外观！',
+      en_US: 'You can now change the appearence by CustomCSS!'
     }
   }; // Meta for userscript
 
@@ -4032,7 +4033,7 @@
     if (obj.nodeName === 'INPUT') {
       switch (obj.type) {
         case 'checkbox':
-          return obj.checked;
+          return !!obj.checked;
 
         case 'number':
           {
@@ -4048,6 +4049,8 @@
       }
     } else if (obj.nodeName === 'SELECT') {
       return obj.selectedOptions[0].value;
+    } else if (obj.nodeName === 'TEXTAREA') {
+      return obj.value;
     } else if (obj.nodeName === 'A') {
       return obj.href;
     } else {
@@ -4096,209 +4099,12 @@
           break;
         }
       }
+    } else if (obj.nodeName === 'TEXTAREA') {
+      obj.value = value;
     } else if (obj.nodeName === 'A') {
       obj.href = value;
     } else {
       obj.innerHTML = value;
-    }
-  }
-
-  //@ts-check
-
-  /**
-   * Select a single element by css selector
-   * @param {string} css css of dom
-   * @param {HTMLElement|Document} contextNode dom contextNode
-   * @returns {HTMLElement} a dom node
-   */
-  function getElementByCSS(css) {
-    var contextNode = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : document;
-    return contextNode.querySelector(css);
-  }
-  /**
-   * Select multiple elements by css selector
-   * @param {string} css css of dom
-   * @param {ParentNode} contextNode dom contextNode
-   * @returns {HTMLElement[]} an array of Nodes
-   */
-
-  function getAllElementsByCSS(css) {
-    var contextNode = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : document;
-    return [].slice.call(contextNode.querySelectorAll(css));
-  }
-  /**
-   * Select an element by xpath selector
-   * @param {string} xpath a string representing the XPath to be evaluated, the attribute will be removed
-   * @param {Node=} contextNode contextNode specifies the context node for the query (see the XPath specification). It's common to pass document as the context node.
-   * @param {HTMLDocument=} doc the document to select from
-   * @returns {HTMLElement} a dom node
-   */
-
-  function getElementByXpath(xpath, contextNode) {
-    var doc = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : document;
-    contextNode = contextNode || doc;
-
-    try {
-      var result = doc.evaluate(xpath, contextNode, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null); //@ts-ignore should always return an element node
-
-      return result.singleNodeValue && result.singleNodeValue.nodeType === 1 && result.singleNodeValue;
-    } catch (err) {
-      throw new Error(`Invalid xpath: ${xpath}`);
-    }
-  }
-  /**
-   * Select multiple elements by xpath selector
-   * @param {string} xpath a string representing the XPath to be evaluated
-   * @param {Node} contextNode contextNode specifies the context node for the query (see the XPath specification). It's common to pass document as the context node.
-   * @param {Document} doc the document to select from
-   * @returns {HTMLElement[]} an array of Nodes
-   */
-
-  function getAllElementsByXpath(xpath, contextNode) {
-    var doc = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : document;
-    contextNode = contextNode || doc;
-    var result = [];
-
-    try {
-      var query = doc.evaluate(xpath, contextNode, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-
-      for (var i = 0; i < query.snapshotLength; i++) {
-        var node = query.snapshotItem(i); //if node is an element node
-
-        if (node.nodeType === 1) result.push(node);
-      }
-    } catch (err) {
-      throw new Error(`Invalid xpath: ${xpath}`);
-    } //@ts-ignore
-
-
-    return result;
-  }
-  /**
-   * Get all elements matching the selector
-   * @param {ISelectorFunction} selector css selector or xpath selector
-   * @param {Element|Document|DocumentFragment} contextNode contextNode specifies the context node for the query (see the XPath specification). It's common to pass document as the context node.
-   * @param {Document} doc the document to select from
-   * @param {Window} win window of the browser
-   * @param {string} _cplink current page link
-   * @returns {HTMLElement[]} an array of nodes
-   */
-
-  function getAllElements(selector) {
-    var contextNode = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : undefined;
-    var doc = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : document;
-    var win = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : window;
-
-    var _cplink = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : undefined;
-
-    if (!selector) return []; //@ts-ignore
-
-    contextNode = contextNode || doc;
-
-    if (typeof selector === 'string') {
-      if (selector.search(/^css;/i) === 0) {
-        return getAllElementsByCSS(selector.slice(4), contextNode);
-      } else {
-        return getAllElementsByXpath(selector, contextNode, doc);
-      }
-    } else {
-      var query = selector(doc, win, _cplink);
-
-      if (!Array.isArray(query)) {
-        throw new Error('Wrong type is returned by getAllElements');
-      } else {
-        return query;
-      }
-    }
-  }
-  /**
-   * Get all elements matching the selector
-   * Some bad xpath like
-   * （1）//div[@id='content']/p
-   * （2） id('content')
-   * will only return the p element under the first div matching the id.
-   * The script can result in multiple div with the same id
-   * This function handles such kind of condition
-   * @param {ISelectorFunction} selector css selector or xpath selector
-   * @param {Element|Document|DocumentFragment} contextNode contextNode specifies the context node for the query (see the XPath specification). It's common to pass document as the context node.
-   * @param {Document} doc the document to select from
-   * @param {Window} win window of the browser
-   * @param {string} _cplink current page link
-   * @returns {HTMLElement[]} an array of nodes
-   */
-
-  function getAllElementsDuplicate(selector) {
-    var contextNode = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : undefined;
-    var doc = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : document;
-    var win = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : window;
-
-    var _cplink = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : undefined;
-
-    var firstElems = [];
-
-    if (typeof selector === 'string') {
-      if (selector.search(/^css;/i) !== 0) {
-        // replace all id('x') by //*[@id='x']
-        selector = selector.replace(/^id\((.*)\)/g, '//*[@id=$1]'); // prevent xpath like `//div[2]`
-
-        var strippedSelector = /(.*\w+)\[\d+\]$/.exec(selector);
-
-        if (strippedSelector) {
-          firstElems = getAllElements(selector, contextNode, doc, win, _cplink);
-          selector = strippedSelector[1];
-        }
-      }
-    }
-
-    var elems = getAllElements(selector, contextNode, doc, win, _cplink);
-    var eles = [];
-
-    if (firstElems.length > 0) {
-      var childNodeCount = [];
-
-      for (var i = 0; i < firstElems.length; i++) {
-        childNodeCount.push([].reduce.call(elems[0].children, function (x, y) {
-          return x + (y.nodeName != 'SCRIPT' ? 1 : 0);
-        }, 0));
-        eles.push(firstElems[i]);
-      }
-
-      for (var _i = 0; _i < elems.length; _i++) {
-        for (var j = 0; j < firstElems.length; j++) {
-          if (elems[_i] === firstElems[j]) break;
-
-          if (elems[_i].className === firstElems[j].className && elems[_i].childElementCount === childNodeCount[j]) {
-            eles.push(elems[_i]);
-            break;
-          }
-        }
-      }
-    } else {
-      eles = elems;
-    }
-
-    return eles;
-  }
-  /**
-   * Get the last visible element matching the given selector
-   * @param {ISelectorFunction} selector selector
-   * @param {string=} _cplink _cplink
-   * @param {HTMLElement=} contextNode contextNode
-   * @param {HTMLDocument=} doc doc
-   * @param {Window=} win win
-   * @returns {HTMLElement} Last dom element
-   */
-
-  function getLastVisibleElement(selector, _cplink, contextNode, doc, win) {
-    var eles = getAllElementsDuplicate(selector, contextNode, doc, win, _cplink);
-    eles = eles.filter(function (e) {
-      return e.offsetParent !== null;
-    });
-
-    if (eles.length > 0) {
-      return eles[eles.length - 1];
-    } else {
-      return null;
     }
   }
 
@@ -4336,6 +4142,24 @@
     var iteratorSymbol = $Symbol.iterator || "@@iterator";
     var asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator";
     var toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag";
+
+    function define(obj, key, value) {
+      Object.defineProperty(obj, key, {
+        value: value,
+        enumerable: true,
+        configurable: true,
+        writable: true
+      });
+      return obj[key];
+    }
+    try {
+      // IE 8 has a broken Object.defineProperty that only works on DOM objects.
+      define({}, "");
+    } catch (err) {
+      define = function(obj, key, value) {
+        return obj[key] = value;
+      };
+    }
 
     function wrap(innerFn, outerFn, self, tryLocsList) {
       // If outerFn provided and outerFn.prototype is a Generator, then outerFn.prototype instanceof Generator.
@@ -4407,16 +4231,19 @@
       Generator.prototype = Object.create(IteratorPrototype);
     GeneratorFunction.prototype = Gp.constructor = GeneratorFunctionPrototype;
     GeneratorFunctionPrototype.constructor = GeneratorFunction;
-    GeneratorFunctionPrototype[toStringTagSymbol] =
-      GeneratorFunction.displayName = "GeneratorFunction";
+    GeneratorFunction.displayName = define(
+      GeneratorFunctionPrototype,
+      toStringTagSymbol,
+      "GeneratorFunction"
+    );
 
     // Helper for defining the .next, .throw, and .return methods of the
     // Iterator interface in terms of a single ._invoke method.
     function defineIteratorMethods(prototype) {
       ["next", "throw", "return"].forEach(function(method) {
-        prototype[method] = function(arg) {
+        define(prototype, method, function(arg) {
           return this._invoke(method, arg);
-        };
+        });
       });
     }
 
@@ -4435,9 +4262,7 @@
         Object.setPrototypeOf(genFun, GeneratorFunctionPrototype);
       } else {
         genFun.__proto__ = GeneratorFunctionPrototype;
-        if (!(toStringTagSymbol in genFun)) {
-          genFun[toStringTagSymbol] = "GeneratorFunction";
-        }
+        define(genFun, toStringTagSymbol, "GeneratorFunction");
       }
       genFun.prototype = Object.create(Gp);
       return genFun;
@@ -4707,7 +4532,7 @@
     // unified ._invoke helper method.
     defineIteratorMethods(Gp);
 
-    Gp[toStringTagSymbol] = "Generator";
+    define(Gp, toStringTagSymbol, "Generator");
 
     // A Generator should always return itself as the iterator object when the
     // @@iterator function is called on it. Some browsers' implementations of the
@@ -5663,7 +5488,7 @@
   function encode_char(c) {
     return _ENCODE_HTML_RULES[c] || c;
   }var __line = 1
-    , __lines = "<div>Super_preloaderPlus_one_New Settings</div>\n<ul>\n  <li>Version: <b><%= locals.scriptInfo.version %></b> Update time: <b><%= locals.scriptInfo.updateTime %></b>\n    <a id=\"sp-prefs-homepageURL\" target=\"_blank\" href=\"<%= locals.scriptInfo.homepageURL %>\" />Homepage</a>\n    <a id=\"sp-prefs-homepageURL-feedback\" target=\"_blank\" href=\"<%= locals.scriptInfo.homepageURL + \"/feedback\" %>\" /> Feedback\n    </a>\n  </li>\n  <li>Maintainer: <b><a href=\"https://greasyfork.org/en/users/32861-mach6\">Mach6</a></b> Changelog:\n    <b><%= locals.scriptInfo.changelog %></b></li>\n  <li>Number of rules: <b><%= locals.prefs.numOfRule %></b> Next update: <b><%= locals.nextUpdateDate %></b> <button\n      id=\"sp-prefs-updaterule\">Update rules</button></li>\n  <li>\n    <label for=\"sp-prefs-debug\"><input type=\"checkbox\" id=\"sp-prefs-debug\" /> Debug mode</label>\n    <label for=\"sp-prefs-ChineseUI\"><input class=\"inputShift\" type=\"checkbox\" tile=\"English/Chinese UI\" id=\"sp-prefs-ChineseUI\" /> Chinese UI</label>\n    <label for=\"sp-prefs-floatWindow\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-floatWindow\" /> Float window</label>\n  </li>\n  <li>\n    <label for=\"sp-prefs-disableBuiltinRules\"><input type=\"checkbox\" id=\"sp-prefs-disableBuiltinRules\"  title=\"Disable builtin js rules\"/> Disable builtin rules</label>\n    <label for=\"sp-prefs-disableBuiltinSubscriptionRules\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-disableBuiltinSubscriptionRules\" title=\"Disable the subscription of rules from wedata.net and etc.\"/> Disable rule subscription</label>\n    <label for=\"sp-prefs-autoMatchKeyMatch\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-autoMatchKeyMatch\" /> Disable auto match</label>\n  </li>\n  <li><label for=\"sp-prefs-enableHistory\"><input type=\"checkbox\" id=\"sp-prefs-enableHistory\" /> Add next page to history</label></li>\n  <li>\n    <label for=\"sp-prefs-dblclick_pause\"><input type=\"checkbox\" id=\"sp-prefs-dblclick_pause\" /> Double click to stop preload (Default: Ctrl + Long Left)</label>\n  </li>\n  <li><label for=\"sp-prefs-SITEINFO_D-useiframe\"><input type=\"checkbox\" id=\"sp-prefs-SITEINFO_D-useiframe\" /> Enable iframe mode globally</label></li>\n  <li><label for=\"sp-prefs-SITEINFO_D-a_enable\"><input type=\"checkbox\" title=\"Enable autopagger, otherwise only prefetcher is enabled\"\n      id=\"sp-prefs-SITEINFO_D-a_enable\" checked /> Enable autopagger globally</label></li>\n  <li><label for=\"sp-prefs-arrowKeyPage\"><input type=\"checkbox\" id=\"sp-prefs-arrowKeyPage\" /> Turn to the next page with ← →</label></li>\n  <li><label for=\"sp-prefs-SITEINFO_D-a_force_enable\"><input type=\"checkbox\" id=\"sp-prefs-SITEINFO_D-a_force_enable\" /> Mandatorily join pages if not covered by the\n    rules</label></li>\n  <li>Custom excludes:\n    <div><textarea id=\"sp-prefs-excludes\"\n        placeholder=\"Customized excludes, support regex\\nEx: http://*.douban.com/*\"></textarea></div>\n  </li>\n  <li><a href=\"https://machsix.github.io/Super-preloader/siterule.html\" style=\"color: blue;\" target=\"_blank\">Custom\n      rules:</a>\n    <div><textarea id=\"sp-prefs-custom_siteinfo\" placeholder=\"Custom rules\"></textarea></div>\n  </li>\n</ul>\n<div><button id=\"sp-prefs-ok\" style=\"width:100px;\">OK</button><button id=\"sp-prefs-cancel\"\n    style=\"width:100px;\">Cancel</button><button id=\"sp-prefs-reset\" style=\"width:100px;\">Reset</button></div>\n"
+    , __lines = "<div>Super_preloaderPlus_one_New Settings</div>\n<ul>\n  <li>Version: <b><%= locals.scriptInfo.version %></b> Update time: <b><%= locals.scriptInfo.updateTime %></b>\n    <a id=\"sp-prefs-homepageURL\" target=\"_blank\" href=\"<%= locals.scriptInfo.homepageURL %>\" />Homepage</a>\n    <a id=\"sp-prefs-homepageURL-feedback\" target=\"_blank\" href=\"<%= locals.scriptInfo.homepageURL + \"/feedback\" %>\" /> Feedback\n    </a>\n  </li>\n  <li>Maintainer: <b><a href=\"https://greasyfork.org/en/users/32861-mach6\">Mach6</a></b> Changelog:\n    <b><%= locals.scriptInfo.changelog %></b></li>\n  <li>Number of rules: <b><%= locals.prefs.numOfRule %></b> Next update: <b><%= locals.nextUpdateDate %></b> <button\n      id=\"sp-prefs-updaterule\">Update rules</button></li>\n  <li>\n    <label for=\"sp-prefs-debug\"><input type=\"checkbox\" id=\"sp-prefs-debug\" /> Debug mode</label>\n    <label for=\"sp-prefs-ChineseUI\"><input class=\"inputShift\" type=\"checkbox\" tile=\"English/Chinese UI\" id=\"sp-prefs-ChineseUI\" /> Chinese UI</label>\n    <label for=\"sp-prefs-floatWindow\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-floatWindow\" /> Float window</label>\n  </li>\n  <li>\n    <label for=\"sp-prefs-disableBuiltinRules\"><input type=\"checkbox\" id=\"sp-prefs-disableBuiltinRules\"  title=\"Disable builtin js rules\"/> Disable builtin rules</label>\n    <label for=\"sp-prefs-disableBuiltinSubscriptionRules\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-disableBuiltinSubscriptionRules\" title=\"Disable the subscription of rules from wedata.net and etc.\"/> Disable rule subscription</label>\n    <label for=\"sp-prefs-autoMatchKeyMatch\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-autoMatchKeyMatch\" /> Disable auto match</label>\n  </li>\n  <li><label for=\"sp-prefs-enableHistory\"><input type=\"checkbox\" id=\"sp-prefs-enableHistory\" /> Add next page to history</label></li>\n  <li>\n    <label for=\"sp-prefs-dblclick_pause\"><input type=\"checkbox\" id=\"sp-prefs-dblclick_pause\" /> Double click to stop preload (Default: Ctrl + Long Left)</label>\n  </li>\n  <li><label for=\"sp-prefs-SITEINFO_D-useiframe\"><input type=\"checkbox\" id=\"sp-prefs-SITEINFO_D-useiframe\" /> Enable iframe mode globally</label></li>\n  <li><label for=\"sp-prefs-SITEINFO_D-a_enable\"><input type=\"checkbox\" title=\"Enable autopagger, otherwise only prefetcher is enabled\"\n      id=\"sp-prefs-SITEINFO_D-a_enable\" checked /> Enable autopagger globally</label></li>\n  <li><label for=\"sp-prefs-arrowKeyPage\"><input type=\"checkbox\" id=\"sp-prefs-arrowKeyPage\" /> Turn to the next page with ← →</label></li>\n  <li><label for=\"sp-prefs-SITEINFO_D-a_force_enable\"><input type=\"checkbox\" id=\"sp-prefs-SITEINFO_D-a_force_enable\" /> Mandatorily join pages if not covered by the\n    rules</label></li>\n  <li>Custom excludes:\n    <div><textarea id=\"sp-prefs-excludes\"\n        placeholder=\"Customized excludes, support regex\\nEx: http://*.douban.com/*\"></textarea></div>\n  </li>\n  <li><a href=\"https://machsix.github.io/Super-preloader/siterule.html\" style=\"color: blue;\" target=\"_blank\">Custom\n      rules:</a>\n    <div><textarea id=\"sp-prefs-custom_siteinfo\" placeholder=\"Custom rules\"></textarea></div>\n  </li>\n  <li>Custom CSS:\n    <div><textarea id=\"sp-prefs-customCSS\"\n        placeholder=\"Customized the apperance of separator and setting panel by modifying class 'sp-separator' and 'sp-prefs-setup'. E.g.: '.sp-separator {filter: invert(1.0)}' for dark mode\"></textarea></div>\n  </li>\n</ul>\n<div><button id=\"sp-prefs-ok\" style=\"width:100px;\">OK</button><button id=\"sp-prefs-cancel\"\n    style=\"width:100px;\">Cancel</button><button id=\"sp-prefs-reset\" style=\"width:100px;\">Reset</button></div>\n"
     , __filename = undefined;
   try {
     var __output = "";
@@ -5687,8 +5512,8 @@
       ; __append(escapeFn( locals.prefs.numOfRule ))
       ; __append("</b> Next update: <b>")
       ; __append(escapeFn( locals.nextUpdateDate ))
-      ; __append("</b> <button\n      id=\"sp-prefs-updaterule\">Update rules</button></li>\n  <li>\n    <label for=\"sp-prefs-debug\"><input type=\"checkbox\" id=\"sp-prefs-debug\" /> Debug mode</label>\n    <label for=\"sp-prefs-ChineseUI\"><input class=\"inputShift\" type=\"checkbox\" tile=\"English/Chinese UI\" id=\"sp-prefs-ChineseUI\" /> Chinese UI</label>\n    <label for=\"sp-prefs-floatWindow\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-floatWindow\" /> Float window</label>\n  </li>\n  <li>\n    <label for=\"sp-prefs-disableBuiltinRules\"><input type=\"checkbox\" id=\"sp-prefs-disableBuiltinRules\"  title=\"Disable builtin js rules\"/> Disable builtin rules</label>\n    <label for=\"sp-prefs-disableBuiltinSubscriptionRules\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-disableBuiltinSubscriptionRules\" title=\"Disable the subscription of rules from wedata.net and etc.\"/> Disable rule subscription</label>\n    <label for=\"sp-prefs-autoMatchKeyMatch\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-autoMatchKeyMatch\" /> Disable auto match</label>\n  </li>\n  <li><label for=\"sp-prefs-enableHistory\"><input type=\"checkbox\" id=\"sp-prefs-enableHistory\" /> Add next page to history</label></li>\n  <li>\n    <label for=\"sp-prefs-dblclick_pause\"><input type=\"checkbox\" id=\"sp-prefs-dblclick_pause\" /> Double click to stop preload (Default: Ctrl + Long Left)</label>\n  </li>\n  <li><label for=\"sp-prefs-SITEINFO_D-useiframe\"><input type=\"checkbox\" id=\"sp-prefs-SITEINFO_D-useiframe\" /> Enable iframe mode globally</label></li>\n  <li><label for=\"sp-prefs-SITEINFO_D-a_enable\"><input type=\"checkbox\" title=\"Enable autopagger, otherwise only prefetcher is enabled\"\n      id=\"sp-prefs-SITEINFO_D-a_enable\" checked /> Enable autopagger globally</label></li>\n  <li><label for=\"sp-prefs-arrowKeyPage\"><input type=\"checkbox\" id=\"sp-prefs-arrowKeyPage\" /> Turn to the next page with ← →</label></li>\n  <li><label for=\"sp-prefs-SITEINFO_D-a_force_enable\"><input type=\"checkbox\" id=\"sp-prefs-SITEINFO_D-a_force_enable\" /> Mandatorily join pages if not covered by the\n    rules</label></li>\n  <li>Custom excludes:\n    <div><textarea id=\"sp-prefs-excludes\"\n        placeholder=\"Customized excludes, support regex\\nEx: http://*.douban.com/*\"></textarea></div>\n  </li>\n  <li><a href=\"https://machsix.github.io/Super-preloader/siterule.html\" style=\"color: blue;\" target=\"_blank\">Custom\n      rules:</a>\n    <div><textarea id=\"sp-prefs-custom_siteinfo\" placeholder=\"Custom rules\"></textarea></div>\n  </li>\n</ul>\n<div><button id=\"sp-prefs-ok\" style=\"width:100px;\">OK</button><button id=\"sp-prefs-cancel\"\n    style=\"width:100px;\">Cancel</button><button id=\"sp-prefs-reset\" style=\"width:100px;\">Reset</button></div>\n")
-      ; __line = 43;
+      ; __append("</b> <button\n      id=\"sp-prefs-updaterule\">Update rules</button></li>\n  <li>\n    <label for=\"sp-prefs-debug\"><input type=\"checkbox\" id=\"sp-prefs-debug\" /> Debug mode</label>\n    <label for=\"sp-prefs-ChineseUI\"><input class=\"inputShift\" type=\"checkbox\" tile=\"English/Chinese UI\" id=\"sp-prefs-ChineseUI\" /> Chinese UI</label>\n    <label for=\"sp-prefs-floatWindow\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-floatWindow\" /> Float window</label>\n  </li>\n  <li>\n    <label for=\"sp-prefs-disableBuiltinRules\"><input type=\"checkbox\" id=\"sp-prefs-disableBuiltinRules\"  title=\"Disable builtin js rules\"/> Disable builtin rules</label>\n    <label for=\"sp-prefs-disableBuiltinSubscriptionRules\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-disableBuiltinSubscriptionRules\" title=\"Disable the subscription of rules from wedata.net and etc.\"/> Disable rule subscription</label>\n    <label for=\"sp-prefs-autoMatchKeyMatch\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-autoMatchKeyMatch\" /> Disable auto match</label>\n  </li>\n  <li><label for=\"sp-prefs-enableHistory\"><input type=\"checkbox\" id=\"sp-prefs-enableHistory\" /> Add next page to history</label></li>\n  <li>\n    <label for=\"sp-prefs-dblclick_pause\"><input type=\"checkbox\" id=\"sp-prefs-dblclick_pause\" /> Double click to stop preload (Default: Ctrl + Long Left)</label>\n  </li>\n  <li><label for=\"sp-prefs-SITEINFO_D-useiframe\"><input type=\"checkbox\" id=\"sp-prefs-SITEINFO_D-useiframe\" /> Enable iframe mode globally</label></li>\n  <li><label for=\"sp-prefs-SITEINFO_D-a_enable\"><input type=\"checkbox\" title=\"Enable autopagger, otherwise only prefetcher is enabled\"\n      id=\"sp-prefs-SITEINFO_D-a_enable\" checked /> Enable autopagger globally</label></li>\n  <li><label for=\"sp-prefs-arrowKeyPage\"><input type=\"checkbox\" id=\"sp-prefs-arrowKeyPage\" /> Turn to the next page with ← →</label></li>\n  <li><label for=\"sp-prefs-SITEINFO_D-a_force_enable\"><input type=\"checkbox\" id=\"sp-prefs-SITEINFO_D-a_force_enable\" /> Mandatorily join pages if not covered by the\n    rules</label></li>\n  <li>Custom excludes:\n    <div><textarea id=\"sp-prefs-excludes\"\n        placeholder=\"Customized excludes, support regex\\nEx: http://*.douban.com/*\"></textarea></div>\n  </li>\n  <li><a href=\"https://machsix.github.io/Super-preloader/siterule.html\" style=\"color: blue;\" target=\"_blank\">Custom\n      rules:</a>\n    <div><textarea id=\"sp-prefs-custom_siteinfo\" placeholder=\"Custom rules\"></textarea></div>\n  </li>\n  <li>Custom CSS:\n    <div><textarea id=\"sp-prefs-customCSS\"\n        placeholder=\"Customized the apperance of separator and setting panel by modifying class 'sp-separator' and 'sp-prefs-setup'. E.g.: '.sp-separator {filter: invert(1.0)}' for dark mode\"></textarea></div>\n  </li>\n</ul>\n<div><button id=\"sp-prefs-ok\" style=\"width:100px;\">OK</button><button id=\"sp-prefs-cancel\"\n    style=\"width:100px;\">Cancel</button><button id=\"sp-prefs-reset\" style=\"width:100px;\">Reset</button></div>\n")
+      ; __line = 47;
     return __output;
   } catch (e) {
     rethrow(e, __lines, __filename, __line, escapeFn);
@@ -5854,7 +5679,7 @@
   function encode_char(c) {
     return _ENCODE_HTML_RULES[c] || c;
   }var __line = 1
-    , __lines = "<div>Super_preloaderPlus_one_New设置</div>\n<ul>\n  <li>脚本版本: <b><%= locals.scriptInfo.version %></b> 更新时间: <b><%= locals.scriptInfo.updateTime %></b>\n    <a id=\"sp-prefs-homepageURL\" target=\"_blank\" href=\"<%= locals.scriptInfo.homepageURL %>\" />脚本主页</a>\n    <a id=\"sp-prefs-homepageURL-feedback\" target=\"_blank\" href=\"<%= locals.scriptInfo.homepageURL + \"/feedback\" %>\">反馈规则</a>\n  </li>\n  <li>维护者: <b><a href=\"https://greasyfork.org/en/users/32861-mach6\">Mach6</a></b> 更新日志:\n    <b><%= locals.scriptInfo.changelog %></b></li>\n  <li>规则数目: <b><%= locals.prefs.numOfRule %></b> 下次更新时间: <b><%= locals.nextUpdateDate %></b>\n    <button id=\"sp-prefs-updaterule\">更新规则</button></li>\n  <li>\n    <label for=\"sp-prefs-debug\"><input type=\"checkbox\" id=\"sp-prefs-debug\" /> 调试模式</label>\n    <label for=\"sp-prefs-ChineseUI\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-ChineseUI\" /> 中文界面</label>\n    <label for=\"sp-prefs-floatWindow\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-floatWindow\" /> 开启悬浮窗</label>\n  </li>\n  <li>\n    <label for=\"sp-prefs-disableBuiltinRules\"><input type=\"checkbox\" id=\"sp-prefs-disableBuiltinRules\"  title=\"禁用内建的js格式规则\"/> 禁用内建规则</label>\n    <label for=\"sp-prefs-disableBuiltinSubscriptionRules\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-disableBuiltinSubscriptionRules\" title=\"禁用从wedata.net等数据库的订阅规则\"/> 禁用订阅规则</label>\n    <label for=\"sp-prefs-autoMatchKeyMatch\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-autoMatchKeyMatch\" /> 禁用自动匹配</label>\n  </li>\n  <li><label for=\"sp-prefs-enableHistory\"><input type=\"checkbox\" id=\"sp-prefs-enableHistory\" /> 添加下一页到历史记录</label></li>\n  <li><label for=\"sp-prefs-dblclick_pause\"><input type=\"checkbox\" id=\"sp-prefs-dblclick_pause\" /> 鼠标双击暂停翻页（默认为 Ctrl + 长按左键）</label></li>\n  <li>\n    <label for=\"sp-prefs-SITEINFO_D-a_enable\"><input title=\"启用自动翻页，否则仅启用预读\" type=\"checkbox\" id=\"sp-prefs-SITEINFO_D-a_enable\" checked /> 自动翻页</label>\n    <label for=\"sp-prefs-SITEINFO_D-useiframe\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-SITEINFO_D-useiframe\" /> 全局iframe方式</label>\n    <label for=\"sp-prefs-SITEINFO_D-a_force_enable\">\n      <input class=\"inputShift\" title=\"强行拼接规则中没有的站点，不建议启用\" type=\"checkbox\" id=\"sp-prefs-SITEINFO_D-a_force_enable\" />\n    全局强制拼接（不建议）</label>\n  </li>\n  <li><label for=\"sp-prefs-arrowKeyPage\"><input type=\"checkbox\" id=\"sp-prefs-arrowKeyPage\" /> 使用 &larr; &rarr; 翻页</label> </li>\n  <li>自定义排除列表：\n    <div><textarea id=\"sp-prefs-excludes\" placeholder=\"自定义排除列表，支持通配符。\\n例如：http://*.douban.com/*\"></textarea></div>\n  </li>\n  <li><a href=\"https://machsix.github.io/Super-preloader/zh-cn/siterule.html\" style=\"color: blue;\"\n      target=\"_blank\">自定义站点规则：</a>\n    <div><textarea id=\"sp-prefs-custom_siteinfo\" placeholder=\"自定义站点规则\"></textarea></div>\n  </li>\n</ul>\n<div><button id=\"sp-prefs-ok\" style=\"width:100px;\">确定</button><button id=\"sp-prefs-cancel\"\n    style=\"width:100px;\">取消</button><button id=\"sp-prefs-reset\" style=\"width:100px;\">重置</button></div>\n"
+    , __lines = "<div>Super_preloaderPlus_one_New设置</div>\n<ul>\n  <li>脚本版本: <b><%= locals.scriptInfo.version %></b> 更新时间: <b><%= locals.scriptInfo.updateTime %></b>\n    <a id=\"sp-prefs-homepageURL\" target=\"_blank\" href=\"<%= locals.scriptInfo.homepageURL %>\" />脚本主页</a>\n    <a id=\"sp-prefs-homepageURL-feedback\" target=\"_blank\" href=\"<%= locals.scriptInfo.homepageURL + \"/feedback\" %>\">反馈规则</a>\n  </li>\n  <li>维护者: <b><a href=\"https://greasyfork.org/en/users/32861-mach6\">Mach6</a></b> 更新日志:\n    <b><%= locals.scriptInfo.changelog %></b></li>\n  <li>规则数目: <b><%= locals.prefs.numOfRule %></b> 下次更新时间: <b><%= locals.nextUpdateDate %></b>\n    <button id=\"sp-prefs-updaterule\">更新规则</button></li>\n  <li>\n    <label for=\"sp-prefs-debug\"><input type=\"checkbox\" id=\"sp-prefs-debug\" /> 调试模式</label>\n    <label for=\"sp-prefs-ChineseUI\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-ChineseUI\" /> 中文界面</label>\n    <label for=\"sp-prefs-floatWindow\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-floatWindow\" /> 开启悬浮窗</label>\n  </li>\n  <li>\n    <label for=\"sp-prefs-disableBuiltinRules\"><input type=\"checkbox\" id=\"sp-prefs-disableBuiltinRules\"  title=\"禁用内建的js格式规则\"/> 禁用内建规则</label>\n    <label for=\"sp-prefs-disableBuiltinSubscriptionRules\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-disableBuiltinSubscriptionRules\" title=\"禁用从wedata.net等数据库的订阅规则\"/> 禁用订阅规则</label>\n    <label for=\"sp-prefs-autoMatchKeyMatch\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-autoMatchKeyMatch\" /> 禁用自动匹配</label>\n  </li>\n  <li><label for=\"sp-prefs-enableHistory\"><input type=\"checkbox\" id=\"sp-prefs-enableHistory\" /> 添加下一页到历史记录</label></li>\n  <li><label for=\"sp-prefs-dblclick_pause\"><input type=\"checkbox\" id=\"sp-prefs-dblclick_pause\" /> 鼠标双击暂停翻页（默认为 Ctrl + 长按左键）</label></li>\n  <li>\n    <label for=\"sp-prefs-SITEINFO_D-a_enable\"><input title=\"启用自动翻页，否则仅启用预读\" type=\"checkbox\" id=\"sp-prefs-SITEINFO_D-a_enable\" checked /> 自动翻页</label>\n    <label for=\"sp-prefs-SITEINFO_D-useiframe\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-SITEINFO_D-useiframe\" /> 全局iframe方式</label>\n    <label for=\"sp-prefs-SITEINFO_D-a_force_enable\">\n      <input class=\"inputShift\" title=\"强行拼接规则中没有的站点，不建议启用\" type=\"checkbox\" id=\"sp-prefs-SITEINFO_D-a_force_enable\" />\n    全局强制拼接（不建议）</label>\n  </li>\n  <li><label for=\"sp-prefs-arrowKeyPage\"><input type=\"checkbox\" id=\"sp-prefs-arrowKeyPage\" /> 使用 &larr; &rarr; 翻页</label> </li>\n  <li>自定义排除列表：\n    <div><textarea id=\"sp-prefs-excludes\" placeholder=\"自定义排除列表，支持通配符。\\n例如：http://*.douban.com/*\"></textarea></div>\n  </li>\n  <li><a href=\"https://machsix.github.io/Super-preloader/zh-cn/siterule.html\" style=\"color: blue;\"\n      target=\"_blank\">自定义站点规则：</a>\n    <div><textarea id=\"sp-prefs-custom_siteinfo\" placeholder=\"自定义站点规则\"></textarea></div>\n  </lii>\n  <li>自定义界面:\n    <div><textarea id=\"sp-prefs-customCSS\"\n        placeholder=\"通过修改'sp-separator'和'sp-prefs-setup'的CSS自定义界面\"></textarea></div>\n  </li>\n</ul>\n<div><button id=\"sp-prefs-ok\" style=\"width:100px;\">确定</button><button id=\"sp-prefs-cancel\"\n    style=\"width:100px;\">取消</button><button id=\"sp-prefs-reset\" style=\"width:100px;\">重置</button></div>\n"
     , __filename = undefined;
   try {
     var __output = "";
@@ -5878,8 +5703,8 @@
       ; __append(escapeFn( locals.prefs.numOfRule ))
       ; __append("</b> 下次更新时间: <b>")
       ; __append(escapeFn( locals.nextUpdateDate ))
-      ; __append("</b>\n    <button id=\"sp-prefs-updaterule\">更新规则</button></li>\n  <li>\n    <label for=\"sp-prefs-debug\"><input type=\"checkbox\" id=\"sp-prefs-debug\" /> 调试模式</label>\n    <label for=\"sp-prefs-ChineseUI\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-ChineseUI\" /> 中文界面</label>\n    <label for=\"sp-prefs-floatWindow\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-floatWindow\" /> 开启悬浮窗</label>\n  </li>\n  <li>\n    <label for=\"sp-prefs-disableBuiltinRules\"><input type=\"checkbox\" id=\"sp-prefs-disableBuiltinRules\"  title=\"禁用内建的js格式规则\"/> 禁用内建规则</label>\n    <label for=\"sp-prefs-disableBuiltinSubscriptionRules\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-disableBuiltinSubscriptionRules\" title=\"禁用从wedata.net等数据库的订阅规则\"/> 禁用订阅规则</label>\n    <label for=\"sp-prefs-autoMatchKeyMatch\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-autoMatchKeyMatch\" /> 禁用自动匹配</label>\n  </li>\n  <li><label for=\"sp-prefs-enableHistory\"><input type=\"checkbox\" id=\"sp-prefs-enableHistory\" /> 添加下一页到历史记录</label></li>\n  <li><label for=\"sp-prefs-dblclick_pause\"><input type=\"checkbox\" id=\"sp-prefs-dblclick_pause\" /> 鼠标双击暂停翻页（默认为 Ctrl + 长按左键）</label></li>\n  <li>\n    <label for=\"sp-prefs-SITEINFO_D-a_enable\"><input title=\"启用自动翻页，否则仅启用预读\" type=\"checkbox\" id=\"sp-prefs-SITEINFO_D-a_enable\" checked /> 自动翻页</label>\n    <label for=\"sp-prefs-SITEINFO_D-useiframe\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-SITEINFO_D-useiframe\" /> 全局iframe方式</label>\n    <label for=\"sp-prefs-SITEINFO_D-a_force_enable\">\n      <input class=\"inputShift\" title=\"强行拼接规则中没有的站点，不建议启用\" type=\"checkbox\" id=\"sp-prefs-SITEINFO_D-a_force_enable\" />\n    全局强制拼接（不建议）</label>\n  </li>\n  <li><label for=\"sp-prefs-arrowKeyPage\"><input type=\"checkbox\" id=\"sp-prefs-arrowKeyPage\" /> 使用 &larr; &rarr; 翻页</label> </li>\n  <li>自定义排除列表：\n    <div><textarea id=\"sp-prefs-excludes\" placeholder=\"自定义排除列表，支持通配符。\\n例如：http://*.douban.com/*\"></textarea></div>\n  </li>\n  <li><a href=\"https://machsix.github.io/Super-preloader/zh-cn/siterule.html\" style=\"color: blue;\"\n      target=\"_blank\">自定义站点规则：</a>\n    <div><textarea id=\"sp-prefs-custom_siteinfo\" placeholder=\"自定义站点规则\"></textarea></div>\n  </li>\n</ul>\n<div><button id=\"sp-prefs-ok\" style=\"width:100px;\">确定</button><button id=\"sp-prefs-cancel\"\n    style=\"width:100px;\">取消</button><button id=\"sp-prefs-reset\" style=\"width:100px;\">重置</button></div>\n")
-      ; __line = 41;
+      ; __append("</b>\n    <button id=\"sp-prefs-updaterule\">更新规则</button></li>\n  <li>\n    <label for=\"sp-prefs-debug\"><input type=\"checkbox\" id=\"sp-prefs-debug\" /> 调试模式</label>\n    <label for=\"sp-prefs-ChineseUI\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-ChineseUI\" /> 中文界面</label>\n    <label for=\"sp-prefs-floatWindow\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-floatWindow\" /> 开启悬浮窗</label>\n  </li>\n  <li>\n    <label for=\"sp-prefs-disableBuiltinRules\"><input type=\"checkbox\" id=\"sp-prefs-disableBuiltinRules\"  title=\"禁用内建的js格式规则\"/> 禁用内建规则</label>\n    <label for=\"sp-prefs-disableBuiltinSubscriptionRules\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-disableBuiltinSubscriptionRules\" title=\"禁用从wedata.net等数据库的订阅规则\"/> 禁用订阅规则</label>\n    <label for=\"sp-prefs-autoMatchKeyMatch\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-autoMatchKeyMatch\" /> 禁用自动匹配</label>\n  </li>\n  <li><label for=\"sp-prefs-enableHistory\"><input type=\"checkbox\" id=\"sp-prefs-enableHistory\" /> 添加下一页到历史记录</label></li>\n  <li><label for=\"sp-prefs-dblclick_pause\"><input type=\"checkbox\" id=\"sp-prefs-dblclick_pause\" /> 鼠标双击暂停翻页（默认为 Ctrl + 长按左键）</label></li>\n  <li>\n    <label for=\"sp-prefs-SITEINFO_D-a_enable\"><input title=\"启用自动翻页，否则仅启用预读\" type=\"checkbox\" id=\"sp-prefs-SITEINFO_D-a_enable\" checked /> 自动翻页</label>\n    <label for=\"sp-prefs-SITEINFO_D-useiframe\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-SITEINFO_D-useiframe\" /> 全局iframe方式</label>\n    <label for=\"sp-prefs-SITEINFO_D-a_force_enable\">\n      <input class=\"inputShift\" title=\"强行拼接规则中没有的站点，不建议启用\" type=\"checkbox\" id=\"sp-prefs-SITEINFO_D-a_force_enable\" />\n    全局强制拼接（不建议）</label>\n  </li>\n  <li><label for=\"sp-prefs-arrowKeyPage\"><input type=\"checkbox\" id=\"sp-prefs-arrowKeyPage\" /> 使用 &larr; &rarr; 翻页</label> </li>\n  <li>自定义排除列表：\n    <div><textarea id=\"sp-prefs-excludes\" placeholder=\"自定义排除列表，支持通配符。\\n例如：http://*.douban.com/*\"></textarea></div>\n  </li>\n  <li><a href=\"https://machsix.github.io/Super-preloader/zh-cn/siterule.html\" style=\"color: blue;\"\n      target=\"_blank\">自定义站点规则：</a>\n    <div><textarea id=\"sp-prefs-custom_siteinfo\" placeholder=\"自定义站点规则\"></textarea></div>\n  </lii>\n  <li>自定义界面:\n    <div><textarea id=\"sp-prefs-customCSS\"\n        placeholder=\"通过修改'sp-separator'和'sp-prefs-setup'的CSS自定义界面\"></textarea></div>\n  </li>\n</ul>\n<div><button id=\"sp-prefs-ok\" style=\"width:100px;\">确定</button><button id=\"sp-prefs-cancel\"\n    style=\"width:100px;\">取消</button><button id=\"sp-prefs-reset\" style=\"width:100px;\">重置</button></div>\n")
+      ; __line = 45;
     return __output;
   } catch (e) {
     rethrow(e, __lines, __filename, __line, escapeFn);
@@ -6946,9 +6771,10 @@
 
       return true;
     }).map(function (i) {
-      return _objectSpread$1(_objectSpread$1({}, i.data), {}, {
-        name: i.name
-      });
+      return _objectSpread$1({
+        name: i.name,
+        resource_url: i.resource_url
+      }, i.data);
     });
   });
   var p = [MyData, WeData];
@@ -7138,6 +6964,7 @@
     prefs: {
       floatWindow: true,
       // 显示悬浮窗
+      customCSS: '',
       FW_position: 2,
       // 1:出现在左上角;2:出现在右上角;3：出现在右下角;4：出现在左下角;
       FW_offset: [20, 38],
@@ -7473,7 +7300,7 @@
 
 
               if (verDiff < 0) {
-                if (NOTIFICATION.show(settings.version, SCRIPT_INFO.version) || isInstalled) {
+                if (NOTIFICATION.show(myOldVersion, SCRIPT_INFO.version) || isInstalled) {
                   opts = {
                     text: '',
                     title: NOTIFICATION.title,
@@ -7589,6 +7416,205 @@
 
     setLocalStorage(domainSettings);
     return domainSettings;
+  }
+
+  //@ts-check
+
+  /**
+   * Select a single element by css selector
+   * @param {string} css css of dom
+   * @param {HTMLElement|Document} contextNode dom contextNode
+   * @returns {HTMLElement} a dom node
+   */
+  function getElementByCSS(css) {
+    var contextNode = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : document;
+    return contextNode.querySelector(css);
+  }
+  /**
+   * Select multiple elements by css selector
+   * @param {string} css css of dom
+   * @param {ParentNode} contextNode dom contextNode
+   * @returns {HTMLElement[]} an array of Nodes
+   */
+
+  function getAllElementsByCSS(css) {
+    var contextNode = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : document;
+    return [].slice.call(contextNode.querySelectorAll(css));
+  }
+  /**
+   * Select an element by xpath selector
+   * @param {string} xpath a string representing the XPath to be evaluated, the attribute will be removed
+   * @param {Node=} contextNode contextNode specifies the context node for the query (see the XPath specification). It's common to pass document as the context node.
+   * @param {HTMLDocument=} doc the document to select from
+   * @returns {HTMLElement} a dom node
+   */
+
+  function getElementByXpath(xpath, contextNode) {
+    var doc = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : document;
+    contextNode = contextNode || doc;
+
+    try {
+      var result = doc.evaluate(xpath, contextNode, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null); //@ts-ignore should always return an element node
+
+      return result.singleNodeValue && result.singleNodeValue.nodeType === 1 && result.singleNodeValue;
+    } catch (err) {
+      throw new Error(`Invalid xpath: ${xpath}`);
+    }
+  }
+  /**
+   * Select multiple elements by xpath selector
+   * @param {string} xpath a string representing the XPath to be evaluated
+   * @param {Node} contextNode contextNode specifies the context node for the query (see the XPath specification). It's common to pass document as the context node.
+   * @param {Document} doc the document to select from
+   * @returns {HTMLElement[]} an array of Nodes
+   */
+
+  function getAllElementsByXpath(xpath, contextNode) {
+    var doc = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : document;
+    contextNode = contextNode || doc;
+    var result = [];
+
+    try {
+      var query = doc.evaluate(xpath, contextNode, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+
+      for (var i = 0; i < query.snapshotLength; i++) {
+        var node = query.snapshotItem(i); //if node is an element node
+
+        if (node.nodeType === 1) result.push(node);
+      }
+    } catch (err) {
+      throw new Error(`Invalid xpath: ${xpath}`);
+    } //@ts-ignore
+
+
+    return result;
+  }
+  /**
+   * Get all elements matching the selector
+   * @param {ISelectorFunction} selector css selector or xpath selector
+   * @param {Element|Document|DocumentFragment} contextNode contextNode specifies the context node for the query (see the XPath specification). It's common to pass document as the context node.
+   * @param {Document} doc the document to select from
+   * @param {Window} win window of the browser
+   * @param {string} _cplink current page link
+   * @returns {HTMLElement[]} an array of nodes
+   */
+
+  function getAllElements(selector) {
+    var contextNode = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : undefined;
+    var doc = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : document;
+    var win = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : window;
+
+    var _cplink = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : undefined;
+
+    if (!selector) return []; //@ts-ignore
+
+    contextNode = contextNode || doc;
+
+    if (typeof selector === 'string') {
+      if (selector.search(/^css;/i) === 0) {
+        return getAllElementsByCSS(selector.slice(4), contextNode);
+      } else {
+        return getAllElementsByXpath(selector, contextNode, doc);
+      }
+    } else {
+      var query = selector(doc, win, _cplink);
+
+      if (!Array.isArray(query)) {
+        throw new Error('Wrong type is returned by getAllElements');
+      } else {
+        return query;
+      }
+    }
+  }
+  /**
+   * Get all elements matching the selector
+   * Some bad xpath like
+   * （1）//div[@id='content']/p
+   * （2） id('content')
+   * will only return the p element under the first div matching the id.
+   * The script can result in multiple div with the same id
+   * This function handles such kind of condition
+   * @param {ISelectorFunction} selector css selector or xpath selector
+   * @param {Element|Document|DocumentFragment} contextNode contextNode specifies the context node for the query (see the XPath specification). It's common to pass document as the context node.
+   * @param {Document} doc the document to select from
+   * @param {Window} win window of the browser
+   * @param {string} _cplink current page link
+   * @returns {HTMLElement[]} an array of nodes
+   */
+
+  function getAllElementsDuplicate(selector) {
+    var contextNode = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : undefined;
+    var doc = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : document;
+    var win = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : window;
+
+    var _cplink = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : undefined;
+
+    var firstElems = [];
+
+    if (typeof selector === 'string') {
+      if (selector.search(/^css;/i) !== 0) {
+        // replace all id('x') by //*[@id='x']
+        selector = selector.replace(/^id\((.*?)\)/g, '//*[@id=$1]'); // prevent xpath like `//div[2]`
+
+        var strippedSelector = /(.*\w+)\[\d+\]$/.exec(selector);
+
+        if (strippedSelector) {
+          firstElems = getAllElements(selector, contextNode, doc, win, _cplink);
+          selector = strippedSelector[1];
+        }
+      }
+    }
+
+    var elems = getAllElements(selector, contextNode, doc, win, _cplink);
+    var eles = [];
+
+    if (firstElems.length > 0) {
+      var childNodeCount = [];
+
+      for (var i = 0; i < firstElems.length; i++) {
+        childNodeCount.push([].reduce.call(elems[0].children, function (x, y) {
+          return x + (y.nodeName != 'SCRIPT' ? 1 : 0);
+        }, 0));
+        eles.push(firstElems[i]);
+      }
+
+      for (var _i = 0; _i < elems.length; _i++) {
+        for (var j = 0; j < firstElems.length; j++) {
+          if (elems[_i] === firstElems[j]) break;
+
+          if (elems[_i].className === firstElems[j].className && elems[_i].childElementCount === childNodeCount[j]) {
+            eles.push(elems[_i]);
+            break;
+          }
+        }
+      }
+    } else {
+      eles = elems;
+    }
+
+    return eles;
+  }
+  /**
+   * Get the last visible element matching the given selector
+   * @param {ISelectorFunction} selector selector
+   * @param {string=} _cplink _cplink
+   * @param {HTMLElement=} contextNode contextNode
+   * @param {HTMLDocument=} doc doc
+   * @param {Window=} win win
+   * @returns {HTMLElement} Last dom element
+   */
+
+  function getLastVisibleElement(selector, _cplink, contextNode, doc, win) {
+    var eles = getAllElementsDuplicate(selector, contextNode, doc, win, _cplink);
+    eles = eles.filter(function (e) {
+      return e.offsetParent !== null;
+    });
+
+    if (eles.length > 0) {
+      return eles[eles.length - 1];
+    } else {
+      return null;
+    }
   }
 
   function toRE(obj) {
@@ -9721,6 +9747,11 @@
 
         if ($('setup')) return;
         var styleNode = addStyle(spcss['sp-prefs-setup']);
+
+        if (prefs.customCSS.length > 0) {
+          addStyle(prefs.customCSS);
+        }
+
         var div = d.createElement('div');
         div.id = 'sp-prefs-setup';
         div.style.position = 'fixed';
@@ -9755,9 +9786,13 @@
         };
 
         on($('ok'), 'click', function () {
-          prefs.ChineseUI = !!$('ChineseUI').checked;
-          prefs.custom_siteinfo = $('custom_siteinfo').value;
-          prefs.debug = !!$('debug').checked;
+          Object.keys(factorySettings.prefs).forEach(function (key) {
+            var el = $(key);
+
+            if (el !== null) {
+              prefs[key] = getProperty(el);
+            }
+          });
 
           if (prefs.debug) {
             logger.setLevel('debug');
@@ -9765,13 +9800,6 @@
             logger.setLevel(5);
           }
 
-          prefs.enableHistory = !!$('enableHistory').checked;
-          prefs.dblclick_pause = !!$('dblclick_pause').checked;
-          prefs.excludes = $('excludes').value;
-          prefs.arrowKeyPage = !!$('arrowKeyPage').checked;
-          prefs.floatWindow = !!$('floatWindow').checked;
-          prefs.disableBuiltinRules = !!$('disableBuiltinRules').checked;
-          prefs.disableBuiltinSubscriptionRules = !!$('disableBuiltinSubscriptionRules').checked;
           autoMatch.keyMatch = !$('autoMatchKeyMatch').checked;
           SITEINFO_D.useiframe = !!$('SITEINFO_D-useiframe').checked;
           SITEINFO_D.autopager.enable = !!$('SITEINFO_D-a_enable').checked;
@@ -9823,6 +9851,7 @@
         $('SITEINFO_D-a_force_enable').checked = SITEINFO_D.autopager.force_enable;
         $('excludes').value = prefs.excludes;
         $('custom_siteinfo').value = prefs.custom_siteinfo;
+        $('customCSS').value = prefs.customCSS;
         $('disableBuiltinRules').checked = prefs.disableBuiltinRules;
         $('disableBuiltinSubscriptionRules').checked = prefs.disableBuiltinSubscriptionRules;
         $('autoMatchKeyMatch').checked = !autoMatch.keyMatch;
@@ -10719,6 +10748,7 @@
             if (SSS.a_separator) {
               if (!sepStyle) {
                 sepStyle = addStyle(spcss['sp-separator']);
+                if (prefs.customCSS.length > 0) addStyle(prefs.customCSS);
               }
 
               div.className = 'sp-separator';
