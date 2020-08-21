@@ -11,8 +11,8 @@ import {BROWSER, SCRIPT_MANAGER} from './utils/detect';
 import {NOTIFICATION, SCRIPT_INFO} from './meta';
 import {Tween, TweenEase, TweenM} from './utils/tween';
 import {createDOM, getProperty, setProperty} from './utils/domTools';
+import {factorySettings, loadLocalSetting, loadSettings, resetSettings, saveLocalSetting, saveSettings} from './utils/init';
 import {getAllElements, getAllElementsByXpath, getElementByCSS, getElementByXpath, getLastVisibleElement} from './utils/domSelector';
-import {loadLocalSetting, loadSettings, resetSettings, saveLocalSetting, saveSettings} from './utils/init';
 import {setLang, template, userLang} from './locale/locale';
 import {toRE, wildcardToRegExpStr} from './utils/regex';
 
@@ -366,6 +366,9 @@ import notice from './utils/notice';
         if ($('setup')) return;
 
         const styleNode = addStyle(spcss['sp-prefs-setup']);
+        if (prefs.customCSS.length > 0) {
+          addStyle(prefs.customCSS);
+        }
         var div = d.createElement('div');
         div.id = 'sp-prefs-setup';
         div.style.position = 'fixed';
@@ -397,21 +400,17 @@ import notice from './utils/notice';
         };
 
         on($('ok'), 'click', function () {
-          prefs.ChineseUI = !!$('ChineseUI').checked;
-          prefs.custom_siteinfo = $('custom_siteinfo').value;
-          prefs.debug = !!$('debug').checked;
+          Object.keys(factorySettings.prefs).forEach((key) => {
+            const el = $(key);
+            if (el !== null) {
+              prefs[key] = getProperty(el);
+            }
+          });
           if (prefs.debug) {
             logger.setLevel('debug');
           } else {
             logger.setLevel(5);
           }
-          prefs.enableHistory = !!$('enableHistory').checked;
-          prefs.dblclick_pause = !!$('dblclick_pause').checked;
-          prefs.excludes = $('excludes').value;
-          prefs.arrowKeyPage = !!$('arrowKeyPage').checked;
-          prefs.floatWindow = !!$('floatWindow').checked;
-          prefs.disableBuiltinRules = !!$('disableBuiltinRules').checked;
-          prefs.disableBuiltinSubscriptionRules = !!$('disableBuiltinSubscriptionRules').checked;
           autoMatch.keyMatch = !$('autoMatchKeyMatch').checked;
 
           SITEINFO_D.useiframe = !!$('SITEINFO_D-useiframe').checked;
@@ -469,6 +468,7 @@ import notice from './utils/notice';
         $('SITEINFO_D-a_force_enable').checked = SITEINFO_D.autopager.force_enable;
         $('excludes').value = prefs.excludes;
         $('custom_siteinfo').value = prefs.custom_siteinfo;
+        $('customCSS').value = prefs.customCSS;
         $('disableBuiltinRules').checked = prefs.disableBuiltinRules;
         $('disableBuiltinSubscriptionRules').checked = prefs.disableBuiltinSubscriptionRules;
         $('autoMatchKeyMatch').checked = !autoMatch.keyMatch;
@@ -511,7 +511,6 @@ import notice from './utils/notice';
           } else {
             init(window, document);
           }
-
           // 分辨率 高度 > 宽度 的是手机
           if (window.screen.height > window.screen.width) {
             addStyle('div.sp-separator { min-width:auto !important; }');
@@ -1349,6 +1348,7 @@ import notice from './utils/notice';
             if (SSS.a_separator) {
               if (!sepStyle) {
                 sepStyle = addStyle(spcss['sp-separator']);
+                if (prefs.customCSS.length > 0) addStyle(prefs.customCSS);
               }
 
               div.className = 'sp-separator';
