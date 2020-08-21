@@ -1634,7 +1634,7 @@
   },
   {
     "name": "宅男女神",
-    "url": "^https?://www\\.nvshens\\.(com|net)",
+    "url": "^https?://www\\.nvshens\\.\\w+",
     "pageElement": "//ul[@id='hgallery'] | //div[@id='listdiv']/ul",
     "exampleUrl": "http://www.nvshens.com/g/17951/",
     "nextLink": "//a[text()='下一页']",
@@ -1845,10 +1845,10 @@
   },
   {
     "name": "美图录",
-    "url": "^https?://www\\.meitulu\\.com/item/\\d+(_\\d+)?\\.html",
+    "url": "^https?://www\\.meitulu\\.\\w+/item/\\d+(_\\d+)?\\.html",
     "pageElement": "//div[@class=\"content\"]/center",
     "exampleUrl": "https://www.meitulu.com/item/3225_2.html",
-    "nextLink": "//a[text()=\"下一页\"]",
+    "nextLink": "//a[contains(text(),'下一页')]",
     "category": ["gallery", "nsfw"],
     "autopager": {
       "ipages": [true, 30]
@@ -1858,7 +1858,6 @@
     "name": "meituri",
     "url": "^https?://www\\.meituri\\.com",
     "pageElement": "//div[@class=\"content\"]",
-    "exampleUrl": "https://www.meitulu.com/item/3225_2.html",
     "nextLink": "//a[text()=\"下一页\"]",
     "category": ["gallery", "nsfw"],
     "autopager": {
