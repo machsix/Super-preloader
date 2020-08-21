@@ -1,10 +1,20 @@
-![icon!](https://github.com/machsix/personal-scripts/raw/master/Super_preloader/icon2.png)
+![icon!](https://machsix.github.io/Super-preloader/logo.png)
+
+![GitHub stars](https://img.shields.io/github/stars/machsix/Super-preloader?style=social) ![GitHub last commit](https://img.shields.io/github/last-commit/machsix/Super-preloader?style=flat-square)
+#Github repo:
+https://github.com/machsix/Super-preloader
+
+I greatly appreciate it if you can star my project
+
+# License:
+The script and its source code is licensed with GPL v3.0 and but commercial use is strictly not allowed. Reposting of the code without author's permission is also strictly not allowed.
+
 #Introduction
 A gm script for auto loading paginated web pages. It will join pages together based on the rules.
 
 The script is forked from https://greasyfork.org/en/scripts/10433-super-preloaderplus-one.
 Thanks for the original author [swdyh](https://github.com/swdyh) && [ywzhaiqi](https://github.com/ywzhaiqi/userscript/tree/master/scripts/Super_preloaderPlus) && [NLF](http://userscripts-mirror.org/scripts/show/84937)
-swdyh is still actively improving [rules](http://wedata.net/databases/AutoPagerize/items) and developing the extension version,[AutoPagerize](https://addons.mozilla.org/en-US/firefox/addon/autopagerize/). 
+swdyh is still actively improving [rules](http://wedata.net/databases/AutoPagerize/items) and developing the extension version,[AutoPagerize](https://addons.mozilla.org/en-US/firefox/addon/autopagerize/).
 
 This userscript is more powerful than [AutoPagerize](https://addons.mozilla.org/en-US/firefox/addon/autopagerize/) in the sense that it has more flexibility for the method to define rules. You can not only use *Next page* link to derive the url for the next page, but also use js function to achieve the goal. You are also able to correct the content if the automatic rule is not perfect.
 
@@ -18,18 +28,21 @@ Title: [NSFW]Rule for www.example.com
 Content:
   Link: www.example.com/a.html
   NSFW: yes or no
-  Screenshot: 
+  Screenshot:
         xxx
   Rule: (If you create one but fail, you'd better provide it to make life easier for me)
-     
+
 ```
 **I won't spend time on writing rules for those who don't obey the rule.**
 
+#Development Guide
+https://machsix.github.io/Super-preloader/en/
+
 #Examples:
-1. Bing:
-![Bing](https://github.com/machsix/personal-scripts/raw/master/Super_preloader/ex1.PNG)
+1. google:
+![google](https://machsix.github.io/Super-preloader/image/example/google.png)
 2. XKCD:
-![xkcd](https://github.com/machsix/personal-scripts/raw/master/Super_preloader/ex2.PNG)
+![xkcd](https://machsix.github.io/Super-preloader/image/example/xkcd.png)
 
 #Compatability Issue
 1. Due to the design of Firefox, iframe with same baseURL but different anchor is not loaded. Details can be found at [https://stackoverflow.com/questions/22126190/why-iframe-is-not-loaded-for-same-url-as-page](https://stackoverflow.com/questions/22126190/why-iframe-is-not-loaded-for-same-url-as-page). This makes the script not work for some website (mainly manga website)
@@ -46,7 +59,7 @@ Following the trend of asynchronous programming and new API of Greasemonkey 4 , 
 |Greasemonkey 4      |   NA     | ✓             | NA            |
 |Greasemonkey 3      |   NA     | NA            | ✓  (test with WaterFox 56.2.3)|
 |--------------------|----------|---------------|---------------|
-Support for Greasemonkey 3/Tampermonkey  is achieved by [https://greasemonkey.github.io/gm4-polyfill/gm4-polyfill.js](https://greasemonkey.github.io/gm4-polyfill/gm4-polyfill.js) 
+Support for Greasemonkey 3/Tampermonkey  is achieved by [https://greasemonkey.github.io/gm4-polyfill/gm4-polyfill.js](https://greasemonkey.github.io/gm4-polyfill/gm4-polyfill.js)
 
 
 #Compatibility to some manga websites
@@ -66,7 +79,11 @@ Support for Greasemonkey 3/Tampermonkey  is achieved by [https://greasemonkey.gi
 
 For website with X-Header, you should follow issue 3 in the last section
 
+#Contributers
+<table><tr><td align="center"><a href="https://github.com/machsix"><img src="https://avatars0.githubusercontent.com/u/28209092?v=4" width="100px;" alt="MachX"/><br /><sub><b>MachX</b></sub></a><br /><a href="https://github.com/machsix/Super-preloader/commits?author=machsix" title="Code">💻</a> <a href="#design-machsix" title="Design">🎨</a> <a href="#content-machsix" title="Content">🖋</a> <a href="#review-machsix" title="Reviewed Pull Requests">👀</a></td><td align="center"><a href="https://github.com/suchunchen"><img src="https://avatars3.githubusercontent.com/u/17309819?v=4" width="100px;" alt="suchunchen"/><br /><sub><b>suchunchen</b></sub></a><br /><a href="https://github.com/machsix/Super-preloader/commits?author=suchunchen" title="Code">💻</a> <a href="#content-suchunchen" title="Content">🖋</a></td><td align="center"><a href="http://wiki.mozilla.org/User:YFdyh000"><img src="https://avatars0.githubusercontent.com/u/1769875?v=4" width="100px;" alt="YFdyh000"/><br /><sub><b>YFdyh000</b></sub></a><br /><a href="https://github.com/machsix/Super-preloader/commits?author=yfdyh000" title="Code">💻</a> <a href="#design-yfdyh000" title="Design">🎨</a></td></tr></table>
+
 
 #Changelog
-* July 15th 2018: Update rules for comics
-* June 14th 2018: Translate the UI into English
+
+
+[Github](https://github.com/machsix/Super-preloader/commits/master)
