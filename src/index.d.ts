@@ -187,3 +187,41 @@ interface IRuntimeRule {
   hasRule?: boolean;
   a_force?: boolean;
 }
+interface GM_xmlhttpRequestResponseObject extends XMLHttpRequest {
+  finalUrl: string;
+  context?: any;
+}
+interface ResponseObject extends GM_xmlhttpRequestResponseObject {
+  data: [string, FormData, Blob];
+  body: [string, FormData, Blob];
+  statusCode: number;
+  statusMessage: string;
+  method: string;
+  url: string;
+  requestUrl: string;
+  retryCount: number;
+  executorName?: any;
+}
+
+interface RequestObject {
+  method?: string;
+  retry?: number;
+  headers?: [null, undefined, string, object];
+  stream?: boolean;
+  cache?: boolean;
+  dnsCache?: boolean;
+  encoding?: [null, string];
+  prefixUrl?: [null, undefined, string];
+  timeout?: number;
+  searchParams?: [string, object];
+  body?: any;
+  data?: any;
+  binary?: boolean;
+  user?: [string, null];
+  password?: [string, null];
+  context?: any;
+  html?: boolean; // set to true to overrideMimeType = `text/html`;
+  noHeader?: boolean;
+  cookie?: [string, null];
+  withCredentials?: boolean; // VM for cross domain cookie https://github.com/violentmonkey/violentmonkey/issues/761
+}
