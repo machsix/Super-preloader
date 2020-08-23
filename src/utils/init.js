@@ -248,8 +248,6 @@ export async function loadSettings() {
           opts.text += upgradeNotification.extratext.en_US;
         }
       }
-      //@ts-ignore
-      //todo: patch the type
       GM.notification(opts);
     }
   }
