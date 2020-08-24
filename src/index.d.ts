@@ -189,13 +189,15 @@ interface IRuntimeRule {
 }
 
 interface GM_API {
-  setValue(name: string, value: any): void;
-  getValue(name: string, defaultValue?: any): any;
+  setValue(name: string, value: any): Promise<void>;
+  getValue(name: string, defaultValue?: any): Promise<any>;
   registerMenuCommand(name: string, listener: Function, accessKey?: string): number;
   xmlhttpRequest<CONTEXT_TYPE>(details: GM_Types.XHRDetails<CONTEXT_TYPE>): void;
+  notification(text: string, title?: string, image?: string, onclick?: Function): void;
+  notification(options: {text: string; title?: string; image?: string; onclick?: Function; ondone?: Function}): void;
 }
 
-declare var GM: GMA_PI;
+declare var GM: GM_API;
 
 declare namespace GM_Types {
   type ValueChangeListener = (name: string, oldValue: any, newValue: any, remote: boolean) => any;
@@ -275,8 +277,8 @@ declare namespace GM_Types {
 }
 
 interface ResponseObject extends GM_Types.XHRResponse {
-  data: [string, FormData, Blob];
-  body: [string, FormData, Blob];
+  data: string | FormData | Blob;
+  body: string | FormData | Blob;
   statusCode: number;
   statusMessage: string;
   method: string;
@@ -289,23 +291,23 @@ interface ResponseObject extends GM_Types.XHRResponse {
 interface RequestObject {
   method?: string;
   retry?: number;
-  headers?: [null, undefined, string, object];
+  headers?: null | undefined | string | object;
   stream?: boolean;
   cache?: boolean;
   dnsCache?: boolean;
-  encoding?: [null, string];
-  prefixUrl?: [null, undefined, string];
+  encoding?: null | string;
+  prefixUrl?: null | undefined | string;
   timeout?: number;
-  searchParams?: [string, object];
+  searchParams?: string | object;
   body?: any;
   data?: any;
   binary?: boolean;
-  user?: [string, null];
-  password?: [string, null];
+  user?: string | null;
+  password?: string | null;
   context?: any;
   html?: boolean; // set to true to overrideMimeType = `text/html`;
   noHeader?: boolean;
-  cookie?: [string, null];
+  cookie?: string | null;
   withCredentials?: boolean; // VM for cross domain cookie https://github.com/violentmonkey/violentmonkey/issues/761
 }
 
