@@ -1,5 +1,20 @@
 [
 {
+  "resource_url": "http://wedata.net/items/85457",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//div[@class=\"item_list\"]/ul/li",
+    "nextLink": "//a[@class=\"to_move\"]",
+    "url": "^https?://www\\.ankerjapan\\.com/category/",
+    "exampleUrl": "https://www.ankerjapan.com/category/BATTERY/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "brib2",
+  "name": "Anker Japan",
+  "created_at": "2020-08-25T11:17:40+09:00",
+  "updated_at": "2020-08-25T11:17:40+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/85456",
   "data": {
     "insertBefore": "",
@@ -28853,18 +28868,18 @@
   "created_by": "Sheepmaster"
 },
 {
-  "created_by": "kisara",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "name": "webザテレビジョン",
+  "resource_url": "http://wedata.net/items/56888",
   "data": {
-    "exampleUrl": "https://thetv.jp/news/tv/\r\nhttps://thetv.jp/news/detail/194206/",
+    "pageElement": "//div[@class='mainContent']/div[@class='contentBody newsContent'][1]/ul[@class='listContent newsList'] | //*[not(./ul[@class='programCategoryArea_list'])]/ul[@class='pageNav'][./preceding-sibling::div[@class='contentText']]/preceding-sibling::*",
     "nextLink": "//link[@rel='next']",
     "url": "^https://thetv\\.jp",
-    "pageElement": "//div[@class='mainContent']/div[@class='contentBody newsContent'][1]/ul[@class='listContent newsList']/li | //div[@class='contentText']/ul[@class='pageNav']/preceding-sibling::*"
+    "exampleUrl": "https://thetv.jp/news/\r\nhttps://thetv.jp/news/detail/194206/\r\nhttps://thetv.jp/feature/matome/758/"
   },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "kisara",
+  "name": "webザテレビジョン",
   "created_at": "2012-01-14T15:22:34+09:00",
-  "resource_url": "http://wedata.net/items/56888",
-  "updated_at": "2019-07-02T15:37:56+09:00"
+  "updated_at": "2020-08-25T11:24:54+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/56870",
