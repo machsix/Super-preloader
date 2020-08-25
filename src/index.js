@@ -349,7 +349,7 @@ import notice from './utils/notice';
       } else {
         logger.setLevel(5);
       }
-      logger.debug(`Script Manager: ${SCRIPT_MANAGER.name}  v${SCRIPT_MANAGER.version}`);
+      logger.debug('Script Manager: ', JSON.stringify({name: SCRIPT_MANAGER.name, version: SCRIPT_MANAGER.version || 'unknown'}));
       logger.debug('Browser: ', JSON.stringify(BROWSER));
       const setup = function () {
         const d = document;
@@ -360,7 +360,7 @@ import notice from './utils/notice';
          * @returns {HTMLInputElement} elem
          */
         const $ = function (s) {
-          //@ts-ignore
+          // @ts-ignore
           return d.getElementById('sp-prefs-' + s);
         };
         if ($('setup')) return;
@@ -484,11 +484,8 @@ import notice from './utils/notice';
           this.loadSetting();
 
           if (userLang === 'zh_CN') {
-            //@ts-ignore
-            //todo: patch the type
             GM.registerMenuCommand('Super_preloaderPlus_one_New 设置', setup);
           } else {
-            //@ts-ignore
             GM.registerMenuCommand('Super_preloaderPlus_one_New Settings', setup);
           }
 
@@ -998,6 +995,7 @@ import notice from './utils/notice';
             addStyle(SSS.a_stylish, 'Super_preloader-style');
           }
 
+          /** @type {Node} */
           var insertPointP;
           if (insertMode != 2) {
             insertPointP = insertPoint.parentNode;
@@ -1018,6 +1016,7 @@ import notice from './utils/notice';
             };
           }
 
+          /** @type {HTMLDocument} */
           var doc, win;
 
           function XHRLoaded(res) {
@@ -1089,16 +1088,22 @@ import notice from './utils/notice';
             removeL(true);
 
             setTimeout(function () {
-              nextlink = getElement(SSS.nextLink || 'auto;');
-              nextlink = getFullHref(nextlink);
+              nextlinkElem = getElement(SSS.nextLink || 'auto;');
+              nextlink = elemToHref(nextlinkElem);
               // preLink = getElement(SSS.preLink || 'auto;');
               autopager(SSS, floatWO);
             }, hashchangeTimer);
           }
 
+          /** @type {HTMLIFrameElement} */
           var iframe;
           var messageR;
 
+          /**
+           * Event handler of iframe loaded
+           * @param {IFrameLoadedEvent} event Iframe loaded event
+           * @returns {void}
+           */
           function iframeLoaded(event) {
             const iframe = event.currentTarget;
             const body = iframe.contentDocument.body;
@@ -1117,6 +1122,11 @@ import notice from './utils/notice';
             }
           }
 
+          /**
+           * Load next page in iframe
+           * @param {string} link Link of the next page
+           * @returns {void}
+           */
           function iframeRequest(link) {
             messageR = false;
             if (SSS.a_newIframe || !iframe) {
@@ -1183,6 +1193,45 @@ import notice from './utils/notice';
             }
           }
 
+          /**
+           * Send XHR request to obtain next page content
+           * @param {string} link Link of next page
+           * @returns {void}
+           */
+          function XHRrequest(link) {
+            const reqConf = {
+              headers: SSS.a_headers ? SSS.a_headers : {Referer: cplink}
+            };
+            got
+              .get(link, reqConf)
+              .then(
+                /**
+                 * Handling of XHR request
+                 * @param {ResponseObject} res Response of got
+                 * @returns {void}
+                 */
+                (res) => {
+                  if (res.finalUrl === cplink) {
+                    logger.debug('Same final address');
+                    XHRNotLoaded(res);
+                  } else {
+                    XHRLoaded(res);
+                    logger.debug('XHRrequest complete');
+                  }
+                }
+              )
+              .catch(
+                /**
+                 * Error handling of XHR request
+                 * @param {ResponseObject} res Response of got
+                 * @returns {void}
+                 */
+                (res) => {
+                  XHRNotLoaded(res);
+                }
+              );
+          }
+
           var working;
 
           function doRequest() {
@@ -1195,23 +1244,12 @@ import notice from './utils/notice';
             if (SSS.a_useiframe) {
               iframeRequest(nextlink);
             } else {
-              const reqConf = {
-                headers: SSS.a_headers ? SSS.a_headers : {Referer: cplink}
-              };
-              got
-                .get(nextlink, reqConf)
-                .then(function (res) {
-                  if (res.finalUrl === cplink) {
-                    logger.debug('Same final address');
-                    XHRNotLoaded(res);
-                  } else {
-                    XHRLoaded(res);
-                  }
-                })
-                .catch(function (res) {
-                  XHRNotLoaded(res);
-                });
-              logger.debug('Reading complete.');
+              if (/(?:http|\/).*/.test(nextlink)) {
+                // request next page by XHR
+                XHRrequest(nextlink);
+              } else {
+                logger.error('Lazyload or Invalid nextLinkElem', nextlinkElem);
+              }
             }
           }
 
@@ -1485,18 +1523,18 @@ import notice from './utils/notice';
             // 提前查找下一页链接，后面再赋值
             const lastUrl = cplink;
             cplink = String(nextlink);
-            /** @type {HTMLElement|string} */
-            var nl = getElement(SSS.nextLink, undefined, doc, win);
+            /** @type {HTMLElement | String} */
+            const nl = getElement(SSS.nextLink, undefined, doc, win);
             if (nl) {
-              nl = getFullHref(nl);
-              if (nl == nextlink) {
-                nextlink = null;
+              if (nl === nextlinkElem) {
+                nextlinkElem = null;
               } else {
-                nextlink = nl;
+                nextlinkElem = nl;
               }
             } else {
-              nextlink = null;
+              nextlinkElem = null;
             }
+            nextlink = elemToHref(nextlinkElem);
             // 有部分下一页的信息是在script中（比如新加的csdn的规则），因此先查找下一页信息，再执行 removeScripts
             removeScripts(doc, SSS.a_scriptFilter);
 
@@ -1992,7 +2030,6 @@ import notice from './utils/notice';
 
         if (!prefs.numOfRule || prefs.numOfRule != SSRules.length) {
           prefs.numOfRule = SSRules.length;
-          //@ts-ignore
           GM.setValue('prefs', prefs);
         }
 
@@ -2000,6 +2037,8 @@ import notice from './utils/notice';
         /** @type {Array<string|HTMLElement>} */
         const pagedLinks = [document.location.href];
         /** @type {HTMLElement|string} */
+        var nextlinkElem;
+        /** @type {string} */
         var nextlink;
         /** @type {HTMLElement|string} */
         var prelink;
@@ -2043,14 +2082,15 @@ import notice from './utils/notice';
                 }
               }
 
-              nextlink = getElement(SII.nextLink || 'auto;');
-              if (!nextlink) {
+              nextlinkElem = getElement(SII.nextLink || 'auto;');
+              if (!nextlinkElem) {
                 logger.warn('Could not find the next page link, continue searching for other rules, skiping rule:', SII);
                 continue;
               }
-              // 如果匹配到的下一页链接和当前页一致，继续查找下一条规则
-              if (getFullHref(nextlink) == document.location.href) {
-                nextlink = null;
+              // extract next page link from an a link
+              nextlink = getFullHref(nextlinkElem);
+              if (nextlink === document.location.href) {
+                nextlinkElem = null;
                 continue;
               }
 
@@ -2059,7 +2099,7 @@ import notice from './utils/notice';
                 prelink = getElement(SII.preLink);
               } else {
                 if (prefs.autoGetPreLink) {
-                  getElement('auto;');
+                  prelink = getElement('auto;');
                 }
               }
 
@@ -2126,7 +2166,7 @@ import notice from './utils/notice';
               // 检验是否存在内容
               const pageElement = getElement(SSS.a_pageElement);
               if (!pageElement || (Array.isArray(pageElement) && pageElement.length === 0)) {
-                nextlink = null;
+                nextlinkElem = null;
                 logger.error('Could not find content, skiping rule:', SII, 'Continue to search for other rules.');
                 continue;
               }
@@ -2142,8 +2182,8 @@ import notice from './utils/notice';
               logger.warn('Auto match is disabled');
             } else {
               logger.warn('No rules are found. Auto match starts');
-              nextlink = autoGetLink();
-              if (nextlink) {
+              nextlinkElem = autoGetLink();
+              if (nextlinkElem) {
                 // 强制模式.
                 const FA = autoMatch.FA;
                 SSS.Rurl = window.localStorage ? 'am:' + (url.match(/^https?:\/\/[^:]*\//i) || [])[0] : 'am:automatch';
@@ -2177,14 +2217,14 @@ import notice from './utils/notice';
         findCurSiteInfo();
 
         // 上下页都没有找到啊
-        if (!nextlink && !prelink) {
+        if (!nextlinkElem && !prelink) {
           logger.warn(`No related links found, JS execution stopped. Total time spent: ${new Date().getTime() - startTime.getTime()}ms`);
           return;
         } else {
-          logger.debug('Previous link:', prelink);
+          logger.debug('Previous link element:', prelink);
+          logger.debug('Next link element:', nextlinkElem);
+          nextlink = elemToHref(nextlinkElem);
           logger.debug('Next link:', nextlink);
-          //@ts-ignore
-          nextlink = nextlink ? nextlink.href || nextlink : undefined;
           //@ts-ignore
           prelink = prelink ? prelink.href || prelink : undefined;
         }
@@ -2297,7 +2337,6 @@ import notice from './utils/notice';
               prefs.FW_offset[0] = parseInt(el.style.top.replace('px', ''), 10);
               prefs.FW_offset[1] = parseInt(el.style.right.replace('px', ''), 10);
               prefs.FW_position = 2;
-              //@ts-ignore
               GM.setValue('prefs', prefs);
             }
           });
@@ -2874,7 +2913,7 @@ import notice from './utils/notice';
 
   /**
    *
-   * @param {HTMLElement} doc Document Fragment
+   * @param {HTMLDocument} doc Document Fragment
    * @param {String} scriptFilter Regex string
    * @description Remove scripts node from doc
    * @returns {void}
@@ -2978,14 +3017,17 @@ import notice from './utils/notice';
    * @description 从相对路径的a.href获取完全的href值.
    */
   function getFullHref(href) {
+    // getAttribute may give relative url but href always give full url
     if (typeof href !== 'string') href = href.getAttribute('href');
-    // if(href.search(/^https?:/)==0)return href;//http打头,不一定就是完整的href;
-    //@ts-ignore
-    var a = getFullHref.a;
+
+    /** @type {HTMLAnchorElement} */
+    // @ts-ignore
+    let a = getFullHref.a;
     if (!a) {
       //@ts-ignore
       getFullHref.a = a = document.createElement('a');
     }
+
     a.href = href;
     return a.href;
   }
@@ -3004,5 +3046,20 @@ import notice from './utils/notice';
     const width = elc.querySelector('#sp-fw-content').offsetWidth;
     elc.remove();
     return width;
+  }
+
+  /**
+   * Get next page link from an element
+   * @param {string | HTMLElement} elem nextlink element
+   * @returns {String} link of next page
+   */
+  function elemToHref(elem) {
+    if (!elem) return undefined;
+    if (typeof elem === 'string' || elem.hasAttribute('href')) {
+      return getFullHref(elem);
+    } else {
+      // eslint-disable-next-line no-script-url
+      return 'javascript:void(0);'; // pseudo href
+    }
   }
 })();

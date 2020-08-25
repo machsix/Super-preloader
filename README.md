@@ -98,6 +98,8 @@ This program is licensed under [GNU General Public License](https://www.gnu.org/
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
+**Howver you need to acknowledge the author `machsix` before redistribute the source code, databases and bundled script. Reposting the code anywhere without the author's permission is regarded as infringement. The author preserves the right to sue the infringer.**
+
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/>.

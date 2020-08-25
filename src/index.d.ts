@@ -187,3 +187,130 @@ interface IRuntimeRule {
   hasRule?: boolean;
   a_force?: boolean;
 }
+
+interface GM_API {
+  setValue(name: string, value: any): Promise<void>;
+  getValue(name: string, defaultValue?: any): Promise<any>;
+  registerMenuCommand(name: string, listener: Function, accessKey?: string): number;
+  xmlhttpRequest<CONTEXT_TYPE>(details: GM_Types.XHRDetails<CONTEXT_TYPE>): void;
+  notification(text: string, title?: string, image?: string, onclick?: Function): void;
+  notification(options: {text: string; title?: string; image?: string; onclick?: Function; ondone?: Function}): void;
+}
+
+declare var GM: GM_API;
+
+declare namespace GM_Types {
+  type ValueChangeListener = (name: string, oldValue: any, newValue: any, remote: boolean) => any;
+
+  interface OpenTabOptions {
+    active?: boolean;
+    insert?: boolean;
+    setParent?: boolean;
+  }
+
+  interface XHRDetails<CONTEXT_TYPE> {
+    method?: 'GET' | 'HEAD' | 'POST' | 'PUT';
+    url?: string;
+    headers?: {readonly [key: string]: string};
+    data?: string;
+    binary?: boolean;
+    timeout?: number;
+    context?: CONTEXT_TYPE;
+    responseType?: 'arraybuffer' | 'blob' | 'json';
+    overrideMimeType?: string;
+    anonymous?: boolean;
+    fetch?: boolean;
+    username?: string;
+    password?: string;
+
+    onload?: Listener<XHRResponse<CONTEXT_TYPE>>;
+    onloadstart?: Listener<XHRResponse<CONTEXT_TYPE>>;
+    onprogress?: Listener<XHRProgress<CONTEXT_TYPE>>;
+    onreadystatechange?: Listener<XHRResponse<CONTEXT_TYPE>>;
+    ontimeout?: Listener<XHRProgress<CONTEXT_TYPE>>;
+    onabort?: Listener<XHRProgress<CONTEXT_TYPE>>;
+    onerror?: Listener<XHRProgress<CONTEXT_TYPE>>;
+  }
+
+  interface XHRResponse extends XMLHttpRequest {
+    finalUrl: string;
+    context?: any;
+  }
+
+  interface AbortHandle<RETURN_TYPE> {
+    abort(): RETURN_TYPE;
+  }
+
+  interface DownloadError {
+    error: 'not_enabled' | 'not_whitelisted' | 'not_permitted' | 'not_supported' | 'not_succeeded';
+    details?: string;
+  }
+
+  interface DownloadDetails {
+    url: string;
+    name: string;
+    headers?: {readonly [key: string]: string};
+    saveAs?: boolean;
+    timeout?: number;
+    onerror?: Listener<DownloadError>;
+    ontimeout?: Listener<object>;
+    onload?: Listener<object>;
+    onprogress?: Listener<XHRProgress<void>>;
+  }
+
+  interface NotificationThis extends NotificationDetails {
+    id: string;
+  }
+
+  type NotificationOnClick = (this: NotificationThis) => any;
+  type NotificationOnDone = (this: NotificationThis, clicked: boolean) => any;
+
+  interface NotificationDetails {
+    text?: string;
+    title?: string;
+    image?: string;
+    highlight?: boolean;
+    timeout?: number;
+    onclick?: NotificationOnClick;
+    ondone?: NotificationOnDone;
+  }
+}
+
+interface ResponseObject extends GM_Types.XHRResponse {
+  data: string | FormData | Blob;
+  body: string | FormData | Blob;
+  statusCode: number;
+  statusMessage: string;
+  method: string;
+  url: string;
+  requestUrl: string;
+  retryCount: number;
+  executorName?: any;
+}
+
+interface RequestObject {
+  method?: string;
+  retry?: number;
+  headers?: null | undefined | string | object;
+  stream?: boolean;
+  cache?: boolean;
+  dnsCache?: boolean;
+  encoding?: null | string;
+  prefixUrl?: null | undefined | string;
+  timeout?: number;
+  searchParams?: string | object;
+  body?: any;
+  data?: any;
+  binary?: boolean;
+  user?: string | null;
+  password?: string | null;
+  context?: any;
+  html?: boolean; // set to true to overrideMimeType = `text/html`;
+  noHeader?: boolean;
+  cookie?: string | null;
+  withCredentials?: boolean; // VM for cross domain cookie https://github.com/violentmonkey/violentmonkey/issues/761
+}
+
+interface IFrameLoadedEvent extends Event {
+  currentTarget: HTMLIFrameElement & EventTarget;
+}

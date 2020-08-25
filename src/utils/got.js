@@ -26,6 +26,7 @@ const queryString = {
   }
 };
 
+/** @type {RequestObject} */
 const defaults = {
   method: 'GET',
   retry: 0,
@@ -52,9 +53,9 @@ const defaults = {
 
 /**
  * Normalize options and merge with defaults
- * @param {object} options got style request options
- * @param {object} thisDefaults default values to overwrite options
- * @returns {object} normalized options
+ * @param {RequestObject} options got style request options
+ * @param {RequestObject} thisDefaults default values to overwrite options
+ * @returns {RequestObject} normalized options
  */
 function normalizeArguments(options, thisDefaults = defaults) {
   const keyNotMerge = [];
@@ -171,7 +172,7 @@ function normalizeArguments(options, thisDefaults = defaults) {
 /**
  * Convert got style options to options supported by GM.xmlhttpRequest
  * You need to add callback after call this function
- * @param {object} options Got-style options
+ * @param {RequestObject} options Got-style options
  * @returns {object} GM-style options
  */
 function gotopt2gmopt(options) {
@@ -202,8 +203,8 @@ function gotopt2gmopt(options) {
 /**
  * Parse input for post and get method
  * @param {string} url Link of request
- * @param {options} optionsIn Option of request
- * @returns {object} option for request
+ * @param {RequestObject} optionsIn Option of request
+ * @returns {RequestObject} option for request
  */
 function parseArgument(url, optionsIn) {
   let gotOptions = {...optionsIn}; // shadow copy
@@ -220,14 +221,14 @@ function parseArgument(url, optionsIn) {
 
 /**
  * Create an instance of got
- * @param {object} thisDefaults default option
+ * @param {RequestObject} thisDefaults default option
  * @returns {object} an instance of got
  */
 function create(thisDefaults) {
   /**
    * General interface of request
    * @param {object} optionsIn - options of get
-   * @returns {promise} promise of get
+   * @returns {Pormise<ResponseObject>} Promise of response
    */
   const request = (optionsIn) => {
     let gotOptions = {...optionsIn}; // make a shadow copy
@@ -244,6 +245,7 @@ function create(thisDefaults) {
       function (xmlResponse) {
         // convert XMLHttpRequest response to Node.js HTTP response
         // Note: retryCount is added manually
+        /** @type {ResponseObject} */
         const nodeResponse = {
           data: xmlResponse.responseText,
           body: xmlResponse.responseText,
@@ -259,6 +261,11 @@ function create(thisDefaults) {
         return executor(nodeResponse);
       };
 
+    /**
+     * Convert GM callback stype API to Promise style
+     * @param {number} retryCount number of retry
+     * @returns {Promise<ResponseObject>} Promise of response
+     */
     const genPromise = (retryCount = 0) =>
       new Promise((resolve, reject) => {
         gmOptions.onload = genCallback(resolve, 'onload', retryCount);
@@ -290,6 +297,12 @@ function create(thisDefaults) {
     request.defaults[key] = isNullOrUndefined(thisDefaults[key]) ? defaults[key] : thisDefaults[key];
   }
 
+  /**
+   *
+   * @param {string} url Link of request
+   * @param {RequestObject} optionsIn Request option
+   * @returns {Promise<ResponseObject>} promise of request
+   */
   request.get = function (url, optionsIn) {
     const options = parseArgument(url, optionsIn);
     options.method = 'GET';
