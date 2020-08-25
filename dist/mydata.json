@@ -37,6 +37,17 @@
     "category": ["forum"]
   },
   {
+   "name": "24fa",
+    "url": "^https?://www\\.24fa\\.com",
+    "pageElement": "css;#content",
+    "nextLink": "//li[@class='p_current']/following-sibling::li/a",
+    "autopager": {
+      "lazyImgSrc": "original",
+      "stylish": "#content img {display: inline}",
+      "ipages": [true, 30]
+    }
+  },
+  {
     "name": "小众软件",
     "url": "^https?://www.appinn\\.com",
     "pageElement": "//section[@id='latest-posts']",
