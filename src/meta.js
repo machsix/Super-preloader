@@ -56,7 +56,7 @@ export const METADATA = `// ==UserScript==
 // @supportURL   ${SCRIPT_INFO.greasyfork}/feedback
 // @contributionURL https://ko-fi.com/machsix
 // @icon         ${SCRIPT_INFO.icon}
-// @require      https://greasyfork.org/scripts/373124-gm4-polyfill-mach6-legacy/code/gm4-polyfill-mach6-legacy.js?version=839554
+// @require      https://cdn.jsdelivr.net/gh/machsix/gm4-polyfill@1.3/gm4-polyfill-mach6-legacy.js
 // @grant        GM.getValue
 // @grant        GM_getValue
 // @grant        GM.setValue
@@ -70,6 +70,7 @@ export const METADATA = `// ==UserScript==
 // @grant        GM_registerMenuCommand
 // @connect      wedata.net
 // @connect      github.io
+// @run-at       document-idle
 // @include      http*
 // @exclude      http*://mail.google.com/*
 // @exclude      http*://maps.google*
