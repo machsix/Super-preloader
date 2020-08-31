@@ -1,5 +1,34 @@
 [
 {
+  "resource_url": "http://wedata.net/items/85461",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//div[contains(@class, \"entry_main\")]/*",
+    "nextLink": "//span[contains(concat(\" \",@class,\" \"), \" current \")]/following-sibling::a",
+    "url": "^https://travel\\.spot-app\\.jp/(?!page).+/\\d",
+    "exampleUrl": "https://travel.spot-app.jp/seisyun18kippu_ekimemo/2/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "kenzou_ogawa",
+  "name": "SPOT 個別記事",
+  "created_at": "2020-08-29T21:48:33+09:00",
+  "updated_at": "2020-08-29T21:48:33+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85458",
+  "data": {
+    "pageElement": "//div[@class=\"search-result\"]",
+    "nextLink": "//li[@class=\"m-paging-list-next\"]/a",
+    "url": "^https?://www\\.ragtag\\.jp/search",
+    "exampleUrl": "https://www.ragtag.jp/search?br=10082&lm=m"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "zerobase",
+  "name": "RAGTAG",
+  "created_at": "2020-08-25T17:39:29+09:00",
+  "updated_at": "2020-08-25T17:44:58+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/85457",
   "data": {
     "insertBefore": "",
@@ -848,8 +877,7 @@
 {
   "resource_url": "http://wedata.net/items/85394",
   "data": {
-    "insertBefore": "",
-    "pageElement": "//div[@class='row']//div[@data-column='3']/div",
+    "pageElement": "//div[@class='row']//div[@data-column='3']",
     "nextLink": "//li[@class='active']/following-sibling::li[1]/a",
     "url": "^https://(www\\.)?shopyourtv\\.com/",
     "exampleUrl": "https://www.shopyourtv.com/american-idol/"
@@ -858,7 +886,7 @@
   "created_by": "Tanookirby2",
   "name": "shopyourtv",
   "created_at": "2020-06-26T11:50:38+09:00",
-  "updated_at": "2020-06-26T11:50:38+09:00"
+  "updated_at": "2020-08-26T10:42:19+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/85393",
@@ -2511,18 +2539,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/85204",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "created_at": "2020-01-28T23:54:55+09:00",
   "data": {
     "pageElement": "id('main')/article",
-    "bookmarklet": "for (var i = 0; i < $(\"img\").length; i++) {\r\n    $(\"img\").eq(i).attr(\"src\",$(\"img\").eq(i).attr(\"ajax\"));\r\n}",
-    "exampleUrl": "https://forest.watch.impress.co.jp/docs/serial/yajiuma/index2019.html https://www.watch.impress.co.jp/backno/top/",
+    "nextLink": "id('paginate-under')//li[contains(concat(' ', normalize-space(@class), ' '), ' prev ')]/a",
     "url": "^https?://(.+)?watch\\.impress\\.co\\.jp/",
-    "nextLink": "id('paginate-under')//li[contains(concat(' ', normalize-space(@class), ' '), ' prev ')]/a"
+    "exampleUrl": "https://forest.watch.impress.co.jp/docs/serial/yajiuma/index2019.html https://www.watch.impress.co.jp/backno/top/"
   },
-  "updated_at": "2020-05-26T06:55:44+09:00",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "KAWASAKICHIRO",
   "name": "窓の杜　やじうまの杜",
-  "created_by": "KAWASAKICHIRO"
+  "created_at": "2020-01-28T23:54:55+09:00",
+  "updated_at": "2020-08-30T14:53:21+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/85203",
@@ -3677,19 +3704,18 @@
 },
 {
   "resource_url": "http://wedata.net/items/82189",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "created_at": "2019-06-24T10:41:33+09:00",
   "data": {
     "pageElement": "//ul[@class='list-02']/li",
-    "bookmarklet": "for (var i=0; i<Number($(\".autopagerize_link\").last().text())*50; i++) { $(\"img[ajax]\").eq(i).attr(\"src\",$(\"img[ajax]\").eq(i).attr(\"ajax\")); }",
     "comment": "The existence of //link[@rel=\"next\"] cannot be confirmed when JavaScript is off.",
-    "exampleUrl": "https://game.watch.impress.co.jp/category/ps/ https://internet.watch.impress.co.jp/category/topic/security/ https://pc.watch.impress.co.jp/category/device/2in1/",
+    "nextLink": "//li[@class=\"page current\"]/following-sibling::li[1]/a",
     "url": "^https?://[^\\.]\\.watch\\.impress\\.co\\.jp/category/",
-    "nextLink": "//li[@class=\"step next\"]/a"
+    "exampleUrl": "https://game.watch.impress.co.jp/category/ps/ https://internet.watch.impress.co.jp/category/topic/security/ https://pc.watch.impress.co.jp/category/device/2in1/"
   },
-  "updated_at": "2020-05-26T06:49:48+09:00",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "jigendaddy_be",
   "name": "Watch カテゴリ",
-  "created_by": "jigendaddy_be"
+  "created_at": "2019-06-24T10:41:33+09:00",
+  "updated_at": "2020-08-30T14:46:40+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/82188",
@@ -4497,18 +4523,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/82111",
-  "name": "女子SPA！",
-  "created_by": "hatenaZZZ",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-04-04T03:04:52+09:00",
   "data": {
-    "exampleUrl": "https://joshi-spa.jp/910685",
+    "pageElement": "//div[@class=\"post-container ws\"]",
+    "nextLink": "//a[div/@class=\"next-page\"]",
     "url": "^https?://joshi-spa\\.jp/",
-    "pageElement": "//div[@class=\"main-column\"]/div[@class=\"post-container\"]",
-    "insertBefore": "",
-    "nextLink": "//div/div[@class=\"pager-num\"]/following-sibling::a[@href]"
+    "exampleUrl": "https://joshi-spa.jp/910685"
   },
-  "created_at": "2019-04-04T03:04:52+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "hatenaZZZ",
+  "name": "女子SPA！",
+  "created_at": "2019-04-04T03:04:52+09:00",
+  "updated_at": "2020-08-29T23:05:47+09:00"
 },
 {
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
@@ -7741,18 +7766,19 @@
 },
 {
   "resource_url": "http://wedata.net/items/81607",
-  "name": "SPOT おでかけ体験型メディア",
-  "created_by": "白館いたち",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-01-07T20:51:20+09:00",
   "data": {
-    "Stylus": "@-moz-document url(\"https://travel.spot-app.jp/\") {\r\n.autopagerize_page_info:first-of-type+div{display:none;}\r\n\r\n}\r\n\r\n@-moz-document url(\"https://travel.spot-app.jp/\"), url-prefix(\"https://travel.spot-app.jp/page\"), url-prefix(\"https://travel.spot-app.jp/omoshiro/\"), url-prefix(\"https://travel.spot-app.jp/odekake/\"), url-prefix(\"https://travel.spot-app.jp/news/\"), url-prefix(\"https://travel.spot-app.jp/category/\") {\r\n.autopagerize_page_separator{display:none;}\r\n}",
-    "exampleUrl": "https://travel.spot-app.jp/seisyun18kippu_ekimemo/ https://travel.spot-app.jp/ https://travel.spot-app.jp/page/2/",
+    "pageElement": "//div[@class=\"content_item\"]",
+    "Stylus": "@-moz-document regexp(\"https://travel.spot-app.jp/(?!.+/\\\\d/).+\") {\r\n.autopagerize_page_separator,.autopagerize_page_info{display:none;}\r\n}",
+    "comment": "cf.http://wedata.net/items/85461",
+    "nextLink": "//link[@rel=\"next\"][//link[@rel=\"canonical\"][@href=\"https://travel.spot-app.jp/\" or contains(@href,\"/page/\")]]",
     "url": "^https://travel\\.spot-app\\.jp/",
-    "pageElement": "//div[@class=\"content_item\"]|//div[contains(@class, \"entry_main\")]/*",
-    "nextLink": "//link[@rel=\"next\"][//link[@rel=\"canonical\"][@href=\"https://travel.spot-app.jp/\" or contains(@href,\"/page/\")]]|//span[contains(concat(\" \",@class,\" \"), \" current \")]/following-sibling::a"
+    "exampleUrl": "https://travel.spot-app.jp/ https://travel.spot-app.jp/page/2/"
   },
-  "created_at": "2017-10-24T00:17:33+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "白館いたち",
+  "name": "SPOT おでかけ体験型メディア",
+  "created_at": "2017-10-24T00:17:33+09:00",
+  "updated_at": "2020-08-31T10:32:07+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/81606",
@@ -8171,18 +8197,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/81537",
-  "name": "AKIBA PC HOTLINE!",
-  "created_by": "t_f_m",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-06-17T21:07:26+09:00",
   "data": {
-    "exampleUrl": "http://akiba-pc.watch.impress.co.jp/docs/sp/1077969.html https://akiba-pc.watch.impress.co.jp/category/pcparts/",
-    "bookmarklet": "for (var i=0; i<Number($(\".autopagerize_link\").last().text())*50; i++) {\r\n    $(\"img[ajax]\").eq(i).attr(\"src\",$(\"img[ajax]\").eq(i).attr(\"ajax\"));\r\n}",
-    "url": "^https?://akiba-pc\\.watch\\.impress\\.co\\.jp/",
     "pageElement": "//div[@class=\"tab-wrap\"]/preceding-sibling::*[not(@class=\"box-01\")]|//section[@class=\"list\"]//li",
-    "nextLink": "//link[@rel=\"next\"]"
+    "nextLink": "//link[@rel=\"next\"]",
+    "url": "^https?://akiba-pc\\.watch\\.impress\\.co\\.jp/",
+    "exampleUrl": "http://akiba-pc.watch.impress.co.jp/docs/sp/1077969.html https://akiba-pc.watch.impress.co.jp/category/pcparts/"
   },
-  "created_at": "2017-09-11T21:37:58+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m",
+  "name": "AKIBA PC HOTLINE!",
+  "created_at": "2017-09-11T21:37:58+09:00",
+  "updated_at": "2020-08-30T14:50:57+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/81536",
@@ -16759,21 +16784,6 @@
   "created_at": "2015-03-20T02:03:24+09:00"
 },
 {
-  "resource_url": "http://wedata.net/items/77041",
-  "data": {
-    "pageElement": "id('sns-group')/preceding-sibling::node()|id('comment-area')/*",
-    "bookmarklet": "Array.prototype.forEach.call(document.querySelectorAll('img'), function(img) { var lazySrc = img.hasAttribute('data-src') ? img.getAttribute('data-src') : img.getAttribute('data-original'); if (lazySrc) { img.src = lazySrc;} });",
-    "nextLink": "//div[@class='prev']/a",
-    "url": "^https://shogi1\\.com/",
-    "exampleUrl": "http://shogi1.com/satoamahiko-nakataisao/"
-  },
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "created_by": "jigendaddy_be",
-  "name": "将棋ワンストップ・ニュース",
-  "created_at": "2015-03-19T20:23:45+09:00",
-  "updated_at": "2020-06-07T05:51:20+09:00"
-},
-{
   "resource_url": "http://wedata.net/items/77040",
   "data": {
     "pageElement": "//div[@class='result']/ul/li",
@@ -23559,18 +23569,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/66684",
-  "name": "GAME Watch",
-  "created_by": "duke",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-06-24T10:47:24+09:00",
   "data": {
-    "exampleUrl": "http://game.watch.impress.co.jp/docs/review/20141014_671068.html https://game.watch.impress.co.jp/docs/review/",
-    "bookmarklet": "for (var i=0; i<Number($(\".autopagerize_link\").last().text())*50; i++) { $(\"img[ajax]\").eq(i).attr(\"src\",$(\"img[ajax]\").eq(i).attr(\"ajax\")); }",
-    "url": "^https?://game\\.watch\\.impress\\.co\\.jp/",
     "pageElement": "//div[@class=\"tab-wrap\"]/preceding-sibling::*|//section[@class=\"list\"]/*",
-    "nextLink": "//li[@class=\"next\"][not(//section[@class=\"list\"])]/a|//li[@class=\"prev\"][//section[@class=\"list\"]]/a"
+    "nextLink": "//li[@class=\"next\"][not(//section[@class=\"list\"])]/a|//li[@class=\"prev\"][//section[@class=\"list\"]]/a",
+    "url": "^https?://game\\.watch\\.impress\\.co\\.jp/",
+    "exampleUrl": "http://game.watch.impress.co.jp/docs/review/20141014_671068.html https://game.watch.impress.co.jp/docs/review/"
   },
-  "created_at": "2013-02-14T19:03:22+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "duke",
+  "name": "GAME Watch",
+  "created_at": "2013-02-14T19:03:22+09:00",
+  "updated_at": "2020-08-30T14:46:09+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/66656",
@@ -28868,18 +28877,18 @@
   "created_by": "Sheepmaster"
 },
 {
-  "resource_url": "http://wedata.net/items/56888",
   "data": {
-    "pageElement": "//div[@class='mainContent']/div[@class='contentBody newsContent'][1]/ul[@class='listContent newsList'] | //*[not(./ul[@class='programCategoryArea_list'])]/ul[@class='pageNav'][./preceding-sibling::div[@class='contentText']]/preceding-sibling::*",
+    "pageElement": "//div[@class='mainContent']/div[@class='contentBody newsContent'][1]/ul[@class='listContent newsList'] | //ul[@class='pageNav'][./preceding-sibling::div[@class='contentText'] or ./parent::*[@class='contentText']]/preceding-sibling::* | //ul[@class='programList' or @class='p__talent_list']/li",
     "nextLink": "//link[@rel='next']",
-    "url": "^https://thetv\\.jp",
-    "exampleUrl": "https://thetv.jp/news/\r\nhttps://thetv.jp/news/detail/194206/\r\nhttps://thetv.jp/feature/matome/758/"
+    "url": "^https://(.+)?thetv\\.jp",
+    "exampleUrl": "https://thetv.jp/news/\r\nhttps://thetv.jp/news/detail/194206/\r\nhttps://thetv.jp/feature/matome/758/\r\nhttps://thetv.jp/program/finder/drama/?slot=256\r\nhttps://talent.thetv.jp/person/feature/657/"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "kisara",
+  "resource_url": "http://wedata.net/items/56888",
   "name": "webザテレビジョン",
   "created_at": "2012-01-14T15:22:34+09:00",
-  "updated_at": "2020-08-25T11:24:54+09:00"
+  "updated_at": "2020-08-27T10:34:51+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/56870",
@@ -29391,18 +29400,18 @@
 {
   "resource_url": "http://wedata.net/items/55843",
   "data": {
-    "pageElement": "//article[@class=\"article\"]|//li[@class=\"summaryList_listNode\"]",
-    "bookmarklet": "Array.prototype.forEach.call(document.querySelectorAll('img'), function(img) { var lazySrc = img.hasAttribute('data-src') ? img.getAttribute('data-src') : img.getAttribute('data-original'); if (lazySrc) { img.src = lazySrc; img.classList.remove('lazy');} });",
-    "comment": "This is a display image of the first page is repeated on the second page or later Chrome.",
+    "pageElement": "//article[@class=\"article\"]|//li[@class=\"summaryList_listNode\"]|//div[@class=\"c-archiveList_daily\"]",
+    "bookmarklet": "Array.prototype.forEach.call(document.querySelectorAll('img'), function(img) { var lazySrc = img.hasAttribute('data-src') ? img.getAttribute('data-src') : img.getAttribute('data-delay'); if (lazySrc) { img.src = lazySrc; img.classList.remove('lazy');} });",
+    "Stylus": "@-moz-document domain(\"news.mynavi.jp\") {\r\n[data-delay]{opacity:1;}\r\n}",
     "nextLink": "//a[@rel=\"next\"]",
     "url": "^https?://news\\.mynavi\\.jp/",
-    "exampleUrl": "http://news.mynavi.jp/articles/2011/11/11/fm_interview/index.html\r\nhttp://news.mynavi.jp/articles/2014/10/09/windows10/\r\nhttp://news.mynavi.jp/column/windows/\r\nhttp://news.mynavi.jp/column/svalley/"
+    "exampleUrl": "http://news.mynavi.jp/articles/2011/11/11/fm_interview/index.html\r\nhttp://news.mynavi.jp/articles/2014/10/09/windows10/\r\nhttp://news.mynavi.jp/column/windows/\r\nhttp://news.mynavi.jp/column/svalley/\r\nhttps://news.mynavi.jp/list/headline/business/enterprise/itsystem/"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "raimon49",
   "name": "マイナビニュース",
   "created_at": "2011-11-12T18:03:52+09:00",
-  "updated_at": "2020-06-09T16:03:57+09:00"
+  "updated_at": "2020-08-30T12:40:22+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/55842",
@@ -29574,17 +29583,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/55745",
-  "name": "ダ・ヴィンチ電子ナビ",
-  "created_by": "terepanda",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-06-12T16:43:49+09:00",
   "data": {
-    "exampleUrl": "https://ddnavi.com/interview/17416/a/ https://ddnavi.com/feature/17613/a/ https://ddnavi.com/news/",
+    "pageElement": "//div[@class=\"archives-list\"]/ul/li|//p[@class=\"foot-copy fr\"][//link[@rel=\"canonical\"][contains(@href,\"/a/\")]]",
+    "nextLink": "//a[@rel=\"next\"]|//p[@class=\"head-title__logo\"]/a[//link[@rel=\"canonical\"][contains(@href,\"/a/\")]]",
     "url": "^https?://ddnavi\\.com/",
-    "pageElement": "//div[@class=\"article-body__main\"]|//div[@class=\"archives-list\"]/ul/li",
-    "nextLink": "//a[@rel=\"next\"]"
+    "exampleUrl": "https://ddnavi.com/interview/17416/a/ https://ddnavi.com/feature/17613/a/ https://ddnavi.com/news/"
   },
-  "created_at": "2011-10-28T18:48:05+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "terepanda",
+  "name": "ダ・ヴィンチ電子ナビ",
+  "created_at": "2011-10-28T18:48:05+09:00",
+  "updated_at": "2020-08-30T11:18:27+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/55733",
@@ -38711,7 +38720,7 @@
 {
   "resource_url": "http://wedata.net/items/30831",
   "data": {
-    "pageElement": "//a[@class=\"Link DeformationArticle\"][number(@data-number)>2]|//a[@class=\"Link DeformationArticle\"][number(@data-number)>2]/preceding-sibling::a",
+    "pageElement": "//div[@class=\"Pagination\"]/preceding-sibling::div",
     "nextLink": "//link[@rel=\"next\"]",
     "url": "^https://r25\\.jp/",
     "exampleUrl": "https://r25.jp/latest"
@@ -38720,7 +38729,7 @@
   "created_by": "TAC",
   "name": "新R25",
   "created_at": "2009-12-18T18:05:06+09:00",
-  "updated_at": "2020-06-06T06:41:06+09:00"
+  "updated_at": "2020-08-30T13:37:17+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/30807",
@@ -47290,19 +47299,19 @@
 {
   "resource_url": "http://wedata.net/items/649",
   "data": {
-    "pageElement": "//*[contains(concat(' ', normalize-space(@class), ' '), ' hentry ') or contains(concat(' ', normalize-space(@class), ' '), ' h-entry ')][not(ancestor::*[contains(concat(' ', normalize-space(@class), ' '), ' hentry ') or contains(concat(' ', normalize-space(@class), ' '), ' h-entry ')])]",
+    "pageElement": "//*[contains(concat(' ', normalize-space(@class), ' '), ' hentry ') or contains(concat(' ', normalize-space(@class), ' '), ' h-entry ')][count(//*[./*[contains(concat(' ', normalize-space(@class), ' '), ' hentry ') or contains(concat(' ', normalize-space(@class), ' '), ' h-entry ')]])=1]",
     "exampleMicroformats": "microformat : http://microformats.org/wiki/Main_Page hAtom : http://microformats.org/wiki/hatom rel-next & rel-prev : http://microformats.org/wiki/existing-rel-values microformat 2 : http://microformats.org/wiki/microformats-2 h-entry : http://microformats.org/wiki/h-entry",
     "nextLink": "(//link|//a)[contains(concat(' ', translate(normalize-space(@rel),'NEXT','next'), ' '), ' next ')]",
     "comment_ja": "この SITEINFO は、Microformats の hAtom に適用されます。 AutoPagerize はページを継ぎ足す際に url の評価を行ないますが、文字列の長い順に適用されます。この SITEINFO は url の正規表現としては最短になりますので、一番最後に適用されます。つまり一致する url が一つも無い場合に適用されるわけです。 もしも、この SITEINFO が適用されないようにしたいサイトがある場合には、以下のような対応をするのが適切だと思われます。 (1) AutoPagerize, AutoPatchwork といった拡張、userscrpt の設定で特定のサイトの url が無効になるようにする (2) そのサイトで適切に動作する SITEINFO を書く Microformats に対応した SITEINFO は、サイト運営者にとっても利用者にとっても利益があるものです。本 SITEINFO を無効または削除などせずに、適切な対応をされることを期待します。 original text from: http://wedata.net/items/63493?rev=105018",
     "url": "^https?://.",
-    "exampleUrl": "http://blog.nicovideo.jp/3d/2014/06/pmx.html https://cpoint-lab.co.jp/article/202001/13316/",
+    "exampleUrl": "http://blog.nicovideo.jp/3d/2014/06/pmx.html https://shogi1.com/satoamahiko-nakataisao/",
     "comment_en": "This SITEINFO is applied to the web site in compliance with hAtom of Microformats. AutoPagerize evaluates url when it works, and then apply SITEINFO in the order of long url string. Because this SITEINFO is the shortest as a regular expression of the url, it will apply to the last. In other words, it is applied when no one url to match. If you want AutoPagerize to exclude web site matching this SITEINFO, please take actions as follows: (1) set your extension(AutoPagerize, AutoPatchWork, and more) to disable pagerizing at the specific url ( and DO NOT MODIFY this SITEINFO ). (2) write down new SITEINFO applied to the specific url. / This SITEINFO is generally use but roughly applied. Although you may sometimes meet a problem, please DO NOT MODIFY this SITEINFO. Best is to make new and suitable SITEINFO for the url. Otherwise, disable this SITEINFO only your local environment. Thanks.\r\n"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "swdyh",
   "name": "hAtom",
   "created_at": "2008-04-16T12:36:19+09:00",
-  "updated_at": "2020-08-04T19:49:10+09:00"
+  "updated_at": "2020-08-26T10:50:16+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/632",
@@ -48237,7 +48246,7 @@
 {
   "resource_url": "http://wedata.net/items/400",
   "data": {
-    "pageElement": "(//article[not(contains(../@class,\"widget\"))][not(contains(@class,\"columns four\"))][not(contains(@class,\"side-contents\"))][not(ancestor::*[starts-with(@class,\"sidebar\")])][not(ancestor::*[contains(@class,\"featured\") and not(self::body)])]|//*[starts-with(@id,\"post-\")][not(contains(@id,\"nav\"))][not(contains(@id,\"post-rating\"))])[not(.//*[contains(@class,\"admz\")])][not(self::h2)][not(self::h3)][not(ancestor::*[@id=\"side\" or @class=\"pickup\"])][not(ancestor::aside or ancestor::li)][not(id(\"load-more-posts\") or @id=\"fpost\" or contains(@class,\"carousel\"))][parent::node()[not(@id=\"side\")][not(contains(@class,\"thumbnail\"))][not(./following-sibling::*[@id=\"side\"])][count(./article)>1 or count(./*[starts-with(@id,\"post-\")])>1]][//article[./following-sibling::article][count(.//*[starts-with(@id,\"post-\")])=2] or //*[starts-with(@id,\"post-\")][./following-sibling::*[starts-with(@id,\"post-\")][count(.//article)=2]] or count(//*[./article/following-sibling::article]) + count(//*[./*[starts-with(@id,\"post-\")]/following-sibling::*[starts-with(@id,\"post-\")]]) - count(//*[./article[starts-with(@id,\"post-\")]/following-sibling::article[starts-with(@id,\"post-\")]])=1]|id(\"content\")[count(div)>1]/div[contains(@class,\"post\")][not(contains(div/@class,\"breadcrumb\"))]",
+    "pageElement": "(//article[not(contains(../@class,'widget'))][not(contains(@class,'columns four'))][not(contains(@class,'side-contents'))][not(ancestor::*[starts-with(@class,'sidebar')])][not(ancestor::*[contains(@class,'featured') and not(self::body)])]|//*[starts-with(@id,'post-')][not(contains(@id,'nav'))][not(contains(@id,'post-rating'))])[not(.//*[contains(@class,'admz')])][not(self::h2)][not(self::h3)][not(ancestor::*[@id='side' or @class='pickup'])][not(ancestor::aside or ancestor::li)][not(id('load-more-posts') or @id='fpost' or contains(@class,'carousel'))][parent::node()[not(@id='side')][not(contains(@class,'thumbnail'))][not(./following-sibling::*[@id='side'])][count(./article)>1 or count(./*[starts-with(@id,'post-')])>1]][//article[./following-sibling::article][count(.//*[starts-with(@id,'post-')])=2] or //*[starts-with(@id,'post-')][./following-sibling::*[starts-with(@id,'post-')][count(.//article)=2]] or count(//*[./article/following-sibling::article]) + count(//*[./*[starts-with(@id,'post-')]/following-sibling::*[starts-with(@id,'post-')]]) - count(//*[./article[starts-with(@id,'post-')]/following-sibling::article[starts-with(@id,'post-')]])=1]|id('content')[count(div)>1]/div[contains(@class,'post')][not(contains(div/@class,'breadcrumb'))]",
     "comment": "nextLink:563 pageElement:1258",
     "comment2": "cf.https://tanyao.hatenadiary.jp/entry/2020/08/13/135253",
     "nextLink": "(//*[not(contains(@class,'_inactive'))]/a[starts-with(@class,'nextpostslink') or contains(@class,'next page-numbers') or (.|..)[normalize-space(@rel)='next' or normalize-space(@class)='next' or contains(@class,'pagination-next')]][not(span/@class='link-text')]|//*[contains(@class,'nav-previous')][not(contains(@class,'pull'))]/a|(//*[contains(@class,'current')][number()>0]/following-sibling::a[1]|(//li|//span|//div)[(.//*|.)[contains(@class,'current')]][number()>0]/following-sibling::*[self::li or self::span or self::div][1]/a))[not(starts-with(@href, '#'))]",
@@ -48252,6 +48261,6 @@
   "created_by": "swdyh",
   "name": "Generic Posts Rule",
   "created_at": "2008-04-16T12:35:17+09:00",
-  "updated_at": "2020-08-20T07:27:34+09:00"
+  "updated_at": "2020-08-26T07:50:42+09:00"
 }
 ]
