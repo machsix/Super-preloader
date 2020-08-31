@@ -72,7 +72,7 @@
     "got": "11.5.2",
     "husky": "4.2.5",
     "lodash": "4.17.20",
-    "loglevel": "1.6.8",
+    "loglevel": "1.7.0",
     "prettier": "2.0.5",
     "pretty-quick": "3.0.0",
     "puppeteer": "2.1.0",
