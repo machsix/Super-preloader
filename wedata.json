@@ -1,5 +1,213 @@
 [
 {
+  "data": {
+    "pageElement": "//div[@class=\"lia-linear-display-message-view\"]",
+    "nextLink": "//a[@rel=\"next\"]",
+    "url": "^https://ficoforums.myfico.com/",
+    "exampleUrl": "https://ficoforums.myfico.com/t5/Understanding-FICO-Scoring/Our-Forums-FICO-High-Achievers-Who-has-at-least-one-FICO-Score/td-p/198803/page/2"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "junhaan",
+  "resource_url": "http://wedata.net/items/85482",
+  "name": "ficoforums",
+  "created_at": "2020-09-07T13:51:20+09:00",
+  "updated_at": "2020-09-07T14:10:44+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85481",
+  "data": {
+    "pageElement": "//div[@class='blog--listing block']/*[.//h2]",
+    "nextLink": "//a[@title='Nächste Seite']",
+    "url": "^https?://(www\\.)?kurbelix\\.de/",
+    "exampleUrl": "https://www.kurbelix.de/blog/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "henning",
+  "name": "kurbelix",
+  "created_at": "2020-09-05T23:11:35+09:00",
+  "updated_at": "2020-09-06T05:55:22+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85479",
+  "data": {
+    "pageElement": "//li[@class=\"nav_list\"][last()]",
+    "comment": "This is a dummy code for uAutoPagerize.",
+    "nextLink": "//div[@class=\"header_logo\"]/a[not(//a[@class=\"page_button more\"])]",
+    "url": "^https://travel\\.spot-app\\.jp/(?!.+/\\d+/).+",
+    "exampleUrl": "https://travel.spot-app.jp/izunoheso/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "kenzou_ogawa",
+  "name": "SPOT ダミー",
+  "created_at": "2020-09-05T10:22:23+09:00",
+  "updated_at": "2020-09-05T11:48:49+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85475",
+  "data": {
+    "pageElement": "(//div[@class='structItemContainer-group js-threadList' or @class='block-body js-replyNewMessageContainer']|//ol[@class='block-body'])/*",
+    "nextLink": "//link[@rel='next']",
+    "url": "^https://(www\\.)?pedelecforum\\.de/forum/index\\.php\\?",
+    "exampleUrl": "https://www.pedelecforum.de/forum/index.php?forums/vorstellung-von-mitgliedern-und-ihren-pedelecs.13/ https://www.pedelecforum.de/forum/index.php?threads/mit-meinem-stevens-e-triton-25-gent-white-fast-t%C3%A4glich-auf-arbeit.38982/ https://www.pedelecforum.de/forum/index.php?search/4181577/&q=the&o=relevance"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "henning",
+  "name": "Pedelecforum.de foren",
+  "created_at": "2020-09-04T18:02:22+09:00",
+  "updated_at": "2020-09-06T05:49:18+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85474",
+  "data": {
+    "pageElement": "id('contenu')//table/tbody/tr[./th]/following-sibling::tr[./following-sibling::tr/th]",
+    "nextLink": "id('contenu')/table[last()-1]/tbody/tr/th/a[last()-1]/img/..",
+    "url": "^https?://cyclurba\\.fr/forum-velo/.+",
+    "exampleUrl": "https://cyclurba.fr/forum-velo/25/batteries-bms-chargeurs.html"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "henning",
+  "name": "Cyclurba forum-index",
+  "created_at": "2020-09-04T17:51:02+09:00",
+  "updated_at": "2020-09-05T10:09:41+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85473",
+  "data": {
+    "pageElement": "id('contenu')/div/form/table/tbody/tr[td[starts-with(@class,'ForumLign2')]]",
+    "nextLink": "id('contenu')/div/form/div/a[last()-1]/img/..",
+    "url": "^https?://cyclurba\\.fr/forum/.+",
+    "exampleUrl": "https://cyclurba.fr/forum/648639/efit150-scrapper-e-xc-3.html"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "henning",
+  "name": "Cyclurba thread",
+  "created_at": "2020-09-04T17:45:14+09:00",
+  "updated_at": "2020-09-05T08:24:32+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85472",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//table[@class='main']/tbody",
+    "nextLink": "//table[@class='main']/tbody//li[@class='cont']/a",
+    "category": "[\"tutorial\"]",
+    "url": "^https?://www\\.tizag\\.com/",
+    "exampleUrl": "http://www.tizag.com/xmlTutorial/xpathtutorial.php"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "henning",
+  "name": "tizag",
+  "created_at": "2020-09-04T17:36:55+09:00",
+  "updated_at": "2020-09-04T17:36:55+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85471",
+  "data": {
+    "pageElement": "//section[@class='new_topic']/div[@class='topic_tile']/ul/li|id('post')",
+    "nextLink": "//link[@rel='next']|//div[@class='link read_more']/a|//div[@class='next_post']/a",
+    "url": "^https://www\\.andgirl\\.jp/",
+    "exampleUrl": "https://www.andgirl.jp/ https://www.andgirl.jp/fashion/35997"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "kenzou_ogawa",
+  "name": "andGIRL",
+  "created_at": "2020-09-04T15:59:20+09:00",
+  "updated_at": "2020-09-06T10:10:26+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85470",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//div[contains(concat(' ', normalize-space(@class), ' '), ' listingResult ')]|//div[@class='structItemContainer-group js-threadList']/*|//div[@class='block-body js-replyNewMessageContainer']/article",
+    "nextLink": "//link[@rel='next']",
+    "url": "^https://.+\\.space\\.com/",
+    "exampleUrl": "https://www.space.com/news https://forums.space.com/forums/article-commentary.71/ https://forums.space.com/threads/spacex-launch-day-thread.31439/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "Tanookirby2",
+  "name": "Space.com",
+  "created_at": "2020-09-04T12:00:39+09:00",
+  "updated_at": "2020-09-04T12:00:39+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85469",
+  "data": {
+    "pageElement": "//div[@class='onlycontent']//div[@id='city']",
+    "prevLink": "//div[@id='bottomnext']/a[@style='float: left']",
+    "nextLink": "//div[@id='bottomnext']/a[contains(@style, 'right')]",
+    "url": "^https?://www\\.javatpoint\\.com/",
+    "category": "[\"tutorial\"]",
+    "exampleUrl": "https://www.javatpoint.com/xpath-tutorial"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "henning",
+  "name": "javatpoint",
+  "created_at": "2020-09-04T03:14:52+09:00",
+  "updated_at": "2020-09-04T17:52:42+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85468",
+  "data": {
+    "pageElement": "//div[@class='wrapper band-training-content bg-white py-5']",
+    "prevLink": "//div[@class='col-12 text-right']/a[1]",
+    "nextLink": "//div[@class='col-12 text-right']/a[3]",
+    "url": "^https?://www\\.altova\\.com/training/.+",
+    "category": "[\"tutorial\"]",
+    "exampleUrl": "https://www.altova.com/training/xpath3/introduction"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "henning",
+  "name": "altova",
+  "created_at": "2020-09-04T03:10:26+09:00",
+  "updated_at": "2020-09-04T17:54:13+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85467",
+  "data": {
+    "pageElement": "//div[@id='main']",
+    "prevLink": "//div[@class='prev']/a",
+    "nextLink": "//div[@class='next']/a",
+    "url": "^https?://www\\.quanzhanketang\\.com/.+",
+    "category": "[\"tutorial\"]",
+    "exampleUrl": "https://www.quanzhanketang.com/xsl/xpath_intro.html"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "henning",
+  "name": "w3schoolArchived",
+  "created_at": "2020-09-04T03:04:56+09:00",
+  "updated_at": "2020-09-04T17:55:31+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85466",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//section/div[@class='row']",
+    "nextLink": "//a[@rel='next']",
+    "url": "^https?://dokomade\\.net/",
+    "exampleUrl": "http://dokomade.net/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m_",
+  "name": "どこまでこの街？",
+  "created_at": "2020-09-03T22:35:40+09:00",
+  "updated_at": "2020-09-03T22:35:40+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85464",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//div[@class=\"section sModSecNormal\"][div/@class=\"dModLayImg left\"]",
+    "nextLink": "//div[@class=\"dPagerR\"]/a[@class=\"aModEleDef\"]",
+    "url": "^https?://www\\.risu\\.co\\.jp/group/search/",
+    "exampleUrl": "https://www.risu.co.jp/group/search/result.php?sort=capacitys"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "brib2",
+  "name": "リスのプラスチックグループ (詳細検索)",
+  "created_at": "2020-09-02T10:05:46+09:00",
+  "updated_at": "2020-09-02T10:05:46+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/85461",
   "data": {
     "insertBefore": "",
@@ -5236,17 +5444,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/82050",
-  "name": "WEBRONZA",
-  "created_by": "jigendaddy_be",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2018-12-25T18:03:43+09:00",
   "data": {
-    "exampleUrl": "https://webronza.asahi.com/politics/articles/2018121900007.html",
+    "pageElement": "//div[@class=\"webHonbun\"]",
+    "nextLink": "//link[@rel=\"next\"]",
     "url": "^https://webronza\\.asahi\\.com/",
-    "pageElement": "id(\"entryBody\")/*[last()]/preceding-sibling::*|id(\"entryBody\")/*[last()][not(self::div)]",
-    "nextLink": "//link[@rel=\"next\"]"
+    "exampleUrl": "https://webronza.asahi.com/politics/articles/2020083000002.html"
   },
-  "created_at": "2018-12-25T18:01:13+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "jigendaddy_be",
+  "name": "WEBRONZA",
+  "created_at": "2018-12-25T18:01:13+09:00",
+  "updated_at": "2020-09-01T01:15:15+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/82049",
@@ -7768,17 +7976,16 @@
   "resource_url": "http://wedata.net/items/81607",
   "data": {
     "pageElement": "//div[@class=\"content_item\"]",
-    "Stylus": "@-moz-document regexp(\"https://travel.spot-app.jp/(?!.+/\\\\d/).+\") {\r\n.autopagerize_page_separator,.autopagerize_page_info{display:none;}\r\n}",
-    "comment": "cf.http://wedata.net/items/85461",
-    "nextLink": "//link[@rel=\"next\"][//link[@rel=\"canonical\"][@href=\"https://travel.spot-app.jp/\" or contains(@href,\"/page/\")]]",
+    "comment": "cf.http://wedata.net/items/85461 http://wedata.net/items/85479",
+    "nextLink": "//link[@rel=\"next\"]",
     "url": "^https://travel\\.spot-app\\.jp/",
-    "exampleUrl": "https://travel.spot-app.jp/ https://travel.spot-app.jp/page/2/"
+    "exampleUrl": "https://travel.spot-app.jp/ https://travel.spot-app.jp/page/2/ https://travel.spot-app.jp/author/pato/ https://travel.spot-app.jp/omoshiro/"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "白館いたち",
   "name": "SPOT おでかけ体験型メディア",
   "created_at": "2017-10-24T00:17:33+09:00",
-  "updated_at": "2020-08-31T10:32:07+09:00"
+  "updated_at": "2020-09-05T11:52:31+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/81606",
@@ -20107,17 +20314,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/74978",
-  "name": "UserStyles, GreasyFork",
-  "created_by": "oumu",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2018-06-17T18:34:31+09:00",
   "data": {
-    "exampleUrl": "https://forum.userstyles.org\r\nhttps://forum.userstyles.org/discussion/40694/\r\nhttps://forum.userstyles.org/search?Page=p3&Search=xml\r\nhttps://greasyfork.org/scripts?page=2\r\nhttps://greasyfork.org/forum/categories/script-discussions/p2\r\nhttps://greasyfork.org/forum/dashboard/log/edits\r\nhttps://greasyfork.org/forum/profile/comments/1/JasonBarnabe",
+    "pageElement": "//div[@class='styles boxes' or @class='discussion-list-container '] | id('browse-script-list')/li | id('Content')//ul[contains(@class,'DataList')]/li | id('Log') | //div[@class='styles']/div[@class='style_card overrideHref'] | id('search-results')/li | id('main-article')/article",
+    "nextLink": "//a[@rel='next' or div/@id='right-arrow'] | id('PagerMore')/a",
     "url": "^https?://(forum\\.userstyles|greasyfork)\\.org",
-    "pageElement": "//div[@class='styles boxes'] | id('browse-script-list')/li | id('Content')//ul[contains(@class,'DataList')]/li | id('Log') | //div[@class='styles']/div[@class='style_card overrideHref'] | id('search-results')/li | id('main-article')/article",
-    "nextLink": "//a[@rel='next' or div/@id='right-arrow'] | id('PagerMore')/a"
+    "exampleUrl": "https://forum.userstyles.org\r\nhttps://forum.userstyles.org/discussion/40694/\r\nhttps://forum.userstyles.org/search?Page=p3&Search=xml\r\nhttps://greasyfork.org/scripts?page=2\r\nhttps://greasyfork.org/forum/categories/script-discussions/p2\r\nhttps://greasyfork.org/forum/dashboard/log/edits\r\nhttps://greasyfork.org/forum/profile/comments/1/JasonBarnabe"
   },
-  "created_at": "2014-07-17T09:25:15+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "oumu",
+  "name": "UserStyles, GreasyFork",
+  "created_at": "2014-07-17T09:25:15+09:00",
+  "updated_at": "2020-09-05T05:02:09+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/74974",
@@ -24497,19 +24704,18 @@
   "created_at": "2012-12-03T09:12:14+09:00"
 },
 {
+  "data": {
+    "pageElement": "//main//article | //div[@class=\"postContents\"]/section/div | //ul[@class=\"pager\"]/preceding-sibling::div",
+    "nextLink": "//link[@rel=\"next\"] | //a[@class=\"next_page_block\"]",
+    "url": "^https://am-our\\.com/",
+    "exampleUrl": "https://am-our.com/marriage/539/16194/\r\nhttps://am-our.com/love/245/recent_post\r\nhttps://am-our.com/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "itouhiro",
   "resource_url": "http://wedata.net/items/65156",
   "name": "AM「アム」 - 新感覚の女性向け恋愛総合サイト",
-  "created_by": "itouhiro",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-03-02T13:56:24+09:00",
-  "data": {
-    "exampleUrl": "https://am-our.com/marriage/539/16194/\r\nhttps://am-our.com/love/245/recent_post/\r\nhttps://am-our.com/special/archive/",
-    "bookmarklet": "Array.prototype.forEach.call(document.querySelectorAll('img'), function(img) { var lazySrc = img.hasAttribute('data-src') ? img.getAttribute('data-src') : img.getAttribute('data-original'); if (lazySrc) { img.src = lazySrc;} });",
-    "url": "^https://am-our\\.com/.",
-    "pageElement": "id(\"article\") | //div[contains(@class,\"inbox_column\")]",
-    "nextLink": "//link[@rel=\"next\"]"
-  },
-  "created_at": "2012-12-02T21:49:52+09:00"
+  "created_at": "2012-12-02T21:49:52+09:00",
+  "updated_at": "2020-09-04T20:30:26+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/65155",
