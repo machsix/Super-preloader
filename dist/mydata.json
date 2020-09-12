@@ -3637,5 +3637,11 @@
     "url": "^https?://www\\.gcores\\.com/(radios|articles|videos)",
     "pageElement": "//div[contains(@class,'loadingPlaceholder loading')]/parent::div",
     "nextLink": "auto;"
+  },
+  {
+    "name": "xibixibi",
+    "url": "^https?://www\\.xibixibi\\.com/*",
+    "pageElement": "//*[@class='list-grouped row my-n3']",
+    "nextLink": "auto;"
   }
 ]
