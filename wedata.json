@@ -1,17 +1,140 @@
 [
 {
+  "resource_url": "http://wedata.net/items/85495",
   "data": {
-    "pageElement": "//div[@class=\"lia-linear-display-message-view\"]",
-    "nextLink": "//a[@rel=\"next\"]",
-    "url": "^https://ficoforums.myfico.com/",
-    "exampleUrl": "https://ficoforums.myfico.com/t5/Understanding-FICO-Scoring/Our-Forums-FICO-High-Achievers-Who-has-at-least-one-FICO-Score/td-p/198803/page/2"
+    "insertBefore": "",
+    "pageElement": "id(\"search_list\")/ul/li",
+    "nextLink": "//li[@class=\"next\"]/a",
+    "url": "^https?://searching\\.kobe-np\\.co\\.jp/",
+    "exampleUrl": "https://searching.kobe-np.co.jp/?cs=utf8&ord=t&kw=2021"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "brib2",
+  "name": "神戸新聞 (検索)",
+  "created_at": "2020-09-14T11:56:30+09:00",
+  "updated_at": "2020-09-14T11:56:30+09:00"
+},
+{
+  "data": {
+    "pageElement": "//div[@class='items versions-list']",
+    "prevLink": "//div[@class='island hero c listing']/nav/p[@class='rel']/a[@class='button prev']",
+    "nextLink": "//div[@class='island hero c listing']/nav/p[@class='rel']/a[@class='button next']",
+    "url": "^https?://web\\.archive\\.org/web/[0-9]{14}/https?://addons\\.mozilla\\.org/[Ee][Nn]-[Uu][Ss]/firefox/addon/[^/]+/versions/",
+    "category": "[\"AMO\"]",
+    "exampleUrl": "http://web.archive.org/web/20181212230441/https://addons.mozilla.org/en-US/firefox/addon/noscript/versions/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "hhenning",
+  "resource_url": "http://wedata.net/items/85494",
+  "name": "AMO Versions via Wayback Machine, pre-2019 layout",
+  "created_at": "2020-09-13T03:02:29+09:00",
+  "updated_at": "2020-09-14T18:26:16+09:00"
+},
+{
+  "data": {
+    "pageElement": "//div[@id='reviews']|//div[@class='AddonReviewList-reviews']//div[@class='Card-contents']/ul|//section[contains(@class, 'AddonReviewList-reviews')]/div[@class='Card-contents']/ul",
+    "comment": "catches old and new (2018+) layout\r\n(You do not need to add a prevLink and a category section)\r\n(I was aware of both. Found category in one of the *items* files and thought it might be a good idea. 'prevLink' is from the wiki)",
+    "nextLink": "//p[@class='rel']/a[@class='button next']|//div[@class='Paginate-links']/a[contains(@class, '-next')]",
+    "url": "^https?://web\\.archive\\.org/web/[0-9]{14}/https?://addons\\.mozilla\\.org/[Ee][Nn]-[Uu][Ss]/firefox/addon/[^/]+/reviews/",
+    "exampleUrl": "https://web.archive.org/web/20170829103928/https://addons.mozilla.org/en-US/firefox/addon/lightbeam/reviews/ http://web.archive.org/web/20200402134515/https://addons.mozilla.org/en-US/firefox/addon/noscript/reviews/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "hhenning",
+  "resource_url": "http://wedata.net/items/85490",
+  "name": "AMO Reviews via Wayback Machine",
+  "created_at": "2020-09-12T17:14:02+09:00",
+  "updated_at": "2020-09-14T18:32:52+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85489",
+  "data": {
+    "pageElement": "//ol[@class='searchResultsList']",
+    "comment": "I had to create this rule because the rule found 'Generic Posts Rule created by swdyh' did not work reliably for 'Wilders'. e.g. it did not work for page 1 and several others.",
+    "prevLink": "//div[@class='PageNav']//a[@class='text' and contains(text(), 'Prev')]",
+    "nextLink": "//link[@rel=\"next\"]",
+    "url": "^https?://www\\.wilderssecurity\\.com/search/.+",
+    "category": "[\"list\"]",
+    "exampleUrl": "https://www.wilderssecurity.com/search/47864540/?page=3&q=firefox+extension&o=date"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "hhenning",
+  "name": "Wilders Security Forum Search",
+  "created_at": "2020-09-12T03:01:01+09:00",
+  "updated_at": "2020-09-13T11:36:31+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85488",
+  "data": {
+    "pageElement": "//ul[@data-filterable-for='your-repos-filter']",
+    "comment": "To do: 1. internationalize (Previous/Next)\r\n       2. change to also work with projects and packages lists",
+    "prevLink": "//div[@class='paginate-container']/div/a[text()='Previous']",
+    "nextLink": "//div[@data-test-selector=\"pagination\"][count(./a)>1 or ./a/preceding-sibling::button]/a[last()]",
+    "url": "^https?://github\\.com/[^/]+\\?tab=repositories",
+    "category": "[\"github\"]",
+    "exampleUrl": "https://github.com/TarekJor?tab=repositories"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "hhenning",
+  "name": "github repos list",
+  "created_at": "2020-09-11T17:59:04+09:00",
+  "updated_at": "2020-09-12T09:49:08+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85487",
+  "data": {
+    "pageElement": "id('data_grid')/div",
+    "nextLink": "//span[@class='current']/following-sibling::a[1]",
+    "url": "^https?://pluginsaddonsextensions\\.com/",
+    "exampleUrl": "https://pluginsaddonsextensions.com/mozilla-firefox-addons"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "hhenning",
+  "name": "PluginsAddonsExtensions",
+  "created_at": "2020-09-11T16:46:44+09:00",
+  "updated_at": "2020-09-12T06:53:39+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85486",
+  "data": {
+    "pageElement": "//table[@class='PhorumStdTable']/tbody/tr[td]",
+    "nextLink": "//div[@class='PhorumNavBlock']/div/strong/following-sibling::a",
+    "url": "^https?://kmeleonbrowser\\.org/forum/.+",
+    "exampleUrl": "http://kmeleonbrowser.org/forum/list.php?9,page=3"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "hhenning",
+  "name": "K-Meleon Phorum index",
+  "created_at": "2020-09-11T16:19:09+09:00",
+  "updated_at": "2020-09-12T06:56:59+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85485",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "id(\"main_contents\")",
+    "nextLink": "//link[@rel=\"next\"]",
+    "url": "^https?://webmatome\\.info/",
+    "exampleUrl": "http://webmatome.info/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "kenzou_ogawa",
+  "name": "WEBサービスまとめてみた",
+  "created_at": "2020-09-11T13:38:22+09:00",
+  "updated_at": "2020-09-11T13:38:22+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85482",
+  "data": {
+    "pageElement": "//div[@class='lia-linear-display-message-view']|//table[@class='lia-list-wide']/tbody/tr",
+    "nextLink": "//a[@rel='next']",
+    "url": "^https://ficoforums\\.myfico\\.com/",
+    "exampleUrl": "https://ficoforums.myfico.com/t5/Understanding-FICO-Scoring/Our-Forums-FICO-High-Achievers-Who-has-at-least-one-FICO-Score/td-p/198803/page/2 https://ficoforums.myfico.com/t5/Understanding-FICO-Scoring/bd-p/ficoscoring"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "junhaan",
-  "resource_url": "http://wedata.net/items/85482",
   "name": "ficoforums",
   "created_at": "2020-09-07T13:51:20+09:00",
-  "updated_at": "2020-09-07T14:10:44+09:00"
+  "updated_at": "2020-09-08T05:04:05+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/85481",
@@ -520,15 +643,15 @@
   "data": {
     "pageElement": "//*[@class=\"imgAreaShadow\" or @class=\"comment\"]",
     "nextLink": "//div[@class=\"arrowImgNext\"]/a",
-    "url": "^https?://review\\.kakaku\\.com/review/.+/ImageID",
-    "exampleUrl": "https://review.kakaku.com/review/K0001259244/ReviewCD=1352063/ImageID=531521/"
+    "url": "^https?://[^/]+\\.kakaku\\.com/.+/ImageID",
+    "exampleUrl": "https://review.kakaku.com/review/K0001259244/ReviewCD=1352063/ImageID=531521/\r\nhttps://bbs.kakaku.com/bbs/K0000134110/SortID=11783625/ImageID=715820/"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "brib2",
   "resource_url": "http://wedata.net/items/85434",
-  "name": "kakaku.com (レビュワー投稿画像)",
+  "name": "kakaku.com (投稿画像)",
   "created_at": "2020-08-02T13:50:19+09:00",
-  "updated_at": "2020-08-02T15:22:34+09:00"
+  "updated_at": "2020-09-09T10:56:36+09:00"
 },
 {
   "data": {
@@ -10561,17 +10684,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/81082",
-  "name": "Slickdeals",
-  "created_by": "qazplm",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-09-04T04:36:04+09:00",
   "data": {
-    "exampleUrl": "https://slickdeals.net/?page=2 https://slickdeals.net/f/10525332-far-acronis-true-image-2017-1-device-free-after-35-rebate-5-newegg-promo-card",
-    "url": "^https://slickdeals.net/.",
-    "pageElement": "//div[@id='fpMainContent']/div[@class='gridCategory removeHidden']|//div[@class='post clearfix']",
-    "nextLink": "//a[@class='button'][.='Next']|//a[contains(@class, 'icon-arrow-right2')][1]"
+    "pageElement": "//div[@id='fpMainContent']/div[@class='gridCategory removeHidden']|//div[@class='post clearfix']|//div[@id='comment_list']",
+    "nextLink": "//a[@class='button'][.='Next']|//a[contains(@class, 'icon-arrow-right2')][1]|//a[@class='search_pagenav search_pagenav_text'  and contains(text(),'Next')][1]",
+    "url": "^https?://(?:[^.] \\.)?slickdeals\\.net/",
+    "exampleUrl": "https://slickdeals.net/?page=2 https://slickdeals.net/f/10525332-far-acronis-true-image-2017-1-device-free-after-35-rebate-5-newegg-promo-card"
   },
-  "created_at": "2016-11-19T09:08:29+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "qazplm",
+  "name": "Slickdeals",
+  "created_at": "2016-11-19T09:08:29+09:00",
+  "updated_at": "2020-09-13T02:48:12+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/81081",
