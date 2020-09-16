@@ -1,5 +1,20 @@
 [
 {
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//div[@class=\"contents_group\"]/div[@class=\"contents_box\"]",
+    "nextLink": "//span[@class=\"PagingLink\"]/a[contains(text(),\"次へ\")]",
+    "url": "^https?://www\\.akishobo\\.com/book/",
+    "exampleUrl": "https://www.akishobo.com/book/?st=1"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "brib2",
+  "resource_url": "http://wedata.net/items/85497",
+  "name": "亜紀書房",
+  "created_at": "2020-09-15T11:31:01+09:00",
+  "updated_at": "2020-09-15T11:31:01+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/85495",
   "data": {
     "insertBefore": "",
@@ -16,7 +31,7 @@
 },
 {
   "data": {
-    "pageElement": "//div[@class='items versions-list']",
+    "pageElement": "//div[contains(@class, 'items')]",
     "prevLink": "//div[@class='island hero c listing']/nav/p[@class='rel']/a[@class='button prev']",
     "nextLink": "//div[@class='island hero c listing']/nav/p[@class='rel']/a[@class='button next']",
     "url": "^https?://web\\.archive\\.org/web/[0-9]{14}/https?://addons\\.mozilla\\.org/[Ee][Nn]-[Uu][Ss]/firefox/addon/[^/]+/versions/",
@@ -28,7 +43,7 @@
   "resource_url": "http://wedata.net/items/85494",
   "name": "AMO Versions via Wayback Machine, pre-2019 layout",
   "created_at": "2020-09-13T03:02:29+09:00",
-  "updated_at": "2020-09-14T18:26:16+09:00"
+  "updated_at": "2020-09-15T02:54:11+09:00"
 },
 {
   "data": {
