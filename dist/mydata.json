@@ -37,7 +37,7 @@
     "category": ["forum"]
   },
   {
-   "name": "24fa",
+    "name": "24fa",
     "url": "^https?://www\\.24fa\\.com",
     "pageElement": "css;#content",
     "nextLink": "//li[@class='p_current']/following-sibling::li/a",
@@ -1352,11 +1352,11 @@
     }
   },
   {
-    "name": "3DMGAME",
+    "name": "3DMGAME Download Page",
     "url": "^https://.*\\.3dmgame\\.com/*",
-    "pageElement": "//div[@class=\"news_warp_center\"] | //ul[@class=\"list\"]",
-    "exampleUrl": "https://www.3dmgame.com/news/201312/2310792.html|https://www.3dmgame.com/news/",
-    "nextLink": "//li[(@class=\"next\")]//a",
+    "pageElement": "//*[@class='listwrap']",
+    "exampleUrl": "https://dl.3dmgame.com/",
+    "nextLink": "auto;",
     "autopager": {
       "relatedObj": true
     }
@@ -3636,6 +3636,12 @@
     "name": "GAMECORES",
     "url": "^https?://www\\.gcores\\.com/(radios|articles|videos)",
     "pageElement": "//div[contains(@class,'loadingPlaceholder loading')]/parent::div",
+    "nextLink": "auto;"
+  },
+  {
+    "name": "xibixibi",
+    "url": "^https?://www\\.xibixibi\\.com/*",
+    "pageElement": "//*[@class='list-grouped row my-n3']",
     "nextLink": "auto;"
   }
 ]
