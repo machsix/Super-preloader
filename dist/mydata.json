@@ -3643,5 +3643,11 @@
     "url": "^https?://www\\.xibixibi\\.com/*",
     "pageElement": "//*[@class='list-grouped row my-n3']",
     "nextLink": "auto;"
+  },
+  {
+    "name": "Blue Moon Roleplaying",
+    "url": "^https?://bluemoonroleplaying\\.com/community/*",
+    "pageElement": "//*[@class='block-container lbContainer']",
+    "nextLink": "//li[contains(@class,'current')]/following-sibling::li[1]/a"
   }
 ]
