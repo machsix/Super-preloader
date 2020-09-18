@@ -1354,7 +1354,7 @@
   {
     "name": "3DMGAME Download Page",
     "url": "^https://.*\\.3dmgame\\.com/*",
-    "pageElement": "//*[@class='listwrap']",
+    "pageElement": "//*[@class='downllis']/li",
     "exampleUrl": "https://dl.3dmgame.com/",
     "nextLink": "auto;",
     "autopager": {
