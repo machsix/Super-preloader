@@ -1,5 +1,47 @@
 [
 {
+  "resource_url": "http://wedata.net/items/85504",
+  "data": {
+    "pageElement": "//ul[@id='release-list']/li[@class='ui grid']",
+    "nextLink": "//a[@class='active item']/following-sibling::a[@class=' item navigation']",
+    "url": "^https?://codeberg\\.org/[^/]+/[^/]+/releases",
+    "exampleUrl": "https://codeberg.org/nobody/LocalCDN/releases"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "hhenning",
+  "name": "codeberg releases",
+  "created_at": "2020-09-21T18:21:40+09:00",
+  "updated_at": "2020-09-21T18:23:54+09:00"
+},
+{
+  "data": {
+    "pageElement": "id('main')/*[not(@class='w3-clear nextprev')]",
+    "nextLink": "//div[@class='w3-clear nextprev']/a[@class='w3-right w3-btn']",
+    "url": "^https?://(www\\.)?w3schools\\.com/",
+    "exampleUrl": "https://www.w3schools.com/js/default.asp"
+  },
+  "created_by": "hhenning",
+  "resource_url": "http://wedata.net/items/85503",
+  "name": "w3school",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_at": "2020-09-19T23:19:50+09:00",
+  "updated_at": "2020-09-20T04:52:25+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85501",
+  "data": {
+    "pageElement": "//table[@class='PhorumStdTable']/tbody/tr[td]|//div[@class='PhorumReadMessageBlock']",
+    "nextLink": "//div[@class='PhorumNavBlock']/div/strong/following-sibling::a",
+    "url": "^https?://kmeleonbrowser\\.org/forum/",
+    "exampleUrl": "http://kmeleonbrowser.org/forum/list.php?9,page=3 http://kmeleonbrowser.org/forum/read.php?9,142050#msg-142252"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "hhenning",
+  "name": "K-Meleon Forum",
+  "created_at": "2020-09-19T17:21:43+09:00",
+  "updated_at": "2020-09-20T04:33:49+09:00"
+},
+{
   "data": {
     "insertBefore": "",
     "pageElement": "//div[@class=\"contents_group\"]/div[@class=\"contents_box\"]",
@@ -50,15 +92,15 @@
     "pageElement": "//div[@id='reviews']|//div[@class='AddonReviewList-reviews']//div[@class='Card-contents']/ul|//section[contains(@class, 'AddonReviewList-reviews')]/div[@class='Card-contents']/ul",
     "comment": "catches old and new (2018+) layout\r\n(You do not need to add a prevLink and a category section)\r\n(I was aware of both. Found category in one of the *items* files and thought it might be a good idea. 'prevLink' is from the wiki)",
     "nextLink": "//p[@class='rel']/a[@class='button next']|//div[@class='Paginate-links']/a[contains(@class, '-next')]",
-    "url": "^https?://web\\.archive\\.org/web/[0-9]{14}/https?://addons\\.mozilla\\.org/[Ee][Nn]-[Uu][Ss]/firefox/addon/[^/]+/reviews/",
-    "exampleUrl": "https://web.archive.org/web/20170829103928/https://addons.mozilla.org/en-US/firefox/addon/lightbeam/reviews/ http://web.archive.org/web/20200402134515/https://addons.mozilla.org/en-US/firefox/addon/noscript/reviews/"
+    "url": "^https?://(web\\.archive\\.org/web/[0-9]{14}/https?://addons\\.mozilla\\.org|addons\\.thunderbird\\.net)/[Ee][Nn]-[Uu][Ss]/firefox/addon/[^/]+/reviews/",
+    "exampleUrl": "https://web.archive.org/web/20170829103928/https://addons.mozilla.org/en-US/firefox/addon/lightbeam/reviews/ http://web.archive.org/web/20200402134515/https://addons.mozilla.org/en-US/firefox/addon/noscript/reviews/ https://addons.thunderbird.net/en-us/firefox/addon/copy-urls-expert/reviews/"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "hhenning",
   "resource_url": "http://wedata.net/items/85490",
-  "name": "AMO Reviews via Wayback Machine",
+  "name": "AMO/ATN Reviews",
   "created_at": "2020-09-12T17:14:02+09:00",
-  "updated_at": "2020-09-14T18:32:52+09:00"
+  "updated_at": "2020-09-19T03:03:14+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/85489",
@@ -107,20 +149,6 @@
   "name": "PluginsAddonsExtensions",
   "created_at": "2020-09-11T16:46:44+09:00",
   "updated_at": "2020-09-12T06:53:39+09:00"
-},
-{
-  "resource_url": "http://wedata.net/items/85486",
-  "data": {
-    "pageElement": "//table[@class='PhorumStdTable']/tbody/tr[td]",
-    "nextLink": "//div[@class='PhorumNavBlock']/div/strong/following-sibling::a",
-    "url": "^https?://kmeleonbrowser\\.org/forum/.+",
-    "exampleUrl": "http://kmeleonbrowser.org/forum/list.php?9,page=3"
-  },
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "created_by": "hhenning",
-  "name": "K-Meleon Phorum index",
-  "created_at": "2020-09-11T16:19:09+09:00",
-  "updated_at": "2020-09-12T06:56:59+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/85485",
@@ -43840,17 +43868,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/2761",
-  "name": "TechRadar",
   "data": {
+    "pageElement": "//div[starts-with(@class,'listingResult ')]|id('article-body')/*",
+    "nextLink": "//link[@rel='next']",
     "url": "^https://(www\\.)?techradar\\.com/.",
-    "pageElement": "//div[starts-with(@class,'listingResult ')]",
-    "exampleUrl": "https://www.techradar.com/how-to",
-    "nextLink": "//link[@rel='next']"
+    "exampleUrl": "https://www.techradar.com/how-to https://www.techradar.com/uk/news/world-of-tech/roundup/excel-tutorial-sales-and-commissions-1088415"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "triptoy",
+  "name": "TechRadar",
   "created_at": "2008-10-06T08:26:15+09:00",
-  "updated_at": "2020-04-02T06:31:51+09:00"
+  "updated_at": "2020-09-20T04:39:55+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/2759",
