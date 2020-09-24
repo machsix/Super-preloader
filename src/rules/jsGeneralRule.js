@@ -209,7 +209,7 @@ export const jsGeneralRule = [
     name: '通用 Forum 规则3 vBulletin thread_list',
     url: '^https?://.*((forumdisplay\\.php\\?)|forum)',
     nextLink: 'auto;',
-    pageElement: '//div[@id="posts"]/div[@align="center"] | //table[@class="tborder"][@id="threadslist"] | //div[@id="threadlist"]',
+    pageElement: '//div[@id="posts"]/div[@align="center"] | //table[@class="tborder"][@id="threadslist"] | //div[@id="threadlist" | //div[@id="postlist"]',
     separatorReal: false
   },
   {
