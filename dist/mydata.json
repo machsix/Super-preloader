@@ -1354,9 +1354,8 @@
   {
     "name": "3DMGAME Download Page",
     "url": "^https://.*\\.3dmgame\\.com/*",
-    "pageElement": "//*[@class='listwrap']",
-    "exampleUrl": "https://dl.3dmgame.com/",
-    "nextLink": "auto;",
+    "pageElement": "//*[@class='downllis']/li",
+    "nextLink": "//*[@class='active']/following-sibling::li[1]/a",
     "autopager": {
       "relatedObj": true
     }
@@ -3643,5 +3642,11 @@
     "url": "^https?://www\\.xibixibi\\.com/*",
     "pageElement": "//*[@class='list-grouped row my-n3']",
     "nextLink": "auto;"
+  },
+  {
+    "name": "Blue Moon Roleplaying",
+    "url": "^https?://bluemoonroleplaying\\.com/community/*",
+    "pageElement": "//*[@class='block-container lbContainer']",
+    "nextLink": "//li[contains(@class,'current')]/following-sibling::li[1]/a"
   }
 ]
