@@ -11,7 +11,7 @@
 // @thanksto     ywzhaiqi, NLF
 // @version      6.15.4
 // @license      GPL-3.0
-// @update       2020/9/28
+// @update       2020/9/29
 // @homepageURL  https://github.com/machsix/Super-preloader
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
 // @contributionURL https://ko-fi.com/machsix
@@ -7927,7 +7927,7 @@
     name: '通用 Forum 规则3 vBulletin thread_list',
     url: '^https?://.*((forumdisplay\\.php\\?)|forum)',
     nextLink: 'auto;',
-    pageElement: '//div[@id="posts"]/div[@align="center"] | //table[@class="tborder"][@id="threadslist"]',
+    pageElement: '//div[@id="posts"]/div[@align="center"] | //table[@class="tborder"][@id="threadslist"] | //div[@id="threadlist" | //div[@id="postlist"]',
     separatorReal: false
   }, {
     name: '通用 Forum 规则4',

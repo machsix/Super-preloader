@@ -1,5 +1,35 @@
 [
 {
+  "resource_url": "http://wedata.net/items/85518",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//div[@class=\"content-area\"]/descendant::div[@class=\"l-artlst001\"]/ul[@class=\"list\"] | //div[@class=\"l-column col-3\"]",
+    "nextLink": "//div[@class=\"pager\"]//a[contains(span/text(),\"次\")]",
+    "url": "^https?://www\\.tokyo-np\\.co\\.jp/",
+    "exampleUrl": "https://www.tokyo-np.co.jp/tokyo/t_news\r\nhttps://www.tokyo-np.co.jp/tokyo/hotweb/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "brib2",
+  "name": "東京新聞",
+  "created_at": "2020-09-29T21:12:21+09:00",
+  "updated_at": "2020-09-29T21:12:21+09:00"
+},
+{
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//ul[contains(@class,\"_list\")]/li",
+    "nextLink": "//link[@rel=\"next\"]",
+    "url": "^https?://sun-tv\\.co\\.jp/suntvnews/",
+    "exampleUrl": "https://sun-tv.co.jp/suntvnews/event_list/\r\nhttps://sun-tv.co.jp/suntvnews/news_list/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "brib2",
+  "resource_url": "http://wedata.net/items/85517",
+  "name": "サンテレビニュース",
+  "created_at": "2020-09-29T14:51:24+09:00",
+  "updated_at": "2020-09-29T14:51:24+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/85516",
   "data": {
     "insertBefore": "",
@@ -21074,16 +21104,16 @@
 {
   "resource_url": "http://wedata.net/items/74870",
   "data": {
-    "pageElement": "//form/following-sibling::*[count(./following-sibling::div)>1]",
-    "nextLink": "//a[contains(@class,'pgn_pn__nt')]",
-    "url": "^https://(www\\.)?usatoday\\.com/search/",
-    "exampleUrl": "https://www.usatoday.com/search/?q=movie"
+    "pageElement": "//form/following-sibling::*[count(following-sibling::div)>1]|//div[@class='articles']/*",
+    "nextLink": "//a[contains(@class,'pgn_pn__nt')]|//link[@rel='next']",
+    "url": "^https://(www\\.)?usatoday\\.com/.",
+    "exampleUrl": "https://www.usatoday.com/search/?q=movie https://www.usatoday.com/staff/2647214001/kelly-lawler/?page=2"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "Tanookirby",
   "name": "USA Today",
   "created_at": "2014-05-31T05:14:37+09:00",
-  "updated_at": "2020-07-10T08:10:11+09:00"
+  "updated_at": "2020-09-29T06:30:39+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/74867",
