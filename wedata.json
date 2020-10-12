@@ -7162,19 +7162,18 @@
   "created_at": "2018-06-06T16:35:02+09:00"
 },
 {
-  "resource_url": "http://wedata.net/items/81751",
-  "name": "ツイキャス",
-  "created_by": "phodra725",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2018-05-27T01:02:43+09:00",
   "data": {
-    "exampleUrl": "https://twitcasting.tv/shop.php",
-    "url": "^https://twitcasting\\.tv/",
-    "pageElement": "//div[contains(@class,'recorded-movie-box')] | //table[contains(@class,'listtable')] | id('community-list')",
-    "insertBefore": "",
-    "nextLink": "//div[@class='paging'][1]/a[@class='selected']/following-sibling::a[1]"
+    "pageElement": "//div[@class='tw-comment-history' or @class='tw-shop-item-list']",
+    "nextLink": "//a[@class='selected']/following-sibling::a[1][@href]",
+    "url": "^https?://twitcasting\\.tv/",
+    "exampleUrl": "https://twitcasting.tv/shop.php\r\nhttps://twitcasting.tv/c:suganostaff/moviecomment/"
   },
-  "created_at": "2018-05-27T01:02:43+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "phodra725",
+  "resource_url": "http://wedata.net/items/81751",
+  "name": "twitcasting",
+  "created_at": "2018-05-27T01:02:43+09:00",
+  "updated_at": "2020-10-13T00:19:08+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/81750",
