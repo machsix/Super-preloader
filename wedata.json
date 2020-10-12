@@ -1,9 +1,51 @@
 [
 {
-  "resource_url": "http://wedata.net/items/85518",
+  "resource_url": "http://wedata.net/items/85532",
   "data": {
     "insertBefore": "",
-    "pageElement": "//div[@class=\"content-area\"]/descendant::div[@class=\"l-artlst001\"]/ul[@class=\"list\"] | //div[@class=\"l-column col-3\"]",
+    "pageElement": "//ul[contains(@class,\"underblock\")]/li",
+    "nextLink": "//link[@rel=\"next\"]",
+    "url": "^https?://honsuki\\.jp/",
+    "exampleUrl": "https://honsuki.jp/new"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "brib2",
+  "name": "本がすき。",
+  "created_at": "2020-10-10T21:03:05+09:00",
+  "updated_at": "2020-10-10T21:03:05+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85530",
+  "data": {
+    "pageElement": "//ul[@class='main-column-container']//li[article]",
+    "nextLink": "//a[@class='next']",
+    "url": "^https?://(www\\.)?pixivision\\.net/",
+    "exampleUrl": "https://www.pixivision.net/ja/ https://www.pixivision.net/en/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "kenzou_ogawa",
+  "name": "pixivision",
+  "created_at": "2020-10-09T20:30:25+09:00",
+  "updated_at": "2020-10-10T03:42:41+09:00"
+},
+{
+  "data": {
+    "pageElement": "//div[@class='primary']/div[contains(@class,'card')]/*",
+    "nextLink": "//div[@class='pager__list']/a[contains(@class,'next')]",
+    "url": "^https?://(www\\.)?shop-shimamura\\.com/",
+    "exampleUrl": "https://www.shop-shimamura.com/disp/itemlist/001004/"
+  },
+  "created_by": "brib2",
+  "resource_url": "http://wedata.net/items/85528",
+  "name": "しまむら 公式オンラインストア",
+  "created_at": "2020-10-08T10:52:41+09:00",
+  "updated_at": "2020-10-10T03:38:13+09:00",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize"
+},
+{
+  "resource_url": "http://wedata.net/items/85518",
+  "data": {
+    "pageElement": "//main//ul[@class=\"list\"][.//img] | //div[@class=\"l-column col-3\"]",
     "nextLink": "//div[@class=\"pager\"]//a[contains(span/text(),\"次\")]",
     "url": "^https?://www\\.tokyo-np\\.co\\.jp/",
     "exampleUrl": "https://www.tokyo-np.co.jp/tokyo/t_news\r\nhttps://www.tokyo-np.co.jp/tokyo/hotweb/"
@@ -12,7 +54,7 @@
   "created_by": "brib2",
   "name": "東京新聞",
   "created_at": "2020-09-29T21:12:21+09:00",
-  "updated_at": "2020-09-29T21:12:21+09:00"
+  "updated_at": "2020-09-30T11:09:04+09:00"
 },
 {
   "data": {
@@ -4610,18 +4652,18 @@
 },
 {
   "resource_url": "http://wedata.net/items/82136",
-  "name": "ラクマ",
-  "created_by": "t_f_m",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-04-30T21:58:35+09:00",
   "data": {
-    "exampleUrl": "https://fril.jp/category/668/page/2",
-    "url": "^https://fril\\.jp/",
     "pageElement": "//div[@class=\"content\"]/section",
-    "insertBefore": "",
-    "nextLink": "//a[@rel=\"next\"]"
+    "bookmarklet": "Array.prototype.forEach.call(document.querySelectorAll('img'), function(img) { var lazySrc = img.hasAttribute('data-src') ? img.getAttribute('data-src') : img.getAttribute('data-original'); if (lazySrc) { img.src = lazySrc; img.classList.remove('lazy');} });",
+    "nextLink": "//a[@rel=\"next\"]",
+    "url": "^https://fril\\.jp/",
+    "exampleUrl": "https://fril.jp/category/668/page/2"
   },
-  "created_at": "2019-04-30T21:58:35+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m",
+  "name": "ラクマ",
+  "created_at": "2019-04-30T21:58:35+09:00",
+  "updated_at": "2020-10-10T10:54:47+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/82135",
@@ -38050,18 +38092,18 @@
   "created_by": "たく"
 },
 {
+  "data": {
+    "pageElement": "//img[not(@alt)]/ancestor::table[1][not(@class=\"main_table\")]//tr[./td]|//div[@class=\"tag_box\"]",
+    "nextLink": "//b/following-sibling::a[1]",
+    "url": "^http://pixivrank\\.net/",
+    "exampleUrl": "http://pixivrank.net/ht/tag2/p1.html http://pixivrank.net/taglist1_1.html"
+  },
+  "created_by": "gorou",
   "resource_url": "http://wedata.net/items/32021",
   "name": "pixivrank.net",
-  "created_by": "gorou",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2018-06-07T14:37:55+09:00",
-  "data": {
-    "exampleUrl": "http://pixivrank.net/ht/tag2/p1.html http://pixivrank.net/taglist1_1.html",
-    "url": "^http://pixivrank\\.net/",
-    "pageElement": "//img[not(@alt)]/ancestor::table[1][not(@class=\"main_table\")]//tr[./td]|//div[@class=\"tag_box\"]",
-    "nextLink": "//b/following-sibling::a[1]"
-  },
-  "created_at": "2010-04-10T06:55:24+09:00"
+  "created_at": "2010-04-10T06:55:24+09:00",
+  "updated_at": "2020-10-09T20:36:30+09:00",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize"
 },
 {
   "resource_url": "http://wedata.net/items/32017",
@@ -47672,19 +47714,18 @@
 },
 {
   "resource_url": "http://wedata.net/items/669",
-  "name": "[pixiv]",
-  "created_by": "swdyh",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2018-04-23T09:18:18+09:00",
   "data": {
-    "Stylish": "@-moz-document url-prefix(\"http://www.pixiv.net/info.php?\") {\r\n.autopagerize_page_info {\r\n\tdisplay: inline !important;\r\n}\r\n.autopagerize_page_separator{\r\n\tpadding-top: 0px !important; \r\n\tmargin-bottom: 0px !important;\r\n    border-bottom:none !important;\r\n}\r\n}",
-    "exampleUrl": "http://www.pixiv.net/bookmark.php\r\nhttp://www.pixiv.net/bookmark.php?id=10\r\nhttp://www.pixiv.net/bookmark.php?type=reg_user&p=1\r\nhttp://www.pixiv.net/bookmark.php?type=user&id=10\r\nhttp://www.pixiv.net/bookmark_detail.php?illust_id=20\r\nhttp://www.pixiv.net/booth_follow_items.php\r\nhttp://www.pixiv.net/event.php\r\nhttp://www.pixiv.net/event_member.php?event_id=1\r\nhttp://www.pixiv.net/event_sandisk.php\r\nhttp://www.pixiv.net/info.php?cid=1\r\nhttp://www.pixiv.net/info.php?cid=1&lang=ja\r\nhttp://www.pixiv.net/info.php?cid=1&lang=ja&p=14\r\nhttp://www.pixiv.net/info.php?cid=3&lang=ja\r\nhttp://www.pixiv.net/member_illust.php?id=10\r\nhttp://www.pixiv.net/member_illust.php?mode=medium&illust_id=42685512\r\nhttp://www.pixiv.net/mypixiv_all.php?id=10\r\nhttp://www.pixiv.net/new_illust.php\r\nhttp://www.pixiv.net/new_illust_r18.php\r\nhttp://www.pixiv.net/novel/bookmark_new.php\r\nhttp://www.pixiv.net/novel/member.php?id=711516\r\nhttp://www.pixiv.net/novel/new.php\r\nhttp://www.pixiv.net/novel/search.php?s_mode=s_tag&word=%E5%86%86%E7%92%B0\r\nhttp://www.pixiv.net/personal_tags.php?tag=FF\r\nhttp://www.pixiv.net/response.php?illust_id=1539585\r\nhttp://www.pixiv.net/search.php?s_mode=s_tag&word=%E3%82%A2%E3%82%A4%E3%83%89%E3%83%AB%E3%83%9E%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%9F%E3%83%AA%E3%82%AA%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%96%EF%BC%81\r\nhttp://www.pixiv.net/search.php?word=pixiv&s_mode=s_tag\r\nhttp://www.pixiv.net/search_user.php?nick=a&s_mode=s_usr\r\nhttp://www.pixiv.net/spotlight/?page=2\r\nhttp://www.pixiv.net/stacc/\r\nhttp://www.pixiv.net/tags.php\r\nhttp://www.pixiv.net/tags.php?tag=FF\r\nhttp://www.pixiv.net/user_event.php\r\nhttp://www.pixiv.net/user_event.php?mode=list\r\nhttps://www.pixiv.net/search.php?s_mode=s_tag&word=%E8%89%A6%E3%81%93%E3%82%8C\r\nhttps://www.pixiv.net/search.php?word=%E8%89%A6%E3%81%93%E3%82%8C&order=date_d&p=",
+    "pageElement": "//div[@class=\"event-information\"]|//div[@class=\"_pager-complex\"]/following-sibling::ul/li|//div[@class=\"_pager-complex\"]/following-sibling::div/ul|//li[.//div[@class=\"novel-contents\"]]|//li[@class=\"image-item\" or @class=\"thul\" or @class=\"user-recommendation-item\"]",
     "comment": "contains(@class,'next') often catches incorrect nextLink, such as <a href=\"#\" class=\"slider-arrow ui-tab-next\">",
+    "nextLink": "//a[@rel=\"next\"]",
     "url": "^https?://(www\\.)?pixiv\\.net.+",
-    "pageElement": "//*[not(@class='popular-introduction' or (contains(@class,'_unit') and //li/@class='bookmark-item'))]/ul[(contains(@class,'_image-items') and not(id('js-react-search-mid js-mount-point-latest-following'))) or contains(@class,'novel-items') or contains(@class,'tag-list inline-') or @class='bookmark-items' or @class='type_entrylist' or @class='member-items' or @class='thu' or @class='user-recommendation-items' or parent::node()[@class='members' or contains(@class,'search_a2_result')]]/li[not(//div/@class='_unit _work-detail-unit')]|//div[@class='event-information' or starts-with(@class,'stacc_status ') or contains(@class,'work-detail-unit') or ../@class='spotlight-items']|id('js-react-search-mid js-mount-point-latest-following')[not(//noscript/*)]/*",
-    "nextLink": "//a[@rel='next' or contains(concat(' ',@class,' '),' next ')]|(//nav[@class='column-menu']/ul/li[contains(concat(' ',@class,' '),' after ')]|//span[@class='stacc_more_link']|//div[@class='spotlight-items']/p[@class='more'])/a|/ul[@class='page-list']/li[@class='current']/following-sibling::*[1]/a"
+    "exampleUrl": "https://www.pixiv.net/booth_follow_items.php\r\nhttps://www.pixiv.net/event.php?d=201705\r\nhttps://www.pixiv.net/event_member.php?event_id=5789\r\nhttps://www.pixiv.net/info.php?cid=1\r\nhttps://www.pixiv.net/novel/bookmark_new.php\r\nhttps://www.pixiv.net/response.php?illust_id=1539585\r\nhttps://www.pixiv.net/search_user.php?nick=a&s_mode=s_usr"
   },
-  "created_at": "2008-04-16T12:36:25+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "swdyh",
+  "name": "[pixiv]",
+  "created_at": "2008-04-16T12:36:25+09:00",
+  "updated_at": "2020-10-09T20:17:22+09:00"
 },
 {
   "name": "LWN.net",
