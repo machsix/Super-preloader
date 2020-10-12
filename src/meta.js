@@ -17,7 +17,7 @@ export const SCRIPT_INFO = {
   changelog: `${emoji('1F92A')} Adguard is supported`,
   greasyfork: 'https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new',
   updateTime: `${now.getFullYear()}/${now.getMonth() + 1}/${now.getDate()}`,
-  homepageURL: 'https://github.com/machsix/Super-preloader',
+  homepageURL: pkg.homepageURL,
   // rewrite storage for these versions
   rewriteStorage: '6.6.83'
 };
@@ -56,7 +56,7 @@ export const METADATA = `// ==UserScript==
 // @supportURL   ${SCRIPT_INFO.greasyfork}/feedback
 // @contributionURL https://ko-fi.com/machsix
 // @icon         ${SCRIPT_INFO.icon}
-// @require      https://cdn.jsdelivr.net/gh/machsix/gm4-polyfill@1.3/gm4-polyfill-mach6-legacy.js
+// @require      https://cdn.jsdelivr.net/gh/machsix/gm4-polyfill@3ac89770e4dcb69123c749a71f101fb462eaada8/gm4-polyfill-mach6-legacy.js
 // @grant        GM.getValue
 // @grant        GM_getValue
 // @grant        GM.setValue
@@ -104,5 +104,6 @@ export const METADATA = `// ==UserScript==
 // @exclude      http*://ad.agrantsem.com/*
 // @exclude      http*://www.youtube.com/embed/*
 // @exclude      https://assets.tumblr.com/*
+// @exclude      http*://www.paypal.com/*
 // ==/UserScript==
 `;
