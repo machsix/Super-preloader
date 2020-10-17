@@ -1,5 +1,20 @@
 [
 {
+  "resource_url": "http://wedata.net/items/85534",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//div[@class=\"main\"]//ul/li",
+    "nextLink": "//a[@class=\"link_next\"]",
+    "url": "^https?://www\\.nhk\\.or\\.jp/drama(?:topics)?-blog/",
+    "exampleUrl": "https://www.nhk.or.jp/dramatopics-blog/\r\nhttps://www.nhk.or.jp/drama-blog/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "brib2",
+  "name": "NHKドラマ トピックス",
+  "created_at": "2020-10-15T11:36:32+09:00",
+  "updated_at": "2020-10-15T11:36:32+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/85532",
   "data": {
     "insertBefore": "",
@@ -6538,17 +6553,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/81923",
-  "name": "Creema",
-  "created_by": "taku",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2018-09-03T08:55:15+09:00",
   "data": {
-    "exampleUrl": "https://www.creema.jp/listing?sort=newer",
-    "url": "^https://(www\\.)?creema\\.jp/(listing|c)/",
-    "pageElement": "//ul[@class='p-items-article-list']",
-    "nextLink": "//link[@rel='next']"
+    "pageElement": "//article//li[contains(@class,\"list__item\")]|//div[@class=\"blog-list-item cl\"]",
+    "nextLink": "//a[contains(@class,\"c-pagination__next\")]",
+    "url": "^https?://(?:.[^/]+\\.)?creema\\.jp/",
+    "exampleUrl": "https://www.creema.jp/listing?sort=newer https://www.creema.jp/news/list https://www.creema.jp/blog"
   },
-  "created_at": "2018-09-03T01:21:36+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "taku",
+  "name": "Creema",
+  "created_at": "2018-09-03T01:21:36+09:00",
+  "updated_at": "2020-10-17T22:09:39+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/81922",
@@ -7375,18 +7390,18 @@
   "created_at": "2018-05-01T16:07:48+09:00"
 },
 {
+  "data": {
+    "pageElement": "//div[@class=\"col-sm-12\"]",
+    "nextLink": "//a[(text()=\"»\")]",
+    "url": "^https://www\\.tokyomotion\\.net/(videos|search)",
+    "exampleUrl": "https://www.tokyomotion.net/videos"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "smith",
   "resource_url": "http://wedata.net/items/81732",
   "name": "TOKYO Motion",
-  "created_by": "smith",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2018-05-05T18:15:05+09:00",
-  "data": {
-    "exampleUrl": "https://www.tokyomotion.net/videos",
-    "url": "^https://www\\.tokyomotion\\.net/(videos|search)",
-    "pageElement": "//div[@class=\"col-sm-6 col-md-4 col-lg-4\"]",
-    "nextLink": "//a[(text()=\"»\")]"
-  },
-  "created_at": "2018-05-01T15:59:49+09:00"
+  "created_at": "2018-05-01T15:59:49+09:00",
+  "updated_at": "2020-10-17T08:30:23+09:00"
 },
 {
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
@@ -34929,17 +34944,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/36089",
-  "name": "iHerb.com",
-  "created_by": "Col Lynch",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-03-25T11:26:33+09:00",
   "data": {
-    "exampleUrl": "https://www.iherb.com/Search?kw=vitamin\r\nhttps://www.iherb.com/Amino-Acids?l=ja",
-    "url": "^https://(www\\.)?iherb\\.com/",
     "pageElement": "//div[@class='panel']/*",
-    "nextLink": "//a[@class='pagination-next']"
+    "nextLink": "//a[@class='pagination-next']",
+    "url": "^https://(.+)?iherb\\.com/",
+    "exampleUrl": "https://www.iherb.com/Search?kw=vitamin\r\nhttps://www.iherb.com/Amino-Acids?l=ja\r\nhttps://jp.iherb.com/search?kw=vitamin"
   },
-  "created_at": "2010-09-06T12:53:55+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "Col Lynch",
+  "name": "iHerb.com",
+  "created_at": "2010-09-06T12:53:55+09:00",
+  "updated_at": "2020-10-15T08:09:00+09:00"
 },
 {
   "name": "met-art.com",
@@ -48601,19 +48616,18 @@
   "updated_at": "2014-09-10T19:16:16+09:00"
 },
 {
-  "name": "Amazon 検索結果",
+  "resource_url": "http://wedata.net/items/418",
   "data": {
-    "url": "^https?://www\\.amazon\\.(?:c(?:a|n|o(?:m|\\.(?:jp|uk)))|de|fr)/(?:[^/]+/)?(?:[bes]|(?:gp|exec/obidos)/(search|aag)|entity/author)?",
     "pageElement": "id('rightResults atfResults btfResults mainResults Results sparseWrapper')[not(//link[@rel='canonical'][contains(@href,'page')])]//*[starts-with(@id,'result_')]|//li[@class='shoveler-cell']|id('resultsCol')[//link[@rel='canonical'][contains(@href,'page')]]|//div[contains(concat(' ',@class,' '),' s-search-results ')]/div|id('searchWidget')/*[self::div[not(ul/@class='a-pagination')] or self::hr]",
-    "Stylish": "@-moz-document url-prefix(\"http://www.amazon.co.jp/\") {\r\nul.s-result-list p.autopagerize_page_info{\r\n    letter-spacing:normal !important;}\r\n}\r\n\r\n@-moz-document url-prefix(\"http://www.amazon.co.jp/s/?rh\"), url-prefix(\"http://www.amazon.co.jp/s/ref=sr_pg_1\") {\r\n.autopagerize_page_separator~#resultsCol .s-result-item{\r\n    display: inline-block;\r\n    border-top: 1px solid #DDD;\r\n    padding-top:10px;\r\n}\r\n.autopagerize_page_separator~#resultsCol .a-fixed-left-grid-inner{\r\n    padding-left: 120px !important;\r\n}\r\n\r\n.autopagerize_page_separator~#resultsCol .a-fixed-left-grid-inner a h2{\r\n    font-weight:bold !important;\r\n      font-size: 1.25em;\r\n}\r\n.autopagerize_page_separator~#resultsCol .med {\r\n    font-size: 1.2em;\r\n}\r\n.autopagerize_page_separator~#resultsCol .a-icon-alt{\r\n    display:none;\r\n}\r\n}",
-    "exampleUrl": "http://www.amazon.co.jp/s/?field-keywords=windows\r\nhttp://www.amazon.co.jp/s/?url=search-alias%3Dtoys&field-keywords=lego\r\nhttp://www.amazon.co.jp/s/rh=n%3A13299531 http://www.amazon.co.jp/exec/obidos/search-handle-url?_encoding=UTF8&search-type=ss&index=books-jp&field-author=%E6%9D%91%E4%B8%8A%20%E6%98%A5%E6%A8%B9\r\nhttp://www.amazon.co.jp/gp/search/rh=k%3A%E3%83%9D%E3%82%B1%E3%83%A2%E3%83%B3%2Ci%3Avideogames&keywords=%E3%83%9D%E3%82%B1%E3%83%A2%E3%83%B3\r\nhttp://www.amazon.co.jp/b?ie=UTF8&node=2515445051\r\nhttp://www.amazon.co.jp/%E6%A9%99%E4%B9%83-%E3%81%BE%E3%81%BE%E3%82%8C/e/B006AIETUI/\r\nhttp://www.amazon.com/gp/aag/main?ie=UTF8&seller=AGHVE2KVOZA3D\r\nhttp://www.amazon.co.jp/s/ref=lp_3452196051_pg_2?rh=n%3A2250738051%2Cn%3A!2275265051%2Cn%3A!2275277051%2Cn%3A3452196051&page=2&ie=UTF8&qid=1438764067\r\nhttps://www.amazon.co.jp/s?rh=n%3A6990947051&page=2\r\nhttps://www.amazon.co.jp/kindle-dbs/entity/author/B00J1JKSOY?_encoding=UTF8&offset=0&pageSize=12&searchAlias=stripbooks&sort=author-pages-popularity-rank&page=4&langFilter=default#formatSelectorHeader",
-    "nextLink": "id('pagnNextLink')|//a[@class='next-button-link']|//li[@class='a-selected']/following-sibling::li/a"
+    "nextLink": "//a[@class='next-button-link']|//li[@class='a-selected']/following-sibling::li/a",
+    "url": "^https?://www\\.amazon\\.(?:c(?:a|n|o(?:m|\\.(?:jp|uk)))|de|fr)/(?:[^/]+/)?(?:[bes]|(?:gp|exec/obidos)/(search|aag)|entity/author)?",
+    "exampleUrl": "http://www.amazon.co.jp/s/?field-keywords=windows\r\nhttp://www.amazon.co.jp/s/?url=search-alias%3Dtoys&field-keywords=lego\r\nhttp://www.amazon.co.jp/exec/obidos/search-handle-url?_encoding=UTF8&search-type=ss&index=books-jp&field-author=%E6%9D%91%E4%B8%8A%20%E6%98%A5%E6%A8%B9\r\nhttp://www.amazon.co.jp/b?ie=UTF8&node=2515445051\r\nhttp://www.amazon.co.jp/%E6%A9%99%E4%B9%83-%E3%81%BE%E3%81%BE%E3%82%8C/e/B006AIETUI/\r\nhttp://www.amazon.com/gp/aag/main?ie=UTF8&seller=AGHVE2KVOZA3D\r\nhttp://www.amazon.co.jp/s/ref=lp_3452196051_pg_2?rh=n%3A2250738051%2Cn%3A!2275265051%2Cn%3A!2275277051%2Cn%3A3452196051&page=2&ie=UTF8&qid=1438764067\r\nhttps://www.amazon.co.jp/s?rh=n%3A6990947051&page=2\r\nhttps://www.amazon.co.jp/kindle-dbs/entity/author/B00J1JKSOY?_encoding=UTF8&offset=0&pageSize=12&searchAlias=stripbooks&sort=author-pages-popularity-rank&page=4&langFilter=default#formatSelectorHeader"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "swdyh",
-  "resource_url": "http://wedata.net/items/418",
+  "name": "Amazon 検索結果",
   "created_at": "2008-04-16T12:35:23+09:00",
-  "updated_at": "2020-04-12T06:16:20+09:00"
+  "updated_at": "2020-10-16T08:30:39+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/414",
