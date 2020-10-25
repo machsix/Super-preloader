@@ -63,6 +63,14 @@ import notice from './utils/notice';
   let SSRules = [];
   // ----------------------------------
 
+  if (
+    document.body.firstElementChild.tagName === 'PRE' || // Plain text
+    document.body.firstElementChild.tagName === 'IMG' || // Image
+    document.body.firstElementChild.tagName === 'EMBED' // PDF
+  ) {
+    return;
+  }
+  
   if (window.name === 'mynovelreader-iframe') {
     return;
   }
