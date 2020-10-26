@@ -1,5 +1,63 @@
 [
 {
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//div[@class=\"product-list\"]/div[@class=\"product-item\"]",
+    "nextLink": "//a[@name=\"to_next\"]",
+    "url": "^https?://www\\.ec-aws\\.com/",
+    "exampleUrl": "https://www.ec-aws.com/shop/item_list?category_id=590224"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "brib2",
+  "resource_url": "http://wedata.net/items/85542",
+  "name": "アドベンチャーワールド 公式オンラインショップ",
+  "created_at": "2020-10-21T21:09:45+09:00",
+  "updated_at": "2020-10-21T21:09:45+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85541",
+  "data": {
+    "pageElement": "//ul[@class=\"topics-list\"]/li",
+    "nextLink": "//a[@class=\"pager-navigation__next\"]",
+    "url": "^https?://www\\.aws-s\\.com/",
+    "exampleUrl": "https://www.aws-s.com/topics/\r\n"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "brib2",
+  "name": "アドベンチャーワールド",
+  "created_at": "2020-10-21T20:23:01+09:00",
+  "updated_at": "2020-10-21T21:06:09+09:00"
+},
+{
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//*[@class=\"mainImage\" or @class=\"imageCaption\" or @class=\"text\"] | //ul[contains(@class,\"itemList\")]/li",
+    "nextLink": "//a[text()=\"次の画像へ\"] | //div[@class=\"linkPages\"]/span/following-sibling::a | //li[@class=\"next\"]/a",
+    "url": "^https?://smart-flash\\.jp/",
+    "exampleUrl": "https://smart-flash.jp/sports/119562/image/0\r\nhttps://smart-flash.jp/sports/119562\r\nhttps://smart-flash.jp/sociopolitics\r\n"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "brib2",
+  "resource_url": "http://wedata.net/items/85540",
+  "name": "Smart FLASH［光文社週刊誌］",
+  "created_at": "2020-10-20T18:03:03+09:00",
+  "updated_at": "2020-10-20T18:03:03+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85539",
+  "data": {
+    "pageElement": "//div[@class='mainside']/div[@id='dle-content']",
+    "nextLink": "//span[@class='next']/a",
+    "url": "^https?:\\/\\/.*filmsofts\\.com\\/films\\/.*",
+    "exampleUrl": "https://www.filmsofts.com/films/page/2/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "Here Spam",
+  "name": "FilmSofts",
+  "created_at": "2020-10-20T12:40:50+09:00",
+  "updated_at": "2020-10-20T16:42:54+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/85534",
   "data": {
     "insertBefore": "",
