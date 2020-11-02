@@ -1,5 +1,35 @@
 [
 {
+  "resource_url": "http://wedata.net/items/85547",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "id('show_image_area')",
+    "nextLink": "//li[@class='active']/following-sibling::li/a",
+    "url": "^https://ahentai\\.top/index\\.php",
+    "exampleUrl": "https://ahentai.top/index.php?route=comic/readOnline&comic_id=48722&host_id=0"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "unknown10'",
+  "name": "ahentai",
+  "created_at": "2020-11-02T11:52:28+09:00",
+  "updated_at": "2020-11-02T11:52:28+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85546",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "id('image-container')",
+    "nextLink": "//a[contains(concat(' ',@class,' '),' next ')]",
+    "url": "^https://[^./]+\\.nyahentai\\.com/g/\\d+/list/",
+    "exampleUrl": "https://ja.nyahentai.com/g/216194/list/5/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "unknown10'",
+  "name": "nyahentai",
+  "created_at": "2020-11-01T03:21:47+09:00",
+  "updated_at": "2020-11-01T03:21:47+09:00"
+},
+{
   "data": {
     "insertBefore": "",
     "pageElement": "//div[@class=\"product-list\"]/div[@class=\"product-item\"]",
@@ -28649,18 +28679,18 @@
   "created_at": "2012-04-23T04:45:19+09:00"
 },
 {
-  "resource_url": "http://wedata.net/items/60293",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "created_at": "2012-04-19T23:23:34+09:00",
   "data": {
-    "pageElement": "//li[@class='hasImg']",
-    "exampleUrl": "https://news.livedoor.com/article/category/46/ https://news.livedoor.com/topics/category/dom/",
-    "url": "^https://news\\.livedoor\\.com/(article|topics)/category",
-    "nextLink": "//a[@rel='next']"
+    "pageElement": "//ul[@class='articleList']/li",
+    "nextLink": "//a[@rel='next']",
+    "url": "^https://news\\.livedoor\\.com/(article/|topics/)?category",
+    "exampleUrl": "https://news.livedoor.com/article/category/46/ https://news.livedoor.com/topics/category/dom/ https://news.livedoor.com/category/vender/akiba_souken/"
   },
-  "updated_at": "2020-05-19T12:42:17+09:00",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "Yuhei",
+  "resource_url": "http://wedata.net/items/60293",
   "name": "livedoorニュース 写真ギャラリー 写真一覧",
-  "created_by": "Yuhei"
+  "created_at": "2012-04-19T23:23:34+09:00",
+  "updated_at": "2020-10-28T21:59:19+09:00"
 },
 {
   "name": "イナリの野球流儀",
