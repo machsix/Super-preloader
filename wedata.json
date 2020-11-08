@@ -1,5 +1,93 @@
 [
 {
+  "resource_url": "http://wedata.net/items/85553",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "id('article-list')",
+    "nextLink": "id('zan-page')//a[text()='»']",
+    "url": "^https?://(www\\.)?kkgal\\.com/",
+    "exampleUrl": "https://www.kkgal.com/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "金晨",
+  "name": "MyGalgame",
+  "created_at": "2020-11-05T22:02:36+09:00",
+  "updated_at": "2020-11-05T22:02:36+09:00"
+},
+{
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//ul[contains(@class, \"content-list\")]/li",
+    "nextLink": "//a[@rel=\"next\"]",
+    "url": "^https://gitlab\\.com/",
+    "exampleUrl": "https://gitlab.com/gitlab-com/marketing/field-marketing/-/issues"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "foo",
+  "resource_url": "http://wedata.net/items/85552",
+  "name": "GitLab",
+  "created_at": "2020-11-04T23:04:49+09:00",
+  "updated_at": "2020-11-04T23:04:49+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85551",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "id(\"mainContents\")/table//td[@align=\"center\"][div/@align=\"center\"]/*",
+    "nextLink": "id(\"mainContents\")//a[contains(.,\"つぎへ\")]",
+    "url": "^https://dailyportalz\\.jp/b/\\d{4}/\\d{2}/\\d{2}/b/",
+    "exampleUrl": "https://dailyportalz.jp/b/2007/09/15/b/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m_",
+  "name": "デイリーポータルZ old format",
+  "created_at": "2020-11-04T22:31:40+09:00",
+  "updated_at": "2020-11-04T22:31:40+09:00"
+},
+{
+  "data": {
+    "pageElement": "//div[@id='diarys']",
+    "nextLink": "//a[text()='下一页']",
+    "url": "^https?://(www\\.)?timepill\\.net/",
+    "exampleUrl": "http://www.timepill.net/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "金晨",
+  "resource_url": "http://wedata.net/items/85550",
+  "name": "胶囊日记",
+  "created_at": "2020-11-04T20:37:13+09:00",
+  "updated_at": "2020-11-04T20:47:04+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85549",
+  "data": {
+    "pageElement": "//div[contains(concat(' ', normalize-space(@class), ' '), ' list_program ')]",
+    "nextLink": "//div[@class='next']/a",
+    "url": "^https://(www\\.)?at-x\\.com/search",
+    "exampleUrl": "https://www.at-x.com/search/title"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "faw8jw",
+  "name": "AT-X 番組検索",
+  "created_at": "2020-11-04T16:54:08+09:00",
+  "updated_at": "2020-11-06T06:55:49+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85548",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "id(\"post_pagination\")/preceding-sibling::*",
+    "nextLink": "id(\"post_pagination\")/p[@class=\"current-post-page\"]/following-sibling::a",
+    "url": "^https://mc-web\\.jp/topics/",
+    "exampleUrl": "https://mc-web.jp/topics/36826/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m_",
+  "name": "モーサイ",
+  "created_at": "2020-11-04T00:44:53+09:00",
+  "updated_at": "2020-11-04T00:44:53+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/85547",
   "data": {
     "insertBefore": "",
@@ -5716,17 +5804,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/82056",
-  "name": "デイリーポータルＺ バックナンバー ライタープロフィール",
-  "created_by": "jigendaddy_be",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-01-14T22:21:40+09:00",
   "data": {
-    "exampleUrl": "https://backnumber.dailyportalz.jp/cs/link/backnumber/1.htm https://dailyportalz.jp/kiji?ccm_paging_p=1&ccm_order_by=h.publicDate&ccm_order_by_direction=desc https://dailyportalz.jp/writer/kijilist/163",
+    "pageElement": "//img[@align=\"absmiddle\"]/ancestor::tbody[1]/tr|//div[@class=\"module_inner\"][.//li[contains(@class,\"next\")]]/table/tbody/tr|//div[@class=\"frame-sttl\"][last()]/following-sibling::table/tbody/tr",
+    "nextLink": "id(\"mainContents\")//td[@align=\"center\"]/b/following-sibling::a[1]|//a[@rel=\"next\"]",
     "url": "^https://(?:backnumber\\.)?dailyportalz\\.jp/(?!dpq)",
-    "pageElement": "//img[@src=\"https://backnumber.dailyportalz.jp/top_img/marker.gif\"]/ancestor::tbody[1]/tr|//div[@class=\"module_inner\"][.//li[contains(@class,\"next\")]]/table/tbody/tr|//div[@class=\"frame-sttl\"][last()]/following-sibling::table/tbody/tr",
-    "nextLink": "id(\"mainContents\")//td[@align=\"center\"]/b/following-sibling::a[1]|//a[@rel=\"next\"]"
+    "exampleUrl": "https://backnumber.dailyportalz.jp/cs/link/backnumber/1.htm https://dailyportalz.jp/kiji?ccm_paging_p=1&ccm_order_by=h.publicDate&ccm_order_by_direction=desc https://dailyportalz.jp/writer/kijilist/163"
   },
-  "created_at": "2019-01-12T10:22:25+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "jigendaddy_be",
+  "name": "デイリーポータルＺ バックナンバー ライタープロフィール",
+  "created_at": "2019-01-12T10:22:25+09:00",
+  "updated_at": "2020-11-05T11:44:56+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/82055",
@@ -21529,17 +21617,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/74818",
-  "name": "日刊ゲンダイ",
-  "created_by": "terepandasan",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-03-01T02:18:00+09:00",
   "data": {
-    "exampleUrl": "http://www.nikkan-gendai.com/articles/view/geino/140476 http://www.nikkan-gendai.com/articles/view/sports/157400 http://www.nikkan-gendai.com/articles/columns/news http://www.nikkan-gendai.com/articles/index/news/category:1",
+    "pageElement": "//p[@class=\"full-text\"]|//div[contains(concat(\" \",@class,\" \"),\" article-wrap \")]//li[@class=\"article-box\"]",
+    "nextLink": "//main/div[@class=\"paging-box\"]/p[@class=\"page-next\"]/a",
     "url": "^https?://(www\\.)?nikkan-gendai\\.com/articles/",
-    "pageElement": "//p[@class=\"full-text\"]|//div[@class=\"article-wrap\"]//li[@class=\"article-box\"]",
-    "nextLink": "//main/div[@class=\"paging-box\"]/p[@class=\"page-next\"]/a"
+    "exampleUrl": "http://www.nikkan-gendai.com/articles/view/geino/140476 http://www.nikkan-gendai.com/articles/view/sports/157400 http://www.nikkan-gendai.com/articles/columns/news http://www.nikkan-gendai.com/articles/index/news/category:1\r\nhttps://www.nikkan-gendai.com/articles/columns/2648"
   },
-  "created_at": "2014-05-06T09:40:49+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "terepandasan",
+  "name": "日刊ゲンダイ",
+  "created_at": "2014-05-06T09:40:49+09:00",
+  "updated_at": "2020-11-03T17:52:11+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/74815",
@@ -30597,18 +30685,18 @@
   "created_by": "willpagerize"
 },
 {
-  "name": "デイリーポータルZ dailyportalz.jp 記事",
+  "resource_url": "http://wedata.net/items/55341",
   "data": {
+    "pageElement": "descendant::img[contains(@src,\"ten_line.gif\")][1]/ancestor::table[1]|descendant::img[contains(@src,\"ten_line.gif\")][1]/ancestor::table[1]/preceding-sibling::*",
+    "nextLink": "id(\"links\")/b/following-sibling::a[1]|id(\"mainContents\")/table[last()-1]/tbody/tr/td[3]//td[@align=\"right\"]/a",
     "url": "^https://(?:backnumber\\.)?dailyportalz\\.jp/(?:cs/link/backnumber/|kiji/|special)",
-    "pageElement": "//*[./div[@id=\"links\"]]/preceding-sibling::*|id(\"mainContents\")/table[last()-1]/tbody/tr/td[3]/*",
-    "exampleUrl": "https://backnumber.dailyportalz.jp/special/1010/ https://backnumber.dailyportalz.jp/special04/01/29/ https://backnumber.dailyportalz.jp/special04/11/22/index.htm",
-    "nextLink": "id(\"links\")/b/following-sibling::a[1]|id(\"mainContents\")/table[last()-1]/tbody/tr/td[3]//td[@align=\"right\"]/a"
+    "exampleUrl": "https://backnumber.dailyportalz.jp/special/1010/ https://backnumber.dailyportalz.jp/special04/01/29/ https://backnumber.dailyportalz.jp/special04/11/22/index.htm"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "Yuu",
-  "resource_url": "http://wedata.net/items/55341",
+  "name": "デイリーポータルZ dailyportalz.jp 記事",
   "created_at": "2011-08-26T21:10:42+09:00",
-  "updated_at": "2020-04-08T04:54:09+09:00"
+  "updated_at": "2020-11-05T12:00:51+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/55336",
