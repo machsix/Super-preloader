@@ -17,7 +17,8 @@ export const SCRIPT_INFO = {
   changelog: `${emoji('1F92A')} Adguard is supported`,
   greasyfork: 'https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new',
   updateTime: `${now.getFullYear()}/${now.getMonth() + 1}/${now.getDate()}`,
-  homepageURL: pkg.homepageURL,
+  homepageURL: pkg.homepage,
+  feedbackURL: pkg.bugs.url + '/feedback',
   // rewrite storage for these versions
   rewriteStorage: '6.6.83'
 };
@@ -105,5 +106,6 @@ export const METADATA = `// ==UserScript==
 // @exclude      http*://www.youtube.com/embed/*
 // @exclude      https://assets.tumblr.com/*
 // @exclude      http*://www.paypal.com/*
+// @exclude      http*://dash.cloudflare.com/*
 // ==/UserScript==
 `;

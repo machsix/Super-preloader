@@ -1,12 +1,12 @@
 {
   "name": "super-preloader",
-  "version": "6.15.6",
+  "version": "6.15.7",
   "description": "Super-preloader",
   "main": "dist/Super_preloaderPlus_one_New.user.js",
   "author": "Mach6",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/machsix/Super-preloader/issues"
+    "url": "https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new"
   },
   "homepage": "https://github.com/machsix/Super-preloader",
   "directories": {

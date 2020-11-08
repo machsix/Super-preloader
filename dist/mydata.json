@@ -21,6 +21,12 @@
     "category": ["comic", "nsfw"]
   },
   {
+    "name": "netbian",
+    "url": "https?://www\\.netbian\\.com|pic",
+    "nextLink": "//div[@class='page']/a[contains(text(),'下一页')]",
+    "pageElement": "//div[@class='list' or @class='slist']"
+  },
+  {
     "name": "vBulletin Special Thread",
     "url": "^https?://(www|forum)\\.(planetsuzy)\\.(org|com)/t\\d+-.*",
     "pageElement": "//div[contains(@id,'edit')]",
@@ -1780,7 +1786,7 @@
   },
   {
     "name": "192tt",
-    "url": "^https?://www\\.(192tb|192ta|192td)\\.com",
+    "url": "^https?://www\\.192t\\w\\.com",
     "pageElement": "//ul[@class='clearfix']/parent::div",
     "exampleUrl": "https://www.192tb.com/gq/",
     "nextLink": "//div[@class='page']/a[@class='next']",

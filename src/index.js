@@ -2190,12 +2190,11 @@ import notice from './utils/notice';
                 SSS.enable = true;
                 SSS.nextLink = 'auto;';
                 SSS.viewcontent = autoMatch.viewcontent;
-                SSS.useiframe = autoMatch.useiframe;
+                SSS.useiframe = autoMatch.useiframe || SITEINFO_D.autopager.useiframe;
                 SSS.a_force = true;
                 SSS.a_manualA = FA.manualA;
-                // SSS.a_enable = FA.enable || false; //不能使a_enable的值==undefined...
-                SSS.a_enable = FA.enable || SITEINFO_D.autopager.force_enable; // 不能使a_enable的值==undefined...
-                SSS.a_useiframe = FA.useiframe;
+                SSS.a_enable = FA.enable || SITEINFO_D.autopager.force_enable; // Force join is enabled when this becomes true
+                SSS.a_useiframe = FA.useiframe || SITEINFO_D.useiframe;
                 SSS.a_iloaded = FA.iloaded;
                 SSS.a_itimeout = FA.itimeout;
                 SSS.a_remain = FA.remain;
