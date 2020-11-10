@@ -1994,7 +1994,17 @@ import notice from './utils/notice';
         // 执行开始..///////////////////
 
         // 分析黑名单
-        const blackList_re = new RegExp(blackList.map(wildcardToRegExpStr).join('|'));
+        const blackList_re = new RegExp(
+          blackList
+            .map((x) => {
+              if (x.substring(0, 3).toLowerCase() == 're:') {
+                return x.substring(4);
+              } else {
+                return wildcardToRegExpStr(x);
+              }
+            })
+            .join('|')
+        );
         if (blackList_re.test(url)) {
           logger.debug('Matched blacklist, JS execution stopped');
           return;

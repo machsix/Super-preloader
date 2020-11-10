@@ -107,5 +107,7 @@ export const METADATA = `// ==UserScript==
 // @exclude      https://assets.tumblr.com/*
 // @exclude      http*://www.paypal.com/*
 // @exclude      http*://dash.cloudflare.com/*
+// @exclude      http*://assets.tumblr.com/*
+// @exclude      http*://www.tumblr.com/video/*
 // ==/UserScript==
 `;
