@@ -248,7 +248,7 @@ export const jsGeneralRule = [
   },
   {
     name: 'XenForo thread',
-    url: '^http(s)?://.+/community/',
+    url: '^http(s)?://.+/(forums?|threads|community)/',
     exampleUrl: 'https://xenforo.com/community/threads/job-xf-emailunsubscribe-invalid-header-value-detected.177611/',
     pageElement: "//div[@class='block-container lbContainer']",
     nextLink: "//a[@class='pageNav-jump pageNav-jump--next']"
