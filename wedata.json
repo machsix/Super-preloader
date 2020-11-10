@@ -47819,18 +47819,18 @@
 },
 {
   "resource_url": "http://wedata.net/items/681",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "data": {
-    "exampleUrl": "http://taizooo.tumblr.com/\r\nhttp://taizooo.tumblr.com/page/3\r\nhttp://fjmo.tumblr.com/\r\nhttp://fjmo.tumblr.com/page/3\r\nhttp://otsune.tumblr.com/search/neodenjin\r\nhttp://illillill.tumblr.com/page/2\r\nhttp://cxx.tumblr.com/tagged/reblog/page/2\r\nhttp://mikirosi.tumblr.com/page/2",
-    "pageElement": "//*[count(*[.//a[@class='permalink' or img/@class='permalink' or ../@class='date' or contains(@title,'permalink') or @class='fecha' or contains(@href,'/post/')]| .//div[contains(concat(' ',normalize-space(@class),' '),' permalink ')]/a])>=4]/*[.//a[@class='permalink' or img/@class='permalink' or ../@class='date' or contains(@title,'permalink') or @class='fecha' or contains(@href,'/post/')] | .//div[contains(concat(' ',normalize-space(@class),' '),' permalink ')]/a]",
+    "pageElement": "//*[count(*[.//a[@class='permalink' or img/@class='permalink' or ../@class='date' or contains(@title,'permalink') or @class='fecha' or contains(@href,'/post/')]| .//div[contains(concat(' ',normalize-space(@class),' '),' permalink ')]/a])>=4 and not(ancestor::div[@class='sidebar'])]/*[.//a[@class='permalink' or img/@class='permalink' or ../@class='date' or contains(@title,'permalink') or @class='fecha' or contains(@href,'/post/')] | .//div[contains(concat(' ',normalize-space(@class),' '),' permalink ')]/a]",
+    "comment": "http://taizooo.tumblr.com/post/65704255/nextlink-2\r\nhAtom : http://wedata.net/items/31114 と AutoPagerizeFORMAT : http://wedata.net/items/31158\r\nよりこの SITEINFO を優先度を低くするために url の文字数を hAtom より1文字以上短かくする必要があります。また ^http://ku\\.tumblr\\.com/ といった個別の SITEINFO より優先度を下げるため url は可能なかぎり短くする必要があります。\r\npageElement は LDRize SITEINFO : http://wedata.net/items/28521?rev=41785 の paragraph をベースにしました。",
     "nextLink": "//a[contains(@href,'/page/')][number(substring-after(self::a/@href,'/page/'))-number(substring-after(preceding::a[contains(@href,'/page/')][1]/@href,'/page/')) = 2 or number(substring-after(self::a/@href,'/page/'))-number(substring-after(following::a[contains(@href,'/page/')][1]/@href,'/page/')) = 2]|//a[starts-with(@href,'/page/') or contains(@href,'/search/') or contains(@href,'/tagged/')][contains(@href,'/page/2')][number(substring-after(following::a[contains(@href,'/page/')][1]/@href,'/page/')) != 4 and number(substring-after(preceding::a[contains(@href,'/page/')][1]/@href,'/page/')) != 4]",
     "url": "^.+://[^/]+\\.tumblr\\.com/",
-    "comment": "http://taizooo.tumblr.com/post/65704255/nextlink-2\r\nhAtom : http://wedata.net/items/31114 と AutoPagerizeFORMAT : http://wedata.net/items/31158\r\nよりこの SITEINFO を優先度を低くするために url の文字数を hAtom より1文字以上短かくする必要があります。また ^http://ku\\.tumblr\\.com/ といった個別の SITEINFO より優先度を下げるため url は可能なかぎり短くする必要があります。\r\npageElement は LDRize SITEINFO : http://wedata.net/items/28521?rev=41785 の paragraph をベースにしました。"
+    "exampleUrl": "http://taizooo.tumblr.com/\r\nhttp://taizooo.tumblr.com/page/3\r\nhttp://fjmo.tumblr.com/\r\nhttp://fjmo.tumblr.com/page/3\r\nhttp://otsune.tumblr.com/search/neodenjin\r\nhttp://illillill.tumblr.com/page/2\r\nhttp://cxx.tumblr.com/tagged/reblog/page/2\r\nhttp://mikirosi.tumblr.com/page/2"
   },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "swdyh",
   "name": "Tumblr",
   "created_at": "2008-04-16T12:36:28+09:00",
-  "updated_at": "2014-09-06T12:00:25+09:00"
+  "updated_at": "2020-11-10T14:16:07+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/679",
