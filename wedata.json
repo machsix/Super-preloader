@@ -1,17 +1,121 @@
 [
 {
-  "resource_url": "http://wedata.net/items/85571",
+  "resource_url": "http://wedata.net/items/85579",
   "data": {
-    "pageElement": "id(\"content\")//div[@class=\"altcontent\"]/following-sibling::h6[2]/following-sibling::*[./following-sibling::div[@style]] | //span[@itemprop=\"articleBody\"]",
+    "pageElement": "descendant::*[@style=\"display: none;\"][1]",
+    "comment": "This is a dummy code for uAutoPagerize.",
+    "nextLink": "//a[contains(@href,\"/page/2\")][//link[@rel=\"canonical\"][not(contains(@href,\"/page/\"))]]|//a[contains(@href,concat(\"/page/\",number(substring-after(//link[@rel=\"canonical\"]/@href,\"/page/\"))+1))]",
+    "url": "^https://rolua\\.tumblr\\.com/",
+    "exampleUrl": "https://rolua.tumblr.com/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "kenzou_ogawa",
+  "name": "[rNw]",
+  "created_at": "2020-11-23T12:15:53+09:00",
+  "updated_at": "2020-11-23T12:16:53+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85578",
+  "data": {
+    "pageElement": "descendant::*[@style=\"display: none;\"][1]",
+    "comment": "This is a dummy code for uAutoPagerize.",
+    "nextLink": "//a[@href=\"/Profile\"]",
+    "url": "^https://muramatsu-takehiko\\.com/",
+    "exampleUrl": "https://muramatsu-takehiko.com/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "kenzou_ogawa",
+  "name": "Muramatsu Takehiko",
+  "created_at": "2020-11-21T07:26:43+09:00",
+  "updated_at": "2020-11-21T07:28:24+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85577",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//div[@class=\"content\"]/img|//div[@class=\"hezi\"][not(//div[@class=\"content\"])]//li",
+    "nextLink": "(//a[@class=\"current\"]|id(\"pages\")/span)/following-sibling::a[1]",
+    "url": "^https://(www\\.)?tujigu\\.com/",
+    "exampleUrl": "https://www.tujigu.com/s/187/ https://www.tujigu.com/a/37104/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "kenzou_ogawa",
+  "name": "图集谷_美女图片大全",
+  "created_at": "2020-11-21T07:16:09+09:00",
+  "updated_at": "2020-11-21T07:16:09+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85576",
+  "data": {
+    "pageElement": "descendant::*[@style=\"display: none;\"][1]",
+    "comment": "This is a dummy code for uAutoPagerize.",
+    "nextLink": "//a[@href=\"/archive\"]",
+    "url": "^https://pislices\\.ca/",
+    "exampleUrl": "https://pislices.ca/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "kenzou_ogawa",
+  "name": "pi-slices",
+  "created_at": "2020-11-20T15:42:10+09:00",
+  "updated_at": "2020-11-21T07:28:10+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85575",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "id(\"postwrapper\")/div",
+    "nextLink": "//a[contains(@href,\"/page/2\")][//link[@rel=\"canonical\"][not(contains(@href,\"/page/\"))]]|//a[contains(@href,concat(\"/page/\",number(substring-after(//link[@rel=\"canonical\"]/@href,\"/page/\"))+1))]",
+    "url": "^https://emilylovesart\\.tumblr\\.com/",
+    "exampleUrl": "https://emilylovesart.tumblr.com/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "kenzou_ogawa",
+  "name": "✧ Emily Loves Cookies ✧",
+  "created_at": "2020-11-20T15:38:00+09:00",
+  "updated_at": "2020-11-20T15:38:00+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85574",
+  "data": {
+    "pageElement": "descendant::*[@style=\"display: none;\"][1]",
+    "comment": "This is a dummy code for uAutoPagerize.",
+    "nextLink": "//a[@href=\"/about\"]",
+    "url": "^https://(www\\.)?emuni\\.co\\.jp/",
+    "exampleUrl": "https://www.emuni.co.jp/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "kenzou_ogawa",
+  "name": "emuni",
+  "created_at": "2020-11-19T07:46:19+09:00",
+  "updated_at": "2020-11-19T07:47:06+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85573",
+  "data": {
+    "pageElement": "//article[not(@style or @id or @data-post-id)][not(contains(@class,\"loaded\"))][not(@class=\"posts\")][not(./ancestor::*[contains(@class,\"masonry\") or @style])][not(//a[@class=\"tumblr-box\"])][count(//*[./article[./following-sibling::article]])=1][//article[not(@style or @id)]/following-sibling::*[1][self::article]]",
+    "nextLink": "//a[contains(@href,\"/page/2\")][//link[@rel=\"canonical\"][not(contains(@href,\"/page/\"))]]|//a[contains(@href,concat(\"/page/\",number(substring-after(//link[@rel=\"canonical\"]/@href,\"/page/\"))+1))]",
+    "url": "^https?://[^/]+\\.tumblr\\.com/*",
+    "exampleUrl": "https://tatsdesign.tumblr.com/ https://pixel-he-art.tumblr.com/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "kenzou_ogawa",
+  "name": "Tumblr - article",
+  "created_at": "2020-11-17T12:46:04+09:00",
+  "updated_at": "2020-11-23T08:13:24+09:00"
+},
+{
+  "data": {
+    "pageElement": "id(\"content\")//div[@class=\"altcontent\"]/following-sibling::h6[2]/following-sibling::*[./following-sibling::*[./span[@class=\"pagelinkselected\"]]] | //span[@itemprop=\"articleBody\"]",
     "nextLink": "//span[@class='pagelinkselected']/following-sibling::span[1]/a",
     "url": "^https://(www\\.)?guru3d\\.com/",
     "exampleUrl": "https://www.guru3d.com/articles-pages/fractal-design-define-7-compact-review,1.html\r\nhttps://www.guru3d.com/news/index.html"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "faw8jw",
+  "resource_url": "http://wedata.net/items/85571",
   "name": "guru3d",
   "created_at": "2020-11-14T15:22:26+09:00",
-  "updated_at": "2020-11-15T10:20:46+09:00"
+  "updated_at": "2020-11-17T08:00:02+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/85569",
@@ -63,14 +167,14 @@
     "pageElement": "descendant::*[@style=\"display: none;\"][last()]",
     "comment": "This is a dummy code for uAutoPagerize.",
     "nextLink": "//a[@href=\"/archive\"]",
-    "url": "^https://(kmon-bookcovers|koinubooks)\\.tumblr\\.com/",
-    "exampleUrl": "https://kmon-bookcovers.tumblr.com/ https://koinubooks.tumblr.com/"
+    "url": "^https://(kmon-bookcovers|koinubooks|totorox|miyamachiyuki|252percent|yesterdaysprint|sweetoothgirl)\\.tumblr\\.com/",
+    "exampleUrl": "https://kmon-bookcovers.tumblr.com/ https://koinubooks.tumblr.com/ https://totorox.tumblr.com/ https://miyamachiyuki.tumblr.com/ https://252percent.tumblr.com/ https://yesterdaysprint.tumblr.com/ https://sweetoothgirl.tumblr.com/"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "kenzou_ogawa",
   "name": "Tumblr -Dummy for uAutopagerize2",
   "created_at": "2020-11-13T12:41:20+09:00",
-  "updated_at": "2020-11-14T11:05:20+09:00"
+  "updated_at": "2020-11-22T14:14:50+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/85565",
@@ -92,29 +196,29 @@
   "data": {
     "pageElement": "id(\"content\")",
     "nextLink": "//a[contains(@href,\"/page/2\")][//link[@rel=\"canonical\"][not(contains(@href,\"/page/\"))]]|//a[contains(@href,concat(\"/page/\",number(substring-after(//link[@rel=\"canonical\"]/@href,\"/page/\"))+1))]",
-    "url": "^https://(thekimonogallery|kusano-design|tatsdesign|meroncholinista|natgeofound|todaysdocument)\\.tumblr\\.com/",
-    "exampleUrl": "https://thekimonogallery.tumblr.com/ https://kusano-design.tumblr.com/ https://tatsdesign.tumblr.com/ https://meroncholinista.tumblr.com/ https://natgeofound.tumblr.com/ https://todaysdocument.tumblr.com/"
+    "url": "^https://(thekimonogallery|kusano-design|meroncholinista|natgeofound|yaruo|phorbidden|tofubeatsreblog|hokuolab|cryosleepcat)\\.tumblr\\.com/",
+    "exampleUrl": "https://thekimonogallery.tumblr.com/ https://kusano-design.tumblr.com/ https://meroncholinista.tumblr.com/ https://natgeofound.tumblr.com/ https://yaruo.tumblr.com/ https://phorbidden.tumblr.com/ https://tofubeatsreblog.tumblr.com/ https://hokuolab.tumblr.com/ https://cryosleepcat.tumblr.com/"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "kenzou_ogawa",
   "name": "Tumblr - content",
   "created_at": "2020-11-13T11:13:33+09:00",
-  "updated_at": "2020-11-14T15:34:05+09:00"
+  "updated_at": "2020-11-23T08:28:36+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/85563",
   "data": {
     "pageElement": "descendant::*[@style=\"display: none;\"][1]",
     "comment": "This is a dummy code for uAutoPagerize.",
-    "nextLink": "//a[@href=\"/archive\"]",
-    "url": "^https://(fabforgottennobility|angelnastyakusakina|tyore|sakanapansya|fer1972|redjuicegraphics|news-okiba|fumira)\\.tumblr\\.com/",
-    "exampleUrl": "https://fabforgottennobility.tumblr.com/ https://angelnastyakusakina.tumblr.com/ https://tyore.tumblr.com/ https://sakanapansya.tumblr.com/ https://fer1972.tumblr.com/ https://redjuicegraphics.tumblr.com/ https://news-okiba.tumblr.com/ https://fumira.tumblr.com/"
+    "nextLink": "//a[@href=\"/archive\" or @href=\"/ask\"]",
+    "url": "^https://(fabforgottennobility|angelnastyakusakina|tyore|sakanapansya|fer1972|redjuicegraphics|news-okiba|fumira|weborama|kaleidoscope-1|cccrystalclear|caleod|sketching-fox|ashleyodellillustration|yueko|over-sleep|mobpsycho100|catasters|pururin|liriostigre|jmocek|julieterbang|ashawol)\\.tumblr\\.com/",
+    "exampleUrl": "https://fabforgottennobility.tumblr.com/ https://angelnastyakusakina.tumblr.com/ https://tyore.tumblr.com/ https://sakanapansya.tumblr.com/ https://fer1972.tumblr.com/ https://redjuicegraphics.tumblr.com/ https://news-okiba.tumblr.com/ https://fumira.tumblr.com/ https://weborama.tumblr.com/ https://kaleidoscope-1.tumblr.com/ https://cccrystalclear.tumblr.com/ https://caleod.tumblr.com/ https://sketching-fox.tumblr.com/ https://ashleyodellillustration.tumblr.com/ https://yueko.tumblr.com/ https://over-sleep.tumblr.com/ https://mobpsycho100.tumblr.com/ https://catasters.tumblr.com/ https://pururin.tumblr.com/ https://liriostigre.tumblr.com/ https://jmocek.tumblr.com/ https://julieterbang.tumblr.com/ https://ashawol.tumblr.com/"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "kenzou_ogawa",
   "name": "Tumblr -Dummy for uAutopagerize",
   "created_at": "2020-11-13T11:06:12+09:00",
-  "updated_at": "2020-11-14T21:19:26+09:00"
+  "updated_at": "2020-11-23T08:14:52+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/85562",
@@ -133,16 +237,16 @@
 {
   "resource_url": "http://wedata.net/items/85560",
   "data": {
-    "pageElement": "(//div[@class=\"post\"]|//div[@class=\"post\"]/following-sibling::div[@class=\"date\" or @class=\"bottom\"]|//div[@class=\"post\"]/preceding-sibling::div[@class=\"date\" or @class=\"bottom\"])[count(//*[./div[@class=\"post\"]])=1]",
+    "pageElement": "(//div[@class=\"post\"]|//div[@class=\"post\"]/following-sibling::div[@class=\"date\" or @class=\"bottom\"]|//div[@class=\"post\"]/preceding-sibling::div[@class=\"date\" or @class=\"bottom\"])[count(//*[./div[@class=\"post\"]])=1][count(//div[@class=\"post\"])>2][//div[@class=\"post\"]/following-sibling::*[1][@class=\"post\" or @class=\"bottom\"]]",
     "nextLink": "//a[contains(@href,\"/page/2\")][//link[@rel=\"canonical\"][not(contains(@href,\"/page/\"))]]|//a[contains(@href,concat(\"/page/\",number(substring-after(//link[@rel=\"canonical\"]/@href,\"/page/\"))+1))]",
-    "url": "^.+://[^/]+\\.tumblr\\.com/*",
+    "url": "^https?://[^/]+\\.tumblr\\.com/*",
     "exampleUrl": "https://23hourpartypeople.tumblr.com/\r\nhttps://boooook.tumblr.com/\r\nhttps://suyhnc.tumblr.com/\r\nhttps://gforcepdx.tumblr.com/\r\nhttps://katoyuu.tumblr.com/\r\nhttps://maybowjing.tumblr.com/"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "kenzou_ogawa",
   "name": "Tumblr - post",
   "created_at": "2020-11-12T20:12:34+09:00",
-  "updated_at": "2020-11-14T07:49:36+09:00"
+  "updated_at": "2020-11-19T17:44:22+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/85559",
@@ -47993,18 +48097,18 @@
 {
   "resource_url": "http://wedata.net/items/681",
   "data": {
-    "pageElement": "(id(\"posts\")|(id(\"main\")/*|//*[@class=\"main\" or @role=\"main\"][not(self::main)])[not(id(\"posts\"))])[not(@style)][not(.//article[@style])][not(.//*[contains(@class,\"masonry\")])]",
+    "pageElement": "(id(\"posts\")[count(//*[@id=\"posts\"])=1][not(//*[@class=\"main\" or @role=\"main\"])]|//*[@class=\"main\" or @role=\"main\"][not(self::main)][not(id(\"posts\"))])[not(@style)][not(.//article[@style])][not(.//*[contains(@class,\"masonry\")])][not(id(\"sidebar-nav\"))][not(//*[@class=\"tab_content\"])]",
     "comment": "http://taizooo.tumblr.com/post/65704255/nextlink-2\r\nhAtom : http://wedata.net/items/31114 と AutoPagerizeFORMAT : http://wedata.net/items/31158\r\nよりこの SITEINFO を優先度を低くするために url の文字数を hAtom より1文字以上短かくする必要があります。また ^http://ku\\.tumblr\\.com/ といった個別の SITEINFO より優先度を下げるため url は可能なかぎり短くする必要があります。\r\npageElement は LDRize SITEINFO : http://wedata.net/items/28521?rev=41785 の paragraph をベースにしました。",
     "comment2": "https://tanyao.hatenadiary.jp/entry/2020/11/13/143238",
     "nextLink": "//a[@rel=\"next\"]|(//a[contains(@href,\"/page/2\")][//link[@rel=\"canonical\"][not(contains(@href,\"/page/\"))]]|//a[contains(@href,concat(\"/page/\",number(substring-after(//link[@rel=\"canonical\"]/@href,\"/page/\"))+1))])[not(//a[@rel=\"next\"])]",
     "url": "^.+://[^/]+\\.tumblr\\.com/",
-    "exampleUrl": "http://illillill.tumblr.com/page/2\r\nhttps://jigendaddy.tumblr.com/\r\nhttps://petapeta.tumblr.com/\r\nhttps://hokuolab.tumblr.com/\r\nhttps://hirokin.tumblr.com/\r\nhttps://maido3.tumblr.com/\r\nhttps://reblographix.tumblr.com/"
+    "exampleUrl": "http://illillill.tumblr.com/page/2\r\nhttps://maido3.tumblr.com/"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "swdyh",
   "name": "Tumblr",
   "created_at": "2008-04-16T12:36:28+09:00",
-  "updated_at": "2020-11-15T07:46:11+09:00"
+  "updated_at": "2020-11-23T11:32:44+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/679",
