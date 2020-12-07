@@ -1,5 +1,34 @@
 [
 {
+  "resource_url": "http://wedata.net/items/85588",
+  "data": {
+    "pageElement": "//div[@class=\"article-pagination\"]/preceding-sibling::*[./preceding-sibling::h3]|//div[@class=\"article-pagination\"]/preceding-sibling::h3",
+    "nextLink": "//div[@class='article-pagination']/div[@class='article-pagination-next']/a",
+    "url": "^https://nazology\\.net/archives/",
+    "exampleUrl": "https://nazology.net/archives/74816"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "limura",
+  "name": "ナゾロジー",
+  "created_at": "2020-12-03T10:19:59+09:00",
+  "updated_at": "2020-12-03T15:50:04+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85587",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "id(\"main_img2\")/div[@class=\"ot\"]/div[@class=\"clearfix\"]",
+    "nextLink": "id(\"b_prev2\")/parent::a",
+    "url": "^https?://yakumo-tajimi\\.com/4fc/",
+    "exampleUrl": "http://yakumo-tajimi.com/4fc/12/120202.html"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m_",
+  "name": "やくならマグカップも 直子の小鉢",
+  "created_at": "2020-12-02T00:03:54+09:00",
+  "updated_at": "2020-12-02T00:03:54+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/85586",
   "data": {
     "pageElement": "id(\"bestresults\")/*|//table[@class=\"table whitetable\"]/tbody/tr[td/@style]|//div[@class=\"mostdiv\"]|id(\"pagenumbers\")[count(./preceding-sibling::*)>4]/preceding-sibling::*[./preceding-sibling::nav]",
@@ -7197,18 +7226,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/81864",
-  "name": "RENOTE",
-  "created_by": "jigendaddy_be",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2018-07-30T16:01:42+09:00",
   "data": {
-    "Stylus": "@-moz-document domain(\"renote.jp\") {\r\n.autopagerize_page_info{ align-self: flex-end;}\r\n}",
-    "exampleUrl": "https://renote.jp/categories/game https://renote.jp/articles/7810",
-    "url": "^https://renote\\.jp/",
     "pageElement": "//article[@class='articles__list__item'][not(//div/@class='article__body')]|//div[@class='article__body']/*",
-    "nextLink": "//link[@rel='next']"
+    "nextLink": "//link[@rel='next']",
+    "url": "^https://renote\\.jp/",
+    "exampleUrl": "https://renote.jp/categories/game https://renote.jp/articles/7810"
   },
-  "created_at": "2018-07-29T18:04:08+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "jigendaddy_be",
+  "name": "RENOTE",
+  "created_at": "2018-07-29T18:04:08+09:00",
+  "updated_at": "2020-12-01T11:32:45+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/81862",
@@ -10376,18 +10404,19 @@
   "updated_at": "2020-07-06T18:54:51+09:00"
 },
 {
+  "resource_url": "http://wedata.net/items/81227",
   "data": {
     "pageElement": "//div[contains(@class, \"items-box-content\") or @data-test=\"grid-layout\"]/*",
+    "bookmarklet": "$(\"*[style]:has(img)\").css('opacity', '1');\r\n$(\"*[style]:has(img)\").css('visibility', 'visible');",
     "nextLink": "//li[@class=\"pager-cell active\"]/following-sibling::li[1]/a|descendant::div[./a[contains(@href,\"/category/\")]][last()]/a[1]",
     "url": "^https://(www\\.)?mercari\\.com/jp/.+",
     "exampleUrl": "https://www.mercari.com/jp/search/?keyword=toyota\r\nhttps://www.mercari.com/jp/category/1/"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "ninjanylon",
-  "resource_url": "http://wedata.net/items/81227",
   "name": "mercari",
   "created_at": "2017-03-08T22:30:36+09:00",
-  "updated_at": "2020-09-22T09:21:32+09:00"
+  "updated_at": "2020-12-01T08:51:04+09:00"
 },
 {
   "name": "NIKKEI STYLE",
@@ -11281,17 +11310,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/81073",
-  "name": "moneypost.jp",
-  "created_by": "nnn",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-09-03T12:38:07+09:00",
   "data": {
-    "exampleUrl": "https://www.moneypost.jp/94756",
+    "pageElement": "id(\"post-meta\")/following-sibling::*",
+    "nextLink": "//span[@aria-current=\"page\"]/following-sibling::a[1]",
     "url": "^https://(www\\.)?moneypost\\.jp",
-    "pageElement": "id('post-meta')/following-sibling::*",
-    "nextLink": "//link[@rel='next']"
+    "exampleUrl": "https://www.moneypost.jp/94756"
   },
-  "created_at": "2016-11-08T11:48:03+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "nnn",
+  "name": "moneypost.jp",
+  "created_at": "2016-11-08T11:48:03+09:00",
+  "updated_at": "2020-12-04T08:17:28+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/81072",
@@ -33592,17 +33621,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/41269",
-  "name": "Proboards",
-  "created_by": "Rodze",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2016-03-16T05:45:34+09:00",
   "data": {
-    "exampleUrl": "http://pulsemusic.proboards.com/board/23",
+    "pageElement": "//table[@class='list']/tbody/tr[not(.//img[contains(@alt,'Announce')]) and contains(@class,'item thread') or starts-with(@id,'post-')]",
+    "nextLink": "//link[@rel='next']",
     "url": "^https?://[^?#]+\\.proboards\\.com/",
-    "pageElement": "//table[@class='list']/tbody/tr[not(.//img[contains(@alt,'Announce')])]",
-    "nextLink": "//link[@rel='next']"
+    "exampleUrl": "https://pulsemusic.proboards.com/board/23 https://pulsemusic.proboards.com/thread/113474/weekly-digital-songs-sales-thread?page=1 https://mariopaintcomposer.proboards.com/board/7/general-mario-paint-discussion"
   },
-  "created_at": "2011-01-10T08:57:01+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "Rodze",
+  "name": "Proboards",
+  "created_at": "2011-01-10T08:57:01+09:00",
+  "updated_at": "2020-12-03T10:57:21+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/41267",
@@ -40742,32 +40771,32 @@
 },
 {
   "resource_url": "http://wedata.net/items/29499",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "created_at": "2009-08-12T21:58:46+09:00",
   "data": {
-    "pageElement": "//ul[@class='NA_imglist NA_imglist-large']/li\r\n|//div[contains(concat(' ', normalize-space(@class), ' '), ' NA_card_wrapper ')]/div[@class='NA_card NA_card-l NA_card-noimage']",
-    "exampleUrl": "http://natalie.mu/sitenews\r\nhttp://natalie.mu/comic/gallery/hot",
+    "pageElement": "//nav[@class=\"NA_pager_wrapper\"]/preceding-sibling::*[1][contains(@class,\"NA_imglist\") or contains(@class,\"NA_card_wrapper\")]",
+    "nextLink": "//li[contains(concat(' ', normalize-space(@class), ' '), ' NA_pager_next ')]/a",
     "url": "^https://natalie\\.mu/(?:[^/]+/)*?(?:artist|(?:site)?news|pp|work|gallery/hot|tag)",
-    "nextLink": "//li[contains(concat(' ', normalize-space(@class), ' '), ' NA_pager_next ')]/a"
+    "exampleUrl": "http://natalie.mu/sitenews\r\nhttp://natalie.mu/comic/gallery/hot"
   },
-  "updated_at": "2020-05-30T12:50:26+09:00",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "inucara",
   "name": "ナタリー - ニュース、アーティスト、作品一覧",
-  "created_by": "inucara"
+  "created_at": "2009-08-12T21:58:46+09:00",
+  "updated_at": "2020-12-07T21:17:08+09:00"
 },
 {
-  "resource_url": "http://wedata.net/items/29498",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "created_at": "2009-08-12T21:40:29+09:00",
   "data": {
     "pageElement": "//div[@class=\"NA_article_body\"]",
     "comment": "url of 29498 must longer than http://wedata.net/items/29499",
-    "exampleUrl": "https://natalie.mu/music/gallery/news/19812/28317\r\nhttps://natalie.mu/comic/gallery/news/18577/26375\r\nhttps://natalie.mu/comic/news/18577\r\nhttps://natalie.mu/music/news/120722\r\nhttps://natalie.mu/eiga/news/156194\r\nhttps://natalie.mu/stage/news/212854\r\nhttps://natalie.mu/eiga/news/288207\r\nhttps://natalie.mu/comic/news/239966",
-    "url": "^https?://natalie\\.mu/(?:(?:(?:com|mus)ic|eiga|o(?:yatsu|warai)|stage)/)?(?:news|gallery/news/\\d+)/\\d",
-    "nextLink": "//ul[@class=\"NA_pager\"]/li[a][last()]/a|//div[contains(concat(\" \",@class,\" \"),\" NA_article_img \")]/a|//div[contains(concat(\" \",@class,\" \"),\" NA_article_gallery \")]/ul[@class=\"NA_imglist\"]/li/a"
+    "nextLink": "//ul[@class=\"NA_pager\"]/li[a][last()]/a|//div[contains(concat(\" \",@class,\" \"),\" NA_article_img \")]/a|//div[contains(concat(\" \",@class,\" \"),\" NA_article_gallery \")]/ul[@class=\"NA_imglist\"]/li/a",
+    "url": "^https?://natalie\\.mu/(?:(?:(?:com|mus)ic|eiga|o(?:yatsu|warai)|stage)/)?(?:column|news|gallery/news/\\d+)/\\d",
+    "exampleUrl": "https://natalie.mu/music/gallery/news/19812/28317\r\nhttps://natalie.mu/comic/gallery/news/18577/26375\r\nhttps://natalie.mu/comic/news/18577\r\nhttps://natalie.mu/music/news/120722\r\nhttps://natalie.mu/eiga/news/156194\r\nhttps://natalie.mu/stage/news/212854\r\nhttps://natalie.mu/eiga/news/288207\r\nhttps://natalie.mu/comic/news/239966\r\nhttps://natalie.mu/comic/column/394626"
   },
-  "updated_at": "2020-05-30T07:35:39+09:00",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "inucara",
+  "resource_url": "http://wedata.net/items/29498",
   "name": "ナタリー - 画像 ニュース 統合",
-  "created_by": "inucara"
+  "created_at": "2009-08-12T21:40:29+09:00",
+  "updated_at": "2020-12-07T16:20:04+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/29492",
