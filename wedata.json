@@ -1,5 +1,20 @@
 [
 {
+  "resource_url": "http://wedata.net/items/85590",
+  "data": {
+    "pageElement": "//p[@class=\"NA_footer_copyright\"]",
+    "comment": "This is a dummy code for uAutoPagerize.",
+    "nextLink": "descendant::li[last()]/a[//li[@class=\"GAE_back\"]/following-sibling::li[1][not(.//a)]]",
+    "url": "^https://natalie\\.mu/.+/gallery/news/",
+    "exampleUrl": "https://natalie.mu/comic/gallery/news/407671/media/56831 \r\nhttps://natalie.mu/music/gallery/news/407695/1496751\r\nhttps://natalie.mu/owarai/gallery/news/407820/1497467"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "kenzou_ogawa",
+  "name": "ナタリー - 画像 ニュース ダミー",
+  "created_at": "2020-12-08T08:45:52+09:00",
+  "updated_at": "2020-12-08T08:46:14+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/85588",
   "data": {
     "pageElement": "//div[@class=\"article-pagination\"]/preceding-sibling::*[./preceding-sibling::h3]|//div[@class=\"article-pagination\"]/preceding-sibling::h3",
@@ -5583,21 +5598,6 @@
     "nextLink": "//a[@rel=\"next\"]"
   },
   "created_at": "2019-03-18T15:03:46+09:00"
-},
-{
-  "resource_url": "http://wedata.net/items/82097",
-  "name": "DMM 電子書籍",
-  "created_by": "t_f_m",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-03-17T02:03:06+09:00",
-  "data": {
-    "exampleUrl": "https://book.dmm.com/list/comic/?floor=Gcomic&sort=ranking\r\nhttps://book.dmm.co.jp/list/comic/?floor=Abook&sort=ranking&type=volume",
-    "url": "^https://book\\.dmm\\.com/",
-    "pageElement": "id(\"fn-list\")/li",
-    "insertBefore": "",
-    "nextLink": "//link[@rel=\"next\"]"
-  },
-  "created_at": "2019-03-17T02:03:06+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/82096",
@@ -13309,18 +13309,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/79970",
-  "name": "DMM 電子書籍",
-  "created_by": "t_f_m",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-03-13T00:18:39+09:00",
   "data": {
-    "exampleUrl": "https://book.dmm.com/list/comic/?floor=Gcomic&article=category&id=66032&page=5\r\nhttps://book.dmm.co.jp/list/comic/?floor=Abook&type=magazine&sort=date\r\nhttps://www.dmm.com/search/=/searchstr=%E3%82%A2%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3/limit=30/n1=FgRCTw9VBA4GAFNXXF0_/sort=ranking/view=package/page=5/",
-    "comment": "id #fn-list is not unique",
+    "pageElement": "//div[contains(concat(\" \",@class),\" m-boxListBookProduct\")]/ul[@id or @class]",
+    "nextLink": "//link[@rel=\"next\"]",
     "url": "^https://(?:book|www)\\.dmm\\.co(?:m|.jp)/",
-    "pageElement": "//ul[@id=\"fn-list\"]/li",
-    "nextLink": "//ul[@class=\"m-boxPagenation__list\"]/li[span]/following-sibling::li/a"
+    "exampleUrl": "https://book.dmm.com/list/comic/?floor=Gcomic&article=category&id=66032&page=5\r\nhttps://book.dmm.co.jp/list/comic/?floor=Abook&type=magazine&sort=date\r\nhttps://www.dmm.com/search/=/searchstr=%E3%82%A2%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3/limit=30/n1=FgRCTw9VBA4GAFNXXF0_/sort=ranking/view=package/page=5/\r\nhttps://book.dmm.com/list/comic/?floor=Gcomic&sort=ranking\r\nhttps://book.dmm.co.jp/list/comic/?floor=Abook&sort=ranking&type=volume\r\nhttps://book.dmm.com/list/free/comic/?floor=Gcomic&article=category&id=66031%2C66032%2C66035%2C66033%2C66034%2C66066&price_max=0&sort=osusume&view=detail\r\nhttps://book.dmm.co.jp/list/photo/?floor=Aphoto&sort=ranking&view=detail"
   },
-  "created_at": "2016-03-02T01:46:38+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m",
+  "name": "DMM 電子書籍",
+  "created_at": "2016-03-02T01:46:38+09:00",
+  "updated_at": "2020-12-10T04:53:44+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/79968",
@@ -22514,17 +22513,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/74664",
-  "name": "hcs64.com Forums",
-  "created_by": "Tanookirby",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2016-08-16T08:47:20+09:00",
   "data": {
-    "exampleUrl": "https://www.hcs64.com/mboard/forum.php",
-    "url": "^https?://(?:www\\.)?hcs64\\.com/mboard/forum\\.php",
-    "pageElement": "//table[@class='threadlist']//tr[.//@class='subject']|//dl[@class='postlist']",
-    "nextLink": "//a[.='Next Page']"
+    "pageElement": "//table[@class='threadlist']//tr[.//@class='subject']|//dl[@class='postlist']/*",
+    "nextLink": "//a[.='Next Page']",
+    "url": "^https?://(?:www\\.)?hcs64\\.com/mboard/forum(long)?\\.php",
+    "exampleUrl": "https://www.hcs64.com/mboard/forum.php https://hcs64.com/mboard/forumlong.php?showthread=50968&showpage=0"
   },
-  "created_at": "2014-03-23T05:51:06+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "Tanookirby",
+  "name": "hcs64.com Forums",
+  "created_at": "2014-03-23T05:51:06+09:00",
+  "updated_at": "2020-12-11T05:51:26+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/74662",
@@ -40784,19 +40783,19 @@
   "updated_at": "2020-12-07T21:17:08+09:00"
 },
 {
+  "resource_url": "http://wedata.net/items/29498",
   "data": {
     "pageElement": "//div[@class=\"NA_article_body\"]",
     "comment": "url of 29498 must longer than http://wedata.net/items/29499",
-    "nextLink": "//ul[@class=\"NA_pager\"]/li[a][last()]/a|//div[contains(concat(\" \",@class,\" \"),\" NA_article_img \")]/a|//div[contains(concat(\" \",@class,\" \"),\" NA_article_gallery \")]/ul[@class=\"NA_imglist\"]/li/a",
-    "url": "^https?://natalie\\.mu/(?:(?:(?:com|mus)ic|eiga|o(?:yatsu|warai)|stage)/)?(?:column|news|gallery/news/\\d+)/\\d",
-    "exampleUrl": "https://natalie.mu/music/gallery/news/19812/28317\r\nhttps://natalie.mu/comic/gallery/news/18577/26375\r\nhttps://natalie.mu/comic/news/18577\r\nhttps://natalie.mu/music/news/120722\r\nhttps://natalie.mu/eiga/news/156194\r\nhttps://natalie.mu/stage/news/212854\r\nhttps://natalie.mu/eiga/news/288207\r\nhttps://natalie.mu/comic/news/239966\r\nhttps://natalie.mu/comic/column/394626"
+    "nextLink": "//ul[@class=\"NA_pager\"]/li[contains(concat(\" \",@class,\" \"),\" NA_pager_next \")]/a|//div[contains(concat(\" \",@class,\" \"),\" NA_article_img \")]/a|//div[contains(concat(\" \",@class,\" \"),\" NA_article_gallery \")]/ul[@class=\"NA_imglist\"]/li/a",
+    "url": "^https?://natalie\\.mu/(?:(?:(?:com|mus)ic|eiga|o(?:yatsu|warai)|stage)/)?(?:column|news|gallery/[^/]+/\\d+(?:/media)?)/\\d",
+    "exampleUrl": "https://natalie.mu/music/gallery/news/19812/28317\r\nhttps://natalie.mu/comic/gallery/news/18577/26375\r\nhttps://natalie.mu/comic/news/18577\r\nhttps://natalie.mu/music/news/120722\r\nhttps://natalie.mu/eiga/news/156194\r\nhttps://natalie.mu/stage/news/212854\r\nhttps://natalie.mu/eiga/news/288207\r\nhttps://natalie.mu/comic/news/239966\r\nhttps://natalie.mu/comic/column/394626\r\nhttps://natalie.mu/comic/gallery/column/394626/1437095\r\nhttps://natalie.mu/comic/gallery/news/407671/media/39848"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "inucara",
-  "resource_url": "http://wedata.net/items/29498",
   "name": "ナタリー - 画像 ニュース 統合",
   "created_at": "2009-08-12T21:40:29+09:00",
-  "updated_at": "2020-12-07T16:20:04+09:00"
+  "updated_at": "2020-12-08T01:48:03+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/29492",
