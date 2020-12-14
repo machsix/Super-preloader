@@ -87,19 +87,18 @@
   "updated_at": "2020-11-25T10:04:17+09:00"
 },
 {
+  "resource_url": "http://wedata.net/items/85580",
   "data": {
-    "insertBefore": "",
-    "pageElement": "//div[contains(concat(' ',@class,' '),' container ')]/div",
+    "pageElement": "//div[contains(concat(' ',@class,' '),' container ')]",
     "nextLink": "//a[@rel='next']",
     "url": "^https://[^./]+.nyahentai\\.com/",
-    "exampleUrl": "https://ja.nyahentai.com/artist/hashibiro-kou/"
+    "exampleUrl": "https://ja.nyahentai.com/artist/hashibiro-kou/\r\nhttps://ja.nyahentai.com/characters/popular"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "unknown10'",
-  "resource_url": "http://wedata.net/items/85580",
   "name": "nyahentai search",
   "created_at": "2020-11-25T04:35:57+09:00",
-  "updated_at": "2020-11-25T04:35:57+09:00"
+  "updated_at": "2020-12-11T10:01:01+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/85577",
