@@ -3011,16 +3011,16 @@
 {
   "resource_url": "http://wedata.net/items/85290",
   "data": {
-    "pageElement": "//div[@class=\"editor\"]/*[not(@class=\"page-links\")][not(@class=\"next_page\")] | //div[@class]/div[@class=\"article_list_area\"]/ul[@class=\"article_list one\"] | //section[@class=\"writer_list\"]/div[@class=\"content_area\"]/ul[@class=\"article_list one\"]",
-    "nextLink": "//*[@rel=\"next\"] | //a[@class=\"next page-numbers\"]",
+    "pageElement": "//div[@class=\"editor\"]/*[not(@class=\"page-links\")][not(@class=\"next_page\")] | id(\"container\")[@class=\"article\" or @class=\"article writer_detail\"]//ul[@class=\"article_list one\"] | //div[@class=\"article_image_head\"]/*[self::div[@class=\"image_box\"] or self::figcaption]",
+    "nextLink": "//*[@class=\"next_page\" or @class=\"arrow_next\"]/a | //a[@class=\"next page-numbers\"]",
     "url": "^https://qjweb\\.jp/",
-    "exampleUrl": "https://qjweb.jp/journal/15016/\r\nhttps://qjweb.jp/book/\r\nhttps://qjweb.jp/contributor/14103/"
+    "exampleUrl": "https://qjweb.jp/journal/15016/\r\nhttps://qjweb.jp/book/\r\nhttps://qjweb.jp/contributor/14103/\r\nhttps://qjweb.jp/feature/45028/article-gallery/45053/"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "brib2",
   "name": "QJWeb クイックジャパンウェブ",
   "created_at": "2020-04-13T14:18:41+09:00",
-  "updated_at": "2020-06-10T16:49:08+09:00"
+  "updated_at": "2020-12-20T10:54:25+09:00"
 },
 {
   "name": "rrys2019",
@@ -48900,17 +48900,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/442",
-  "name": "DLsite.com",
-  "created_by": "swdyh",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-02-04T01:01:10+09:00",
   "data": {
-    "exampleUrl": "http://www.dlsite.com/home/circle/profile/=/maker_id/RG02059.html, http://www.dlsite.com/home/fsr/=/genre/013/work_category/doujin,",
+    "pageElement": "id(\"search_result_img_box\")",
+    "nextLink": "//a[text()=\"次へ\"]",
     "url": "^https://(?:[^.]+\\.)?dlsite\\.com/",
-    "pageElement": "id('main_inner')/div[contains(@class, 'status_select_box')]/following-sibling::div[@class='_search_result_list']/table",
-    "nextLink": "id('main_inner')/table[contains(@class, 'search_pager')]//ul/li[strong]/following-sibling::li[1]/a"
+    "exampleUrl": "https://www.dlsite.com/books/fsr/=/is_free/1/work_category/books/order/release_d/per_page/100"
   },
-  "created_at": "2008-04-16T12:35:30+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "swdyh",
+  "name": "DLsite.com",
+  "created_at": "2008-04-16T12:35:30+09:00",
+  "updated_at": "2020-12-18T16:30:27+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/438",
