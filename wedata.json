@@ -1,5 +1,48 @@
 [
 {
+  "resource_url": "http://wedata.net/items/85595",
+  "data": {
+    "pageElement": "//div[@class='taidan']",
+    "nextLink": "//div[@class='contents-noX'][contains(.,'next')]/a",
+    "url": "^https://sp\\.shonenjump\\.com/p/sp/",
+    "exampleUrl": "https://sp.shonenjump.com/p/sp/1903/jigokuraku_interview/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m_",
+  "name": "賀来ゆうじ 三浦建太郎 特別対談 ジャンププラス",
+  "created_at": "2020-12-24T06:34:30+09:00",
+  "updated_at": "2020-12-26T06:22:31+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85594",
+  "data": {
+    "pageElement": "id(\"main\")/section/div[@class=\"articleBody\"]|id(\"main\")/section/ul/li",
+    "nextLink": "//li[@class=\"next\"]/a",
+    "url": "^https://project.nikkeibp.co.jp/HumanCapital/",
+    "exampleUrl": "https://project.nikkeibp.co.jp/HumanCapital/atcl/column/00004/112700008/?P=2\r\nhttps://project.nikkeibp.co.jp/HumanCapital/series/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m_",
+  "name": "ヒューマンキャピタル・オンライン 日経bp",
+  "created_at": "2020-12-23T01:46:41+09:00",
+  "updated_at": "2020-12-23T01:52:23+09:00"
+},
+{
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//div[@class=\"post-sep\"]/preceding-sibling::*",
+    "nextLink": "//div[@class=\"next-sep\"]/a",
+    "url": "^https?://wotopi\\.jp/archives/",
+    "exampleUrl": "https://wotopi.jp/archives/107917"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "brib2",
+  "resource_url": "http://wedata.net/items/85593",
+  "name": "ウートピ (記事)",
+  "created_at": "2020-12-22T18:39:49+09:00",
+  "updated_at": "2020-12-22T18:39:49+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/85590",
   "data": {
     "pageElement": "//p[@class=\"NA_footer_copyright\"]",
@@ -7327,17 +7370,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/81792",
-  "name": "Amazon.com",
-  "created_by": "anair3007",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-03-27T22:15:23+09:00",
   "data": {
-    "exampleUrl": "https://www.amazon.com/s?rh=n%3A165793011%2Cn%3A%21165795011%2Cn%3A165993011&page=2\r\nhttps://www.amazon.co.jp/s?k=%E3%82%8A%E3%82%85%E3%81%86%E3%81%8A%E3%81%86%E3%81%AE%E3%81%8A%E3%81%97%E3%81%94%E3%81%A8&__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&linkCode=qs&sourceid=Mozilla-search&tag=mozillajapan-fx-22",
+    "pageElement": "id('mainResults')|//div[contains(concat(' ',@class,' '),' s-result-list ')]/div[contains(@class,'s-result-item s-asin')][not(contains(@class,'AdHolder'))]",
+    "nextLink": "//span[@class='pagnCur']/following-sibling::span/a|//li[@class='a-selected']/following-sibling::li/a",
     "url": "^https?://(\\w+\\.)?amazon\\.(?:\\w{2,3}(?:\\.\\w{2})?)/",
-    "pageElement": "id(\"mainResults\")|//div[contains(concat(\" \",@class,\" \"),\" s-result-list \")]",
-    "nextLink": "//span[@class=\"pagnCur\"]/following-sibling::span/a|//li[@class=\"a-selected\"]/following-sibling::li/a"
+    "exampleUrl": "https://www.amazon.com/amazon-wall-calendar/s?k=amazon+wall+calendar&i=stripbooks&rh=n%3A283155%2Cn%3A4456&dc&page=2&qid=1609010635&rnid=2941120011&ref=sr_pg_1 https://www.amazon.com/s?rh=n%3A165793011%2Cn%3A%21165795011%2Cn%3A165993011&page=2 https://www.amazon.co.jp/s?k=%E3%82%8A%E3%82%85%E3%81%86%E3%81%8A%E3%81%86%E3%81%AE%E3%81%8A%E3%81%97%E3%81%94%E3%81%A8&__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&linkCode=qs&sourceid=Mozilla-search&tag=mozillajapan-fx-22"
   },
-  "created_at": "2018-07-18T03:53:47+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "anair3007",
+  "name": "Amazon.com",
+  "created_at": "2018-07-18T03:53:47+09:00",
+  "updated_at": "2020-12-27T06:33:10+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/81773",
@@ -49012,16 +49055,16 @@
 {
   "resource_url": "http://wedata.net/items/418",
   "data": {
-    "pageElement": "id('rightResults atfResults btfResults mainResults Results sparseWrapper')[not(//link[@rel='canonical'][contains(@href,'page')])]//*[starts-with(@id,'result_')]|//li[@class='shoveler-cell']|id('resultsCol')[//link[@rel='canonical'][contains(@href,'page')]]|//div[contains(concat(' ',@class,' '),' s-search-results ')]/div|id('searchWidget')/*[self::div[not(ul/@class='a-pagination')] or self::hr]",
-    "nextLink": "//a[@class='next-button-link']|//li[@class='a-selected']/following-sibling::li/a",
+    "pageElement": "id(\"searchWidget\")/*[self::div[not(ul/@class=\"a-pagination\")] or self::hr]|//ul[@class=\"a-pagination\"]/ancestor::div[@data-index]/preceding-sibling::*",
+    "nextLink": "//a[@class=\"next-button-link\"]|//a[contains(@href,concat(\"&page=\",number(substring-after(//link[@rel=\"canonical\"]/@href,\"&page=\"))+1))]|//li[@class=\"a-selected\"][not(//link[@rel=\"canonical\"][contains(@href,\"&page=\")])]/following-sibling::li[1]/a",
     "url": "^https?://www\\.amazon\\.(?:c(?:a|n|o(?:m|\\.(?:jp|uk)))|de|fr)/(?:[^/]+/)?(?:[bes]|(?:gp|exec/obidos)/(search|aag)|entity/author)?",
-    "exampleUrl": "http://www.amazon.co.jp/s/?field-keywords=windows\r\nhttp://www.amazon.co.jp/s/?url=search-alias%3Dtoys&field-keywords=lego\r\nhttp://www.amazon.co.jp/exec/obidos/search-handle-url?_encoding=UTF8&search-type=ss&index=books-jp&field-author=%E6%9D%91%E4%B8%8A%20%E6%98%A5%E6%A8%B9\r\nhttp://www.amazon.co.jp/b?ie=UTF8&node=2515445051\r\nhttp://www.amazon.co.jp/%E6%A9%99%E4%B9%83-%E3%81%BE%E3%81%BE%E3%82%8C/e/B006AIETUI/\r\nhttp://www.amazon.com/gp/aag/main?ie=UTF8&seller=AGHVE2KVOZA3D\r\nhttp://www.amazon.co.jp/s/ref=lp_3452196051_pg_2?rh=n%3A2250738051%2Cn%3A!2275265051%2Cn%3A!2275277051%2Cn%3A3452196051&page=2&ie=UTF8&qid=1438764067\r\nhttps://www.amazon.co.jp/s?rh=n%3A6990947051&page=2\r\nhttps://www.amazon.co.jp/kindle-dbs/entity/author/B00J1JKSOY?_encoding=UTF8&offset=0&pageSize=12&searchAlias=stripbooks&sort=author-pages-popularity-rank&page=4&langFilter=default#formatSelectorHeader"
+    "exampleUrl": "http://www.amazon.co.jp/s/?field-keywords=windows\r\nhttp://www.amazon.co.jp/s/?url=search-alias%3Dtoys&field-keywords=lego\r\nhttp://www.amazon.co.jp/exec/obidos/search-handle-url?_encoding=UTF8&search-type=ss&index=books-jp&field-author=%E6%9D%91%E4%B8%8A%20%E6%98%A5%E6%A8%B9\r\nhttp://www.amazon.co.jp/%E6%A9%99%E4%B9%83-%E3%81%BE%E3%81%BE%E3%82%8C/e/B006AIETUI/\r\nhttps://www.amazon.co.jp/kindle-dbs/entity/author/B00J1JKSOY?_encoding=UTF8&offset=0&pageSize=12&searchAlias=stripbooks&sort=author-pages-popularity-rank&page=4&langFilter=default#formatSelectorHeader"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "swdyh",
   "name": "Amazon 検索結果",
   "created_at": "2008-04-16T12:35:23+09:00",
-  "updated_at": "2020-10-16T08:30:39+09:00"
+  "updated_at": "2020-12-27T14:44:51+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/414",
