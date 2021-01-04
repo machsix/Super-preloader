@@ -1,5 +1,19 @@
 [
 {
+  "resource_url": "http://wedata.net/items/85597",
+  "data": {
+    "pageElement": "//div[@class='post-wrapper-hentry']",
+    "nextLink": "//a[@class='next page-numbers']",
+    "url": "^https?://rlsbb\\.ru/",
+    "exampleUrl": "https://rlsbb.ru/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "Steve Bass",
+  "name": "ReleaseBB",
+  "created_at": "2021-01-01T09:13:25+09:00",
+  "updated_at": "2021-01-01T10:24:32+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/85595",
   "data": {
     "pageElement": "//div[@class='taidan']",
@@ -334,18 +348,18 @@
   "updated_at": "2020-11-04T22:31:40+09:00"
 },
 {
+  "resource_url": "http://wedata.net/items/85550",
   "data": {
     "pageElement": "//div[@id='diarys']",
-    "nextLink": "//a[text()='下一页']",
+    "nextLink": "//a[text()='下一页' or text()='时间前进 »']",
     "url": "^https?://(www\\.)?timepill\\.net/",
     "exampleUrl": "http://www.timepill.net/"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "金晨",
-  "resource_url": "http://wedata.net/items/85550",
   "name": "胶囊日记",
   "created_at": "2020-11-04T20:37:13+09:00",
-  "updated_at": "2020-11-04T20:47:04+09:00"
+  "updated_at": "2020-12-29T22:46:46+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/85549",
@@ -21370,17 +21384,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/74925",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "created_at": "2014-06-27T14:01:04+09:00",
   "data": {
-    "pageElement": "//div[@class='m-article-text-main is-normal']/node()|//div[@class='js-ajax-load-contents']/*",
-    "exampleUrl": "https://kai-you.net/article/4811\r\nhttps://kai-you.net/article/4811/page/2\r\nhttps://kai-you.net/recent",
+    "pageElement": "//div[contains(concat(' ',@class,' '),' m-article-text-main ')]/node()|//div[contains(concat(' ',@class,' '),' js-ajax-load-contents ')]/*",
+    "nextLink": "//link[@rel='next']",
     "url": "^https://kai-you\\.net/",
-    "nextLink": "//link[@rel='next']"
+    "exampleUrl": "https://kai-you.net/article/4811\r\nhttps://kai-you.net/article/4811/page/2\r\nhttps://kai-you.net/recent\r\nhttps://kai-you.net/article/79091"
   },
-  "updated_at": "2020-05-29T11:41:16+09:00",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "taizooo",
   "name": "KAI-YOU.net",
-  "created_by": "taizooo"
+  "created_at": "2014-06-27T14:01:04+09:00",
+  "updated_at": "2020-12-28T20:48:02+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/74923",
@@ -44814,17 +44828,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/2607",
-  "name": "ストリートスナップ - Fashionsnap.com",
   "data": {
-    "url": "^https://(www\\.)?fashionsnap\\.com/(streetsnap|inside)",
-    "pageElement": "(id('block')|//ul[@class='ais-Hits-list']/li",
-    "exampleUrl": "https://www.fashionsnap.com/streetsnap/more.html https://www.fashionsnap.com/inside/",
-    "nextLink": "//a[@aria-label='Next']"
+    "pageElement": "//article/div[contains(@class,\"pager\")]/preceding-sibling::*",
+    "nextLink": "//a[@rel=\"next\"]",
+    "url": "^https://(www\\.)?fashionsnap\\.com/article/",
+    "exampleUrl": "https://www.fashionsnap.com/article/nhk-kohaku-fashion-2020/"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "swdyh",
+  "name": "ストリートスナップ - Fashionsnap.com",
   "created_at": "2008-09-21T20:54:19+09:00",
-  "updated_at": "2020-03-31T10:13:07+09:00"
+  "updated_at": "2021-01-02T12:42:15+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/2606",
@@ -49055,16 +49069,16 @@
 {
   "resource_url": "http://wedata.net/items/418",
   "data": {
-    "pageElement": "id(\"searchWidget\")/*[self::div[not(ul/@class=\"a-pagination\")] or self::hr]|//ul[@class=\"a-pagination\"]/ancestor::div[@data-index]/preceding-sibling::*",
-    "nextLink": "//a[@class=\"next-button-link\"]|//a[contains(@href,concat(\"&page=\",number(substring-after(//link[@rel=\"canonical\"]/@href,\"&page=\"))+1))]|//li[@class=\"a-selected\"][not(//link[@rel=\"canonical\"][contains(@href,\"&page=\")])]/following-sibling::li[1]/a",
-    "url": "^https?://www\\.amazon\\.(?:c(?:a|n|o(?:m|\\.(?:jp|uk)))|de|fr)/(?:[^/]+/)?(?:[bes]|(?:gp|exec/obidos)/(search|aag)|entity/author)?",
+    "pageElement": "id('searchWidget')/*[self::div[not(ul/@class='a-pagination')] or @class='a-spacing-none a-divider-normal']|//ul[@class='a-pagination']/ancestor::div[@data-index]/preceding-sibling::*[div]",
+    "nextLink": "//a[@class='next-button-link']|//a[contains(@href,concat('&page=',number(substring-after(//link[@rel='canonical']/@href,'&page='))+1))]|//li[@class='a-selected'][not(//link[@rel='canonical'][contains(@href,'&page=')])]/following-sibling::li[1]/a",
+    "url": "^https?://(www\\.)?amazon\\.(?:c(?:a|n|o(?:m|\\.(?:jp|uk)))|de|fr)/(?:[^/]+/)?(?:[bes]|(?:gp|exec/obidos)/(search|aag)|entity/author)?",
     "exampleUrl": "http://www.amazon.co.jp/s/?field-keywords=windows\r\nhttp://www.amazon.co.jp/s/?url=search-alias%3Dtoys&field-keywords=lego\r\nhttp://www.amazon.co.jp/exec/obidos/search-handle-url?_encoding=UTF8&search-type=ss&index=books-jp&field-author=%E6%9D%91%E4%B8%8A%20%E6%98%A5%E6%A8%B9\r\nhttp://www.amazon.co.jp/%E6%A9%99%E4%B9%83-%E3%81%BE%E3%81%BE%E3%82%8C/e/B006AIETUI/\r\nhttps://www.amazon.co.jp/kindle-dbs/entity/author/B00J1JKSOY?_encoding=UTF8&offset=0&pageSize=12&searchAlias=stripbooks&sort=author-pages-popularity-rank&page=4&langFilter=default#formatSelectorHeader"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "swdyh",
   "name": "Amazon 検索結果",
   "created_at": "2008-04-16T12:35:23+09:00",
-  "updated_at": "2020-12-27T14:44:51+09:00"
+  "updated_at": "2020-12-30T06:34:08+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/414",
