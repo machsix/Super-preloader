@@ -28029,18 +28029,19 @@
   "created_at": "2012-08-08T13:11:13+09:00"
 },
 {
-  "resource_url": "http://wedata.net/items/62666",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "created_at": "2012-08-08T11:21:17+09:00",
   "data": {
     "pageElement": "//div[@class='tweet_box']/div[not(@id)]",
-    "exampleUrl": "https://togetter.com/li/351535\r\nhttps://togetter.com/li/1060348?page=38",
+    "insertBefore": "id('hidden_tweet_box')/following-sibling::node()[1]",
+    "nextLink": "//link[@rel='next']",
     "url": "^https?://togetter\\.com/li/",
-    "nextLink": "//link[@rel='next']"
+    "exampleUrl": "https://togetter.com/li/351535\r\nhttps://togetter.com/li/1060348?page=38"
   },
-  "updated_at": "2020-05-21T09:36:36+09:00",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m",
+  "resource_url": "http://wedata.net/items/62666",
   "name": "Togetter 個別記事",
-  "created_by": "t_f_m"
+  "created_at": "2012-08-08T11:21:17+09:00",
+  "updated_at": "2021-01-11T03:53:32+09:00"
 },
 {
   "name": "Staffさん。",
@@ -29128,17 +29129,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/59809",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "created_at": "2012-03-30T04:25:03+09:00",
   "data": {
     "pageElement": "(id('ListViewInner srchrslt-adtable')|id('srp-river-results')/ul)/li|//div[@class='row-fluid item-cell' or @class='span3 item-cell h-small']",
-    "exampleUrl": "https://www.ebay.com/sch/i.html?_nkw=rolex https://www.ebay.com.au/sch/Trading-Cards-/166107/i.html?_dmpt=AU_AFL_TradingCards&_ipg=24 https://shop.ebay.fr/i.html?_nkw=Rolex\r\nhttps://stores.ebay.com/darrellthegambler/_i.html?_sop=10&rt=nc\r\nhttps://stores.ebay.com/darrellthegambler/_i.html?_dmd=2&rt=nc\r\nhttps://kleinanzeigen.ebay.de/anzeigen/s-gutscheine/c287",
-    "url": "^https://.*\\.ebay(?:\\.[^./]{2,3}){1,2}/",
-    "nextLink": "//link[@rel='next']|//a[starts-with(@class,'gspr next') or @class='pagination__next']"
+    "nextLink": "//a[starts-with(@class,'gspr next') or @class='pagination__next' or @class='pagination-next']",
+    "url": "^https://.*\\.ebay.*\\.",
+    "exampleUrl": "https://www.ebay.com/sch/i.html?_nkw=rolex https://www.ebay.com.au/sch/Trading-Cards-/166107/i.html?_dmpt=AU_AFL_TradingCards&_ipg=24 https://shop.ebay.fr/i.html?_nkw=Rolex\r\nhttps://stores.ebay.com/darrellthegambler/_i.html?_sop=10&rt=nc\r\nhttps://stores.ebay.com/darrellthegambler/_i.html?_dmd=2&rt=nc\r\nhttps://kleinanzeigen.ebay.de/anzeigen/s-gutscheine/c287\r\nhttps://www.ebay-kleinanzeigen.de/s-auto-rad-boot/c210"
   },
-  "updated_at": "2020-05-19T08:50:58+09:00",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "DbZ",
   "name": "ebay アメリカとドイツ等各国 商品検索",
-  "created_by": "DbZ"
+  "created_at": "2012-03-30T04:25:03+09:00",
+  "updated_at": "2021-01-05T10:01:39+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/59801",
