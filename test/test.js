@@ -137,19 +137,19 @@ async function main() {
   }
 
   // check iframe
-  await targetPage.goto('https://idope.se/torrent-list/transformer');
-  await targetPage.evaluate((_) => {
-    window.scrollTo(0, document.body.scrollHeight + 20);
-  });
-  try {
-    await targetPage.waitFor('#sp-separator-2', {
-      timeout: 30 * 1000
-    });
-    console.log('Iframe: \u2714');
-  } catch (err) {
-    console.log('Error', err.name, err.message);
-    throw new Error('Iframe: \u274c');
-  }
+  // await targetPage.goto('https://idope.se/torrent-list/transformer');
+  // await targetPage.evaluate((_) => {
+  //   window.scrollTo(0, document.body.scrollHeight + 20);
+  // });
+  // try {
+  //   await targetPage.waitFor('#sp-separator-2', {
+  //     timeout: 30 * 1000
+  //   });
+  //   console.log('Iframe: \u2714');
+  // } catch (err) {
+  //   console.log('Error', err.name, err.message);
+  //   throw new Error('Iframe: \u274c');
+  // }
   await browser.close();
 }
 

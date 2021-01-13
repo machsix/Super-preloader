@@ -7,11 +7,11 @@ cache: npm
 before_install:
   - npm config set scripts-prepend-node-path true
 install:
+  - alias python=python2
   - npm install
 script:
   - npm run check
   - npm run build
-  - curl -f -s https://idope.se/torrent-list/transformer > /dev/null
   - travis_retry npm run test
   - npm run docs:publish
 deploy:

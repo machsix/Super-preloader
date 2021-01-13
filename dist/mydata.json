@@ -1722,7 +1722,7 @@
   },
   {
     "name": "性感尤物",
-    "url": "^https?://www\\.(jpxgyw|xgyw|nvshenheji|xgmn5|mntup|xgmn|mn5)\\.(com|cc|org)/[^/]*/[^/]*\\.html",
+    "url": "^https?://www\\.(jpxgyw|xgyw|nvshenheji|xgmn5|mntup|xgmn|mn5|jpxgmn)\\.(com|cc|org)/[^/]*/[^/]*\\.html",
     "pageElement": "//div[@class='img']/p",
     "exampleUrl": "http://www.xgyw.cc/Xgyw/Xgyw6874.html",
     "nextLink": "//div[@class='page']/a[text()='后']",
@@ -1733,7 +1733,7 @@
   },
   {
     "name": "性感尤物2",
-    "url": "^https?://www\\.(jpxgyw|xgyw|xgmn5|nvshenheji|mntup|xgmn|mn5)\\.(com|cc|org)/[^/]*/",
+    "url": "^https?://www\\.(jpxgyw|xgyw|xgmn5|nvshenheji|mntup|xgmn|mn5|jpxgmn)\\.(com|cc|org)/[^/]*/",
     "pageElement": "//tr[./td[@class='td6']]",
     "exampleUrl": "http://www.xgyw.cc/Xgyw",
     "nextLink": "//div[@class='page']/a[text()='下页']",
