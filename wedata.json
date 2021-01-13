@@ -1,5 +1,20 @@
 [
 {
+  "resource_url": "http://wedata.net/items/85598",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//article/div[@class=\"articleBody\"]",
+    "nextLink": "//ul[@class=\"pageNav\"]/li[@class=\"pageActive\"]/following-sibling::li/a",
+    "url": "^https://project\\.nikkeibp\\.co\\.jp/energy/",
+    "exampleUrl": "https://project.nikkeibp.co.jp/energy/atcl/19/feature/00001/00043/?P=1"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m_",
+  "name": "日経エネルギーNext",
+  "created_at": "2021-01-12T16:08:42+09:00",
+  "updated_at": "2021-01-12T16:08:42+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/85597",
   "data": {
     "pageElement": "//div[@class='post-wrapper-hentry']",
@@ -22371,17 +22386,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/74696",
-  "name": "作品一覧 - ニコニコ静画 (マンガ)",
-  "created_by": "kazak",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2015-07-29T20:25:33+09:00",
   "data": {
-    "exampleUrl": "http://seiga.nicovideo.jp/manga/list?sort=manga_updated",
-    "url": "^http://seiga\\.nicovideo\\.jp/manga/list",
     "pageElement": "id(\"comic_list\")",
-    "nextLink": "id('mg_main_column')/div[5]/div/ul/li[12]/a"
+    "nextLink": "//a[@rel=\"next\"]",
+    "url": "^https://seiga\\.nicovideo\\.jp/manga/list",
+    "exampleUrl": "http://seiga.nicovideo.jp/manga/list?sort=manga_updated\r\nhttps://seiga.nicovideo.jp/manga/list?page=1&official=magcomi_isekai&sort=manga_updated"
   },
-  "created_at": "2014-04-02T00:34:53+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "kazak",
+  "name": "作品一覧 - ニコニコ静画 (マンガ)",
+  "created_at": "2014-04-02T00:34:53+09:00",
+  "updated_at": "2021-01-12T15:39:46+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/74694",
