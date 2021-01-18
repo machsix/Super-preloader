@@ -1,5 +1,20 @@
 [
 {
+  "resource_url": "http://wedata.net/items/85599",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//section[@class=\"c-content-section-2\"]",
+    "nextLink": "//li[contains(@class,\"next\")]/a",
+    "url": "^https?://www\\.elecom\\.co\\.jp/news/",
+    "exampleUrl": "https://www.elecom.co.jp/news/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "brib2",
+  "name": "エレコム 最新情報",
+  "created_at": "2021-01-13T21:28:18+09:00",
+  "updated_at": "2021-01-13T21:28:18+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/85598",
   "data": {
     "insertBefore": "",
@@ -42718,18 +42733,18 @@
 },
 {
   "resource_url": "http://wedata.net/items/27333",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "created_at": "2009-03-05T18:56:33+09:00",
   "data": {
-    "pageElement": "(//div[starts-with(@class,'forumbg') or @class='forabg'][last()]//ul[starts-with(@class,'topiclist topics')]|//table[normalize-space(@class)='forums']/tbody)/*[normalize-space(@class)='row bg1' or normalize-space(@class)='row bg2' or @class='row On' or @class='row Off' or starts-with(@class,'row row')][not(div/@class='topic-actions')]|//table[@id='content'][.//td/@id='canvas-panel']|//form/table[@class='forumline']//tr[starts-with(td/@class,'row')][not(td/span/b='Announcement:')]|id('pagecontent')//table[@class='tablebg']//tr[td[@class='row1' or @class='topic-titles row2']][not(.//img[contains(@src,'announce')])]|//tr[td[starts-with(@class,'row3')]/b='Topics']/following-sibling::tr[starts-with(td/@class,'row1')]|//tbody[tr/td/@class='tcl']|//div[starts-with(@class,'small-icon row bg')]|id('ModuleThreadList')//tr[td]",
+    "pageElement": "(//div[starts-with(@class,'forumbg') or @class='forabg'][last()]//ul[contains(@class,'topiclist topics')]|//table[normalize-space(@class)='forums']/tbody)/*[normalize-space(@class)='row bg1' or normalize-space(@class)='row bg2' or @class='row On' or @class='row Off' or starts-with(@class,'row row')][not(div/@class='topic-actions')]|//table[@id='content'][.//td/@id='canvas-panel']|//form/table[@class='forumline']//tr[starts-with(td/@class,'row')][not(td/span/b='Announcement:')]|id('pagecontent')//table[@class='tablebg']//tr[td[@class='row1' or @class='topic-titles row2']][not(.//img[contains(@src,'announce')])]|//tr[td[starts-with(@class,'row3')]/b='Topics']/following-sibling::tr[starts-with(td/@class,'row1')]|//tbody[tr/td/@class='tcl']|//div[starts-with(@class,'small-icon row bg')]|id('ModuleThreadList')//tr[td]|//div[@class='structItemContainer-group js-threadList']/*",
     "comments": "Post Lists: http://wedata.net/items/27331\r\nSearch Results: http://wedata.net/items/39059\r\n",
-    "exampleUrl": "http://www.astronomy.ro/forum/Observatii-astronomice---avansati-f14.html\r\nhttp://forums.selectbutton.net/viewforum.php?f=1\r\nhttp://enjoying.twbbs.org/phpbb3/viewforum.php?f=9\r\nhttp://www.supermariobrosx.org/forums/viewforum.php?f=69&sid=9a28b433383b38a651616a5eb0124f52\r\nhttp://arsenal-mania.com/forum/viewforum.php?f=14\r\nhttp://gerasdviratis.lt/forum/viewforum.php?f=30&start=90\r\nhttp://forums.mozillazine.jp/viewforum.php?f=2\r\nhttps://forums.ubuntulinux.jp/viewforum.php?id=15\r\nhttp://www.den4b.com/forum/viewforum.php?id=8\r\nhttp://www.macserialjunkie.com/forum/viewforum.php?f=15\r\nhttp://crunchbang.org/forums/viewforum.php?id=8\r\nhttp://spacefellowship.com/Forum/viewforum.php?f=23\r\nhttps://www.d-addicts.com/forums/viewforum.php?f=3&sid=868d4eb3917fbdf6f4f31b989eb1b733\r\nhttp://foro.todohdtv.com/peliculas-720p-75.html?letter\r\nhttp://www.4allmobile.eu/igo-8-mapy/\r\nhttp://www.norduserforum.com/nord-user-samples-nsmp-samples-f14/\r\nhttps://forums.lanik.us/viewforum.php?f=23\r\nhttp://gurugossiper.com/\r\nhttp://foreverdreaming.org/viewforum.php?f=6&sid=874850c970eec2ba91375ebfcce25de5\r\nhttp://www.overclock.net/f/161/computer-cases\r\nhttp://www.head-fi.org/f/4/headphones-full-size\r\nhttp://www.elotrolado.net/foro_feedback-wiki_159\r\nhttp://www.zeldix.net/f21-requests\r\nhttp://forex-nawigator.biz/forum/forex-daytrading.html\r\nhttps://www.tapatalk.com/groups/survivorsucks/survivor-sucks-f63/index-s25.html\r\nhttp://www.goallegacy.net/f2-general-football-discussion",
+    "nextLink": "(//*[@class='gensmall']/b/*[self::b or self::strong]|//table/tbody/tr/td[@class='nav'][last()]/b[last()]|(//div[@class='pagination']/span|//*[@class='pagelink conl' or @class='pagination'])/strong|//ul[@class='pn']/li[span/@class='curr'])/following-sibling::a[1]|(//link|//a)[.='Next' or @rel='next']",
     "url": "^https?://.*((free)?forum|/viewforum\\.php\\?|foro|/f/\\d+/|4allmobile|gurugossiper|zeldix|tapatalk)",
-    "nextLink": "(//*[@class='gensmall']/b/*[self::b or self::strong]|//table/tbody/tr/td[@class='nav'][last()]/b[last()]|(//div[@class='pagination']/span|//*[@class='pagelink conl' or @class='pagination'])/strong|//ul[@class='pn']/li[span/@class='curr'])/following-sibling::a[1]|(//link|//a)[.='Next' or @rel='next']"
+    "exampleUrl": "http://www.astronomy.ro/forum/Observatii-astronomice---avansati-f14.html\r\nhttp://forums.selectbutton.net/viewforum.php?f=1\r\nhttp://www.supermariobrosx.org/forums/viewforum.php?f=69&sid=9a28b433383b38a651616a5eb0124f52\r\nhttps://arsenal-mania.com/forum/forums/noticeboard.15/\r\nhttp://gerasdviratis.lt/forum/viewforum.php?f=30&start=90\r\nhttp://forums.mozillazine.jp/viewforum.php?f=2\r\nhttps://forums.ubuntulinux.jp/viewforum.php?id=15\r\nhttp://www.den4b.com/forum/viewforum.php?id=8\r\nhttp://www.macserialjunkie.com/forum/viewforum.php?f=15\r\nhttp://crunchbang.org/forums/viewforum.php?id=8\r\nhttps://www.d-addicts.com/forums/viewforum.php?f=3&sid=868d4eb3917fbdf6f4f31b989eb1b733\r\nhttp://www.4allmobile.eu/viewforum.php?f=15\r\nhttp://www.norduserforum.com/nord-user-samples-nsmp-samples-f14/\r\nhttps://forums.lanik.us/viewforum.php?f=23\r\nhttp://gurugossiper.com/\r\nhttp://foreverdreaming.org/viewforum.php?f=6&sid=874850c970eec2ba91375ebfcce25de5\r\nhttp://www.overclock.net/f/161/computer-cases\r\nhttp://www.head-fi.org/f/4/headphones-full-size\r\nhttp://www.zeldix.net/f21-requests\r\nhttp://forex-nawigator.biz/forum/forex-daytrading.html\r\nhttps://www.tapatalk.com/groups/survivorsucks/survivor-sucks-f63/index-s25.html\r\nhttp://www.goallegacy.net/f2-general-football-discussion"
   },
-  "updated_at": "2020-05-26T12:00:38+09:00",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "kyotocafe",
   "name": "phpBB, fluxBB, Board3, Huddler Lifestyle Forums",
-  "created_by": "kyotocafe"
+  "created_at": "2009-03-05T18:56:33+09:00",
+  "updated_at": "2021-01-17T07:42:58+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/27331",
@@ -42748,17 +42763,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/27316",
-  "name": "ElOtroLado",
   "data": {
+    "pageElement": "id('news-body-wrap')|//div[contains(@class,'row post')]|//div[@class='section']/div[normalize-space(@class)='row topic']",
+    "nextLink": "//link[@rel='next']",
     "url": "^https://(www\\.)?elotrolado\\.net/",
-    "pageElement": "id('news-body-wrap')|//div[contains(@class,'row post')]",
-    "exampleUrl": "https://www.elotrolado.net/?page=2 https://www.elotrolado.net/hilo_objetivo-del-wiki_723013",
-    "nextLink": "//link[@rel='next']"
+    "exampleUrl": "https://www.elotrolado.net/?page=2 https://www.elotrolado.net/hilo_objetivo-del-wiki_723013 https://www.elotrolado.net/foro_feedback-wiki_159"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "kyotocafe",
+  "name": "ElOtroLado",
   "created_at": "2009-03-04T00:48:31+09:00",
-  "updated_at": "2020-04-10T06:00:51+09:00"
+  "updated_at": "2021-01-17T08:45:15+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/27310",
