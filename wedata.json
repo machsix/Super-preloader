@@ -1,5 +1,20 @@
 [
 {
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//ul[@class='itemlist']/li",
+    "nextLink": "//li[contains(concat(' ',@class,' '),' next ')]/a",
+    "url": "^https://shop\\.lashinbang\\.com/products/list",
+    "exampleUrl": "https://shop.lashinbang.com/products/list?cat=%E3%82%B2%E3%83%BC%E3%83%A0&subcat=TV%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%BD%E3%83%95%E3%83%88&sale=1&bdad=MTQzMV84&bdactcd=MTQzMV8xMjY5MTA-"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m_",
+  "resource_url": "http://wedata.net/items/85602",
+  "name": "らしんばん",
+  "created_at": "2021-01-20T00:25:34+09:00",
+  "updated_at": "2021-01-20T00:25:34+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/85599",
   "data": {
     "insertBefore": "",
