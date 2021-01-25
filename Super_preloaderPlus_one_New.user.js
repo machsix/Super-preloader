@@ -3769,7 +3769,7 @@
     }
   }
 
-  var name="super-preloader";var version="6.15.8";var description="Super-preloader";var main="dist/Super_preloaderPlus_one_New.user.js";var author="Mach6";var license="GPL-3.0";var bugs={url:"https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new"};var homepage="https://github.com/machsix/Super-preloader";var directories={doc:"docs"};var repository={type:"git",url:"git+https://github.com/machsix/Super-preloader.git"};var scripts={lint:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.js\"",format:"prettier --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"","format:check":"prettier --check \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"","format:staged":"pretty-quick --verbose --staged --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"",check:"npm run lint && npm run typecheck && npm run format:staged",test:"cd test && node test.js",dev:"rollup -c --dev -w",build:"rollup -c","docs:dev":"vuepress dev docs","docs:build":"vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh",preversion:"npm run check",version:"npm run build  && git add dist/*.js && git add dist/*.json",postversion:"git add package.json package-lock.json && npm run test","publish:patch":"npm --no-git-tag-version version patch",publish:"npm --no-git-tag-version version minor",typecheck:"tsc -p jsconfig.json --noEmit"};var husky={hooks:{"pre-commit":"npm run check"}};var keywords=["userscript"];var devDependencies={"@vuepress/plugin-back-to-top":"1.8.0","@vuepress/plugin-google-analytics":"1.8.0","@vuepress/plugin-pwa":"1.8.0",typescript:"4.1.3",vuepress:"1.8.0"};var dependencies={"@babel/core":"7.12.10","@babel/plugin-transform-runtime":"7.12.10","@babel/preset-env":"7.12.11","@rollup/plugin-babel":"5.2.2","@rollup/plugin-commonjs":"17.0.0","@rollup/plugin-json":"4.1.0","@rollup/plugin-node-resolve":"11.1.0","@types/greasemonkey":"4.0.0","@types/lodash":"4.14.168","babel-plugin-lodash":"3.3.4","babel-plugin-wildcard":"6.0.0","compare-versions":"3.6.0",displacejs:"1.4.1",eslint:"7.18.0","eslint-config-prettier":"7.2.0","eslint-plugin-json":"2.1.2","eslint-plugin-prettier":"3.3.1","extract-zip":"2.0.1",got:"11.8.1",husky:"4.3.8",lodash:"4.17.20",loglevel:"1.7.1",prettier:"2.2.1","pretty-quick":"3.1.0",puppeteer:"2.1.0","node-sass":"5.0.0",rollup:"2.36.2","rollup-plugin-banner":"git+https://git@github.com/machsix/rollup-plugin-banner.git#v0.2.2","rollup-plugin-dev":"1.1.3","rollup-plugin-ejs":"2.2.0","rollup-plugin-re":"1.0.7","rollup-plugin-scss-string":"0.1.0",yargs:"16.2.0"};var pkg = {name:name,version:version,description:description,main:main,author:author,license:license,bugs:bugs,homepage:homepage,directories:directories,repository:repository,scripts:scripts,husky:husky,keywords:keywords,devDependencies:devDependencies,dependencies:dependencies};
+  var name="super-preloader";var version="6.15.8";var description="Super-preloader";var main="dist/Super_preloaderPlus_one_New.user.js";var author="Mach6";var license="GPL-3.0";var bugs={url:"https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new"};var homepage="https://github.com/machsix/Super-preloader";var directories={doc:"docs"};var repository={type:"git",url:"git+https://github.com/machsix/Super-preloader.git"};var scripts={lint:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.js\"",format:"prettier --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"","format:check":"prettier --check \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"","format:staged":"pretty-quick --verbose --staged --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"",check:"npm run lint && npm run typecheck && npm run format:staged",test:"cd test && node test.js",dev:"rollup -c --dev -w",build:"rollup -c","docs:dev":"vuepress dev docs","docs:build":"vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh",preversion:"npm run check",version:"npm run build  && git add dist/*.js && git add dist/*.json",postversion:"git add package.json package-lock.json && npm run test","publish:patch":"npm --no-git-tag-version version patch",publish:"npm --no-git-tag-version version minor",typecheck:"tsc -p jsconfig.json --noEmit"};var husky={hooks:{"pre-commit":"npm run check"}};var keywords=["userscript"];var devDependencies={"@vuepress/plugin-back-to-top":"1.8.0","@vuepress/plugin-google-analytics":"1.8.0","@vuepress/plugin-pwa":"1.8.0",typescript:"4.1.3",vuepress:"1.8.0"};var dependencies={"@babel/core":"7.12.10","@babel/plugin-transform-runtime":"7.12.10","@babel/preset-env":"7.12.11","@rollup/plugin-babel":"5.2.2","@rollup/plugin-commonjs":"17.0.0","@rollup/plugin-json":"4.1.0","@rollup/plugin-node-resolve":"11.1.0","@types/greasemonkey":"4.0.0","@types/lodash":"4.14.168","babel-plugin-lodash":"3.3.4","babel-plugin-wildcard":"6.0.0","compare-versions":"3.6.0",displacejs:"1.4.1",eslint:"7.18.0","eslint-config-prettier":"7.2.0","eslint-plugin-json":"2.1.2","eslint-plugin-prettier":"3.3.1","extract-zip":"2.0.1",got:"11.8.1",husky:"4.3.8",lodash:"4.17.20",loglevel:"1.7.1",prettier:"2.2.1","pretty-quick":"3.1.0",puppeteer:"2.1.0","node-sass":"5.0.0",rollup:"2.38.0","rollup-plugin-banner":"git+https://git@github.com/machsix/rollup-plugin-banner.git#v0.2.2","rollup-plugin-dev":"1.1.3","rollup-plugin-ejs":"2.2.0","rollup-plugin-re":"1.0.7","rollup-plugin-scss-string":"0.1.0",yargs:"16.2.0"};var pkg = {name:name,version:version,description:description,main:main,author:author,license:license,bugs:bugs,homepage:homepage,directories:directories,repository:repository,scripts:scripts,husky:husky,keywords:keywords,devDependencies:devDependencies,dependencies:dependencies};
 
   // Information of script
 
@@ -9672,10 +9672,10 @@
             p.then(function (values) {
               if (values) {
                 values.forEach(function (_ref) {
-                  var element = _ref.element,
-                      type = _ref.type,
-                      mutationList = _ref.mutationList,
-                      observer = _ref.observer;
+                  _ref.element;
+                      _ref.type;
+                      _ref.mutationList;
+                      var observer = _ref.observer;
                   observer.disconnect();
                 });
               } //window.scrollTo(0, scrollLocation);
@@ -9755,9 +9755,9 @@
       var jsonRule = values.jsonRule;
       var prefs = values.prefs,
           SITEINFO_D = values.SITEINFO_D,
-          autoMatch = values.autoMatch,
-          version = values.version,
-          blackList = values.blackList;
+          autoMatch = values.autoMatch;
+          values.version;
+          var blackList = values.blackList;
 
       if (prefs.debug) {
         logger.setLevel('debug');
@@ -9994,7 +9994,7 @@
 
         var cplink = url; // 翻上来的最近的页面的url;
 
-        var domain = document.domain; // 取得域名.
+        document.domain; // 取得域名.
 
         var domain_port = url.match(/https?:\/\/([^\/]+)/)[1]; // 端口和域名,用来验证是否跨域.
         // 新加的，以示区别
@@ -11192,7 +11192,7 @@
 
             var scrolly = window.scrollY;
             var windowHeight = window.innerHeight;
-            var domHeight = document.body.clientHeight;
+            document.body.clientHeight;
             var obj = getLastVisibleElement(relatedObj_0, _cplink);
             var scrollH = obj && obj.nodeType == 1 ? obj.getBoundingClientRect()[relatedObj_1] + scrolly : Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
             var exElementHeight = 0;
@@ -11789,7 +11789,7 @@
           logger.debug("[Super-preloader]", 'Creating a floating window');
           floatWindow(SSS);
           var floatWindowWidth = getFloatWindowWith();
-          var d = displace(document.getElementById('sp-fw-container'), {
+          displace(document.getElementById('sp-fw-container'), {
             handle: document.getElementById('sp-fw-rect'),
             customMove: function customMove(el, x, y) {
               delete el.style.left;
