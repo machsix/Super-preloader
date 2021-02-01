@@ -1,5 +1,20 @@
 [
 {
+  "resource_url": "http://wedata.net/items/85606",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//section[@class=\"p-result\"]",
+    "nextLink": "//ul[@class=\"c-pagenation_links\"]/li[contains(concat(\" \",@class,\" \"),\" is-current \")]/following-sibling::li/a",
+    "url": "^https://sauna-ikitai\\.com/",
+    "exampleUrl": "https://sauna-ikitai.com/has_private_sauna?page=2"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m_",
+  "name": "サウナイキタイ",
+  "created_at": "2021-02-01T17:14:13+09:00",
+  "updated_at": "2021-02-01T17:14:13+09:00"
+},
+{
   "data": {
     "insertBefore": "",
     "pageElement": "//ul[@class='itemlist']/li",
@@ -1566,15 +1581,15 @@
   "resource_url": "http://wedata.net/items/85417",
   "data": {
     "pageElement": "id(\"main\")/article",
-    "nextLink": "//a[@class=\"next page-numbers\"]",
-    "url": "^https://(www\\.)?wwdjapan\\.com/category/(.+)?",
-    "exampleUrl": "https://www.wwdjapan.com/category/news"
+    "nextLink": "//link[@rel=\"next\"]|//a[@rel=\"prev\"]",
+    "url": "^https://(www\\.)?wwdjapan\\.com/",
+    "exampleUrl": "https://www.wwdjapan.com/ https://www.wwdjapan.com/category/news https://www.wwdjapan.com/articles/1101373"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "kenzou_ogawa",
-  "name": "WWD JAPAN category",
+  "name": "WWD JAPAN",
   "created_at": "2020-07-20T18:47:41+09:00",
-  "updated_at": "2020-07-20T18:47:49+09:00"
+  "updated_at": "2021-01-28T21:27:47+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/85416",
@@ -2508,21 +2523,6 @@
   "updated_at": "2020-05-16T04:15:21+09:00",
   "name": "日刊大衆",
   "created_by": "replobfuscator"
-},
-{
-  "data": {
-    "pageElement": "//div[@class=\"gate-box\"]",
-    "comment": "This is a dummy code for 400.",
-    "nextLink": "id(\"other-menu\")/li[1]/a",
-    "url": "^https://(www\\.)?wwdjapan\\.com/(?!category)",
-    "exampleUrl": "https://www.wwdjapan.com/ https://www.wwdjapan.com/articles/1101373"
-  },
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "created_by": "kenzou_ogawa",
-  "resource_url": "http://wedata.net/items/85337",
-  "name": "WWD JAPAN",
-  "created_at": "2020-05-14T14:56:20+09:00",
-  "updated_at": "2020-07-20T18:42:04+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/85336",
