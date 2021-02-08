@@ -22613,18 +22613,18 @@
   "updated_at": "2014-07-28T14:34:00+09:00"
 },
 {
-  "resource_url": "http://wedata.net/items/74664",
   "data": {
-    "pageElement": "//table[@class='threadlist']//tr[.//@class='subject']|//dl[@class='postlist']/*",
-    "nextLink": "//a[.='Next Page']",
-    "url": "^https?://(?:www\\.)?hcs64\\.com/mboard/forum(long)?\\.php",
-    "exampleUrl": "https://www.hcs64.com/mboard/forum.php https://hcs64.com/mboard/forumlong.php?showthread=50968&showpage=0"
+    "pageElement": "//table[@class='threadlist']//tr[.//@class='subject']|//dl[@class='postlist']/*|//body/br[3]/following-sibling::*[following-sibling::br[last()]]",
+    "nextLink": "//a[.='Next Page']|//span[@class='bold']/following-sibling::a[1]",
+    "url": "^https?://.*hcs64\\.com/",
+    "exampleUrl": "https://www.hcs64.com/mboard/forum.php https://hcs64.com/mboard/forumlong.php?showthread=50968&showpage=0 https://vgm.hcs64.com/"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "Tanookirby",
+  "resource_url": "http://wedata.net/items/74664",
   "name": "hcs64.com Forums",
   "created_at": "2014-03-23T05:51:06+09:00",
-  "updated_at": "2020-12-11T05:51:26+09:00"
+  "updated_at": "2021-02-08T11:19:13+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/74662",
