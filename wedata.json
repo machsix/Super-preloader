@@ -1,9 +1,23 @@
 [
 {
+  "resource_url": "http://wedata.net/items/85609",
+  "data": {
+    "insertBefore": "id('entry')/div[div[@class='pager']]",
+    "pageElement": "id('entry')/div[(@class='block' and not(.//p[@class='hdg'])) or .//div[@class='thumb']]",
+    "nextLink": "//div[@class='pager']//a[@class='btn' and span/i[contains(concat(' ', @class, ' '), ' fa-arrow-right ')]]",
+    "url": "^https://www.chunichi.co.jp/article/.+?",
+    "exampleUrl": ""
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "htsign00",
+  "name": "中日新聞",
+  "created_at": "2021-02-13T15:46:27+09:00",
+  "updated_at": "2021-02-13T15:46:27+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/85606",
   "data": {
-    "insertBefore": "",
-    "pageElement": "//section[@class=\"p-result\"]",
+    "pageElement": "//div[@class=\"p-saunaList\"]/div",
     "nextLink": "//ul[@class=\"c-pagenation_links\"]/li[contains(concat(\" \",@class,\" \"),\" is-current \")]/following-sibling::li/a",
     "url": "^https://sauna-ikitai\\.com/",
     "exampleUrl": "https://sauna-ikitai.com/has_private_sauna?page=2"
@@ -12,7 +26,7 @@
   "created_by": "t_f_m_",
   "name": "サウナイキタイ",
   "created_at": "2021-02-01T17:14:13+09:00",
-  "updated_at": "2021-02-01T17:14:13+09:00"
+  "updated_at": "2021-02-12T12:07:59+09:00"
 },
 {
   "data": {
@@ -134,8 +148,8 @@
 {
   "resource_url": "http://wedata.net/items/85588",
   "data": {
-    "pageElement": "//div[@class=\"article-pagination\"]/preceding-sibling::*[./preceding-sibling::h3]|//div[@class=\"article-pagination\"]/preceding-sibling::h3",
-    "nextLink": "//div[@class='article-pagination']/div[@class='article-pagination-next']/a",
+    "pageElement": "//main/article//div[@class='post-lead__contents']|//main/article//div[@class='post-body']//div[contains(@class,'contents')]",
+    "nextLink": "//div[@class='post-pagination__next']/a[contains(@href,'/archives/')]",
     "url": "^https://nazology\\.net/archives/",
     "exampleUrl": "https://nazology.net/archives/74816"
   },
@@ -143,7 +157,7 @@
   "created_by": "limura",
   "name": "ナゾロジー",
   "created_at": "2020-12-03T10:19:59+09:00",
-  "updated_at": "2020-12-03T15:50:04+09:00"
+  "updated_at": "2021-02-09T11:31:05+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/85587",
@@ -22613,18 +22627,18 @@
   "updated_at": "2014-07-28T14:34:00+09:00"
 },
 {
+  "resource_url": "http://wedata.net/items/74664",
   "data": {
     "pageElement": "//table[@class='threadlist']//tr[.//@class='subject']|//dl[@class='postlist']/*|//body/br[3]/following-sibling::*[following-sibling::br[last()]]",
-    "nextLink": "//a[.='Next Page']|//span[@class='bold']/following-sibling::a[1]",
+    "nextLink": "//a[.='Next Page' or @href='#' and .='next >']",
     "url": "^https?://.*hcs64\\.com/",
     "exampleUrl": "https://www.hcs64.com/mboard/forum.php https://hcs64.com/mboard/forumlong.php?showthread=50968&showpage=0 https://vgm.hcs64.com/"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "Tanookirby",
-  "resource_url": "http://wedata.net/items/74664",
   "name": "hcs64.com Forums",
   "created_at": "2014-03-23T05:51:06+09:00",
-  "updated_at": "2021-02-08T11:19:13+09:00"
+  "updated_at": "2021-02-15T05:45:40+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/74662",
@@ -24889,21 +24903,6 @@
   "updated_at": "2020-05-25T12:44:26+09:00",
   "name": "Adastria",
   "created_by": "plais"
-},
-{
-  "resource_url": "http://wedata.net/items/65632",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "created_at": "2013-01-05T10:36:43+09:00",
-  "data": {
-    "pageElement": "//div[@class='search-list']//li",
-    "comment": "cf.http://wedata.net/items/62561",
-    "exampleUrl": "http://search-sitenaviplus2.fresheye.com/?cs=sjis&ord=s&id=25616&chk=&kw=abc&x=0&y=0&gr= http://search-sitenaviplus2.fresheye.com/?cs=sjis&ord=s&id=25617&chk=&kw=abc&x=73&y=5&gr=",
-    "url": "^https?://search-sitenaviplus2\\.fresheye\\.com/",
-    "nextLink": "//span[@class='pager']/text()/following-sibling::a"
-  },
-  "updated_at": "2020-05-26T04:53:00+09:00",
-  "name": "CHUNICHI・TOKYO Web検索結果画面",
-  "created_by": "jigendaddy_be"
 },
 {
   "resource_url": "http://wedata.net/items/65621",
@@ -28146,18 +28145,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/62561",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "created_at": "2012-07-29T13:47:10+09:00",
   "data": {
-    "pageElement": "//div[@class='data-area02']/*[not(@class='News-headarea')]",
-    "comment": "cf.http://wedata.net/items/65632",
-    "exampleUrl": "https://www.chunichi.co.jp/chuspo/article/dragons/draban/",
-    "url": "^https://(www\\.)?chunichi\\.co\\.jp/chuspo/article/dragons/draban/",
-    "nextLink": "id('Contents')//div[@class='list-day']/ul/li[a[contains(.,concat('月',number(substring-before(substring-after(//p[@class='data'],'月'),'日')),'日'))]]/following-sibling::li[1]/a"
+    "pageElement": "//div[@class=\"content-area\"]//ul[@class=\"list\"][.//img]",
+    "nextLink": "descendant::li[@class=\"is-active\"][1]/following-sibling::li[1]/a",
+    "url": "^https://(www\\.)?chunichi\\.co\\.jp/(chuspo|tags)/",
+    "exampleUrl": "https://www.chunichi.co.jp/tags/tag_shimenlink/ https://www.chunichi.co.jp/chuspo/dragons/draban/"
   },
-  "updated_at": "2020-05-21T07:24:21+09:00",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "jigendaddy_be",
   "name": "中日スポーツ-日付別記事一覧系",
-  "created_by": "jigendaddy_be"
+  "created_at": "2012-07-29T13:47:10+09:00",
+  "updated_at": "2021-02-15T11:18:29+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/62559",
@@ -48230,13 +48228,13 @@
     "comment": "contains(@class,'next') often catches incorrect nextLink, such as <a href=\"#\" class=\"slider-arrow ui-tab-next\">",
     "nextLink": "//a[@rel=\"next\"]",
     "url": "^https?://(www\\.)?pixiv\\.net.+",
-    "exampleUrl": "https://www.pixiv.net/booth_follow_items.php\r\nhttps://www.pixiv.net/event.php?d=201705\r\nhttps://www.pixiv.net/event_member.php?event_id=5789\r\nhttps://www.pixiv.net/info.php?cid=1\r\nhttps://www.pixiv.net/novel/bookmark_new.php\r\nhttps://www.pixiv.net/response.php?illust_id=1539585\r\nhttps://www.pixiv.net/search_user.php?nick=a&s_mode=s_usr"
+    "exampleUrl": "https://www.pixiv.net/event.php?d=201705\r\nhttps://www.pixiv.net/event_member.php?event_id=5789\r\nhttps://www.pixiv.net/info.php?cid=1\r\n"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "swdyh",
   "name": "[pixiv]",
   "created_at": "2008-04-16T12:36:25+09:00",
-  "updated_at": "2020-10-09T20:17:22+09:00"
+  "updated_at": "2021-02-13T10:50:47+09:00"
 },
 {
   "name": "LWN.net",
