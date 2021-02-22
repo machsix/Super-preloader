@@ -1579,9 +1579,8 @@
 {
   "resource_url": "http://wedata.net/items/85418",
   "data": {
-    "insertBefore": "",
     "pageElement": "id('rso')/div",
-    "nextLink": "//div[@role='progressbar']/following-sibling::a[@role='button']|id('extrares')//span[count(a)>0]/span/following-sibling::a",
+    "nextLink": "//div[@role=\"progressbar\"]/following-sibling::a[@role=\"button\"]|id(\"extrares\")//span[count(a)>0]/span/following-sibling::a|descendant::a[@aria-label][last()]",
     "url": "^https://(?:www\\.)?google\\.com/search",
     "exampleUrl": "https://www.google.com/search?q=autopagerize https://www.google.com/search?q=autopagerize&start=10"
   },
@@ -1589,7 +1588,7 @@
   "created_by": "t_f_m_",
   "name": "google search mobile",
   "created_at": "2020-07-23T07:55:02+09:00",
-  "updated_at": "2020-07-23T07:55:02+09:00"
+  "updated_at": "2021-02-20T10:48:25+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/85417",
@@ -22627,18 +22626,18 @@
   "updated_at": "2014-07-28T14:34:00+09:00"
 },
 {
-  "resource_url": "http://wedata.net/items/74664",
   "data": {
-    "pageElement": "//table[@class='threadlist']//tr[.//@class='subject']|//dl[@class='postlist']/*|//body/br[3]/following-sibling::*[following-sibling::br[last()]]",
-    "nextLink": "//a[.='Next Page' or @href='#' and .='next >']",
+    "pageElement": "//table[@class='threadlist']//tr[.//@class='subject']|//dl[@class='postlist']/*",
+    "nextLink": "//table/following-sibling::*[1]/a[2][not(@href=\"forum.php?newthread\")]|//table[.//td[not(./following-sibling::*) and not(./preceding-sibling::*)]]/following-sibling::*[1]/a[1]|//dl/following-sibling::*[1]/text()[string-length(.)>1][last()-1]/following-sibling::a[1][count(./following-sibling::a)>1]",
     "url": "^https?://.*hcs64\\.com/",
-    "exampleUrl": "https://www.hcs64.com/mboard/forum.php https://hcs64.com/mboard/forumlong.php?showthread=50968&showpage=0 https://vgm.hcs64.com/"
+    "exampleUrl": "https://www.hcs64.com/mboard/forum.php https://hcs64.com/mboard/forumlong.php?showthread=50968&showpage=0 "
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "Tanookirby",
+  "resource_url": "http://wedata.net/items/74664",
   "name": "hcs64.com Forums",
   "created_at": "2014-03-23T05:51:06+09:00",
-  "updated_at": "2021-02-15T05:45:40+09:00"
+  "updated_at": "2021-02-18T13:17:02+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/74662",
@@ -28144,18 +28143,18 @@
   "created_at": "2012-08-02T02:15:15+09:00"
 },
 {
-  "resource_url": "http://wedata.net/items/62561",
   "data": {
-    "pageElement": "//div[@class=\"content-area\"]//ul[@class=\"list\"][.//img]",
-    "nextLink": "descendant::li[@class=\"is-active\"][1]/following-sibling::li[1]/a",
+    "pageElement": "//main//div[@class=\"l-artlst001\"]|//main//*[./div[@class=\"wrp lv2\"]][.//div[@class=\"thumb\"] and not(.//ul)]",
+    "nextLink": "descendant::li[contains(@class,\"is-active\")][1]/following-sibling::li[1]/a",
     "url": "^https://(www\\.)?chunichi\\.co\\.jp/(chuspo|tags)/",
     "exampleUrl": "https://www.chunichi.co.jp/tags/tag_shimenlink/ https://www.chunichi.co.jp/chuspo/dragons/draban/"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "jigendaddy_be",
+  "resource_url": "http://wedata.net/items/62561",
   "name": "中日スポーツ-日付別記事一覧系",
   "created_at": "2012-07-29T13:47:10+09:00",
-  "updated_at": "2021-02-15T11:18:29+09:00"
+  "updated_at": "2021-02-18T10:42:29+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/62559",
