@@ -1,5 +1,35 @@
 [
 {
+  "resource_url": "http://wedata.net/items/85615",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "id('article')/div[contains(concat(' ',@class,' '),' post_content ')]",
+    "nextLink": "id('post_pagination')/p[@class='current-post-page']/following-sibling::a",
+    "url": "^https://locafra\\.com/",
+    "exampleUrl": "https://locafra.com/2021/02/27/anatanoketsudan/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m_",
+  "name": "ロカフレ",
+  "created_at": "2021-02-28T12:54:56+09:00",
+  "updated_at": "2021-02-28T12:54:56+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85614",
+  "data": {
+    "pageElement": "id(\"article-list\") | //div[@class=\"info-list\"]/div[@class=\"list-item\"]",
+    "Stylus": "@-moz-document domain(\"kaiyukan.com\") {\r\n#article ul{display:flex;flex-wrap:wrap;}\r\n}",
+    "nextLink": "//div[@class=\"prev2\"]/a[contains(text(),\"次\")]",
+    "url": "^https?://www\\.kaiyukan\\.com/connect/",
+    "exampleUrl": "https://www.kaiyukan.com/connect/blog/\r\nhttps://www.kaiyukan.com/connect/news/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "brib2",
+  "name": "海遊館",
+  "created_at": "2021-02-26T23:31:37+09:00",
+  "updated_at": "2021-02-27T11:15:47+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/85609",
   "data": {
     "insertBefore": "id('entry')/div[div[@class='pager']]",
@@ -333,18 +363,18 @@
   "updated_at": "2020-11-13T12:15:48+09:00"
 },
 {
-  "resource_url": "http://wedata.net/items/85560",
   "data": {
-    "pageElement": "(//div[@class=\"post\"]|//div[@class=\"post\"]/following-sibling::div[@class=\"date\" or @class=\"bottom\"]|//div[@class=\"post\"]/preceding-sibling::div[@class=\"date\" or @class=\"bottom\"])[count(//*[./div[@class=\"post\"]])=1][count(//div[@class=\"post\"])>2][//div[@class=\"post\"]/following-sibling::*[1][@class=\"post\" or @class=\"bottom\"]]",
+    "pageElement": "(//div[@class=\"post\"]|//div[@class=\"post\"]/following-sibling::div[@class=\"date\" or @class=\"bottom\"]|//div[@class=\"post\"]/preceding-sibling::div[@class=\"date\" or @class=\"bottom\"])[count(//*[./div[@class=\"post\"]])=1][count(//div[@class=\"post\"])>2][//div[@class=\"post\"]/following-sibling::*[1][@class=\"post\" or @class=\"bottom\"]][descendant::*[@id][1][not(@id=\"sidebar\")]]|//ul[@class=\"POSTS\"]/li",
     "nextLink": "//a[contains(@href,\"/page/2\")][//link[@rel=\"canonical\"][not(contains(@href,\"/page/\"))]]|//a[contains(@href,concat(\"/page/\",number(substring-after(//link[@rel=\"canonical\"]/@href,\"/page/\"))+1))]",
     "url": "^https?://[^/]+\\.tumblr\\.com/*",
-    "exampleUrl": "https://23hourpartypeople.tumblr.com/\r\nhttps://boooook.tumblr.com/\r\nhttps://suyhnc.tumblr.com/\r\nhttps://gforcepdx.tumblr.com/\r\nhttps://katoyuu.tumblr.com/\r\nhttps://maybowjing.tumblr.com/"
+    "exampleUrl": "https://23hourpartypeople.tumblr.com/\r\nhttps://boooook.tumblr.com/\r\nhttps://suyhnc.tumblr.com/\r\nhttps://gforcepdx.tumblr.com/\r\nhttps://katoyuu.tumblr.com/\r\nhttps://maybowjing.tumblr.com/\r\nhttps://yinzcantpark.tumblr.com/page/2"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "kenzou_ogawa",
+  "resource_url": "http://wedata.net/items/85560",
   "name": "Tumblr - post",
   "created_at": "2020-11-12T20:12:34+09:00",
-  "updated_at": "2020-11-19T17:44:22+09:00"
+  "updated_at": "2021-02-27T11:45:27+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/85559",
@@ -48136,19 +48166,19 @@
   "updated_at": "2020-07-07T11:22:42+09:00"
 },
 {
+  "resource_url": "http://wedata.net/items/681",
   "data": {
-    "pageElement": "descendant::*[count(.//*[@class=\"permalink\"][not(self::a)])>=4][last()]/*",
+    "pageElement": "descendant::*[count(.//*[@class=\"permalink\"][not(self::a)])>=4][last()]/*[id(\"sidebar\")/preceding-sibling::* or not(id(\"sidebar\"))]",
     "comment": "http://taizooo.tumblr.com/post/65704255/nextlink-2\r\nhAtom : http://wedata.net/items/31114 と AutoPagerizeFORMAT : http://wedata.net/items/31158\r\nよりこの SITEINFO を優先度を低くするために url の文字数を hAtom より1文字以上短かくする必要があります。また ^http://ku\\.tumblr\\.com/ といった個別の SITEINFO より優先度を下げるため url は可能なかぎり短くする必要があります。\r\npageElement は LDRize SITEINFO : http://wedata.net/items/28521?rev=41785 の paragraph をベースにしました。",
     "nextLink": "//a[@rel=\"next\"]|(//a[contains(@href,\"/page/2\")][//link[@rel=\"canonical\"][not(contains(@href,\"/page/\"))]]|//a[contains(@href,concat(\"/page/\",number(substring-after(//link[@rel=\"canonical\"]/@href,\"/page/\"))+1))])[not(//a[@rel=\"next\"])]",
     "url": "^.+://[^/]+\\.tumblr\\.com/",
-    "exampleUrl": "https://catasters.tumblr.com/ https://macross-82.tumblr.com/"
+    "exampleUrl": "https://catasters.tumblr.com/"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "swdyh",
-  "resource_url": "http://wedata.net/items/681",
   "name": "Tumblr",
   "created_at": "2008-04-16T12:36:28+09:00",
-  "updated_at": "2020-11-25T07:48:55+09:00"
+  "updated_at": "2021-02-27T12:31:16+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/679",
