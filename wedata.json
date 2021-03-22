@@ -1,5 +1,35 @@
 [
 {
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//div[contains(concat(\" \".@class,\" \"),\" td-ss-main-content \")]/div",
+    "nextLink": "//div[contains(concat(\" \",@class,\" \"),\" page-nav \")]/span[@class=\"current\"]/following-sibling::a",
+    "url": "^https://keibana\\.com/",
+    "exampleUrl": "https://keibana.com/category/site-news/news/jra/page/2/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m_",
+  "resource_url": "http://wedata.net/items/85627",
+  "name": "競馬のおはなし",
+  "created_at": "2021-03-22T06:33:20+09:00",
+  "updated_at": "2021-03-22T06:33:20+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85625",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "id(\"content_main\")",
+    "nextLink": "//div[@class=\"content_pager next\"]/a",
+    "url": "^https?://sozai\\-good\\.com/.*",
+    "exampleUrl": ""
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "denimu_ld",
+  "name": "素材GOOD",
+  "created_at": "2021-03-19T23:34:35+09:00",
+  "updated_at": "2021-03-19T23:34:35+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/85621",
   "data": {
     "insertBefore": "",
@@ -1967,8 +1997,8 @@
 {
   "resource_url": "http://wedata.net/items/85395",
   "data": {
-    "pageElement": "//div[@class=\"search-results\"]|//li[./div][not(//div[@class=\"search-results\"])]",
-    "nextLink": "//a[@rel='next']",
+    "pageElement": "//li[@class=\"search-result\"][@style]|//li[./div][count(./*)=1]",
+    "nextLink": "//li[@class=\"pagination-next\"]/a",
     "url": "^https://feedback\\.minecraft\\.net/hc/",
     "exampleUrl": "https://feedback.minecraft.net/hc/en-us/community/posts?filter_by=all https://feedback.minecraft.net/hc/en-us/search?utf8=%E2%9C%93&query=of"
   },
@@ -1976,7 +2006,7 @@
   "created_by": "Tanookirby2",
   "name": "Minecraft Feedback",
   "created_at": "2020-06-26T12:44:37+09:00",
-  "updated_at": "2020-06-26T14:36:49+09:00"
+  "updated_at": "2021-03-19T20:02:08+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/85394",
