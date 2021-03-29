@@ -1,18 +1,32 @@
 [
 {
+  "resource_url": "http://wedata.net/items/85630",
   "data": {
     "insertBefore": "",
-    "pageElement": "//div[contains(concat(\" \".@class,\" \"),\" td-ss-main-content \")]/div",
-    "nextLink": "//div[contains(concat(\" \",@class,\" \"),\" page-nav \")]/span[@class=\"current\"]/following-sibling::a",
+    "pageElement": "//dl",
+    "nextLink": "//link[@rel=\"next\"]",
+    "url": "^https?://bushoojapan\\.com/",
+    "exampleUrl": "https://bushoojapan.com/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "kenzou_ogawa",
+  "name": "BUSHOO!JAPAN（武将ジャパン）",
+  "created_at": "2021-03-29T13:14:01+09:00",
+  "updated_at": "2021-03-29T13:14:01+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85627",
+  "data": {
+    "pageElement": "//div[contains(@class,\"td-ss-main-content\")]/div[./following-sibling::div]",
+    "nextLink": "//span[@class=\"current\"]/following-sibling::a",
     "url": "^https://keibana\\.com/",
     "exampleUrl": "https://keibana.com/category/site-news/news/jra/page/2/"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "t_f_m_",
-  "resource_url": "http://wedata.net/items/85627",
   "name": "競馬のおはなし",
   "created_at": "2021-03-22T06:33:20+09:00",
-  "updated_at": "2021-03-22T06:33:20+09:00"
+  "updated_at": "2021-03-27T11:27:04+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/85625",
@@ -5686,17 +5700,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/82108",
-  "name": "Movie Walker 記事",
-  "created_by": "t_f_m",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-04-02T16:16:20+09:00",
   "data": {
-    "exampleUrl": "https://movie.walkerplus.com/news/article/173159/",
-    "url": "^https://movie\\.walkerplus\\.com/news/article/",
-    "pageElement": "//div[@class=\"p-newsDetail-article-block\"]",
-    "nextLink": "//div[@class=\"pagination\"]/ul/li[a/@class=\"is-current\"]/following-sibling::li/a"
+    "pageElement": "//div[@class=\"un_newsDetail_content\"]",
+    "nextLink": "//ul[contains(concat(\" \",@class,\" \"),\" un_newsDetail_pagination \")]/li[@class=\"is_current\"]/following-sibling::li/a",
+    "url": "^https://moviewalker\\.jp/news/article/",
+    "exampleUrl": "https://moviewalker.jp/news/article/173159/\r\nhttps://moviewalker.jp/news/article/1025469/"
   },
-  "created_at": "2019-04-02T16:16:05+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m",
+  "name": "Movie Walker 記事",
+  "created_at": "2019-04-02T16:16:05+09:00",
+  "updated_at": "2021-03-25T02:18:57+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/82107",
@@ -15208,14 +15222,14 @@
   "data": {
     "pageElement": "//table[@class='lista2t']/tbody/tr[td/@class='lista']",
     "nextLink": "//a[@title='next page']",
-    "url": "^https?://(proxy)?rarbg(mirror|proxy|to|2018|way|unblocked)?\\.(to|net|org)/",
+    "url": "^https?://(proxy)?rarbg(mirror|proxy|to|2018|way|unblocked|proxied)?\\.(to|net|org)/",
     "exampleUrl": "https://rarbg.to/torrents.php?category=movies"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "C2f56gyhtu75347u8i9i7uit4d4g58",
   "name": "rarbg",
   "created_at": "2015-10-26T16:22:06+09:00",
-  "updated_at": "2020-07-24T18:13:12+09:00"
+  "updated_at": "2021-03-23T00:35:42+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/77606",
@@ -22844,7 +22858,7 @@
   "resource_url": "http://wedata.net/items/74645",
   "data": {
     "pageElement": "//li[contains(@class, 'creator-id-')]|//div[@id='comment-list']/div[@class='post']|//table[@class='highlightable']",
-    "Stylish": "/* konachan.com and yande.re hide images when using AutoPagerize.\r\n   To show these images, you need to apply this stylesheet. */\r\n@-moz-document domain(\"yande.re\"), domain(\"konachan.com\") {\r\n    span.blacklisted, li.javascript-hide { display: inline-block !important; }\r\n    hr.autopagerize_page_separator { clear: both !important; }\r\n    .autopagerize_page_separator~div.post+div:not(.post) { display:none !important; }\r\n    #post-list .autopagerize_page_separator~div { display:none !important; }\r\n}",
+    "Stylus": "/* konachan.com and yande.re hide images when using AutoPagerize.\r\n   To show these images, you need to apply this stylesheet. */\r\n@-moz-document domain(\"yande.re\"), domain(\"konachan.com\"), domain(\"sakugabooru.com\") {\r\n.javascript-hide { display: inline-block !important; }\r\n}",
     "nextLink": "//a[@class='next_page']",
     "url": "^https?://(konachan\\.com|yande\\.re|www\\.sakugabooru\\.com)/(post|comment)($|\\?|#|/search\\?)",
     "exampleUrl": "https://yande.re/post\r\nhttps://yande.re/comment\r\nhttp://konachan.com/post\r\nhttp://konachan.com/comment\r\nhttps://www.sakugabooru.com/post\r\nhttps://www.sakugabooru.com/comment"
@@ -22853,7 +22867,7 @@
   "created_by": "tyayjw",
   "name": "Moebooru:Danbooru clones",
   "created_at": "2014-03-20T01:03:36+09:00",
-  "updated_at": "2020-06-05T20:23:19+09:00"
+  "updated_at": "2021-03-28T17:12:26+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/74644",
