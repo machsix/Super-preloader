@@ -1,5 +1,20 @@
 [
 {
+  "resource_url": "http://wedata.net/items/85632",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//div[contains(concat(\" \",@class, \" \"),\" archive-list | subgrid \")]",
+    "nextLink": "//div[contains(concat(\" \",@class, \" \"),\" pagination \")]//li[contains(concat(\" \",@class, \" \"),\" pagination-info \")]/following-sibling::li/a",
+    "url": "^https://www.latercera.com/(lo-ultimo|etiqueta)",
+    "exampleUrl": "https://www.latercera.com/lo-ultimo/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "infy",
+  "name": "Latercera",
+  "created_at": "2021-04-04T13:20:16+09:00",
+  "updated_at": "2021-04-04T13:20:16+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/85630",
   "data": {
     "insertBefore": "",
@@ -3123,18 +3138,19 @@
   "updated_at": "2020-04-20T10:21:08+09:00"
 },
 {
-  "resource_url": "http://wedata.net/items/85299",
-  "name": "ニコニコ動画 ランキング",
   "data": {
-    "url": "^https://www\\.nicovideo\\.jp/ranking/",
     "pageElement": "//div[@class=\"RankingVideoListContainer\"]/div[contains(concat(\" \",@class),\" RankingMain\")]",
-    "exampleUrl": "https://www.nicovideo.jp/ranking/genre/game?video_ranking_menu",
-    "nextLink": "//ul[contains(concat(\" \",@class,\" \"),\" Paginator \")]/li[contains(concat(\" \",@class,\" \"),\" Paginator-item_current \")]/following-sibling::li/a"
+    "bookmarklet": "var matches=document.querySelectorAll('div[data-background-image]')\r\n\r\nmatches.forEach(function (elem) {\r\n    var t1=elem.getAttribute(\"data-background-image\");\r\n    elem.setAttribute(\"style\", \"background-image: url('\"+t1+\"');\");\r\n});",
+    "nextLink": "//ul[contains(concat(\" \",@class,\" \"),\" Paginator \")]/li[contains(concat(\" \",@class,\" \"),\" Paginator-item_current \")]/following-sibling::li/a",
+    "url": "^https://www\\.nicovideo\\.jp/ranking/",
+    "exampleUrl": "https://www.nicovideo.jp/ranking/genre/game?video_ranking_menu"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "t_f_m_",
+  "resource_url": "http://wedata.net/items/85299",
+  "name": "ニコニコ動画 ランキング",
   "created_at": "2020-04-18T05:36:55+09:00",
-  "updated_at": "2020-04-18T05:50:02+09:00"
+  "updated_at": "2021-03-30T20:11:15+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/85298",
@@ -22872,16 +22888,16 @@
 {
   "resource_url": "http://wedata.net/items/74644",
   "data": {
-    "pageElement": "//div[contains(concat(\" \",@class, \" \"),\" thumbnail-preview \")]|id(\"comment-list\")/div[@class=\"post\"]|//table[@class=\"highlightable\"]//tr[./td]",
+    "pageElement": "//article[contains(concat(\" \",@class, \" \"),\" thumbnail-preview \")]|//span[contains(concat(\" \",@class, \" \"),\" thumb \")]|id(\"comment-list\")/div[@class=\"post\"]|//table[@class=\"highlightable\"]//tr[./td]",
     "nextLink": "//div[starts-with(@id,'paginat')]//b/following-sibling::a",
     "url": "^https?://(?:(?:.*\\.)?(?:gel|safe|mspa|x)?booru\\.(?:com|org)|tbib\\.org|rule34\\.xxx)/",
-    "exampleUrl": "http://gelbooru.com/index.php?page=post&s=list\r\nhttp://safebooru.org/index.php?page=comment&s=list\r\nhttp://rule34.xxx/index.php?page=tags&s=list"
+    "exampleUrl": "https://gelbooru.com/index.php?page=post&s=list\r\nhttp://safebooru.org/index.php?page=comment&s=list\r\nhttp://rule34.xxx/index.php?page=tags&s=list"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "tyayjw",
   "name": "Gelbooru:Danbooru clones",
   "created_at": "2014-03-20T01:02:32+09:00",
-  "updated_at": "2020-06-27T23:32:25+09:00"
+  "updated_at": "2021-04-04T12:23:55+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/74642",
@@ -39537,17 +39553,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/31126",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "created_at": "2010-01-16T14:42:24+09:00",
   "data": {
-    "pageElement": "//div[@class=\"contentPhotoLerge\"]/*",
-    "exampleUrl": "https://thetv.jp/news/detail/72686/408175/",
+    "pageElement": "//div[@class='newsArticle_body_text']/*|//div[@class='contentPhotoLerge']/*",
+    "nextLink": "//ul[@class='pageNav']/li[@class='nextPage']/a|//li[@class='list_thumbnail__item']/a|//a[contains(concat(' ',@class,' '),' nextNav ')]",
     "url": "^https://thetv\\.jp/news/detail/",
-    "nextLink": "//a[@class=\"btn nextNav\"]"
+    "exampleUrl": "https://thetv.jp/news/detail/72686/408175/\r\nhttps://thetv.jp/news/detail/1026443/"
   },
-  "updated_at": "2020-05-05T12:17:24+09:00",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "xfdata",
   "name": "thetv.jp",
-  "created_by": "xfdata"
+  "created_at": "2010-01-16T14:42:24+09:00",
+  "updated_at": "2021-04-01T18:22:14+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/31116",
