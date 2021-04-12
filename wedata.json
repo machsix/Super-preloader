@@ -1,5 +1,36 @@
 [
 {
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "data": {
+    "pageElement": "//div[contains(@class,'block--messages')]",
+    "type_no_page_bar": "//div[contains(@class,'block-container') and contains(@class,'lbContainer')]",
+    "type_contain_page_bar": "//div[contains(@class,'block--messages')]",
+    "nextLink": "(//div[contains(@class,'pageNav')]//a[contains(@class,'pageNav-jump--next')])[last()]",
+    "url": "https://forum.xda-developers.com/t/*",
+    "exampleUrl": "https://forum.xda-developers.com/t/mod-feb-10-multirom-v33.2457063/"
+  },
+  "created_by": "Ted8VN",
+  "resource_url": "http://wedata.net/items/85636",
+  "name": "xda-developers Forum",
+  "created_at": "2021-04-09T00:09:44+09:00",
+  "updated_at": "2021-04-09T00:59:15+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85635",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "id('blocks_general_field')/*",
+    "nextLink": "//span[contains(concat(' ',@class,' '),' current ')]/following-sibling::a",
+    "url": "^https://febri\\.jp/topics/",
+    "exampleUrl": "https://febri.jp/topics/gawrgura0408/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m_",
+  "name": "febri",
+  "created_at": "2021-04-08T23:21:15+09:00",
+  "updated_at": "2021-04-08T23:21:15+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/85632",
   "data": {
     "insertBefore": "",
@@ -7224,19 +7255,19 @@
 },
 {
   "resource_url": "http://wedata.net/items/81922",
-  "name": "西野亮廣ブログ　個別エントリ",
-  "created_by": "jigendaddy_be",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2018-10-24T15:16:30+09:00",
   "data": {
-    "exampleUrl": "https://ameblo.jp/nishino-akihiro/entry-12413837725.html",
-    "comment": "This may load an illegal url. In that case the correct url may be loaded on reload.If possible, disabling JavaScript will work more reliably.",
-    "comment2": "cf.http://wedata.net/items/81533",
-    "url": "^https://ameblo\\.jp/nishino-akihiro/entry",
     "pageElement": "//div[@class=\"skin-blogFooterNav\"]/preceding-sibling::*",
-    "nextLink": "//a[./span[contains(@data-uranus-icon,\"paging_next\")]]"
+    "comment2": "cf.http://wedata.net/items/81533",
+    "comment": "This may load an illegal url. In that case the correct url may be loaded on reload.If possible, disabling JavaScript will work more reliably.",
+    "nextLink": "//a[./span[contains(@data-uranus-icon,\"paging_next\")]]",
+    "url": "^https://ameblo\\.jp/nishino-akihiro/",
+    "exampleUrl": "https://ameblo.jp/nishino-akihiro/entry-12413837725.html https://ameblo.jp/nishino-akihiro/"
   },
-  "created_at": "2018-09-02T14:59:07+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "jigendaddy_be",
+  "name": "西野亮廣ブログ",
+  "created_at": "2018-09-02T14:59:07+09:00",
+  "updated_at": "2021-04-06T07:44:12+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/81921",
