@@ -1,5 +1,33 @@
 [
 {
+  "resource_url": "http://wedata.net/items/85638",
+  "data": {
+    "pageElement": "//div[@class=\"articleGalleryImg\"]",
+    "nextLink": "//p[@class=\"next\"]/a",
+    "url": "^https://entamenext\\.com/articles/gallery/\\d+/",
+    "exampleUrl": "https://entamenext.com/articles/gallery/10548/1 https://entamenext.com/articles/gallery/10548/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "kenzou_ogawa",
+  "name": "ENTAME gallery",
+  "created_at": "2021-04-15T21:41:52+09:00",
+  "updated_at": "2021-04-15T21:51:43+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85637",
+  "data": {
+    "pageElement": "//div[@class=\"article_detail\"]",
+    "nextLink": "//li[@class=\"active\"]/following-sibling::li/a",
+    "url": "^https://entamenext\\.com/articles/detail/\\d+/",
+    "exampleUrl": "https://entamenext.com/articles/detail/10548/1/1/1 https://entamenext.com/articles/detail/10548/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m_",
+  "name": "ENTAME next",
+  "created_at": "2021-04-12T22:19:46+09:00",
+  "updated_at": "2021-04-15T21:53:30+09:00"
+},
+{
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "data": {
     "pageElement": "//div[contains(@class,'block--messages')]",
@@ -42514,18 +42542,18 @@
   "created_at": "2009-03-30T01:42:47+09:00"
 },
 {
-  "name": "胎界主",
-  "data": {
-    "pageElement": "//h2/a",
-    "nextLink": "//td//h2/a",
-    "exampleUrl": "http://www.taikaisyu.com/24-02/06.html",
-    "url": "^http://www\\.taikaisyu\\.com/\\d+"
-  },
   "resource_url": "http://wedata.net/items/27628",
-  "created_by": "haoyayoi@hatena",
+  "data": {
+    "pageElement": "//h2/a|//div[@align='center'][br or p]",
+    "nextLink": "//td//h2/a",
+    "url": "^http://www\\.taikaisyu\\.com/\\d+",
+    "exampleUrl": "http://www.taikaisyu.com/24-02/06.html\r\nhttp://www.taikaisyu.com/0%20honyaku/01-04/06.html"
+  },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "haoyayoi@hatena",
+  "name": "胎界主",
   "created_at": "2009-03-29T16:11:11+09:00",
-  "updated_at": "2014-04-19T04:03:56+09:00"
+  "updated_at": "2021-04-15T19:37:09+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/27625",
