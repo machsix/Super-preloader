@@ -21114,17 +21114,18 @@
 },
 {
   "resource_url": "http://wedata.net/items/75012",
-  "name": "afpbb 写真特集",
-  "created_by": "t_f_m",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2018-07-16T03:11:42+09:00",
   "data": {
-    "exampleUrl": "http://www.afpbb.com/articles/-/3022093?pid=14144826\r\nhttp://www.afpbb.com/articles/-/3148066?pid=\r\nhttp://www.afpbb.com/articles/-/3096854\r\nhttp://www.afpbb.com/articles/-/3182187?pid=20345505\r\nhttp://www.afpbb.com/articles/-/3011860\r\nhttp://www.afpbb.com/articles/-/3004949",
+    "pageElement": "id('photos')[number(substring-before(.//div[@class='num']/span/text(),'/'))>1]|id('article-contents')/div[contains(@class,'article-body')]/p[substring-before(id('photos')//div[@class='num']/span/text(),'/')='1' or not(id('photos')//div[@class='num'])]",
+    "insertBefore": "id('article-contents')/div[contains(@class,'article-body')]/node()[last()]",
+    "nextLink": "//li[contains(concat(' ',@class,' '),' thumb ')][contains(concat(' ',@class,' '),' current ')]/following-sibling::li/a|id('photos')//a[@class='next-btn'][not(//ul[contains(concat(' ',@class,' '),' pager ')]/li[@class='next'])]|//li[contains(concat(' ',normalize-space(@class),' '),' next ')]/a",
     "url": "^https?://(www\\.)?afpbb\\.com/articles/",
-    "pageElement": "id('photos')[not(//ul/@class='pager flex flex-center clear')]|id('article-contents')/div[contains(@class,'article-body')]/p[//ul/@class='pager flex flex-center clear']",
-    "nextLink": "//li[contains(concat(' ',@class,' '),' thumb ')][contains(concat(' ',@class,' '),' current ')]/following-sibling::li/a|id('photos')//a[@class='next-btn'][not(//ul/@class='pager flex flex-center clear')]|//li[contains(concat(' ',normalize-space(@class),' '),' next ')]/a"
+    "exampleUrl": "http://www.afpbb.com/articles/-/3148066?pid=\r\nhttp://www.afpbb.com/articles/-/3182187?pid=20345505\r\nhttp://www.afpbb.com/articles/-/3011860\r\nhttp://www.afpbb.com/articles/-/3004949\r\nhttps://www.afpbb.com/articles/-/3297515"
   },
-  "created_at": "2014-08-03T18:32:34+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m",
+  "name": "afpbb 記事＋写真",
+  "created_at": "2014-08-03T18:32:34+09:00",
+  "updated_at": "2021-04-22T02:45:54+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/75008",
@@ -47100,18 +47101,18 @@
 },
 {
   "resource_url": "http://wedata.net/items/1669",
-  "name": "SANSPO.COM",
-  "created_by": "nax",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-01-21T10:32:11+09:00",
   "data": {
-    "Stylish": "@-moz-document url-prefix(\"http://www.sanspo.com/\") {\r\n.autopagerize_page_info+.NewsDetail{padding-top:50px !important;}\r\n}",
-    "exampleUrl": "http://www.sanspo.com/geino/news/20120306/eco12030623580001-n1.html http://www.sanspo.com/soccer/photos/20120306/jap12030622460020-p1.html\r\nhttp://www.sanspo.com/flash/photolists/flash-p1.html\r\nhttp://www.sanspo.com/baseball/newslists/baseball-n1.html\r\nhttp://www.sanspo.com/baseball/news/20150609/bbo15060905050004-n1.html\r\nhttp://www.sanspo.com/baseball/news/20150609/bbo15060905040002-n1.html\r\nhttp://www.sanspo.com/baseball/others/newslists/others-n1.html",
-    "url": "^https?://www\\.sanspo\\.com/",
     "pageElement": "id('Contents')/descendant::*[self::div[contains(concat(' ', @class, ' '), ' PhotoDetail ')] or self::ul[contains(concat(' ', @class, ' '), ' PhotoList ')]]|id('NewsListSection01')/ul[@class='NewsList'][not(//div[@class='NewsDetail'])]|//div[@class='NewsDetail']/p[last()][a]/preceding-sibling::*|//div[@class='NewsDetail'][p[last()][not(a)]]",
-    "nextLink": "//a[contains(img/@src,'next.gif')]"
+    "Stylish": "@-moz-document url-prefix(\"http://www.sanspo.com/\") {\r\n.autopagerize_page_info+.NewsDetail{padding-top:50px !important;}\r\n}",
+    "nextLink": "//a[contains(img/@src,'next.gif')]",
+    "url": "^https?://(?:race|www)\\.sanspo\\.com/",
+    "exampleUrl": "http://www.sanspo.com/geino/news/20120306/eco12030623580001-n1.html http://www.sanspo.com/soccer/photos/20120306/jap12030622460020-p1.html\r\nhttp://www.sanspo.com/flash/photolists/flash-p1.html\r\nhttp://www.sanspo.com/baseball/newslists/baseball-n1.html\r\nhttp://www.sanspo.com/baseball/news/20150609/bbo15060905050004-n1.html\r\nhttp://www.sanspo.com/baseball/news/20150609/bbo15060905040002-n1.html\r\nhttp://www.sanspo.com/baseball/others/newslists/others-n1.html\r\nhttp://race.sanspo.com/keiba/news/20180625/ope18062505090011-n1.html"
   },
-  "created_at": "2008-06-11T16:07:41+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "nax",
+  "name": "SANSPO.COM",
+  "created_at": "2008-06-11T16:07:41+09:00",
+  "updated_at": "2021-04-20T14:26:31+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/1654",
