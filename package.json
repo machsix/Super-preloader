@@ -65,7 +65,7 @@
     "compare-versions": "3.6.0",
     "displacejs": "1.4.1",
     "eslint": "7.25.0",
-    "eslint-config-prettier": "8.2.0",
+    "eslint-config-prettier": "8.3.0",
     "eslint-plugin-json": "2.1.2",
     "eslint-plugin-prettier": "3.4.0",
     "extract-zip": "2.0.1",
