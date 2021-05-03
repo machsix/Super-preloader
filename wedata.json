@@ -1,5 +1,64 @@
 [
 {
+  "resource_url": "http://wedata.net/items/85651",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "id(\"detail-text\")/*[not(@class=\"nextpage\")]",
+    "nextLink": "//div[@class=\"nextpage\"]/a",
+    "url": "^https?://otonanswer\\.jp/post/",
+    "exampleUrl": "https://otonanswer.jp/post/87819/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "brib2",
+  "name": "オトナンサー",
+  "created_at": "2021-05-03T12:03:39+09:00",
+  "updated_at": "2021-05-03T12:03:39+09:00"
+},
+{
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//div[./div[@class=\"product-item__info\"]]",
+    "nextLink": "//link[@rel=\"next\"]",
+    "url": "^https://toukiichi\\.mashiko\\.online/collections/",
+    "exampleUrl": "https://toukiichi.mashiko.online/collections/all"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "kenzou_ogawa",
+  "resource_url": "http://wedata.net/items/85647",
+  "name": "益子WEB陶器市",
+  "created_at": "2021-04-29T15:59:04+09:00",
+  "updated_at": "2021-04-29T15:59:04+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85643",
+  "data": {
+    "pageElement": "//table[contains(concat(' ',@summary,' '),' content ')]/tbody/tr",
+    "nextLink": "//p[@align='center'][a]/node()[not(self::a)][number(.)>0]/following-sibling::a",
+    "url": "^http://hokuga\\.hgu\\.jp/dspace/simple-search",
+    "exampleUrl": "http://hokuga.hgu.jp/dspace/simple-search?query=%E8%8F%B1%E5%B7%9D%E5%96%84%E5%A4%AB"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m_",
+  "name": "HOKUGA: 北海学園学術情報リポジトリ",
+  "created_at": "2021-04-27T16:18:39+09:00",
+  "updated_at": "2021-04-27T16:21:35+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85640",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//article/div[@class='article-body']/div[@class='sns-button']/following-sibling::*",
+    "nextLink": "//a[span/@class='next']",
+    "url": "^https://jbpress\\.ismedia\\.jp/articles/-/",
+    "exampleUrl": "https://jbpress.ismedia.jp/articles/-/65048?page=1"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m_",
+  "name": "JBPress Digital Innovation Review",
+  "created_at": "2021-04-26T21:24:42+09:00",
+  "updated_at": "2021-04-26T21:24:42+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/85638",
   "data": {
     "pageElement": "//div[@class=\"articleGalleryImg\"]",
@@ -2493,18 +2552,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/85357",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "created_at": "2020-05-29T09:49:17+09:00",
   "data": {
-    "insertBefore": "",
-    "pageElement": "//div[@class=\"article-body\"]/div[@class=\"list-pagination\"]/preceding-sibling::* | id(\"main-column\")/div[@class=\"category-list\"] | //div[@class=\"new-articles\"]/div[contains(@class,\"article-list\")]",
-    "exampleUrl": "https://mi-mollet.com/articles/-/15777\r\nhttps://mi-mollet.com/subcategory/future\r\nhttps://mi-mollet.com/list/author/%E6%9C%A8%E4%BF%A3%20%E5%86%AC\r\n",
+    "pageElement": "//div[@class=\"article-body\"]/div[@class=\"list-pagination\"]/preceding-sibling::* | id(\"main-column\")/div[@class=\"category-list\"][not(preceding-sibling::*)] | //div[@class=\"new-articles\"]/div[contains(@class,\"article-list\")]",
     "nextLink": "//li[@class=\"next\"]/a",
-    "url": "^https?://mi-mollet\\.com/"
+    "url": "^https?://mi-mollet\\.com/",
+    "exampleUrl": "https://mi-mollet.com/articles/-/15777\r\nhttps://mi-mollet.com/subcategory/future\r\nhttps://mi-mollet.com/list/author/%E6%9C%A8%E4%BF%A3%20%E5%86%AC\r\n"
   },
-  "updated_at": "2020-05-29T09:49:17+09:00",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "brib2",
   "name": "mi-mollet（ミモレ）",
-  "created_by": "brib2"
+  "created_at": "2020-05-29T09:49:17+09:00",
+  "updated_at": "2021-05-01T17:23:10+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/85355",
@@ -4765,19 +4823,18 @@
   "updated_at": "2019-07-02T15:54:33+09:00"
 },
 {
-  "resource_url": "http://wedata.net/items/82199",
-  "created_by": "brib",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "name": "日経doors",
   "data": {
-    "exampleUrl": "https://doors.nikkei.com/atcl/column/19/011200010/060400042/",
-    "insertBefore": "",
-    "nextLink": "//link[@rel=\"next\"]",
     "pageElement": "//div[@class=\"articleBody\"]",
-    "url": "^https://doors\\.nikkei\\.com/atcl/"
+    "nextLink": "//div[@class=\"nextpage\"]/a",
+    "url": "^https://doors\\.nikkei\\.com/atcl/",
+    "exampleUrl": "https://doors.nikkei.com/atcl/column/19/011200010/060400042/"
   },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "brib",
+  "resource_url": "http://wedata.net/items/82199",
+  "name": "日経doors",
   "created_at": "2019-07-02T15:45:43+09:00",
-  "updated_at": "2019-07-02T15:45:43+09:00"
+  "updated_at": "2021-04-29T08:47:36+09:00"
 },
 {
   "created_by": "brib",
@@ -6878,18 +6935,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/82000",
-  "name": "grape [グレイプ]",
-  "created_by": "hatenaZZZ",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2018-10-24T15:16:09+09:00",
   "data": {
-    "exampleUrl": "https://grapee.jp/article-new",
+    "pageElement": "id(\"latest\")/article | //div[@class=\"comment\"]",
+    "nextLink": "//*[@rel=\"next\"]",
     "url": "^https?://grapee\\.jp/",
-    "pageElement": "id(\"latest\")/article",
-    "insertBefore": "",
-    "nextLink": "//a[@href][@rel=\"next\"]"
+    "exampleUrl": "https://grapee.jp/article-new\r\nhttps://grapee.jp/949739"
   },
-  "created_at": "2018-10-24T15:16:09+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "hatenaZZZ",
+  "name": "grape [グレイプ]",
+  "created_at": "2018-10-24T15:16:09+09:00",
+  "updated_at": "2021-05-03T11:53:03+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/81999",
