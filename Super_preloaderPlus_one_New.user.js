@@ -11,7 +11,7 @@
 // @thanksto     ywzhaiqi, NLF
 // @version      6.15.8
 // @license      GPL-3.0
-// @update       2021/5/3
+// @update       2021/5/7
 // @homepageURL  https://github.com/machsix/Super-preloader
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
 // @contributionURL https://ko-fi.com/machsix

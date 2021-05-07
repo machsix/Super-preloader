@@ -1,5 +1,49 @@
 [
 {
+  "resource_url": "http://wedata.net/items/85655",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//div[@class=\"content\"]/div/div[@class=\"link-list\"]/preceding-sibling::* | id(\"column\")",
+    "nextLink": "//a[p/@class=\"nextLink\" or @class=\"next page-numbers\"]",
+    "url": "^https?://jisin\\.jp/",
+    "exampleUrl": "https://jisin.jp/domestic/1977172/\r\nhttps://jisin.jp/domestic/\r\n"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "brib2",
+  "name": "女性自身",
+  "created_at": "2021-05-06T10:35:52+09:00",
+  "updated_at": "2021-05-06T10:35:52+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85654",
+  "data": {
+    "pageElement": "id('snsArea')/following-sibling::*[following-sibling::div[@class='pager_area'][ul]]",
+    "nextLink": "//li[@class='next']/a",
+    "url": "^https://motor-fan\\.jp/article/",
+    "exampleUrl": "https://motor-fan.jp/article/10019107"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m_",
+  "name": "motor-fan",
+  "created_at": "2021-05-05T17:34:23+09:00",
+  "updated_at": "2021-05-05T17:35:34+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85653",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//div[@class='magnifyBlock']",
+    "nextLink": "//a[contains(concat(' ',@class,' '),' magnifyArrow-next ')]",
+    "url": "^https://news\\.mynavi\\.jp/photo/",
+    "exampleUrl": "https://news.mynavi.jp/photo/article/20191231-C97/images/001l.jpg"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m_",
+  "name": "マイナビニュース 画像",
+  "created_at": "2021-05-05T02:19:08+09:00",
+  "updated_at": "2021-05-05T02:19:08+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/85651",
   "data": {
     "insertBefore": "",
@@ -18920,9 +18964,9 @@
 {
   "resource_url": "http://wedata.net/items/76807",
   "data": {
-    "pageElement": "id(\"content\")",
-    "Stylish": "@-moz-document domain(\"yaneu.com\") {\r\n.autopagerize_page_separator~#content #comments #respond{display:none !important;}\r\n}",
-    "nextLink": "//link[@rel=\"prev\"]",
+    "pageElement": "id(\"site-generator\")[id(\"comments\")]/span",
+    "comment": "This is a dummy code for uAutoPagerize.",
+    "nextLink": "id(\"branding\")/a",
     "url": "^https?://yaneuraou\\.yaneu\\.com/(this_string_is_required_to_exceed_65332_in_2020/08/02/yaneuraou-ryzen-threadripper-3990x-optimization/)?(thread_is_applied_to_65532_URL)?",
     "exampleUrl": "http://yaneuraou.yaneu.com/2015/01/07/%E5%B0%86%E6%A3%8B%E9%9B%BB%E7%8E%8B%E6%88%A6%E3%83%AA%E3%83%99%E3%83%B3%E3%82%B8%E3%83%9E%E3%83%83%E3%83%81%E8%A6%B3%E6%88%A6%E8%A8%98/"
   },
@@ -18930,7 +18974,7 @@
   "created_by": "jigendaddy_be",
   "name": "やねうら王 公式サイト",
   "created_at": "2015-01-09T14:06:39+09:00",
-  "updated_at": "2020-08-09T21:21:44+09:00"
+  "updated_at": "2021-05-07T15:58:22+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/76805",
@@ -22565,17 +22609,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/74720",
-  "name": "The Hollywood Reporter",
-  "created_by": "Tanookirby",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2018-01-20T11:42:46+09:00",
   "data": {
-    "exampleUrl": "http://www.hollywoodreporter.com/search/inside",
-    "url": "^https?://(www\\.)?hollywoodreporter\\.com/search",
-    "pageElement": "//div[@class=\"search-result\"][./following-sibling::div[@class=\"search-result\"] or ./preceding-sibling::div[@class=\"search-result\"]]",
-    "nextLink": "//a[.='Next Page']"
+    "pageElement": "//div[contains(@class,\"a-children-border\")][not(./ancestor::aside)]/*",
+    "nextLink": "//link[@rel='next']",
+    "url": "^https?://(www\\.)?hollywoodreporter\\.com/",
+    "exampleUrl": "https://www.hollywoodreporter.com/c/lifestyle/arts/ https://www.hollywoodreporter.com/vcategory/thr-news-57094/"
   },
-  "created_at": "2014-04-12T06:23:43+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "Tanookirby",
+  "name": "The Hollywood Reporter",
+  "created_at": "2014-04-12T06:23:43+09:00",
+  "updated_at": "2021-05-05T17:48:14+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/74716",
