@@ -57,7 +57,7 @@
     "@rollup/plugin-babel": "5.3.0",
     "@rollup/plugin-commonjs": "18.0.0",
     "@rollup/plugin-json": "4.1.0",
-    "@rollup/plugin-node-resolve": "11.2.1",
+    "@rollup/plugin-node-resolve": "13.0.0",
     "@types/greasemonkey": "4.0.1",
     "@types/lodash": "4.14.168",
     "babel-plugin-lodash": "3.3.4",
