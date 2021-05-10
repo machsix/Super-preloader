@@ -3082,17 +3082,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/85316",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "created_at": "2020-05-04T13:49:50+09:00",
   "data": {
-    "pageElement": "id('main-contents')/div[@class='list-bottom-linkto']/preceding-sibling::*|//ul[contains(@class,'common')]/li",
-    "exampleUrl": "https://books.bunshun.jp/articles/-/5253\r\nhttps://books.bunshun.jp/category/article\r\nhttps://books.bunshun.jp/list/tankoubon/monthly?ym=202004",
+    "pageElement": "//div[@class='paginationWrap']/preceding-sibling::*[not(@class='mainTtl')] | //ul[@class='common-list01']/li",
+    "nextLink": "//link[@rel='next']|//li[@class='odd clearfix']/a[contains(@href,'monthly')]",
     "url": "^https?://books\\.bunshun\\.jp/",
-    "nextLink": "//link[@rel='next']|//li[@class='odd clearfix']/a[contains(@href,'monthly')]"
+    "exampleUrl": "https://books.bunshun.jp/articles/-/5253\r\nhttps://books.bunshun.jp/category/article\r\nhttps://books.bunshun.jp/list/tankoubon/monthly?ym=202004"
   },
-  "updated_at": "2020-05-21T09:20:24+09:00",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "brib2",
   "name": "文藝春秋BOOKS",
-  "created_by": "brib2"
+  "created_at": "2020-05-04T13:49:50+09:00",
+  "updated_at": "2021-05-08T22:57:09+09:00"
 },
 {
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
@@ -22610,16 +22610,16 @@
 {
   "resource_url": "http://wedata.net/items/74720",
   "data": {
-    "pageElement": "//div[contains(@class,\"a-children-border\")][not(./ancestor::aside)]/*",
+    "pageElement": "//main//div[count(./div)>2][not(ancestor::aside)]",
     "nextLink": "//link[@rel='next']",
-    "url": "^https?://(www\\.)?hollywoodreporter\\.com/",
+    "url": "^https?://(www\\.)?hollywoodreporter\\.com/.",
     "exampleUrl": "https://www.hollywoodreporter.com/c/lifestyle/arts/ https://www.hollywoodreporter.com/vcategory/thr-news-57094/"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "Tanookirby",
   "name": "The Hollywood Reporter",
   "created_at": "2014-04-12T06:23:43+09:00",
-  "updated_at": "2021-05-05T17:48:14+09:00"
+  "updated_at": "2021-05-08T09:52:03+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/74716",
