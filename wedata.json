@@ -1,5 +1,35 @@
 [
 {
+  "resource_url": "http://wedata.net/items/85659",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "id('detail')/*",
+    "nextLink": "//div[@class='nextpage']/a",
+    "url": "^https://bike-news\\.jp/post/",
+    "exampleUrl": "https://bike-news.jp/post/209518"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m_",
+  "name": "バイクのニュース",
+  "created_at": "2021-05-12T13:19:54+09:00",
+  "updated_at": "2021-05-12T13:19:54+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/85658",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//div[@class='flex-box']/div[contains(concat(' ',@class,' '),' rensai-box ')]",
+    "nextLink": "id('st-pagelink')//a[contains(concat(' ',@class,' '),' next ')]",
+    "url": "^https://kodansha-cc\\.co\\.jp/series",
+    "exampleUrl": "https://kodansha-cc.co.jp/series"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m_",
+  "name": "コミクリ！",
+  "created_at": "2021-05-12T06:41:07+09:00",
+  "updated_at": "2021-05-12T06:41:07+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/85655",
   "data": {
     "insertBefore": "",
@@ -9490,17 +9520,17 @@
 {
   "resource_url": "http://wedata.net/items/81537",
   "data": {
-    "pageElement": "//div[@class=\"tab-wrap\"]/preceding-sibling::*[not(@class=\"box-01\")]|//section[@class=\"list\"]//li",
+    "pageElement": "//div[contains(@class,\"main-contents\")]/div",
     "bookmarklet": "for (var i = 0; i < $(\"img[ajax]\").length; i++) {\r\n  $(\"img[ajax]\").eq(i).attr(\"src\", $(\"img[ajax]\").eq(i).attr(\"ajax\"));\r\n}",
     "nextLink": "//link[@rel=\"next\"]",
     "url": "^https?://akiba-pc\\.watch\\.impress\\.co\\.jp/",
-    "exampleUrl": "http://akiba-pc.watch.impress.co.jp/docs/sp/1077969.html https://akiba-pc.watch.impress.co.jp/category/pcparts/"
+    "exampleUrl": "http://akiba-pc.watch.impress.co.jp/docs/sp/1077969.html https://akiba-pc.watch.impress.co.jp/docs/sp/1322320.html"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "t_f_m",
   "name": "AKIBA PC HOTLINE!",
   "created_at": "2017-09-11T21:37:58+09:00",
-  "updated_at": "2020-11-25T13:03:06+09:00"
+  "updated_at": "2021-05-13T12:17:03+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/81536",
@@ -37783,7 +37813,7 @@
 {
   "resource_url": "http://wedata.net/items/32564",
   "data": {
-    "pageElement": "id('resultsCol')/div[@data-jk]",
+    "pageElement": "//div[./h2[@class=\"title\"]]",
     "nextLink": "//link[@rel='next']",
     "url": "^https?://[^.]+\\.indeed\\.com/",
     "exampleUrl": "https://www.indeed.com/q-se-jobs.html\r\nhttps://jp.indeed.com/求人?q=se&start=10"
@@ -37792,7 +37822,7 @@
   "created_by": "toshi",
   "name": "Indeed.com",
   "created_at": "2010-05-11T15:52:57+09:00",
-  "updated_at": "2020-07-17T11:13:12+09:00"
+  "updated_at": "2021-05-13T12:00:47+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/32563",
