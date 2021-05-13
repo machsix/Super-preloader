@@ -266,7 +266,7 @@ export const jsSiteRule = [
   },
   {
     name: 'm-team artist detail',
-    url: '^https?://pt\\.m-team\\.cc/artist\\.php?',
+    url: '^https?://kp\\.m-team\\.cc/artist\\.php?',
     nextLink: '//b[@title="Alt+Pagedown"]/parent::a',
     autopager: {
       pageElement: '//form[@id="form2"]/table',
@@ -311,7 +311,7 @@ export const jsSiteRule = [
   },
   {
     name: 'm-team adults',
-    url: '^https?://pt\\.m-team\\.cc/adult\\.php',
+    url: '^https?://kp\\.m-team\\.cc/adult\\.php',
     nextLink: '//b[@title="Alt+Pagedown"]/parent::a',
     autopager: {
       pageElement: '//table[@class="torrents"]',

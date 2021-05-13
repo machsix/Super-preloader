@@ -1657,7 +1657,7 @@
   },
   {
     "name": "宅男女神",
-    "url": "^https?://www\\.nvshens\\.\\w+",
+    "url": "^https?://www\\.i?nvshens?\\.\\w+",
     "pageElement": "//ul[@id='hgallery'] | //div[@id='listdiv']/ul",
     "exampleUrl": "http://www.nvshens.com/g/17951/",
     "nextLink": "//a[text()='下一页']",
@@ -1722,10 +1722,10 @@
   },
   {
     "name": "性感尤物",
-    "url": "^https?://www\\.(jpxgyw|xgyw|nvshenheji|xgmn5|mntup|xgmn|mn5|jpxgmn)\\.(com|cc|org)/[^/]*/[^/]*\\.html",
-    "pageElement": "//div[@class='img']/p",
+    "url": "^https?://www\\.(jpxgyw|jpxgmn|xgyw|nvshenheji|xgmn5|mntup|xgmn|mn5|jpxgmn)\\.(com|cc|org)/[^/]*/[^/]*\\.html",
+    "pageElement": "//article[@class='article-content']/p",
     "exampleUrl": "http://www.xgyw.cc/Xgyw/Xgyw6874.html",
-    "nextLink": "//div[@class='page']/a[text()='后']",
+    "nextLink": "//div[@class='pagination']/ul/a[text()='下一页']",
     "category": ["gallery", "nsfw"],
     "autopager": {
       "ipages": [true, 30]
@@ -1734,13 +1734,19 @@
   {
     "name": "性感尤物2",
     "url": "^https?://www\\.(jpxgyw|xgyw|xgmn5|nvshenheji|mntup|xgmn|mn5|jpxgmn)\\.(com|cc|org)/[^/]*/",
-    "pageElement": "//tr[./td[@class='td6']]",
+    "pageElement": "//div[@class='widget-title']/div",
     "exampleUrl": "http://www.xgyw.cc/Xgyw",
-    "nextLink": "//div[@class='page']/a[text()='下页']",
+    "nextLink": "//div[@class='pagination']/ul/a[text()='下一页']",
     "category": ["gallery", "nsfw"],
     "autopager": {
       "ipages": [true, 10]
     }
+  },
+  {
+    "name": "mvtui",
+    "url": "^https://mvtui\\.com",
+    "nextLink": "(//span[@class=\"post-page-numbers current\"])[1]/following-sibling::a[1]",
+    "pageElement": "//div[@class=\"article-content\"]"
   },
   {
     "name": "爱图吧",
@@ -2949,6 +2955,13 @@
     "exampleUrl": "http://exhentai.org/s/0088446283/653117-4",
     "nextLink": "//img[@src=\"http://st.exhentai.net/img/n.png\"]/..",
     "useiframe": true
+  },
+  {
+    "name": "myhentaicomics",
+    "url": "^https://myhentaicomics\\.com/",
+    "nextLink": "//a[@class='g-button ui-icon-right ui-state-default ui-corner-all']",
+    "pageElement": "css;#g-content #g-album-grid",
+    "stylish": ".g-description {padding-bottom: 10px !important;}.sp-separator{background-color: #191919 !important;border-color: #323232 !important;}"
   },
   {
     "name": "exhentai gallery",
