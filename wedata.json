@@ -3878,19 +3878,19 @@
   "updated_at": "2020-02-02T13:03:55+09:00"
 },
 {
-  "resource_url": "http://wedata.net/items/85204",
   "data": {
     "pageElement": "id('main')/article",
     "bookmarklet": "for (var i = 0; i < $(\"img[ajax]\").length; i++) { $(\"img[ajax]\").eq(i).attr(\"src\", $(\"img[ajax]\").eq(i).attr(\"ajax\")); }\r\n",
     "nextLink": "id('paginate-under')//li[contains(concat(' ', normalize-space(@class), ' '), ' prev ')]/a",
     "url": "^https?://(.+)?watch\\.impress\\.co\\.jp/",
-    "exampleUrl": "https://forest.watch.impress.co.jp/docs/serial/yajiuma/index2019.html https://www.watch.impress.co.jp/backno/top/"
+    "exampleUrl": "https://forest.watch.impress.co.jp/docs/serial/yajiuma/index2019.html https://www.watch.impress.co.jp/backno/top/ https://game.watch.impress.co.jp/docs/review/"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "KAWASAKICHIRO",
-  "name": "窓の杜　やじうまの杜",
+  "resource_url": "http://wedata.net/items/85204",
+  "name": "Impress 記事一覧",
   "created_at": "2020-01-28T23:54:55+09:00",
-  "updated_at": "2020-11-25T13:14:49+09:00"
+  "updated_at": "2021-05-14T17:55:11+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/85203",
@@ -5043,20 +5043,20 @@
   "created_at": "2019-06-24T20:28:25+09:00"
 },
 {
-  "resource_url": "http://wedata.net/items/82189",
   "data": {
-    "pageElement": "//ul[@class='list-02']/li",
+    "pageElement": "id('main')//ul[@class='list-02']/li",
     "bookmarklet": "for (var i = 0; i < $(\"img[ajax]\").length; i++) { $(\"img[ajax]\").eq(i).attr(\"src\", $(\"img[ajax]\").eq(i).attr(\"ajax\")); }",
-    "comment": "The existence of //link[@rel=\"next\"] cannot be confirmed when JavaScript is off.",
-    "nextLink": "//li[@class=\"page current\"]/following-sibling::li[1]/a",
+    "comment": "className 'list-02' is not unique.",
+    "nextLink": "//link[@rel=\"next\"]",
     "url": "^https?://(.+)\\.watch\\.impress\\.co\\.jp/category/",
-    "exampleUrl": "https://game.watch.impress.co.jp/category/ps/ https://internet.watch.impress.co.jp/category/topic/security/ https://pc.watch.impress.co.jp/category/device/2in1/"
+    "exampleUrl": "https://game.watch.impress.co.jp/category/ps/ https://internet.watch.impress.co.jp/category/topic/security/ https://pc.watch.impress.co.jp/category/device/2in1/\r\nhttps://akiba-pc.watch.impress.co.jp/category/pcparts/"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "jigendaddy_be",
-  "name": "Watch カテゴリ",
+  "resource_url": "http://wedata.net/items/82189",
+  "name": "Impress カテゴリ",
   "created_at": "2019-06-24T10:41:33+09:00",
-  "updated_at": "2020-11-25T13:12:11+09:00"
+  "updated_at": "2021-05-14T17:55:54+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/82188",
@@ -9518,19 +9518,19 @@
   "created_at": "2017-09-17T17:56:58+09:00"
 },
 {
-  "resource_url": "http://wedata.net/items/81537",
   "data": {
-    "pageElement": "//div[contains(@class,\"main-contents\")]/div",
+    "pageElement": "//div[contains(@class,\"main-contents\")]",
     "bookmarklet": "for (var i = 0; i < $(\"img[ajax]\").length; i++) {\r\n  $(\"img[ajax]\").eq(i).attr(\"src\", $(\"img[ajax]\").eq(i).attr(\"ajax\"));\r\n}",
-    "nextLink": "//link[@rel=\"next\"]",
-    "url": "^https?://akiba-pc\\.watch\\.impress\\.co\\.jp/",
-    "exampleUrl": "http://akiba-pc.watch.impress.co.jp/docs/sp/1077969.html https://akiba-pc.watch.impress.co.jp/docs/sp/1322320.html"
+    "nextLink": "//li[@class=\"next\"]/a",
+    "url": "^https?://(.+)?\\.watch\\.impress\\.co\\.jp/",
+    "exampleUrl": "http://akiba-pc.watch.impress.co.jp/docs/sp/1077969.html https://akiba-pc.watch.impress.co.jp/docs/sp/1322320.html https://game.watch.impress.co.jp/docs/kikaku/1323615.html https://game.watch.impress.co.jp/docs/review/671068.html http://pc.watch.impress.co.jp/docs/topic/feature/1057915.html"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "t_f_m",
-  "name": "AKIBA PC HOTLINE!",
+  "resource_url": "http://wedata.net/items/81537",
+  "name": "Impress 個別記事",
   "created_at": "2017-09-11T21:37:58+09:00",
-  "updated_at": "2021-05-13T12:17:03+09:00"
+  "updated_at": "2021-05-14T18:14:46+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/81536",
@@ -10358,20 +10358,6 @@
   "name": "bike-discount.de",
   "created_at": "2017-05-04T05:58:10+09:00",
   "updated_at": "2020-07-13T11:46:42+09:00"
-},
-{
-  "resource_url": "http://wedata.net/items/81343",
-  "name": "Impress PC Watch topic feature",
-  "created_by": "faw8jw",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-08-13T14:04:59+09:00",
-  "data": {
-    "exampleUrl": "http://pc.watch.impress.co.jp/docs/topic/feature/1057915.html",
-    "url": "^https?://pc\\.watch\\.impress\\.co\\.jp/docs/topic/feature/",
-    "pageElement": "//div[contains(concat(\" \", normalize-space(@class), \" \"), \" main-contents \")]",
-    "nextLink": "//li[@class=\"next\"]//a"
-  },
-  "created_at": "2017-05-03T11:36:50+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/81342",
@@ -23385,17 +23371,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/74360",
-  "name": "クラウド Watch",
-  "created_by": "kik0220",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-11-08T07:33:34+09:00",
   "data": {
-    "exampleUrl": "https://cloud.watch.impress.co.jp/docs/column/infostand/20141006_669965.html",
-    "url": "^https://cloud\\.watch\\.impress\\.co\\.jp/docs/",
     "pageElement": "id('contents-section-2')/*[following-sibling::div/@class='null']",
-    "nextLink": "//ul[@class='number']/li[a/@class='current']/following-sibling::li[1]/a"
+    "nextLink": "//ul[@class='number']/li[a/@class='current']/following-sibling::li[1]/a",
+    "url": "^https://cloud\\.watch\\.impress\\.co\\.jp/docs/",
+    "exampleUrl": "https://cloud.watch.impress.co.jp/docs/column/infostand/20141006_669965.html"
   },
-  "created_at": "2013-09-09T04:44:54+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "kik0220",
+  "name": "クラウド Watch",
+  "created_at": "2013-09-09T04:44:54+09:00",
+  "updated_at": "2021-05-14T18:06:29+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/74356",
@@ -24873,20 +24859,6 @@
     "nextLink": "//font[@style='color: #FFA500; font-weight: bold; font-size: 14pt;']/following-sibling::a[1]"
   },
   "created_at": "2013-02-16T15:00:44+09:00"
-},
-{
-  "resource_url": "http://wedata.net/items/66684",
-  "data": {
-    "pageElement": "//div[@class=\"tab-wrap\"]/preceding-sibling::*|//section[@class=\"list\"]/*",
-    "nextLink": "//li[@class=\"next\"][not(//section[@class=\"list\"])]/a|//li[@class=\"prev\"][//section[@class=\"list\"]]/a",
-    "url": "^https?://game\\.watch\\.impress\\.co\\.jp/",
-    "exampleUrl": "http://game.watch.impress.co.jp/docs/review/20141014_671068.html https://game.watch.impress.co.jp/docs/review/"
-  },
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "created_by": "duke",
-  "name": "GAME Watch",
-  "created_at": "2013-02-14T19:03:22+09:00",
-  "updated_at": "2020-08-30T14:46:09+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/66656",
