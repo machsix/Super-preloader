@@ -59,7 +59,7 @@
     "@rollup/plugin-json": "4.1.0",
     "@rollup/plugin-node-resolve": "13.0.0",
     "@types/greasemonkey": "4.0.1",
-    "@types/lodash": "4.14.169",
+    "@types/lodash": "4.14.171",
     "babel-plugin-lodash": "3.3.4",
     "babel-plugin-wildcard": "7.0.0",
     "compare-versions": "3.6.0",
