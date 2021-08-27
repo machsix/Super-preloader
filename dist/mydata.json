@@ -1722,7 +1722,7 @@
   },
   {
     "name": "性感尤物",
-    "url": "^https?://www\\.(jpxgyw|jpxgmn|xgyw|nvshenheji|xgmn5|mntup|xgmn|mn5|jpxgmn)\\.(com|cc|org)/[^/]*/[^/]*\\.html",
+    "url": "^https?://www\\.(jpxgyw|jpxgmn|xgyw|nvshenheji|xgmn5|mntup|xgmn|mn5|jpxgmn)\\.(com|cc|org|top)/[^/]*/[^/]*\\.html",
     "pageElement": "//article[@class='article-content']/p",
     "exampleUrl": "http://www.xgyw.cc/Xgyw/Xgyw6874.html",
     "nextLink": "//div[@class='pagination']/ul/a[text()='下一页']",
@@ -1733,7 +1733,7 @@
   },
   {
     "name": "性感尤物2",
-    "url": "^https?://www\\.(jpxgyw|xgyw|xgmn5|nvshenheji|mntup|xgmn|mn5|jpxgmn)\\.(com|cc|org)/[^/]*/",
+    "url": "^https?://www\\.(jpxgyw|xgyw|xgmn5|nvshenheji|mntup|xgmn|mn5|jpxgmn)\\.(com|cc|org|top)/[^/]*/",
     "pageElement": "//div[@class='widget-title']/div",
     "exampleUrl": "http://www.xgyw.cc/Xgyw",
     "nextLink": "//div[@class='pagination']/ul/a[text()='下一页']",
@@ -2094,6 +2094,13 @@
     "autopager": {
       "relatedObj": true
     }
+  },
+  {
+    "name": "ifanjian",
+    "url": "'https?://www\\.ifanjian\\.net'",
+    "nextLink": "//div[@class=\"pager\"]/a[@class=\"icon iconfont pager-next\"]",
+    "pageElement": "//div[@class=\"b\"]/ul[@class=\"cont-list\"]|//div[@class=\"pager\"]",
+    "stylish": ".pager{margin-top: -15px; !important;}"
   },
   {
     "name": "软件阁 - 原创绿色软件更新,精品软件共享",
@@ -3610,9 +3617,17 @@
   },
   {
     "name": "Steam Workshop",
-    "url": "https?://steamcommunity\\.com/workshop",
-    "pageElement": "//div[@class='workshopBrowseRow']",
-    "nextLink": "//a[@class='pagebtn']"
+    "url": "https?://steamcommunity\\.com/(workshop|id)",
+    "pageElement": "//div[@class='workshopBrowseItems']|//div[@class='workshopBrowsePaging']",
+    "nextLink": "(//div[@class='workshopBrowsePagingControls'])[last()]/a[@class='pagebtn' and contains(text(),'>')]",
+    "useiframe": true
+  },
+  {
+    "name": "Steam Workshop个人主页",
+    "url": "https?://steamcommunity\\.com/profiles",
+    "pageElement": "//div[@class='workshopItemSubscription']|//div[@class='workshopBrowsePagingWithBG']",
+    "nextLink": "(//div[@class='workshopBrowsePagingControls'])[last()]/a[@class='pagebtn' and contains(text(),'>')]",
+    "useiframe": true
   },
   {
     "name": "Steam discussion",

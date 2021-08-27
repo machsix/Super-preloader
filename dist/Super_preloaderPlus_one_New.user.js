@@ -9,10 +9,12 @@
 // @author       Mach6
 // @contributers alexolog, heroboy, suchunchen, YFdyh000
 // @thanksto     ywzhaiqi, NLF
-// @version      6.15.9
+// @version      6.16.0
 // @license      GPL-3.0
-// @update       2021/5/12
+// @update       2021/8/27
 // @homepageURL  https://github.com/machsix/Super-preloader
+// @downloadURL  https://machsix.github.io/Super-preloader/Super_preloaderPlus_one_New.user.js
+// @updateURL    https://machsix.github.io/Super-preloader/Super_preloaderPlus_one_New.user.js
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
 // @contributionURL https://ko-fi.com/machsix
 // @icon         data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAvCAYAAABOtfLKAAAL9UlEQVR42s1ZC1CU1xXee/9/dwGFFRU1SQURfCSaCCoaX6Py9gmDqBSN4zuKWvEFPqpGDGrjtLFJGzXO1FgfqNUYp2lim9hWGzH1hcT3pDHK2FidGtvqaIIi/b71/viz/wLL6tjuzJnz73/vf+455zv33HPvtSUm9hMgqUgjf1qUnBwvbeoXHBwcqGlaBynFSCHEa6C3pJT9MjPThY/yhM1khP1p8okTx2jHjx8QQUGBkVB6EmgvDLgCugeqVLSxd+8edhjti1xNGfOoYdCgFG3gwGSdPCUl3iLocfnQoQO0zZvXS6fT8aymyYVQ+JxS/D5Q4fM2GLYFvAJ8W2zsSzp0oB7QJ0F/pF9yNbkWZMaMyZLt2kUHhIU1DYyKigxs2zbanpTU315ZWSkqKx8IhgOfyZcsyddycibK1NREnwxJSOhrnz17moyN7eSAkkNAnysjboK267o2zOl0PtenT08d4ZZA40BbCwsXy/v3bwjKgW721q1bBTZrFhYE3QKyszMl5FqQgSHZbsghYBMG+gP4h+C/Af8V+BrQYgySA29m2O32PqA2LldIWHj4D5zvvPNTSQO3bt0gJ0x4RcIBFkN2794s4CQX5UDmvxhOeN4NmX2pIL+fPHmsBmfZdF1PRXs5kDqBPktAP2fIge+iXkq/TdA3YsWK14QFmWPHDgoITlIx+wB0hwLVc6UHse0qqASC94CvgGdHQ4mY0NBGTRYsmC2JIL1Kw/bt2y1cLlcY+q1THv8GY00LDm4YfOvW30Va2qAqww8d+pR6JKPPXY8xHyh97qjne9T3yJE/CwsyZ84ct9nteqry2Mfo2BPeTwASQ6go3s3A83K0b8Dz72iIMuh704Dfgv5KT4LSGjZs8FxFxU3RpEnjUH6nlDgNoxOBghw2LE33DMkvvvjcjAydNRO6jAYNgX4J0KUn3v2eeqJfyokTxTYLMsojSUasLl6cpxlzxMyHDBmgt2jRPIAhBmPb0mAInwqi1w8rgyqVnFN4vwJ8LagCVIr+3RhKSC4WQ8iLixUySo8DBz6Sanwy29Kl+ZLv2c5+xcX7rchcvHjWQOY+s0jnzp2QRarHPogJQRswIEmfMmW8LChYKA1DMzPTZOPGoY3hrVgMMhVy3gddN6H2FecalTLNKQsvLa1C5r4pm7kNJ+/SJUbH+yK2o1/yqVNHHyFj/kGJFOWRbd27d3XAez6nXSiIJPJDuXPne24DIyMjgiAvRk3aSoToMoshdSNT1K1bF+iRwHZ3euZ/6qeQSeFYVZGDwTri5StoLMTzHxnXZmT8X08GMkwpfzaNAZ9bVnbOCIlakDnsKzLU80/Um3OKdtjw57KKZ5UxwK3I+MUvXDhJtPMoE3zeuXMlDInHRKYzkdnqoW8F7XAjxFQJy3IRCj+uYc74xUtKDgkiopCZd/JkcZ3IoI/Pc4YVBPXG8z9oh01ZdrJ582Yh8Ej/+swZJgMkAi0jY4jX9vPnSzyQOeEHMp0NPXQiExfX2Txn4ps1axpC/UE0xgaviZNYwBohm6X4igzqI23OnOkaaqwIruwjR2bIJ4FMSYknMp1qy2ZJISHBjaB/qRmZUqZVWJroCzJZWcNkRsZQ1lADIfgjh8MRNWPGq5p3ZGS+Qibv7NnjTxqZJFQcjX1EJt5SYxUULJJt2kQFos9kxiroSmBgYNSqVcsEPcfJavCZM6do8F53GJQH3m3WrBzNaEeImg3RDU40iYxZDzMyXbtakcFz/ZChIczl7KdW9dvq20tEBtWzHhPzIsPAYeIMR53rCxda/ud7Tuq+fXsxO1Uz5Kkhk5MzSQYGBkQZgkwr+230/63ah2ynAj7wzRgrhousJzInTliQsVdHJrY2ZGw+IbN69esS7Wlou+GliuY39+pBt1mKFBVtFHUhAyRqRaZRI1f9kWH2wjsH9zPo86XJkGsQOgqUgO+T6BATT1TvE0z/yeMbNAhqOnx4umZF5rP6IhNaFzJFRMZzyzx4cKq2d2+R5KSGwEPGnMEOMdxcI5l5RER4ELYCTVq1Cg8yv8/KyuA81HxAhsaYkbHXgozwigzzOT3hbaEsKzsrUAG3VkXkJcyl6IUL51hCprCQm0Q5lnsY8PHMhEZ7Tfz48TqRsVdHJsQ/ZAxOj7799huSoYJvcgMCnC1ZCXgqdv3611xn5quqOe/q1a9sFgP8QEZKH5DR9dqQsRqEAxAN/ZhyOUktimE1r1YBoCIWdSPzl3oh43I9QgZUf2RMCnARpNFeFTtz5piNiChk5p4+fVTUjcx+n5HBFjrZb2TqUOSJIHPsWI3I6I+LjL+GKGSOiv8RMsG1IeMXv3jxNJHJU8jkX758zgdkDtaKTFycD8igxqkJGb8NwkIrqRictYGOQn0ma+tPOnx4v6DHHxpjQYbGeCIT+lSQIV+zZpVkobl+/RrvhpjJigz1+P9ABoumwELcF4MvB++zcuUyNWeslJ4+CNX1vwUVgscTTMhYEkCtyPBPSMiTR+bSpbPV5gxPZ8wGUD6OpgSQ46lnsMNhfwn9MkHu00/vyHT2Cxn74yLDhRV7nRjev5AbtVhSUj99/vxZcty40RJ1XVu0/wje/sTj0JBXGr/s3ftlbuRqRMblqhuZrT16xHECu3eMEOaXQVBepxxW21SK/3meBjR4P9OK4Yfx/qZ0KAedgqK/5toEx2YHBAREshYEQY943s3oPXt21+uLzE6c1gRHRLR0UhEexZ4/f1SYz3ypUG7uVMkBMJjXSb1hwy+4ZoyAvI/BM/kdqmcnnocb3gT9kwbg3SBcUbTIz8+V7PeoCr8jxo4dpWF3ase3ATiNaYj+O4zjWRhTKzL3FNyfwAMfqp3hetAKLHxzQNk8xUfV3LFBgwbP4BA9aPr0yVWH7DTciHGc6Aue4nMzRo6C1AVeiP+3QN+pHWd3Khod3doJeS0wbzrS40QG7XM4LuhdhhaI+hjhyFsAFppWZPCyCRR8kVCr3eR/QHeNLbIHldOjoLMYYB8vozD4JAh/GXuX5gwnIrhu3ZsClfWzUDgOc4aTe6OSV8bEwHM60AR+Dzm8pjinxi6vYTd7l3qpPqeYMABCEwsy8EpTXMHZMSEjMXAnKNAVxvXm4TQm2nAM+CpoEScliCf8R6iUx6XQLcqiJ4HgSMR8q2vXvhQIYZ5tbVLHqRWg06AS9jd9SzlllIu+76txFkHOFIYodEiFTr2gUxyN4Hzq1au7jpoyzIIMLAzjBRA2WZLhcuPG14LeJZl/ubk5Gk74nYQXkziK6wcGdXsXcg6YMhIVv8D3CpEKD09fAx1E25tQeAJQ7QNHRlEu7lOdc+fOkJ5jK33ExYulYuXKpciGozREQpg3ZMKys4dXbbCMLMJsBtJxlOTmIPf9DC5HteXLF1UNOHPmVIm1IoShCuXGq0n6jcc13hW+R/s49mP/WbOmSUPR1asLJA4YcZucxHFAHNfNmZZB/avSNIn7KW/InEQohD4U+r3Ys2eLSE8frOMO3r3xat++reP559s6X3ihnYPnXhSkLlOFYQy5GUkcFDqBWgd1vFTJBZBJIzo6MsBbfyOB8Aab8llgdujQ3tGuXRv3uJ06dbTzJnrYsKHa2rU/k8ZZgspmJWZkLjPbgPKZ+0FvwYPvgm8B3w6+G312gYPc2W2TiumfqIk8njGNWI4NCgp6Jjy8ZaChJNpnKWPmGEawnf1gXCy/4/eUQ3mUq+Qze+1StJtOoT6cj9QP9PrDsWUu55oZGW/0QGWQcnUJ+53i9xj/NWSbb1VG+kBdtfdjKlbGFKj/S6DcB6rfzRqyZQXH8Ri3XPV94FVfhUwBBljLQbmOsPTAoFmgdFavLPrA+z0iLQl8IBc+5dF5oDeIGGR9Ri+ZUusdlcIrFb9jSu1l7M/VnN9TDuSNo1yMMZBriGncvqBEvE+hXkq/ybyVo97UH7KW2fibNGmsEYPm+PXkwvjv+SsrOyNYECITubAwtuapCQZYqBa4mzRA8U/xfgFrKvbDPHVxbpSWHhIWodZ5Re61D455tR073hM2ZAmhyhEB8salL3zw4BQxatQIaR4I6T4EiKWCCsmxZwoxt48ePYLlkCHHbw79mWnFfwGWB6omxVHfzgAAAABJRU5ErkJggg==
@@ -68,6 +70,9 @@
 // @exclude      http*://dash.cloudflare.com/*
 // @exclude      http*://assets.tumblr.com/*
 // @exclude      http*://www.tumblr.com/video/*
+// @exclude      http*://*.awsapps.com/*
+// @exlucde      http*://www.commcarehq.org/accounts/login/*gre
+// @exclude      http*://simkl.com/*
 // ==/UserScript==
 
 (function () {
@@ -4145,7 +4150,7 @@
 	  }
 	}
 
-	var name="super-preloader";var version="6.15.9";var description="Super-preloader";var main="dist/Super_preloaderPlus_one_New.user.js";var author="Mach6";var license="GPL-3.0";var bugs={url:"https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new"};var homepage="https://github.com/machsix/Super-preloader";var directories={doc:"docs"};var repository={type:"git",url:"git+https://github.com/machsix/Super-preloader.git"};var scripts={lint:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.js\"",format:"prettier --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"","format:check":"prettier --check \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"","format:staged":"pretty-quick --verbose --staged --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"",check:"npm run lint && npm run typecheck && npm run format:staged",test:"cd test && node test.js",dev:"rollup -c --dev -w",build:"rollup -c","docs:dev":"vuepress dev docs","docs:build":"vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh",preversion:"npm run check",version:"npm run build  && git add dist/*.js && git add dist/*.json",postversion:"git add package.json package-lock.json && npm run test","publish:patch":"npm --no-git-tag-version version patch",publish:"npm --no-git-tag-version version minor",typecheck:"tsc -p jsconfig.json --noEmit"};var husky={hooks:{"pre-commit":"npm run check"}};var keywords=["userscript"];var devDependencies={"@vuepress/plugin-back-to-top":"1.8.2","@vuepress/plugin-google-analytics":"1.8.2","@vuepress/plugin-pwa":"1.8.2",typescript:"4.2.4",vuepress:"1.8.2"};var dependencies={"@babel/core":"7.14.2","@babel/plugin-transform-runtime":"7.14.2","@babel/preset-env":"7.14.2","@rollup/plugin-babel":"5.3.0","@rollup/plugin-commonjs":"19.0.0","@rollup/plugin-json":"4.1.0","@rollup/plugin-node-resolve":"13.0.0","@types/greasemonkey":"4.0.1","@types/lodash":"4.14.169","babel-plugin-lodash":"3.3.4","babel-plugin-wildcard":"7.0.0","compare-versions":"3.6.0",displacejs:"1.4.1",eslint:"7.26.0","eslint-config-prettier":"8.3.0","eslint-plugin-json":"3.0.0","eslint-plugin-prettier":"3.4.0","extract-zip":"2.0.1",got:"11.8.2",husky:"6.0.0",lodash:"4.17.21",loglevel:"1.7.1",prettier:"2.3.0","pretty-quick":"3.1.0",puppeteer:"2.1.0","node-sass":"6.0.0",rollup:"2.47.0","rollup-plugin-banner":"git+https://git@github.com/machsix/rollup-plugin-banner.git#v0.2.2","rollup-plugin-dev":"1.1.3","rollup-plugin-ejs":"2.2.0","rollup-plugin-re":"1.0.7","rollup-plugin-scss-string":"0.1.0",yargs:"17.0.1"};var pkg = {name:name,version:version,description:description,main:main,author:author,license:license,bugs:bugs,homepage:homepage,directories:directories,repository:repository,scripts:scripts,husky:husky,keywords:keywords,devDependencies:devDependencies,dependencies:dependencies};
+	var name="super-preloader";var version="6.16.0";var description="Super-preloader";var main="dist/Super_preloaderPlus_one_New.user.js";var author="Mach6";var license="GPL-3.0";var bugs={url:"https://github.com/machsix/Super-preloader/issues"};var homepage="https://github.com/machsix/Super-preloader";var directories={doc:"docs"};var repository={type:"git",url:"git+https://github.com/machsix/Super-preloader.git"};var scripts={lint:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.js\"",format:"prettier --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"","format:check":"prettier --check \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"","format:staged":"pretty-quick --verbose --staged --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"",check:"npm run lint && npm run typecheck && npm run format:staged",test:"cd test && node test.js",dev:"rollup -c --dev -w",build:"rollup -c","docs:dev":"vuepress dev docs","docs:build":"vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh",preversion:"npm run check",version:"npm run build  && git add dist/*.js && git add dist/*.json",postversion:"git add package.json package-lock.json && npm run test","publish:patch":"npm --no-git-tag-version version patch",publish:"npm --no-git-tag-version version minor",typecheck:"tsc -p jsconfig.json --noEmit"};var husky={hooks:{"pre-commit":"npm run check"}};var keywords=["userscript"];var devDependencies={"@vuepress/plugin-back-to-top":"1.8.2","@vuepress/plugin-google-analytics":"1.8.2","@vuepress/plugin-pwa":"1.8.2",typescript:"4.4.2",vuepress:"1.8.2"};var dependencies={"@babel/core":"7.15.0","@babel/plugin-transform-runtime":"7.15.0","@babel/preset-env":"7.15.0","@rollup/plugin-babel":"5.3.0","@rollup/plugin-commonjs":"20.0.0","@rollup/plugin-json":"4.1.0","@rollup/plugin-node-resolve":"13.0.4","@types/greasemonkey":"4.0.2","@types/lodash":"4.14.172","babel-plugin-lodash":"3.3.4","babel-plugin-wildcard":"7.0.0","compare-versions":"3.6.0",displacejs:"https://github.com/machsix/displace.git#v1.4.0",eslint:"7.32.0","eslint-config-prettier":"8.3.0","eslint-plugin-json":"3.1.0","eslint-plugin-prettier":"3.4.1","extract-zip":"2.0.1",got:"11.8.2",husky:"7.0.2",lodash:"4.17.21",loglevel:"1.7.1",prettier:"2.3.2","pretty-quick":"3.1.1",puppeteer:"2.1.0","node-sass":"6.0.1",rollup:"2.56.3","rollup-plugin-banner":"git+https://git@github.com/machsix/rollup-plugin-banner.git#v0.2.2","rollup-plugin-dev":"1.1.3","rollup-plugin-ejs":"2.2.0","rollup-plugin-re":"1.0.7","rollup-plugin-scss-string":"0.1.0",yargs:"17.1.1"};var pkg = {name:name,version:version,description:description,main:main,author:author,license:license,bugs:bugs,homepage:homepage,directories:directories,repository:repository,scripts:scripts,husky:husky,keywords:keywords,devDependencies:devDependencies,dependencies:dependencies};
 
 	// Information of script
 
@@ -4159,16 +4164,18 @@
 	  author: pkg.author,
 	  version: pkg.version,
 	  license: pkg.license,
-	  changelog: `${emoji('1F92A')} Adguard is supported`,
+	  changelog: `${emoji('1F595')} Greasyfork`,
 	  greasyfork: 'https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new',
 	  updateTime: `${now.getFullYear()}/${now.getMonth() + 1}/${now.getDate()}`,
 	  homepageURL: pkg.homepage,
-	  feedbackURL: pkg.bugs.url + '/feedback',
+	  feedbackURL: pkg.bugs.url,
 	  // rewrite storage for these versions
 	  rewriteStorage: '6.6.83'
-	};
-	SCRIPT_INFO.downloadURL = `${SCRIPT_INFO.greasyfork}/code/${SCRIPT_INFO.name}.user.js`;
-	SCRIPT_INFO.metaURL = `${SCRIPT_INFO.greasyfork}/code/${SCRIPT_INFO.name}.meta.js`; // New notification to send
+	}; // SCRIPT_INFO.downloadURL = `${SCRIPT_INFO.greasyfork}/code/${SCRIPT_INFO.name}.user.js`;
+	// SCRIPT_INFO.metaURL = `${SCRIPT_INFO.greasyfork}/code/${SCRIPT_INFO.name}.meta.js`;
+
+	SCRIPT_INFO.downloadURL = 'https://machsix.github.io/Super-preloader/Super_preloaderPlus_one_New.user.js';
+	SCRIPT_INFO.updateURL = SCRIPT_INFO.downloadURL; // New notification to send
 
 	var NOTIFICATION = {
 	  title: SCRIPT_INFO.name,
@@ -4183,6 +4190,84 @@
 	    en_US: 'You can now change the appearence by CustomCSS!'
 	  }
 	}; // Meta for userscript
+
+`// ==UserScript==
+// @name         ${SCRIPT_INFO.name}
+// @name:zh-CN   ${SCRIPT_INFO['name-CN']}
+// @name:zh-TW   ${SCRIPT_INFO['name-CN']}
+// @namespace    ${SCRIPT_INFO.namespace}
+// @description  Preload and Autopager
+// @description:zh-CN  预读+翻页..全加速你的浏览体验
+// @description:zh-TW  预读+翻页..全加速你的浏览体验
+// @author       ${SCRIPT_INFO.author}
+// @contributers alexolog, heroboy, suchunchen, YFdyh000
+// @thanksto     ywzhaiqi, NLF
+// @version      ${SCRIPT_INFO.version}
+// @license      ${SCRIPT_INFO.license}
+// @update       ${SCRIPT_INFO.updateTime}
+// @homepageURL  ${SCRIPT_INFO.homepageURL}
+// @downloadURL  ${SCRIPT_INFO.downloadURL}
+// @updateURL    ${SCRIPT_INFO.updateURL}
+// @supportURL   ${SCRIPT_INFO.greasyfork}/feedback
+// @contributionURL https://ko-fi.com/machsix
+// @icon         ${SCRIPT_INFO.icon}
+// @require      https://cdn.jsdelivr.net/gh/machsix/gm4-polyfill@3ac89770e4dcb69123c749a71f101fb462eaada8/gm4-polyfill-mach6-legacy.js
+// @grant        GM.getValue
+// @grant        GM_getValue
+// @grant        GM.setValue
+// @grant        GM_setValue
+// @grant        GM.notification
+// @grant        GM_notification
+// @grant        GM.xmlHttpRequest
+// @grant        GM_xmlhttpRequest
+// @grant        GM.info
+// @grant        GM_info
+// @grant        GM_registerMenuCommand
+// @connect      wedata.net
+// @connect      github.io
+// @run-at       document-idle
+// @include      http*
+// @exclude      http*://mail.google.com/*
+// @exclude      http*://maps.google*
+// @exclude      http*://www.google.com/reader*
+// @exclude      http*://www.google.com/calendar*
+// @exclude      https://docs.google.com/*
+// @exclude      http*://app.yinxiang.com/*
+// @exclude      http*://www.dropbox.com/*
+// @exclude      http*://www.toodledo.com/*
+// @exclude      http*://cloud.feedly.com/*
+// @exclude      http*://weibo.com/*
+// @exclude      http*://w.qq.com/*
+// @exclude      http*://web2.qq.com/*
+// @exclude      http*://openapi.qzone.qq.com/*
+// @exclude      http*://*cloud.vip.xunlei.com/*
+// @exclude      http*://www.wumii.com/*
+// @exclude      http*://pan.baidu.com/*
+// @exclude      http*://yun.baidu.com/*
+// @exclude      http*://www.cnbeta.com/*
+// @exclude      http*://www.youku.com/
+// @exclude      http*://v.youku.com/*
+// @exclude      http*://www.iqiyi.com/*
+// @exclude      http*://www.duokan.com/reader/*
+// @exclude      https://www.kohls.com/*
+// @exclude      http*://list.jd.com/*
+// @exclude      http*://eclick.baidu.com/*
+// @exclude      http*://googleads.g.doubleclick.net/*
+// @exclude      http*://pos.baidu.com/*
+// @exclude      http*://tpc.googlesyndication.com/*
+// @exclude      http*://ad.doubleclick.net/*
+// @exclude      http*://ad.agrantsem.com/*
+// @exclude      http*://www.youtube.com/embed/*
+// @exclude      https://assets.tumblr.com/*
+// @exclude      http*://www.paypal.com/*
+// @exclude      http*://dash.cloudflare.com/*
+// @exclude      http*://assets.tumblr.com/*
+// @exclude      http*://www.tumblr.com/video/*
+// @exclude      http*://*.awsapps.com/*
+// @exlucde      http*://www.commcarehq.org/accounts/login/*gre
+// @exclude      http*://simkl.com/*
+// ==/UserScript==
+`;
 
 	// 动画库
 	var Tween = {
@@ -5873,7 +5958,7 @@
 	function encode_char(c) {
 	  return _ENCODE_HTML_RULES[c] || c;
 	}var __line = 1
-	  , __lines = "Super_preloaderPlus_one_New is upgraded from v<%= locals.oldversion %> to v<%= locals.newversion%>\r\n"
+	  , __lines = "Super_preloaderPlus_one_New is upgraded from v<%= locals.oldversion %> to v<%= locals.newversion%>\n"
 	  , __filename = undefined;
 	try {
 	  var __output = "";
@@ -5882,7 +5967,7 @@
 	    ; __append(escapeFn( locals.oldversion ))
 	    ; __append(" to v")
 	    ; __append(escapeFn( locals.newversion))
-	    ; __append("\r\n")
+	    ; __append("\n")
 	    ; __line = 2;
 	  return __output;
 	} catch (e) {
@@ -5933,31 +6018,31 @@
 	function encode_char(c) {
 	  return _ENCODE_HTML_RULES[c] || c;
 	}var __line = 1
-	  , __lines = "<div>Super_preloaderPlus_one_New Settings</div>\r\n<ul>\r\n  <li>Version: <b><%= locals.scriptInfo.version %></b> Update time: <b><%= locals.scriptInfo.updateTime %></b>\r\n    <a id=\"sp-prefs-homepageURL\" target=\"_blank\" href=\"<%= locals.scriptInfo.homepageURL %>\" />Homepage</a>\r\n    <a id=\"sp-prefs-homepageURL-feedback\" target=\"_blank\" href=\"<%= locals.scriptInfo.feedbackURL %>\" /> Feedback\r\n    </a>\r\n  </li>\r\n  <li>Maintainer: <b><a href=\"https://greasyfork.org/en/users/32861-mach6\">Mach6</a></b> Changelog:\r\n    <b><%= locals.scriptInfo.changelog %></b></li>\r\n  <li>Number of rules: <b><%= locals.prefs.numOfRule %></b> Next update: <b><%= locals.nextUpdateDate %></b> <button\r\n      id=\"sp-prefs-updaterule\">Update rules</button></li>\r\n  <li>\r\n    <label for=\"sp-prefs-debug\"><input type=\"checkbox\" id=\"sp-prefs-debug\" /> Debug mode</label>\r\n    <label for=\"sp-prefs-ChineseUI\"><input class=\"inputShift\" type=\"checkbox\" tile=\"English/Chinese UI\" id=\"sp-prefs-ChineseUI\" /> Chinese UI</label>\r\n    <label for=\"sp-prefs-floatWindow\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-floatWindow\" /> Float window</label>\r\n  </li>\r\n  <li>\r\n    <label for=\"sp-prefs-disableBuiltinRules\"><input type=\"checkbox\" id=\"sp-prefs-disableBuiltinRules\"  title=\"Disable builtin js rules\"/> Disable builtin rules</label>\r\n    <label for=\"sp-prefs-disableBuiltinSubscriptionRules\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-disableBuiltinSubscriptionRules\" title=\"Disable the subscription of rules from wedata.net and etc.\"/> Disable rule subscription</label>\r\n    <label for=\"sp-prefs-autoMatchKeyMatch\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-autoMatchKeyMatch\" /> Disable auto match</label>\r\n  </li>\r\n  <li><label for=\"sp-prefs-enableHistory\"><input type=\"checkbox\" id=\"sp-prefs-enableHistory\" /> Add next page to history</label></li>\r\n  <li>\r\n    <label for=\"sp-prefs-dblclick_pause\"><input type=\"checkbox\" id=\"sp-prefs-dblclick_pause\" /> Double click to stop preload (Default: Ctrl + Long Left)</label>\r\n  </li>\r\n  <li><label for=\"sp-prefs-SITEINFO_D-useiframe\"><input type=\"checkbox\" id=\"sp-prefs-SITEINFO_D-useiframe\" /> Enable iframe mode globally</label></li>\r\n  <li><label for=\"sp-prefs-SITEINFO_D-a_enable\"><input type=\"checkbox\" title=\"Enable autopagger, otherwise only prefetcher is enabled\"\r\n      id=\"sp-prefs-SITEINFO_D-a_enable\" checked /> Enable autopagger globally</label></li>\r\n  <li><label for=\"sp-prefs-arrowKeyPage\"><input type=\"checkbox\" id=\"sp-prefs-arrowKeyPage\" /> Turn to the next page with ← →</label></li>\r\n  <li><label for=\"sp-prefs-SITEINFO_D-a_force_enable\"><input type=\"checkbox\" id=\"sp-prefs-SITEINFO_D-a_force_enable\" /> Mandatorily join pages if not covered by the\r\n    rules</label></li>\r\n  <li>Custom excludes:\r\n    <div><textarea id=\"sp-prefs-excludes\"\r\n        placeholder=\"Customized excludes. You can use either wildcard character like &quot;https://www.google.com/*&quot; or regular expression &quot;re:^https?://www\\\\.google\\\\.com(/.*)?&quot;. The first one will match &quot;https://www.google.com/apple&quot; but not &quot;https://www.google.com&quot;. The second one matches everything. But you need to add the &quot;re:&quot; prefix and escape backslash\" ></textarea></div>\r\n  </li>\r\n  <li><a href=\"https://machsix.github.io/Super-preloader/siterule.html\" style=\"color: blue;\" target=\"_blank\">Custom\r\n      rules:</a>\r\n    <div><textarea id=\"sp-prefs-custom_siteinfo\" placeholder=\"&#8598;Click to learn how to write custom rules\"></textarea></div>\r\n  </li>\r\n  <li>Custom CSS:\r\n    <div><textarea id=\"sp-prefs-customCSS\"\r\n        placeholder=\"Customized the apperance of separator and setting panel by modifying class 'sp-separator' and 'sp-prefs-setup'. E.g.: '.sp-separator {filter: invert(1.0)}' for dark mode\"></textarea></div>\r\n  </li>\r\n</ul>\r\n<div><button id=\"sp-prefs-ok\" style=\"width:100px;\">OK</button><button id=\"sp-prefs-cancel\"\r\n    style=\"width:100px;\">Cancel</button><button id=\"sp-prefs-reset\" style=\"width:100px;\">Reset</button></div>\r\n"
+	  , __lines = "<div>Super_preloaderPlus_one_New Settings</div>\n<ul>\n  <li>Version: <b><%= locals.scriptInfo.version %></b> Update time: <b><%= locals.scriptInfo.updateTime %></b>\n    <a id=\"sp-prefs-homepageURL\" target=\"_blank\" href=\"<%= locals.scriptInfo.homepageURL %>\" />Homepage</a>\n    <a id=\"sp-prefs-homepageURL-feedback\" target=\"_blank\" href=\"<%= locals.scriptInfo.feedbackURL %>\" /> Feedback\n    </a>\n  </li>\n  <li>Maintainer: <b><a href=\"https://greasyfork.org/en/users/32861-mach6\">Mach6</a></b> Changelog:\n    <b><%= locals.scriptInfo.changelog %></b></li>\n  <li>Number of rules: <b><%= locals.prefs.numOfRule %></b> Next update: <b><%= locals.nextUpdateDate %></b> <button\n      id=\"sp-prefs-updaterule\">Update rules</button></li>\n  <li>\n    <label for=\"sp-prefs-debug\"><input type=\"checkbox\" id=\"sp-prefs-debug\" /> Debug mode</label>\n    <label for=\"sp-prefs-ChineseUI\"><input class=\"inputShift\" type=\"checkbox\" tile=\"English/Chinese UI\" id=\"sp-prefs-ChineseUI\" /> Chinese UI</label>\n    <label for=\"sp-prefs-floatWindow\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-floatWindow\" /> Float window</label>\n  </li>\n  <li>\n    <label for=\"sp-prefs-disableBuiltinRules\"><input type=\"checkbox\" id=\"sp-prefs-disableBuiltinRules\"  title=\"Disable builtin js rules\"/> Disable builtin rules</label>\n    <label for=\"sp-prefs-disableBuiltinSubscriptionRules\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-disableBuiltinSubscriptionRules\" title=\"Disable the subscription of rules from wedata.net and etc.\"/> Disable rule subscription</label>\n    <label for=\"sp-prefs-autoMatchKeyMatch\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-autoMatchKeyMatch\" /> Disable auto match</label>\n  </li>\n  <li><label for=\"sp-prefs-enableHistory\"><input type=\"checkbox\" id=\"sp-prefs-enableHistory\" /> Add next page to history</label></li>\n  <li>\n    <label for=\"sp-prefs-dblclick_pause\"><input type=\"checkbox\" id=\"sp-prefs-dblclick_pause\" /> Double click to stop preload (Default: Ctrl + Long Left)</label>\n  </li>\n  <li><label for=\"sp-prefs-SITEINFO_D-useiframe\"><input type=\"checkbox\" id=\"sp-prefs-SITEINFO_D-useiframe\" /> Enable iframe mode globally</label></li>\n  <li><label for=\"sp-prefs-SITEINFO_D-a_enable\"><input type=\"checkbox\" title=\"Enable autopagger, otherwise only prefetcher is enabled\"\n      id=\"sp-prefs-SITEINFO_D-a_enable\" checked /> Enable autopagger globally</label></li>\n  <li><label for=\"sp-prefs-arrowKeyPage\"><input type=\"checkbox\" id=\"sp-prefs-arrowKeyPage\" /> Turn to the next page with ← →</label></li>\n  <li><label for=\"sp-prefs-SITEINFO_D-a_force_enable\"><input type=\"checkbox\" id=\"sp-prefs-SITEINFO_D-a_force_enable\" /> Mandatorily join pages if not covered by the\n    rules</label></li>\n  <li>Custom excludes:\n    <div><textarea id=\"sp-prefs-excludes\"\n        placeholder=\"Customized excludes. You can use either wildcard character like &quot;https://www.google.com/*&quot; or regular expression &quot;re:^https?://www\\\\.google\\\\.com(/.*)?&quot;. The first one will match &quot;https://www.google.com/apple&quot; but not &quot;https://www.google.com&quot;. The second one matches everything. But you need to add the &quot;re:&quot; prefix and escape backslash\" ></textarea></div>\n  </li>\n  <li><a href=\"https://machsix.github.io/Super-preloader/siterule.html\" style=\"color: blue;\" target=\"_blank\">Custom\n      rules:</a>\n    <div><textarea id=\"sp-prefs-custom_siteinfo\" placeholder=\"&#8598;Click to learn how to write custom rules\"></textarea></div>\n  </li>\n  <li>Custom CSS:\n    <div><textarea id=\"sp-prefs-customCSS\"\n        placeholder=\"Customized the apperance of separator and setting panel by modifying class 'sp-separator' and 'sp-prefs-setup'. E.g.: '.sp-separator {filter: invert(1.0)}' for dark mode\"></textarea></div>\n  </li>\n</ul>\n<div><button id=\"sp-prefs-ok\" style=\"width:100px;\">OK</button><button id=\"sp-prefs-cancel\"\n    style=\"width:100px;\">Cancel</button><button id=\"sp-prefs-reset\" style=\"width:100px;\">Reset</button></div>\n"
 	  , __filename = undefined;
 	try {
 	  var __output = "";
 	  function __append(s) { if (s !== undefined && s !== null) __output += s; }
-	    ; __append("<div>Super_preloaderPlus_one_New Settings</div>\r\n<ul>\r\n  <li>Version: <b>")
+	    ; __append("<div>Super_preloaderPlus_one_New Settings</div>\n<ul>\n  <li>Version: <b>")
 	    ; __line = 3
 	    ; __append(escapeFn( locals.scriptInfo.version ))
 	    ; __append("</b> Update time: <b>")
 	    ; __append(escapeFn( locals.scriptInfo.updateTime ))
-	    ; __append("</b>\r\n    <a id=\"sp-prefs-homepageURL\" target=\"_blank\" href=\"")
+	    ; __append("</b>\n    <a id=\"sp-prefs-homepageURL\" target=\"_blank\" href=\"")
 	    ; __line = 4
 	    ; __append(escapeFn( locals.scriptInfo.homepageURL ))
-	    ; __append("\" />Homepage</a>\r\n    <a id=\"sp-prefs-homepageURL-feedback\" target=\"_blank\" href=\"")
+	    ; __append("\" />Homepage</a>\n    <a id=\"sp-prefs-homepageURL-feedback\" target=\"_blank\" href=\"")
 	    ; __line = 5
 	    ; __append(escapeFn( locals.scriptInfo.feedbackURL ))
-	    ; __append("\" /> Feedback\r\n    </a>\r\n  </li>\r\n  <li>Maintainer: <b><a href=\"https://greasyfork.org/en/users/32861-mach6\">Mach6</a></b> Changelog:\r\n    <b>")
+	    ; __append("\" /> Feedback\n    </a>\n  </li>\n  <li>Maintainer: <b><a href=\"https://greasyfork.org/en/users/32861-mach6\">Mach6</a></b> Changelog:\n    <b>")
 	    ; __line = 9
 	    ; __append(escapeFn( locals.scriptInfo.changelog ))
-	    ; __append("</b></li>\r\n  <li>Number of rules: <b>")
+	    ; __append("</b></li>\n  <li>Number of rules: <b>")
 	    ; __line = 10
 	    ; __append(escapeFn( locals.prefs.numOfRule ))
 	    ; __append("</b> Next update: <b>")
 	    ; __append(escapeFn( locals.nextUpdateDate ))
-	    ; __append("</b> <button\r\n      id=\"sp-prefs-updaterule\">Update rules</button></li>\r\n  <li>\r\n    <label for=\"sp-prefs-debug\"><input type=\"checkbox\" id=\"sp-prefs-debug\" /> Debug mode</label>\r\n    <label for=\"sp-prefs-ChineseUI\"><input class=\"inputShift\" type=\"checkbox\" tile=\"English/Chinese UI\" id=\"sp-prefs-ChineseUI\" /> Chinese UI</label>\r\n    <label for=\"sp-prefs-floatWindow\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-floatWindow\" /> Float window</label>\r\n  </li>\r\n  <li>\r\n    <label for=\"sp-prefs-disableBuiltinRules\"><input type=\"checkbox\" id=\"sp-prefs-disableBuiltinRules\"  title=\"Disable builtin js rules\"/> Disable builtin rules</label>\r\n    <label for=\"sp-prefs-disableBuiltinSubscriptionRules\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-disableBuiltinSubscriptionRules\" title=\"Disable the subscription of rules from wedata.net and etc.\"/> Disable rule subscription</label>\r\n    <label for=\"sp-prefs-autoMatchKeyMatch\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-autoMatchKeyMatch\" /> Disable auto match</label>\r\n  </li>\r\n  <li><label for=\"sp-prefs-enableHistory\"><input type=\"checkbox\" id=\"sp-prefs-enableHistory\" /> Add next page to history</label></li>\r\n  <li>\r\n    <label for=\"sp-prefs-dblclick_pause\"><input type=\"checkbox\" id=\"sp-prefs-dblclick_pause\" /> Double click to stop preload (Default: Ctrl + Long Left)</label>\r\n  </li>\r\n  <li><label for=\"sp-prefs-SITEINFO_D-useiframe\"><input type=\"checkbox\" id=\"sp-prefs-SITEINFO_D-useiframe\" /> Enable iframe mode globally</label></li>\r\n  <li><label for=\"sp-prefs-SITEINFO_D-a_enable\"><input type=\"checkbox\" title=\"Enable autopagger, otherwise only prefetcher is enabled\"\r\n      id=\"sp-prefs-SITEINFO_D-a_enable\" checked /> Enable autopagger globally</label></li>\r\n  <li><label for=\"sp-prefs-arrowKeyPage\"><input type=\"checkbox\" id=\"sp-prefs-arrowKeyPage\" /> Turn to the next page with ← →</label></li>\r\n  <li><label for=\"sp-prefs-SITEINFO_D-a_force_enable\"><input type=\"checkbox\" id=\"sp-prefs-SITEINFO_D-a_force_enable\" /> Mandatorily join pages if not covered by the\r\n    rules</label></li>\r\n  <li>Custom excludes:\r\n    <div><textarea id=\"sp-prefs-excludes\"\r\n        placeholder=\"Customized excludes. You can use either wildcard character like &quot;https://www.google.com/*&quot; or regular expression &quot;re:^https?://www\\\\.google\\\\.com(/.*)?&quot;. The first one will match &quot;https://www.google.com/apple&quot; but not &quot;https://www.google.com&quot;. The second one matches everything. But you need to add the &quot;re:&quot; prefix and escape backslash\" ></textarea></div>\r\n  </li>\r\n  <li><a href=\"https://machsix.github.io/Super-preloader/siterule.html\" style=\"color: blue;\" target=\"_blank\">Custom\r\n      rules:</a>\r\n    <div><textarea id=\"sp-prefs-custom_siteinfo\" placeholder=\"&#8598;Click to learn how to write custom rules\"></textarea></div>\r\n  </li>\r\n  <li>Custom CSS:\r\n    <div><textarea id=\"sp-prefs-customCSS\"\r\n        placeholder=\"Customized the apperance of separator and setting panel by modifying class 'sp-separator' and 'sp-prefs-setup'. E.g.: '.sp-separator {filter: invert(1.0)}' for dark mode\"></textarea></div>\r\n  </li>\r\n</ul>\r\n<div><button id=\"sp-prefs-ok\" style=\"width:100px;\">OK</button><button id=\"sp-prefs-cancel\"\r\n    style=\"width:100px;\">Cancel</button><button id=\"sp-prefs-reset\" style=\"width:100px;\">Reset</button></div>\r\n")
+	    ; __append("</b> <button\n      id=\"sp-prefs-updaterule\">Update rules</button></li>\n  <li>\n    <label for=\"sp-prefs-debug\"><input type=\"checkbox\" id=\"sp-prefs-debug\" /> Debug mode</label>\n    <label for=\"sp-prefs-ChineseUI\"><input class=\"inputShift\" type=\"checkbox\" tile=\"English/Chinese UI\" id=\"sp-prefs-ChineseUI\" /> Chinese UI</label>\n    <label for=\"sp-prefs-floatWindow\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-floatWindow\" /> Float window</label>\n  </li>\n  <li>\n    <label for=\"sp-prefs-disableBuiltinRules\"><input type=\"checkbox\" id=\"sp-prefs-disableBuiltinRules\"  title=\"Disable builtin js rules\"/> Disable builtin rules</label>\n    <label for=\"sp-prefs-disableBuiltinSubscriptionRules\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-disableBuiltinSubscriptionRules\" title=\"Disable the subscription of rules from wedata.net and etc.\"/> Disable rule subscription</label>\n    <label for=\"sp-prefs-autoMatchKeyMatch\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-autoMatchKeyMatch\" /> Disable auto match</label>\n  </li>\n  <li><label for=\"sp-prefs-enableHistory\"><input type=\"checkbox\" id=\"sp-prefs-enableHistory\" /> Add next page to history</label></li>\n  <li>\n    <label for=\"sp-prefs-dblclick_pause\"><input type=\"checkbox\" id=\"sp-prefs-dblclick_pause\" /> Double click to stop preload (Default: Ctrl + Long Left)</label>\n  </li>\n  <li><label for=\"sp-prefs-SITEINFO_D-useiframe\"><input type=\"checkbox\" id=\"sp-prefs-SITEINFO_D-useiframe\" /> Enable iframe mode globally</label></li>\n  <li><label for=\"sp-prefs-SITEINFO_D-a_enable\"><input type=\"checkbox\" title=\"Enable autopagger, otherwise only prefetcher is enabled\"\n      id=\"sp-prefs-SITEINFO_D-a_enable\" checked /> Enable autopagger globally</label></li>\n  <li><label for=\"sp-prefs-arrowKeyPage\"><input type=\"checkbox\" id=\"sp-prefs-arrowKeyPage\" /> Turn to the next page with ← →</label></li>\n  <li><label for=\"sp-prefs-SITEINFO_D-a_force_enable\"><input type=\"checkbox\" id=\"sp-prefs-SITEINFO_D-a_force_enable\" /> Mandatorily join pages if not covered by the\n    rules</label></li>\n  <li>Custom excludes:\n    <div><textarea id=\"sp-prefs-excludes\"\n        placeholder=\"Customized excludes. You can use either wildcard character like &quot;https://www.google.com/*&quot; or regular expression &quot;re:^https?://www\\\\.google\\\\.com(/.*)?&quot;. The first one will match &quot;https://www.google.com/apple&quot; but not &quot;https://www.google.com&quot;. The second one matches everything. But you need to add the &quot;re:&quot; prefix and escape backslash\" ></textarea></div>\n  </li>\n  <li><a href=\"https://machsix.github.io/Super-preloader/siterule.html\" style=\"color: blue;\" target=\"_blank\">Custom\n      rules:</a>\n    <div><textarea id=\"sp-prefs-custom_siteinfo\" placeholder=\"&#8598;Click to learn how to write custom rules\"></textarea></div>\n  </li>\n  <li>Custom CSS:\n    <div><textarea id=\"sp-prefs-customCSS\"\n        placeholder=\"Customized the apperance of separator and setting panel by modifying class 'sp-separator' and 'sp-prefs-setup'. E.g.: '.sp-separator {filter: invert(1.0)}' for dark mode\"></textarea></div>\n  </li>\n</ul>\n<div><button id=\"sp-prefs-ok\" style=\"width:100px;\">OK</button><button id=\"sp-prefs-cancel\"\n    style=\"width:100px;\">Cancel</button><button id=\"sp-prefs-reset\" style=\"width:100px;\">Reset</button></div>\n")
 	    ; __line = 47;
 	  return __output;
 	} catch (e) {
@@ -6008,12 +6093,12 @@
 	function encode_char(c) {
 	  return _ENCODE_HTML_RULES[c] || c;
 	}var __line = 1
-	  , __lines = "<div id=\"sp-fw-rect\" style=\"background-color:#000;\">\r\n  <div id=\"sp-fw-dot\" style=\"display:none;\"></div>\r\n  <div id=\"sp-fw-cur-mode\" style=\"display:none;\"></div>\r\n</div>\r\n<div id=\"sp-fw-content\">\r\n  <div id=\"sp-fw-main\">\r\n    <div id=\"sp-fw-main-head\">\r\n      <label for=\"sp-fw-a_enable\">Mode</label>\r\n      <select id=\"sp-fw-a_enable\" name=\"sp-fw-a_enable\">\r\n        <option value=\"preloader\">Preloader</option>\r\n        <option value=\"autopager\">Autopager</option>\r\n      </select>\r\n      <span id=\"sp-fw-span-info\">Super_preloader</span>\r\n    </div>\r\n    <fieldset>\r\n      <legend title=\"Preloader helps accelerating loading\">Preloader Settings</legend>\r\n      <ul>\r\n        <li>\r\n          <label for=\"sp-fw-useiframe\">\r\n            <input type=\"checkbox\"\r\n              title=\"Use iframe to load next page into cache, otherwise use XHR to get the content. Do not use this if everthing is normal.\"\r\n              id=\"sp-fw-useiframe\" name=\"sp-fw-useiframe\" />Use iframe\r\n          </label>\r\n          <label for=\"sp-fw-viewcontent\">\r\n            <input type=\"checkbox\" title=\"Check preload contents.\" id=\"sp-fw-viewcontent\"\r\n              name=\"sp-fw-viewcontent\" />Show\r\n            preloaded content\r\n          </label>\r\n        </li>\r\n      </ul>\r\n    </fieldset>\r\n    <fieldset id=\"sp-fw-autopager-field\" style=\"display:block;\">\r\n      <legend title=\"Autopager frees you from clicking next page\">Autopager Settings</legend>\r\n      <ul>\r\n        <li>\r\n          <label for=\"sp-fw-a_useiframe\">\r\n            <input type=\"checkbox\"\r\n              title=\"Use iframe to load next page into cache, otherwise use XHR to get the content. Do not use this if everthing is normal\"\r\n              id=\"sp-fw-a_useiframe\" name=\"sp-fw-a_useiframe\" />Use iframe</input>\r\n          </label>\r\n          <label for=\"sp-fw-a_newIframe\">\r\n            <input type=\"checkbox\" title=\"Use a new iframe for the next page. It may solve problems with figures\"\r\n              id=\"sp-fw-a_newIframe\" name=\"sp-fw-a_newIframe\">Use new iframe</input>\r\n          </label>\r\n          <ul id=\"sp-fw-a_useiframe-extend\">\r\n            <li>\r\n              <label for=\"sp-fw-a_iloaded\">\r\n                <input type=\"checkbox\" title=\"Append the content untill iframe is fully loaded\" id=\"sp-fw-a_iloaded\"\r\n                  name=\"sp-fw-a_iloaded\" />Wait iframe to be fully loaded\r\n              </label>\r\n            </li>\r\n            <li>\r\n              <label for=\"sp-fw-a_itimeout\">\r\n                <input type=\"number\" min=\"0\"\r\n                  title=\"Wait for X ms untill the content is appended to the current page. (Default: 0)\"\r\n                  id=\"sp-fw-a_itimeout\" name=\"sp-fw-a_itimeout\" /> ms delay\r\n              </label>\r\n            </li>\r\n          </ul>\r\n        </li>\r\n        <li>\r\n          <label for=\"sp-fw-a_manualA\">\r\n            <input type=\"checkbox\" id=\"sp-fw-a_manualA\" name=\"sp-fw-a_manualA\"\r\n              title=\"The next page won\\'t be appended to the current page and you need to click a button\" />Manual mode\r\n          </label>\r\n        </li>\r\n        <li>\r\n          <label for=\"sp-fw-a_remain\">\r\n            Trigger autopager until the height is <input type=\"number\" min=\"0\" id=\"sp-fw-a_remain\"\r\n              name=\"sp-fw-a_remain\" />x\r\n            page height\r\n          </label>\r\n        </li>\r\n        <li>\r\n          <label for=\"sp-fw-a_maxpage\">\r\n            Turn at most <input type=\"number\" min=\"0\" id=\"sp-fw-a_maxpage\" name=\"sp-fw-a_maxpage\" /> pages\r\n          </label>\r\n        </li>\r\n        <li>\r\n          <label for=\"sp-fw-a_separator\">\r\n            <input type=\"checkbox\" id=\"sp-fw-a_separator\" name=\"sp-fw-a_separator\"\r\n              title=\"Show the page navigation bar\" />Navigation bar\r\n          </label>\r\n        </li>\r\n        <li>\r\n          <label for=\"sp-fw-a_force\">\r\n            <input type=\"checkbox\"\r\n              title=\"Append the whole next page to current page (When there is not rule for the website, this is the only method)\"\r\n              id=\"sp-fw-a_force\" name=\"sp-fw-a_force\" />Force to join page\r\n          </label>\r\n        </li>\r\n        <li>\r\n          <label for=\"sp-fw-a_ipages_0\">\r\n            <input type=\"checkbox\" id=\"sp-fw-a_ipages_0\" name=\"sp-fw-a_ipages_0\"\r\n              title=\"Turn X pages instantly once the script is loaded. This is good for some gallery.\" />Turn <input\r\n              type=\"number\" min=\"0\" id=\"sp-fw-a_ipages_1\" name=\"sp-fw-a_ipages_1\" title=\"0 for infinity\" /> pages\r\n          </label>\r\n          instantly\r\n          <span class=\"sp-fw-spanbutton\" id=\"sp-fw-a_starti\">Start</span>\r\n        </li>\r\n      </ul>\r\n    </fieldset>\r\n    <div id=\"sp-fw-foot\">\r\n      <label for=\"sp-fw-enable\">\r\n        <input type=\"checkbox\" id=\"sp-fw-enable\" title=\"Enable for thie website\" name=\"sp-fw-enable\" />Enable\r\n      </label>\r\n      <span id=\"sp-fw-setup\" class=\"sp-fw-spanbutton\" title=\"Global Settings\">Global Settings</span>\r\n      <span id=\"sp-fw-savebutton\" class=\"sp-fw-spanbutton\" title=\"Save settings\">Save</span>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+	  , __lines = "<div id=\"sp-fw-rect\" style=\"background-color:#000;\">\n  <div id=\"sp-fw-dot\" style=\"display:none;\"></div>\n  <div id=\"sp-fw-cur-mode\" style=\"display:none;\"></div>\n</div>\n<div id=\"sp-fw-content\">\n  <div id=\"sp-fw-main\">\n    <div id=\"sp-fw-main-head\">\n      <label for=\"sp-fw-a_enable\">Mode</label>\n      <select id=\"sp-fw-a_enable\" name=\"sp-fw-a_enable\">\n        <option value=\"preloader\">Preloader</option>\n        <option value=\"autopager\">Autopager</option>\n      </select>\n      <span id=\"sp-fw-span-info\">Super_preloader</span>\n    </div>\n    <fieldset>\n      <legend title=\"Preloader helps accelerating loading\">Preloader Settings</legend>\n      <ul>\n        <li>\n          <label for=\"sp-fw-useiframe\">\n            <input type=\"checkbox\"\n              title=\"Use iframe to load next page into cache, otherwise use XHR to get the content. Do not use this if everthing is normal.\"\n              id=\"sp-fw-useiframe\" name=\"sp-fw-useiframe\" />Use iframe\n          </label>\n          <label for=\"sp-fw-viewcontent\">\n            <input type=\"checkbox\" title=\"Check preload contents.\" id=\"sp-fw-viewcontent\"\n              name=\"sp-fw-viewcontent\" />Show\n            preloaded content\n          </label>\n        </li>\n      </ul>\n    </fieldset>\n    <fieldset id=\"sp-fw-autopager-field\" style=\"display:block;\">\n      <legend title=\"Autopager frees you from clicking next page\">Autopager Settings</legend>\n      <ul>\n        <li>\n          <label for=\"sp-fw-a_useiframe\">\n            <input type=\"checkbox\"\n              title=\"Use iframe to load next page into cache, otherwise use XHR to get the content. Do not use this if everthing is normal\"\n              id=\"sp-fw-a_useiframe\" name=\"sp-fw-a_useiframe\" />Use iframe</input>\n          </label>\n          <label for=\"sp-fw-a_newIframe\">\n            <input type=\"checkbox\" title=\"Use a new iframe for the next page. It may solve problems with figures\"\n              id=\"sp-fw-a_newIframe\" name=\"sp-fw-a_newIframe\">Use new iframe</input>\n          </label>\n          <ul id=\"sp-fw-a_useiframe-extend\">\n            <li>\n              <label for=\"sp-fw-a_iloaded\">\n                <input type=\"checkbox\" title=\"Append the content untill iframe is fully loaded\" id=\"sp-fw-a_iloaded\"\n                  name=\"sp-fw-a_iloaded\" />Wait iframe to be fully loaded\n              </label>\n            </li>\n            <li>\n              <label for=\"sp-fw-a_itimeout\">\n                <input type=\"number\" min=\"0\"\n                  title=\"Wait for X ms untill the content is appended to the current page. (Default: 0)\"\n                  id=\"sp-fw-a_itimeout\" name=\"sp-fw-a_itimeout\" /> ms delay\n              </label>\n            </li>\n          </ul>\n        </li>\n        <li>\n          <label for=\"sp-fw-a_manualA\">\n            <input type=\"checkbox\" id=\"sp-fw-a_manualA\" name=\"sp-fw-a_manualA\"\n              title=\"The next page won\\'t be appended to the current page and you need to click a button\" />Manual mode\n          </label>\n        </li>\n        <li>\n          <label for=\"sp-fw-a_remain\">\n            Trigger autopager until the height is <input type=\"number\" min=\"0\" id=\"sp-fw-a_remain\"\n              name=\"sp-fw-a_remain\" />x\n            page height\n          </label>\n        </li>\n        <li>\n          <label for=\"sp-fw-a_maxpage\">\n            Turn at most <input type=\"number\" min=\"0\" id=\"sp-fw-a_maxpage\" name=\"sp-fw-a_maxpage\" /> pages\n          </label>\n        </li>\n        <li>\n          <label for=\"sp-fw-a_separator\">\n            <input type=\"checkbox\" id=\"sp-fw-a_separator\" name=\"sp-fw-a_separator\"\n              title=\"Show the page navigation bar\" />Navigation bar\n          </label>\n        </li>\n        <li>\n          <label for=\"sp-fw-a_force\">\n            <input type=\"checkbox\"\n              title=\"Append the whole next page to current page (When there is not rule for the website, this is the only method)\"\n              id=\"sp-fw-a_force\" name=\"sp-fw-a_force\" />Force to join page\n          </label>\n        </li>\n        <li>\n          <label for=\"sp-fw-a_ipages_0\">\n            <input type=\"checkbox\" id=\"sp-fw-a_ipages_0\" name=\"sp-fw-a_ipages_0\"\n              title=\"Turn X pages instantly once the script is loaded. This is good for some gallery.\" />Turn <input\n              type=\"number\" min=\"0\" id=\"sp-fw-a_ipages_1\" name=\"sp-fw-a_ipages_1\" title=\"0 for infinity\" /> pages\n          </label>\n          instantly\n          <span class=\"sp-fw-spanbutton\" id=\"sp-fw-a_starti\">Start</span>\n        </li>\n      </ul>\n    </fieldset>\n    <div id=\"sp-fw-foot\">\n      <label for=\"sp-fw-enable\">\n        <input type=\"checkbox\" id=\"sp-fw-enable\" title=\"Enable for thie website\" name=\"sp-fw-enable\" />Enable\n      </label>\n      <span id=\"sp-fw-setup\" class=\"sp-fw-spanbutton\" title=\"Global Settings\">Global Settings</span>\n      <span id=\"sp-fw-savebutton\" class=\"sp-fw-spanbutton\" title=\"Save settings\">Save</span>\n    </div>\n  </div>\n</div>\n"
 	  , __filename = undefined;
 	try {
 	  var __output = "";
 	  function __append(s) { if (s !== undefined && s !== null) __output += s; }
-	    ; __append("<div id=\"sp-fw-rect\" style=\"background-color:#000;\">\r\n  <div id=\"sp-fw-dot\" style=\"display:none;\"></div>\r\n  <div id=\"sp-fw-cur-mode\" style=\"display:none;\"></div>\r\n</div>\r\n<div id=\"sp-fw-content\">\r\n  <div id=\"sp-fw-main\">\r\n    <div id=\"sp-fw-main-head\">\r\n      <label for=\"sp-fw-a_enable\">Mode</label>\r\n      <select id=\"sp-fw-a_enable\" name=\"sp-fw-a_enable\">\r\n        <option value=\"preloader\">Preloader</option>\r\n        <option value=\"autopager\">Autopager</option>\r\n      </select>\r\n      <span id=\"sp-fw-span-info\">Super_preloader</span>\r\n    </div>\r\n    <fieldset>\r\n      <legend title=\"Preloader helps accelerating loading\">Preloader Settings</legend>\r\n      <ul>\r\n        <li>\r\n          <label for=\"sp-fw-useiframe\">\r\n            <input type=\"checkbox\"\r\n              title=\"Use iframe to load next page into cache, otherwise use XHR to get the content. Do not use this if everthing is normal.\"\r\n              id=\"sp-fw-useiframe\" name=\"sp-fw-useiframe\" />Use iframe\r\n          </label>\r\n          <label for=\"sp-fw-viewcontent\">\r\n            <input type=\"checkbox\" title=\"Check preload contents.\" id=\"sp-fw-viewcontent\"\r\n              name=\"sp-fw-viewcontent\" />Show\r\n            preloaded content\r\n          </label>\r\n        </li>\r\n      </ul>\r\n    </fieldset>\r\n    <fieldset id=\"sp-fw-autopager-field\" style=\"display:block;\">\r\n      <legend title=\"Autopager frees you from clicking next page\">Autopager Settings</legend>\r\n      <ul>\r\n        <li>\r\n          <label for=\"sp-fw-a_useiframe\">\r\n            <input type=\"checkbox\"\r\n              title=\"Use iframe to load next page into cache, otherwise use XHR to get the content. Do not use this if everthing is normal\"\r\n              id=\"sp-fw-a_useiframe\" name=\"sp-fw-a_useiframe\" />Use iframe</input>\r\n          </label>\r\n          <label for=\"sp-fw-a_newIframe\">\r\n            <input type=\"checkbox\" title=\"Use a new iframe for the next page. It may solve problems with figures\"\r\n              id=\"sp-fw-a_newIframe\" name=\"sp-fw-a_newIframe\">Use new iframe</input>\r\n          </label>\r\n          <ul id=\"sp-fw-a_useiframe-extend\">\r\n            <li>\r\n              <label for=\"sp-fw-a_iloaded\">\r\n                <input type=\"checkbox\" title=\"Append the content untill iframe is fully loaded\" id=\"sp-fw-a_iloaded\"\r\n                  name=\"sp-fw-a_iloaded\" />Wait iframe to be fully loaded\r\n              </label>\r\n            </li>\r\n            <li>\r\n              <label for=\"sp-fw-a_itimeout\">\r\n                <input type=\"number\" min=\"0\"\r\n                  title=\"Wait for X ms untill the content is appended to the current page. (Default: 0)\"\r\n                  id=\"sp-fw-a_itimeout\" name=\"sp-fw-a_itimeout\" /> ms delay\r\n              </label>\r\n            </li>\r\n          </ul>\r\n        </li>\r\n        <li>\r\n          <label for=\"sp-fw-a_manualA\">\r\n            <input type=\"checkbox\" id=\"sp-fw-a_manualA\" name=\"sp-fw-a_manualA\"\r\n              title=\"The next page won\\'t be appended to the current page and you need to click a button\" />Manual mode\r\n          </label>\r\n        </li>\r\n        <li>\r\n          <label for=\"sp-fw-a_remain\">\r\n            Trigger autopager until the height is <input type=\"number\" min=\"0\" id=\"sp-fw-a_remain\"\r\n              name=\"sp-fw-a_remain\" />x\r\n            page height\r\n          </label>\r\n        </li>\r\n        <li>\r\n          <label for=\"sp-fw-a_maxpage\">\r\n            Turn at most <input type=\"number\" min=\"0\" id=\"sp-fw-a_maxpage\" name=\"sp-fw-a_maxpage\" /> pages\r\n          </label>\r\n        </li>\r\n        <li>\r\n          <label for=\"sp-fw-a_separator\">\r\n            <input type=\"checkbox\" id=\"sp-fw-a_separator\" name=\"sp-fw-a_separator\"\r\n              title=\"Show the page navigation bar\" />Navigation bar\r\n          </label>\r\n        </li>\r\n        <li>\r\n          <label for=\"sp-fw-a_force\">\r\n            <input type=\"checkbox\"\r\n              title=\"Append the whole next page to current page (When there is not rule for the website, this is the only method)\"\r\n              id=\"sp-fw-a_force\" name=\"sp-fw-a_force\" />Force to join page\r\n          </label>\r\n        </li>\r\n        <li>\r\n          <label for=\"sp-fw-a_ipages_0\">\r\n            <input type=\"checkbox\" id=\"sp-fw-a_ipages_0\" name=\"sp-fw-a_ipages_0\"\r\n              title=\"Turn X pages instantly once the script is loaded. This is good for some gallery.\" />Turn <input\r\n              type=\"number\" min=\"0\" id=\"sp-fw-a_ipages_1\" name=\"sp-fw-a_ipages_1\" title=\"0 for infinity\" /> pages\r\n          </label>\r\n          instantly\r\n          <span class=\"sp-fw-spanbutton\" id=\"sp-fw-a_starti\">Start</span>\r\n        </li>\r\n      </ul>\r\n    </fieldset>\r\n    <div id=\"sp-fw-foot\">\r\n      <label for=\"sp-fw-enable\">\r\n        <input type=\"checkbox\" id=\"sp-fw-enable\" title=\"Enable for thie website\" name=\"sp-fw-enable\" />Enable\r\n      </label>\r\n      <span id=\"sp-fw-setup\" class=\"sp-fw-spanbutton\" title=\"Global Settings\">Global Settings</span>\r\n      <span id=\"sp-fw-savebutton\" class=\"sp-fw-spanbutton\" title=\"Save settings\">Save</span>\r\n    </div>\r\n  </div>\r\n</div>\r\n")
+	    ; __append("<div id=\"sp-fw-rect\" style=\"background-color:#000;\">\n  <div id=\"sp-fw-dot\" style=\"display:none;\"></div>\n  <div id=\"sp-fw-cur-mode\" style=\"display:none;\"></div>\n</div>\n<div id=\"sp-fw-content\">\n  <div id=\"sp-fw-main\">\n    <div id=\"sp-fw-main-head\">\n      <label for=\"sp-fw-a_enable\">Mode</label>\n      <select id=\"sp-fw-a_enable\" name=\"sp-fw-a_enable\">\n        <option value=\"preloader\">Preloader</option>\n        <option value=\"autopager\">Autopager</option>\n      </select>\n      <span id=\"sp-fw-span-info\">Super_preloader</span>\n    </div>\n    <fieldset>\n      <legend title=\"Preloader helps accelerating loading\">Preloader Settings</legend>\n      <ul>\n        <li>\n          <label for=\"sp-fw-useiframe\">\n            <input type=\"checkbox\"\n              title=\"Use iframe to load next page into cache, otherwise use XHR to get the content. Do not use this if everthing is normal.\"\n              id=\"sp-fw-useiframe\" name=\"sp-fw-useiframe\" />Use iframe\n          </label>\n          <label for=\"sp-fw-viewcontent\">\n            <input type=\"checkbox\" title=\"Check preload contents.\" id=\"sp-fw-viewcontent\"\n              name=\"sp-fw-viewcontent\" />Show\n            preloaded content\n          </label>\n        </li>\n      </ul>\n    </fieldset>\n    <fieldset id=\"sp-fw-autopager-field\" style=\"display:block;\">\n      <legend title=\"Autopager frees you from clicking next page\">Autopager Settings</legend>\n      <ul>\n        <li>\n          <label for=\"sp-fw-a_useiframe\">\n            <input type=\"checkbox\"\n              title=\"Use iframe to load next page into cache, otherwise use XHR to get the content. Do not use this if everthing is normal\"\n              id=\"sp-fw-a_useiframe\" name=\"sp-fw-a_useiframe\" />Use iframe</input>\n          </label>\n          <label for=\"sp-fw-a_newIframe\">\n            <input type=\"checkbox\" title=\"Use a new iframe for the next page. It may solve problems with figures\"\n              id=\"sp-fw-a_newIframe\" name=\"sp-fw-a_newIframe\">Use new iframe</input>\n          </label>\n          <ul id=\"sp-fw-a_useiframe-extend\">\n            <li>\n              <label for=\"sp-fw-a_iloaded\">\n                <input type=\"checkbox\" title=\"Append the content untill iframe is fully loaded\" id=\"sp-fw-a_iloaded\"\n                  name=\"sp-fw-a_iloaded\" />Wait iframe to be fully loaded\n              </label>\n            </li>\n            <li>\n              <label for=\"sp-fw-a_itimeout\">\n                <input type=\"number\" min=\"0\"\n                  title=\"Wait for X ms untill the content is appended to the current page. (Default: 0)\"\n                  id=\"sp-fw-a_itimeout\" name=\"sp-fw-a_itimeout\" /> ms delay\n              </label>\n            </li>\n          </ul>\n        </li>\n        <li>\n          <label for=\"sp-fw-a_manualA\">\n            <input type=\"checkbox\" id=\"sp-fw-a_manualA\" name=\"sp-fw-a_manualA\"\n              title=\"The next page won\\'t be appended to the current page and you need to click a button\" />Manual mode\n          </label>\n        </li>\n        <li>\n          <label for=\"sp-fw-a_remain\">\n            Trigger autopager until the height is <input type=\"number\" min=\"0\" id=\"sp-fw-a_remain\"\n              name=\"sp-fw-a_remain\" />x\n            page height\n          </label>\n        </li>\n        <li>\n          <label for=\"sp-fw-a_maxpage\">\n            Turn at most <input type=\"number\" min=\"0\" id=\"sp-fw-a_maxpage\" name=\"sp-fw-a_maxpage\" /> pages\n          </label>\n        </li>\n        <li>\n          <label for=\"sp-fw-a_separator\">\n            <input type=\"checkbox\" id=\"sp-fw-a_separator\" name=\"sp-fw-a_separator\"\n              title=\"Show the page navigation bar\" />Navigation bar\n          </label>\n        </li>\n        <li>\n          <label for=\"sp-fw-a_force\">\n            <input type=\"checkbox\"\n              title=\"Append the whole next page to current page (When there is not rule for the website, this is the only method)\"\n              id=\"sp-fw-a_force\" name=\"sp-fw-a_force\" />Force to join page\n          </label>\n        </li>\n        <li>\n          <label for=\"sp-fw-a_ipages_0\">\n            <input type=\"checkbox\" id=\"sp-fw-a_ipages_0\" name=\"sp-fw-a_ipages_0\"\n              title=\"Turn X pages instantly once the script is loaded. This is good for some gallery.\" />Turn <input\n              type=\"number\" min=\"0\" id=\"sp-fw-a_ipages_1\" name=\"sp-fw-a_ipages_1\" title=\"0 for infinity\" /> pages\n          </label>\n          instantly\n          <span class=\"sp-fw-spanbutton\" id=\"sp-fw-a_starti\">Start</span>\n        </li>\n      </ul>\n    </fieldset>\n    <div id=\"sp-fw-foot\">\n      <label for=\"sp-fw-enable\">\n        <input type=\"checkbox\" id=\"sp-fw-enable\" title=\"Enable for thie website\" name=\"sp-fw-enable\" />Enable\n      </label>\n      <span id=\"sp-fw-setup\" class=\"sp-fw-spanbutton\" title=\"Global Settings\">Global Settings</span>\n      <span id=\"sp-fw-savebutton\" class=\"sp-fw-spanbutton\" title=\"Save settings\">Save</span>\n    </div>\n  </div>\n</div>\n")
 	    ; __line = 112;
 	  return __output;
 	} catch (e) {
@@ -6064,7 +6149,7 @@
 	function encode_char(c) {
 	  return _ENCODE_HTML_RULES[c] || c;
 	}var __line = 1
-	  , __lines = "Super_preloaderPlus_one_改 从 v<%= locals.oldversion %> 升级到 v<%= locals.newversion%>\r\n"
+	  , __lines = "Super_preloaderPlus_one_改 从 v<%= locals.oldversion %> 升级到 v<%= locals.newversion%>\n"
 	  , __filename = undefined;
 	try {
 	  var __output = "";
@@ -6073,7 +6158,7 @@
 	    ; __append(escapeFn( locals.oldversion ))
 	    ; __append(" 升级到 v")
 	    ; __append(escapeFn( locals.newversion))
-	    ; __append("\r\n")
+	    ; __append("\n")
 	    ; __line = 2;
 	  return __output;
 	} catch (e) {
@@ -6124,31 +6209,31 @@
 	function encode_char(c) {
 	  return _ENCODE_HTML_RULES[c] || c;
 	}var __line = 1
-	  , __lines = "<div>Super_preloaderPlus_one_New设置</div>\r\n<ul>\r\n  <li>脚本版本: <b><%= locals.scriptInfo.version %></b> 更新时间: <b><%= locals.scriptInfo.updateTime %></b>\r\n    <a id=\"sp-prefs-homepageURL\" target=\"_blank\" href=\"<%= locals.scriptInfo.homepageURL %>\" />脚本主页</a>\r\n    <a id=\"sp-prefs-homepageURL-feedback\" target=\"_blank\" href=\"<%= locals.scriptInfo.feedbackURL %>\">反馈规则</a>\r\n  </li>\r\n  <li>维护者: <b><a href=\"https://greasyfork.org/en/users/32861-mach6\">Mach6</a></b> 更新日志:\r\n    <b><%= locals.scriptInfo.changelog %></b></li>\r\n  <li>规则数目: <b><%= locals.prefs.numOfRule %></b> 下次更新时间: <b><%= locals.nextUpdateDate %></b>\r\n    <button id=\"sp-prefs-updaterule\">更新规则</button></li>\r\n  <li>\r\n    <label for=\"sp-prefs-debug\"><input type=\"checkbox\" id=\"sp-prefs-debug\" /> 调试模式</label>\r\n    <label for=\"sp-prefs-ChineseUI\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-ChineseUI\" /> 中文界面</label>\r\n    <label for=\"sp-prefs-floatWindow\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-floatWindow\" /> 开启悬浮窗</label>\r\n  </li>\r\n  <li>\r\n    <label for=\"sp-prefs-disableBuiltinRules\"><input type=\"checkbox\" id=\"sp-prefs-disableBuiltinRules\"  title=\"禁用内建的js格式规则\"/> 禁用内建规则</label>\r\n    <label for=\"sp-prefs-disableBuiltinSubscriptionRules\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-disableBuiltinSubscriptionRules\" title=\"禁用从wedata.net等数据库的订阅规则\"/> 禁用订阅规则</label>\r\n    <label for=\"sp-prefs-autoMatchKeyMatch\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-autoMatchKeyMatch\" /> 禁用自动匹配</label>\r\n  </li>\r\n  <li><label for=\"sp-prefs-enableHistory\"><input type=\"checkbox\" id=\"sp-prefs-enableHistory\" /> 添加下一页到历史记录</label></li>\r\n  <li><label for=\"sp-prefs-dblclick_pause\"><input type=\"checkbox\" id=\"sp-prefs-dblclick_pause\" /> 鼠标双击暂停翻页（默认为 Ctrl + 长按左键）</label></li>\r\n  <li>\r\n    <label for=\"sp-prefs-SITEINFO_D-a_enable\"><input title=\"启用自动翻页，否则仅启用预读\" type=\"checkbox\" id=\"sp-prefs-SITEINFO_D-a_enable\" checked /> 自动翻页</label>\r\n    <label for=\"sp-prefs-SITEINFO_D-useiframe\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-SITEINFO_D-useiframe\" /> 全局iframe方式</label>\r\n    <label for=\"sp-prefs-SITEINFO_D-a_force_enable\">\r\n      <input class=\"inputShift\" title=\"强行拼接规则中没有的站点，不建议启用\" type=\"checkbox\" id=\"sp-prefs-SITEINFO_D-a_force_enable\" />\r\n    全局强制拼接（不建议）</label>\r\n  </li>\r\n  <li><label for=\"sp-prefs-arrowKeyPage\"><input type=\"checkbox\" id=\"sp-prefs-arrowKeyPage\" /> 使用 &larr; &rarr; 翻页</label> </li>\r\n  <li>自定义排除列表：\r\n    <div><textarea id=\"sp-prefs-excludes\" placeholder=\"自定义排除列表，支持通配符或正则表达式。例如：&quot;http://*.douban.com/*&quot;或&quot;re:http://.*\\\\.douban\\\\.com/.*&quot;. 两者等效。正则表达式需要添加&quot;re:&quot;的前缀并对反斜线转义\"></textarea></div>\r\n  </li>\r\n  <li><a href=\"https://machsix.github.io/Super-preloader/zh-cn/siterule.html\" style=\"color: blue;\"\r\n      target=\"_blank\">自定义站点规则：</a>\r\n    <div><textarea id=\"sp-prefs-custom_siteinfo\" placeholder=\"&#8598;点击学习如何自定义站点规则, 自定义规则应为一个array\"></textarea></div>\r\n  </lii>\r\n  <li>自定义界面:\r\n    <div><textarea id=\"sp-prefs-customCSS\"\r\n        placeholder=\"通过修改'sp-separator'和'sp-prefs-setup'的CSS自定义界面\"></textarea></div>\r\n  </li>\r\n</ul>\r\n<div><button id=\"sp-prefs-ok\" style=\"width:100px;\">确定</button><button id=\"sp-prefs-cancel\"\r\n    style=\"width:100px;\">取消</button><button id=\"sp-prefs-reset\" style=\"width:100px;\">重置</button></div>\r\n"
+	  , __lines = "<div>Super_preloaderPlus_one_New设置</div>\n<ul>\n  <li>脚本版本: <b><%= locals.scriptInfo.version %></b> 更新时间: <b><%= locals.scriptInfo.updateTime %></b>\n    <a id=\"sp-prefs-homepageURL\" target=\"_blank\" href=\"<%= locals.scriptInfo.homepageURL %>\" />脚本主页</a>\n    <a id=\"sp-prefs-homepageURL-feedback\" target=\"_blank\" href=\"<%= locals.scriptInfo.feedbackURL %>\">反馈规则</a>\n  </li>\n  <li>维护者: <b><a href=\"https://greasyfork.org/en/users/32861-mach6\">Mach6</a></b> 更新日志:\n    <b><%= locals.scriptInfo.changelog %></b></li>\n  <li>规则数目: <b><%= locals.prefs.numOfRule %></b> 下次更新时间: <b><%= locals.nextUpdateDate %></b>\n    <button id=\"sp-prefs-updaterule\">更新规则</button></li>\n  <li>\n    <label for=\"sp-prefs-debug\"><input type=\"checkbox\" id=\"sp-prefs-debug\" /> 调试模式</label>\n    <label for=\"sp-prefs-ChineseUI\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-ChineseUI\" /> 中文界面</label>\n    <label for=\"sp-prefs-floatWindow\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-floatWindow\" /> 开启悬浮窗</label>\n  </li>\n  <li>\n    <label for=\"sp-prefs-disableBuiltinRules\"><input type=\"checkbox\" id=\"sp-prefs-disableBuiltinRules\"  title=\"禁用内建的js格式规则\"/> 禁用内建规则</label>\n    <label for=\"sp-prefs-disableBuiltinSubscriptionRules\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-disableBuiltinSubscriptionRules\" title=\"禁用从wedata.net等数据库的订阅规则\"/> 禁用订阅规则</label>\n    <label for=\"sp-prefs-autoMatchKeyMatch\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-autoMatchKeyMatch\" /> 禁用自动匹配</label>\n  </li>\n  <li><label for=\"sp-prefs-enableHistory\"><input type=\"checkbox\" id=\"sp-prefs-enableHistory\" /> 添加下一页到历史记录</label></li>\n  <li><label for=\"sp-prefs-dblclick_pause\"><input type=\"checkbox\" id=\"sp-prefs-dblclick_pause\" /> 鼠标双击暂停翻页（默认为 Ctrl + 长按左键）</label></li>\n  <li>\n    <label for=\"sp-prefs-SITEINFO_D-a_enable\"><input title=\"启用自动翻页，否则仅启用预读\" type=\"checkbox\" id=\"sp-prefs-SITEINFO_D-a_enable\" checked /> 自动翻页</label>\n    <label for=\"sp-prefs-SITEINFO_D-useiframe\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-SITEINFO_D-useiframe\" /> 全局iframe方式</label>\n    <label for=\"sp-prefs-SITEINFO_D-a_force_enable\">\n      <input class=\"inputShift\" title=\"强行拼接规则中没有的站点，不建议启用\" type=\"checkbox\" id=\"sp-prefs-SITEINFO_D-a_force_enable\" />\n    全局强制拼接（不建议）</label>\n  </li>\n  <li><label for=\"sp-prefs-arrowKeyPage\"><input type=\"checkbox\" id=\"sp-prefs-arrowKeyPage\" /> 使用 &larr; &rarr; 翻页</label> </li>\n  <li>自定义排除列表：\n    <div><textarea id=\"sp-prefs-excludes\" placeholder=\"自定义排除列表，支持通配符或正则表达式。例如：&quot;http://*.douban.com/*&quot;或&quot;re:http://.*\\\\.douban\\\\.com/.*&quot;. 两者等效。正则表达式需要添加&quot;re:&quot;的前缀并对反斜线转义\"></textarea></div>\n  </li>\n  <li><a href=\"https://machsix.github.io/Super-preloader/zh-cn/siterule.html\" style=\"color: blue;\"\n      target=\"_blank\">自定义站点规则：</a>\n    <div><textarea id=\"sp-prefs-custom_siteinfo\" placeholder=\"&#8598;点击学习如何自定义站点规则, 自定义规则应为一个array\"></textarea></div>\n  </lii>\n  <li>自定义界面:\n    <div><textarea id=\"sp-prefs-customCSS\"\n        placeholder=\"通过修改'sp-separator'和'sp-prefs-setup'的CSS自定义界面\"></textarea></div>\n  </li>\n</ul>\n<div><button id=\"sp-prefs-ok\" style=\"width:100px;\">确定</button><button id=\"sp-prefs-cancel\"\n    style=\"width:100px;\">取消</button><button id=\"sp-prefs-reset\" style=\"width:100px;\">重置</button></div>\n"
 	  , __filename = undefined;
 	try {
 	  var __output = "";
 	  function __append(s) { if (s !== undefined && s !== null) __output += s; }
-	    ; __append("<div>Super_preloaderPlus_one_New设置</div>\r\n<ul>\r\n  <li>脚本版本: <b>")
+	    ; __append("<div>Super_preloaderPlus_one_New设置</div>\n<ul>\n  <li>脚本版本: <b>")
 	    ; __line = 3
 	    ; __append(escapeFn( locals.scriptInfo.version ))
 	    ; __append("</b> 更新时间: <b>")
 	    ; __append(escapeFn( locals.scriptInfo.updateTime ))
-	    ; __append("</b>\r\n    <a id=\"sp-prefs-homepageURL\" target=\"_blank\" href=\"")
+	    ; __append("</b>\n    <a id=\"sp-prefs-homepageURL\" target=\"_blank\" href=\"")
 	    ; __line = 4
 	    ; __append(escapeFn( locals.scriptInfo.homepageURL ))
-	    ; __append("\" />脚本主页</a>\r\n    <a id=\"sp-prefs-homepageURL-feedback\" target=\"_blank\" href=\"")
+	    ; __append("\" />脚本主页</a>\n    <a id=\"sp-prefs-homepageURL-feedback\" target=\"_blank\" href=\"")
 	    ; __line = 5
 	    ; __append(escapeFn( locals.scriptInfo.feedbackURL ))
-	    ; __append("\">反馈规则</a>\r\n  </li>\r\n  <li>维护者: <b><a href=\"https://greasyfork.org/en/users/32861-mach6\">Mach6</a></b> 更新日志:\r\n    <b>")
+	    ; __append("\">反馈规则</a>\n  </li>\n  <li>维护者: <b><a href=\"https://greasyfork.org/en/users/32861-mach6\">Mach6</a></b> 更新日志:\n    <b>")
 	    ; __line = 8
 	    ; __append(escapeFn( locals.scriptInfo.changelog ))
-	    ; __append("</b></li>\r\n  <li>规则数目: <b>")
+	    ; __append("</b></li>\n  <li>规则数目: <b>")
 	    ; __line = 9
 	    ; __append(escapeFn( locals.prefs.numOfRule ))
 	    ; __append("</b> 下次更新时间: <b>")
 	    ; __append(escapeFn( locals.nextUpdateDate ))
-	    ; __append("</b>\r\n    <button id=\"sp-prefs-updaterule\">更新规则</button></li>\r\n  <li>\r\n    <label for=\"sp-prefs-debug\"><input type=\"checkbox\" id=\"sp-prefs-debug\" /> 调试模式</label>\r\n    <label for=\"sp-prefs-ChineseUI\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-ChineseUI\" /> 中文界面</label>\r\n    <label for=\"sp-prefs-floatWindow\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-floatWindow\" /> 开启悬浮窗</label>\r\n  </li>\r\n  <li>\r\n    <label for=\"sp-prefs-disableBuiltinRules\"><input type=\"checkbox\" id=\"sp-prefs-disableBuiltinRules\"  title=\"禁用内建的js格式规则\"/> 禁用内建规则</label>\r\n    <label for=\"sp-prefs-disableBuiltinSubscriptionRules\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-disableBuiltinSubscriptionRules\" title=\"禁用从wedata.net等数据库的订阅规则\"/> 禁用订阅规则</label>\r\n    <label for=\"sp-prefs-autoMatchKeyMatch\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-autoMatchKeyMatch\" /> 禁用自动匹配</label>\r\n  </li>\r\n  <li><label for=\"sp-prefs-enableHistory\"><input type=\"checkbox\" id=\"sp-prefs-enableHistory\" /> 添加下一页到历史记录</label></li>\r\n  <li><label for=\"sp-prefs-dblclick_pause\"><input type=\"checkbox\" id=\"sp-prefs-dblclick_pause\" /> 鼠标双击暂停翻页（默认为 Ctrl + 长按左键）</label></li>\r\n  <li>\r\n    <label for=\"sp-prefs-SITEINFO_D-a_enable\"><input title=\"启用自动翻页，否则仅启用预读\" type=\"checkbox\" id=\"sp-prefs-SITEINFO_D-a_enable\" checked /> 自动翻页</label>\r\n    <label for=\"sp-prefs-SITEINFO_D-useiframe\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-SITEINFO_D-useiframe\" /> 全局iframe方式</label>\r\n    <label for=\"sp-prefs-SITEINFO_D-a_force_enable\">\r\n      <input class=\"inputShift\" title=\"强行拼接规则中没有的站点，不建议启用\" type=\"checkbox\" id=\"sp-prefs-SITEINFO_D-a_force_enable\" />\r\n    全局强制拼接（不建议）</label>\r\n  </li>\r\n  <li><label for=\"sp-prefs-arrowKeyPage\"><input type=\"checkbox\" id=\"sp-prefs-arrowKeyPage\" /> 使用 &larr; &rarr; 翻页</label> </li>\r\n  <li>自定义排除列表：\r\n    <div><textarea id=\"sp-prefs-excludes\" placeholder=\"自定义排除列表，支持通配符或正则表达式。例如：&quot;http://*.douban.com/*&quot;或&quot;re:http://.*\\\\.douban\\\\.com/.*&quot;. 两者等效。正则表达式需要添加&quot;re:&quot;的前缀并对反斜线转义\"></textarea></div>\r\n  </li>\r\n  <li><a href=\"https://machsix.github.io/Super-preloader/zh-cn/siterule.html\" style=\"color: blue;\"\r\n      target=\"_blank\">自定义站点规则：</a>\r\n    <div><textarea id=\"sp-prefs-custom_siteinfo\" placeholder=\"&#8598;点击学习如何自定义站点规则, 自定义规则应为一个array\"></textarea></div>\r\n  </lii>\r\n  <li>自定义界面:\r\n    <div><textarea id=\"sp-prefs-customCSS\"\r\n        placeholder=\"通过修改'sp-separator'和'sp-prefs-setup'的CSS自定义界面\"></textarea></div>\r\n  </li>\r\n</ul>\r\n<div><button id=\"sp-prefs-ok\" style=\"width:100px;\">确定</button><button id=\"sp-prefs-cancel\"\r\n    style=\"width:100px;\">取消</button><button id=\"sp-prefs-reset\" style=\"width:100px;\">重置</button></div>\r\n")
+	    ; __append("</b>\n    <button id=\"sp-prefs-updaterule\">更新规则</button></li>\n  <li>\n    <label for=\"sp-prefs-debug\"><input type=\"checkbox\" id=\"sp-prefs-debug\" /> 调试模式</label>\n    <label for=\"sp-prefs-ChineseUI\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-ChineseUI\" /> 中文界面</label>\n    <label for=\"sp-prefs-floatWindow\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-floatWindow\" /> 开启悬浮窗</label>\n  </li>\n  <li>\n    <label for=\"sp-prefs-disableBuiltinRules\"><input type=\"checkbox\" id=\"sp-prefs-disableBuiltinRules\"  title=\"禁用内建的js格式规则\"/> 禁用内建规则</label>\n    <label for=\"sp-prefs-disableBuiltinSubscriptionRules\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-disableBuiltinSubscriptionRules\" title=\"禁用从wedata.net等数据库的订阅规则\"/> 禁用订阅规则</label>\n    <label for=\"sp-prefs-autoMatchKeyMatch\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-autoMatchKeyMatch\" /> 禁用自动匹配</label>\n  </li>\n  <li><label for=\"sp-prefs-enableHistory\"><input type=\"checkbox\" id=\"sp-prefs-enableHistory\" /> 添加下一页到历史记录</label></li>\n  <li><label for=\"sp-prefs-dblclick_pause\"><input type=\"checkbox\" id=\"sp-prefs-dblclick_pause\" /> 鼠标双击暂停翻页（默认为 Ctrl + 长按左键）</label></li>\n  <li>\n    <label for=\"sp-prefs-SITEINFO_D-a_enable\"><input title=\"启用自动翻页，否则仅启用预读\" type=\"checkbox\" id=\"sp-prefs-SITEINFO_D-a_enable\" checked /> 自动翻页</label>\n    <label for=\"sp-prefs-SITEINFO_D-useiframe\"><input class=\"inputShift\" type=\"checkbox\" id=\"sp-prefs-SITEINFO_D-useiframe\" /> 全局iframe方式</label>\n    <label for=\"sp-prefs-SITEINFO_D-a_force_enable\">\n      <input class=\"inputShift\" title=\"强行拼接规则中没有的站点，不建议启用\" type=\"checkbox\" id=\"sp-prefs-SITEINFO_D-a_force_enable\" />\n    全局强制拼接（不建议）</label>\n  </li>\n  <li><label for=\"sp-prefs-arrowKeyPage\"><input type=\"checkbox\" id=\"sp-prefs-arrowKeyPage\" /> 使用 &larr; &rarr; 翻页</label> </li>\n  <li>自定义排除列表：\n    <div><textarea id=\"sp-prefs-excludes\" placeholder=\"自定义排除列表，支持通配符或正则表达式。例如：&quot;http://*.douban.com/*&quot;或&quot;re:http://.*\\\\.douban\\\\.com/.*&quot;. 两者等效。正则表达式需要添加&quot;re:&quot;的前缀并对反斜线转义\"></textarea></div>\n  </li>\n  <li><a href=\"https://machsix.github.io/Super-preloader/zh-cn/siterule.html\" style=\"color: blue;\"\n      target=\"_blank\">自定义站点规则：</a>\n    <div><textarea id=\"sp-prefs-custom_siteinfo\" placeholder=\"&#8598;点击学习如何自定义站点规则, 自定义规则应为一个array\"></textarea></div>\n  </lii>\n  <li>自定义界面:\n    <div><textarea id=\"sp-prefs-customCSS\"\n        placeholder=\"通过修改'sp-separator'和'sp-prefs-setup'的CSS自定义界面\"></textarea></div>\n  </li>\n</ul>\n<div><button id=\"sp-prefs-ok\" style=\"width:100px;\">确定</button><button id=\"sp-prefs-cancel\"\n    style=\"width:100px;\">取消</button><button id=\"sp-prefs-reset\" style=\"width:100px;\">重置</button></div>\n")
 	    ; __line = 45;
 	  return __output;
 	} catch (e) {
@@ -6199,12 +6284,12 @@
 	function encode_char(c) {
 	  return _ENCODE_HTML_RULES[c] || c;
 	}var __line = 1
-	  , __lines = "<div id=\"sp-fw-rect\" style=\"background-color:#000;\">\r\n  <div id=\"sp-fw-dot\" style=\"display:none;\"></div>\r\n  <div id=\"sp-fw-cur-mode\" style=\"display:none;\"></div>\r\n</div>\r\n<div id=\"sp-fw-content\">\r\n  <div id=\"sp-fw-main\">\r\n    <div id=\"sp-fw-main-head\">\r\n      <label for=\"sp-fw-a_enable\">工作模式</label>\r\n      <select id=\"sp-fw-a_enable\" name=\"sp-fw-a_enable\">\r\n        <option value=\"preloader\">预读模式</option>\r\n        <option value=\"autopager\">自动翻页模式</option>\r\n      </select>\r\n      <!-- <span id=\"sp-fw-span-info\">Super_preloader</span> -->\r\n    </div>\r\n    <fieldset>\r\n      <legend title=\"预读模式的相关设置\">预读设置</legend>\r\n      <ul>\r\n        <li>\r\n          <label for=\"sp-fw-useiframe\">\r\n            <input type=\"checkbox\" title=\"使用iframe预先载入好下一页到缓存,否则使用xhr请求下一页源码,取出所有的图片进行预读\" id=\"sp-fw-useiframe\"\r\n              name=\"sp-fw-useiframe\" />使用iframe方式\r\n          </label>\r\n        </li>\r\n        <li>\r\n          <label for=\"sp-fw-viewcontent\">\r\n            <input type=\"checkbox\" title=\"查看预读的内容,将其显示在页面的底部,看看预读了些什么.\" id=\"sp-fw-viewcontent\"\r\n              name=\"sp-fw-viewcontent\" />查看预读的内容\r\n          </label>\r\n        </li>\r\n      </ul>\r\n    </fieldset>\r\n    <fieldset id=\"sp-fw-autopager-field\" style=\"display:block;\">\r\n      <legend title=\"自动翻页模式的相关设置\">翻页设置</legend>\r\n      <ul>\r\n        <li>\r\n          <label for=\"sp-fw-a_useiframe\">\r\n            <input type=\"checkbox\" title=\"使用iframe方式进行翻页,否则使用xhr方式翻页,可以解决某些网页xhr方式无法翻页的问题,如果xhr翻页正常的话,就不要勾这项吧.\"\r\n              id=\"sp-fw-a_useiframe\" name=\"sp-fw-a_useiframe\" />使用iframe方式</input>\r\n          </label>\r\n          <label for=\"sp-fw-a_newIframe\">\r\n            <input type=\"checkbox\" title=\"每个下一页都用新的iframe，可以解决下一页图片或按钮点击的问题\" id=\"sp-fw-a_newIframe\"\r\n              name=\"sp-fw-a_newIframe\">新iframe</input>\r\n          </label>\r\n          <ul id=\"sp-fw-a_useiframe-extend\">\r\n            <li>\r\n              <label for=\"sp-fw-a_iloaded\">\r\n                <input type=\"checkbox\" title=\"等待iframe完全载入后(发生load事件),将内容取出,否则在DOM完成后,就直接取出来..(勾上后,会比较慢,但是可能会解决一些问题.)\"\r\n                  id=\"sp-fw-a_iloaded\" name=\"sp-fw-a_iloaded\" />等待iframe完全载入\r\n              </label>\r\n            </li>\r\n            <li>\r\n              <label for=\"sp-fw-a_itimeout\">\r\n                <input type=\"number\" min=\"0\" title=\"在可以从iframe取数据的时候,继续等待设定的ms才开始取出数据(此项为特殊网页准备,如果正常,请设置为0)\"\r\n                  id=\"sp-fw-a_itimeout\" name=\"sp-fw-a_itimeout\" />ms延时取出\r\n              </label>\r\n            </li>\r\n          </ul>\r\n        </li>\r\n        <li>\r\n          <label for=\"sp-fw-a_manualA\">\r\n            <input type=\"checkbox\" id=\"sp-fw-a_manualA\" name=\"sp-fw-a_manualA\"\r\n              title=\"不会自动拼接上来,会出现一个类似翻页导航的的图形,点击翻页(在论坛的帖子内容页面,可以考虑勾选此项,从而不影响你的回帖)\" />手动模式\r\n          </label>\r\n        </li>\r\n        <li>\r\n          <label for=\"sp-fw-a_remain\">\r\n            剩余<input type=\"number\" min=\"0\" id=\"sp-fw-a_remain\" name=\"sp-fw-a_remain\"\r\n              title=\"当剩余的页面的高度是浏览器可见窗口高度的几倍开始翻页\" />倍页面高度触发\r\n          </label>\r\n        </li>\r\n        <li>\r\n          <label for=\"sp-fw-a_maxpage\">\r\n            最多翻<input type=\"number\" min=\"0\" id=\"sp-fw-a_maxpage\" name=\"sp-fw-a_maxpage\"\r\n              title=\"最多翻页数量,当达到这个翻页数量的时候,自动翻页停止.\" />页\r\n          </label>\r\n        </li>\r\n        <li>\r\n          <label for=\"sp-fw-a_separator\">\r\n            <input type=\"checkbox\" id=\"sp-fw-a_separator\" name=\"sp-fw-a_separator\"\r\n              title=\"分割页面主要内容的导航条,可以进行页面主要内容之间的快速跳转定位等.\" />显示翻页导航\r\n          </label>\r\n        </li>\r\n        <li>\r\n          <label for=\"sp-fw-a_force\">\r\n            <input type=\"checkbox\" title=\"将下一页的body部分内容整个拼接上来.(当需翻页的网站没有高级规则时,该项强制勾选,无法取消.)\" id=\"sp-fw-a_force\"\r\n              name=\"sp-fw-a_force\" />强制拼接\r\n          </label>\r\n        </li>\r\n        <li>\r\n          <label for=\"sp-fw-a_ipages_0\">\r\n            <input type=\"checkbox\" id=\"sp-fw-a_ipages_0\" name=\"sp-fw-a_ipages_0\" title=\"在JS加载后,立即连续翻后面设定的页数\" />启用\r\n            立即翻<input type=\"number\" min=\"0\" id=\"sp-fw-a_ipages_1\" name=\"sp-fw-a_ipages_1\" title=\"0为无穷多\" />页\r\n          </label>\r\n          <span class=\"sp-fw-spanbutton\" title=\"现在立即开始连续翻页\" id=\"sp-fw-a_starti\">开始</span>\r\n        </li>\r\n      </ul>\r\n    </fieldset>\r\n    <div id=\"sp-fw-foot\">\r\n      <label for=\"sp-fw-enable\">\r\n        <input type=\"checkbox\" id=\"sp-fw-enable\" title=\"总开关,启用js,否则禁用.\" name=\"sp-fw-enable\" />启用\r\n      </label>\r\n      <span id=\"sp-fw-setup\" class=\"sp-fw-spanbutton\" title=\"打开设置窗口\">设置</span>\r\n      <span id=\"sp-fw-savebutton\" class=\"sp-fw-spanbutton\" title=\"保存设置\">保存</span>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+	  , __lines = "<div id=\"sp-fw-rect\" style=\"background-color:#000;\">\n  <div id=\"sp-fw-dot\" style=\"display:none;\"></div>\n  <div id=\"sp-fw-cur-mode\" style=\"display:none;\"></div>\n</div>\n<div id=\"sp-fw-content\">\n  <div id=\"sp-fw-main\">\n    <div id=\"sp-fw-main-head\">\n      <label for=\"sp-fw-a_enable\">工作模式</label>\n      <select id=\"sp-fw-a_enable\" name=\"sp-fw-a_enable\">\n        <option value=\"preloader\">预读模式</option>\n        <option value=\"autopager\">自动翻页模式</option>\n      </select>\n      <!-- <span id=\"sp-fw-span-info\">Super_preloader</span> -->\n    </div>\n    <fieldset>\n      <legend title=\"预读模式的相关设置\">预读设置</legend>\n      <ul>\n        <li>\n          <label for=\"sp-fw-useiframe\">\n            <input type=\"checkbox\" title=\"使用iframe预先载入好下一页到缓存,否则使用xhr请求下一页源码,取出所有的图片进行预读\" id=\"sp-fw-useiframe\"\n              name=\"sp-fw-useiframe\" />使用iframe方式\n          </label>\n        </li>\n        <li>\n          <label for=\"sp-fw-viewcontent\">\n            <input type=\"checkbox\" title=\"查看预读的内容,将其显示在页面的底部,看看预读了些什么.\" id=\"sp-fw-viewcontent\"\n              name=\"sp-fw-viewcontent\" />查看预读的内容\n          </label>\n        </li>\n      </ul>\n    </fieldset>\n    <fieldset id=\"sp-fw-autopager-field\" style=\"display:block;\">\n      <legend title=\"自动翻页模式的相关设置\">翻页设置</legend>\n      <ul>\n        <li>\n          <label for=\"sp-fw-a_useiframe\">\n            <input type=\"checkbox\" title=\"使用iframe方式进行翻页,否则使用xhr方式翻页,可以解决某些网页xhr方式无法翻页的问题,如果xhr翻页正常的话,就不要勾这项吧.\"\n              id=\"sp-fw-a_useiframe\" name=\"sp-fw-a_useiframe\" />使用iframe方式</input>\n          </label>\n          <label for=\"sp-fw-a_newIframe\">\n            <input type=\"checkbox\" title=\"每个下一页都用新的iframe，可以解决下一页图片或按钮点击的问题\" id=\"sp-fw-a_newIframe\"\n              name=\"sp-fw-a_newIframe\">新iframe</input>\n          </label>\n          <ul id=\"sp-fw-a_useiframe-extend\">\n            <li>\n              <label for=\"sp-fw-a_iloaded\">\n                <input type=\"checkbox\" title=\"等待iframe完全载入后(发生load事件),将内容取出,否则在DOM完成后,就直接取出来..(勾上后,会比较慢,但是可能会解决一些问题.)\"\n                  id=\"sp-fw-a_iloaded\" name=\"sp-fw-a_iloaded\" />等待iframe完全载入\n              </label>\n            </li>\n            <li>\n              <label for=\"sp-fw-a_itimeout\">\n                <input type=\"number\" min=\"0\" title=\"在可以从iframe取数据的时候,继续等待设定的ms才开始取出数据(此项为特殊网页准备,如果正常,请设置为0)\"\n                  id=\"sp-fw-a_itimeout\" name=\"sp-fw-a_itimeout\" />ms延时取出\n              </label>\n            </li>\n          </ul>\n        </li>\n        <li>\n          <label for=\"sp-fw-a_manualA\">\n            <input type=\"checkbox\" id=\"sp-fw-a_manualA\" name=\"sp-fw-a_manualA\"\n              title=\"不会自动拼接上来,会出现一个类似翻页导航的的图形,点击翻页(在论坛的帖子内容页面,可以考虑勾选此项,从而不影响你的回帖)\" />手动模式\n          </label>\n        </li>\n        <li>\n          <label for=\"sp-fw-a_remain\">\n            剩余<input type=\"number\" min=\"0\" id=\"sp-fw-a_remain\" name=\"sp-fw-a_remain\"\n              title=\"当剩余的页面的高度是浏览器可见窗口高度的几倍开始翻页\" />倍页面高度触发\n          </label>\n        </li>\n        <li>\n          <label for=\"sp-fw-a_maxpage\">\n            最多翻<input type=\"number\" min=\"0\" id=\"sp-fw-a_maxpage\" name=\"sp-fw-a_maxpage\"\n              title=\"最多翻页数量,当达到这个翻页数量的时候,自动翻页停止.\" />页\n          </label>\n        </li>\n        <li>\n          <label for=\"sp-fw-a_separator\">\n            <input type=\"checkbox\" id=\"sp-fw-a_separator\" name=\"sp-fw-a_separator\"\n              title=\"分割页面主要内容的导航条,可以进行页面主要内容之间的快速跳转定位等.\" />显示翻页导航\n          </label>\n        </li>\n        <li>\n          <label for=\"sp-fw-a_force\">\n            <input type=\"checkbox\" title=\"将下一页的body部分内容整个拼接上来.(当需翻页的网站没有高级规则时,该项强制勾选,无法取消.)\" id=\"sp-fw-a_force\"\n              name=\"sp-fw-a_force\" />强制拼接\n          </label>\n        </li>\n        <li>\n          <label for=\"sp-fw-a_ipages_0\">\n            <input type=\"checkbox\" id=\"sp-fw-a_ipages_0\" name=\"sp-fw-a_ipages_0\" title=\"在JS加载后,立即连续翻后面设定的页数\" />启用\n            立即翻<input type=\"number\" min=\"0\" id=\"sp-fw-a_ipages_1\" name=\"sp-fw-a_ipages_1\" title=\"0为无穷多\" />页\n          </label>\n          <span class=\"sp-fw-spanbutton\" title=\"现在立即开始连续翻页\" id=\"sp-fw-a_starti\">开始</span>\n        </li>\n      </ul>\n    </fieldset>\n    <div id=\"sp-fw-foot\">\n      <label for=\"sp-fw-enable\">\n        <input type=\"checkbox\" id=\"sp-fw-enable\" title=\"总开关,启用js,否则禁用.\" name=\"sp-fw-enable\" />启用\n      </label>\n      <span id=\"sp-fw-setup\" class=\"sp-fw-spanbutton\" title=\"打开设置窗口\">设置</span>\n      <span id=\"sp-fw-savebutton\" class=\"sp-fw-spanbutton\" title=\"保存设置\">保存</span>\n    </div>\n  </div>\n</div>\n"
 	  , __filename = undefined;
 	try {
 	  var __output = "";
 	  function __append(s) { if (s !== undefined && s !== null) __output += s; }
-	    ; __append("<div id=\"sp-fw-rect\" style=\"background-color:#000;\">\r\n  <div id=\"sp-fw-dot\" style=\"display:none;\"></div>\r\n  <div id=\"sp-fw-cur-mode\" style=\"display:none;\"></div>\r\n</div>\r\n<div id=\"sp-fw-content\">\r\n  <div id=\"sp-fw-main\">\r\n    <div id=\"sp-fw-main-head\">\r\n      <label for=\"sp-fw-a_enable\">工作模式</label>\r\n      <select id=\"sp-fw-a_enable\" name=\"sp-fw-a_enable\">\r\n        <option value=\"preloader\">预读模式</option>\r\n        <option value=\"autopager\">自动翻页模式</option>\r\n      </select>\r\n      <!-- <span id=\"sp-fw-span-info\">Super_preloader</span> -->\r\n    </div>\r\n    <fieldset>\r\n      <legend title=\"预读模式的相关设置\">预读设置</legend>\r\n      <ul>\r\n        <li>\r\n          <label for=\"sp-fw-useiframe\">\r\n            <input type=\"checkbox\" title=\"使用iframe预先载入好下一页到缓存,否则使用xhr请求下一页源码,取出所有的图片进行预读\" id=\"sp-fw-useiframe\"\r\n              name=\"sp-fw-useiframe\" />使用iframe方式\r\n          </label>\r\n        </li>\r\n        <li>\r\n          <label for=\"sp-fw-viewcontent\">\r\n            <input type=\"checkbox\" title=\"查看预读的内容,将其显示在页面的底部,看看预读了些什么.\" id=\"sp-fw-viewcontent\"\r\n              name=\"sp-fw-viewcontent\" />查看预读的内容\r\n          </label>\r\n        </li>\r\n      </ul>\r\n    </fieldset>\r\n    <fieldset id=\"sp-fw-autopager-field\" style=\"display:block;\">\r\n      <legend title=\"自动翻页模式的相关设置\">翻页设置</legend>\r\n      <ul>\r\n        <li>\r\n          <label for=\"sp-fw-a_useiframe\">\r\n            <input type=\"checkbox\" title=\"使用iframe方式进行翻页,否则使用xhr方式翻页,可以解决某些网页xhr方式无法翻页的问题,如果xhr翻页正常的话,就不要勾这项吧.\"\r\n              id=\"sp-fw-a_useiframe\" name=\"sp-fw-a_useiframe\" />使用iframe方式</input>\r\n          </label>\r\n          <label for=\"sp-fw-a_newIframe\">\r\n            <input type=\"checkbox\" title=\"每个下一页都用新的iframe，可以解决下一页图片或按钮点击的问题\" id=\"sp-fw-a_newIframe\"\r\n              name=\"sp-fw-a_newIframe\">新iframe</input>\r\n          </label>\r\n          <ul id=\"sp-fw-a_useiframe-extend\">\r\n            <li>\r\n              <label for=\"sp-fw-a_iloaded\">\r\n                <input type=\"checkbox\" title=\"等待iframe完全载入后(发生load事件),将内容取出,否则在DOM完成后,就直接取出来..(勾上后,会比较慢,但是可能会解决一些问题.)\"\r\n                  id=\"sp-fw-a_iloaded\" name=\"sp-fw-a_iloaded\" />等待iframe完全载入\r\n              </label>\r\n            </li>\r\n            <li>\r\n              <label for=\"sp-fw-a_itimeout\">\r\n                <input type=\"number\" min=\"0\" title=\"在可以从iframe取数据的时候,继续等待设定的ms才开始取出数据(此项为特殊网页准备,如果正常,请设置为0)\"\r\n                  id=\"sp-fw-a_itimeout\" name=\"sp-fw-a_itimeout\" />ms延时取出\r\n              </label>\r\n            </li>\r\n          </ul>\r\n        </li>\r\n        <li>\r\n          <label for=\"sp-fw-a_manualA\">\r\n            <input type=\"checkbox\" id=\"sp-fw-a_manualA\" name=\"sp-fw-a_manualA\"\r\n              title=\"不会自动拼接上来,会出现一个类似翻页导航的的图形,点击翻页(在论坛的帖子内容页面,可以考虑勾选此项,从而不影响你的回帖)\" />手动模式\r\n          </label>\r\n        </li>\r\n        <li>\r\n          <label for=\"sp-fw-a_remain\">\r\n            剩余<input type=\"number\" min=\"0\" id=\"sp-fw-a_remain\" name=\"sp-fw-a_remain\"\r\n              title=\"当剩余的页面的高度是浏览器可见窗口高度的几倍开始翻页\" />倍页面高度触发\r\n          </label>\r\n        </li>\r\n        <li>\r\n          <label for=\"sp-fw-a_maxpage\">\r\n            最多翻<input type=\"number\" min=\"0\" id=\"sp-fw-a_maxpage\" name=\"sp-fw-a_maxpage\"\r\n              title=\"最多翻页数量,当达到这个翻页数量的时候,自动翻页停止.\" />页\r\n          </label>\r\n        </li>\r\n        <li>\r\n          <label for=\"sp-fw-a_separator\">\r\n            <input type=\"checkbox\" id=\"sp-fw-a_separator\" name=\"sp-fw-a_separator\"\r\n              title=\"分割页面主要内容的导航条,可以进行页面主要内容之间的快速跳转定位等.\" />显示翻页导航\r\n          </label>\r\n        </li>\r\n        <li>\r\n          <label for=\"sp-fw-a_force\">\r\n            <input type=\"checkbox\" title=\"将下一页的body部分内容整个拼接上来.(当需翻页的网站没有高级规则时,该项强制勾选,无法取消.)\" id=\"sp-fw-a_force\"\r\n              name=\"sp-fw-a_force\" />强制拼接\r\n          </label>\r\n        </li>\r\n        <li>\r\n          <label for=\"sp-fw-a_ipages_0\">\r\n            <input type=\"checkbox\" id=\"sp-fw-a_ipages_0\" name=\"sp-fw-a_ipages_0\" title=\"在JS加载后,立即连续翻后面设定的页数\" />启用\r\n            立即翻<input type=\"number\" min=\"0\" id=\"sp-fw-a_ipages_1\" name=\"sp-fw-a_ipages_1\" title=\"0为无穷多\" />页\r\n          </label>\r\n          <span class=\"sp-fw-spanbutton\" title=\"现在立即开始连续翻页\" id=\"sp-fw-a_starti\">开始</span>\r\n        </li>\r\n      </ul>\r\n    </fieldset>\r\n    <div id=\"sp-fw-foot\">\r\n      <label for=\"sp-fw-enable\">\r\n        <input type=\"checkbox\" id=\"sp-fw-enable\" title=\"总开关,启用js,否则禁用.\" name=\"sp-fw-enable\" />启用\r\n      </label>\r\n      <span id=\"sp-fw-setup\" class=\"sp-fw-spanbutton\" title=\"打开设置窗口\">设置</span>\r\n      <span id=\"sp-fw-savebutton\" class=\"sp-fw-spanbutton\" title=\"保存设置\">保存</span>\r\n    </div>\r\n  </div>\r\n</div>\r\n")
+	    ; __append("<div id=\"sp-fw-rect\" style=\"background-color:#000;\">\n  <div id=\"sp-fw-dot\" style=\"display:none;\"></div>\n  <div id=\"sp-fw-cur-mode\" style=\"display:none;\"></div>\n</div>\n<div id=\"sp-fw-content\">\n  <div id=\"sp-fw-main\">\n    <div id=\"sp-fw-main-head\">\n      <label for=\"sp-fw-a_enable\">工作模式</label>\n      <select id=\"sp-fw-a_enable\" name=\"sp-fw-a_enable\">\n        <option value=\"preloader\">预读模式</option>\n        <option value=\"autopager\">自动翻页模式</option>\n      </select>\n      <!-- <span id=\"sp-fw-span-info\">Super_preloader</span> -->\n    </div>\n    <fieldset>\n      <legend title=\"预读模式的相关设置\">预读设置</legend>\n      <ul>\n        <li>\n          <label for=\"sp-fw-useiframe\">\n            <input type=\"checkbox\" title=\"使用iframe预先载入好下一页到缓存,否则使用xhr请求下一页源码,取出所有的图片进行预读\" id=\"sp-fw-useiframe\"\n              name=\"sp-fw-useiframe\" />使用iframe方式\n          </label>\n        </li>\n        <li>\n          <label for=\"sp-fw-viewcontent\">\n            <input type=\"checkbox\" title=\"查看预读的内容,将其显示在页面的底部,看看预读了些什么.\" id=\"sp-fw-viewcontent\"\n              name=\"sp-fw-viewcontent\" />查看预读的内容\n          </label>\n        </li>\n      </ul>\n    </fieldset>\n    <fieldset id=\"sp-fw-autopager-field\" style=\"display:block;\">\n      <legend title=\"自动翻页模式的相关设置\">翻页设置</legend>\n      <ul>\n        <li>\n          <label for=\"sp-fw-a_useiframe\">\n            <input type=\"checkbox\" title=\"使用iframe方式进行翻页,否则使用xhr方式翻页,可以解决某些网页xhr方式无法翻页的问题,如果xhr翻页正常的话,就不要勾这项吧.\"\n              id=\"sp-fw-a_useiframe\" name=\"sp-fw-a_useiframe\" />使用iframe方式</input>\n          </label>\n          <label for=\"sp-fw-a_newIframe\">\n            <input type=\"checkbox\" title=\"每个下一页都用新的iframe，可以解决下一页图片或按钮点击的问题\" id=\"sp-fw-a_newIframe\"\n              name=\"sp-fw-a_newIframe\">新iframe</input>\n          </label>\n          <ul id=\"sp-fw-a_useiframe-extend\">\n            <li>\n              <label for=\"sp-fw-a_iloaded\">\n                <input type=\"checkbox\" title=\"等待iframe完全载入后(发生load事件),将内容取出,否则在DOM完成后,就直接取出来..(勾上后,会比较慢,但是可能会解决一些问题.)\"\n                  id=\"sp-fw-a_iloaded\" name=\"sp-fw-a_iloaded\" />等待iframe完全载入\n              </label>\n            </li>\n            <li>\n              <label for=\"sp-fw-a_itimeout\">\n                <input type=\"number\" min=\"0\" title=\"在可以从iframe取数据的时候,继续等待设定的ms才开始取出数据(此项为特殊网页准备,如果正常,请设置为0)\"\n                  id=\"sp-fw-a_itimeout\" name=\"sp-fw-a_itimeout\" />ms延时取出\n              </label>\n            </li>\n          </ul>\n        </li>\n        <li>\n          <label for=\"sp-fw-a_manualA\">\n            <input type=\"checkbox\" id=\"sp-fw-a_manualA\" name=\"sp-fw-a_manualA\"\n              title=\"不会自动拼接上来,会出现一个类似翻页导航的的图形,点击翻页(在论坛的帖子内容页面,可以考虑勾选此项,从而不影响你的回帖)\" />手动模式\n          </label>\n        </li>\n        <li>\n          <label for=\"sp-fw-a_remain\">\n            剩余<input type=\"number\" min=\"0\" id=\"sp-fw-a_remain\" name=\"sp-fw-a_remain\"\n              title=\"当剩余的页面的高度是浏览器可见窗口高度的几倍开始翻页\" />倍页面高度触发\n          </label>\n        </li>\n        <li>\n          <label for=\"sp-fw-a_maxpage\">\n            最多翻<input type=\"number\" min=\"0\" id=\"sp-fw-a_maxpage\" name=\"sp-fw-a_maxpage\"\n              title=\"最多翻页数量,当达到这个翻页数量的时候,自动翻页停止.\" />页\n          </label>\n        </li>\n        <li>\n          <label for=\"sp-fw-a_separator\">\n            <input type=\"checkbox\" id=\"sp-fw-a_separator\" name=\"sp-fw-a_separator\"\n              title=\"分割页面主要内容的导航条,可以进行页面主要内容之间的快速跳转定位等.\" />显示翻页导航\n          </label>\n        </li>\n        <li>\n          <label for=\"sp-fw-a_force\">\n            <input type=\"checkbox\" title=\"将下一页的body部分内容整个拼接上来.(当需翻页的网站没有高级规则时,该项强制勾选,无法取消.)\" id=\"sp-fw-a_force\"\n              name=\"sp-fw-a_force\" />强制拼接\n          </label>\n        </li>\n        <li>\n          <label for=\"sp-fw-a_ipages_0\">\n            <input type=\"checkbox\" id=\"sp-fw-a_ipages_0\" name=\"sp-fw-a_ipages_0\" title=\"在JS加载后,立即连续翻后面设定的页数\" />启用\n            立即翻<input type=\"number\" min=\"0\" id=\"sp-fw-a_ipages_1\" name=\"sp-fw-a_ipages_1\" title=\"0为无穷多\" />页\n          </label>\n          <span class=\"sp-fw-spanbutton\" title=\"现在立即开始连续翻页\" id=\"sp-fw-a_starti\">开始</span>\n        </li>\n      </ul>\n    </fieldset>\n    <div id=\"sp-fw-foot\">\n      <label for=\"sp-fw-enable\">\n        <input type=\"checkbox\" id=\"sp-fw-enable\" title=\"总开关,启用js,否则禁用.\" name=\"sp-fw-enable\" />启用\n      </label>\n      <span id=\"sp-fw-setup\" class=\"sp-fw-spanbutton\" title=\"打开设置窗口\">设置</span>\n      <span id=\"sp-fw-savebutton\" class=\"sp-fw-spanbutton\" title=\"保存设置\">保存</span>\n    </div>\n  </div>\n</div>\n")
 	    ; __line = 107;
 	  return __output;
 	} catch (e) {
@@ -6255,14 +6340,14 @@
 	function encode_char(c) {
 	  return _ENCODE_HTML_RULES[c] || c;
 	}var __line = 1
-	  , __lines = "<div><%= locals.notice %></div>\r\n<div class=\"sp-prefs-spinner\"><div class=\"rect1\"></div><div class=\"rect2\"></div><div class=\"rect3\"></div><div class=\"rect4\"></div></div>\r\n"
+	  , __lines = "<div><%= locals.notice %></div>\n<div class=\"sp-prefs-spinner\"><div class=\"rect1\"></div><div class=\"rect2\"></div><div class=\"rect3\"></div><div class=\"rect4\"></div></div>\n"
 	  , __filename = undefined;
 	try {
 	  var __output = "";
 	  function __append(s) { if (s !== undefined && s !== null) __output += s; }
 	    ; __append("<div>")
 	    ; __append(escapeFn( locals.notice ))
-	    ; __append("</div>\r\n<div class=\"sp-prefs-spinner\"><div class=\"rect1\"></div><div class=\"rect2\"></div><div class=\"rect3\"></div><div class=\"rect4\"></div></div>\r\n")
+	    ; __append("</div>\n<div class=\"sp-prefs-spinner\"><div class=\"rect1\"></div><div class=\"rect2\"></div><div class=\"rect3\"></div><div class=\"rect4\"></div></div>\n")
 	    ; __line = 3;
 	  return __output;
 	} catch (e) {
@@ -8140,19 +8225,427 @@
 	  }
 	}
 
-	var displace_min = {exports: {}};
+	var displace$1 = {exports: {}};
 
 	/*!
-	 * displacejs.js 1.3.2 - Tiny javascript library to create moveable DOM elements.
-	 * Copyright (c) 2019 Catalin Covic - https://github.com/catc/displace
+	 * displacejs.js 1.4.0 - Tiny javascript library to create moveable DOM elements.
+	 * Copyright (c) 2021 Catalin Covic - https://github.com/catc/displace
 	 * License: MIT
 	 */
 
 	(function (module, exports) {
-	!function(e,t){module.exports=t();}(this,function(){return function(e){function t(n){if(o[n])return o[n].exports;var s=o[n]={exports:{},id:n,loaded:!1};return e[n].call(s.exports,s,s.exports,t),s.loaded=!0,s.exports}var o={};return t.m=e,t.c=o,t.p="",t(0)}([function(e,t,o){function n(e){return e&&e.__esModule?e:{default:e}}var s=o(1),i=n(s);e.exports=i.default;},function(e,t,o){function n(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function s(){var e=this,t=this.el,o=this.opts||c,n={};if(t.style.position="absolute",this.handle=o.handle||t,o.constrain){for(var s=o.relativeTo||t.parentNode,a=t,h=0,v=0;a!==s;)a=a.parentNode,(0, i.isRelative)(a)&&(h-=a.offsetLeft,v-=a.offsetTop),a===s&&(h+=a.offsetLeft,v+=a.offsetTop);var l=h+s.offsetWidth-t.offsetWidth,f=v+s.offsetHeight-t.offsetHeight;n.xClamp=(0, i.generateClamp)(h,l),n.yClamp=(0, i.generateClamp)(v,f);}this.opts=o,this.data=n,this.events={mousedown:u.mousedown.bind(this),mouseup:u.mouseup.bind(this),touchstart:u.touchstart.bind(this),touchstop:u.touchstop.bind(this),scrollFix:function(t){e.isDragging&&t.preventDefault();}},this.handleMove=r(this.opts.customMove),this.handle.addEventListener("mousedown",this.events.mousedown,!1),this.handle.addEventListener("touchstart",this.events.touchstart,!1),document.addEventListener("touchmove",this.events.scrollFix,{passive:!1});}Object.defineProperty(t,"__esModule",{value:!0});var i=o(2),u=o(3),r=(0, i.generateMoveFn)(),c={constrain:!1,relativeTo:null,handle:null,ignoreFn:null,highlightInputs:!1,onMouseDown:null,onMouseMove:null,onMouseUp:null,onTouchStart:null,onTouchMove:null,onTouchStop:null,customMove:null},a=function(){function e(t,o){if(n(this,e),!t)throw Error("Must include moveable element");this.el=t,this.opts=o,s.call(this);}return e.prototype.reinit=function(){this.destroy(),s.call(this);},e.prototype.destroy=function(){var e=this.events;this.handle.removeEventListener("mousedown",e.mousedown,!1),document.removeEventListener("mousemove",e.mousemove,!1),document.removeEventListener("mouseup",e.mouseup,!1),this.handle.removeEventListener("touchstart",e.touchstart,!1),document.removeEventListener("touchmove",e.touchmove,!1),document.removeEventListener("touchstop",e.touchstop,!1),document.removeEventListener("touchmove",this.events.scrollFix,{passive:!1});},e}();t.default=function(e,t){return new a(e,t)};},function(e,t){function o(e,t){return function(o){return Math.min(Math.max(o,e),t)}}function n(e){return "relative"===window.getComputedStyle(e).position}function s(){return window.requestAnimationFrame?function(e){var t=e||i;return function(e,o,n){window.requestAnimationFrame(function(){t(e,o,n);});}}:function(e){return function(t,o,n){var s=e||i;s(t,o,n);}}}function i(e,t,o){e.style.left=t+"px",e.style.top=o+"px";}Object.defineProperty(t,"__esModule",{value:!0}),t.generateClamp=o,t.isRelative=n,t.generateMoveFn=s;},function(e,t){function o(e){var t=this.opts;if(t.highlightInputs){var o=e.target.tagName.toLowerCase();if("input"===o||"textarea"===o)return}if(!t.ignoreFn||!t.ignoreFn(e)){if(0===e.button){var s=this.el,i=this.events;"function"==typeof t.onMouseDown&&t.onMouseDown(s,e);var u=e.clientX-s.offsetLeft,r=e.clientY-s.offsetTop;i.mousemove=n.bind(this,u,r),document.addEventListener("mousemove",i.mousemove,!1),document.addEventListener("mouseup",i.mouseup,!1);}e.preventDefault();}}function n(e,t,o){var n=this.el,s=this.opts,i=this.data;"function"==typeof s.onMouseMove&&s.onMouseMove(n,o);var u=o.clientX-e,r=o.clientY-t;return s.constrain&&(u=i.xClamp(u),r=i.yClamp(r)),this.handleMove(n,u,r),o.preventDefault(),!1}function s(e){var t=this.el,o=this.opts,n=this.events;"function"==typeof o.onMouseUp&&o.onMouseUp(t,e),document.removeEventListener("mouseup",n.mouseup,!1),document.removeEventListener("mousemove",n.mousemove,!1);}function i(e){var t=this.opts;if(t.highlightInputs){var o=e.target.tagName.toLowerCase();if("input"===o||"textarea"===o)return}if(!t.ignoreFn||!t.ignoreFn(e)){var n=this.el,s=this.events;"function"==typeof t.onTouchStart&&t.onTouchStart(n,e);var i=e.targetTouches[0],r=i.clientX-n.offsetLeft,c=i.clientY-n.offsetTop;s.touchmove=u.bind(this,r,c),this.isDragging=!0,document.addEventListener("touchmove",s.touchmove,!1),document.addEventListener("touchend",s.touchstop,!1),document.addEventListener("touchcancel",s.touchstop,!1);}}function u(e,t,o){var n=this.el,s=this.opts,i=this.data;"function"==typeof s.onTouchMove&&s.onTouchMove(n,o);var u=o.targetTouches[0],r=u.clientX-e,c=u.clientY-t;return s.constrain&&(r=i.xClamp(r),c=i.yClamp(c)),this.handleMove(n,r,c),o.preventDefault(),!1}function r(e){this.isDragging=!1;var t=this.el,o=this.opts,n=this.events;"function"==typeof o.onTouchStop&&o.onTouchStop(t,e),document.removeEventListener("touchmove",n.touchmove,!1),document.removeEventListener("touchend",n.touchstop,!1),document.removeEventListener("touchcancel",n.touchstop,!1);}Object.defineProperty(t,"__esModule",{value:!0}),t.mousedown=o,t.mousemove=n,t.mouseup=s,t.touchstart=i,t.touchmove=u,t.touchstop=r;}])});
-	}(displace_min));
+	(function webpackUniversalModuleDefinition(root, factory) {
+		module.exports = factory();
+	})(this, function() {
+	return /******/ (function(modules) { // webpackBootstrap
+	/******/ 	// The module cache
+	/******/ 	var installedModules = {};
 
-	var displace = /*@__PURE__*/getDefaultExportFromCjs(displace_min.exports);
+	/******/ 	// The require function
+	/******/ 	function __webpack_require__(moduleId) {
+
+	/******/ 		// Check if module is in cache
+	/******/ 		if(installedModules[moduleId])
+	/******/ 			return installedModules[moduleId].exports;
+
+	/******/ 		// Create a new module (and put it into the cache)
+	/******/ 		var module = installedModules[moduleId] = {
+	/******/ 			exports: {},
+	/******/ 			id: moduleId,
+	/******/ 			loaded: false
+	/******/ 		};
+
+	/******/ 		// Execute the module function
+	/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+
+	/******/ 		// Flag the module as loaded
+	/******/ 		module.loaded = true;
+
+	/******/ 		// Return the exports of the module
+	/******/ 		return module.exports;
+	/******/ 	}
+
+
+	/******/ 	// expose the modules object (__webpack_modules__)
+	/******/ 	__webpack_require__.m = modules;
+
+	/******/ 	// expose the module cache
+	/******/ 	__webpack_require__.c = installedModules;
+
+	/******/ 	// __webpack_public_path__
+	/******/ 	__webpack_require__.p = "";
+
+	/******/ 	// Load entry module and return exports
+	/******/ 	return __webpack_require__(0);
+	/******/ })
+	/************************************************************************/
+	/******/ ([
+	/* 0 */
+	/***/ (function(module, exports, __webpack_require__) {
+
+		var _displace = __webpack_require__(1);
+
+		var _displace2 = _interopRequireDefault(_displace);
+
+		function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+		module.exports = _displace2.default;
+
+	/***/ }),
+	/* 1 */
+	/***/ (function(module, exports, __webpack_require__) {
+
+		Object.defineProperty(exports, "__esModule", {
+			value: true
+		});
+
+		var _utils = __webpack_require__(2);
+
+		var _events = __webpack_require__(3);
+
+		function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+		var moveFn = (0, _utils.generateMoveFn)();
+
+		var defaultOpts = {
+			constrain: false,
+			relativeTo: null,
+			handle: null,
+			ignoreFn: null,
+			highlightInputs: false,
+
+			// events
+			onMouseDown: null,
+			onMouseMove: null,
+			onMouseUp: null,
+			onTouchStart: null,
+			onTouchMove: null,
+			onTouchStop: null,
+
+			customMove: null
+		};
+
+		var Displace = function () {
+			function Displace(el, opts) {
+				_classCallCheck(this, Displace);
+
+				if (!el) {
+					throw Error('Must include moveable element');
+				}
+				this.el = el;
+				this.opts = opts;
+
+				// init
+				setup.call(this);
+			}
+
+			Displace.prototype.reinit = function reinit() {
+				this.destroy();
+				setup.call(this);
+			};
+
+			Displace.prototype.destroy = function destroy() {
+				var events = this.events;
+
+				this.handle.removeEventListener('mousedown', events.mousedown, false);
+				document.removeEventListener('mousemove', events.mousemove, false);
+				document.removeEventListener('mouseup', events.mouseup, false);
+
+				this.handle.removeEventListener('touchstart', events.touchstart, false);
+				document.removeEventListener('touchmove', events.touchmove, false);
+				document.removeEventListener('touchstop', events.touchstop, false);
+				document.removeEventListener('touchmove', this.events.scrollFix, { passive: false });
+			};
+
+			return Displace;
+		}();
+
+		function setup() {
+			var _this = this;
+
+			var el = this.el;
+			var opts = this.opts || defaultOpts;
+			var data = {};
+
+			// set required css
+			el.style.position = 'absolute';
+
+			// set the handle
+			this.handle = opts.handle || el;
+
+			// generate min / max ranges
+			if (opts.constrain) {
+				var relTo = opts.relativeTo || el.parentNode;
+
+				var traverse = el;
+				var minX = 0;
+				var minY = 0;
+				while (traverse !== relTo) {
+					traverse = traverse.parentNode;
+					if ((0, _utils.isRelative)(traverse)) {
+						minX -= traverse.offsetLeft;
+						minY -= traverse.offsetTop;
+					}
+					if (traverse === relTo) {
+						minX += traverse.offsetLeft;
+						minY += traverse.offsetTop;
+					}
+				}
+
+				var maxX = minX + relTo.offsetWidth - el.offsetWidth;
+				var maxY = minY + relTo.offsetHeight - el.offsetHeight;
+
+				data.xClamp = (0, _utils.generateClamp)(minX, maxX);
+				data.yClamp = (0, _utils.generateClamp)(minY, maxY);
+			}
+
+			this.opts = opts;
+			this.data = data;
+			this.events = {
+				// mouse events
+				mousedown: _events.mousedown.bind(this),
+				mouseup: _events.mouseup.bind(this),
+
+				// touch events
+				touchstart: _events.touchstart.bind(this),
+				touchstop: _events.touchstop.bind(this),
+
+				// disable scrolling on mobile while dragging
+				// https://github.com/bevacqua/dragula/issues/487
+				scrollFix: function scrollFix(e) {
+					if (_this.isDragging) {
+						e.preventDefault();
+					}
+				}
+			};
+
+			// create move function - either use default move functionality or custom (if provided)
+			this.handleMove = moveFn(this.opts.customMove);
+
+			// add init events to handle
+			this.handle.addEventListener('mousedown', this.events.mousedown, false);
+			this.handle.addEventListener('touchstart', this.events.touchstart, false);
+
+			// scroll fix for mobile
+			document.addEventListener('touchmove', this.events.scrollFix, { passive: false });
+		}
+
+		// export factory fn
+
+		exports.default = function (el, opts) {
+			return new Displace(el, opts);
+		};
+
+	/***/ }),
+	/* 2 */
+	/***/ (function(module, exports) {
+
+		Object.defineProperty(exports, "__esModule", {
+			value: true
+		});
+		exports.generateClamp = generateClamp;
+		exports.isRelative = isRelative;
+		exports.generateMoveFn = generateMoveFn;
+		function generateClamp(min, max) {
+			return function (val) {
+				return Math.min(Math.max(val, min), max);
+			};
+		}
+
+		function isRelative(el) {
+			return window.getComputedStyle(el).position === 'relative';
+		}
+
+		function generateMoveFn() {
+			if (window.requestAnimationFrame) {
+				return function (customFn) {
+					var move = customFn || defaultMove;
+
+					return function (el, x, y) {
+						window.requestAnimationFrame(function () {
+							move(el, x, y);
+						});
+					};
+				};
+			}
+			return function (customFn) {
+				return function (el, x, y) {
+					var move = customFn || defaultMove;
+					move(el, x, y);
+				};
+			};
+		}
+
+		function defaultMove(el, x, y) {
+			el.style.left = x + 'px';
+			el.style.top = y + 'px';
+		}
+
+	/***/ }),
+	/* 3 */
+	/***/ (function(module, exports) {
+
+		Object.defineProperty(exports, "__esModule", {
+			value: true
+		});
+		exports.mousedown = mousedown;
+		exports.mousemove = mousemove;
+		exports.mouseup = mouseup;
+		exports.touchstart = touchstart;
+		exports.touchmove = touchmove;
+		exports.touchstop = touchstop;
+		// mouse events
+		function mousedown(e) {
+			var opts = this.opts;
+			if (opts.highlightInputs) {
+				// allow for selection of text in inputs/textareas
+				var target = e.target.tagName.toLowerCase();
+				if (target === 'input' || target === 'textarea') {
+					return;
+				}
+			}
+
+			if (opts.ignoreFn && opts.ignoreFn(e)) {
+				return;
+			}
+
+			// only left button is clicked
+			if (e.button === 0) {
+				var el = this.el;
+				var events = this.events;
+
+				if (typeof opts.onMouseDown === 'function') {
+					opts.onMouseDown(el, e);
+				}
+
+				// determine initial offset and bind to mousemove handler
+				var wOff = e.clientX - el.offsetLeft;
+				var hOff = e.clientY - el.offsetTop;
+				events.mousemove = mousemove.bind(this, wOff, hOff);
+
+				document.addEventListener('mousemove', events.mousemove, false);
+				document.addEventListener('mouseup', events.mouseup, false);
+			}
+
+			// prevent highlighting text when dragging (IE)
+			e.preventDefault();
+		}
+		function mousemove(offsetW, offsetH, e) {
+			var el = this.el;
+			var opts = this.opts;
+			var data = this.data;
+
+			if (typeof opts.onMouseMove === 'function') {
+				opts.onMouseMove(el, e);
+			}
+
+			var x = e.clientX - offsetW;
+			var y = e.clientY - offsetH;
+
+			if (opts.constrain) {
+				// clamp values if out of range
+				x = data.xClamp(x);
+				y = data.yClamp(y);
+			}
+			this.handleMove(el, x, y);
+
+			// prevent highlighting text when dragging
+			e.preventDefault();
+			return false;
+		}
+		function mouseup(e) {
+			var el = this.el;
+			var opts = this.opts;
+			var events = this.events;
+
+			if (typeof opts.onMouseUp === 'function') {
+				opts.onMouseUp(el, e);
+			}
+
+			document.removeEventListener('mouseup', events.mouseup, false);
+			document.removeEventListener('mousemove', events.mousemove, false);
+		}
+		// touch events
+		function touchstart(e) {
+			var opts = this.opts;
+			if (opts.highlightInputs) {
+				// allow for selection of text in inputs/textareas
+				var target = e.target.tagName.toLowerCase();
+				if (target === 'input' || target === 'textarea') {
+					return;
+				}
+			}
+
+			if (opts.ignoreFn && opts.ignoreFn(e)) {
+				return;
+			}
+
+			var el = this.el;
+			var events = this.events;
+
+			if (typeof opts.onTouchStart === 'function') {
+				opts.onTouchStart(el, e);
+			}
+
+			var touch = e.targetTouches[0];
+			var wOff = touch.clientX - el.offsetLeft;
+			var hOff = touch.clientY - el.offsetTop;
+
+			events.touchmove = touchmove.bind(this, wOff, hOff);
+
+			// disable scrolling
+			this.isDragging = true;
+
+			document.addEventListener('touchmove', events.touchmove, false);
+			document.addEventListener('touchend', events.touchstop, false);
+			document.addEventListener('touchcancel', events.touchstop, false);
+		}
+		function touchmove(offsetW, offsetH, e) {
+			var el = this.el;
+			var opts = this.opts;
+			var data = this.data;
+
+			if (typeof opts.onTouchMove === 'function') {
+				opts.onTouchMove(el, e);
+			}
+
+			var touch = e.targetTouches[0];
+			var x = touch.clientX - offsetW;
+			var y = touch.clientY - offsetH;
+
+			if (opts.constrain) {
+				// clamp values if out of range
+				x = data.xClamp(x);
+				y = data.yClamp(y);
+			}
+			this.handleMove(el, x, y);
+
+			// prevent highlighting text when dragging
+			e.preventDefault();
+			return false;
+		}
+		function touchstop(e) {
+			// re-enable scrolling
+			this.isDragging = false;
+
+			var el = this.el;
+			var opts = this.opts;
+			var events = this.events;
+
+			if (typeof opts.onTouchStop === 'function') {
+				opts.onTouchStop(el, e);
+			}
+
+			document.removeEventListener('touchmove', events.touchmove, false);
+			document.removeEventListener('touchend', events.touchstop, false);
+			document.removeEventListener('touchcancel', events.touchstop, false);
+		}
+	/***/ })
+	/******/ ])
+	});
+	}(displace$1));
+
+	var displace = /*@__PURE__*/getDefaultExportFromCjs(displace$1.exports);
 
 	/**
 	 * Waits for an element satisfying selector to exist, then resolves promise with the element.
@@ -12517,8 +13010,7 @@
 	                      if (_Number(nSNText) == _Number(numtext) + 1) {
 	                        nodeType = nextSS.nodeType;
 
-	                        if (nodeType == 3 || // @ts-ignore
-	                        nodeType == 1 && (searchedD ? _getAllElementsByXpath('./descendant-or-self::a[@href]', nextSS, doc).length === 0 : !nextSS.hasAttribute('href') || _getFullHref(nextSS.getAttribute('href')) == curLHref)) {
+	                        if (nodeType == 3 || nodeType == 1 && (searchedD ? _getAllElementsByXpath('./descendant-or-self::a[@href]', nextSS, doc).length === 0 : !nextSS.hasAttribute('href') || _getFullHref(nextSS.getAttribute('href')) == curLHref)) {
 	                          _prelink = finalCheck(a, 'pre');
 	                        }
 	                      }

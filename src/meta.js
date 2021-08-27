@@ -13,16 +13,18 @@ export const SCRIPT_INFO = {
   author: pkg.author,
   version: pkg.version,
   license: pkg.license,
-  changelog: `${emoji('1F92A')} Adguard is supported`,
+  changelog: `${emoji('1F595')} Greasyfork`,
   greasyfork: 'https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new',
   updateTime: `${now.getFullYear()}/${now.getMonth() + 1}/${now.getDate()}`,
   homepageURL: pkg.homepage,
-  feedbackURL: pkg.bugs.url + '/feedback',
+  feedbackURL: pkg.bugs.url,
   // rewrite storage for these versions
   rewriteStorage: '6.6.83'
 };
-SCRIPT_INFO.downloadURL = `${SCRIPT_INFO.greasyfork}/code/${SCRIPT_INFO.name}.user.js`;
-SCRIPT_INFO.metaURL = `${SCRIPT_INFO.greasyfork}/code/${SCRIPT_INFO.name}.meta.js`;
+// SCRIPT_INFO.downloadURL = `${SCRIPT_INFO.greasyfork}/code/${SCRIPT_INFO.name}.user.js`;
+// SCRIPT_INFO.metaURL = `${SCRIPT_INFO.greasyfork}/code/${SCRIPT_INFO.name}.meta.js`;
+SCRIPT_INFO.downloadURL = 'https://machsix.github.io/Super-preloader/Super_preloaderPlus_one_New.user.js';
+SCRIPT_INFO.updateURL = SCRIPT_INFO.downloadURL;
 
 // New notification to send
 export const NOTIFICATION = {
@@ -53,6 +55,8 @@ export const METADATA = `// ==UserScript==
 // @license      ${SCRIPT_INFO.license}
 // @update       ${SCRIPT_INFO.updateTime}
 // @homepageURL  ${SCRIPT_INFO.homepageURL}
+// @downloadURL  ${SCRIPT_INFO.downloadURL}
+// @updateURL    ${SCRIPT_INFO.updateURL}
 // @supportURL   ${SCRIPT_INFO.greasyfork}/feedback
 // @contributionURL https://ko-fi.com/machsix
 // @icon         ${SCRIPT_INFO.icon}
@@ -108,5 +112,8 @@ export const METADATA = `// ==UserScript==
 // @exclude      http*://dash.cloudflare.com/*
 // @exclude      http*://assets.tumblr.com/*
 // @exclude      http*://www.tumblr.com/video/*
+// @exclude      http*://*.awsapps.com/*
+// @exlucde      http*://www.commcarehq.org/accounts/login/*gre
+// @exclude      http*://simkl.com/*
 // ==/UserScript==
 `;
