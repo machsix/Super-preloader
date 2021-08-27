@@ -1,7 +1,7 @@
 language: node_js
 dist: xenial
 os: linux
-node_js: 12
+node_js: 14
 services: xvfb
 cache: npm
 before_install:

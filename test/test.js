@@ -45,11 +45,16 @@ async function main() {
   console.log('Unzip VM \u2714');
 
   // launch browser
-  const browser = await puppeteer.launch({
+  const config = {
     headless: false, //NOTE Extensions in Chrome / Chromium currently only work in non-headless mode.
     timeout: 60 * 1000,
     args: [`--disable-extensions-except=${violentmonkey.folder}`, '--no-sandbox', `--load-extension=${violentmonkey.folder}`]
-  });
+  };
+
+  if (process.env.GITHUB_RUN_ID) {
+    config.executablePath = process.env.PUPPETEER_EXEC_PATH;
+  }
+  const browser = await puppeteer.launch(config);
   console.log('Launch Chrome \u2714');
 
   let pages, targetPage;
@@ -116,7 +121,7 @@ async function main() {
   }
 
   // check CSP
-  if (process.env.TRAVIS !== 'true') {
+  if (process.env.CI !== 'true') {
     await targetPage.goto('https://rarbg.to/torrents.php', {
       waitUntil: 'networkidle2'
     });

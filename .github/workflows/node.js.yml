@@ -1,0 +1,43 @@
+name: workflow
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+jobs:
+  ci:
+    runs-on:  ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2.4.0
+        env:
+          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: 'true'
+        with:
+          node-version: '14'
+          cache: 'npm'
+      - run: npm install
+      - run: npm run check
+      - run: npm run build
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Super_preloaderPlus_one_New.user.js
+          path: dist/Super_preloaderPlus_one_New.user.js
+          if-no-files-found: error
+      - name: Build documentation
+        run: npm run docs:publish
+      - name: Deploy to Github Pages
+        if: success()
+        uses: crazy-max/ghaction-github-pages@v2
+        with:
+          target_branch: gh-pages
+          build_dir: docs/.vuepress/dist
+          keep_history: true
+          commit_message: ${{ format('Commit sha {0}', github.sha)}}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+      - name: Test
+        uses: mujo-code/puppeteer-headful@master
+        env:
+          CI: 'true'
+        with:
+          args: npm test
