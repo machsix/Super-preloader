@@ -9,10 +9,12 @@
 // @author       Mach6
 // @contributers alexolog, heroboy, suchunchen, YFdyh000
 // @thanksto     ywzhaiqi, NLF
-// @version      6.15.9
+// @version      6.16.0
 // @license      GPL-3.0
-// @update       2021/5/16
+// @update       2021/8/27
 // @homepageURL  https://github.com/machsix/Super-preloader
+// @downloadURL  https://machsix.github.io/Super-preloader/Super_preloaderPlus_one_New.user.js
+// @updateURL    https://machsix.github.io/Super-preloader/Super_preloaderPlus_one_New.user.js
 // @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
 // @contributionURL https://ko-fi.com/machsix
 // @icon         data:image/png;base64,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
@@ -68,6 +70,9 @@
 // @exclude      http*://dash.cloudflare.com/*
 // @exclude      http*://assets.tumblr.com/*
 // @exclude      http*://www.tumblr.com/video/*
+// @exclude      http*://*.awsapps.com/*
+// @exlucde      http*://www.commcarehq.org/accounts/login/*gre
+// @exclude      http*://simkl.com/*
 // ==/UserScript==
 
 (function () {
@@ -4145,7 +4150,7 @@
 	  }
 	}
 
-	var name="super-preloader";var version="6.15.9";var description="Super-preloader";var main="dist/Super_preloaderPlus_one_New.user.js";var author="Mach6";var license="GPL-3.0";var bugs={url:"https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new"};var homepage="https://github.com/machsix/Super-preloader";var directories={doc:"docs"};var repository={type:"git",url:"git+https://github.com/machsix/Super-preloader.git"};var scripts={lint:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.js\"",format:"prettier --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"","format:check":"prettier --check \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"","format:staged":"pretty-quick --verbose --staged --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"",check:"npm run lint && npm run typecheck && npm run format:staged",test:"cd test && node test.js",dev:"rollup -c --dev -w",build:"rollup -c","docs:dev":"vuepress dev docs","docs:build":"vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh",preversion:"npm run check",version:"npm run build  && git add dist/*.js && git add dist/*.json",postversion:"git add package.json package-lock.json && npm run test","publish:patch":"npm --no-git-tag-version version patch",publish:"npm --no-git-tag-version version minor",typecheck:"tsc -p jsconfig.json --noEmit"};var husky={hooks:{"pre-commit":"npm run check"}};var keywords=["userscript"];var devDependencies={"@vuepress/plugin-back-to-top":"1.8.2","@vuepress/plugin-google-analytics":"1.8.2","@vuepress/plugin-pwa":"1.8.2",typescript:"4.2.4",vuepress:"1.8.2"};var dependencies={"@babel/core":"7.14.2","@babel/plugin-transform-runtime":"7.14.2","@babel/preset-env":"7.14.2","@rollup/plugin-babel":"5.3.0","@rollup/plugin-commonjs":"19.0.0","@rollup/plugin-json":"4.1.0","@rollup/plugin-node-resolve":"13.0.0","@types/greasemonkey":"4.0.1","@types/lodash":"4.14.169","babel-plugin-lodash":"3.3.4","babel-plugin-wildcard":"7.0.0","compare-versions":"3.6.0",displacejs:"1.4.1",eslint:"7.26.0","eslint-config-prettier":"8.3.0","eslint-plugin-json":"3.0.0","eslint-plugin-prettier":"3.4.0","extract-zip":"2.0.1",got:"11.8.2",husky:"6.0.0",lodash:"4.17.21",loglevel:"1.7.1",prettier:"2.3.0","pretty-quick":"3.1.0",puppeteer:"2.1.0","node-sass":"6.0.0",rollup:"2.47.0","rollup-plugin-banner":"git+https://git@github.com/machsix/rollup-plugin-banner.git#v0.2.2","rollup-plugin-dev":"1.1.3","rollup-plugin-ejs":"2.2.0","rollup-plugin-re":"1.0.7","rollup-plugin-scss-string":"0.1.0",yargs:"17.0.1"};var pkg = {name:name,version:version,description:description,main:main,author:author,license:license,bugs:bugs,homepage:homepage,directories:directories,repository:repository,scripts:scripts,husky:husky,keywords:keywords,devDependencies:devDependencies,dependencies:dependencies};
+	var name="super-preloader";var version="6.16.0";var description="Super-preloader";var main="dist/Super_preloaderPlus_one_New.user.js";var author="Mach6";var license="GPL-3.0";var bugs={url:"https://github.com/machsix/Super-preloader/issues"};var homepage="https://github.com/machsix/Super-preloader";var directories={doc:"docs"};var repository={type:"git",url:"git+https://github.com/machsix/Super-preloader.git"};var scripts={lint:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.js\"",format:"prettier --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"","format:check":"prettier --check \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"","format:staged":"pretty-quick --verbose --staged --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.js\" \"docs/**/*.{js,md}\"",check:"npm run lint && npm run typecheck && npm run format:staged",test:"cd test && node test.js",dev:"rollup -c --dev -w",build:"rollup -c","docs:dev":"vuepress dev docs","docs:build":"vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh",preversion:"npm run check",version:"npm run build  && git add dist/*.js && git add dist/*.json",postversion:"git add package.json package-lock.json && npm run test","publish:patch":"npm --no-git-tag-version version patch",publish:"npm --no-git-tag-version version minor",typecheck:"tsc -p jsconfig.json --noEmit"};var husky={hooks:{"pre-commit":"npm run check"}};var keywords=["userscript"];var devDependencies={"@vuepress/plugin-back-to-top":"1.8.2","@vuepress/plugin-google-analytics":"1.8.2","@vuepress/plugin-pwa":"1.8.2",typescript:"4.4.2",vuepress:"1.8.2"};var dependencies={"@babel/core":"7.15.0","@babel/plugin-transform-runtime":"7.15.0","@babel/preset-env":"7.15.0","@rollup/plugin-babel":"5.3.0","@rollup/plugin-commonjs":"20.0.0","@rollup/plugin-json":"4.1.0","@rollup/plugin-node-resolve":"13.0.4","@types/greasemonkey":"4.0.2","@types/lodash":"4.14.172","babel-plugin-lodash":"3.3.4","babel-plugin-wildcard":"7.0.0","compare-versions":"3.6.0",displacejs:"https://github.com/machsix/displace.git#v1.4.0",eslint:"7.32.0","eslint-config-prettier":"8.3.0","eslint-plugin-json":"3.1.0","eslint-plugin-prettier":"3.4.1","extract-zip":"2.0.1",got:"11.8.2",husky:"7.0.2",lodash:"4.17.21",loglevel:"1.7.1",prettier:"2.3.2","pretty-quick":"3.1.1",puppeteer:"2.1.0","node-sass":"6.0.1",rollup:"2.56.3","rollup-plugin-banner":"git+https://git@github.com/machsix/rollup-plugin-banner.git#v0.2.2","rollup-plugin-dev":"1.1.3","rollup-plugin-ejs":"2.2.0","rollup-plugin-re":"1.0.7","rollup-plugin-scss-string":"0.1.0",yargs:"17.1.1"};var pkg = {name:name,version:version,description:description,main:main,author:author,license:license,bugs:bugs,homepage:homepage,directories:directories,repository:repository,scripts:scripts,husky:husky,keywords:keywords,devDependencies:devDependencies,dependencies:dependencies};
 
 	// Information of script
 
@@ -4159,16 +4164,18 @@
 	  author: pkg.author,
 	  version: pkg.version,
 	  license: pkg.license,
-	  changelog: `${emoji('1F92A')} Adguard is supported`,
+	  changelog: `${emoji('1F595')} Greasyfork`,
 	  greasyfork: 'https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new',
 	  updateTime: `${now.getFullYear()}/${now.getMonth() + 1}/${now.getDate()}`,
 	  homepageURL: pkg.homepage,
-	  feedbackURL: pkg.bugs.url + '/feedback',
+	  feedbackURL: pkg.bugs.url,
 	  // rewrite storage for these versions
 	  rewriteStorage: '6.6.83'
-	};
-	SCRIPT_INFO.downloadURL = `${SCRIPT_INFO.greasyfork}/code/${SCRIPT_INFO.name}.user.js`;
-	SCRIPT_INFO.metaURL = `${SCRIPT_INFO.greasyfork}/code/${SCRIPT_INFO.name}.meta.js`; // New notification to send
+	}; // SCRIPT_INFO.downloadURL = `${SCRIPT_INFO.greasyfork}/code/${SCRIPT_INFO.name}.user.js`;
+	// SCRIPT_INFO.metaURL = `${SCRIPT_INFO.greasyfork}/code/${SCRIPT_INFO.name}.meta.js`;
+
+	SCRIPT_INFO.downloadURL = 'https://machsix.github.io/Super-preloader/Super_preloaderPlus_one_New.user.js';
+	SCRIPT_INFO.updateURL = SCRIPT_INFO.downloadURL; // New notification to send
 
 	var NOTIFICATION = {
 	  title: SCRIPT_INFO.name,
@@ -4183,6 +4190,84 @@
 	    en_US: 'You can now change the appearence by CustomCSS!'
 	  }
 	}; // Meta for userscript
+
+`// ==UserScript==
+// @name         ${SCRIPT_INFO.name}
+// @name:zh-CN   ${SCRIPT_INFO['name-CN']}
+// @name:zh-TW   ${SCRIPT_INFO['name-CN']}
+// @namespace    ${SCRIPT_INFO.namespace}
+// @description  Preload and Autopager
+// @description:zh-CN  预读+翻页..全加速你的浏览体验
+// @description:zh-TW  预读+翻页..全加速你的浏览体验
+// @author       ${SCRIPT_INFO.author}
+// @contributers alexolog, heroboy, suchunchen, YFdyh000
+// @thanksto     ywzhaiqi, NLF
+// @version      ${SCRIPT_INFO.version}
+// @license      ${SCRIPT_INFO.license}
+// @update       ${SCRIPT_INFO.updateTime}
+// @homepageURL  ${SCRIPT_INFO.homepageURL}
+// @downloadURL  ${SCRIPT_INFO.downloadURL}
+// @updateURL    ${SCRIPT_INFO.updateURL}
+// @supportURL   ${SCRIPT_INFO.greasyfork}/feedback
+// @contributionURL https://ko-fi.com/machsix
+// @icon         ${SCRIPT_INFO.icon}
+// @require      https://cdn.jsdelivr.net/gh/machsix/gm4-polyfill@3ac89770e4dcb69123c749a71f101fb462eaada8/gm4-polyfill-mach6-legacy.js
+// @grant        GM.getValue
+// @grant        GM_getValue
+// @grant        GM.setValue
+// @grant        GM_setValue
+// @grant        GM.notification
+// @grant        GM_notification
+// @grant        GM.xmlHttpRequest
+// @grant        GM_xmlhttpRequest
+// @grant        GM.info
+// @grant        GM_info
+// @grant        GM_registerMenuCommand
+// @connect      wedata.net
+// @connect      github.io
+// @run-at       document-idle
+// @include      http*
+// @exclude      http*://mail.google.com/*
+// @exclude      http*://maps.google*
+// @exclude      http*://www.google.com/reader*
+// @exclude      http*://www.google.com/calendar*
+// @exclude      https://docs.google.com/*
+// @exclude      http*://app.yinxiang.com/*
+// @exclude      http*://www.dropbox.com/*
+// @exclude      http*://www.toodledo.com/*
+// @exclude      http*://cloud.feedly.com/*
+// @exclude      http*://weibo.com/*
+// @exclude      http*://w.qq.com/*
+// @exclude      http*://web2.qq.com/*
+// @exclude      http*://openapi.qzone.qq.com/*
+// @exclude      http*://*cloud.vip.xunlei.com/*
+// @exclude      http*://www.wumii.com/*
+// @exclude      http*://pan.baidu.com/*
+// @exclude      http*://yun.baidu.com/*
+// @exclude      http*://www.cnbeta.com/*
+// @exclude      http*://www.youku.com/
+// @exclude      http*://v.youku.com/*
+// @exclude      http*://www.iqiyi.com/*
+// @exclude      http*://www.duokan.com/reader/*
+// @exclude      https://www.kohls.com/*
+// @exclude      http*://list.jd.com/*
+// @exclude      http*://eclick.baidu.com/*
+// @exclude      http*://googleads.g.doubleclick.net/*
+// @exclude      http*://pos.baidu.com/*
+// @exclude      http*://tpc.googlesyndication.com/*
+// @exclude      http*://ad.doubleclick.net/*
+// @exclude      http*://ad.agrantsem.com/*
+// @exclude      http*://www.youtube.com/embed/*
+// @exclude      https://assets.tumblr.com/*
+// @exclude      http*://www.paypal.com/*
+// @exclude      http*://dash.cloudflare.com/*
+// @exclude      http*://assets.tumblr.com/*
+// @exclude      http*://www.tumblr.com/video/*
+// @exclude      http*://*.awsapps.com/*
+// @exlucde      http*://www.commcarehq.org/accounts/login/*gre
+// @exclude      http*://simkl.com/*
+// ==/UserScript==
+`;
 
 	// 动画库
 	var Tween = {
@@ -8140,19 +8225,427 @@
 	  }
 	}
 
-	var displace_min = {exports: {}};
+	var displace$1 = {exports: {}};
 
 	/*!
-	 * displacejs.js 1.3.2 - Tiny javascript library to create moveable DOM elements.
-	 * Copyright (c) 2019 Catalin Covic - https://github.com/catc/displace
+	 * displacejs.js 1.4.0 - Tiny javascript library to create moveable DOM elements.
+	 * Copyright (c) 2021 Catalin Covic - https://github.com/catc/displace
 	 * License: MIT
 	 */
 
 	(function (module, exports) {
-	!function(e,t){module.exports=t();}(this,function(){return function(e){function t(n){if(o[n])return o[n].exports;var s=o[n]={exports:{},id:n,loaded:!1};return e[n].call(s.exports,s,s.exports,t),s.loaded=!0,s.exports}var o={};return t.m=e,t.c=o,t.p="",t(0)}([function(e,t,o){function n(e){return e&&e.__esModule?e:{default:e}}var s=o(1),i=n(s);e.exports=i.default;},function(e,t,o){function n(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function s(){var e=this,t=this.el,o=this.opts||c,n={};if(t.style.position="absolute",this.handle=o.handle||t,o.constrain){for(var s=o.relativeTo||t.parentNode,a=t,h=0,v=0;a!==s;)a=a.parentNode,(0, i.isRelative)(a)&&(h-=a.offsetLeft,v-=a.offsetTop),a===s&&(h+=a.offsetLeft,v+=a.offsetTop);var l=h+s.offsetWidth-t.offsetWidth,f=v+s.offsetHeight-t.offsetHeight;n.xClamp=(0, i.generateClamp)(h,l),n.yClamp=(0, i.generateClamp)(v,f);}this.opts=o,this.data=n,this.events={mousedown:u.mousedown.bind(this),mouseup:u.mouseup.bind(this),touchstart:u.touchstart.bind(this),touchstop:u.touchstop.bind(this),scrollFix:function(t){e.isDragging&&t.preventDefault();}},this.handleMove=r(this.opts.customMove),this.handle.addEventListener("mousedown",this.events.mousedown,!1),this.handle.addEventListener("touchstart",this.events.touchstart,!1),document.addEventListener("touchmove",this.events.scrollFix,{passive:!1});}Object.defineProperty(t,"__esModule",{value:!0});var i=o(2),u=o(3),r=(0, i.generateMoveFn)(),c={constrain:!1,relativeTo:null,handle:null,ignoreFn:null,highlightInputs:!1,onMouseDown:null,onMouseMove:null,onMouseUp:null,onTouchStart:null,onTouchMove:null,onTouchStop:null,customMove:null},a=function(){function e(t,o){if(n(this,e),!t)throw Error("Must include moveable element");this.el=t,this.opts=o,s.call(this);}return e.prototype.reinit=function(){this.destroy(),s.call(this);},e.prototype.destroy=function(){var e=this.events;this.handle.removeEventListener("mousedown",e.mousedown,!1),document.removeEventListener("mousemove",e.mousemove,!1),document.removeEventListener("mouseup",e.mouseup,!1),this.handle.removeEventListener("touchstart",e.touchstart,!1),document.removeEventListener("touchmove",e.touchmove,!1),document.removeEventListener("touchstop",e.touchstop,!1),document.removeEventListener("touchmove",this.events.scrollFix,{passive:!1});},e}();t.default=function(e,t){return new a(e,t)};},function(e,t){function o(e,t){return function(o){return Math.min(Math.max(o,e),t)}}function n(e){return "relative"===window.getComputedStyle(e).position}function s(){return window.requestAnimationFrame?function(e){var t=e||i;return function(e,o,n){window.requestAnimationFrame(function(){t(e,o,n);});}}:function(e){return function(t,o,n){var s=e||i;s(t,o,n);}}}function i(e,t,o){e.style.left=t+"px",e.style.top=o+"px";}Object.defineProperty(t,"__esModule",{value:!0}),t.generateClamp=o,t.isRelative=n,t.generateMoveFn=s;},function(e,t){function o(e){var t=this.opts;if(t.highlightInputs){var o=e.target.tagName.toLowerCase();if("input"===o||"textarea"===o)return}if(!t.ignoreFn||!t.ignoreFn(e)){if(0===e.button){var s=this.el,i=this.events;"function"==typeof t.onMouseDown&&t.onMouseDown(s,e);var u=e.clientX-s.offsetLeft,r=e.clientY-s.offsetTop;i.mousemove=n.bind(this,u,r),document.addEventListener("mousemove",i.mousemove,!1),document.addEventListener("mouseup",i.mouseup,!1);}e.preventDefault();}}function n(e,t,o){var n=this.el,s=this.opts,i=this.data;"function"==typeof s.onMouseMove&&s.onMouseMove(n,o);var u=o.clientX-e,r=o.clientY-t;return s.constrain&&(u=i.xClamp(u),r=i.yClamp(r)),this.handleMove(n,u,r),o.preventDefault(),!1}function s(e){var t=this.el,o=this.opts,n=this.events;"function"==typeof o.onMouseUp&&o.onMouseUp(t,e),document.removeEventListener("mouseup",n.mouseup,!1),document.removeEventListener("mousemove",n.mousemove,!1);}function i(e){var t=this.opts;if(t.highlightInputs){var o=e.target.tagName.toLowerCase();if("input"===o||"textarea"===o)return}if(!t.ignoreFn||!t.ignoreFn(e)){var n=this.el,s=this.events;"function"==typeof t.onTouchStart&&t.onTouchStart(n,e);var i=e.targetTouches[0],r=i.clientX-n.offsetLeft,c=i.clientY-n.offsetTop;s.touchmove=u.bind(this,r,c),this.isDragging=!0,document.addEventListener("touchmove",s.touchmove,!1),document.addEventListener("touchend",s.touchstop,!1),document.addEventListener("touchcancel",s.touchstop,!1);}}function u(e,t,o){var n=this.el,s=this.opts,i=this.data;"function"==typeof s.onTouchMove&&s.onTouchMove(n,o);var u=o.targetTouches[0],r=u.clientX-e,c=u.clientY-t;return s.constrain&&(r=i.xClamp(r),c=i.yClamp(c)),this.handleMove(n,r,c),o.preventDefault(),!1}function r(e){this.isDragging=!1;var t=this.el,o=this.opts,n=this.events;"function"==typeof o.onTouchStop&&o.onTouchStop(t,e),document.removeEventListener("touchmove",n.touchmove,!1),document.removeEventListener("touchend",n.touchstop,!1),document.removeEventListener("touchcancel",n.touchstop,!1);}Object.defineProperty(t,"__esModule",{value:!0}),t.mousedown=o,t.mousemove=n,t.mouseup=s,t.touchstart=i,t.touchmove=u,t.touchstop=r;}])});
-	}(displace_min));
+	(function webpackUniversalModuleDefinition(root, factory) {
+		module.exports = factory();
+	})(this, function() {
+	return /******/ (function(modules) { // webpackBootstrap
+	/******/ 	// The module cache
+	/******/ 	var installedModules = {};
 
-	var displace = /*@__PURE__*/getDefaultExportFromCjs(displace_min.exports);
+	/******/ 	// The require function
+	/******/ 	function __webpack_require__(moduleId) {
+
+	/******/ 		// Check if module is in cache
+	/******/ 		if(installedModules[moduleId])
+	/******/ 			return installedModules[moduleId].exports;
+
+	/******/ 		// Create a new module (and put it into the cache)
+	/******/ 		var module = installedModules[moduleId] = {
+	/******/ 			exports: {},
+	/******/ 			id: moduleId,
+	/******/ 			loaded: false
+	/******/ 		};
+
+	/******/ 		// Execute the module function
+	/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+
+	/******/ 		// Flag the module as loaded
+	/******/ 		module.loaded = true;
+
+	/******/ 		// Return the exports of the module
+	/******/ 		return module.exports;
+	/******/ 	}
+
+
+	/******/ 	// expose the modules object (__webpack_modules__)
+	/******/ 	__webpack_require__.m = modules;
+
+	/******/ 	// expose the module cache
+	/******/ 	__webpack_require__.c = installedModules;
+
+	/******/ 	// __webpack_public_path__
+	/******/ 	__webpack_require__.p = "";
+
+	/******/ 	// Load entry module and return exports
+	/******/ 	return __webpack_require__(0);
+	/******/ })
+	/************************************************************************/
+	/******/ ([
+	/* 0 */
+	/***/ (function(module, exports, __webpack_require__) {
+
+		var _displace = __webpack_require__(1);
+
+		var _displace2 = _interopRequireDefault(_displace);
+
+		function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+		module.exports = _displace2.default;
+
+	/***/ }),
+	/* 1 */
+	/***/ (function(module, exports, __webpack_require__) {
+
+		Object.defineProperty(exports, "__esModule", {
+			value: true
+		});
+
+		var _utils = __webpack_require__(2);
+
+		var _events = __webpack_require__(3);
+
+		function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+		var moveFn = (0, _utils.generateMoveFn)();
+
+		var defaultOpts = {
+			constrain: false,
+			relativeTo: null,
+			handle: null,
+			ignoreFn: null,
+			highlightInputs: false,
+
+			// events
+			onMouseDown: null,
+			onMouseMove: null,
+			onMouseUp: null,
+			onTouchStart: null,
+			onTouchMove: null,
+			onTouchStop: null,
+
+			customMove: null
+		};
+
+		var Displace = function () {
+			function Displace(el, opts) {
+				_classCallCheck(this, Displace);
+
+				if (!el) {
+					throw Error('Must include moveable element');
+				}
+				this.el = el;
+				this.opts = opts;
+
+				// init
+				setup.call(this);
+			}
+
+			Displace.prototype.reinit = function reinit() {
+				this.destroy();
+				setup.call(this);
+			};
+
+			Displace.prototype.destroy = function destroy() {
+				var events = this.events;
+
+				this.handle.removeEventListener('mousedown', events.mousedown, false);
+				document.removeEventListener('mousemove', events.mousemove, false);
+				document.removeEventListener('mouseup', events.mouseup, false);
+
+				this.handle.removeEventListener('touchstart', events.touchstart, false);
+				document.removeEventListener('touchmove', events.touchmove, false);
+				document.removeEventListener('touchstop', events.touchstop, false);
+				document.removeEventListener('touchmove', this.events.scrollFix, { passive: false });
+			};
+
+			return Displace;
+		}();
+
+		function setup() {
+			var _this = this;
+
+			var el = this.el;
+			var opts = this.opts || defaultOpts;
+			var data = {};
+
+			// set required css
+			el.style.position = 'absolute';
+
+			// set the handle
+			this.handle = opts.handle || el;
+
+			// generate min / max ranges
+			if (opts.constrain) {
+				var relTo = opts.relativeTo || el.parentNode;
+
+				var traverse = el;
+				var minX = 0;
+				var minY = 0;
+				while (traverse !== relTo) {
+					traverse = traverse.parentNode;
+					if ((0, _utils.isRelative)(traverse)) {
+						minX -= traverse.offsetLeft;
+						minY -= traverse.offsetTop;
+					}
+					if (traverse === relTo) {
+						minX += traverse.offsetLeft;
+						minY += traverse.offsetTop;
+					}
+				}
+
+				var maxX = minX + relTo.offsetWidth - el.offsetWidth;
+				var maxY = minY + relTo.offsetHeight - el.offsetHeight;
+
+				data.xClamp = (0, _utils.generateClamp)(minX, maxX);
+				data.yClamp = (0, _utils.generateClamp)(minY, maxY);
+			}
+
+			this.opts = opts;
+			this.data = data;
+			this.events = {
+				// mouse events
+				mousedown: _events.mousedown.bind(this),
+				mouseup: _events.mouseup.bind(this),
+
+				// touch events
+				touchstart: _events.touchstart.bind(this),
+				touchstop: _events.touchstop.bind(this),
+
+				// disable scrolling on mobile while dragging
+				// https://github.com/bevacqua/dragula/issues/487
+				scrollFix: function scrollFix(e) {
+					if (_this.isDragging) {
+						e.preventDefault();
+					}
+				}
+			};
+
+			// create move function - either use default move functionality or custom (if provided)
+			this.handleMove = moveFn(this.opts.customMove);
+
+			// add init events to handle
+			this.handle.addEventListener('mousedown', this.events.mousedown, false);
+			this.handle.addEventListener('touchstart', this.events.touchstart, false);
+
+			// scroll fix for mobile
+			document.addEventListener('touchmove', this.events.scrollFix, { passive: false });
+		}
+
+		// export factory fn
+
+		exports.default = function (el, opts) {
+			return new Displace(el, opts);
+		};
+
+	/***/ }),
+	/* 2 */
+	/***/ (function(module, exports) {
+
+		Object.defineProperty(exports, "__esModule", {
+			value: true
+		});
+		exports.generateClamp = generateClamp;
+		exports.isRelative = isRelative;
+		exports.generateMoveFn = generateMoveFn;
+		function generateClamp(min, max) {
+			return function (val) {
+				return Math.min(Math.max(val, min), max);
+			};
+		}
+
+		function isRelative(el) {
+			return window.getComputedStyle(el).position === 'relative';
+		}
+
+		function generateMoveFn() {
+			if (window.requestAnimationFrame) {
+				return function (customFn) {
+					var move = customFn || defaultMove;
+
+					return function (el, x, y) {
+						window.requestAnimationFrame(function () {
+							move(el, x, y);
+						});
+					};
+				};
+			}
+			return function (customFn) {
+				return function (el, x, y) {
+					var move = customFn || defaultMove;
+					move(el, x, y);
+				};
+			};
+		}
+
+		function defaultMove(el, x, y) {
+			el.style.left = x + 'px';
+			el.style.top = y + 'px';
+		}
+
+	/***/ }),
+	/* 3 */
+	/***/ (function(module, exports) {
+
+		Object.defineProperty(exports, "__esModule", {
+			value: true
+		});
+		exports.mousedown = mousedown;
+		exports.mousemove = mousemove;
+		exports.mouseup = mouseup;
+		exports.touchstart = touchstart;
+		exports.touchmove = touchmove;
+		exports.touchstop = touchstop;
+		// mouse events
+		function mousedown(e) {
+			var opts = this.opts;
+			if (opts.highlightInputs) {
+				// allow for selection of text in inputs/textareas
+				var target = e.target.tagName.toLowerCase();
+				if (target === 'input' || target === 'textarea') {
+					return;
+				}
+			}
+
+			if (opts.ignoreFn && opts.ignoreFn(e)) {
+				return;
+			}
+
+			// only left button is clicked
+			if (e.button === 0) {
+				var el = this.el;
+				var events = this.events;
+
+				if (typeof opts.onMouseDown === 'function') {
+					opts.onMouseDown(el, e);
+				}
+
+				// determine initial offset and bind to mousemove handler
+				var wOff = e.clientX - el.offsetLeft;
+				var hOff = e.clientY - el.offsetTop;
+				events.mousemove = mousemove.bind(this, wOff, hOff);
+
+				document.addEventListener('mousemove', events.mousemove, false);
+				document.addEventListener('mouseup', events.mouseup, false);
+			}
+
+			// prevent highlighting text when dragging (IE)
+			e.preventDefault();
+		}
+		function mousemove(offsetW, offsetH, e) {
+			var el = this.el;
+			var opts = this.opts;
+			var data = this.data;
+
+			if (typeof opts.onMouseMove === 'function') {
+				opts.onMouseMove(el, e);
+			}
+
+			var x = e.clientX - offsetW;
+			var y = e.clientY - offsetH;
+
+			if (opts.constrain) {
+				// clamp values if out of range
+				x = data.xClamp(x);
+				y = data.yClamp(y);
+			}
+			this.handleMove(el, x, y);
+
+			// prevent highlighting text when dragging
+			e.preventDefault();
+			return false;
+		}
+		function mouseup(e) {
+			var el = this.el;
+			var opts = this.opts;
+			var events = this.events;
+
+			if (typeof opts.onMouseUp === 'function') {
+				opts.onMouseUp(el, e);
+			}
+
+			document.removeEventListener('mouseup', events.mouseup, false);
+			document.removeEventListener('mousemove', events.mousemove, false);
+		}
+		// touch events
+		function touchstart(e) {
+			var opts = this.opts;
+			if (opts.highlightInputs) {
+				// allow for selection of text in inputs/textareas
+				var target = e.target.tagName.toLowerCase();
+				if (target === 'input' || target === 'textarea') {
+					return;
+				}
+			}
+
+			if (opts.ignoreFn && opts.ignoreFn(e)) {
+				return;
+			}
+
+			var el = this.el;
+			var events = this.events;
+
+			if (typeof opts.onTouchStart === 'function') {
+				opts.onTouchStart(el, e);
+			}
+
+			var touch = e.targetTouches[0];
+			var wOff = touch.clientX - el.offsetLeft;
+			var hOff = touch.clientY - el.offsetTop;
+
+			events.touchmove = touchmove.bind(this, wOff, hOff);
+
+			// disable scrolling
+			this.isDragging = true;
+
+			document.addEventListener('touchmove', events.touchmove, false);
+			document.addEventListener('touchend', events.touchstop, false);
+			document.addEventListener('touchcancel', events.touchstop, false);
+		}
+		function touchmove(offsetW, offsetH, e) {
+			var el = this.el;
+			var opts = this.opts;
+			var data = this.data;
+
+			if (typeof opts.onTouchMove === 'function') {
+				opts.onTouchMove(el, e);
+			}
+
+			var touch = e.targetTouches[0];
+			var x = touch.clientX - offsetW;
+			var y = touch.clientY - offsetH;
+
+			if (opts.constrain) {
+				// clamp values if out of range
+				x = data.xClamp(x);
+				y = data.yClamp(y);
+			}
+			this.handleMove(el, x, y);
+
+			// prevent highlighting text when dragging
+			e.preventDefault();
+			return false;
+		}
+		function touchstop(e) {
+			// re-enable scrolling
+			this.isDragging = false;
+
+			var el = this.el;
+			var opts = this.opts;
+			var events = this.events;
+
+			if (typeof opts.onTouchStop === 'function') {
+				opts.onTouchStop(el, e);
+			}
+
+			document.removeEventListener('touchmove', events.touchmove, false);
+			document.removeEventListener('touchend', events.touchstop, false);
+			document.removeEventListener('touchcancel', events.touchstop, false);
+		}
+	/***/ })
+	/******/ ])
+	});
+	}(displace$1));
+
+	var displace = /*@__PURE__*/getDefaultExportFromCjs(displace$1.exports);
 
 	/**
 	 * Waits for an element satisfying selector to exist, then resolves promise with the element.
@@ -12517,8 +13010,7 @@
 	                      if (_Number(nSNText) == _Number(numtext) + 1) {
 	                        nodeType = nextSS.nodeType;
 
-	                        if (nodeType == 3 || // @ts-ignore
-	                        nodeType == 1 && (searchedD ? _getAllElementsByXpath('./descendant-or-self::a[@href]', nextSS, doc).length === 0 : !nextSS.hasAttribute('href') || _getFullHref(nextSS.getAttribute('href')) == curLHref)) {
+	                        if (nodeType == 3 || nodeType == 1 && (searchedD ? _getAllElementsByXpath('./descendant-or-self::a[@href]', nextSS, doc).length === 0 : !nextSS.hasAttribute('href') || _getFullHref(nextSS.getAttribute('href')) == curLHref)) {
 	                          _prelink = finalCheck(a, 'pre');
 	                        }
 	                      }
