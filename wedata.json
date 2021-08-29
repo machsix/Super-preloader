@@ -1,5 +1,18 @@
 [
 {
+  "resource_url": "http://wedata.net/items/85707",
+  "data": {
+    "pageElement": "//body/div[@class=\"container\"][1]",
+    "nextLink": "//ul[@class=\"pagination-list\"]//a[not(contains(@class, \"is-inverted\"))]/parent::node()//following-sibling::li[1]/a|//ul[@class=\"pagination-list\"]//a[not(contains(@class, \"is-inverted\"))]/following-sibling::a[1]",
+    "url": "^https://ffjav\\.com/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "mechchorogi",
+  "name": "ffjav",
+  "created_at": "2021-08-28T21:10:12+09:00",
+  "updated_at": "2021-08-28T23:51:44+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/85706",
   "data": {
     "insertBefore": "",
