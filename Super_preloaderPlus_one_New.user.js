@@ -10563,6 +10563,14 @@
 
 	  var SSRules = []; // ----------------------------------
 
+	  if (BROWSER.name !== 'firefox' && (document.body.firstElementChild.tagName === 'PRE' || // Plain text
+	  document.body.firstElementChild.tagName === 'IMG' || // Image
+	  document.body.firstElementChild.tagName === 'VIDEO' || // Audio and Video
+	  document.body.firstElementChild.tagName === 'EMBED') // PDF
+	  ) {
+	    return;
+	  }
+
 	  if (window.name === 'mynovelreader-iframe') {
 	    return;
 	  }
