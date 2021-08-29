@@ -13,7 +13,7 @@ export const SCRIPT_INFO = {
   author: pkg.author,
   version: pkg.version,
   license: pkg.license,
-  changelog: `${emoji('1F595')} Greasyfork`,
+  changelog: `${emoji('1F595')} Baidu`,
   greasyfork: 'https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new',
   updateTime: `${now.getFullYear()}/${now.getMonth() + 1}/${now.getDate()}`,
   homepageURL: pkg.homepage,

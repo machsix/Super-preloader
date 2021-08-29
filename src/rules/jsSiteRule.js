@@ -171,6 +171,17 @@ export const jsSiteRule = [
         try {
           win.document.cookie = 'ISSW=1';
         } catch (ex) {}
+      },
+      filter: function (_pageElements) {
+        ['c-img-border', 'c-img-radius-large'].forEach((style) => {
+          const elements = document.querySelectorAll('.' + style);
+          [].forEach.call(elements, (div) => {
+            console.log(div);
+            let css = div.getAttribute('class');
+            css = css.replace(RegExp('\\b' + style + '\\b', 'g'), '');
+            div.setAttribute('class', css);
+          });
+        });
       }
     }
   },
