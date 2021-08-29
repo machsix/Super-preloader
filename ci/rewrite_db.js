@@ -88,7 +88,7 @@ if (mandatoryUpdate) {
 
 const info = {
   created_by: 'mach6',
-  name: jsonFilePath,
+  name: 'Super-preloader',
   updated_at: lastUpdateDate.toJSON(),
   required_keys: 'url nextLink pageElement',
   created_at: '2017-09-27T00:00:00.000Z',

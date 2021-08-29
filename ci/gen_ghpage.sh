@@ -2,9 +2,13 @@
 set -e
 
 # !Run from the root of the repository
-REPO_DIR=${1:-`pwd`}
+REPO_DIR=${1:-$(pwd)}
 DOCS_DIR=${REPO_DIR}/docs/.vuepress/dist
 UPDATE_FLAG=""
+if [ -z ${TRAVIS_COMMIT_MESSAGE+x} ]; then
+  TRAVIS_COMMIT_MESSAGE=$(git log -1 --pretty=format:"%s")
+fi
+echo "var is unset";
 if [[ $TRAVIS_COMMIT_MESSAGE == *"[UPDATE]"* ]]; then
   echo -e "\e[1m\e[41m\e[97mMandatory Update\e[0m"
   UPDATE_FLAG="--update"
@@ -17,8 +21,8 @@ DB=("${REPO_DIR}/dist/mydata.json")
 cd ${REPO_DIR}/ci
 for jsDB in ${DB[@]}; do
   if [ -f $jsDB ]; then
-    DB_FILE=`basename $jsDB`
-    DB_DIR=`dirname $jsDB`
+    DB_FILE=$(basename $jsDB)
+    DB_DIR=$(dirname $jsDB)
     jdDBDetail="${DB_DIR}/${DB_FILE%.*}_detail.json"
 
     node rewrite_db.js $jsDB ${UPDATE_FLAG}

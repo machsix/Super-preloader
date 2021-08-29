@@ -4,11 +4,15 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
+env:
+  TRAVIS_COMMIT_MESSAGE: ${{github.event.commits[0].message}}
 jobs:
   ci:
     runs-on:  ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: '0'
       - uses: actions/setup-node@v2.4.0
         env:
           PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: 'true'
