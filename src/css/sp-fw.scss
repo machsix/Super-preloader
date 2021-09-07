@@ -7,6 +7,12 @@ $fieldset-margin: 2px;
 #sp-fw-container {
   z-index: 999999 !important;
   text-align: left !important;
+  
+  @media print {
+    & {
+      display: none;
+    }
+  }
 }
 
 #sp-fw-container * {
