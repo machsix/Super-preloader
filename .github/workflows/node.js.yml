@@ -19,18 +19,27 @@ jobs:
         with:
           node-version: '14'
           cache: 'npm'
-      - run: npm install
-      - run: npm run check
-      - run: npm run build
-      - uses: actions/upload-artifact@v2
+      - name: Build
+        run: |
+          npm install
+          npm run check
+          npm run build
+      - name: Artiface Archive
+        uses: actions/upload-artifact@v2
         with:
           name: Super_preloaderPlus_one_New.user.js
           path: dist/Super_preloaderPlus_one_New.user.js
           if-no-files-found: error
+      - name: Test
+        uses: mujo-code/puppeteer-headful@master
+        env:
+          CI: 'true'
+        with:
+          args: npm test
       - name: Build documentation
         run: npm run docs:publish
       - name: Deploy to Github Pages
-        if: success()
+        if: ${{ github.event_name == 'push' && success() }}
         uses: crazy-max/ghaction-github-pages@v2
         with:
           target_branch: gh-pages
@@ -39,9 +48,3 @@ jobs:
           commit_message: ${{ format('Commit sha {0}', github.sha)}}
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-      - name: Test
-        uses: mujo-code/puppeteer-headful@master
-        env:
-          CI: 'true'
-        with:
-          args: npm test
