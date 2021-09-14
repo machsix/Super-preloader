@@ -1,5 +1,33 @@
 [
 {
+  "data": {
+    "pageElement": "//div[@class=\"content\"]/img|//div[@class=\"hezi\"][not(//div[@class=\"content\"])]//li",
+    "nextLink": "(//a[@class=\"current\"]|id(\"pages\")/span)/following-sibling::a[1]",
+    "url": "^https://(www\\.)?tujigu\\.net/",
+    "exampleUrl": "https://www.tujigu.net/s/187/ https://www.tujigu.net/a/37104/"
+  },
+  "created_by": "loveveryday",
+  "name": "图集谷",
+  "resource_url": "http://wedata.net/items/85713",
+  "created_at": "2021-09-11T19:12:51+09:00",
+  "updated_at": "2021-09-11T19:13:35+09:00",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize"
+},
+{
+  "resource_url": "http://wedata.net/items/85712",
+  "data": {
+    "pageElement": "id('maincontent')//ol",
+    "nextLink": "//div[@class='c-pagination']//li[not(./*)]/following-sibling::li/a",
+    "url": "^https://store-jp\\.nintendo\\.com/list/",
+    "exampleUrl": "https://store-jp.nintendo.com/list/software/?prefn1=isSale&prefv1=true&prefn2=softType&prefv2=TITLE&srule=discountRate-high-to-low&start=6&sz=20\r\nhttps://store-jp.nintendo.com/list/tag/0007/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m'",
+  "name": "My Nintendo Store",
+  "created_at": "2021-09-11T12:54:48+09:00",
+  "updated_at": "2021-09-11T16:45:02+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/85707",
   "data": {
     "pageElement": "//body/div[@class=\"container\"][1]",
