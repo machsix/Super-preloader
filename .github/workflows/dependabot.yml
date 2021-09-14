@@ -12,3 +12,4 @@ jobs:
           package-block-list: puppeteer
           merge: true
           merge-method: merge
+          allowed-update-types: devDependencies:minor, devDependencies:patch, devDependencies:major, dependencies:minor, dependencies:patch, dependencies:major
