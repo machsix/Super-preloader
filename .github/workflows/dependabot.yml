@@ -11,5 +11,5 @@ jobs:
           approve: true
           package-block-list: puppeteer
           merge: true
-          merge-method: merge
+          merge-method: squash
           allowed-update-types: devDependencies:minor, devDependencies:patch, devDependencies:major, dependencies:minor, dependencies:patch, dependencies:major
