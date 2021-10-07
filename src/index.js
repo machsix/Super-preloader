@@ -63,12 +63,16 @@ import notice from './utils/notice';
   let SSRules = [];
   // ----------------------------------
 
+  // Check if we are looking at a file instead of a webpage
   if (
-    BROWSER.name !== 'firefox' &&
-    (document.body.firstElementChild.tagName === 'PRE' || // Plain text
-      document.body.firstElementChild.tagName === 'IMG' || // Image
-      document.body.firstElementChild.tagName === 'VIDEO' || // Audio and Video
-      document.body.firstElementChild.tagName === 'EMBED') // PDF
+    // <svg>: SVG Document
+    document.documentElement.matches('svg') ||
+    // <pre>: plain text
+    // <img>: Image
+    // <video>: Audio and video
+    // <embed>: PDF (Chrome)
+    // body > #outerContainer:first-child + #printContainer:last-child: PDF (Firefox)
+    document.querySelector('body > pre:only-child, body > img:only-child, body > video:only-child, body > embed:only-child, body > #outerContainer:first-child + #printContainer:last-child')
   ) {
     return;
   }
