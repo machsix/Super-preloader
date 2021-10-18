@@ -64,7 +64,7 @@
     "babel-plugin-wildcard": "7.0.0",
     "compare-versions": "3.6.0",
     "displacejs": "https://github.com/machsix/displace.git#v1.4.0",
-    "eslint": "8.0.0",
+    "eslint": "8.0.1",
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-json": "3.1.0",
     "eslint-plugin-prettier": "4.0.0",
