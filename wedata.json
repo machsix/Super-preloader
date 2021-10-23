@@ -1,5 +1,20 @@
 [
 {
+  "resource_url": "http://wedata.net/items/85736",
+  "data": {
+    "pageElement": "//div[@class='d-item']/ul/li",
+    "comment": "cf. http://wedata.net/items/2137\r\nIn this domain, nextLink //link[@rel='next'] doesn't work, because it ignores price ristriction . So url must be longer than 2137 .",
+    "nextLink": "//li[@class='page-next']/a",
+    "url": "^https://dlsoft\\.dmm\\.co\\.jp/list/..",
+    "exampleUrl": "https://dlsoft.dmm.co.jp/list/article=keyword/id=7405/price_max=1001/sort=date/page=2/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m_",
+  "name": "Fanza Games 有料ゲーム",
+  "created_at": "2021-10-23T01:54:51+09:00",
+  "updated_at": "2021-10-23T02:02:29+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/85730",
   "data": {
     "insertBefore": "",
@@ -47713,17 +47728,16 @@
 {
   "resource_url": "http://wedata.net/items/1669",
   "data": {
-    "pageElement": "id('Contents')/descendant::*[self::div[contains(concat(' ', @class, ' '), ' PhotoDetail ')] or self::ul[contains(concat(' ', @class, ' '), ' PhotoList ')]]|id('NewsListSection01')/ul[@class='NewsList'][not(//div[@class='NewsDetail'])]|//div[@class='NewsDetail']/p[last()][a]/preceding-sibling::*|//div[@class='NewsDetail'][p[last()][not(a)]]",
-    "Stylish": "@-moz-document url-prefix(\"http://www.sanspo.com/\") {\r\n.autopagerize_page_info+.NewsDetail{padding-top:50px !important;}\r\n}",
-    "nextLink": "//a[contains(img/@src,'next.gif')]",
+    "pageElement": "//div[contains(@class,\"article-body\")]/p|//div[@class=\"NewsDetail\"]/*[not(count(./a)=1)]",
+    "nextLink": "//link[@rel=\"next\"]",
     "url": "^https?://(?:race|www)\\.sanspo\\.com/",
-    "exampleUrl": "http://www.sanspo.com/geino/news/20120306/eco12030623580001-n1.html http://www.sanspo.com/soccer/photos/20120306/jap12030622460020-p1.html\r\nhttp://www.sanspo.com/flash/photolists/flash-p1.html\r\nhttp://www.sanspo.com/baseball/newslists/baseball-n1.html\r\nhttp://www.sanspo.com/baseball/news/20150609/bbo15060905050004-n1.html\r\nhttp://www.sanspo.com/baseball/news/20150609/bbo15060905040002-n1.html\r\nhttp://www.sanspo.com/baseball/others/newslists/others-n1.html\r\nhttp://race.sanspo.com/keiba/news/20180625/ope18062505090011-n1.html"
+    "exampleUrl": "http://www.sanspo.com/baseball/news/20150609/bbo15060905050004-n1.html\r\nhttp://www.sanspo.com/baseball/news/20150609/bbo15060905040002-n1.html\r\nhttp://race.sanspo.com/keiba/news/20180625/ope18062505090011-n1.html"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "nax",
   "name": "SANSPO.COM",
   "created_at": "2008-06-11T16:07:41+09:00",
-  "updated_at": "2021-04-20T14:26:31+09:00"
+  "updated_at": "2021-10-20T14:28:17+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/1654",
