@@ -62,7 +62,7 @@
     "@types/lodash": "4.14.178",
     "babel-plugin-lodash": "3.3.4",
     "babel-plugin-wildcard": "7.0.0",
-    "compare-versions": "4.1.1",
+    "compare-versions": "4.1.2",
     "displacejs": "https://github.com/machsix/displace.git#v1.4.0",
     "eslint": "8.4.0",
     "eslint-config-prettier": "8.3.0",
