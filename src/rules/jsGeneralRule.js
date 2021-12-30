@@ -268,9 +268,10 @@ export const jsGeneralRule = [
       if (a[2]) {
         const b = Number(/\/page\/(\d+)/.exec(a[2])[1]) + 1;
         return cplink.replace(/^(https?:\/\/.*?\/page\/)\d+(.*)$/, '$1' + String(b) + '$2');
-      } else {
+      } else if(window.wp){
         return cplink.replace(/^(.*?)\/?$/, '$1') + '/page/2';
       }
+      return undefined;
     },
     autopager: {
       pageElement: function (doc, win, _cplink) {
