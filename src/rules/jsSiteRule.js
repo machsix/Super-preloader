@@ -113,6 +113,10 @@ export const jsSiteRule = [
         if (brs) {
           brs.remove();
         }
+        let newStyle=doc.querySelector("#center_col>style");
+        if (newStyle) {
+          document.body.appendChild(newStyle);
+        }
       },
       // filter: function() {
       // 在添加内容到页面后运行
