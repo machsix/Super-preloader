@@ -78,15 +78,19 @@ export function encodeURIE(text) {
   function isURIcomponent(str) {
     return /^[A-Za-z0-9;,/?:@&=+$-_.!~*'()#]*$/.test(str);
   }
-  return [].map
-    .call(text, (x) => {
-      if (isURIcomponent(x)) {
-        return x;
-      } else {
-        return `%${encodeHex(x, encoding)
-          .map((x) => x.toUpperCase())
-          .join('%')}`;
-      }
-    })
-    .join('');
+  try {
+    return [].map
+      .call(text, (x) => {
+        if (isURIcomponent(x)) {
+          return x;
+        } else {
+          return `%${encodeHex(x, encoding)
+            .map((x) => x.toUpperCase())
+            .join('%')}`;
+        }
+      })
+      .join('');
+  } catch(e) {
+    return text;
+  }
 }
