@@ -90,7 +90,7 @@ export function encodeURIE(text) {
         }
       })
       .join('');
-  } catch(e) {
+  } catch (e) {
     return text;
   }
 }
