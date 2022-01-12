@@ -113,7 +113,7 @@ export const jsSiteRule = [
         if (brs) {
           brs.remove();
         }
-        const newStyle = doc.querySelector("#center_col>style");
+        const newStyle = doc.querySelector('#center_col>style');
         if (newStyle) {
           document.body.appendChild(newStyle);
         }
