@@ -1,4 +1,14 @@
 [
+   {
+        "name": "京东内容开放平台",
+        "url": "https://dr.jd.com\\.page\\app.html.*",
+        "pageElement": "//div[@id=\"data-table\"]",
+        "nextLink": "//div[@id=\"page\"]/a[text()=\"下一页>\"] | id(\"pagination-main-container\")",
+        "category": ["gallery", "nsfw"],
+        "autopager": {
+          "ipages": [true, 30]
+        }
+      },
   {
     "name": "wnacg",
     "url": "^https?://(www\\.)?wnacg\\.(org|net|com)/(\\?ctl=photos.*|photos-view-id.*\\.html)",
