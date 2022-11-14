@@ -70,7 +70,7 @@
     "eslint-plugin-prettier": "4.2.1",
     "extract-zip": "2.0.1",
     "got": "11.8.3",
-    "husky": "8.0.1",
+    "husky": "8.0.2",
     "lodash": "4.17.21",
     "loglevel": "1.8.0",
     "prettier": "2.7.1",
