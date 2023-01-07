@@ -73,6 +73,7 @@
 // @exclude      http*://*.awsapps.com/*
 // @exlucde      http*://www.commcarehq.org/accounts/login/*gre
 // @exclude      http*://simkl.com/*
+// @exclude      http*://knowyourmeme.com/*
 // ==/UserScript==
 
 (function () {
