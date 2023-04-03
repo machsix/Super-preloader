@@ -51,7 +51,7 @@
     "vuepress": "1.9.9"
   },
   "dependencies": {
-    "@babel/core": "7.21.3",
+    "@babel/core": "7.21.4",
     "@babel/plugin-transform-runtime": "7.21.0",
     "@babel/preset-env": "7.21.4",
     "@rollup/plugin-babel": "6.0.3",
