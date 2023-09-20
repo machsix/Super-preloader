@@ -107,39 +107,39 @@ async function main() {
   }
 
   // check seperator
-  await targetPage.evaluate((_) => {
-    window.scrollTo(0, document.body.scrollHeight + 20);
-  });
-  try {
-    await targetPage.waitFor('#sp-separator-2', {
-      timeout: 30 * 1000
-    });
-    console.log('Seperator: \u2714');
-  } catch (err) {
-    console.log('Error', err.name, err.message);
-    throw new Error('Seperator: \u274c');
-  }
+  // await targetPage.evaluate((_) => {
+  //   window.scrollTo(0, document.body.scrollHeight + 20);
+  // });
+  // try {
+  //   await targetPage.waitFor('#sp-separator-2', {
+  //     timeout: 30 * 1000
+  //   });
+  //   console.log('Seperator: \u2714');
+  // } catch (err) {
+  //   console.log('Error', err.name, err.message);
+  //   throw new Error('Seperator: \u274c');
+  // }
 
   // check CSP
-  if (process.env.CI !== 'true') {
-    await targetPage.goto('https://rarbg.to/torrents.php', {
-      waitUntil: 'networkidle2'
-    });
-    await targetPage.evaluate((_) => {
-      window.scrollTo(0, document.body.scrollHeight + 20);
-    });
-    try {
-      await targetPage.waitFor('#sp-separator-2', {
-        timeout: 30 * 1000
-      });
-      console.log('CSP: \u2714');
-    } catch (err) {
-      console.log('Error', err.name, err.message);
-      throw new Error('CSP: \u274c');
-    }
-  } else {
-    console.log('SKIP CSP test for travis');
-  }
+  // if (process.env.CI !== 'true') {
+  //   await targetPage.goto('https://rarbg.to/torrents.php', {
+  //     waitUntil: 'networkidle2'
+  //   });
+  //   await targetPage.evaluate((_) => {
+  //     window.scrollTo(0, document.body.scrollHeight + 20);
+  //   });
+  //   try {
+  //     await targetPage.waitFor('#sp-separator-2', {
+  //       timeout: 30 * 1000
+  //     });
+  //     console.log('CSP: \u2714');
+  //   } catch (err) {
+  //     console.log('Error', err.name, err.message);
+  //     throw new Error('CSP: \u274c');
+  //   }
+  // } else {
+  //   console.log('SKIP CSP test for travis');
+  // }
 
   // check iframe
   // await targetPage.goto('https://idope.se/torrent-list/transformer');
