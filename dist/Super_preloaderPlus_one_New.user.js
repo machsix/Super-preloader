@@ -71,9 +71,10 @@
 // @exclude      http*://assets.tumblr.com/*
 // @exclude      http*://www.tumblr.com/video/*
 // @exclude      http*://*.awsapps.com/*
-// @exlucde      http*://www.commcarehq.org/accounts/login/*gre
+// @exclude      http*://www.commcarehq.org/accounts/login/*gre
 // @exclude      http*://simkl.com/*
 // @exclude      http*://knowyourmeme.com/*
+// @exclude      http*://docs.fauna.com/*
 // ==/UserScript==
 
 (function () {
