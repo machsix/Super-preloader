@@ -44,7 +44,7 @@
     "userscript"
   ],
   "devDependencies": {
-    "@vuepress/plugin-back-to-top": "1.9.9",
+    "@vuepress/plugin-back-to-top": "1.9.10",
     "@vuepress/plugin-google-analytics": "1.9.9",
     "@vuepress/plugin-pwa": "1.9.9",
     "typescript": "5.1.3",
