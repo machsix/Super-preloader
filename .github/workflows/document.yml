@@ -1,3 +1,4 @@
+
 name: workflow
 on:
   push:
@@ -22,17 +23,15 @@ jobs:
       - name: Build
         run: |
           npm install
-          npm run check
-          npm run build
-      - name: Artiface Archive
-        uses: actions/upload-artifact@v2
+      - name: Build documentation
+        run: npm run docs:publish
+      - name: Deploy to Github Pages
+        if: ${{ github.event_name == 'push' && success() }}
+        uses: crazy-max/ghaction-github-pages@v2
         with:
-          name: Super_preloaderPlus_one_New.user.js
-          path: dist/Super_preloaderPlus_one_New.user.js
-          if-no-files-found: error
-      - name: Test
-        uses: mujo-code/puppeteer-headful@master
+          target_branch: gh-pages
+          build_dir: docs/.vuepress/dist
+          keep_history: true
+          commit_message: ${{ format('Commit sha {0}', github.sha)}}
         env:
-          CI: 'true'
-        with:
-          args: npm test
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
