@@ -1,8 +1,8 @@
 import fs from 'fs';
 import gitLog from './git-log.js';
+import {hideBin} from 'yargs/helpers';
 import path from 'path';
 import yargs from 'yargs';
-import {hideBin} from 'yargs/helpers';
 
 const argv = yargs(hideBin(process.argv)).argv;
 console.log(argv);

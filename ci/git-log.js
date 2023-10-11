@@ -1,5 +1,5 @@
-import {spawnSync} from 'child_process';
 import path from 'path';
+import {spawnSync} from 'child_process';
 
 export default function (obj, repoDir, magicKey) {
   const args = ['log'];
