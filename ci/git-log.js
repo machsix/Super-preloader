@@ -1,7 +1,7 @@
-const {spawnSync} = require('child_process');
-const path = require('path');
+import {spawnSync} from 'child_process';
+import path from 'path';
 
-const gitLog = function (obj, repoDir, magicKey) {
+export default function (obj, repoDir, magicKey) {
   const args = ['log'];
   magicKey = magicKey || '^^';
   repoDir = repoDir || '../';
@@ -44,13 +44,11 @@ const gitLog = function (obj, repoDir, magicKey) {
       });
     }
   }
-
   const out = spawnSync('git', args, {
     cwd: path.resolve(process.cwd(), repoDir),
     encoding: 'utf8'
   });
   const commitInfoArray = out.stdout.split(magicKey).filter((val) => val.length > 0);
-
   let commitInfo = '[\n';
   commitInfoArray.forEach((val, i) => {
     if (i < commitInfoArray.length - 1) {
@@ -60,8 +58,4 @@ const gitLog = function (obj, repoDir, magicKey) {
     }
   });
   return JSON.parse(commitInfo);
-};
-
-module.exports = {
-  gitLog: gitLog
-};
+}

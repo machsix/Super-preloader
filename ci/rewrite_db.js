@@ -1,7 +1,10 @@
-const fs = require('fs');
-const {gitLog} = require('./git-log.js');
-const path = require('path');
-const argv = require('yargs').argv;
+import fs from 'fs';
+import gitLog from './git-log.js';
+import path from 'path';
+import yargs from 'yargs';
+import {hideBin} from 'yargs/helpers';
+
+const argv = yargs(hideBin(process.argv)).argv;
 console.log(argv);
 // 1. Filename
 const jsonFilePath = argv._.length ? argv._[0] : path.resolve('../dist/mydata.json');
