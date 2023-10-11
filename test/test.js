@@ -1,17 +1,21 @@
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-process-exit */
 /* eslint-disable no-process-env */
-const {platform} = require('process');
-const {promisify} = require('util');
+import {promisify} from 'util';
 // node --experimental-repl-await
 
-const extract = require('extract-zip');
-const fs = require('fs');
-const got = require('got');
-const path = require('path');
-const process = require('process');
-const puppeteer = require('puppeteer');
-const stream = require('stream');
+import extract from 'extract-zip';
+import fs from 'fs';
+import got from 'got';
+import path from 'path';
+import process from 'process';
+import {platform} from 'process';
+import puppeteer from 'puppeteer';
+import stream from 'stream';
+import {fileURLToPath} from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const pipeline = promisify(stream.pipeline);
 
@@ -76,7 +80,7 @@ async function main() {
     await targetPage.click('body > div > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > button:nth-child(2)');
     try {
       await targetPage.waitFor(() => document.querySelector('.page-confirm .ellipsis+div').innerHTML.includes('Script installed'), {
-        timeout: 5 * 1000
+        timeout: 500 * 1000
       });
     } catch (err) {
       // it may fail due to dependency

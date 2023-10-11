@@ -1,7 +1,7 @@
 import _ from 'lodash';
-import {encodeURIE} from './iconv-browser';
-import logger from './logger';
-import lowercaseKeys from './lowercaseKeys';
+import {encodeURIE} from './iconv-browser.js';
+import logger from './logger.js';
+import lowercaseKeys from './lowercaseKeys.js';
 
 const isNullOrUndefined = (x) => _.isUndefined(x) || _.isNull(x);
 

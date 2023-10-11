@@ -1,4 +1,4 @@
-import {createDOM} from './domTools';
+import {createDOM} from './domTools.js';
 export let noticeDiv, noticeDivto, noticeDivto2;
 
 export default function notice(html_txt, showTime) {

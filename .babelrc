@@ -2,6 +2,12 @@
   "plugins": [
     "lodash",
     [
+      "@babel/plugin-syntax-import-attributes",
+      {
+        "deprecatedAssertSyntax": true
+      }
+    ],
+    [
       "@babel/plugin-transform-runtime",
       {
       //  "corejs": 2,

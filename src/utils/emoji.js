@@ -1,4 +1,4 @@
-import logger from './logger';
+import logger from './logger.js';
 export default function emoji(unifiedValue) {
   if (String.fromCodePoint) {
     var emoji = parseInt(unifiedValue, 16);

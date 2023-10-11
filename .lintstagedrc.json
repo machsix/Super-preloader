@@ -1,0 +1,23 @@
+{
+  "dist/*.json": [
+    "prettier -write"
+  ],
+  "src/**/*.js": [
+    "prettier -write"
+  ],
+  "src/**/*.css": [
+    "prettier -write"
+  ],
+  "ci/*.js": [
+    "prettier -write"
+  ],
+  "rollup.config.mjs": [
+    "prettier -write"
+  ],
+  "docs/**/*.js": [
+    "prettier -write"
+  ],
+  "docs/**/*.md": [
+    "prettier -write"
+  ]
+}

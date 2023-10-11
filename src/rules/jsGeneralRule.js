@@ -1,7 +1,7 @@
 //@ts-check
 ///<reference path="../index.d.ts"/>
-import {getAllElements, getAllElementsByXpath, getElementByXpath} from '../utils/domSelector';
-import {createDOM} from '../utils/domTools';
+import {getAllElements, getAllElementsByXpath, getElementByXpath} from '../utils/domSelector.js';
+import {createDOM} from '../utils/domTools.js';
 // General rules for CMS like phpwind
 /**@type {IRule[]} */
 export const jsGeneralRule = [

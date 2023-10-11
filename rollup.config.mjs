@@ -1,6 +1,6 @@
-import {METADATA, SCRIPT_INFO} from './src/meta';
+import {METADATA, SCRIPT_INFO} from './src/meta.js';
 import babel from '@rollup/plugin-babel';
-import banner from 'rollup-plugin-banner';
+import banner2 from 'rollup-plugin-banner2';
 import commonjs from '@rollup/plugin-commonjs';
 import dev from 'rollup-plugin-dev';
 import ejs from 'rollup-plugin-ejs';
@@ -65,10 +65,7 @@ const basicConfig = {
         }
       ]
     }),
-    banner({
-      text: METADATA,
-      raw: true
-    }),
+    banner2(() => METADATA),
     ejs({
       include: ['**/*.ejs'], // optional, '**/*.ejs' by default
       compilerOptions: {
@@ -80,7 +77,7 @@ const basicConfig = {
       compact: true
     }),
     scss({
-      include: ['**/*.css', '**/*.scss', '**/*.sass']
+      include: ['**/*.scss', '**/*.sass', '**/*.css']
     }),
     babel({
       babelHelpers: 'runtime',

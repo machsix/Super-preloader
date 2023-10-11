@@ -1,8 +1,8 @@
 //@ts-check
 ///<reference path="../index.d.ts"/>
-import {getAllElementsByXpath, getElementByXpath} from '../utils/domSelector';
-import {createDOM} from '../utils/domTools';
-import emoji from '../utils/emoji';
+import {getAllElementsByXpath, getElementByXpath} from '../utils/domSelector.js';
+import {createDOM} from '../utils/domTools.js';
+import emoji from '../utils/emoji.js';
 /**@type {Array<IRule>} */
 export const jsSiteRule = [
   {

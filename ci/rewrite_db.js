@@ -1,5 +1,5 @@
 const fs = require('fs');
-const {gitLog} = require('./git-log');
+const {gitLog} = require('./git-log.js');
 const path = require('path');
 const argv = require('yargs').argv;
 console.log(argv);

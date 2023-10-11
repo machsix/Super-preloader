@@ -1,6 +1,6 @@
-import compareVersions from 'compare-versions';
-import emoji from './utils/emoji';
-import pkg from '../package.json'; // this feature is provided by @rollup/plugin-json
+import {compareVersions} from 'compare-versions';
+import emoji from './utils/emoji.js';
+import pkg from '../package.json' assert {type: 'json'}; // this feature is provided by @rollup/plugin-json
 
 // Information of script
 const now = new Date();

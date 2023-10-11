@@ -1,12 +1,12 @@
 //@ts-check
 ///<reference path="../index.d.ts"/>
-import {SCRIPT_INFO as scriptInfo, NOTIFICATION as upgradeNotification} from '../meta';
-import {setLang, template, userLang} from '../locale/locale';
-import JSONE from '../utils/stringify';
+import {SCRIPT_INFO as scriptInfo, NOTIFICATION as upgradeNotification} from '../meta.js';
+import {setLang, template, userLang} from '../locale/locale.js';
+import JSONE from '../utils/stringify.js';
 import _ from 'lodash';
-import compareVersions from 'compare-versions';
-import jsonRuleLoader from './json-rule';
-import logger from './logger';
+import {compareVersions} from 'compare-versions';
+import jsonRuleLoader from './json-rule.js';
+import logger from './logger.js';
 
 // ---------------------- Settings stored in GM storaged, changed by control pannel ---------------
 /**@type {ISettings} */

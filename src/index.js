@@ -7,26 +7,26 @@
 
 //@ts-ignore
 import * as spcss from './css';
-import {BROWSER, SCRIPT_MANAGER} from './utils/detect';
-import {NOTIFICATION, SCRIPT_INFO} from './meta';
-import {Tween, TweenEase, TweenM} from './utils/tween';
-import {createDOM, getProperty, setProperty} from './utils/domTools';
-import {factorySettings, loadLocalSetting, loadSettings, resetSettings, saveLocalSetting, saveSettings} from './utils/init';
-import {getAllElements, getAllElementsByXpath, getElementByCSS, getElementByXpath, getLastVisibleElement} from './utils/domSelector';
-import {setLang, template, userLang} from './locale/locale';
-import {toRE, wildcardToRegExpStr} from './utils/regex';
+import {BROWSER, SCRIPT_MANAGER} from './utils/detect.js';
+import {NOTIFICATION, SCRIPT_INFO} from './meta.js';
+import {Tween, TweenEase, TweenM} from './utils/tween.js';
+import {createDOM, getProperty, setProperty} from './utils/domTools.js';
+import {factorySettings, loadLocalSetting, loadSettings, resetSettings, saveLocalSetting, saveSettings} from './utils/init.js';
+import {getAllElements, getAllElementsByXpath, getElementByCSS, getElementByXpath, getLastVisibleElement} from './utils/domSelector.js';
+import {setLang, template, userLang} from './locale/locale.js';
+import {toRE, wildcardToRegExpStr} from './utils/regex.js';
 
 import _ from 'lodash';
-import {addStyle} from './utils/gm-enhanced';
-import compareVersions from 'compare-versions';
+import {addStyle} from './utils/gm-enhanced.js';
+import {compareVersions} from 'compare-versions';
 import displace from 'displacejs';
-import elementReady from './utils/element-ready';
-import gotStock from './utils/got';
-import {jsGeneralRule} from './rules/jsGeneralRule';
-import {jsSiteRule} from './rules/jsSiteRule';
-import jsonRuleLoader from './utils/json-rule';
-import logger from './utils/logger';
-import notice from './utils/notice';
+import elementReady from './utils/element-ready.js';
+import gotStock from './utils/got.js';
+import {jsGeneralRule} from './rules/jsGeneralRule.js';
+import {jsSiteRule} from './rules/jsSiteRule.js';
+import jsonRuleLoader from './utils/json-rule.js';
+import logger from './utils/logger.js';
+import notice from './utils/notice.js';
 
 (function () {
   // use charset from currentDocument
@@ -1148,7 +1148,8 @@ import notice from './utils/notice';
               i.width = '100%';
               i.height = '0';
               i.frameBorder = '0';
-              i.style.cssText = '\
+              i.style.cssText =
+                '\
                     margin:0!important;\
                     padding:0!important;\
                     visibility:hidden!important;\
@@ -1892,7 +1893,8 @@ import notice from './utils/notice';
                 display:block!important;\
                 position:static!important;\
             ';
-            hr.style.cssText = '\
+            hr.style.cssText =
+              '\
                 display:block!important;\
                 border:1px inset #000!important;\
             ';
@@ -1917,7 +1919,8 @@ import notice from './utils/notice';
             iframe.width = '100%';
             iframe.height = '0';
             iframe.frameBorder = '0';
-            iframe.style.cssText = '\
+            iframe.style.cssText =
+              '\
                 margin:0!important;\
                 padding:0!important;\
             ';

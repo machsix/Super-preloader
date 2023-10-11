@@ -1,4 +1,4 @@
-import ejsTemplate from './ejsTemplate';
+import ejsTemplate from './ejsTemplate.js';
 const availableLangs = Object.keys(ejsTemplate);
 export let template = ejsTemplate.en_US;
 
