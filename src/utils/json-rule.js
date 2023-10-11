@@ -127,7 +127,7 @@ export default {
   },
   async saveRule(saveDB = true) {
     await GM.setValue('jsonRuleInfo', {
-      expire: this.expire,
+      expire: this.expire.toJSON(),
       updatePeriodInDay: this.updatePeriodInDay
     });
     if (saveDB) {
@@ -162,7 +162,7 @@ export default {
   async loadRule(forceUpdateRule = false) {
     let [jsonRuleInfo, rule] = await Promise.all([
       GM.getValue('jsonRuleInfo', {
-        expire: this.expire,
+        expire: this.expire.toJSON(),
         updatePeriodInDay: this.updatePeriodInDay
       }),
       GM.getValue('SITEINFO_json', this.rule)

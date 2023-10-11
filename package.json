@@ -1,6 +1,6 @@
 {
   "name": "super-preloader",
-  "version": "6.17.0",
+  "version": "6.17.1",
   "description": "Super-preloader",
   "main": "dist/Super_preloaderPlus_one_New.user.js",
   "author": "Mach6",
@@ -22,7 +22,7 @@
     "format": "prettier --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.mjs\" \"docs/**/*.{js,md}\"",
     "format:check": "prettier --check \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.mjs\" \"docs/**/*.{js,md}\"",
     "format:staged": "lint-staged -v",
-    "check": "npm run lint && npm run typecheck && npm run format:staged",
+    "check": "npm run lint && npm run typecheck",
     "test": "cd test && node test.js",
     "dev": "rollup -c --dev -w",
     "build": "rollup -c",
