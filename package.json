@@ -75,7 +75,7 @@
     "extract-zip": "2.0.1",
     "got": "13.0.0",
     "husky": "8.0.3",
-    "lint-staged": "^14.0.1",
+    "lint-staged": "^15.0.2",
     "lodash": "4.17.21",
     "loglevel": "1.8.1",
     "prettier": "3.0.3",
