@@ -53,7 +53,7 @@
   },
   "dependencies": {
     "@babel/core": "7.23.2",
-    "@babel/plugin-syntax-import-attributes": "^7.22.5",
+    "@babel/plugin-syntax-import-attributes": "^7.23.3",
     "@babel/plugin-transform-runtime": "7.22.15",
     "@babel/preset-env": "7.22.20",
     "@rollup/plugin-babel": "6.0.4",
