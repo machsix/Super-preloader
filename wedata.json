@@ -1,5 +1,110 @@
 [
 {
+  "resource_url": "http://wedata.net/items/86185",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "id('the_content')/node()[not(@class='related-links')]",
+    "nextLink": "//li[span[@aria-current='page']][number()>0]/following-sibling::li[1]/a",
+    "url": "^https://ananweb\\.jp/.",
+    "exampleUrl": "https://ananweb.jp/column/ikemendorama/498426/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "Griever3",
+  "name": "ananweb 記事",
+  "created_at": "2023-11-13T20:54:27+09:00",
+  "updated_at": "2023-11-13T20:54:27+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/86184",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//a[contains(concat(' ', @class, ' '), ' hentry ')][not(ancestor::aside)]",
+    "nextLink": "//div[@class='nav-next']/a",
+    "url": "^https://ananweb\\.jp/",
+    "exampleUrl": "https://ananweb.jp/\r\nhttps://ananweb.jp/tags/love/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "Griever3",
+  "name": "ananweb",
+  "created_at": "2023-11-13T20:54:06+09:00",
+  "updated_at": "2023-11-13T20:54:06+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/86183",
+  "data": {
+    "pageElement": "//div[@class='CtgryLink']|//div[@class='CtgryLink']/following-sibling::*[1]",
+    "comment": "If you do not specify the block element specified by CSS after the CtgryLink class in pageElement, the Design will be affected.",
+    "nextLink": "//span[@class='TargetPage']/following-sibling::a[1][number()>0]",
+    "url": "^https://[^/]+\\.weblio\\.jp/.",
+    "exampleUrl": "https://www.weblio.jp/category/\r\nhttps://kobun.weblio.jp/category/aa\r\nhttps://www.weblio.jp/category/people/tltdb/ha/10"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "Griever3",
+  "name": "Weblio 索引",
+  "created_at": "2023-11-08T19:30:31+09:00",
+  "updated_at": "2023-11-09T07:10:50+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/86182",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//div[ul[@class='pagination']]/preceding-sibling::*[@class='view-content' or self::ol[contains(concat(' ', @class, ' '), ' search-results ')]]/*",
+    "nextLink": "//li[contains(concat(' ', @class, ' '), ' next ')]/a",
+    "url": "^https://netshop\\.impress\\.co\\.jp/",
+    "exampleUrl": "https://netshop.impress.co.jp/taxonomy/term/2896\r\nhttps://netshop.impress.co.jp/search/site/AI"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "Griever3",
+  "name": "ネットショップ担当者フォーラム",
+  "created_at": "2023-11-05T16:15:24+09:00",
+  "updated_at": "2023-11-05T16:15:24+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/86181",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//article[contains(concat(' ', @class, ' '), ' mod-job-index-item ')]",
+    "nextLink": "//link[@rel='next']",
+    "url": "^https://type\\.jp/job-",
+    "exampleUrl": "https://type.jp/job-1/1001/?pathway=4"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "Griever3",
+  "name": "type.jp 転職・求人情報",
+  "created_at": "2023-11-04T20:09:37+09:00",
+  "updated_at": "2023-11-04T20:09:37+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/86178",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//div[@data-a-name=\"orders\"]",
+    "nextLink": "//a[@aria-current='page']/parent::node()/following-sibling::li[1]/a",
+    "url": "^https://www.amazon.co.jp/vine/orders",
+    "exampleUrl": ""
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "OHM_79",
+  "name": "Amazon Vine 注文",
+  "created_at": "2023-10-16T18:54:49+09:00",
+  "updated_at": "2023-10-16T18:54:49+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/86177",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//div[@data-a-name=\"vine-reviews\"]",
+    "nextLink": "//a[@aria-current='page']/parent::node()/following-sibling::li[1]/a",
+    "url": "^https://www.amazon.co.jp/vine/vine-reviews",
+    "exampleUrl": ""
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "OHM_79",
+  "name": "Amazon Vine レビュー",
+  "created_at": "2023-10-16T18:53:18+09:00",
+  "updated_at": "2023-10-16T18:53:18+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/86176",
   "data": {
     "pageElement": "//div[@data-a-name=\"vine-items\"]",
@@ -61,17 +166,17 @@
 {
   "resource_url": "http://wedata.net/items/86172",
   "data": {
-    "insertBefore": "",
-    "pageElement": "//div[@class='p2s1-banner-v__main']/ul|//ul[@class='p1s1-list-v__main']",
+    "pageElement": "//div[@class='p2s1-banner-v']|//ul[@class='p1s1-list-v__main']",
+    "insertBefore": "//div[@class='content__main']/div[not(@class)]/following-sibling::node()[1]",
     "nextLink": "//li[contains(@class, 'current')][number()>0]/following-sibling::li[1]/a",
     "url": "^https://websunday\\.net/(news|comics)/",
-    "exampleUrl": "https://websunday.net/comics/"
+    "exampleUrl": "https://websunday.net/comics/\r\nhttps://websunday.net/news/\r\n"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "Griever3",
-  "name": "少年サンデー",
+  "name": "少年サンデー [WEBサンデー]",
   "created_at": "2023-10-03T19:52:49+09:00",
-  "updated_at": "2023-10-03T19:52:49+09:00"
+  "updated_at": "2023-10-20T16:06:03+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/86171",
@@ -527,18 +632,18 @@
   "updated_at": "2023-09-28T18:34:32+09:00"
 },
 {
-  "resource_url": "http://wedata.net/items/86108",
   "data": {
-    "pageElement": "//div[contains(concat(' ', @class, ' '), ' viewableWrapper ')]/ul[li]",
+    "pageElement": "id('comment-main')/ul[.//article]",
     "nextLink": "//a[contains(@href, 'page=') and text()='次へ']",
     "url": "^https://news\\.yahoo\\.co\\.jp/articles/.+?/comments",
     "exampleUrl": "https://news.yahoo.co.jp/articles/009828f57dc6e4b74f4be1505978e2544fcace52/comments"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "Griever3",
+  "resource_url": "http://wedata.net/items/86108",
   "name": "コメント一覧 - Yahoo!ニュース",
   "created_at": "2023-04-22T22:14:36+09:00",
-  "updated_at": "2023-07-25T19:37:06+09:00"
+  "updated_at": "2023-11-01T17:36:30+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/86107",
@@ -10615,18 +10720,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/82101",
-  "name": "キミラノ",
-  "created_by": "t_f_m",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-03-19T17:46:08+09:00",
   "data": {
-    "exampleUrl": "https://kimirano.jp/tag/15",
+    "pageElement": "//ul[@class=\"std_lists\" or @class=\"read_lists\"]/li",
+    "nextLink": "//div[@class=\"pagination\"]/div[@class=\"ctr_next\"]/a",
     "url": "^https://kimirano\\.jp/",
-    "pageElement": "//ul[@class=\"std_lists\"]/li",
-    "insertBefore": "",
-    "nextLink": "//div[@class=\"pagination\"]/div[@class=\"ctr_next\"]/a"
+    "exampleUrl": "https://kimirano.jp/tag/15\r\nhttps://kimirano.jp/kakuyomu_contents/"
   },
-  "created_at": "2019-03-19T17:46:08+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m",
+  "name": "キミラノ",
+  "created_at": "2019-03-19T17:46:08+09:00",
+  "updated_at": "2023-10-16T15:55:42+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/82099",
@@ -13765,17 +13869,18 @@
 },
 {
   "resource_url": "http://wedata.net/items/81586",
-  "name": "Ecosia.org Search",
-  "created_by": "WolframH",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2018-08-06T18:20:54+09:00",
   "data": {
-    "exampleUrl": "https://www.ecosia.org/search?q=hallo",
-    "url": "^https://(www\\.)?ecosia\\.org/search",
-    "pageElement": "//div[@class='card-desktop card-web']/*",
-    "nextLink": "//a[contains(@class, 'pagination-next')]"
+    "pageElement": "//section[@data-test-id='mainline']/div[.//article]",
+    "insertBefore": "//div[@class='pagination']",
+    "nextLink": "//a[@data-test-id='next-button']",
+    "url": "^https://www\\.ecosia\\.org/search\\?",
+    "exampleUrl": "https://www.ecosia.org/search?q=hallo"
   },
-  "created_at": "2017-10-06T02:06:47+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "WolframH",
+  "name": "Ecosia.org Search",
+  "created_at": "2017-10-06T02:06:47+09:00",
+  "updated_at": "2023-10-18T21:08:00+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/81585",
@@ -18453,17 +18558,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/77846",
-  "name": "All About　News Dig",
-  "created_by": "iwakuma2828",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-08-26T11:08:28+09:00",
   "data": {
-    "exampleUrl": "https://news.allabout.co.jp/articles/d/73598/",
+    "pageElement": "id('sys_gtm_url')/*[not(@class='aa-article-content-related-article' or starts-with(@id, 'logly-lift-') or self::script)]",
+    "nextLink": "//link[@rel=\"next\"]",
     "url": "^https://news\\.allabout\\.co\\.jp/",
-    "pageElement": "id('sys_mtx_url')/*",
-    "nextLink": "//link[@rel=\"next\"]"
+    "exampleUrl": "https://news.allabout.co.jp/articles/d/73598/\r\nhttps://news.allabout.co.jp/articles/o/69926/"
   },
-  "created_at": "2016-02-05T11:29:30+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "iwakuma2828",
+  "name": "All About NEWS",
+  "created_at": "2016-02-05T11:29:30+09:00",
+  "updated_at": "2023-10-26T21:35:03+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/77845",
@@ -20615,16 +20720,16 @@
 {
   "resource_url": "http://wedata.net/items/77441",
   "data": {
-    "pageElement": "descendant::*[./article][1]/article",
+    "pageElement": "//div[@class='sentinel-search-latestArticles']",
     "nextLink": "//a[@class='next']",
-    "url": "^https?://screenrant\\.com/.+",
-    "exampleUrl": "https://screenrant.com/search/?q=masked%20singer&page=2"
+    "url": "^https?://(screen|game)rant\\.com/.+",
+    "exampleUrl": "https://screenrant.com/search/?q=masked%20singer&page=2\r\nhttps://gamerant.com/search/?q=rpg"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "Tanookirby",
-  "name": "Screen Rant",
+  "name": "Screen Rant, Game Rant",
   "created_at": "2015-08-04T04:56:30+09:00",
-  "updated_at": "2023-02-12T10:11:58+09:00"
+  "updated_at": "2023-11-01T17:43:50+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/77437",
@@ -21380,17 +21485,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/77246",
-  "name": "Vivaldi.net Forum",
-  "created_by": "Wolfram",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-08-20T14:09:41+09:00",
   "data": {
-    "exampleUrl": "https://forum.vivaldi.net/category/82/team-blog\r\nhttps://forum.vivaldi.net/topic/20015/vivaldi-1-11-focus-on-accessibility",
-    "url": "^https://forum\\.vivaldi\\.net/",
     "pageElement": "//ul[@class='topic-list' or @class='posts']/li",
-    "nextLink": "//a[i/@class='fa fa-chevron-right']"
+    "nextLink": "//li[not(contains(@class, 'disabled'))]/a[i/@class='fa fa-chevron-right']",
+    "url": "^https://forum\\.vivaldi\\.net/",
+    "exampleUrl": "https://forum.vivaldi.net/category/82/team-blog\r\nhttps://forum.vivaldi.net/topic/20015/vivaldi-1-11-focus-on-accessibility"
   },
-  "created_at": "2015-05-22T00:07:46+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "Wolfram",
+  "name": "Vivaldi.net Forum",
+  "created_at": "2015-05-22T00:07:46+09:00",
+  "updated_at": "2023-10-24T19:21:10+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/77245",
@@ -25068,7 +25173,7 @@
   "data": {
     "pageElement": "//div[@class='article-contents']|//li[.//p[@class='txt-update']]",
     "considerationUrl": "https://japan.zdnet.com/article/35148978/",
-    "nextLink": "descendant::a[@rel='next'][1][not(@href='#')]",
+    "nextLink": "descendant::a[@rel='next'][not(@href='#')]",
     "url": "^https://japan\\.zdnet\\.com/",
     "exampleUrl": "https://japan.zdnet.com/article/35011766/ https://japan.zdnet.com/archives/foreign/\r\n\r\n"
   },
@@ -25076,7 +25181,7 @@
   "created_by": "bimi",
   "name": "ZDNet Japan",
   "created_at": "2014-09-09T15:49:10+09:00",
-  "updated_at": "2023-10-04T12:07:23+09:00"
+  "updated_at": "2023-10-29T07:03:15+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/76302",
@@ -26091,7 +26196,7 @@
 {
   "resource_url": "http://wedata.net/items/74923",
   "data": {
-    "pageElement": "//div[contains(@class,'a-archive-grid__story')]|descendant::*[div[contains(@class,'o-card')]][1]|//div[@class='story_list_blk']/*|//li[@class='l-list__item'][article]|id('main')/article[@id]",
+    "pageElement": "//div[contains(@class,'a-archive-grid__story')]|//section[@class='pmc-u-margin-tb-1']//*[div[contains(@class,'o-card')]][1]|//div[@class='story_list_blk']/*|//li[@class='l-list__item'][article]|id('main')/article[@id]",
     "nextLink": "descendant::a[contains(@class,'next')][last()]|//div[@class='nav-previous']/a|//div[contains(@class,'more-stories')]/a[contains(@class,'a-icon-right-arrow')]",
     "url": "^https?://.*(?:bollywoodlife|deadline|footwearnews)\\.com",
     "exampleUrl": "https://www.deadline.com/ https://deadline.com/vcategory/the-contenders-emmys/page/2/ https://deadline.com/tag/caa/page/2/ https://www.bollywoodlife.com/ https://footwearnews.com/page/2/"
@@ -26100,7 +26205,7 @@
   "created_by": "Tanookirby",
   "name": "PMC Brands",
   "created_at": "2014-06-26T02:58:29+09:00",
-  "updated_at": "2023-06-10T10:44:45+09:00"
+  "updated_at": "2023-10-27T05:46:11+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/74912",
@@ -35043,16 +35148,16 @@
 {
   "resource_url": "http://wedata.net/items/55808",
   "data": {
-    "pageElement": "id('category')//article[@class='card']|id('single_post')/header/following-sibling::*[./following-sibling::ol]",
+    "pageElement": "id('category')/div[@class='cardArea']|id('single_post')/header/following-sibling::*[./following-sibling::ol]",
     "nextLink": "//link[@rel='next']",
     "url": "^https://type\\.jp/",
-    "exampleUrl": "https://type.jp/et/feature/1047 https://type.jp/et/feature/posts"
+    "exampleUrl": "https://type.jp/et/feature/1047 https://type.jp/et/feature/posts\r\nhttps://type.jp/et/feature/category/skill/"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "jigendaddy_be",
   "name": "エンジニアtype",
   "created_at": "2011-11-09T15:40:31+09:00",
-  "updated_at": "2022-02-19T17:08:20+09:00"
+  "updated_at": "2023-11-04T19:54:53+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/55794",
@@ -38307,16 +38412,16 @@
 {
   "resource_url": "http://wedata.net/items/41272",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "created_at": "2011-01-10T13:18:29+09:00",
   "data": {
-    "pageElement": "//table[@class='table']//tr[not(td/@bgcolor='#99CCFF')]",
-    "exampleUrl": "https://www.atsoho.com/jobinfo/index/type-all.html",
-    "url": "^https://(www\\.)?atsoho\\.com/(?:job|soho)info/index/type-",
-    "nextLink": "id('center_contents')/div[contains(concat(' ', @class, ' '), ' table_sentence ')][last()]/text()[contains(.,'1') or contains(.,'2') or contains(.,'3') or contains(.,'4') or contains(.,'5') or contains(.,'6') or contains(.,'7') or contains(.,'8') or contains(.,'9')]/following-sibling::a[1]"
+    "pageElement": "//div[@class='et_pb_code_inner' or @class='et_pb_text_inner']/div[contains(concat(' ', @class, ' '), ' et_pb_section ')]",
+    "nextLink": "//strong/following-sibling::a[1][contains(@href, 'pg=')]",
+    "url": "^https://atsoho\\.com/",
+    "exampleUrl": "https://atsoho.com/job/\r\nhttps://atsoho.com/work/category?type=all"
   },
-  "updated_at": "2020-05-14T11:35:04+09:00",
-  "name": "@SOHO　 お仕事を探す・SOHOを探す",
-  "created_by": "itouhiro"
+  "created_by": "itouhiro",
+  "name": "@SOHO",
+  "created_at": "2011-01-10T13:18:29+09:00",
+  "updated_at": "2023-11-04T20:25:26+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/41269",
@@ -51645,17 +51750,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/1567",
-  "name": "ニコニコ大百科",
-  "created_by": "gifnksm",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2019-03-09T12:41:46+09:00",
   "data": {
-    "exampleUrl": "http://dic.nicovideo.jp/m/u/a/",
+    "pageElement": "id(\"main\")//div[contains(@class,\"st-box_contents\")]/table[@class]//tr[td]|\r\n//dd[starts-with(@id, 'search_table_contents_')]",
+    "nextLink": "id(\"main\")//div[contains(@class,\"st-box_contents\")]//div[@class=\"st-pg_contents\"]/span[@class=\"current\"]/following-sibling::a",
     "url": "^https://dic\\.nicovideo\\.jp/(?:m/[nu]|s)/(?:[aciluv]|all|al|oekaki|mml)/",
-    "pageElement": "id(\"main\")//div[contains(@class,\"st-box_contents\")]/table[@class=\"st-table\"]//tr[td]",
-    "nextLink": "id(\"main\")//div[contains(@class,\"st-box_contents\")]//div[@class=\"st-pg_contents\"]/span[@class=\"current\"]/following-sibling::a"
+    "exampleUrl": "https://dic.nicovideo.jp/m/u/a/\r\nhttps://dic.nicovideo.jp/s/oekaki/a/A/rev_created/desc/1-?query_type=a\r\nhttps://dic.nicovideo.jp/s/mml/a/A/rev_created/desc/1-?query_type=a\r\nhttps://dic.nicovideo.jp/s/al/t/A/rev_created/desc/1-?query_type=t"
   },
-  "created_at": "2008-05-24T05:16:36+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "gifnksm",
+  "name": "ニコニコ大百科",
+  "created_at": "2008-05-24T05:16:36+09:00",
+  "updated_at": "2023-11-10T18:23:48+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/1563",
@@ -53258,17 +53363,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/510",
-  "name": "CodeZine、EnterpriseZine、MarkeZine、MONEYzine（記事一覧、個別記事）",
   "data": {
-    "url": "^https?://(?:c(?:areer|ode)|enterprise|m(?:arke|oney))zine\\.jp/(?:a(?:rticle|uthor)/|\\w+online/|iti/)",
-    "pageElement": "//ul[@class='catList' or @class='catTopList result cf']/li|//div[@class='article']",
-    "exampleUrl": "http://codezine.jp/article/tag/169\r\nhttp://enterprisezine.jp/article/corner/120\r\nhttp://enterprisezine.jp/article/detail/2221\r\nhttp://markezine.jp/article/\r\nhttp://enterprisezine.jp/article/detail/1991\r\nhttp://codezine.jp/article/corner/210\r\nhttp://codezine.jp/article/detail/2979\r\nhttp://enterprisezine.jp/author/133\r\nhttp://enterprisezine.jp/dbonline/detail/6123\r\nhttp://enterprisezine.jp/iti/detail/5752\r\n",
-    "nextLink": "//a[@rel='next' or ../@class='nextBtn']"
+    "pageElement": "//ul[@class='c-articleindex_list']/ancestor-or-self::*[position()=1 or @class='c-primarysection -level2'][last()]|id('c-article_content')",
+    "nextLink": "//a[@rel='next']|//div[@class='c-pager_next']/a[not(//div[@class='c-article_wall'])]",
+    "url": "^https?://(?:code|enterprise|marke|ec|biz|hr|edtech|product)zine\\.jp/",
+    "exampleUrl": "https://codezine.jp/article/tag/169\r\nhttps://enterprisezine.jp/article/corner/120\r\nhttps://enterprisezine.jp/article/detail/2221\r\nhttps://markezine.jp/article/\r\nhttps://enterprisezine.jp/article/detail/1991\r\nhttps://codezine.jp/article/corner/210\r\nhttps://enterprisezine.jp/author/133\r\nhttps://eczine.jp/article/detail/13259\r\nhttps://bizzine.jp/article/detail/9498\r\nhttps://hrzine.jp/article/detail/5133\r\nhttps://edtechzine.jp/article/detail/9930\r\nhttps://productzine.jp/article/detail/2005"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "swdyh",
+  "name": "CodeZine、EnterpriseZine、MarkeZine、他（記事一覧、個別記事）",
   "created_at": "2008-04-16T12:35:45+09:00",
-  "updated_at": "2020-03-26T04:55:15+09:00"
+  "updated_at": "2023-10-24T20:34:11+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/503",
