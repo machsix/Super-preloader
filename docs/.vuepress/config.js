@@ -1,15 +1,14 @@
-module.exports = {
-  plugins: {
-    '@vuepress/last-updated': true,
-    '@vuepress/back-to-top': true,
-    '@vuepress/pwa': {
-      serviceWorker: true,
-      updatePopup: true
-    },
-    '@vuepress/google-analytics': {
-      ga: 'UA-139969974-1'
-    }
-  },
+import {defaultTheme} from 'vuepress';
+import {backToTopPlugin} from '@vuepress/plugin-back-to-top';
+import {googleAnalyticsPlugin} from '@vuepress/plugin-google-analytics';
+
+export default {
+  plugins: [
+    backToTopPlugin(),
+    googleAnalyticsPlugin({
+      id: 'G-B212FHMZPT'
+    })
+  ],
   locales: {
     '/': {
       lang: 'en-US',
@@ -31,7 +30,7 @@ module.exports = {
     ]
   ],
   description: ':scroll: Preload and Autopager',
-  themeConfig: {
+  theme: defaultTheme({
     logo: '/logo.png',
     repo: 'machsix/Super-preloader',
     editLinks: true,
@@ -100,5 +99,5 @@ module.exports = {
         }
       }
     }
-  }
+  })
 };

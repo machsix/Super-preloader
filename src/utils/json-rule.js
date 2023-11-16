@@ -93,7 +93,7 @@ class RuleProvider {
 }
 
 // Providers
-const MyData = new RuleProvider('machsix.github.io', ['https://machsix.github.io/Super-preloader/mydata.json', 'https://super-preloader.netlify.com/mydata.json'], 'https://machsix.github.io/Super-preloader/mydata_detail.json');
+const MyData = new RuleProvider('machsix.github.io', ['https://machsix.github.io/Super-preloader/mydata.json'], 'https://machsix.github.io/Super-preloader/mydata_detail.json');
 const WeData = new RuleProvider('wedata.net', ['http://wedata.net/databases/AutoPagerize/items.json', 'https://machsix.github.io/Super-preloader/wedata.json'], 'http://wedata.net/databases/AutoPagerize.json', (res) =>
   (_.isString(res.data) ? JSON.parse(res.data) : res.data)
     .filter((i) => {

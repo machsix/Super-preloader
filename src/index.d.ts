@@ -110,6 +110,7 @@ interface IRule {
   enable?: boolean;
   useiframe?: boolean;
   exampleUrl?: string;
+  ip?: Array<string>;
   nextLink?: string | Function | IHrefIncObject | Array<string | Function | IHrefIncObject>;
   preLink?: IRule['nextLink'];
   pageElement?: ISelectorFunction;

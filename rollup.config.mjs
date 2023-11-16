@@ -83,7 +83,9 @@ const basicConfig = {
       babelHelpers: 'runtime',
       exclude: 'node_modules/**'
     }),
-    resolve(),
+    resolve({
+      browser: true
+    }),
     commonjs({
       ignoreGlobal: true, // to make text-encoding works
       namedExport: {

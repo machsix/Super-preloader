@@ -3,7 +3,7 @@
 ## Wedata.net
 
 - url: <http://wedata.net/databases/AutoPagerize/items.json>
-- alternativeUrl: <https://super-preloader.netlify.com/wedata.json>
+- alternativeUrl: <https://super-preloader.vercel.app/wedata.json>
 - detailUrl <http://wedata.net/databases/AutoPagerize.jsoni>
 - Bonus:
 

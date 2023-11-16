@@ -11,11 +11,10 @@ import {BROWSER, SCRIPT_MANAGER} from './utils/detect.js';
 import {NOTIFICATION, SCRIPT_INFO} from './meta.js';
 import {Tween, TweenEase, TweenM} from './utils/tween.js';
 import {createDOM, getProperty, setProperty} from './utils/domTools.js';
-import {factorySettings, loadLocalSetting, loadSettings, resetSettings, saveLocalSetting, saveSettings} from './utils/init.js';
+import {factorySettings, getServerIp, loadLocalSetting, loadSettings, resetSettings, saveLocalSetting, saveSettings} from './utils/init.js';
 import {getAllElements, getAllElementsByXpath, getElementByCSS, getElementByXpath, getLastVisibleElement} from './utils/domSelector.js';
 import {setLang, template, userLang} from './locale/locale.js';
 import {toRE, wildcardToRegExpStr} from './utils/regex.js';
-
 import _ from 'lodash';
 import {addStyle} from './utils/gm-enhanced.js';
 import {compareVersions} from 'compare-versions';
@@ -351,8 +350,8 @@ import notice from './utils/notice.js';
   // ------------------------下面的不要管他-----------------
   /// ////////////////////////////////////////////////////////////////
   // eslint-disable-next-line prettier/prettier
-  loadSettings()
-    .then(function (values) {
+  Promise.all([loadSettings(), getServerIp(location.hostname)])
+    .then(function ([values, serverIp]) {
       let {jsonRule} = values;
       const {prefs, SITEINFO_D, autoMatch, version, blackList} = values;
       if (prefs.debug) {
@@ -2071,7 +2070,6 @@ import notice from './utils/notice.js';
 
         /**@type {IRuntimeRule} */
         let SSS = {};
-
         const findCurSiteInfo = function () {
           const SIIAD = SITEINFO_D.autopager;
           var Rurl;
@@ -2086,6 +2084,9 @@ import notice from './utils/notice.js';
 
           for (var i = 0; i < ii; i++) {
             const SII = SSRules[i];
+            if ('ip' in SII && SII.ip.indexOf(serverIp) < 0) {
+              continue;
+            }
             Rurl = toRE(SII.url);
             if (Rurl.test(url)) {
               if (userLang === 'zh_CN') {

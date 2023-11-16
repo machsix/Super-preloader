@@ -5,9 +5,9 @@ import {setLang, template, userLang} from '../locale/locale.js';
 import JSONE from '../utils/stringify.js';
 import _ from 'lodash';
 import {compareVersions} from 'compare-versions';
+import got from './got.js';
 import jsonRuleLoader from './json-rule.js';
 import logger from './logger.js';
-
 // ---------------------- Settings stored in GM storaged, changed by control pannel ---------------
 /**@type {ISettings} */
 export const factorySettings = {
@@ -170,6 +170,25 @@ export async function saveSettings(values) {
       .filter((x) => settingsKeys.includes(x))
       .map((key) => GM.setValue(key, values[key]))
   );
+}
+
+export async function getServerIp(hostname) {
+  try {
+    const res = await got.get('https://1.1.1.1/dns-query', {
+      searchParams: {
+        name: hostname,
+        type: 'A'
+      },
+      headers: {
+        accept: 'application/dns-json'
+      }
+    });
+
+    const result = JSON.parse(res.data);
+    return result.Answer[0].data;
+  } catch (error) {
+    return '127.0.0.1';
+  }
 }
 
 export async function loadSettings() {

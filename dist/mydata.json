@@ -1,14 +1,14 @@
 [
-   {
-        "name": "京东内容开放平台",
-        "url": "https://dr.jd.com\\.page\\app.html.*",
-        "pageElement": "//div[@id=\"data-table\"]",
-        "nextLink": "//div[@id=\"page\"]/a[text()=\"下一页>\"] | id(\"pagination-main-container\")",
-        "category": ["gallery", "nsfw"],
-        "autopager": {
-          "ipages": [true, 30]
-        }
-      },
+  {
+    "name": "京东内容开放平台",
+    "url": "https://dr.jd.com\\.page\\app.html.*",
+    "pageElement": "//div[@id=\"data-table\"]",
+    "nextLink": "//div[@id=\"page\"]/a[text()=\"下一页>\"] | id(\"pagination-main-container\")",
+    "category": ["gallery", "nsfw"],
+    "autopager": {
+      "ipages": [true, 30]
+    }
+  },
   {
     "name": "wnacg",
     "url": "^https?://(www\\.)?wnacg\\.(org|net|com)/(\\?ctl=photos.*|photos-view-id.*\\.html)",
@@ -1732,8 +1732,9 @@
   },
   {
     "name": "性感尤物",
-    "url": "^https?://www\\.(jpxgyw|jpxgmn|xgyw|xgmn|mn5|jpxgmn|xg)\\d*\\.(com|cc|org|top|xyz|pro)/[^/]*/[^/]*\\.html",
+    "url": "^https?://[^/]*/[^/]*/[^/]*\\.html",
     "pageElement": "//article[@class='article-content']/p",
+    "ip": ["209.141.54.79", "137.175.36.112"],
     "exampleUrl": "http://www.xgyw.cc/Xgyw/Xgyw6874.html",
     "nextLink": "//div[@class='pagination']/ul/a[text()='下一页']",
     "category": ["gallery", "nsfw"],
@@ -1743,7 +1744,8 @@
   },
   {
     "name": "性感尤物2",
-    "url": "^https?://www\\.(jpxgyw|jpxgmn|xgyw|xgmn|mn5|jpxgmn|xg)\\d*\\.(com|cc|org|top|xyz|pro)/[^/]*/",
+    "url": "^https?://[^/]*/[^/]*/",
+    "ip": ["209.141.54.79", "137.175.36.112"],
     "pageElement": "//div[@class='widget-title']/div",
     "exampleUrl": "http://www.xgyw.cc/Xgyw",
     "nextLink": "//div[@class='pagination']/ul/a[text()='下一页']",

@@ -11,7 +11,7 @@
 // @thanksto     ywzhaiqi, NLF
 // @version      6.17.1
 // @license      GPL-3.0
-// @update       2023/10/11
+// @update       2023/11/16
 // @homepageURL  https://github.com/machsix/Super-preloader
 // @downloadURL  https://machsix.github.io/Super-preloader/Super_preloaderPlus_one_New.user.js
 // @updateURL    https://machsix.github.io/Super-preloader/Super_preloaderPlus_one_New.user.js
@@ -4126,7 +4126,7 @@
 	  }
 	}
 
-	var name="super-preloader";var version="6.17.1";var description="Super-preloader";var main="dist/Super_preloaderPlus_one_New.user.js";var author="Mach6";var license="GPL-3.0";var type="module";var bugs={url:"https://github.com/machsix/Super-preloader/issues"};var homepage="https://github.com/machsix/Super-preloader";var directories={doc:"docs"};var repository={type:"git",url:"git+https://github.com/machsix/Super-preloader.git"};var scripts={lint:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.mjs\"",format:"prettier --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.mjs\" \"docs/**/*.{js,md}\"","format:check":"prettier --check \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.mjs\" \"docs/**/*.{js,md}\"","format:staged":"lint-staged -v",check:"npm run lint && npm run typecheck",test:"cd test && node test.js",dev:"rollup -c --dev -w",build:"rollup -c","docs:dev":"cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress dev docs","docs:build":"cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh",preversion:"npm run check",version:"npm run build  && git add dist/*.js && git add dist/*.json",postversion:"git add package.json package-lock.json && npm run test","publish:patch":"npm --no-git-tag-version version patch",publish:"npm --no-git-tag-version version minor",typecheck:"tsc -p jsconfig.json --noEmit"};var husky={hooks:{"pre-commit":"npm run check"}};var keywords=["userscript"];var devDependencies={"@vuepress/plugin-back-to-top":"1.9.10","@vuepress/plugin-google-analytics":"1.9.10","@vuepress/plugin-pwa":"1.9.10",typescript:"5.2.2",vuepress:"1.9.10"};var dependencies={"@babel/core":"7.23.0","@babel/plugin-syntax-import-attributes":"^7.22.5","@babel/plugin-transform-runtime":"7.22.15","@babel/preset-env":"7.22.20","@rollup/plugin-babel":"6.0.4","@rollup/plugin-commonjs":"25.0.5","@rollup/plugin-json":"6.0.1","@rollup/plugin-node-resolve":"15.2.3","@types/greasemonkey":"4.0.5","@types/lodash":"4.14.199","babel-plugin-lodash":"3.3.4","babel-plugin-wildcard":"7.0.0","compare-versions":"6.1.0","cross-env":"^7.0.3",displacejs:"https://github.com/machsix/displace.git#v1.4.0",eslint:"8.51.0","eslint-config-prettier":"9.0.0","eslint-plugin-import":"^2.28.1","eslint-plugin-json":"3.1.0","eslint-plugin-prettier":"5.0.1","extract-zip":"2.0.1",got:"13.0.0",husky:"8.0.3","lint-staged":"^14.0.1",lodash:"4.17.21",loglevel:"1.8.1",prettier:"3.0.3",puppeteer:"2.1.0",rollup:"4.0.2","rollup-plugin-banner2":"^1.2.2","rollup-plugin-dev":"2.0.4","rollup-plugin-ejs":"4.0.0","rollup-plugin-re":"1.0.7","rollup-plugin-scss-string":"github:machsix/rollup-plugin-scss-string",yargs:"17.7.2"};var pkg = {name:name,version:version,description:description,main:main,author:author,license:license,type:type,bugs:bugs,homepage:homepage,directories:directories,repository:repository,scripts:scripts,husky:husky,keywords:keywords,devDependencies:devDependencies,dependencies:dependencies};
+	var name="super-preloader";var version="6.17.1";var description="Super-preloader";var main="dist/Super_preloaderPlus_one_New.user.js";var author="Mach6";var license="GPL-3.0";var type="module";var bugs={url:"https://github.com/machsix/Super-preloader/issues"};var homepage="https://github.com/machsix/Super-preloader";var directories={doc:"docs"};var repository={type:"git",url:"git+https://github.com/machsix/Super-preloader.git"};var scripts={lint:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.mjs\"",fix:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.mjs\" --fix",format:"prettier --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.mjs\" \"docs/**/*.{js,md}\"","format:check":"prettier --check \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.mjs\" \"docs/**/*.{js,md}\"","format:staged":"lint-staged -v",check:"npm run lint && npm run typecheck",test:"cd test && node test.js",dev:"rollup -c --dev -w",build:"rollup -c","docs:dev":"cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress dev docs","docs:build":"cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh",preversion:"npm run check",version:"npm run build  && git add dist/*.js && git add dist/*.json",postversion:"git add package.json package-lock.json && npm run test","publish:patch":"npm --no-git-tag-version version patch",publish:"npm --no-git-tag-version version minor",typecheck:"tsc -p jsconfig.json --noEmit"};var husky={hooks:{"pre-commit":"npm run check"}};var keywords=["userscript"];var devDependencies={"@vuepress/plugin-back-to-top":"^2.0.0-beta.68","@vuepress/plugin-google-analytics":"^2.0.0-beta.68",typescript:"5.2.2",vuepress:"^2.0.0-beta.68"};var dependencies={"@babel/core":"7.23.3","@babel/plugin-syntax-import-attributes":"^7.23.3","@babel/plugin-transform-runtime":"7.23.3","@babel/preset-env":"7.23.3","@rollup/plugin-babel":"6.0.4","@rollup/plugin-commonjs":"25.0.7","@rollup/plugin-json":"6.0.1","@rollup/plugin-node-resolve":"15.2.3","@types/greasemonkey":"4.0.7","@types/lodash":"4.14.201","babel-plugin-lodash":"3.3.4","babel-plugin-wildcard":"7.0.0","compare-versions":"6.1.0","cross-env":"^7.0.3",displacejs:"https://github.com/machsix/displace.git#v1.4.0",eslint:"8.53.0","eslint-config-prettier":"9.0.0","eslint-plugin-import":"^2.29.0","eslint-plugin-json":"3.1.0","eslint-plugin-prettier":"5.0.1","extract-zip":"2.0.1",got:"13.0.0",husky:"8.0.3","lint-staged":"^15.1.0",lodash:"4.17.21",loglevel:"1.8.1",prettier:"3.1.0",puppeteer:"2.1.0",rollup:"4.4.0","rollup-plugin-banner2":"^1.2.2","rollup-plugin-dev":"2.0.4","rollup-plugin-ejs":"4.0.0","rollup-plugin-re":"1.0.7","rollup-plugin-scss-string":"github:machsix/rollup-plugin-scss-string",yargs:"17.7.2"};var pkg = {name:name,version:version,description:description,main:main,author:author,license:license,type:type,bugs:bugs,homepage:homepage,directories:directories,repository:repository,scripts:scripts,husky:husky,keywords:keywords,devDependencies:devDependencies,dependencies:dependencies};
 
 	// Information of script
 	var now = new Date();
@@ -6439,31 +6439,6 @@
 	  parse
 	};
 
-	var baseFlatten = _baseFlatten;
-
-	/**
-	 * Flattens `array` a single level deep.
-	 *
-	 * @static
-	 * @memberOf _
-	 * @since 0.1.0
-	 * @category Array
-	 * @param {Array} array The array to flatten.
-	 * @returns {Array} Returns the new flattened array.
-	 * @example
-	 *
-	 * _.flatten([1, [2, [3, [4]], 5]]);
-	 * // => [1, 2, [3, [4]], 5]
-	 */
-	function flatten(array) {
-	  var length = array == null ? 0 : array.length;
-	  return length ? baseFlatten(array, 1) : [];
-	}
-
-	var flatten_1 = flatten;
-
-	var _flatten = /*@__PURE__*/getDefaultExportFromCjs(flatten_1);
-
 	var baseGetTag = _baseGetTag,
 	    isObjectLike = isObjectLike_1;
 
@@ -7021,6 +6996,31 @@
 	}
 	var got$1 = create(defaults);
 
+	var baseFlatten = _baseFlatten;
+
+	/**
+	 * Flattens `array` a single level deep.
+	 *
+	 * @static
+	 * @memberOf _
+	 * @since 0.1.0
+	 * @category Array
+	 * @param {Array} array The array to flatten.
+	 * @returns {Array} Returns the new flattened array.
+	 * @example
+	 *
+	 * _.flatten([1, [2, [3, [4]], 5]]);
+	 * // => [1, 2, [3, [4]], 5]
+	 */
+	function flatten(array) {
+	  var length = array == null ? 0 : array.length;
+	  return length ? baseFlatten(array, 1) : [];
+	}
+
+	var flatten_1 = flatten;
+
+	var _flatten = /*@__PURE__*/getDefaultExportFromCjs(flatten_1);
+
 	function ownKeys$1(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
 	function _objectSpread$1(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$1(Object(t), !0).forEach(function (r) { _defineProperty$2(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$1(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 	function _createForOfIteratorHelper$1(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray$1(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
@@ -7197,7 +7197,7 @@
 	}
 
 	// Providers
-	var MyData = new RuleProvider('machsix.github.io', ['https://machsix.github.io/Super-preloader/mydata.json', 'https://super-preloader.netlify.com/mydata.json'], 'https://machsix.github.io/Super-preloader/mydata_detail.json');
+	var MyData = new RuleProvider('machsix.github.io', ['https://machsix.github.io/Super-preloader/mydata.json'], 'https://machsix.github.io/Super-preloader/mydata_detail.json');
 	var WeData = new RuleProvider('wedata.net', ['http://wedata.net/databases/AutoPagerize/items.json', 'https://machsix.github.io/Super-preloader/wedata.json'], 'http://wedata.net/databases/AutoPagerize.json', function (res) {
 	  return (_isString(res.data) ? JSON.parse(res.data) : res.data).filter(function (i) {
 	    var nameFilter = ['Generic Posts Rule', 'hAtom'];
@@ -7359,7 +7359,6 @@
 
 	function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
 	function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty$2(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
-
 	// ---------------------- Settings stored in GM storaged, changed by control pannel ---------------
 	/**@type {ISettings} */
 	var factorySettings = {
@@ -7608,23 +7607,59 @@
 	  }));
 	  return _saveSettings.apply(this, arguments);
 	}
+	function getServerIp(_x2) {
+	  return _getServerIp.apply(this, arguments);
+	}
+	function _getServerIp() {
+	  _getServerIp = _asyncToGenerator$1( /*#__PURE__*/_regeneratorRuntime.mark(function _callee3(hostname) {
+	    var res, result;
+	    return _regeneratorRuntime.wrap(function _callee3$(_context3) {
+	      while (1) switch (_context3.prev = _context3.next) {
+	        case 0:
+	          _context3.prev = 0;
+	          _context3.next = 3;
+	          return got$1.get('https://1.1.1.1/dns-query', {
+	            searchParams: {
+	              name: hostname,
+	              type: 'A'
+	            },
+	            headers: {
+	              accept: 'application/dns-json'
+	            }
+	          });
+	        case 3:
+	          res = _context3.sent;
+	          result = JSON.parse(res.data);
+	          return _context3.abrupt("return", result.Answer[0].data);
+	        case 8:
+	          _context3.prev = 8;
+	          _context3.t0 = _context3["catch"](0);
+	          return _context3.abrupt("return", '127.0.0.1');
+	        case 11:
+	        case "end":
+	          return _context3.stop();
+	      }
+	    }, _callee3, null, [[0, 8]]);
+	  }));
+	  return _getServerIp.apply(this, arguments);
+	}
 	function loadSettings() {
 	  return _loadSettings.apply(this, arguments);
 	}
 
 	// ---------------------- Settings stored in localStorage, changed by floatWindow ---------------
 	function _loadSettings() {
-	  _loadSettings = _asyncToGenerator$1( /*#__PURE__*/_regeneratorRuntime.mark(function _callee3() {
+	  _loadSettings = _asyncToGenerator$1( /*#__PURE__*/_regeneratorRuntime.mark(function _callee4() {
 	    var values, myOldVersion, isRewrote, verDiff, isInstalled, postLoading, hasDifferency, opts, _yield$Promise$all, _yield$Promise$all2, jsonRule, blackList;
-	    return _regeneratorRuntime.wrap(function _callee3$(_context3) {
-	      while (1) switch (_context3.prev = _context3.next) {
+	    return _regeneratorRuntime.wrap(function _callee4$(_context4) {
+	      while (1) switch (_context4.prev = _context4.next) {
 	        case 0:
-	          _context3.next = 2;
+	          _context4.next = 2;
 	          return Promise.all(settingsKeys.map(function (key) {
 	            return GM.getValue(key, factorySettings[key]);
 	          }));
 	        case 2:
-	          values = _context3.sent;
+	          values = _context4.sent;
 	          settingsKeys.forEach(function (x, i) {
 	            settings[settingsKeys[i]] = values[i];
 	          });
@@ -7696,25 +7731,25 @@
 	              GM.notification(opts);
 	            }
 	          }
-	          _context3.next = 16;
+	          _context4.next = 16;
 	          return Promise.all(postLoading);
 	        case 16:
-	          _yield$Promise$all = _context3.sent;
+	          _yield$Promise$all = _context4.sent;
 	          _yield$Promise$all2 = _slicedToArray$1(_yield$Promise$all, 1);
 	          jsonRule = _yield$Promise$all2[0];
 	          /** @type {string[]} */
 	          blackList = [].concat(settings.prefs.excludes.split(/[\n\r]+/).map(function (line) {
 	            return line.trim();
 	          }));
-	          return _context3.abrupt("return", _objectSpread({
+	          return _context4.abrupt("return", _objectSpread({
 	            jsonRule,
 	            blackList
 	          }, settings));
 	        case 21:
 	        case "end":
-	          return _context3.stop();
+	          return _context4.stop();
 	      }
-	    }, _callee3);
+	    }, _callee4);
 	  }));
 	  return _loadSettings.apply(this, arguments);
 	}
@@ -10343,7 +10378,10 @@
 	  // ------------------------下面的不要管他-----------------
 	  /// ////////////////////////////////////////////////////////////////
 	  // eslint-disable-next-line prettier/prettier
-	  loadSettings().then(function (values) {
+	  Promise.all([loadSettings(), getServerIp(location.hostname)]).then(function (_ref2) {
+	    var _ref3 = _slicedToArray$1(_ref2, 2),
+	      values = _ref3[0],
+	      serverIp = _ref3[1];
 	    var jsonRule = values.jsonRule;
 	    var prefs = values.prefs,
 	      SITEINFO_D = values.SITEINFO_D,
@@ -11911,6 +11949,9 @@
 	        }
 	        var _loop = function _loop() {
 	            var SII = SSRules[i];
+	            if ('ip' in SII && SII.ip.indexOf(serverIp) < 0) {
+	              return 0; // continue
+	            }
 	            Rurl = toRE(SII.url);
 	            if (Rurl.test(url)) {
 	              if (userLang === 'zh_CN') {
