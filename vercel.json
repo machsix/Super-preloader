@@ -1,4 +1,0 @@
-{
-  "buildCommand": "sed -i \"s|base: '.*'|base: '/'|\" docs/.vuepress/config.js && npm run docs:build && cp dist/*.{json,js} docs/.vuepress/dist/",
-  "outputDirectory": "docs/.vuepress/dist"
-}
