@@ -1780,7 +1780,7 @@
   },
   {
     "name": "4khd",
-    "url": "^https?://www\\.4khd\\.com/(pages|search).*$",
+    "url": "^https?://www\\.4khd\\.com(/(pages|search|\\?query).*)?",
     "pageElement": "//li[contains(@class,'post')]",
     "exampleUrl": "https://www.4khd.com/search/forger",
     "nextLink": "//span[contains(@class, 'current')]/following-sibling::a",

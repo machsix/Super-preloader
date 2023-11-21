@@ -2138,7 +2138,7 @@ import notice from './utils/notice.js';
               SSS.useiframe = SII.useiframe === undefined ? SITEINFO_D.useiframe : SII.useiframe;
               if (SII.pageElement) {
                 // 如果是Oautopager的规则..
-                if (!(SII.autopager instanceof Object)) SII.autopager = {};
+                if (typeof SII.autopager !== 'object') SII.autopager = {};
                 SII.autopager.pageElement = SII.pageElement;
                 if (!SII.autopager.useiframe) SII.autopager.useiframe = SII.useiframe;
                 if (SII.preLink) SII.autopager.preLink = SII.preLink;
