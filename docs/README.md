@@ -3,8 +3,8 @@
 </p>
 <h1 align="center" class="logo-text">Super-preloader</h1>
 <br>
-<div class="center">Install from <a href="https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new" target="_blank">Greasy Fork</a>,
-<a href="https://github.com/machsix/Super-preloader/raw/master/dist/Super_preloaderPlus_one_New.user.js" target="_blank">Github</a> or <a :href="$withBase('/Super_preloaderPlus_one_New.user.js')" target="_blank">Dev version</a> </div>
+<div class="center">Install from <a href="http://cdn.jsdelivr.net/gh/machsix/Super-preloader/dist/Super_preloaderPlus_one_New.user.js" target="_blank">JS Delivr</a>,
+<a href="https://github.com/machsix/Super-preloader/raw/master/dist/Super_preloaderPlus_one_New.user.js" target="_blank">Github DEV</a> or <a :href="$withBase('/Super_preloaderPlus_one_New.user.js')" target="_blank">here</a> </div>
 
 # Introduction
 

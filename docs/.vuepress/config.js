@@ -1,12 +1,17 @@
 import {defaultTheme} from 'vuepress';
 import {backToTopPlugin} from '@vuepress/plugin-back-to-top';
 import {googleAnalyticsPlugin} from '@vuepress/plugin-google-analytics';
+import {registerComponentsPlugin} from '@vuepress/plugin-register-components';
+import {getDirname, path} from '@vuepress/utils';
 
 export default {
   plugins: [
     backToTopPlugin(),
     googleAnalyticsPlugin({
       id: 'G-B212FHMZPT'
+    }),
+    registerComponentsPlugin({
+      componentsDir: path.resolve(getDirname(import.meta.url), './components')
     })
   ],
   locales: {

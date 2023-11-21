@@ -57,7 +57,7 @@ export const METADATA = `// ==UserScript==
 // @homepageURL  ${SCRIPT_INFO.homepageURL}
 // @downloadURL  ${SCRIPT_INFO.downloadURL}
 // @updateURL    ${SCRIPT_INFO.updateURL}
-// @supportURL   ${SCRIPT_INFO.greasyfork}/feedback
+// @supportURL   ${SCRIPT_INFO.homepageURL}/issue
 // @contributionURL https://ko-fi.com/machsix
 // @icon         ${SCRIPT_INFO.icon}
 // @require      https://cdn.jsdelivr.net/gh/machsix/gm4-polyfill@3ac89770e4dcb69123c749a71f101fb462eaada8/gm4-polyfill-mach6-legacy.js

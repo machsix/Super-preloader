@@ -125,6 +125,7 @@ interface IRule {
     useiframe?: boolean;
     iloaded?: boolean;
     itimeout?: number;
+    ip?: string[];
     newIframe?: boolean;
     reload?: boolean;
     force_enable?: boolean;

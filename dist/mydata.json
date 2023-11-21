@@ -1734,23 +1734,83 @@
     "name": "性感尤物",
     "url": "^https?://[^/]*/[^/]*/[^/]*\\.html",
     "pageElement": "//article[@class='article-content']/p",
-    "ip": ["209.141.54.79", "137.175.36.112"],
     "exampleUrl": "http://www.xgyw.cc/Xgyw/Xgyw6874.html",
     "nextLink": "//div[@class='pagination']/ul/a[text()='下一页']",
     "category": ["gallery", "nsfw"],
     "autopager": {
+      "ip": ["209.141.54.79", "137.175.36.112"],
       "ipages": [true, 30]
     }
   },
   {
     "name": "性感尤物2",
     "url": "^https?://[^/]*/[^/]*/",
-    "ip": ["209.141.54.79", "137.175.36.112"],
     "pageElement": "//div[@class='widget-title']/div",
     "exampleUrl": "http://www.xgyw.cc/Xgyw",
     "nextLink": "//div[@class='pagination']/ul/a[text()='下一页']",
     "category": ["gallery", "nsfw"],
     "autopager": {
+      "ip": ["209.141.54.79", "137.175.36.112"],
+      "ipages": [true, 10]
+    }
+  },
+  {
+    "name": "秀人美女",
+    "url": "^https?://[^/]+/.*/[^/]*\\.html$",
+    "pageElement": "(//div[@class='content'])[1]",
+    "exampleUrl": "http://www.xrmn01.com/XiuRen/2023/202314246.html",
+    "nextLink": "//div[@class='page']/a[text()='下页']",
+    "category": ["gallery", "nsfw"],
+    "autopager": {
+      "ip": ["107.148.200.114"],
+      "ipages": [true, 30]
+    }
+  },
+  {
+    "name": "秀人美女",
+    "url": "^https?://[^/]*/[^/]*/$",
+    "pageElement": "//div[@class='update_area_content']/ul",
+    "exampleUrl": "http://www.xrmn01.com/XiuRen/",
+    "nextLink": "//div[@class='page']/a[text()='下页']",
+    "category": ["gallery", "nsfw"],
+    "autopager": {
+      "ip": ["107.148.200.114"],
+      "ipages": [true, 10]
+    }
+  },
+  {
+    "name": "4khd",
+    "url": "^https?://www\\.4khd\\.com/(pages|search).*$",
+    "pageElement": "//li[contains(@class,'post')]",
+    "exampleUrl": "https://www.4khd.com/search/forger",
+    "nextLink": "//span[contains(@class, 'current')]/following-sibling::a",
+    "category": ["gallery", "nsfw"],
+    "autopager": {
+      "ipages": [true, 10],
+      "separator": false
+    }
+  },
+  {
+    "name": "4khd_post",
+    "url": "^https?://www\\.4khd\\.com/.*\\.html$",
+    "pageElement": "//div[contains(@class,'entry-content')]/div[@class='page-link-box']/preceding::div[1]",
+    "exampleUrl": "http://www.xrmn01.com/XiuRen/2023/202314246.html",
+    "nextLink": "//li[@class='numpages current']/following-sibling::li/a",
+    "category": ["gallery", "nsfw"],
+    "autopager": {
+      "ipages": [true, 10],
+      "separator": true
+    }
+  },
+  {
+    "name": "4khd",
+    "url": "^https?://[^/]*/[^/]*/$",
+    "pageElement": "//div[@class='update_area_content']/ul",
+    "exampleUrl": "http://www.xrmn01.com/XiuRen/",
+    "nextLink": "//div[@class='page']/a[text()='下页']",
+    "category": ["gallery", "nsfw"],
+    "autopager": {
+      "ip": ["107.148.200.114"],
       "ipages": [true, 10]
     }
   },

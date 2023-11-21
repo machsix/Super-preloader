@@ -9,13 +9,13 @@
 // @author       Mach6
 // @contributers alexolog, heroboy, suchunchen, YFdyh000
 // @thanksto     ywzhaiqi, NLF
-// @version      7.0.0
+// @version      7.0.1
 // @license      GPL-3.0
-// @update       2023/11/16
+// @update       2023/11/21
 // @homepageURL  https://github.com/machsix/Super-preloader
 // @downloadURL  https://machsix.github.io/Super-preloader/Super_preloaderPlus_one_New.user.js
 // @updateURL    https://machsix.github.io/Super-preloader/Super_preloaderPlus_one_New.user.js
-// @supportURL   https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new/feedback
+// @supportURL   https://github.com/machsix/Super-preloader/issue
 // @contributionURL https://ko-fi.com/machsix
 // @icon         data:image/png;base64,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
 // @require      https://cdn.jsdelivr.net/gh/machsix/gm4-polyfill@3ac89770e4dcb69123c749a71f101fb462eaada8/gm4-polyfill-mach6-legacy.js
@@ -115,7 +115,7 @@
 
 	var iterableToArrayLimit$1 = _iterableToArrayLimit;
 
-	function _arrayLikeToArray$2(arr, len) {
+	function _arrayLikeToArray$3(arr, len) {
 	  if (len == null || len > arr.length) len = arr.length;
 
 	  for (var i = 0, arr2 = new Array(len); i < len; i++) {
@@ -125,11 +125,11 @@
 	  return arr2;
 	}
 
-	var arrayLikeToArray$1 = _arrayLikeToArray$2;
+	var arrayLikeToArray$1 = _arrayLikeToArray$3;
 
 	var arrayLikeToArray = arrayLikeToArray$1;
 
-	function _unsupportedIterableToArray$2(o, minLen) {
+	function _unsupportedIterableToArray$3(o, minLen) {
 	  if (!o) return;
 	  if (typeof o === "string") return arrayLikeToArray(o, minLen);
 	  var n = Object.prototype.toString.call(o).slice(8, -1);
@@ -138,7 +138,7 @@
 	  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return arrayLikeToArray(o, minLen);
 	}
 
-	var unsupportedIterableToArray$1 = _unsupportedIterableToArray$2;
+	var unsupportedIterableToArray$1 = _unsupportedIterableToArray$3;
 
 	function _nonIterableRest() {
 	  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
@@ -4126,7 +4126,7 @@
 	  }
 	}
 
-	var name="super-preloader";var version="7.0.0";var description="Super-preloader";var main="dist/Super_preloaderPlus_one_New.user.js";var author="Mach6";var license="GPL-3.0";var type="module";var bugs={url:"https://github.com/machsix/Super-preloader/issues"};var homepage="https://github.com/machsix/Super-preloader";var directories={doc:"docs"};var repository={type:"git",url:"git+https://github.com/machsix/Super-preloader.git"};var scripts={lint:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.mjs\"",fix:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.mjs\" --fix",format:"prettier --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.mjs\" \"docs/**/*.{js,md}\"","format:check":"prettier --check \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.mjs\" \"docs/**/*.{js,md}\"","format:staged":"lint-staged -v",check:"npm run lint && npm run typecheck",test:"cd test && node test.js",dev:"rollup -c --dev -w",build:"rollup -c","docs:dev":"cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress dev docs","docs:build":"cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh",preversion:"npm run check",version:"npm run build  && git add dist/*.js && git add dist/*.json",postversion:"git add package.json package-lock.json && npm run test","publish:patch":"npm --no-git-tag-version version patch",publish:"npm --no-git-tag-version version minor",typecheck:"tsc -p jsconfig.json --noEmit"};var husky={hooks:{"pre-commit":"npm run check"}};var keywords=["userscript"];var devDependencies={"@vuepress/plugin-back-to-top":"^2.0.0-beta.68","@vuepress/plugin-google-analytics":"^2.0.0-beta.68",typescript:"5.2.2",vuepress:"^2.0.0-beta.68"};var dependencies={"@babel/core":"7.23.3","@babel/plugin-syntax-import-attributes":"^7.23.3","@babel/plugin-transform-runtime":"7.23.3","@babel/preset-env":"7.23.3","@rollup/plugin-babel":"6.0.4","@rollup/plugin-commonjs":"25.0.7","@rollup/plugin-json":"6.0.1","@rollup/plugin-node-resolve":"15.2.3","@types/greasemonkey":"4.0.7","@types/lodash":"4.14.201","babel-plugin-lodash":"3.3.4","babel-plugin-wildcard":"7.0.0","compare-versions":"6.1.0","cross-env":"^7.0.3",displacejs:"https://github.com/machsix/displace.git#v1.4.0",eslint:"8.53.0","eslint-config-prettier":"9.0.0","eslint-plugin-import":"^2.29.0","eslint-plugin-json":"3.1.0","eslint-plugin-prettier":"5.0.1","extract-zip":"2.0.1",got:"13.0.0",husky:"8.0.3","lint-staged":"^15.1.0",lodash:"4.17.21",loglevel:"1.8.1",prettier:"3.1.0",puppeteer:"2.1.0",rollup:"4.4.0","rollup-plugin-banner2":"^1.2.2","rollup-plugin-dev":"2.0.4","rollup-plugin-ejs":"4.0.0","rollup-plugin-re":"1.0.7","rollup-plugin-scss-string":"github:machsix/rollup-plugin-scss-string",yargs:"17.7.2"};var pkg = {name:name,version:version,description:description,main:main,author:author,license:license,type:type,bugs:bugs,homepage:homepage,directories:directories,repository:repository,scripts:scripts,husky:husky,keywords:keywords,devDependencies:devDependencies,dependencies:dependencies};
+	var name="super-preloader";var version="7.0.1";var description="Super-preloader";var main="dist/Super_preloaderPlus_one_New.user.js";var author="Mach6";var license="GPL-3.0";var type="module";var bugs={url:"https://github.com/machsix/Super-preloader/issues"};var homepage="https://github.com/machsix/Super-preloader";var directories={doc:"docs"};var repository={type:"git",url:"git+https://github.com/machsix/Super-preloader.git"};var scripts={lint:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.mjs\"",fix:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.mjs\" --fix",format:"prettier --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.mjs\" \"docs/**/*.{js,md}\"","format:check":"prettier --check \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.mjs\" \"docs/**/*.{js,md}\"","format:staged":"lint-staged -v",check:"npm run lint && npm run typecheck",test:"cd test && node test.js",dev:"rollup -c --dev -w",build:"rollup -c","docs:dev":"cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress dev docs","docs:build":"cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh",preversion:"npm run check",version:"npm run build  && git add dist/*.js && git add dist/*.json",postversion:"git add package.json package-lock.json && npm run test","publish:patch":"npm --no-git-tag-version version patch",publish:"npm --no-git-tag-version version minor",typecheck:"tsc -p jsconfig.json --noEmit"};var husky={hooks:{"pre-commit":"npm run check"}};var keywords=["userscript"];var devDependencies={"@vuepress/plugin-back-to-top":"2.0.0-rc.0","@vuepress/plugin-google-analytics":"2.0.0-rc.0","@vuepress/plugin-register-components":"2.0.0-rc.0",typescript:"5.3.2",vuepress:"2.0.0-rc.0"};var dependencies={"@babel/core":"7.23.3","@babel/plugin-syntax-import-attributes":"7.23.3","@babel/plugin-transform-runtime":"7.23.4","@babel/preset-env":"7.23.3","@rollup/plugin-babel":"6.0.4","@rollup/plugin-commonjs":"25.0.7","@rollup/plugin-json":"6.0.1","@rollup/plugin-node-resolve":"15.2.3","@types/greasemonkey":"4.0.7","@types/lodash":"4.14.202","babel-plugin-lodash":"3.3.4","babel-plugin-wildcard":"7.0.0","compare-versions":"6.1.0","cross-env":"7.0.3",displacejs:"https://github.com/machsix/displace.git#v1.4.0",eslint:"8.54.0","eslint-config-prettier":"9.0.0","eslint-plugin-import":"2.29.0","eslint-plugin-json":"3.1.0","eslint-plugin-prettier":"5.0.1","extract-zip":"2.0.1",got:"13.0.0",husky:"8.0.3","lint-staged":"15.1.0",lodash:"4.17.21",loglevel:"1.8.1",prettier:"3.1.0",puppeteer:"2.1.0",rollup:"4.5.0","rollup-plugin-banner2":"1.2.2","rollup-plugin-dev":"2.0.4","rollup-plugin-ejs":"4.0.0","rollup-plugin-re":"1.0.7","rollup-plugin-scss-string":"github:machsix/rollup-plugin-scss-string",yargs:"17.7.2"};var pkg = {name:name,version:version,description:description,main:main,author:author,license:license,type:type,bugs:bugs,homepage:homepage,directories:directories,repository:repository,scripts:scripts,husky:husky,keywords:keywords,devDependencies:devDependencies,dependencies:dependencies};
 
 	// Information of script
 	var now = new Date();
@@ -4185,7 +4185,7 @@
 // @homepageURL  ${SCRIPT_INFO.homepageURL}
 // @downloadURL  ${SCRIPT_INFO.downloadURL}
 // @updateURL    ${SCRIPT_INFO.updateURL}
-// @supportURL   ${SCRIPT_INFO.greasyfork}/feedback
+// @supportURL   ${SCRIPT_INFO.homepageURL}/issue
 // @contributionURL https://ko-fi.com/machsix
 // @icon         ${SCRIPT_INFO.icon}
 // @require      https://cdn.jsdelivr.net/gh/machsix/gm4-polyfill@3ac89770e4dcb69123c749a71f101fb462eaada8/gm4-polyfill-mach6-legacy.js
@@ -7023,9 +7023,9 @@
 
 	function ownKeys$1(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
 	function _objectSpread$1(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$1(Object(t), !0).forEach(function (r) { _defineProperty$2(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$1(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
-	function _createForOfIteratorHelper$1(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray$1(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
-	function _unsupportedIterableToArray$1(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray$1(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray$1(o, minLen); }
-	function _arrayLikeToArray$1(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+	function _createForOfIteratorHelper$2(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray$2(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+	function _unsupportedIterableToArray$2(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray$2(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray$2(o, minLen); }
+	function _arrayLikeToArray$2(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 	var got = got$1.create({
 	  cache: false
 	});
@@ -7073,7 +7073,7 @@
 	          case 0:
 	            rule = [];
 	            e = null;
-	            _iterator = _createForOfIteratorHelper$1(_this.url);
+	            _iterator = _createForOfIteratorHelper$2(_this.url);
 	            _context.prev = 3;
 	            _iterator.s();
 	          case 5:
@@ -7359,6 +7359,9 @@
 
 	function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
 	function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty$2(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+	function _createForOfIteratorHelper$1(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray$1(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+	function _unsupportedIterableToArray$1(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray$1(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray$1(o, minLen); }
+	function _arrayLikeToArray$1(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 	// ---------------------- Settings stored in GM storaged, changed by control pannel ---------------
 	/**@type {ISettings} */
 	var factorySettings = {
@@ -7612,12 +7615,13 @@
 	}
 	function _getServerIp() {
 	  _getServerIp = _asyncToGenerator$1( /*#__PURE__*/_regeneratorRuntime.mark(function _callee3(hostname) {
-	    var res, result;
+	    var ipv4Regex, res, result, _iterator, _step, d;
 	    return _regeneratorRuntime.wrap(function _callee3$(_context3) {
 	      while (1) switch (_context3.prev = _context3.next) {
 	        case 0:
-	          _context3.prev = 0;
-	          _context3.next = 3;
+	          ipv4Regex = /^(\d{1,3}\.){3}\d{1,3}$/;
+	          _context3.prev = 1;
+	          _context3.next = 4;
 	          return got$1.get('https://1.1.1.1/dns-query', {
 	            searchParams: {
 	              name: hostname,
@@ -7627,19 +7631,48 @@
 	              accept: 'application/dns-json'
 	            }
 	          });
-	        case 3:
+	        case 4:
 	          res = _context3.sent;
 	          result = JSON.parse(res.data);
-	          return _context3.abrupt("return", result.Answer[0].data);
-	        case 8:
-	          _context3.prev = 8;
-	          _context3.t0 = _context3["catch"](0);
+	          _iterator = _createForOfIteratorHelper$1(result.Answer);
+	          _context3.prev = 7;
+	          _iterator.s();
+	        case 9:
+	          if ((_step = _iterator.n()).done) {
+	            _context3.next = 15;
+	            break;
+	          }
+	          d = _step.value;
+	          if (!ipv4Regex.test(d.data)) {
+	            _context3.next = 13;
+	            break;
+	          }
+	          return _context3.abrupt("return", d.data);
+	        case 13:
+	          _context3.next = 9;
+	          break;
+	        case 15:
+	          _context3.next = 20;
+	          break;
+	        case 17:
+	          _context3.prev = 17;
+	          _context3.t0 = _context3["catch"](7);
+	          _iterator.e(_context3.t0);
+	        case 20:
+	          _context3.prev = 20;
+	          _iterator.f();
+	          return _context3.finish(20);
+	        case 23:
 	          return _context3.abrupt("return", '127.0.0.1');
-	        case 11:
+	        case 26:
+	          _context3.prev = 26;
+	          _context3.t1 = _context3["catch"](1);
+	          return _context3.abrupt("return", '127.0.0.1');
+	        case 29:
 	        case "end":
 	          return _context3.stop();
 	      }
-	    }, _callee3, null, [[0, 8]]);
+	    }, _callee3, null, [[1, 26], [7, 17, 20, 23]]);
 	  }));
 	  return _getServerIp.apply(this, arguments);
 	}
@@ -11949,8 +11982,10 @@
 	        }
 	        var _loop = function _loop() {
 	            var SII = SSRules[i];
-	            if ('ip' in SII && SII.ip.indexOf(serverIp) < 0) {
-	              return 0; // continue
+	            if (SII.autopager && SII.autopager.ip) {
+	              if (SII.autopager.ip.indexOf(serverIp) < 0) {
+	                return 0; // continue
+	              }
 	            }
 	            Rurl = toRE(SII.url);
 	            if (Rurl.test(url)) {

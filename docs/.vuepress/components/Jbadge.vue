@@ -1,8 +1,8 @@
 <template>
    <span>
      <Badge text="JS" type="tip" v-if="js"/>
-     <Badge text="JSON" type="warn" v-if="json"/>
-     <Bagde text="Optional" type="error" v-if="opt"/>
+     <Badge text="JSON" type="warning" v-if="json"/>
+     <Bagde text="Optional" type="danger" v-if="opt"/>
    </span>
 </template>
 <script>

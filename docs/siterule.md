@@ -31,17 +31,17 @@ We prefer [JSON data](https://developer.mozilla.org/en/docs/Web/JavaScript/Refer
 
 ### enable
 
-- **type**: `Boolean` <Badge text="Optional" type="error" />
+- **type**: `Boolean` <Badge text="Optional" type="danger" />
 - **default**: `true`
 - **description**: set to false to disable both autopager and preloader
 
 ### useiframe
 
-- **type**: `Boolean` <Badge text="Optional" type="error" />
+- **type**: `Boolean` <Badge text="Optional" type="danger" />
 - **default**: `false`
 - **description**: user iframe to preload next page content and display it
 
-### exampleUrl <Badge text="Optional" type="error" />
+### exampleUrl <Badge text="Optional" type="danger" />
 
 - **type**: `String` <Jbadge/>
 - **description**: example of the URL
@@ -82,7 +82,7 @@ The script finds the URL of `next page` based on `nextLink`. We provide a variet
 
 6. [Object]() complex mode, check the function `hrefInc` to learn more<Jbadge/>
 
-### prevLink <Badge text="Optional" type="error" />
+### prevLink <Badge text="Optional" type="danger" />
 
 It serves the same function as [nextLink](#nextlink) but is designed for previous page. Usually you don't need it :joy:
 
@@ -115,7 +115,7 @@ The script finds the elements that are joined together automatically when the pa
 
 ## Rules enhancements
 
-In addition to the basic elements, the rule can also contain an `Object` with `key` as `autopager` for enhanced functionality. `autopager` can contain the following `key`. All `key` are <Badge text="Optional" type="error" />
+In addition to the basic elements, the rule can also contain an `Object` with `key` as `autopager` for enhanced functionality. `autopager` can contain the following `key`. All `key` are <Badge text="Optional" type="danger" />
 
 ### enable
 
@@ -131,31 +131,31 @@ In addition to the basic elements, the rule can also contain an `Object` with `k
 
 ### iloaded
 
-- **type**: `Boolean` <Jbadge/><Badge text="useriframe: true" type="error" />
+- **type**: `Boolean` <Jbadge/><Badge text="useriframe: true" type="danger" />
 - **default**: `false`
 - **description**: Whether to operate after the iframe is fully loaded.. otherwise the script will start after the DOM is loaded.
 
 ### itimeout
 
-- **type**: `Number` <Jbadge/><Badge text="useriframe: true" type="error" />
+- **type**: `Number` <Jbadge/><Badge text="useriframe: true" type="danger" />
 - **default**: `0`
 - **description**: Delay when `iloaded` is `false`, in milliseconds
 
 ### newIframe
 
-- **type**: `Boolean` <Jbadge/><Badge text="useriframe: true" type="error" />
+- **type**: `Boolean` <Jbadge/><Badge text="useriframe: true" type="danger" />
 - **default**: `false`
 - **description**: Whether to create a new `iframe` when flipping the current page +2, in some cases there is a miracle
 
 ### reload
 
-- **type**: `Boolean` <Jbadge/><Badge text="useriframe: true" type="error" />
+- **type**: `Boolean` <Jbadge/><Badge text="useriframe: true" type="danger" />
 - **default**: `false`
 - **description**: Force overloading of `iframe`, which has some effects in some cases
 
 ### force_enable
 
-- **type**: `Boolean` <Jbadge/> <Badge text="Not Recommend" type="error" />
+- **type**: `Boolean` <Jbadge/> <Badge text="Not Recommend" type="danger" />
 - **default**: `false`
 - **description**: If it is really difficult to find [pageElement](/en/siterule.md#pageelement), turning this option on will make the entire page spliced ​​up.
 

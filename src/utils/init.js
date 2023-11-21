@@ -173,6 +173,7 @@ export async function saveSettings(values) {
 }
 
 export async function getServerIp(hostname) {
+  const ipv4Regex = /^(\d{1,3}\.){3}\d{1,3}$/;
   try {
     const res = await got.get('https://1.1.1.1/dns-query', {
       searchParams: {
@@ -183,9 +184,13 @@ export async function getServerIp(hostname) {
         accept: 'application/dns-json'
       }
     });
-
     const result = JSON.parse(res.data);
-    return result.Answer[0].data;
+    for (const d of result.Answer) {
+      if (ipv4Regex.test(d.data)) {
+        return d.data;
+      }
+    }
+    return '127.0.0.1';
   } catch (error) {
     return '127.0.0.1';
   }

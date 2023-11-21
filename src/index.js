@@ -2084,8 +2084,10 @@ import notice from './utils/notice.js';
 
           for (var i = 0; i < ii; i++) {
             const SII = SSRules[i];
-            if ('ip' in SII && SII.ip.indexOf(serverIp) < 0) {
-              continue;
+            if (SII.autopager && SII.autopager.ip) {
+              if (SII.autopager.ip.indexOf(serverIp) < 0) {
+                continue;
+              }
             }
             Rurl = toRE(SII.url);
             if (Rurl.test(url)) {
