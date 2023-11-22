@@ -1784,6 +1784,7 @@
     "pageElement": "//li[contains(@class,'post')]",
     "exampleUrl": "https://www.4khd.com/search/forger",
     "nextLink": "//span[contains(@class, 'current')]/following-sibling::a",
+    "useiframe": true,
     "category": ["gallery", "nsfw"],
     "autopager": {
       "ipages": [true, 10],
@@ -1796,6 +1797,7 @@
     "pageElement": "//div[contains(@class,'entry-content')]/div[@class='page-link-box']/preceding::div[1]",
     "exampleUrl": "http://www.xrmn01.com/XiuRen/2023/202314246.html",
     "nextLink": "//li[@class='numpages current']/following-sibling::li/a",
+    "useiframe": true,
     "category": ["gallery", "nsfw"],
     "autopager": {
       "ipages": [true, 10],
