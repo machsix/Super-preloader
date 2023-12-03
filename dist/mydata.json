@@ -1779,19 +1779,6 @@
     }
   },
   {
-    "name": "4khd",
-    "url": "^https?://www\\.4khd\\.com(/(pages|search|\\?query).*)?",
-    "pageElement": "//li[contains(@class,'post')]",
-    "exampleUrl": "https://www.4khd.com/search/forger",
-    "nextLink": "//span[contains(@class, 'current')]/following-sibling::a",
-    "useiframe": true,
-    "category": ["gallery", "nsfw"],
-    "autopager": {
-      "ipages": [true, 10],
-      "separator": false
-    }
-  },
-  {
     "name": "4khd_post",
     "url": "^https?://www\\.4khd\\.com/.*\\.html$",
     "pageElement": "//div[contains(@class,'entry-content')]/div[@class='page-link-box']/preceding::div[1]",

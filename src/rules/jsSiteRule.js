@@ -154,6 +154,28 @@ export const jsSiteRule = [
     }
   },
   {
+    name: '4khd',
+    url: '^https?://www\\.4khd\\.com(/(pages|search|\\?query).*)?',
+    pageElement: "//li[contains(@class,'post')]",
+    exampleUrl: 'https://www.4khd.com/search/forger',
+    nextLink: "//span[contains(@class, 'current')]/following-sibling::a",
+    autopager: {
+      useiframe: true,
+      ipages: [true, 10],
+      separator: false,
+      startFilter: function (doc, _win) {
+        // 设置百度搜索类型为 s?wd=
+        try {
+          const elem = doc.querySelector('.fr-mobile-hide');
+          if (elem) {
+            const className = elem.className;
+            elem.setAttribute('class', className.replace('fr-mobile-hide', '').replace('fr-tablet-hide', ''));
+          }
+        } catch (ex) {}
+      }
+    }
+  },
+  {
     name: '百度搜索',
     url: '^https?://www\\.baidu\\.com/',
     // 由于 Super_preloader 默认去掉了 # 后面部分
