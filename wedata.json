@@ -1,5 +1,50 @@
 [
 {
+  "resource_url": "http://wedata.net/items/86191",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//section[contains(concat(' ', @class, ' '), ' entry-content ')]",
+    "nextLink": "//li[contains(concat(' ', @class, ' '), ' next ')]/a",
+    "url": "^https://cancam\\.jp/archives/.",
+    "exampleUrl": "https://cancam.jp/archives/1162153"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "Griever3",
+  "name": "CanCam.jp 分割記事",
+  "created_at": "2023-11-26T21:56:24+09:00",
+  "updated_at": "2023-11-26T21:56:24+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/86189",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//div[contains(concat(' ',@class,' '),' itemcolmn ')]/div",
+    "nextLink": "//a[contains(concat(' ',@class,' '),' next ')]",
+    "url": "^https://netmall\\.hardoff\\.co\\.jp/cate/",
+    "exampleUrl": "https://netmall.hardoff.co.jp/cate/00010012/?q=%E3%83%9D%E3%82%B1%E3%83%A2%E3%83%B3"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m'",
+  "name": "HARD OFF 通販 netmall",
+  "created_at": "2023-11-24T18:38:36+09:00",
+  "updated_at": "2023-11-24T18:38:36+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/86188",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//ul[@class='store_list2']/li",
+    "nextLink": "//a[@rel='next']",
+    "url": "^https://www\\.hardoff\\.co\\.jp/shop/list/",
+    "exampleUrl": "https://www.hardoff.co.jp/shop/list/?pg=1&a=13&w=&t1=on&t3=on&t8=on&t5=on&t4=on&t6=on&t2=on&t9=on"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m'",
+  "name": "HARD OFF 店舗",
+  "created_at": "2023-11-24T18:33:09+09:00",
+  "updated_at": "2023-11-24T18:33:09+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/86187",
   "data": {
     "insertBefore": "",
@@ -11663,18 +11708,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/82004",
-  "name": "CanCam.jp",
-  "created_by": "t_f_m",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2018-10-25T22:23:43+09:00",
   "data": {
-    "exampleUrl": "https://cancam.jp/archives/577651",
+    "pageElement": "id(\"primary\")/*",
+    "nextLink": "//a[@rel=\"prev\"]",
     "url": "^https://cancam\\.jp/archives/",
-    "pageElement": "id(\"primary\")",
-    "insertBefore": "",
-    "nextLink": "//a[@rel=\"prev\"]"
+    "exampleUrl": "https://cancam.jp/archives/577651"
   },
-  "created_at": "2018-10-25T22:23:43+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m",
+  "name": "CanCam.jp",
+  "created_at": "2018-10-25T22:23:43+09:00",
+  "updated_at": "2023-11-26T21:58:17+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/82003",
@@ -23788,18 +23832,18 @@
 },
 {
   "resource_url": "http://wedata.net/items/76697",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "data": {
-    "exampleUrl": "http://www.webdoku.jp/rensai/sakka/michi155_tsumura/20141217_3.html http://www.webdoku.jp/rensai/sakka/michi84.html http://www.webdoku.jp/rensai/sakka/michi68.html http://www.webdoku.jp/rensai/sakka/michi31.html",
     "pageElement": "//div[@class=\"entry-content\"]|id(\"sakka\")|id(\"sakka-header\")[.//p[contains(@class,\"date\")]]",
+    "comment": "cf.http://wedata.net/items/63656",
     "nextLink": "//p[contains(@class,\"contentNavi\")]/a[1]",
-    "url": "^http://www\\.webdoku\\.jp/rensai/sakka/michi",
-    "comment": "cf.http://wedata.net/items/63656"
+    "url": "^https://www\\.webdoku\\.jp/rensai/sakka/michi",
+    "exampleUrl": "http://www.webdoku.jp/rensai/sakka/michi155_tsumura/20141217_3.html http://www.webdoku.jp/rensai/sakka/michi84.html http://www.webdoku.jp/rensai/sakka/michi68.html http://www.webdoku.jp/rensai/sakka/michi31.html"
   },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "jigendaddy_be",
   "name": "WEB本の雑誌 作家の読書道 個別記事",
   "created_at": "2014-12-18T15:49:28+09:00",
-  "updated_at": "2014-12-18T17:53:34+09:00"
+  "updated_at": "2023-12-01T03:08:58+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/76693",

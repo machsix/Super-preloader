@@ -9,9 +9,9 @@
 // @author       Mach6
 // @contributers alexolog, heroboy, suchunchen, YFdyh000
 // @thanksto     ywzhaiqi, NLF
-// @version      7.0.2
+// @version      7.0.3
 // @license      GPL-3.0
-// @update       2023/11/21
+// @update       2023/12/2
 // @homepageURL  https://github.com/machsix/Super-preloader
 // @downloadURL  https://machsix.github.io/Super-preloader/Super_preloaderPlus_one_New.user.js
 // @updateURL    https://machsix.github.io/Super-preloader/Super_preloaderPlus_one_New.user.js
@@ -4126,7 +4126,7 @@
 	  }
 	}
 
-	var name="super-preloader";var version="7.0.2";var description="Super-preloader";var main="dist/Super_preloaderPlus_one_New.user.js";var author="Mach6";var license="GPL-3.0";var type="module";var bugs={url:"https://github.com/machsix/Super-preloader/issues"};var homepage="https://github.com/machsix/Super-preloader";var directories={doc:"docs"};var repository={type:"git",url:"git+https://github.com/machsix/Super-preloader.git"};var scripts={lint:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.mjs\"",fix:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.mjs\" --fix",format:"prettier --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.mjs\" \"docs/**/*.{js,md}\"","format:check":"prettier --check \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.mjs\" \"docs/**/*.{js,md}\"","format:staged":"lint-staged -v",check:"npm run lint && npm run typecheck",test:"cd test && node test.js",dev:"rollup -c --dev -w",build:"rollup -c","docs:dev":"cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress dev docs","docs:build":"cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh",preversion:"npm run check",version:"npm run build  && git add dist/*.js && git add dist/*.json",postversion:"git add package.json package-lock.json && npm run test","publish:patch":"npm --no-git-tag-version version patch",publish:"npm --no-git-tag-version version minor",typecheck:"tsc -p jsconfig.json --noEmit"};var husky={hooks:{"pre-commit":"npm run check"}};var keywords=["userscript"];var devDependencies={"@vuepress/plugin-back-to-top":"2.0.0-rc.0","@vuepress/plugin-google-analytics":"2.0.0-rc.0","@vuepress/plugin-register-components":"2.0.0-rc.0",typescript:"5.3.2",vuepress:"2.0.0-rc.0"};var dependencies={"@babel/core":"7.23.3","@babel/plugin-syntax-import-attributes":"7.23.3","@babel/plugin-transform-runtime":"7.23.4","@babel/preset-env":"7.23.3","@rollup/plugin-babel":"6.0.4","@rollup/plugin-commonjs":"25.0.7","@rollup/plugin-json":"6.0.1","@rollup/plugin-node-resolve":"15.2.3","@types/greasemonkey":"4.0.7","@types/lodash":"4.14.202","babel-plugin-lodash":"3.3.4","babel-plugin-wildcard":"7.0.0","compare-versions":"6.1.0","cross-env":"7.0.3",displacejs:"https://github.com/machsix/displace.git#v1.4.0",eslint:"8.54.0","eslint-config-prettier":"9.0.0","eslint-plugin-import":"2.29.0","eslint-plugin-json":"3.1.0","eslint-plugin-prettier":"5.0.1","extract-zip":"2.0.1",got:"13.0.0",husky:"8.0.3","lint-staged":"15.1.0",lodash:"4.17.21",loglevel:"1.8.1",prettier:"3.1.0",puppeteer:"2.1.0",rollup:"4.5.0","rollup-plugin-banner2":"1.2.2","rollup-plugin-dev":"2.0.4","rollup-plugin-ejs":"4.0.0","rollup-plugin-re":"1.0.7","rollup-plugin-scss-string":"github:machsix/rollup-plugin-scss-string",yargs:"17.7.2"};var pkg = {name:name,version:version,description:description,main:main,author:author,license:license,type:type,bugs:bugs,homepage:homepage,directories:directories,repository:repository,scripts:scripts,husky:husky,keywords:keywords,devDependencies:devDependencies,dependencies:dependencies};
+	var name="super-preloader";var version="7.0.3";var description="Super-preloader";var main="dist/Super_preloaderPlus_one_New.user.js";var author="Mach6";var license="GPL-3.0";var type="module";var bugs={url:"https://github.com/machsix/Super-preloader/issues"};var homepage="https://github.com/machsix/Super-preloader";var directories={doc:"docs"};var repository={type:"git",url:"git+https://github.com/machsix/Super-preloader.git"};var scripts={lint:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.mjs\"",fix:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.mjs\" --fix",format:"prettier --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.mjs\" \"docs/**/*.{js,md}\"","format:check":"prettier --check \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.mjs\" \"docs/**/*.{js,md}\"","format:staged":"lint-staged -v",check:"npm run lint && npm run typecheck",test:"cd test && node test.js",dev:"rollup -c --dev -w",build:"rollup -c","docs:dev":"cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress dev docs","docs:build":"cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh",preversion:"npm run check",version:"npm run build  && git add dist/*.js && git add dist/*.json",postversion:"git add package.json package-lock.json && npm run test","publish:patch":"npm --no-git-tag-version version patch",publish:"npm --no-git-tag-version version minor",typecheck:"tsc -p jsconfig.json --noEmit"};var husky={hooks:{"pre-commit":"npm run check"}};var keywords=["userscript"];var devDependencies={"@vuepress/plugin-back-to-top":"2.0.0-rc.0","@vuepress/plugin-google-analytics":"2.0.0-rc.0","@vuepress/plugin-register-components":"2.0.0-rc.0",typescript:"5.3.2",vuepress:"2.0.0-rc.0"};var dependencies={"@babel/core":"7.23.3","@babel/plugin-syntax-import-attributes":"7.23.3","@babel/plugin-transform-runtime":"7.23.4","@babel/preset-env":"7.23.3","@rollup/plugin-babel":"6.0.4","@rollup/plugin-commonjs":"25.0.7","@rollup/plugin-json":"6.0.1","@rollup/plugin-node-resolve":"15.2.3","@types/greasemonkey":"4.0.7","@types/lodash":"4.14.202","babel-plugin-lodash":"3.3.4","babel-plugin-wildcard":"7.0.0","compare-versions":"6.1.0","cross-env":"7.0.3",displacejs:"https://github.com/machsix/displace.git#v1.4.0",eslint:"8.54.0","eslint-config-prettier":"9.0.0","eslint-plugin-import":"2.29.0","eslint-plugin-json":"3.1.0","eslint-plugin-prettier":"5.0.1","extract-zip":"2.0.1",got:"13.0.0",husky:"8.0.3","lint-staged":"15.1.0",lodash:"4.17.21",loglevel:"1.8.1",prettier:"3.1.0",puppeteer:"2.1.0",rollup:"4.6.0","rollup-plugin-banner2":"1.2.2","rollup-plugin-dev":"2.0.4","rollup-plugin-ejs":"4.0.0","rollup-plugin-re":"1.0.7","rollup-plugin-scss-string":"github:machsix/rollup-plugin-scss-string",yargs:"17.7.2"};var pkg = {name:name,version:version,description:description,main:main,author:author,license:license,type:type,bugs:bugs,homepage:homepage,directories:directories,repository:repository,scripts:scripts,husky:husky,keywords:keywords,devDependencies:devDependencies,dependencies:dependencies};
 
 	// Information of script
 	var now = new Date();
@@ -9019,6 +9019,27 @@
 	      } else {
 	        console.log('%cMicrosoft is %s', 'font-weight:bold;color:00bbee', emoji('1F451'));
 	      }
+	    }
+	  }
+	}, {
+	  name: '4khd',
+	  url: '^https?://www\\.4khd\\.com(/(pages|search|\\?query).*)?',
+	  pageElement: "//li[contains(@class,'post')]",
+	  exampleUrl: 'https://www.4khd.com/search/forger',
+	  nextLink: "//span[contains(@class, 'current')]/following-sibling::a",
+	  autopager: {
+	    useiframe: true,
+	    ipages: [true, 10],
+	    separator: false,
+	    startFilter: function startFilter(doc, _win) {
+	      // 设置百度搜索类型为 s?wd=
+	      try {
+	        var elem = doc.querySelector('.fr-mobile-hide');
+	        if (elem) {
+	          var className = elem.className;
+	          elem.setAttribute('class', className.replace('fr-mobile-hide', '').replace('fr-tablet-hide', ''));
+	        }
+	      } catch (ex) {}
 	    }
 	  }
 	}, {
