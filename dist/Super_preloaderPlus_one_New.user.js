@@ -9,9 +9,9 @@
 // @author       Mach6
 // @contributers alexolog, heroboy, suchunchen, YFdyh000
 // @thanksto     ywzhaiqi, NLF
-// @version      7.0.4
+// @version      7.0.5
 // @license      GPL-3.0
-// @update       2023/12/3
+// @update       2023/12/4
 // @homepageURL  https://github.com/machsix/Super-preloader
 // @downloadURL  https://machsix.github.io/Super-preloader/Super_preloaderPlus_one_New.user.js
 // @updateURL    https://machsix.github.io/Super-preloader/Super_preloaderPlus_one_New.user.js
@@ -4126,7 +4126,7 @@
 	  }
 	}
 
-	var name="super-preloader";var version="7.0.4";var description="Super-preloader";var main="dist/Super_preloaderPlus_one_New.user.js";var author="Mach6";var license="GPL-3.0";var type="module";var bugs={url:"https://github.com/machsix/Super-preloader/issues"};var homepage="https://github.com/machsix/Super-preloader";var directories={doc:"docs"};var repository={type:"git",url:"git+https://github.com/machsix/Super-preloader.git"};var scripts={lint:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.mjs\"",fix:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.mjs\" --fix",format:"prettier --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.mjs\" \"docs/**/*.{js,md}\"","format:check":"prettier --check \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.mjs\" \"docs/**/*.{js,md}\"","format:staged":"lint-staged -v",check:"npm run lint && npm run typecheck",test:"cd test && node test.js",dev:"rollup -c --dev -w",build:"rollup -c","docs:dev":"cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress dev docs","docs:build":"cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh",preversion:"npm run check",version:"npm run build  && git add dist/*.js && git add dist/*.json",postversion:"git add package.json package-lock.json && npm run test","publish:patch":"npm --no-git-tag-version version patch",publish:"npm --no-git-tag-version version minor",typecheck:"tsc -p jsconfig.json --noEmit"};var husky={hooks:{"pre-commit":"npm run check"}};var keywords=["userscript"];var devDependencies={"@vuepress/plugin-back-to-top":"2.0.0-rc.0","@vuepress/plugin-google-analytics":"2.0.0-rc.0","@vuepress/plugin-register-components":"2.0.0-rc.0",typescript:"5.3.2",vuepress:"2.0.0-rc.0"};var dependencies={"@babel/core":"7.23.3","@babel/plugin-syntax-import-attributes":"7.23.3","@babel/plugin-transform-runtime":"7.23.4","@babel/preset-env":"7.23.3","@rollup/plugin-babel":"6.0.4","@rollup/plugin-commonjs":"25.0.7","@rollup/plugin-json":"6.0.1","@rollup/plugin-node-resolve":"15.2.3","@types/greasemonkey":"4.0.7","@types/lodash":"4.14.202","babel-plugin-lodash":"3.3.4","babel-plugin-wildcard":"7.0.0","compare-versions":"6.1.0","cross-env":"7.0.3",displacejs:"https://github.com/machsix/displace.git#v1.4.0",eslint:"8.54.0","eslint-config-prettier":"9.0.0","eslint-plugin-import":"2.29.0","eslint-plugin-json":"3.1.0","eslint-plugin-prettier":"5.0.1","extract-zip":"2.0.1",got:"13.0.0",husky:"8.0.3","lint-staged":"15.1.0",lodash:"4.17.21",loglevel:"1.8.1",prettier:"3.1.0",puppeteer:"2.1.0",rollup:"4.6.0","rollup-plugin-banner2":"1.2.2","rollup-plugin-dev":"2.0.4","rollup-plugin-ejs":"4.0.0","rollup-plugin-re":"1.0.7","rollup-plugin-scss-string":"github:machsix/rollup-plugin-scss-string",yargs:"17.7.2"};var pkg = {name:name,version:version,description:description,main:main,author:author,license:license,type:type,bugs:bugs,homepage:homepage,directories:directories,repository:repository,scripts:scripts,husky:husky,keywords:keywords,devDependencies:devDependencies,dependencies:dependencies};
+	var name="super-preloader";var version="7.0.5";var description="Super-preloader";var main="dist/Super_preloaderPlus_one_New.user.js";var author="Mach6";var license="GPL-3.0";var type="module";var bugs={url:"https://github.com/machsix/Super-preloader/issues"};var homepage="https://github.com/machsix/Super-preloader";var directories={doc:"docs"};var repository={type:"git",url:"git+https://github.com/machsix/Super-preloader.git"};var scripts={lint:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.mjs\"",fix:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.mjs\" --fix",format:"prettier --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.mjs\" \"docs/**/*.{js,md}\"","format:check":"prettier --check \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.mjs\" \"docs/**/*.{js,md}\"","format:staged":"lint-staged -v",check:"npm run lint && npm run typecheck",test:"cd test && node test.js",dev:"rollup -c --dev -w",build:"rollup -c","docs:dev":"cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress dev docs","docs:build":"cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh",preversion:"npm run check",version:"npm run build  && git add dist/*.js && git add dist/*.json",postversion:"git add package.json package-lock.json && npm run test","publish:patch":"npm --no-git-tag-version version patch",publish:"npm --no-git-tag-version version minor",typecheck:"tsc -p jsconfig.json --noEmit"};var husky={hooks:{"pre-commit":"npm run check"}};var keywords=["userscript"];var devDependencies={"@vuepress/plugin-back-to-top":"2.0.0-rc.0","@vuepress/plugin-google-analytics":"2.0.0-rc.0","@vuepress/plugin-register-components":"2.0.0-rc.0",typescript:"5.3.2",vuepress:"2.0.0-rc.0"};var dependencies={"@babel/core":"7.23.3","@babel/plugin-syntax-import-attributes":"7.23.3","@babel/plugin-transform-runtime":"7.23.4","@babel/preset-env":"7.23.3","@rollup/plugin-babel":"6.0.4","@rollup/plugin-commonjs":"25.0.7","@rollup/plugin-json":"6.0.1","@rollup/plugin-node-resolve":"15.2.3","@types/greasemonkey":"4.0.7","@types/lodash":"4.14.202","babel-plugin-lodash":"3.3.4","babel-plugin-wildcard":"7.0.0","compare-versions":"6.1.0","cross-env":"7.0.3",displacejs:"https://github.com/machsix/displace.git#v1.4.0",eslint:"8.54.0","eslint-config-prettier":"9.0.0","eslint-plugin-import":"2.29.0","eslint-plugin-json":"3.1.0","eslint-plugin-prettier":"5.0.1","extract-zip":"2.0.1",got:"13.0.0",husky:"8.0.3","lint-staged":"15.1.0",lodash:"4.17.21",loglevel:"1.8.1",prettier:"3.1.0",puppeteer:"2.1.0",rollup:"4.6.0","rollup-plugin-banner2":"1.2.2","rollup-plugin-dev":"2.0.4","rollup-plugin-ejs":"4.0.0","rollup-plugin-re":"1.0.7","rollup-plugin-scss-string":"github:machsix/rollup-plugin-scss-string",yargs:"17.7.2"};var pkg = {name:name,version:version,description:description,main:main,author:author,license:license,type:type,bugs:bugs,homepage:homepage,directories:directories,repository:repository,scripts:scripts,husky:husky,keywords:keywords,devDependencies:devDependencies,dependencies:dependencies};
 
 	// Information of script
 	var now = new Date();
@@ -8842,6 +8842,7 @@
 	function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 	function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 	function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+
 	/**@type {Array<IRule>} */
 	var jsSiteRule = [{
 	  // 站点名字...(可选)             // 站点正则...(~~必须~~)
@@ -9073,6 +9074,36 @@
 	        ad.closest('div').remove();
 	      }
 	    }
+	  }
+	}, {
+	  name: '性感尤物search',
+	  url: '^https?://[^/]*/plus/search.*',
+	  pageElement: "//div[@class='node']",
+	  exampleUrl: 'https://www.xgmn5.xyz/plus/search/index.asp?keyword=%E5%B0%A4%E5%A6%AE%E4%B8%9D',
+	  nextLink: "//div[@class='pagination']/ul/a[@class='current']/following-sibling::a",
+	  autopager: {
+	    ip: ['209.141.54.79', '137.175.36.112'],
+	    ipages: [true, 5],
+	    startFilter: function startFilter(doc, _win) {
+	      var items = doc.querySelectorAll('div.node > a');
+	      if (items.length > 0) {
+	        items.forEach(function (a) {
+	          var link = a.getAttribute('href');
+	          got$1.get(link).then(function (res) {
+	            var docPage = new DOMParser().parseFromString(res.data, 'text/html');
+	            var imgHref = docPage.querySelector('article.article-content > p > img').getAttribute('src');
+	            var newImg = createDOM('img', {
+	              attr: {
+	                src: imgHref,
+	                style: 'display:block; width:50%; height:auto;'
+	              }
+	            });
+	            a.parentNode.insertBefore(newImg, a.nextSibling);
+	          });
+	        });
+	      }
+	    },
+	    documentFilter: 'startFilter'
 	  }
 	}, {
 	  name: '性感尤物2',

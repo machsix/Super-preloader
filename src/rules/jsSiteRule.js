@@ -3,6 +3,8 @@
 import {getAllElementsByXpath, getElementByXpath} from '../utils/domSelector.js';
 import {createDOM} from '../utils/domTools.js';
 import emoji from '../utils/emoji.js';
+import got from '../utils/got.js';
+
 /**@type {Array<IRule>} */
 export const jsSiteRule = [
   {
@@ -207,6 +209,37 @@ export const jsSiteRule = [
           ad.closest('div').remove();
         }
       }
+    }
+  },
+  {
+    name: '性感尤物search',
+    url: '^https?://[^/]*/plus/search.*',
+    pageElement: "//div[@class='node']",
+    exampleUrl: 'https://www.xgmn5.xyz/plus/search/index.asp?keyword=%E5%B0%A4%E5%A6%AE%E4%B8%9D',
+    nextLink: "//div[@class='pagination']/ul/a[@class='current']/following-sibling::a",
+    autopager: {
+      ip: ['209.141.54.79', '137.175.36.112'],
+      ipages: [true, 5],
+      startFilter: function (doc, _win) {
+        const items = doc.querySelectorAll('div.node > a');
+        if (items.length > 0) {
+          items.forEach((a) => {
+            const link = a.getAttribute('href');
+            got.get(link).then((res) => {
+              const docPage = new DOMParser().parseFromString(res.data, 'text/html');
+              const imgHref = docPage.querySelector('article.article-content > p > img').getAttribute('src');
+              const newImg = createDOM('img', {
+                attr: {
+                  src: imgHref,
+                  style: 'display:block; width:50%; height:auto;'
+                }
+              });
+              a.parentNode.insertBefore(newImg, a.nextSibling);
+            });
+          });
+        }
+      },
+      documentFilter: 'startFilter'
     }
   },
   {
