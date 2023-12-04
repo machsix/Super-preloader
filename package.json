@@ -74,7 +74,7 @@
     "eslint-plugin-json": "3.1.0",
     "eslint-plugin-prettier": "5.0.1",
     "extract-zip": "2.0.1",
-    "got": "13.0.0",
+    "got": "14.0.0",
     "husky": "8.0.3",
     "lint-staged": "15.1.0",
     "lodash": "4.17.21",
