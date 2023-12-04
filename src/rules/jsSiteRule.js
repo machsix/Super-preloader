@@ -176,6 +176,58 @@ export const jsSiteRule = [
     }
   },
   {
+    name: '4khd_post',
+    url: '^https?://www\\.4khd\\.com/.*\\.html$',
+    pageElement: "//div[contains(@class,'entry-content')]/div[@class='page-link-box']/preceding::div[1]",
+    nextLink: "//li[@class='numpages current']/following-sibling::li/a",
+    useiframe: true,
+    autopager: {
+      ipages: [true, 10],
+      separator: true
+    }
+  },
+  {
+    name: '性感尤物',
+    url: '^https?://[^/]*/[^/]*/[^/]*\\.html',
+    pageElement: "//article[@class='article-content']/p",
+    exampleUrl: 'http://www.xgyw.cc/Xgyw/Xgyw6874.html',
+    nextLink: "//div[@class='pagination']/ul/a[text()='下一页']",
+    autopager: {
+      ip: ['209.141.54.79', '137.175.36.112'],
+      ipages: [true, 30],
+      startFilter: function (doc, _win) {
+        const p = [doc.querySelector('div.pagination > p'), doc.querySelector('header > a[href^="http"]'), doc.querySelector('ins')];
+        p.forEach((x) => {
+          if (x) {
+            x.remove();
+          }
+        });
+        const ad = doc.querySelector('div[class^="div_"]');
+        if (ad) {
+          ad.closest('div').remove();
+        }
+      }
+    }
+  },
+  {
+    name: '性感尤物2',
+    url: '^https?://[^/]*/[^/]*/',
+    pageElement: "//div[@class='widget-title']/div",
+    exampleUrl: 'http://www.xgyw.cc/Xgyw',
+    nextLink: "//div[@class='pagination']/ul/a[text()='下一页']",
+    autopager: {
+      ip: ['209.141.54.79', '137.175.36.112'],
+      ipages: [true, 10],
+      startFilter: function (doc, _win) {
+        const a = doc.querySelectorAll('li > a[href^="/html"]');
+        a.forEach((x) => {
+          const li = x.closest('li');
+          li.remove();
+        });
+      }
+    }
+  },
+  {
     name: '百度搜索',
     url: '^https?://www\\.baidu\\.com/',
     // 由于 Super_preloader 默认去掉了 # 后面部分
