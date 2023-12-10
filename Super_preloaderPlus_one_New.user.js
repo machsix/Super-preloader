@@ -9092,12 +9092,15 @@
 	        return _regeneratorRuntime.wrap(function _callee2$(_context2) {
 	          while (1) switch (_context2.prev = _context2.next) {
 	            case 0:
+	              if (!doc.getElementById('thumbCss')) {
+	                addStyle('img.thumb{width:100%;height:auto;display:block}@media only screen and (min-width:1025px){img.thumb{width:50%}}', 'thumbCss', doc);
+	              }
 	              items = doc.querySelectorAll('div.node > a');
 	              if (!(items.length > 0)) {
-	                _context2.next = 4;
+	                _context2.next = 5;
 	                break;
 	              }
-	              _context2.next = 4;
+	              _context2.next = 5;
 	              return Promise.all([].map.call(items, /*#__PURE__*/function () {
 	                var _ref = _asyncToGenerator$1( /*#__PURE__*/_regeneratorRuntime.mark(function _callee(a) {
 	                  var link, res, docPage, img, newImg;
@@ -9115,9 +9118,11 @@
 	                          newImg = createDOM('img', {
 	                            attr: {
 	                              src: img.getAttribute('src'),
-	                              style: 'display:block; width:50%; height:auto;'
+	                              class: 'thumb'
+	                              // style: 'display:block; width:50%; height:auto;'
 	                            }
 	                          });
+
 	                          a.parentNode.insertBefore(newImg, a.nextSibling);
 	                        }
 	                      case 7:
@@ -9130,7 +9135,7 @@
 	                  return _ref.apply(this, arguments);
 	                };
 	              }()));
-	            case 4:
+	            case 5:
 	            case "end":
 	              return _context2.stop();
 	          }
