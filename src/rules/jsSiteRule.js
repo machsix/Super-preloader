@@ -4,6 +4,7 @@ import {getAllElementsByXpath, getElementByXpath} from '../utils/domSelector.js'
 import {createDOM} from '../utils/domTools.js';
 import emoji from '../utils/emoji.js';
 import got from '../utils/got.js';
+import {addStyle} from '../utils/gm-enhanced.js';
 
 /**@type {Array<IRule>} */
 export const jsSiteRule = [
@@ -221,6 +222,9 @@ export const jsSiteRule = [
       ip: ['209.141.54.79', '137.175.36.112'],
       ipages: [true, 5],
       startFilter: async function (doc, _win) {
+        if (!doc.getElementById('thumbCss')) {
+          addStyle('img.thumb{width:100%;height:auto;display:block}@media only screen and (min-width:1025px){img.thumb{width:50%}}', 'thumbCss', doc);
+        }
         const items = doc.querySelectorAll('div.node > a');
         if (items.length > 0) {
           await Promise.all(
@@ -233,7 +237,8 @@ export const jsSiteRule = [
                 const newImg = createDOM('img', {
                   attr: {
                     src: img.getAttribute('src'),
-                    style: 'display:block; width:50%; height:auto;'
+                    class: 'thumb'
+                    // style: 'display:block; width:50%; height:auto;'
                   }
                 });
                 a.parentNode.insertBefore(newImg, a.nextSibling);

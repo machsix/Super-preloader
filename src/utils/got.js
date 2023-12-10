@@ -95,6 +95,8 @@ function normalizeArguments(options, thisDefaults = defaults) {
     } catch (error) {
       delete options.prefixUrl;
     }
+  } else if (options.url[0] === '/') {
+    options.prefixUrl = `${window.location.protocol}//${window.location.host}`;
   }
 
   // `options.method`
