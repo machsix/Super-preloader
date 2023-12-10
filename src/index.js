@@ -2246,6 +2246,10 @@ import notice from './utils/notice.js';
         if (!nextlinkElem && !prelink) {
           logger.warn(`No related links found, JS execution stopped. Total time spent: ${new Date().getTime() - startTime.getTime()}ms`);
           return;
+        } else if (!nextlink) {
+          logger.error('The link to the next page does not exist, JS cannot continue.');
+          logger.debug(`Total time spent:${new Date().getTime() - startTime.getTime()}ms`);
+          return;
         } else {
           logger.debug('Previous link element:', prelink);
           logger.debug('Next link element:', nextlinkElem);
@@ -2255,7 +2259,7 @@ import notice from './utils/notice.js';
           prelink = prelink ? prelink.href || prelink : undefined;
         }
 
-        const superPreloader = {
+        const keyBinding = {
           go: function () {
             if (typeof nextlink === 'string') window.location.href = nextlink;
           },
@@ -2263,66 +2267,66 @@ import notice from './utils/notice.js';
             //fixme
             if (!prelink) getElement('auto;');
             if (typeof prelink === 'string') window.location.href = prelink;
+          },
+          register: function (/**@type {IPrefs} */ prefs) {
+            if (prefs.arrowKeyPage) {
+              logger.debug('Adding left and right arrow keys to autopager listener.');
+              document.addEventListener(
+                'keyup',
+                (e) => {
+                  //@ts-ignore
+                  const tarNN = e.target.nodeName;
+                  if (tarNN != 'BODY' && tarNN != 'HTML') return;
+
+                  // check is a combo pressed
+                  if (e.ctrlKey || e.shiftKey || e.altKey || e.metaKey) {
+                    return;
+                  }
+
+                  switch (e.keyCode) {
+                    case 37:
+                      this.back();
+                      break;
+                    case 39:
+                      this.go();
+                      break;
+                    default:
+                      break;
+                  }
+                },
+                false
+              );
+
+              // 监听下一页事件.
+              logger.debug('添加鼠标手势翻页监听');
+              document.addEventListener(
+                'superPreloader.go',
+                () => {
+                  this.go();
+                },
+                false
+              );
+
+              // 监听下一页事件.
+              document.addEventListener(
+                'superPreloader.back',
+                () => {
+                  this.back();
+                },
+                false
+              );
+            }
           }
         };
 
-        if (prefs.arrowKeyPage) {
-          logger.debug('Adding left and right arrow keys to autopager listener.');
-          document.addEventListener(
-            'keyup',
-            function (e) {
-              //@ts-ignore
-              const tarNN = e.target.nodeName;
-              if (tarNN != 'BODY' && tarNN != 'HTML') return;
-
-              // check is a combo pressed
-              if (e.ctrlKey || e.shiftKey || e.altKey || e.metaKey) {
-                return;
-              }
-
-              switch (e.keyCode) {
-                case 37:
-                  superPreloader.back();
-                  break;
-                case 39:
-                  superPreloader.go();
-                  break;
-                default:
-                  break;
-              }
-            },
-            false
-          );
-        }
-
-        // 监听下一页事件.
-        logger.debug('添加鼠标手势翻页监听');
-        document.addEventListener(
-          'superPreloader.go',
-          function () {
-            superPreloader.go();
-          },
-          false
-        );
-
-        // 监听下一页事件.
-        document.addEventListener(
-          'superPreloader.back',
-          function () {
-            superPreloader.back();
-          },
-          false
-        );
-
-        // 没找到下一页的链接
-        if (!nextlink) {
-          logger.error('The link to the next page does not exist, JS cannot continue.');
-          logger.debug(`Total time spent:${new Date().getTime() - startTime.getTime()}ms`);
-
-          return;
-        }
+        keyBinding.register(prefs);
 
         loadLocalSetting(SSS);
+        if (!SSS.enable) {
+          logger.warn('This rule is disabled, script execution is stopped');
+          logger.debug(`Total time spent:${new Date().getTime() - startTime.getTime()}ms`);
+          return;
+        }
 
         if (!SSS.hasRule) {
           SSS.a_force = true;
@@ -2369,12 +2373,6 @@ import notice from './utils/notice.js';
           document.getElementById('sp-fw-container').style.position = 'fixed';
         }
 
-        if (!SSS.enable) {
-          logger.warn('This rule is disabled, script execution is stopped');
-          logger.debug(`Total time spent:${new Date().getTime() - startTime.getTime()}ms`);
-
-          return;
-        }
         logger.debug(`Total time spent:${new Date().getTime() - startTime.getTime()}ms`);
 
         // 预读或者翻页.
