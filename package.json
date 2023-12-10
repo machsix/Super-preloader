@@ -53,7 +53,7 @@
     "vuepress": "2.0.0-rc.0"
   },
   "dependencies": {
-    "@babel/core": "7.23.3",
+    "@babel/core": "7.23.5",
     "@babel/plugin-syntax-import-attributes": "7.23.3",
     "@babel/plugin-transform-runtime": "7.23.4",
     "@babel/preset-env": "7.23.5",
