@@ -9,9 +9,9 @@
 // @author       Mach6
 // @contributers alexolog, heroboy, suchunchen, YFdyh000
 // @thanksto     ywzhaiqi, NLF
-// @version      7.0.5
+// @version      7.0.6
 // @license      GPL-3.0
-// @update       2023/12/4
+// @update       2023/12/10
 // @homepageURL  https://github.com/machsix/Super-preloader
 // @downloadURL  https://machsix.github.io/Super-preloader/Super_preloaderPlus_one_New.user.js
 // @updateURL    https://machsix.github.io/Super-preloader/Super_preloaderPlus_one_New.user.js
@@ -79,6 +79,46 @@
 	function getDefaultExportFromCjs (x) {
 		return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
 	}
+
+	function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
+	  try {
+	    var info = gen[key](arg);
+	    var value = info.value;
+	  } catch (error) {
+	    reject(error);
+	    return;
+	  }
+
+	  if (info.done) {
+	    resolve(value);
+	  } else {
+	    Promise.resolve(value).then(_next, _throw);
+	  }
+	}
+
+	function _asyncToGenerator(fn) {
+	  return function () {
+	    var self = this,
+	        args = arguments;
+	    return new Promise(function (resolve, reject) {
+	      var gen = fn.apply(self, args);
+
+	      function _next(value) {
+	        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
+	      }
+
+	      function _throw(err) {
+	        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
+	      }
+
+	      _next(undefined);
+	    });
+	  };
+	}
+
+	var asyncToGenerator = _asyncToGenerator;
+
+	var _asyncToGenerator$1 = /*@__PURE__*/getDefaultExportFromCjs(asyncToGenerator);
 
 	function _arrayWithHoles(arr) {
 	  if (Array.isArray(arr)) return arr;
@@ -3680,1455 +3720,6 @@
 
 	var _find = /*@__PURE__*/getDefaultExportFromCjs(find_1);
 
-	var _wcImport4 = ".sp-separator {\n  line-height: 1.8 !important;\n  opacity: 1 !important;\n  position: relative !important;\n  float: none !important;\n  top: 0 !important;\n  left: 0 !important;\n  min-width: 366px;\n  width: auto;\n  text-align: center !important;\n  font-size: 14px !important;\n  display: block !important;\n  padding: 3px 0 !important;\n  margin: 5px 10px 8px;\n  clear: both !important;\n  border-style: solid !important;\n  border-color: #cccccc !important;\n  border-width: 1px !important;\n  -moz-border-radius: 30px !important;\n  border-radius: 30px !important;\n  background-color: #ffffff !important;\n}\n\n.sp-separator:hover {\n  box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);\n}\n\n#sp-separator-hover {\n  display: none;\n}\n\n.sp-separator:hover #sp-separator-hover {\n  display: block;\n}\n\n.sp-separator .sp-someinfo {\n  position: absolute !important;\n  right: 10px !important;\n  font-size: 12px !important;\n  font-style: italic !important;\n  background: none !important;\n}\n\n.sp-separator img {\n  vertical-align: middle !important;\n  cursor: pointer !important;\n  padding: 0 !important;\n  margin: 0 5px !important;\n  border: none !important;\n  display: inline-block !important;\n  float: none !important;\n  width: auto;\n  height: auto;\n}\n\n.sp-separator a {\n  margin: 0 20px 0 -6px !important;\n  display: inline !important;\n  text-shadow: #fff 0 1px 0 !important;\n  background: none !important;\n  color: #595959 !important;\n}\n\n.sp-separator input {\n  padding: 0 !important;\n  line-height: 23px !important;\n}\n\n.sp-separator .sp-md-span {\n  font-weight: bold !important;\n  margin: 0 20px !important;\n}\n\n#sp-sp-md-number {\n  width: 6ch !important;\n  vertical-align: middle !important;\n  display: inline-block !important;\n  text-align: left !important;\n}";
-
-	var _wcImport3 = ".sp-prefs-spinner {\n  margin: 40px auto;\n  width: 100%;\n  height: 50px;\n  text-align: center;\n  font-size: 10px;\n}\n\n.sp-prefs-spinner > div {\n  background-color: #333;\n  height: 100%;\n  width: 25%;\n  display: inline-block;\n  -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;\n  animation: sk-stretchdelay 1.2s infinite ease-in-out;\n}\n\n.sp-prefs-spinner .rect2 {\n  -webkit-animation-delay: -1.1s;\n  animation-delay: -1.1s;\n}\n\n.sp-prefs-spinner .rect3 {\n  -webkit-animation-delay: -1s;\n  animation-delay: -1s;\n}\n\n.sp-prefs-spinner .rect4 {\n  -webkit-animation-delay: -0.9s;\n  animation-delay: -0.9s;\n}\n\n.sp-prefs-spinner .rect5 {\n  -webkit-animation-delay: -0.8s;\n  animation-delay: -0.8s;\n}\n\n@-webkit-keyframes sk-stretchdelay {\n  0%, 40%, 100% {\n    -webkit-transform: scaleY(0.4);\n  }\n  20% {\n    -webkit-transform: scaleY(1);\n  }\n}\n@keyframes sk-stretchdelay {\n  0%, 40%, 100% {\n    transform: scaleY(0.4);\n    -webkit-transform: scaleY(0.4);\n  }\n  20% {\n    transform: scaleY(1);\n    -webkit-transform: scaleY(1);\n  }\n}";
-
-	var _wcImport2 = "@charset \"UTF-8\";\n#sp-prefs-setup {\n  z-index: 2147483647;\n  padding: 20px 30px;\n  box-sizing: content-box;\n  border-radius: 3px !important;\n  border: 1px solid #a0a0a0 !important;\n  box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.3) !important;\n  background: -moz-linear-gradient(top, #fcfcfc, #f2f2f7 100%) !important;\n  background: -webkit-gradient(linear, 0 0, 0 100%, from(#fcfcfc), to(#f2f2f7)) !important;\n  font-family: \"Arial\", \"sans-serif\" !important;\n  color: transparent;\n  max-height: 80%;\n  overflow: auto;\n}\n\n#sp-prefs-setup * {\n  color: black;\n  text-align: left;\n  line-height: normal;\n  font-size: 12px;\n  min-height: 12px;\n}\n\n#sp-prefs-setup a {\n  color: black;\n  text-decoration: underline;\n}\n\n#sp-prefs-setup div {\n  text-align: center;\n  font-weight: bold;\n  font-size: 15px;\n}\n\n#sp-prefs-setup ul {\n  margin: 15px 0 15px 0;\n  padding: 0;\n  list-style: none;\n  background: none;\n  border: 0;\n}\n\n#sp-prefs-setup input,\n#sp-prefs-setup select {\n  border: 1px solid gray;\n  padding: 2px;\n  background: white;\n  margin: 0px;\n  height: auto;\n}\n\n#sp-prefs-setup input[type=checkbox] {\n  cursor: pointer !important;\n  visibility: visible !important;\n  position: static !important;\n}\n\n#sp-prefs-setup input.inputShift {\n  margin-left: 2px;\n}\n\n#sp-prefs-setup li {\n  margin: 0;\n  padding: 5px 0;\n  vertical-align: middle;\n  background: none;\n  border: 0;\n  font-size: 12px;\n}\n\n#sp-prefs-setup button {\n  margin: 0 10px;\n  text-align: center;\n  white-space: nowrap;\n  background-color: #f9f9f9 !important;\n  border: 1px solid #ccc !important;\n  box-shadow: inset 0 10px 5px white !important;\n  border-radius: 3px !important;\n  padding: 3px 3px !important;\n}\n\n#sp-prefs-setup textarea {\n  width: 98%;\n  height: 60px;\n  margin: 3px 0;\n  font-weight: 50;\n  background: white;\n}\n\n#sp-prefs-setup b {\n  font-weight: bold;\n  font-family: \"微软雅黑\", sans-serif;\n}\n\n#sp-prefs-setup button:disabled {\n  color: gray;\n}\n\n#sp-prefs-setup label {\n  cursor: pointer;\n  user-select: none;\n  display: inline;\n}\n\n#sp-prefs-setup label input[type=checkbox] {\n  vertical-align: middle;\n}";
-
-	var _wcImport = "#sp-fw-container {\n  z-index: 999999 !important;\n  text-align: left !important;\n}\n@media print {\n  #sp-fw-container {\n    display: none;\n  }\n}\n\n#sp-fw-container * {\n  font-size: 13px !important;\n  color: black !important;\n  float: none !important;\n  line-height: 13px !important;\n  width: auto;\n}\n\n#sp-fw-main-head {\n  position: relative !important;\n  top: 0 !important;\n  left: 0 !important;\n}\n\n#sp-fw-span-info {\n  position: absolute !important;\n  right: 1px !important;\n  top: 0 !important;\n  font-size: 11px !important;\n  line-height: 11px !important;\n  background: none !important;\n  font-style: italic !important;\n  color: #5a5a5a !important;\n  text-shadow: white 0px 1px 1px !important;\n}\n\n#sp-fw-main select {\n  background: white;\n  height: auto;\n}\n\n#sp-fw-container input {\n  vertical-align: middle !important;\n  display: inline-block !important;\n  outline: none !important;\n  padding: 0px !important;\n  margin: 0 !important;\n  margin-right: 3px !important;\n  background: white;\n  border: 1px solid gray;\n  cursor: pointer !important;\n  height: auto;\n}\n\n#sp-fw-container input[type=number] {\n  width: 6ch !important;\n  text-align: left !important;\n  margin: 0 3px !important;\n}\n\n#sp-fw-container input[type=number]:hover::-webkit-inner-spin-button {\n  height: 60px;\n}\n\n#sp-fw-container input[type=checkbox] {\n  position: static !important;\n}\n\n#sp-fw-container input[type=button] {\n  width: auto !important;\n  height: auto !important;\n}\n\n#sp-fw-container li {\n  list-style: none !important;\n  margin: 3px 0 !important;\n  border: none !important;\n  float: none !important;\n}\n\n#sp-fw-container fieldset {\n  border: 2px groove #ccc !important;\n  -moz-border-radius: 3px !important;\n  border-radius: 3px !important;\n  padding: 4px 9px 6px 9px !important;\n  margin: 2px !important;\n  display: block !important;\n  width: auto !important;\n  height: auto !important;\n}\n\n#sp-fw-container legend {\n  line-height: 20px !important;\n  margin-bottom: 0px !important;\n}\n\n#sp-fw-container fieldset > ul {\n  padding: 0 !important;\n  margin: 0 !important;\n}\n\n#sp-fw-container ul#sp-fw-a_useiframe-extend {\n  padding-left: 40px !important;\n}\n\n#sp-fw-rect {\n  position: relative !important;\n  top: 0 !important;\n  left: 0 !important;\n  float: right !important;\n  height: 10px !important;\n  width: 10px !important;\n  padding: 0 !important;\n  margin: 0 !important;\n  -moz-border-radius: 3px !important;\n  border-radius: 3px !important;\n  border: 1px solid white !important;\n  -webkit-box-shadow: inset 0 5px 0 rgba(255, 255, 255, 0.3), 0 0 3px rgba(0, 0, 0, 0.8) !important;\n  -moz-box-shadow: inset 0 5px 0 rgba(255, 255, 255, 0.3), 0 0 3px rgba(0, 0, 0, 0.8) !important;\n  box-shadow: inset 0 5px 0 rgba(255, 255, 255, 0.3), 0 0 3px rgba(0, 0, 0, 0.8) !important;\n  opacity: 0.8 !important;\n}\n\n#sp-fw-dot,\n#sp-fw-cur-mode {\n  position: absolute !important;\n  z-index: 9999 !important;\n  width: 5px !important;\n  height: 5px !important;\n  padding: 0 !important;\n  -moz-border-radius: 3px !important;\n  border-radius: 3px !important;\n  border: 1px solid white !important;\n  opacity: 1 !important;\n  -webkit-box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.3), inset 0 2px 1px rgba(255, 255, 255, 0.3), 0px 1px 2px rgba(0, 0, 0, 0.9) !important;\n  -moz-box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.3), inset 0 2px 1px rgba(255, 255, 255, 0.3), 0px 1px 2px rgba(0, 0, 0, 0.9) !important;\n  box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.3), inset 0 2px 1px rgba(255, 255, 255, 0.3), 0px 1px 2px rgba(0, 0, 0, 0.9) !important;\n}\n\n#sp-fw-dot {\n  right: -3px !important;\n  top: -3px !important;\n}\n\n#sp-fw-cur-mode {\n  left: -3px !important;\n  top: -3px !important;\n  width: 6px !important;\n  height: 6px !important;\n}\n\n#sp-fw-content {\n  padding: 0 !important;\n  margin: 5px 5px 0 0 !important;\n  -moz-border-radius: 3px !important;\n  border-radius: 3px !important;\n  border: 1px solid #a0a0a0 !important;\n  -webkit-box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.3) !important;\n  -moz-box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.3) !important;\n  box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.3) !important;\n}\n\n#sp-fw-main {\n  padding: 5px !important;\n  border: 1px solid white !important;\n  -moz-border-radius: 3px !important;\n  border-radius: 3px !important;\n  background-color: #f2f2f7 !important;\n  background: -moz-linear-gradient(top, #fcfcfc, #f2f2f7 100%) !important;\n  background: -webkit-gradient(linear, 0 0, 0 100%, from(#fcfcfc), to(#f2f2f7)) !important;\n}\n\n#sp-fw-foot {\n  position: relative !important;\n  left: 0 !important;\n  right: 0 !important;\n  top: 2px !important;\n  padding-left: 2px;\n  min-height: 20px !important;\n}\n\n#sp-fw-container .sp-fw-spanbutton {\n  padding: 2px 3px !important;\n  border: 1px solid #ccc !important;\n  -moz-border-radius: 3px !important;\n  border-radius: 3px !important;\n  cursor: pointer !important;\n  background-color: #f9f9f9 !important;\n  -webkit-box-shadow: inset 0 10px 5px white !important;\n  -moz-box-shadow: inset 0 10px 5px white !important;\n  box-shadow: inset 0 10px 5px white !important;\n  display: inline-block;\n}\n\n#sp-fw-container #sp-fw-savebutton {\n  position: absolute !important;\n  right: 2px !important;\n}\n\n#sp-fw-container label {\n  cursor: pointer;\n  user-select: none;\n  display: inline;\n}";
-
-	var userAgentRules = [['aol', /AOLShield\/([0-9\._]+)/], ['edge', /Edge\/([0-9\._]+)/], ['edge-ios', /EdgiOS\/([0-9\._]+)/], ['yandexbrowser', /YaBrowser\/([0-9\._]+)/], ['kakaotalk', /KAKAOTALK\s([0-9\.]+)/], ['samsung', /SamsungBrowser\/([0-9\.]+)/], ['silk', /\bSilk\/([0-9._-]+)\b/], ['miui', /MiuiBrowser\/([0-9\.]+)$/], ['beaker', /BeakerBrowser\/([0-9\.]+)/], ['edge-chromium', /Edg\/([0-9\.]+)/], ['chromium-webview', /(?!Chrom.*OPR)wv\).*Chrom(?:e|ium)\/([0-9\.]+)(:?\s|$)/], ['chrome', /(?!Chrom.*OPR)Chrom(?:e|ium)\/([0-9\.]+)(:?\s|$)/], ['phantomjs', /PhantomJS\/([0-9\.]+)(:?\s|$)/], ['crios', /CriOS\/([0-9\.]+)(:?\s|$)/], ['waterfox', /Waterfox\/([0-9\.]+)(?:\s|$)/], ['firefox', /Firefox\/([0-9\.]+)(?:\s|$)/], ['fxios', /FxiOS\/([0-9\.]+)/], ['opera-mini', /Opera Mini.*Version\/([0-9\.]+)/], ['opera', /Opera\/([0-9\.]+)(?:\s|$)/], ['opera', /OPR\/([0-9\.]+)(:?\s|$)/], ['ie', /Trident\/7\.0.*rv\:([0-9\.]+).*\).*Gecko$/], ['ie', /MSIE\s([0-9\.]+);.*Trident\/[4-7].0/], ['ie', /MSIE\s(7\.0)/], ['bb10', /BB10;\sTouch.*Version\/([0-9\.]+)/], ['android', /Android\s([0-9\.]+)/], ['ios', /Version\/([0-9\._]+).*Mobile.*Safari.*/], ['safari', /Version\/([0-9\._]+).*Safari/], ['facebook', /FBAV\/([0-9\.]+)/], ['instagram', /Instagram\s([0-9\.]+)/], ['ios-webview', /AppleWebKit\/([0-9\.]+).*Mobile/], ['ios-webview', /AppleWebKit\/([0-9\.]+).*Gecko\)$/]];
-	var REQUIRED_VERSION_PARTS = 3;
-	function matchUserAgent(ua) {
-	  // opted for using reduce here rather than Array#first with a regex.test call
-	  // this is primarily because using the reduce we only perform the regex
-	  // execution once rather than once for the test and for the exec again below
-	  // probably something that needs to be benchmarked though
-	  return ua !== '' && userAgentRules.reduce(function (matched, _a) {
-	    var browser = _a[0],
-	      regex = _a[1];
-	    if (matched) {
-	      return matched;
-	    }
-	    var uaMatch = regex.exec(ua);
-	    return !!uaMatch && [browser, uaMatch];
-	  }, false);
-	}
-	function parseUserAgent(ua) {
-	  var matchedRule = matchUserAgent(ua);
-	  if (!matchedRule) {
-	    return {
-	      name: null,
-	      version: null
-	    };
-	  }
-	  var _matchedRule = _slicedToArray$1(matchedRule, 2),
-	    name = _matchedRule[0],
-	    match = _matchedRule[1];
-	  var versionParts = match[1] && match[1].split(/[._]/).slice(0, 3);
-	  if (!versionParts) {
-	    versionParts = ['1'];
-	  }
-	  if (versionParts.length < REQUIRED_VERSION_PARTS) {
-	    for (var i = 0; i < REQUIRED_VERSION_PARTS - versionParts.length; i++) {
-	      versionParts.push('0');
-	    }
-	  }
-	  var version = versionParts.join('.');
-	  return {
-	    name,
-	    version
-	  };
-	}
-	// above functions are modified from https://www.npmjs.com/package/detect-browser
-
-	var BROWSER = parseUserAgent(navigator.userAgent);
-	var INFO = GM.info || GM_info;
-	if (!('scriptHandler' in INFO) || !('version' in INFO)) {
-	  console.warn('[Super-preloader] You may use an unsupported userscript manager');
-	  if (!('scriptHander' in INFO)) {
-	    INFO.scriptHandler = 'Greasemonkey'; // GM3's GM_info API doesn't provide scriptHander
-	  }
-	}
-
-	var SCRIPT_MANAGER = {
-	  name: INFO.scriptHandler,
-	  version: INFO.version
-	};
-
-	const semver = /^[v^~<>=]*?(\d+)(?:\.([x*]|\d+)(?:\.([x*]|\d+)(?:\.([x*]|\d+))?(?:-([\da-z\-]+(?:\.[\da-z\-]+)*))?(?:\+[\da-z\-]+(?:\.[\da-z\-]+)*)?)?)?$/i;
-	const validateAndParse = (version) => {
-	    if (typeof version !== 'string') {
-	        throw new TypeError('Invalid argument expected string');
-	    }
-	    const match = version.match(semver);
-	    if (!match) {
-	        throw new Error(`Invalid argument not valid semver ('${version}' received)`);
-	    }
-	    match.shift();
-	    return match;
-	};
-	const isWildcard = (s) => s === '*' || s === 'x' || s === 'X';
-	const tryParse = (v) => {
-	    const n = parseInt(v, 10);
-	    return isNaN(n) ? v : n;
-	};
-	const forceType = (a, b) => typeof a !== typeof b ? [String(a), String(b)] : [a, b];
-	const compareStrings = (a, b) => {
-	    if (isWildcard(a) || isWildcard(b))
-	        return 0;
-	    const [ap, bp] = forceType(tryParse(a), tryParse(b));
-	    if (ap > bp)
-	        return 1;
-	    if (ap < bp)
-	        return -1;
-	    return 0;
-	};
-	const compareSegments = (a, b) => {
-	    for (let i = 0; i < Math.max(a.length, b.length); i++) {
-	        const r = compareStrings(a[i] || '0', b[i] || '0');
-	        if (r !== 0)
-	            return r;
-	    }
-	    return 0;
-	};
-
-	/**
-	 * Compare [semver](https://semver.org/) version strings to find greater, equal or lesser.
-	 * This library supports the full semver specification, including comparing versions with different number of digits like `1.0.0`, `1.0`, `1`, and pre-release versions like `1.0.0-alpha`.
-	 * @param v1 - First version to compare
-	 * @param v2 - Second version to compare
-	 * @returns Numeric value compatible with the [Array.sort(fn) interface](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#Parameters).
-	 */
-	const compareVersions = (v1, v2) => {
-	    // validate input and split into segments
-	    const n1 = validateAndParse(v1);
-	    const n2 = validateAndParse(v2);
-	    // pop off the patch
-	    const p1 = n1.pop();
-	    const p2 = n2.pop();
-	    // validate numbers
-	    const r = compareSegments(n1, n2);
-	    if (r !== 0)
-	        return r;
-	    // validate pre-release
-	    if (p1 && p2) {
-	        return compareSegments(p1.split('.'), p2.split('.'));
-	    }
-	    else if (p1 || p2) {
-	        return p1 ? -1 : 1;
-	    }
-	    return 0;
-	};
-
-	var loglevel = {exports: {}};
-
-	/*
-	* loglevel - https://github.com/pimterry/loglevel
-	*
-	* Copyright (c) 2013 Tim Perry
-	* Licensed under the MIT license.
-	*/
-
-	(function (module) {
-		(function (root, definition) {
-		    if (module.exports) {
-		        module.exports = definition();
-		    } else {
-		        root.log = definition();
-		    }
-		}(this, function () {
-
-		    // Slightly dubious tricks to cut down minimized file size
-		    var noop = function() {};
-		    var undefinedType = "undefined";
-		    var isIE = (typeof window !== undefinedType) && (typeof window.navigator !== undefinedType) && (
-		        /Trident\/|MSIE /.test(window.navigator.userAgent)
-		    );
-
-		    var logMethods = [
-		        "trace",
-		        "debug",
-		        "info",
-		        "warn",
-		        "error"
-		    ];
-
-		    // Cross-browser bind equivalent that works at least back to IE6
-		    function bindMethod(obj, methodName) {
-		        var method = obj[methodName];
-		        if (typeof method.bind === 'function') {
-		            return method.bind(obj);
-		        } else {
-		            try {
-		                return Function.prototype.bind.call(method, obj);
-		            } catch (e) {
-		                // Missing bind shim or IE8 + Modernizr, fallback to wrapping
-		                return function() {
-		                    return Function.prototype.apply.apply(method, [obj, arguments]);
-		                };
-		            }
-		        }
-		    }
-
-		    // Trace() doesn't print the message in IE, so for that case we need to wrap it
-		    function traceForIE() {
-		        if (console.log) {
-		            if (console.log.apply) {
-		                console.log.apply(console, arguments);
-		            } else {
-		                // In old IE, native console methods themselves don't have apply().
-		                Function.prototype.apply.apply(console.log, [console, arguments]);
-		            }
-		        }
-		        if (console.trace) console.trace();
-		    }
-
-		    // Build the best logging method possible for this env
-		    // Wherever possible we want to bind, not wrap, to preserve stack traces
-		    function realMethod(methodName) {
-		        if (methodName === 'debug') {
-		            methodName = 'log';
-		        }
-
-		        if (typeof console === undefinedType) {
-		            return false; // No method possible, for now - fixed later by enableLoggingWhenConsoleArrives
-		        } else if (methodName === 'trace' && isIE) {
-		            return traceForIE;
-		        } else if (console[methodName] !== undefined) {
-		            return bindMethod(console, methodName);
-		        } else if (console.log !== undefined) {
-		            return bindMethod(console, 'log');
-		        } else {
-		            return noop;
-		        }
-		    }
-
-		    // These private functions always need `this` to be set properly
-
-		    function replaceLoggingMethods(level, loggerName) {
-		        /*jshint validthis:true */
-		        for (var i = 0; i < logMethods.length; i++) {
-		            var methodName = logMethods[i];
-		            this[methodName] = (i < level) ?
-		                noop :
-		                this.methodFactory(methodName, level, loggerName);
-		        }
-
-		        // Define log.log as an alias for log.debug
-		        this.log = this.debug;
-		    }
-
-		    // In old IE versions, the console isn't present until you first open it.
-		    // We build realMethod() replacements here that regenerate logging methods
-		    function enableLoggingWhenConsoleArrives(methodName, level, loggerName) {
-		        return function () {
-		            if (typeof console !== undefinedType) {
-		                replaceLoggingMethods.call(this, level, loggerName);
-		                this[methodName].apply(this, arguments);
-		            }
-		        };
-		    }
-
-		    // By default, we use closely bound real methods wherever possible, and
-		    // otherwise we wait for a console to appear, and then try again.
-		    function defaultMethodFactory(methodName, level, loggerName) {
-		        /*jshint validthis:true */
-		        return realMethod(methodName) ||
-		               enableLoggingWhenConsoleArrives.apply(this, arguments);
-		    }
-
-		    function Logger(name, defaultLevel, factory) {
-		      var self = this;
-		      var currentLevel;
-		      defaultLevel = defaultLevel == null ? "WARN" : defaultLevel;
-
-		      var storageKey = "loglevel";
-		      if (typeof name === "string") {
-		        storageKey += ":" + name;
-		      } else if (typeof name === "symbol") {
-		        storageKey = undefined;
-		      }
-
-		      function persistLevelIfPossible(levelNum) {
-		          var levelName = (logMethods[levelNum] || 'silent').toUpperCase();
-
-		          if (typeof window === undefinedType || !storageKey) return;
-
-		          // Use localStorage if available
-		          try {
-		              window.localStorage[storageKey] = levelName;
-		              return;
-		          } catch (ignore) {}
-
-		          // Use session cookie as fallback
-		          try {
-		              window.document.cookie =
-		                encodeURIComponent(storageKey) + "=" + levelName + ";";
-		          } catch (ignore) {}
-		      }
-
-		      function getPersistedLevel() {
-		          var storedLevel;
-
-		          if (typeof window === undefinedType || !storageKey) return;
-
-		          try {
-		              storedLevel = window.localStorage[storageKey];
-		          } catch (ignore) {}
-
-		          // Fallback to cookies if local storage gives us nothing
-		          if (typeof storedLevel === undefinedType) {
-		              try {
-		                  var cookie = window.document.cookie;
-		                  var location = cookie.indexOf(
-		                      encodeURIComponent(storageKey) + "=");
-		                  if (location !== -1) {
-		                      storedLevel = /^([^;]+)/.exec(cookie.slice(location))[1];
-		                  }
-		              } catch (ignore) {}
-		          }
-
-		          // If the stored level is not valid, treat it as if nothing was stored.
-		          if (self.levels[storedLevel] === undefined) {
-		              storedLevel = undefined;
-		          }
-
-		          return storedLevel;
-		      }
-
-		      function clearPersistedLevel() {
-		          if (typeof window === undefinedType || !storageKey) return;
-
-		          // Use localStorage if available
-		          try {
-		              window.localStorage.removeItem(storageKey);
-		              return;
-		          } catch (ignore) {}
-
-		          // Use session cookie as fallback
-		          try {
-		              window.document.cookie =
-		                encodeURIComponent(storageKey) + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
-		          } catch (ignore) {}
-		      }
-
-		      /*
-		       *
-		       * Public logger API - see https://github.com/pimterry/loglevel for details
-		       *
-		       */
-
-		      self.name = name;
-
-		      self.levels = { "TRACE": 0, "DEBUG": 1, "INFO": 2, "WARN": 3,
-		          "ERROR": 4, "SILENT": 5};
-
-		      self.methodFactory = factory || defaultMethodFactory;
-
-		      self.getLevel = function () {
-		          return currentLevel;
-		      };
-
-		      self.setLevel = function (level, persist) {
-		          if (typeof level === "string" && self.levels[level.toUpperCase()] !== undefined) {
-		              level = self.levels[level.toUpperCase()];
-		          }
-		          if (typeof level === "number" && level >= 0 && level <= self.levels.SILENT) {
-		              currentLevel = level;
-		              if (persist !== false) {  // defaults to true
-		                  persistLevelIfPossible(level);
-		              }
-		              replaceLoggingMethods.call(self, level, name);
-		              if (typeof console === undefinedType && level < self.levels.SILENT) {
-		                  return "No console available for logging";
-		              }
-		          } else {
-		              throw "log.setLevel() called with invalid level: " + level;
-		          }
-		      };
-
-		      self.setDefaultLevel = function (level) {
-		          defaultLevel = level;
-		          if (!getPersistedLevel()) {
-		              self.setLevel(level, false);
-		          }
-		      };
-
-		      self.resetLevel = function () {
-		          self.setLevel(defaultLevel, false);
-		          clearPersistedLevel();
-		      };
-
-		      self.enableAll = function(persist) {
-		          self.setLevel(self.levels.TRACE, persist);
-		      };
-
-		      self.disableAll = function(persist) {
-		          self.setLevel(self.levels.SILENT, persist);
-		      };
-
-		      // Initialize with the right level
-		      var initialLevel = getPersistedLevel();
-		      if (initialLevel == null) {
-		          initialLevel = defaultLevel;
-		      }
-		      self.setLevel(initialLevel, false);
-		    }
-
-		    /*
-		     *
-		     * Top-level API
-		     *
-		     */
-
-		    var defaultLogger = new Logger();
-
-		    var _loggersByName = {};
-		    defaultLogger.getLogger = function getLogger(name) {
-		        if ((typeof name !== "symbol" && typeof name !== "string") || name === "") {
-		          throw new TypeError("You must supply a name when creating a logger.");
-		        }
-
-		        var logger = _loggersByName[name];
-		        if (!logger) {
-		          logger = _loggersByName[name] = new Logger(
-		            name, defaultLogger.getLevel(), defaultLogger.methodFactory);
-		        }
-		        return logger;
-		    };
-
-		    // Grab the current global log variable in case of overwrite
-		    var _log = (typeof window !== undefinedType) ? window.log : undefined;
-		    defaultLogger.noConflict = function() {
-		        if (typeof window !== undefinedType &&
-		               window.log === defaultLogger) {
-		            window.log = _log;
-		        }
-
-		        return defaultLogger;
-		    };
-
-		    defaultLogger.getLoggers = function getLoggers() {
-		        return _loggersByName;
-		    };
-
-		    // ES6 default export, for compatibility
-		    defaultLogger['default'] = defaultLogger;
-
-		    return defaultLogger;
-		})); 
-	} (loglevel));
-
-	var loglevelExports = loglevel.exports;
-	var log = /*@__PURE__*/getDefaultExportFromCjs(loglevelExports);
-
-	var logger = log.noConflict();
-
-	function emoji(unifiedValue) {
-	  if (String.fromCodePoint) {
-	    var emoji = parseInt(unifiedValue, 16);
-	    return String.fromCodePoint(emoji);
-	  } else {
-	    logger.error("[Super-preloader]", 'Shame on your browser!');
-	    return '';
-	  }
-	}
-
-	var name="super-preloader";var version="7.0.5";var description="Super-preloader";var main="dist/Super_preloaderPlus_one_New.user.js";var author="Mach6";var license="GPL-3.0";var type="module";var bugs={url:"https://github.com/machsix/Super-preloader/issues"};var homepage="https://github.com/machsix/Super-preloader";var directories={doc:"docs"};var repository={type:"git",url:"git+https://github.com/machsix/Super-preloader.git"};var scripts={lint:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.mjs\"",fix:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.mjs\" --fix",format:"prettier --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.mjs\" \"docs/**/*.{js,md}\"","format:check":"prettier --check \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.mjs\" \"docs/**/*.{js,md}\"","format:staged":"lint-staged -v",check:"npm run lint && npm run typecheck",test:"cd test && node test.js",dev:"rollup -c --dev -w",build:"rollup -c","docs:dev":"cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress dev docs","docs:build":"cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh",preversion:"npm run check",version:"npm run build  && git add dist/*.js && git add dist/*.json",postversion:"git add package.json package-lock.json && npm run test","publish:patch":"npm --no-git-tag-version version patch",publish:"npm --no-git-tag-version version minor",typecheck:"tsc -p jsconfig.json --noEmit"};var husky={hooks:{"pre-commit":"npm run check"}};var keywords=["userscript"];var devDependencies={"@vuepress/plugin-back-to-top":"2.0.0-rc.0","@vuepress/plugin-google-analytics":"2.0.0-rc.0","@vuepress/plugin-register-components":"2.0.0-rc.0",typescript:"5.3.2",vuepress:"2.0.0-rc.0"};var dependencies={"@babel/core":"7.23.3","@babel/plugin-syntax-import-attributes":"7.23.3","@babel/plugin-transform-runtime":"7.23.4","@babel/preset-env":"7.23.3","@rollup/plugin-babel":"6.0.4","@rollup/plugin-commonjs":"25.0.7","@rollup/plugin-json":"6.0.1","@rollup/plugin-node-resolve":"15.2.3","@types/greasemonkey":"4.0.7","@types/lodash":"4.14.202","babel-plugin-lodash":"3.3.4","babel-plugin-wildcard":"7.0.0","compare-versions":"6.1.0","cross-env":"7.0.3",displacejs:"https://github.com/machsix/displace.git#v1.4.0",eslint:"8.54.0","eslint-config-prettier":"9.0.0","eslint-plugin-import":"2.29.0","eslint-plugin-json":"3.1.0","eslint-plugin-prettier":"5.0.1","extract-zip":"2.0.1",got:"13.0.0",husky:"8.0.3","lint-staged":"15.1.0",lodash:"4.17.21",loglevel:"1.8.1",prettier:"3.1.0",puppeteer:"2.1.0",rollup:"4.6.0","rollup-plugin-banner2":"1.2.2","rollup-plugin-dev":"2.0.4","rollup-plugin-ejs":"4.0.0","rollup-plugin-re":"1.0.7","rollup-plugin-scss-string":"github:machsix/rollup-plugin-scss-string",yargs:"17.7.2"};var pkg = {name:name,version:version,description:description,main:main,author:author,license:license,type:type,bugs:bugs,homepage:homepage,directories:directories,repository:repository,scripts:scripts,husky:husky,keywords:keywords,devDependencies:devDependencies,dependencies:dependencies};
-
-	// Information of script
-	var now = new Date();
-	var SCRIPT_INFO = {
-	  name: 'Super_preloaderPlus_one_New',
-	  shortname: 'Super-preloader',
-	  'name-CN': 'Super_preloaderPlus_one_改',
-	  namespace: 'https://github.com/machsix',
-	  icon: 'data:image/png;base64,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',
-	  author: pkg.author,
-	  version: pkg.version,
-	  license: pkg.license,
-	  changelog: `${emoji('1F595')} Baidu`,
-	  greasyfork: 'https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new',
-	  updateTime: `${now.getFullYear()}/${now.getMonth() + 1}/${now.getDate()}`,
-	  homepageURL: pkg.homepage,
-	  feedbackURL: pkg.bugs.url,
-	  // rewrite storage for these versions
-	  rewriteStorage: '6.6.83'
-	};
-	// SCRIPT_INFO.downloadURL = `${SCRIPT_INFO.greasyfork}/code/${SCRIPT_INFO.name}.user.js`;
-	// SCRIPT_INFO.metaURL = `${SCRIPT_INFO.greasyfork}/code/${SCRIPT_INFO.name}.meta.js`;
-	SCRIPT_INFO.downloadURL = 'https://machsix.github.io/Super-preloader/Super_preloaderPlus_one_New.user.js';
-	SCRIPT_INFO.updateURL = SCRIPT_INFO.downloadURL;
-
-	// New notification to send
-	var NOTIFICATION = {
-	  title: SCRIPT_INFO.name,
-	  image: SCRIPT_INFO.icon,
-	  onload: function onload() {},
-	  // eslint-disable-next-line no-unused-vars
-	  show: function show(oldVersion, newVersion) {
-	    return compareVersions(oldVersion, '6.15.1') < 0 && compareVersions(newVersion, '6.15.1') >= 0;
-	  },
-	  extratext: {
-	    zh_CN: '你现在可以修改css自定义外观！',
-	    en_US: 'You can now change the appearence by CustomCSS!'
-	  }
-	};
-
-	// Meta for userscript
-`// ==UserScript==
-// @name         ${SCRIPT_INFO.name}
-// @name:zh-CN   ${SCRIPT_INFO['name-CN']}
-// @name:zh-TW   ${SCRIPT_INFO['name-CN']}
-// @namespace    ${SCRIPT_INFO.namespace}
-// @description  Preload and Autopager
-// @description:zh-CN  预读+翻页..全加速你的浏览体验
-// @description:zh-TW  预读+翻页..全加速你的浏览体验
-// @author       ${SCRIPT_INFO.author}
-// @contributers alexolog, heroboy, suchunchen, YFdyh000
-// @thanksto     ywzhaiqi, NLF
-// @version      ${SCRIPT_INFO.version}
-// @license      ${SCRIPT_INFO.license}
-// @update       ${SCRIPT_INFO.updateTime}
-// @homepageURL  ${SCRIPT_INFO.homepageURL}
-// @downloadURL  ${SCRIPT_INFO.downloadURL}
-// @updateURL    ${SCRIPT_INFO.updateURL}
-// @supportURL   ${SCRIPT_INFO.homepageURL}/issue
-// @contributionURL https://ko-fi.com/machsix
-// @icon         ${SCRIPT_INFO.icon}
-// @require      https://cdn.jsdelivr.net/gh/machsix/gm4-polyfill@3ac89770e4dcb69123c749a71f101fb462eaada8/gm4-polyfill-mach6-legacy.js
-// @grant        GM.getValue
-// @grant        GM_getValue
-// @grant        GM.setValue
-// @grant        GM_setValue
-// @grant        GM.notification
-// @grant        GM_notification
-// @grant        GM.xmlHttpRequest
-// @grant        GM_xmlhttpRequest
-// @grant        GM.info
-// @grant        GM_info
-// @grant        GM_registerMenuCommand
-// @connect      wedata.net
-// @connect      github.io
-// @run-at       document-idle
-// @include      http*
-// @exclude      http*://mail.google.com/*
-// @exclude      http*://maps.google*
-// @exclude      http*://www.google.com/reader*
-// @exclude      http*://www.google.com/calendar*
-// @exclude      https://docs.google.com/*
-// @exclude      http*://app.yinxiang.com/*
-// @exclude      http*://www.dropbox.com/*
-// @exclude      http*://www.toodledo.com/*
-// @exclude      http*://cloud.feedly.com/*
-// @exclude      http*://weibo.com/*
-// @exclude      http*://w.qq.com/*
-// @exclude      http*://web2.qq.com/*
-// @exclude      http*://openapi.qzone.qq.com/*
-// @exclude      http*://*cloud.vip.xunlei.com/*
-// @exclude      http*://www.wumii.com/*
-// @exclude      http*://pan.baidu.com/*
-// @exclude      http*://yun.baidu.com/*
-// @exclude      http*://www.cnbeta.com/*
-// @exclude      http*://www.youku.com/
-// @exclude      http*://v.youku.com/*
-// @exclude      http*://www.iqiyi.com/*
-// @exclude      http*://www.duokan.com/reader/*
-// @exclude      https://www.kohls.com/*
-// @exclude      http*://list.jd.com/*
-// @exclude      http*://eclick.baidu.com/*
-// @exclude      http*://googleads.g.doubleclick.net/*
-// @exclude      http*://pos.baidu.com/*
-// @exclude      http*://tpc.googlesyndication.com/*
-// @exclude      http*://ad.doubleclick.net/*
-// @exclude      http*://ad.agrantsem.com/*
-// @exclude      http*://www.youtube.com/embed/*
-// @exclude      https://assets.tumblr.com/*
-// @exclude      http*://www.paypal.com/*
-// @exclude      http*://dash.cloudflare.com/*
-// @exclude      http*://assets.tumblr.com/*
-// @exclude      http*://www.tumblr.com/video/*
-// @exclude      http*://*.awsapps.com/*
-// @exlucde      http*://www.commcarehq.org/accounts/login/*gre
-// @exclude      http*://simkl.com/*
-// ==/UserScript==
-`;
-
-	// 动画库
-	var Tween = {
-	  Linear: function Linear(t, b, c, d) {
-	    return c * t / d + b;
-	  },
-	  Quad: {
-	    easeIn: function easeIn(t, b, c, d) {
-	      return c * (t /= d) * t + b;
-	    },
-	    easeOut: function easeOut(t, b, c, d) {
-	      return -c * (t /= d) * (t - 2) + b;
-	    },
-	    easeInOut: function easeInOut(t, b, c, d) {
-	      if ((t /= d / 2) < 1) return c / 2 * t * t + b;
-	      return -c / 2 * (--t * (t - 2) - 1) + b;
-	    }
-	  },
-	  Cubic: {
-	    easeIn: function easeIn(t, b, c, d) {
-	      return c * (t /= d) * t * t + b;
-	    },
-	    easeOut: function easeOut(t, b, c, d) {
-	      return c * ((t = t / d - 1) * t * t + 1) + b;
-	    },
-	    easeInOut: function easeInOut(t, b, c, d) {
-	      if ((t /= d / 2) < 1) return c / 2 * t * t * t + b;
-	      return c / 2 * ((t -= 2) * t * t + 2) + b;
-	    }
-	  },
-	  Quart: {
-	    easeIn: function easeIn(t, b, c, d) {
-	      return c * (t /= d) * t * t * t + b;
-	    },
-	    easeOut: function easeOut(t, b, c, d) {
-	      return -c * ((t = t / d - 1) * t * t * t - 1) + b;
-	    },
-	    easeInOut: function easeInOut(t, b, c, d) {
-	      if ((t /= d / 2) < 1) return c / 2 * t * t * t * t + b;
-	      return -c / 2 * ((t -= 2) * t * t * t - 2) + b;
-	    }
-	  },
-	  Quint: {
-	    easeIn: function easeIn(t, b, c, d) {
-	      return c * (t /= d) * t * t * t * t + b;
-	    },
-	    easeOut: function easeOut(t, b, c, d) {
-	      return c * ((t = t / d - 1) * t * t * t * t + 1) + b;
-	    },
-	    easeInOut: function easeInOut(t, b, c, d) {
-	      if ((t /= d / 2) < 1) return c / 2 * t * t * t * t * t + b;
-	      return c / 2 * ((t -= 2) * t * t * t * t + 2) + b;
-	    }
-	  },
-	  Sine: {
-	    easeIn: function easeIn(t, b, c, d) {
-	      return -c * Math.cos(t / d * (Math.PI / 2)) + c + b;
-	    },
-	    easeOut: function easeOut(t, b, c, d) {
-	      return c * Math.sin(t / d * (Math.PI / 2)) + b;
-	    },
-	    easeInOut: function easeInOut(t, b, c, d) {
-	      return -c / 2 * (Math.cos(Math.PI * t / d) - 1) + b;
-	    }
-	  },
-	  Expo: {
-	    easeIn: function easeIn(t, b, c, d) {
-	      return t == 0 ? b : c * Math.pow(2, 10 * (t / d - 1)) + b;
-	    },
-	    easeOut: function easeOut(t, b, c, d) {
-	      return t == d ? b + c : c * (-Math.pow(2, -10 * t / d) + 1) + b;
-	    },
-	    easeInOut: function easeInOut(t, b, c, d) {
-	      if (t == 0) return b;
-	      if (t == d) return b + c;
-	      if ((t /= d / 2) < 1) return c / 2 * Math.pow(2, 10 * (t - 1)) + b;
-	      return c / 2 * (-Math.pow(2, -10 * --t) + 2) + b;
-	    }
-	  },
-	  Circ: {
-	    easeIn: function easeIn(t, b, c, d) {
-	      return -c * (Math.sqrt(1 - (t /= d) * t) - 1) + b;
-	    },
-	    easeOut: function easeOut(t, b, c, d) {
-	      return c * Math.sqrt(1 - (t = t / d - 1) * t) + b;
-	    },
-	    easeInOut: function easeInOut(t, b, c, d) {
-	      if ((t /= d / 2) < 1) return -c / 2 * (Math.sqrt(1 - t * t) - 1) + b;
-	      return c / 2 * (Math.sqrt(1 - (t -= 2) * t) + 1) + b;
-	    }
-	  },
-	  Elastic: {
-	    easeIn: function easeIn(t, b, c, d, a, p) {
-	      if (t == 0) return b;
-	      if ((t /= d) == 1) return b + c;
-	      if (!p) p = d * 0.3;
-	      var s;
-	      if (!a || a < Math.abs(c)) {
-	        a = c;
-	        s = p / 4;
-	      } else {
-	        s = p / (2 * Math.PI) * Math.asin(c / a);
-	      }
-	      return -(a * Math.pow(2, 10 * (t -= 1)) * Math.sin((t * d - s) * (2 * Math.PI) / p)) + b;
-	    },
-	    easeOut: function easeOut(t, b, c, d, a, p) {
-	      if (t == 0) return b;
-	      if ((t /= d) == 1) return b + c;
-	      if (!p) p = d * 0.3;
-	      var s;
-	      if (!a || a < Math.abs(c)) {
-	        a = c;
-	        s = p / 4;
-	      } else {
-	        s = p / (2 * Math.PI) * Math.asin(c / a);
-	      }
-	      return a * Math.pow(2, -10 * t) * Math.sin((t * d - s) * (2 * Math.PI) / p) + c + b;
-	    },
-	    easeInOut: function easeInOut(t, b, c, d, a, p) {
-	      if (t == 0) return b;
-	      if ((t /= d / 2) == 2) return b + c;
-	      if (!p) p = d * (0.3 * 1.5);
-	      var s;
-	      if (!a || a < Math.abs(c)) {
-	        a = c;
-	        s = p / 4;
-	      } else {
-	        s = p / (2 * Math.PI) * Math.asin(c / a);
-	      }
-	      if (t < 1) return -0.5 * (a * Math.pow(2, 10 * (t -= 1)) * Math.sin((t * d - s) * (2 * Math.PI) / p)) + b;
-	      return a * Math.pow(2, -10 * (t -= 1)) * Math.sin((t * d - s) * (2 * Math.PI) / p) * 0.5 + c + b;
-	    }
-	  },
-	  Back: {
-	    easeIn: function easeIn(t, b, c, d, s) {
-	      if (s == undefined) s = 1.70158;
-	      return c * (t /= d) * t * ((s + 1) * t - s) + b;
-	    },
-	    easeOut: function easeOut(t, b, c, d, s) {
-	      if (s == undefined) s = 1.70158;
-	      return c * ((t = t / d - 1) * t * ((s + 1) * t + s) + 1) + b;
-	    },
-	    easeInOut: function easeInOut(t, b, c, d, s) {
-	      if (s == undefined) s = 1.70158;
-	      if ((t /= d / 2) < 1) return c / 2 * (t * t * (((s *= 1.525) + 1) * t - s)) + b;
-	      return c / 2 * ((t -= 2) * t * (((s *= 1.525) + 1) * t + s) + 2) + b;
-	    }
-	  },
-	  Bounce: {
-	    easeIn: function easeIn(t, b, c, d) {
-	      return c - Tween.Bounce.easeOut(d - t, 0, c, d) + b;
-	    },
-	    easeOut: function easeOut(t, b, c, d) {
-	      if ((t /= d) < 1 / 2.75) {
-	        return c * (7.5625 * t * t) + b;
-	      } else if (t < 2 / 2.75) {
-	        return c * (7.5625 * (t -= 1.5 / 2.75) * t + 0.75) + b;
-	      } else if (t < 2.5 / 2.75) {
-	        return c * (7.5625 * (t -= 2.25 / 2.75) * t + 0.9375) + b;
-	      } else {
-	        return c * (7.5625 * (t -= 2.625 / 2.75) * t + 0.984375) + b;
-	      }
-	    },
-	    easeInOut: function easeInOut(t, b, c, d) {
-	      if (t < d / 2) return Tween.Bounce.easeIn(t * 2, 0, c, d) * 0.5 + b;else return Tween.Bounce.easeOut(t * 2 - d, 0, c, d) * 0.5 + c * 0.5 + b;
-	    }
-	  }
-	};
-	var TweenM = ['Linear', 'Quad', 'Cubic', 'Quart', 'Quint', 'Sine', 'Expo', 'Circ', 'Elastic', 'Back', 'Bounce'];
-	var TweenEase = ['easeIn', 'easeOut', 'easeInOut'];
-
-	/**
-	 * Set multiple attributes of a dom element
-	 * @param {object} el dom element
-	 * @param {object} attr dom attributes
-	 * @returns {null} null
-	 */
-	function setMultipleAttributes(el, attr) {
-	  for (var _i = 0, _Object$entries = Object.entries(attr); _i < _Object$entries.length; _i++) {
-	    var _Object$entries$_i = _slicedToArray$1(_Object$entries[_i], 2),
-	      key = _Object$entries$_i[0],
-	      val = _Object$entries$_i[1];
-	    el.setAttribute(key, val);
-	  }
-	}
-
-	/**
-	 * Create a dom element
-	 * @param {string} type element type
-	 * @param {object} conf configuration of the dom, could be 'attr', 'innnerHTML', 'children', 'eventListner'
-	 * @param {Document} doc dom to attach
-	 * @returns {HTMLElement} dom element
-	 */
-	function createDOM(type, conf) {
-	  var doc = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : document;
-	  var e = doc.createElement(type);
-	  if (conf.hasOwnProperty('attr')) {
-	    setMultipleAttributes(e, conf.attr);
-	  }
-	  if (conf.hasOwnProperty('innerHTML')) {
-	    e.innerHTML = conf.innerHTML;
-	  }
-	  if (Array.isArray(conf.children)) {
-	    if (conf.children.length > 0) {
-	      conf.children.forEach(function (c) {
-	        e.appendChild(c);
-	      });
-	    }
-	  }
-	  if (Array.isArray(conf.eventListener)) {
-	    if (conf.eventListener.length > 0) {
-	      conf.eventListener.forEach(function (x) {
-	        e.addEventListener(x.type, x.listener, x.useCapture || false);
-	      });
-	    }
-	  }
-	  return e;
-	}
-
-	/**
-	 * Get attributes for settings
-	 * @param {HTMLElement} obj dom element
-	 * @returns {string|boolean|number} dom element main property
-	 */
-	function getProperty(obj) {
-	  if (obj.nodeName === 'INPUT') {
-	    switch (obj.type) {
-	      case 'checkbox':
-	        return !!obj.checked;
-	      case 'number':
-	        {
-	          var min = obj.hasAttribute('min') ? parseInt(obj.min) : undefined;
-	          var max = obj.hasAttribute('max') ? parseInt(obj.max) : undefined;
-	          if (min >= obj.valueAsNumber) return min;
-	          if (max < obj.valueAsNumber) return max;
-	          return obj.valueAsNumber;
-	        }
-	      default:
-	        return obj.value;
-	    }
-	  } else if (obj.nodeName === 'SELECT') {
-	    return obj.selectedOptions[0].value;
-	  } else if (obj.nodeName === 'TEXTAREA') {
-	    return obj.value;
-	  } else if (obj.nodeName === 'A') {
-	    return obj.href;
-	  } else {
-	    return obj.innerHTML;
-	  }
-	}
-
-	/**
-	 * Set attributes for settings
-	 * @param {object} obj dom element
-	 * @param {object} value value set to dom element
-	 * @returns {undefined}
-	 */
-	function setProperty(obj, value) {
-	  if (obj.nodeName === 'INPUT') {
-	    switch (obj.type) {
-	      case 'checkbox':
-	        obj.checked = !!value;
-	        break;
-	      case 'number':
-	        {
-	          if (obj.hasAttribute('min')) {
-	            if (value < obj.min) {
-	              value = obj.min;
-	            }
-	          }
-	          if (obj.hasAttribute('max')) {
-	            if (value > obj.max) {
-	              value = obj.max;
-	            }
-	          }
-	          obj.value = value;
-	          break;
-	        }
-	      default:
-	        obj.value = value;
-	    }
-	  } else if (obj.nodeName === 'SELECT') {
-	    for (var i = 0; i < obj.options.length; i++) {
-	      if (obj.options[i].value === value) {
-	        obj.selectedIndex = i;
-	        break;
-	      }
-	    }
-	  } else if (obj.nodeName === 'TEXTAREA') {
-	    obj.value = value;
-	  } else if (obj.nodeName === 'A') {
-	    obj.href = value;
-	  } else {
-	    obj.innerHTML = value;
-	  }
-	}
-
-	function _defineProperty$1(obj, key, value) {
-	  if (key in obj) {
-	    Object.defineProperty(obj, key, {
-	      value: value,
-	      enumerable: true,
-	      configurable: true,
-	      writable: true
-	    });
-	  } else {
-	    obj[key] = value;
-	  }
-
-	  return obj;
-	}
-
-	var defineProperty$2 = _defineProperty$1;
-
-	var _defineProperty$2 = /*@__PURE__*/getDefaultExportFromCjs(defineProperty$2);
-
-	function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
-	  try {
-	    var info = gen[key](arg);
-	    var value = info.value;
-	  } catch (error) {
-	    reject(error);
-	    return;
-	  }
-
-	  if (info.done) {
-	    resolve(value);
-	  } else {
-	    Promise.resolve(value).then(_next, _throw);
-	  }
-	}
-
-	function _asyncToGenerator(fn) {
-	  return function () {
-	    var self = this,
-	        args = arguments;
-	    return new Promise(function (resolve, reject) {
-	      var gen = fn.apply(self, args);
-
-	      function _next(value) {
-	        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
-	      }
-
-	      function _throw(err) {
-	        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
-	      }
-
-	      _next(undefined);
-	    });
-	  };
-	}
-
-	var asyncToGenerator = _asyncToGenerator;
-
-	var _asyncToGenerator$1 = /*@__PURE__*/getDefaultExportFromCjs(asyncToGenerator);
-
-	var baseGetTag$1 = _baseGetTag,
-	    isArray$2 = isArray_1,
-	    isObjectLike$2 = isObjectLike_1;
-
-	/** `Object#toString` result references. */
-	var stringTag = '[object String]';
-
-	/**
-	 * Checks if `value` is classified as a `String` primitive or object.
-	 *
-	 * @static
-	 * @since 0.1.0
-	 * @memberOf _
-	 * @category Lang
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is a string, else `false`.
-	 * @example
-	 *
-	 * _.isString('abc');
-	 * // => true
-	 *
-	 * _.isString(1);
-	 * // => false
-	 */
-	function isString(value) {
-	  return typeof value == 'string' ||
-	    (!isArray$2(value) && isObjectLike$2(value) && baseGetTag$1(value) == stringTag);
-	}
-
-	var isString_1 = isString;
-
-	var _isString = /*@__PURE__*/getDefaultExportFromCjs(isString_1);
-
-	/**
-	 * The base implementation of `_.isNaN` without support for number objects.
-	 *
-	 * @private
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is `NaN`, else `false`.
-	 */
-
-	function baseIsNaN$1(value) {
-	  return value !== value;
-	}
-
-	var _baseIsNaN = baseIsNaN$1;
-
-	/**
-	 * A specialized version of `_.indexOf` which performs strict equality
-	 * comparisons of values, i.e. `===`.
-	 *
-	 * @private
-	 * @param {Array} array The array to inspect.
-	 * @param {*} value The value to search for.
-	 * @param {number} fromIndex The index to search from.
-	 * @returns {number} Returns the index of the matched value, else `-1`.
-	 */
-
-	function strictIndexOf$1(array, value, fromIndex) {
-	  var index = fromIndex - 1,
-	      length = array.length;
-
-	  while (++index < length) {
-	    if (array[index] === value) {
-	      return index;
-	    }
-	  }
-	  return -1;
-	}
-
-	var _strictIndexOf = strictIndexOf$1;
-
-	var baseFindIndex = _baseFindIndex,
-	    baseIsNaN = _baseIsNaN,
-	    strictIndexOf = _strictIndexOf;
-
-	/**
-	 * The base implementation of `_.indexOf` without `fromIndex` bounds checks.
-	 *
-	 * @private
-	 * @param {Array} array The array to inspect.
-	 * @param {*} value The value to search for.
-	 * @param {number} fromIndex The index to search from.
-	 * @returns {number} Returns the index of the matched value, else `-1`.
-	 */
-	function baseIndexOf$1(array, value, fromIndex) {
-	  return value === value
-	    ? strictIndexOf(array, value, fromIndex)
-	    : baseFindIndex(array, baseIsNaN, fromIndex);
-	}
-
-	var _baseIndexOf = baseIndexOf$1;
-
-	var baseIndexOf = _baseIndexOf;
-
-	/**
-	 * A specialized version of `_.includes` for arrays without support for
-	 * specifying an index to search from.
-	 *
-	 * @private
-	 * @param {Array} [array] The array to inspect.
-	 * @param {*} target The value to search for.
-	 * @returns {boolean} Returns `true` if `target` is found, else `false`.
-	 */
-	function arrayIncludes$1(array, value) {
-	  var length = array == null ? 0 : array.length;
-	  return !!length && baseIndexOf(array, value, 0) > -1;
-	}
-
-	var _arrayIncludes = arrayIncludes$1;
-
-	/**
-	 * This function is like `arrayIncludes` except that it accepts a comparator.
-	 *
-	 * @private
-	 * @param {Array} [array] The array to inspect.
-	 * @param {*} target The value to search for.
-	 * @param {Function} comparator The comparator invoked per element.
-	 * @returns {boolean} Returns `true` if `target` is found, else `false`.
-	 */
-
-	function arrayIncludesWith$1(array, value, comparator) {
-	  var index = -1,
-	      length = array == null ? 0 : array.length;
-
-	  while (++index < length) {
-	    if (comparator(value, array[index])) {
-	      return true;
-	    }
-	  }
-	  return false;
-	}
-
-	var _arrayIncludesWith = arrayIncludesWith$1;
-
-	var SetCache = _SetCache,
-	    arrayIncludes = _arrayIncludes,
-	    arrayIncludesWith = _arrayIncludesWith,
-	    arrayMap = _arrayMap,
-	    baseUnary = _baseUnary,
-	    cacheHas = _cacheHas;
-
-	/** Used as the size to enable large array optimizations. */
-	var LARGE_ARRAY_SIZE = 200;
-
-	/**
-	 * The base implementation of methods like `_.difference` without support
-	 * for excluding multiple arrays or iteratee shorthands.
-	 *
-	 * @private
-	 * @param {Array} array The array to inspect.
-	 * @param {Array} values The values to exclude.
-	 * @param {Function} [iteratee] The iteratee invoked per element.
-	 * @param {Function} [comparator] The comparator invoked per element.
-	 * @returns {Array} Returns the new array of filtered values.
-	 */
-	function baseDifference$1(array, values, iteratee, comparator) {
-	  var index = -1,
-	      includes = arrayIncludes,
-	      isCommon = true,
-	      length = array.length,
-	      result = [],
-	      valuesLength = values.length;
-
-	  if (!length) {
-	    return result;
-	  }
-	  if (iteratee) {
-	    values = arrayMap(values, baseUnary(iteratee));
-	  }
-	  if (comparator) {
-	    includes = arrayIncludesWith;
-	    isCommon = false;
-	  }
-	  else if (values.length >= LARGE_ARRAY_SIZE) {
-	    includes = cacheHas;
-	    isCommon = false;
-	    values = new SetCache(values);
-	  }
-	  outer:
-	  while (++index < length) {
-	    var value = array[index],
-	        computed = iteratee == null ? value : iteratee(value);
-
-	    value = (comparator || value !== 0) ? value : 0;
-	    if (isCommon && computed === computed) {
-	      var valuesIndex = valuesLength;
-	      while (valuesIndex--) {
-	        if (values[valuesIndex] === computed) {
-	          continue outer;
-	        }
-	      }
-	      result.push(value);
-	    }
-	    else if (!includes(values, computed, comparator)) {
-	      result.push(value);
-	    }
-	  }
-	  return result;
-	}
-
-	var _baseDifference = baseDifference$1;
-
-	var Symbol$1 = _Symbol,
-	    isArguments$1 = isArguments_1,
-	    isArray$1 = isArray_1;
-
-	/** Built-in value references. */
-	var spreadableSymbol = Symbol$1 ? Symbol$1.isConcatSpreadable : undefined;
-
-	/**
-	 * Checks if `value` is a flattenable `arguments` object or array.
-	 *
-	 * @private
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is flattenable, else `false`.
-	 */
-	function isFlattenable$1(value) {
-	  return isArray$1(value) || isArguments$1(value) ||
-	    !!(spreadableSymbol && value && value[spreadableSymbol]);
-	}
-
-	var _isFlattenable = isFlattenable$1;
-
-	var arrayPush = _arrayPush,
-	    isFlattenable = _isFlattenable;
-
-	/**
-	 * The base implementation of `_.flatten` with support for restricting flattening.
-	 *
-	 * @private
-	 * @param {Array} array The array to flatten.
-	 * @param {number} depth The maximum recursion depth.
-	 * @param {boolean} [predicate=isFlattenable] The function invoked per iteration.
-	 * @param {boolean} [isStrict] Restrict to values that pass `predicate` checks.
-	 * @param {Array} [result=[]] The initial result value.
-	 * @returns {Array} Returns the new flattened array.
-	 */
-	function baseFlatten$2(array, depth, predicate, isStrict, result) {
-	  var index = -1,
-	      length = array.length;
-
-	  predicate || (predicate = isFlattenable);
-	  result || (result = []);
-
-	  while (++index < length) {
-	    var value = array[index];
-	    if (depth > 0 && predicate(value)) {
-	      if (depth > 1) {
-	        // Recursively flatten arrays (susceptible to call stack limits).
-	        baseFlatten$2(value, depth - 1, predicate, isStrict, result);
-	      } else {
-	        arrayPush(result, value);
-	      }
-	    } else if (!isStrict) {
-	      result[result.length] = value;
-	    }
-	  }
-	  return result;
-	}
-
-	var _baseFlatten = baseFlatten$2;
-
-	/**
-	 * A faster alternative to `Function#apply`, this function invokes `func`
-	 * with the `this` binding of `thisArg` and the arguments of `args`.
-	 *
-	 * @private
-	 * @param {Function} func The function to invoke.
-	 * @param {*} thisArg The `this` binding of `func`.
-	 * @param {Array} args The arguments to invoke `func` with.
-	 * @returns {*} Returns the result of `func`.
-	 */
-
-	function apply$1(func, thisArg, args) {
-	  switch (args.length) {
-	    case 0: return func.call(thisArg);
-	    case 1: return func.call(thisArg, args[0]);
-	    case 2: return func.call(thisArg, args[0], args[1]);
-	    case 3: return func.call(thisArg, args[0], args[1], args[2]);
-	  }
-	  return func.apply(thisArg, args);
-	}
-
-	var _apply = apply$1;
-
-	var apply = _apply;
-
-	/* Built-in method references for those with the same name as other `lodash` methods. */
-	var nativeMax = Math.max;
-
-	/**
-	 * A specialized version of `baseRest` which transforms the rest array.
-	 *
-	 * @private
-	 * @param {Function} func The function to apply a rest parameter to.
-	 * @param {number} [start=func.length-1] The start position of the rest parameter.
-	 * @param {Function} transform The rest array transform.
-	 * @returns {Function} Returns the new function.
-	 */
-	function overRest$1(func, start, transform) {
-	  start = nativeMax(start === undefined ? (func.length - 1) : start, 0);
-	  return function() {
-	    var args = arguments,
-	        index = -1,
-	        length = nativeMax(args.length - start, 0),
-	        array = Array(length);
-
-	    while (++index < length) {
-	      array[index] = args[start + index];
-	    }
-	    index = -1;
-	    var otherArgs = Array(start + 1);
-	    while (++index < start) {
-	      otherArgs[index] = args[index];
-	    }
-	    otherArgs[start] = transform(array);
-	    return apply(func, this, otherArgs);
-	  };
-	}
-
-	var _overRest = overRest$1;
-
-	/**
-	 * Creates a function that returns `value`.
-	 *
-	 * @static
-	 * @memberOf _
-	 * @since 2.4.0
-	 * @category Util
-	 * @param {*} value The value to return from the new function.
-	 * @returns {Function} Returns the new constant function.
-	 * @example
-	 *
-	 * var objects = _.times(2, _.constant({ 'a': 1 }));
-	 *
-	 * console.log(objects);
-	 * // => [{ 'a': 1 }, { 'a': 1 }]
-	 *
-	 * console.log(objects[0] === objects[1]);
-	 * // => true
-	 */
-
-	function constant$1(value) {
-	  return function() {
-	    return value;
-	  };
-	}
-
-	var constant_1 = constant$1;
-
-	var getNative = _getNative;
-
-	var defineProperty$1 = (function() {
-	  try {
-	    var func = getNative(Object, 'defineProperty');
-	    func({}, '', {});
-	    return func;
-	  } catch (e) {}
-	}());
-
-	var _defineProperty = defineProperty$1;
-
-	var constant = constant_1,
-	    defineProperty = _defineProperty,
-	    identity$1 = identity_1;
-
-	/**
-	 * The base implementation of `setToString` without support for hot loop shorting.
-	 *
-	 * @private
-	 * @param {Function} func The function to modify.
-	 * @param {Function} string The `toString` result.
-	 * @returns {Function} Returns `func`.
-	 */
-	var baseSetToString$1 = !defineProperty ? identity$1 : function(func, string) {
-	  return defineProperty(func, 'toString', {
-	    'configurable': true,
-	    'enumerable': false,
-	    'value': constant(string),
-	    'writable': true
-	  });
-	};
-
-	var _baseSetToString = baseSetToString$1;
-
-	/** Used to detect hot functions by number of calls within a span of milliseconds. */
-
-	var HOT_COUNT = 800,
-	    HOT_SPAN = 16;
-
-	/* Built-in method references for those with the same name as other `lodash` methods. */
-	var nativeNow = Date.now;
-
-	/**
-	 * Creates a function that'll short out and invoke `identity` instead
-	 * of `func` when it's called `HOT_COUNT` or more times in `HOT_SPAN`
-	 * milliseconds.
-	 *
-	 * @private
-	 * @param {Function} func The function to restrict.
-	 * @returns {Function} Returns the new shortable function.
-	 */
-	function shortOut$1(func) {
-	  var count = 0,
-	      lastCalled = 0;
-
-	  return function() {
-	    var stamp = nativeNow(),
-	        remaining = HOT_SPAN - (stamp - lastCalled);
-
-	    lastCalled = stamp;
-	    if (remaining > 0) {
-	      if (++count >= HOT_COUNT) {
-	        return arguments[0];
-	      }
-	    } else {
-	      count = 0;
-	    }
-	    return func.apply(undefined, arguments);
-	  };
-	}
-
-	var _shortOut = shortOut$1;
-
-	var baseSetToString = _baseSetToString,
-	    shortOut = _shortOut;
-
-	/**
-	 * Sets the `toString` method of `func` to return `string`.
-	 *
-	 * @private
-	 * @param {Function} func The function to modify.
-	 * @param {Function} string The `toString` result.
-	 * @returns {Function} Returns `func`.
-	 */
-	var setToString$1 = shortOut(baseSetToString);
-
-	var _setToString = setToString$1;
-
-	var identity = identity_1,
-	    overRest = _overRest,
-	    setToString = _setToString;
-
-	/**
-	 * The base implementation of `_.rest` which doesn't validate or coerce arguments.
-	 *
-	 * @private
-	 * @param {Function} func The function to apply a rest parameter to.
-	 * @param {number} [start=func.length-1] The start position of the rest parameter.
-	 * @returns {Function} Returns the new function.
-	 */
-	function baseRest$1(func, start) {
-	  return setToString(overRest(func, start, identity), func + '');
-	}
-
-	var _baseRest = baseRest$1;
-
-	var isArrayLike$1 = isArrayLike_1,
-	    isObjectLike$1 = isObjectLike_1;
-
-	/**
-	 * This method is like `_.isArrayLike` except that it also checks if `value`
-	 * is an object.
-	 *
-	 * @static
-	 * @memberOf _
-	 * @since 4.0.0
-	 * @category Lang
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is an array-like object,
-	 *  else `false`.
-	 * @example
-	 *
-	 * _.isArrayLikeObject([1, 2, 3]);
-	 * // => true
-	 *
-	 * _.isArrayLikeObject(document.body.children);
-	 * // => true
-	 *
-	 * _.isArrayLikeObject('abc');
-	 * // => false
-	 *
-	 * _.isArrayLikeObject(_.noop);
-	 * // => false
-	 */
-	function isArrayLikeObject$1(value) {
-	  return isObjectLike$1(value) && isArrayLike$1(value);
-	}
-
-	var isArrayLikeObject_1 = isArrayLikeObject$1;
-
-	var baseDifference = _baseDifference,
-	    baseFlatten$1 = _baseFlatten,
-	    baseRest = _baseRest,
-	    isArrayLikeObject = isArrayLikeObject_1;
-
-	/**
-	 * Creates an array of `array` values not included in the other given arrays
-	 * using [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
-	 * for equality comparisons. The order and references of result values are
-	 * determined by the first array.
-	 *
-	 * **Note:** Unlike `_.pullAll`, this method returns a new array.
-	 *
-	 * @static
-	 * @memberOf _
-	 * @since 0.1.0
-	 * @category Array
-	 * @param {Array} array The array to inspect.
-	 * @param {...Array} [values] The values to exclude.
-	 * @returns {Array} Returns the new array of filtered values.
-	 * @see _.without, _.xor
-	 * @example
-	 *
-	 * _.difference([2, 1], [2, 3]);
-	 * // => [1]
-	 */
-	var difference = baseRest(function(array, values) {
-	  return isArrayLikeObject(array)
-	    ? baseDifference(array, baseFlatten$1(values, 1, isArrayLikeObject, true))
-	    : [];
-	});
-
-	var difference_1 = difference;
-
-	var _difference = /*@__PURE__*/getDefaultExportFromCjs(difference_1);
-
 	var runtime = {exports: {}};
 
 	/**
@@ -5886,6 +4477,1415 @@
 	var regenerator = runtimeExports;
 
 	var _regeneratorRuntime = /*@__PURE__*/getDefaultExportFromCjs(regenerator);
+
+	var _wcImport4 = ".sp-separator {\n  line-height: 1.8 !important;\n  opacity: 1 !important;\n  position: relative !important;\n  float: none !important;\n  top: 0 !important;\n  left: 0 !important;\n  min-width: 366px;\n  width: auto;\n  text-align: center !important;\n  font-size: 14px !important;\n  display: block !important;\n  padding: 3px 0 !important;\n  margin: 5px 10px 8px;\n  clear: both !important;\n  border-style: solid !important;\n  border-color: #cccccc !important;\n  border-width: 1px !important;\n  -moz-border-radius: 30px !important;\n  border-radius: 30px !important;\n  background-color: #ffffff !important;\n}\n\n.sp-separator:hover {\n  box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);\n}\n\n#sp-separator-hover {\n  display: none;\n}\n\n.sp-separator:hover #sp-separator-hover {\n  display: block;\n}\n\n.sp-separator .sp-someinfo {\n  position: absolute !important;\n  right: 10px !important;\n  font-size: 12px !important;\n  font-style: italic !important;\n  background: none !important;\n}\n\n.sp-separator img {\n  vertical-align: middle !important;\n  cursor: pointer !important;\n  padding: 0 !important;\n  margin: 0 5px !important;\n  border: none !important;\n  display: inline-block !important;\n  float: none !important;\n  width: auto;\n  height: auto;\n}\n\n.sp-separator a {\n  margin: 0 20px 0 -6px !important;\n  display: inline !important;\n  text-shadow: #fff 0 1px 0 !important;\n  background: none !important;\n  color: #595959 !important;\n}\n\n.sp-separator input {\n  padding: 0 !important;\n  line-height: 23px !important;\n}\n\n.sp-separator .sp-md-span {\n  font-weight: bold !important;\n  margin: 0 20px !important;\n}\n\n#sp-sp-md-number {\n  width: 6ch !important;\n  vertical-align: middle !important;\n  display: inline-block !important;\n  text-align: left !important;\n}";
+
+	var _wcImport3 = ".sp-prefs-spinner {\n  margin: 40px auto;\n  width: 100%;\n  height: 50px;\n  text-align: center;\n  font-size: 10px;\n}\n\n.sp-prefs-spinner > div {\n  background-color: #333;\n  height: 100%;\n  width: 25%;\n  display: inline-block;\n  -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;\n  animation: sk-stretchdelay 1.2s infinite ease-in-out;\n}\n\n.sp-prefs-spinner .rect2 {\n  -webkit-animation-delay: -1.1s;\n  animation-delay: -1.1s;\n}\n\n.sp-prefs-spinner .rect3 {\n  -webkit-animation-delay: -1s;\n  animation-delay: -1s;\n}\n\n.sp-prefs-spinner .rect4 {\n  -webkit-animation-delay: -0.9s;\n  animation-delay: -0.9s;\n}\n\n.sp-prefs-spinner .rect5 {\n  -webkit-animation-delay: -0.8s;\n  animation-delay: -0.8s;\n}\n\n@-webkit-keyframes sk-stretchdelay {\n  0%, 40%, 100% {\n    -webkit-transform: scaleY(0.4);\n  }\n  20% {\n    -webkit-transform: scaleY(1);\n  }\n}\n@keyframes sk-stretchdelay {\n  0%, 40%, 100% {\n    transform: scaleY(0.4);\n    -webkit-transform: scaleY(0.4);\n  }\n  20% {\n    transform: scaleY(1);\n    -webkit-transform: scaleY(1);\n  }\n}";
+
+	var _wcImport2 = "@charset \"UTF-8\";\n#sp-prefs-setup {\n  z-index: 2147483647;\n  padding: 20px 30px;\n  box-sizing: content-box;\n  border-radius: 3px !important;\n  border: 1px solid #a0a0a0 !important;\n  box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.3) !important;\n  background: -moz-linear-gradient(top, #fcfcfc, #f2f2f7 100%) !important;\n  background: -webkit-gradient(linear, 0 0, 0 100%, from(#fcfcfc), to(#f2f2f7)) !important;\n  font-family: \"Arial\", \"sans-serif\" !important;\n  color: transparent;\n  max-height: 80%;\n  overflow: auto;\n}\n\n#sp-prefs-setup * {\n  color: black;\n  text-align: left;\n  line-height: normal;\n  font-size: 12px;\n  min-height: 12px;\n}\n\n#sp-prefs-setup a {\n  color: black;\n  text-decoration: underline;\n}\n\n#sp-prefs-setup div {\n  text-align: center;\n  font-weight: bold;\n  font-size: 15px;\n}\n\n#sp-prefs-setup ul {\n  margin: 15px 0 15px 0;\n  padding: 0;\n  list-style: none;\n  background: none;\n  border: 0;\n}\n\n#sp-prefs-setup input,\n#sp-prefs-setup select {\n  border: 1px solid gray;\n  padding: 2px;\n  background: white;\n  margin: 0px;\n  height: auto;\n}\n\n#sp-prefs-setup input[type=checkbox] {\n  cursor: pointer !important;\n  visibility: visible !important;\n  position: static !important;\n}\n\n#sp-prefs-setup input.inputShift {\n  margin-left: 2px;\n}\n\n#sp-prefs-setup li {\n  margin: 0;\n  padding: 5px 0;\n  vertical-align: middle;\n  background: none;\n  border: 0;\n  font-size: 12px;\n}\n\n#sp-prefs-setup button {\n  margin: 0 10px;\n  text-align: center;\n  white-space: nowrap;\n  background-color: #f9f9f9 !important;\n  border: 1px solid #ccc !important;\n  box-shadow: inset 0 10px 5px white !important;\n  border-radius: 3px !important;\n  padding: 3px 3px !important;\n}\n\n#sp-prefs-setup textarea {\n  width: 98%;\n  height: 60px;\n  margin: 3px 0;\n  font-weight: 50;\n  background: white;\n}\n\n#sp-prefs-setup b {\n  font-weight: bold;\n  font-family: \"微软雅黑\", sans-serif;\n}\n\n#sp-prefs-setup button:disabled {\n  color: gray;\n}\n\n#sp-prefs-setup label {\n  cursor: pointer;\n  user-select: none;\n  display: inline;\n}\n\n#sp-prefs-setup label input[type=checkbox] {\n  vertical-align: middle;\n}";
+
+	var _wcImport = "#sp-fw-container {\n  z-index: 999999 !important;\n  text-align: left !important;\n}\n@media print {\n  #sp-fw-container {\n    display: none;\n  }\n}\n\n#sp-fw-container * {\n  font-size: 13px !important;\n  color: black !important;\n  float: none !important;\n  line-height: 13px !important;\n  width: auto;\n}\n\n#sp-fw-main-head {\n  position: relative !important;\n  top: 0 !important;\n  left: 0 !important;\n}\n\n#sp-fw-span-info {\n  position: absolute !important;\n  right: 1px !important;\n  top: 0 !important;\n  font-size: 11px !important;\n  line-height: 11px !important;\n  background: none !important;\n  font-style: italic !important;\n  color: #5a5a5a !important;\n  text-shadow: white 0px 1px 1px !important;\n}\n\n#sp-fw-main select {\n  background: white;\n  height: auto;\n}\n\n#sp-fw-container input {\n  vertical-align: middle !important;\n  display: inline-block !important;\n  outline: none !important;\n  padding: 0px !important;\n  margin: 0 !important;\n  margin-right: 3px !important;\n  background: white;\n  border: 1px solid gray;\n  cursor: pointer !important;\n  height: auto;\n}\n\n#sp-fw-container input[type=number] {\n  width: 6ch !important;\n  text-align: left !important;\n  margin: 0 3px !important;\n}\n\n#sp-fw-container input[type=number]:hover::-webkit-inner-spin-button {\n  height: 60px;\n}\n\n#sp-fw-container input[type=checkbox] {\n  position: static !important;\n}\n\n#sp-fw-container input[type=button] {\n  width: auto !important;\n  height: auto !important;\n}\n\n#sp-fw-container li {\n  list-style: none !important;\n  margin: 3px 0 !important;\n  border: none !important;\n  float: none !important;\n}\n\n#sp-fw-container fieldset {\n  border: 2px groove #ccc !important;\n  -moz-border-radius: 3px !important;\n  border-radius: 3px !important;\n  padding: 4px 9px 6px 9px !important;\n  margin: 2px !important;\n  display: block !important;\n  width: auto !important;\n  height: auto !important;\n}\n\n#sp-fw-container legend {\n  line-height: 20px !important;\n  margin-bottom: 0px !important;\n}\n\n#sp-fw-container fieldset > ul {\n  padding: 0 !important;\n  margin: 0 !important;\n}\n\n#sp-fw-container ul#sp-fw-a_useiframe-extend {\n  padding-left: 40px !important;\n}\n\n#sp-fw-rect {\n  position: relative !important;\n  top: 0 !important;\n  left: 0 !important;\n  float: right !important;\n  height: 10px !important;\n  width: 10px !important;\n  padding: 0 !important;\n  margin: 0 !important;\n  -moz-border-radius: 3px !important;\n  border-radius: 3px !important;\n  border: 1px solid white !important;\n  -webkit-box-shadow: inset 0 5px 0 rgba(255, 255, 255, 0.3), 0 0 3px rgba(0, 0, 0, 0.8) !important;\n  -moz-box-shadow: inset 0 5px 0 rgba(255, 255, 255, 0.3), 0 0 3px rgba(0, 0, 0, 0.8) !important;\n  box-shadow: inset 0 5px 0 rgba(255, 255, 255, 0.3), 0 0 3px rgba(0, 0, 0, 0.8) !important;\n  opacity: 0.8 !important;\n}\n\n#sp-fw-dot,\n#sp-fw-cur-mode {\n  position: absolute !important;\n  z-index: 9999 !important;\n  width: 5px !important;\n  height: 5px !important;\n  padding: 0 !important;\n  -moz-border-radius: 3px !important;\n  border-radius: 3px !important;\n  border: 1px solid white !important;\n  opacity: 1 !important;\n  -webkit-box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.3), inset 0 2px 1px rgba(255, 255, 255, 0.3), 0px 1px 2px rgba(0, 0, 0, 0.9) !important;\n  -moz-box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.3), inset 0 2px 1px rgba(255, 255, 255, 0.3), 0px 1px 2px rgba(0, 0, 0, 0.9) !important;\n  box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.3), inset 0 2px 1px rgba(255, 255, 255, 0.3), 0px 1px 2px rgba(0, 0, 0, 0.9) !important;\n}\n\n#sp-fw-dot {\n  right: -3px !important;\n  top: -3px !important;\n}\n\n#sp-fw-cur-mode {\n  left: -3px !important;\n  top: -3px !important;\n  width: 6px !important;\n  height: 6px !important;\n}\n\n#sp-fw-content {\n  padding: 0 !important;\n  margin: 5px 5px 0 0 !important;\n  -moz-border-radius: 3px !important;\n  border-radius: 3px !important;\n  border: 1px solid #a0a0a0 !important;\n  -webkit-box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.3) !important;\n  -moz-box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.3) !important;\n  box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.3) !important;\n}\n\n#sp-fw-main {\n  padding: 5px !important;\n  border: 1px solid white !important;\n  -moz-border-radius: 3px !important;\n  border-radius: 3px !important;\n  background-color: #f2f2f7 !important;\n  background: -moz-linear-gradient(top, #fcfcfc, #f2f2f7 100%) !important;\n  background: -webkit-gradient(linear, 0 0, 0 100%, from(#fcfcfc), to(#f2f2f7)) !important;\n}\n\n#sp-fw-foot {\n  position: relative !important;\n  left: 0 !important;\n  right: 0 !important;\n  top: 2px !important;\n  padding-left: 2px;\n  min-height: 20px !important;\n}\n\n#sp-fw-container .sp-fw-spanbutton {\n  padding: 2px 3px !important;\n  border: 1px solid #ccc !important;\n  -moz-border-radius: 3px !important;\n  border-radius: 3px !important;\n  cursor: pointer !important;\n  background-color: #f9f9f9 !important;\n  -webkit-box-shadow: inset 0 10px 5px white !important;\n  -moz-box-shadow: inset 0 10px 5px white !important;\n  box-shadow: inset 0 10px 5px white !important;\n  display: inline-block;\n}\n\n#sp-fw-container #sp-fw-savebutton {\n  position: absolute !important;\n  right: 2px !important;\n}\n\n#sp-fw-container label {\n  cursor: pointer;\n  user-select: none;\n  display: inline;\n}";
+
+	var userAgentRules = [['aol', /AOLShield\/([0-9\._]+)/], ['edge', /Edge\/([0-9\._]+)/], ['edge-ios', /EdgiOS\/([0-9\._]+)/], ['yandexbrowser', /YaBrowser\/([0-9\._]+)/], ['kakaotalk', /KAKAOTALK\s([0-9\.]+)/], ['samsung', /SamsungBrowser\/([0-9\.]+)/], ['silk', /\bSilk\/([0-9._-]+)\b/], ['miui', /MiuiBrowser\/([0-9\.]+)$/], ['beaker', /BeakerBrowser\/([0-9\.]+)/], ['edge-chromium', /Edg\/([0-9\.]+)/], ['chromium-webview', /(?!Chrom.*OPR)wv\).*Chrom(?:e|ium)\/([0-9\.]+)(:?\s|$)/], ['chrome', /(?!Chrom.*OPR)Chrom(?:e|ium)\/([0-9\.]+)(:?\s|$)/], ['phantomjs', /PhantomJS\/([0-9\.]+)(:?\s|$)/], ['crios', /CriOS\/([0-9\.]+)(:?\s|$)/], ['waterfox', /Waterfox\/([0-9\.]+)(?:\s|$)/], ['firefox', /Firefox\/([0-9\.]+)(?:\s|$)/], ['fxios', /FxiOS\/([0-9\.]+)/], ['opera-mini', /Opera Mini.*Version\/([0-9\.]+)/], ['opera', /Opera\/([0-9\.]+)(?:\s|$)/], ['opera', /OPR\/([0-9\.]+)(:?\s|$)/], ['ie', /Trident\/7\.0.*rv\:([0-9\.]+).*\).*Gecko$/], ['ie', /MSIE\s([0-9\.]+);.*Trident\/[4-7].0/], ['ie', /MSIE\s(7\.0)/], ['bb10', /BB10;\sTouch.*Version\/([0-9\.]+)/], ['android', /Android\s([0-9\.]+)/], ['ios', /Version\/([0-9\._]+).*Mobile.*Safari.*/], ['safari', /Version\/([0-9\._]+).*Safari/], ['facebook', /FBAV\/([0-9\.]+)/], ['instagram', /Instagram\s([0-9\.]+)/], ['ios-webview', /AppleWebKit\/([0-9\.]+).*Mobile/], ['ios-webview', /AppleWebKit\/([0-9\.]+).*Gecko\)$/]];
+	var REQUIRED_VERSION_PARTS = 3;
+	function matchUserAgent(ua) {
+	  // opted for using reduce here rather than Array#first with a regex.test call
+	  // this is primarily because using the reduce we only perform the regex
+	  // execution once rather than once for the test and for the exec again below
+	  // probably something that needs to be benchmarked though
+	  return ua !== '' && userAgentRules.reduce(function (matched, _a) {
+	    var browser = _a[0],
+	      regex = _a[1];
+	    if (matched) {
+	      return matched;
+	    }
+	    var uaMatch = regex.exec(ua);
+	    return !!uaMatch && [browser, uaMatch];
+	  }, false);
+	}
+	function parseUserAgent(ua) {
+	  var matchedRule = matchUserAgent(ua);
+	  if (!matchedRule) {
+	    return {
+	      name: null,
+	      version: null
+	    };
+	  }
+	  var _matchedRule = _slicedToArray$1(matchedRule, 2),
+	    name = _matchedRule[0],
+	    match = _matchedRule[1];
+	  var versionParts = match[1] && match[1].split(/[._]/).slice(0, 3);
+	  if (!versionParts) {
+	    versionParts = ['1'];
+	  }
+	  if (versionParts.length < REQUIRED_VERSION_PARTS) {
+	    for (var i = 0; i < REQUIRED_VERSION_PARTS - versionParts.length; i++) {
+	      versionParts.push('0');
+	    }
+	  }
+	  var version = versionParts.join('.');
+	  return {
+	    name,
+	    version
+	  };
+	}
+	// above functions are modified from https://www.npmjs.com/package/detect-browser
+
+	var BROWSER = parseUserAgent(navigator.userAgent);
+	var INFO = GM.info || GM_info;
+	if (!('scriptHandler' in INFO) || !('version' in INFO)) {
+	  console.warn('[Super-preloader] You may use an unsupported userscript manager');
+	  if (!('scriptHander' in INFO)) {
+	    INFO.scriptHandler = 'Greasemonkey'; // GM3's GM_info API doesn't provide scriptHander
+	  }
+	}
+
+	var SCRIPT_MANAGER = {
+	  name: INFO.scriptHandler,
+	  version: INFO.version
+	};
+
+	const semver = /^[v^~<>=]*?(\d+)(?:\.([x*]|\d+)(?:\.([x*]|\d+)(?:\.([x*]|\d+))?(?:-([\da-z\-]+(?:\.[\da-z\-]+)*))?(?:\+[\da-z\-]+(?:\.[\da-z\-]+)*)?)?)?$/i;
+	const validateAndParse = (version) => {
+	    if (typeof version !== 'string') {
+	        throw new TypeError('Invalid argument expected string');
+	    }
+	    const match = version.match(semver);
+	    if (!match) {
+	        throw new Error(`Invalid argument not valid semver ('${version}' received)`);
+	    }
+	    match.shift();
+	    return match;
+	};
+	const isWildcard = (s) => s === '*' || s === 'x' || s === 'X';
+	const tryParse = (v) => {
+	    const n = parseInt(v, 10);
+	    return isNaN(n) ? v : n;
+	};
+	const forceType = (a, b) => typeof a !== typeof b ? [String(a), String(b)] : [a, b];
+	const compareStrings = (a, b) => {
+	    if (isWildcard(a) || isWildcard(b))
+	        return 0;
+	    const [ap, bp] = forceType(tryParse(a), tryParse(b));
+	    if (ap > bp)
+	        return 1;
+	    if (ap < bp)
+	        return -1;
+	    return 0;
+	};
+	const compareSegments = (a, b) => {
+	    for (let i = 0; i < Math.max(a.length, b.length); i++) {
+	        const r = compareStrings(a[i] || '0', b[i] || '0');
+	        if (r !== 0)
+	            return r;
+	    }
+	    return 0;
+	};
+
+	/**
+	 * Compare [semver](https://semver.org/) version strings to find greater, equal or lesser.
+	 * This library supports the full semver specification, including comparing versions with different number of digits like `1.0.0`, `1.0`, `1`, and pre-release versions like `1.0.0-alpha`.
+	 * @param v1 - First version to compare
+	 * @param v2 - Second version to compare
+	 * @returns Numeric value compatible with the [Array.sort(fn) interface](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#Parameters).
+	 */
+	const compareVersions = (v1, v2) => {
+	    // validate input and split into segments
+	    const n1 = validateAndParse(v1);
+	    const n2 = validateAndParse(v2);
+	    // pop off the patch
+	    const p1 = n1.pop();
+	    const p2 = n2.pop();
+	    // validate numbers
+	    const r = compareSegments(n1, n2);
+	    if (r !== 0)
+	        return r;
+	    // validate pre-release
+	    if (p1 && p2) {
+	        return compareSegments(p1.split('.'), p2.split('.'));
+	    }
+	    else if (p1 || p2) {
+	        return p1 ? -1 : 1;
+	    }
+	    return 0;
+	};
+
+	var loglevel = {exports: {}};
+
+	/*
+	* loglevel - https://github.com/pimterry/loglevel
+	*
+	* Copyright (c) 2013 Tim Perry
+	* Licensed under the MIT license.
+	*/
+
+	(function (module) {
+		(function (root, definition) {
+		    if (module.exports) {
+		        module.exports = definition();
+		    } else {
+		        root.log = definition();
+		    }
+		}(this, function () {
+
+		    // Slightly dubious tricks to cut down minimized file size
+		    var noop = function() {};
+		    var undefinedType = "undefined";
+		    var isIE = (typeof window !== undefinedType) && (typeof window.navigator !== undefinedType) && (
+		        /Trident\/|MSIE /.test(window.navigator.userAgent)
+		    );
+
+		    var logMethods = [
+		        "trace",
+		        "debug",
+		        "info",
+		        "warn",
+		        "error"
+		    ];
+
+		    // Cross-browser bind equivalent that works at least back to IE6
+		    function bindMethod(obj, methodName) {
+		        var method = obj[methodName];
+		        if (typeof method.bind === 'function') {
+		            return method.bind(obj);
+		        } else {
+		            try {
+		                return Function.prototype.bind.call(method, obj);
+		            } catch (e) {
+		                // Missing bind shim or IE8 + Modernizr, fallback to wrapping
+		                return function() {
+		                    return Function.prototype.apply.apply(method, [obj, arguments]);
+		                };
+		            }
+		        }
+		    }
+
+		    // Trace() doesn't print the message in IE, so for that case we need to wrap it
+		    function traceForIE() {
+		        if (console.log) {
+		            if (console.log.apply) {
+		                console.log.apply(console, arguments);
+		            } else {
+		                // In old IE, native console methods themselves don't have apply().
+		                Function.prototype.apply.apply(console.log, [console, arguments]);
+		            }
+		        }
+		        if (console.trace) console.trace();
+		    }
+
+		    // Build the best logging method possible for this env
+		    // Wherever possible we want to bind, not wrap, to preserve stack traces
+		    function realMethod(methodName) {
+		        if (methodName === 'debug') {
+		            methodName = 'log';
+		        }
+
+		        if (typeof console === undefinedType) {
+		            return false; // No method possible, for now - fixed later by enableLoggingWhenConsoleArrives
+		        } else if (methodName === 'trace' && isIE) {
+		            return traceForIE;
+		        } else if (console[methodName] !== undefined) {
+		            return bindMethod(console, methodName);
+		        } else if (console.log !== undefined) {
+		            return bindMethod(console, 'log');
+		        } else {
+		            return noop;
+		        }
+		    }
+
+		    // These private functions always need `this` to be set properly
+
+		    function replaceLoggingMethods(level, loggerName) {
+		        /*jshint validthis:true */
+		        for (var i = 0; i < logMethods.length; i++) {
+		            var methodName = logMethods[i];
+		            this[methodName] = (i < level) ?
+		                noop :
+		                this.methodFactory(methodName, level, loggerName);
+		        }
+
+		        // Define log.log as an alias for log.debug
+		        this.log = this.debug;
+		    }
+
+		    // In old IE versions, the console isn't present until you first open it.
+		    // We build realMethod() replacements here that regenerate logging methods
+		    function enableLoggingWhenConsoleArrives(methodName, level, loggerName) {
+		        return function () {
+		            if (typeof console !== undefinedType) {
+		                replaceLoggingMethods.call(this, level, loggerName);
+		                this[methodName].apply(this, arguments);
+		            }
+		        };
+		    }
+
+		    // By default, we use closely bound real methods wherever possible, and
+		    // otherwise we wait for a console to appear, and then try again.
+		    function defaultMethodFactory(methodName, level, loggerName) {
+		        /*jshint validthis:true */
+		        return realMethod(methodName) ||
+		               enableLoggingWhenConsoleArrives.apply(this, arguments);
+		    }
+
+		    function Logger(name, defaultLevel, factory) {
+		      var self = this;
+		      var currentLevel;
+		      defaultLevel = defaultLevel == null ? "WARN" : defaultLevel;
+
+		      var storageKey = "loglevel";
+		      if (typeof name === "string") {
+		        storageKey += ":" + name;
+		      } else if (typeof name === "symbol") {
+		        storageKey = undefined;
+		      }
+
+		      function persistLevelIfPossible(levelNum) {
+		          var levelName = (logMethods[levelNum] || 'silent').toUpperCase();
+
+		          if (typeof window === undefinedType || !storageKey) return;
+
+		          // Use localStorage if available
+		          try {
+		              window.localStorage[storageKey] = levelName;
+		              return;
+		          } catch (ignore) {}
+
+		          // Use session cookie as fallback
+		          try {
+		              window.document.cookie =
+		                encodeURIComponent(storageKey) + "=" + levelName + ";";
+		          } catch (ignore) {}
+		      }
+
+		      function getPersistedLevel() {
+		          var storedLevel;
+
+		          if (typeof window === undefinedType || !storageKey) return;
+
+		          try {
+		              storedLevel = window.localStorage[storageKey];
+		          } catch (ignore) {}
+
+		          // Fallback to cookies if local storage gives us nothing
+		          if (typeof storedLevel === undefinedType) {
+		              try {
+		                  var cookie = window.document.cookie;
+		                  var location = cookie.indexOf(
+		                      encodeURIComponent(storageKey) + "=");
+		                  if (location !== -1) {
+		                      storedLevel = /^([^;]+)/.exec(cookie.slice(location))[1];
+		                  }
+		              } catch (ignore) {}
+		          }
+
+		          // If the stored level is not valid, treat it as if nothing was stored.
+		          if (self.levels[storedLevel] === undefined) {
+		              storedLevel = undefined;
+		          }
+
+		          return storedLevel;
+		      }
+
+		      function clearPersistedLevel() {
+		          if (typeof window === undefinedType || !storageKey) return;
+
+		          // Use localStorage if available
+		          try {
+		              window.localStorage.removeItem(storageKey);
+		              return;
+		          } catch (ignore) {}
+
+		          // Use session cookie as fallback
+		          try {
+		              window.document.cookie =
+		                encodeURIComponent(storageKey) + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+		          } catch (ignore) {}
+		      }
+
+		      /*
+		       *
+		       * Public logger API - see https://github.com/pimterry/loglevel for details
+		       *
+		       */
+
+		      self.name = name;
+
+		      self.levels = { "TRACE": 0, "DEBUG": 1, "INFO": 2, "WARN": 3,
+		          "ERROR": 4, "SILENT": 5};
+
+		      self.methodFactory = factory || defaultMethodFactory;
+
+		      self.getLevel = function () {
+		          return currentLevel;
+		      };
+
+		      self.setLevel = function (level, persist) {
+		          if (typeof level === "string" && self.levels[level.toUpperCase()] !== undefined) {
+		              level = self.levels[level.toUpperCase()];
+		          }
+		          if (typeof level === "number" && level >= 0 && level <= self.levels.SILENT) {
+		              currentLevel = level;
+		              if (persist !== false) {  // defaults to true
+		                  persistLevelIfPossible(level);
+		              }
+		              replaceLoggingMethods.call(self, level, name);
+		              if (typeof console === undefinedType && level < self.levels.SILENT) {
+		                  return "No console available for logging";
+		              }
+		          } else {
+		              throw "log.setLevel() called with invalid level: " + level;
+		          }
+		      };
+
+		      self.setDefaultLevel = function (level) {
+		          defaultLevel = level;
+		          if (!getPersistedLevel()) {
+		              self.setLevel(level, false);
+		          }
+		      };
+
+		      self.resetLevel = function () {
+		          self.setLevel(defaultLevel, false);
+		          clearPersistedLevel();
+		      };
+
+		      self.enableAll = function(persist) {
+		          self.setLevel(self.levels.TRACE, persist);
+		      };
+
+		      self.disableAll = function(persist) {
+		          self.setLevel(self.levels.SILENT, persist);
+		      };
+
+		      // Initialize with the right level
+		      var initialLevel = getPersistedLevel();
+		      if (initialLevel == null) {
+		          initialLevel = defaultLevel;
+		      }
+		      self.setLevel(initialLevel, false);
+		    }
+
+		    /*
+		     *
+		     * Top-level API
+		     *
+		     */
+
+		    var defaultLogger = new Logger();
+
+		    var _loggersByName = {};
+		    defaultLogger.getLogger = function getLogger(name) {
+		        if ((typeof name !== "symbol" && typeof name !== "string") || name === "") {
+		          throw new TypeError("You must supply a name when creating a logger.");
+		        }
+
+		        var logger = _loggersByName[name];
+		        if (!logger) {
+		          logger = _loggersByName[name] = new Logger(
+		            name, defaultLogger.getLevel(), defaultLogger.methodFactory);
+		        }
+		        return logger;
+		    };
+
+		    // Grab the current global log variable in case of overwrite
+		    var _log = (typeof window !== undefinedType) ? window.log : undefined;
+		    defaultLogger.noConflict = function() {
+		        if (typeof window !== undefinedType &&
+		               window.log === defaultLogger) {
+		            window.log = _log;
+		        }
+
+		        return defaultLogger;
+		    };
+
+		    defaultLogger.getLoggers = function getLoggers() {
+		        return _loggersByName;
+		    };
+
+		    // ES6 default export, for compatibility
+		    defaultLogger['default'] = defaultLogger;
+
+		    return defaultLogger;
+		})); 
+	} (loglevel));
+
+	var loglevelExports = loglevel.exports;
+	var log = /*@__PURE__*/getDefaultExportFromCjs(loglevelExports);
+
+	var logger = log.noConflict();
+
+	function emoji(unifiedValue) {
+	  if (String.fromCodePoint) {
+	    var emoji = parseInt(unifiedValue, 16);
+	    return String.fromCodePoint(emoji);
+	  } else {
+	    logger.error("[Super-preloader]", 'Shame on your browser!');
+	    return '';
+	  }
+	}
+
+	var name="super-preloader";var version="7.0.6";var description="Super-preloader";var main="dist/Super_preloaderPlus_one_New.user.js";var author="Mach6";var license="GPL-3.0";var type="module";var bugs={url:"https://github.com/machsix/Super-preloader/issues"};var homepage="https://github.com/machsix/Super-preloader";var directories={doc:"docs"};var repository={type:"git",url:"git+https://github.com/machsix/Super-preloader.git"};var scripts={lint:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.mjs\"",fix:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.mjs\" --fix",format:"prettier --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.mjs\" \"docs/**/*.{js,md}\"","format:check":"prettier --check \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.mjs\" \"docs/**/*.{js,md}\"","format:staged":"lint-staged -v",check:"npm run lint && npm run typecheck",test:"cd test && node test.js",dev:"rollup -c --dev -w",build:"rollup -c","docs:dev":"cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress dev docs","docs:build":"cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh",preversion:"npm run check",version:"npm run build  && git add dist/*.js && git add dist/*.json",postversion:"git add package.json package-lock.json && npm run test","publish:patch":"npm --no-git-tag-version version patch",publish:"npm --no-git-tag-version version minor",typecheck:"tsc -p jsconfig.json --noEmit"};var husky={hooks:{"pre-commit":"npm run check"}};var keywords=["userscript"];var devDependencies={"@vuepress/plugin-back-to-top":"2.0.0-rc.0","@vuepress/plugin-google-analytics":"2.0.0-rc.0","@vuepress/plugin-register-components":"2.0.0-rc.0",typescript:"5.3.2",vuepress:"2.0.0-rc.0"};var dependencies={"@babel/core":"7.23.3","@babel/plugin-syntax-import-attributes":"7.23.3","@babel/plugin-transform-runtime":"7.23.4","@babel/preset-env":"7.23.3","@rollup/plugin-babel":"6.0.4","@rollup/plugin-commonjs":"25.0.7","@rollup/plugin-json":"6.0.1","@rollup/plugin-node-resolve":"15.2.3","@types/greasemonkey":"4.0.7","@types/lodash":"4.14.202","babel-plugin-lodash":"3.3.4","babel-plugin-wildcard":"7.0.0","compare-versions":"6.1.0","cross-env":"7.0.3",displacejs:"https://github.com/machsix/displace.git#v1.4.0",eslint:"8.54.0","eslint-config-prettier":"9.0.0","eslint-plugin-import":"2.29.0","eslint-plugin-json":"3.1.0","eslint-plugin-prettier":"5.0.1","extract-zip":"2.0.1",got:"13.0.0",husky:"8.0.3","lint-staged":"15.1.0",lodash:"4.17.21",loglevel:"1.8.1",prettier:"3.1.0",puppeteer:"2.1.0",rollup:"4.6.0","rollup-plugin-banner2":"1.2.2","rollup-plugin-dev":"2.0.4","rollup-plugin-ejs":"4.0.0","rollup-plugin-re":"1.0.7","rollup-plugin-scss-string":"github:machsix/rollup-plugin-scss-string",yargs:"17.7.2"};var pkg = {name:name,version:version,description:description,main:main,author:author,license:license,type:type,bugs:bugs,homepage:homepage,directories:directories,repository:repository,scripts:scripts,husky:husky,keywords:keywords,devDependencies:devDependencies,dependencies:dependencies};
+
+	// Information of script
+	var now = new Date();
+	var SCRIPT_INFO = {
+	  name: 'Super_preloaderPlus_one_New',
+	  shortname: 'Super-preloader',
+	  'name-CN': 'Super_preloaderPlus_one_改',
+	  namespace: 'https://github.com/machsix',
+	  icon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAvCAYAAABOtfLKAAAL9UlEQVR42s1ZC1CU1xXee/9/dwGFFRU1SQURfCSaCCoaX6Py9gmDqBSN4zuKWvEFPqpGDGrjtLFJGzXO1FgfqNUYp2lim9hWGzH1hcT3pDHK2FidGtvqaIIi/b71/viz/wLL6tjuzJnz73/vf+455zv33HPvtSUm9hMgqUgjf1qUnBwvbeoXHBwcqGlaBynFSCHEa6C3pJT9MjPThY/yhM1khP1p8okTx2jHjx8QQUGBkVB6EmgvDLgCugeqVLSxd+8edhjti1xNGfOoYdCgFG3gwGSdPCUl3iLocfnQoQO0zZvXS6fT8aymyYVQ+JxS/D5Q4fM2GLYFvAJ8W2zsSzp0oB7QJ0F/pF9yNbkWZMaMyZLt2kUHhIU1DYyKigxs2zbanpTU315ZWSkqKx8IhgOfyZcsyddycibK1NREnwxJSOhrnz17moyN7eSAkkNAnysjboK267o2zOl0PtenT08d4ZZA40BbCwsXy/v3bwjKgW721q1bBTZrFhYE3QKyszMl5FqQgSHZbsghYBMG+gP4h+C/Af8V+BrQYgySA29m2O32PqA2LldIWHj4D5zvvPNTSQO3bt0gJ0x4RcIBFkN2794s4CQX5UDmvxhOeN4NmX2pIL+fPHmsBmfZdF1PRXs5kDqBPktAP2fIge+iXkq/TdA3YsWK14QFmWPHDgoITlIx+wB0hwLVc6UHse0qqASC94CvgGdHQ4mY0NBGTRYsmC2JIL1Kw/bt2y1cLlcY+q1THv8GY00LDm4YfOvW30Va2qAqww8d+pR6JKPPXY8xHyh97qjne9T3yJE/CwsyZ84ct9nteqry2Mfo2BPeTwASQ6go3s3A83K0b8Dz72iIMuh704Dfgv5KT4LSGjZs8FxFxU3RpEnjUH6nlDgNoxOBghw2LE33DMkvvvjcjAydNRO6jAYNgX4J0KUn3v2eeqJfyokTxTYLMsojSUasLl6cpxlzxMyHDBmgt2jRPIAhBmPb0mAInwqi1w8rgyqVnFN4vwJ8LagCVIr+3RhKSC4WQ8iLixUySo8DBz6Sanwy29Kl+ZLv2c5+xcX7rchcvHjWQOY+s0jnzp2QRarHPogJQRswIEmfMmW8LChYKA1DMzPTZOPGoY3hrVgMMhVy3gddN6H2FecalTLNKQsvLa1C5r4pm7kNJ+/SJUbH+yK2o1/yqVNHHyFj/kGJFOWRbd27d3XAez6nXSiIJPJDuXPne24DIyMjgiAvRk3aSoToMoshdSNT1K1bF+iRwHZ3euZ/6qeQSeFYVZGDwTri5StoLMTzHxnXZmT8X08GMkwpfzaNAZ9bVnbOCIlakDnsKzLU80/Um3OKdtjw57KKZ5UxwK3I+MUvXDhJtPMoE3zeuXMlDInHRKYzkdnqoW8F7XAjxFQJy3IRCj+uYc74xUtKDgkiopCZd/JkcZ3IoI/Pc4YVBPXG8z9oh01ZdrJ582Yh8Ej/+swZJgMkAi0jY4jX9vPnSzyQOeEHMp0NPXQiExfX2Txn4ps1axpC/UE0xgaviZNYwBohm6X4igzqI23OnOkaaqwIruwjR2bIJ4FMSYknMp1qy2ZJISHBjaB/qRmZUqZVWJroCzJZWcNkRsZQ1lADIfgjh8MRNWPGq5p3ZGS+Qibv7NnjTxqZJFQcjX1EJt5SYxUULJJt2kQFos9kxiroSmBgYNSqVcsEPcfJavCZM6do8F53GJQH3m3WrBzNaEeImg3RDU40iYxZDzMyXbtakcFz/ZChIczl7KdW9dvq20tEBtWzHhPzIsPAYeIMR53rCxda/ud7Tuq+fXsxO1Uz5Kkhk5MzSQYGBkQZgkwr+230/63ah2ynAj7wzRgrhousJzInTliQsVdHJrY2ZGw+IbN69esS7Wlou+GliuY39+pBt1mKFBVtFHUhAyRqRaZRI1f9kWH2wjsH9zPo86XJkGsQOgqUgO+T6BATT1TvE0z/yeMbNAhqOnx4umZF5rP6IhNaFzJFRMZzyzx4cKq2d2+R5KSGwEPGnMEOMdxcI5l5RER4ELYCTVq1Cg8yv8/KyuA81HxAhsaYkbHXgozwigzzOT3hbaEsKzsrUAG3VkXkJcyl6IUL51hCprCQm0Q5lnsY8PHMhEZ7Tfz48TqRsVdHJsQ/ZAxOj7799huSoYJvcgMCnC1ZCXgqdv3611xn5quqOe/q1a9sFgP8QEZKH5DR9dqQsRqEAxAN/ZhyOUktimE1r1YBoCIWdSPzl3oh43I9QgZUf2RMCnARpNFeFTtz5piNiChk5p4+fVTUjcx+n5HBFjrZb2TqUOSJIHPsWI3I6I+LjL+GKGSOiv8RMsG1IeMXv3jxNJHJU8jkX758zgdkDtaKTFycD8igxqkJGb8NwkIrqRictYGOQn0ma+tPOnx4v6DHHxpjQYbGeCIT+lSQIV+zZpVkobl+/RrvhpjJigz1+P9ABoumwELcF4MvB++zcuUyNWeslJ4+CNX1vwUVgscTTMhYEkCtyPBPSMiTR+bSpbPV5gxPZ8wGUD6OpgSQ46lnsMNhfwn9MkHu00/vyHT2Cxn74yLDhRV7nRjev5AbtVhSUj99/vxZcty40RJ1XVu0/wje/sTj0JBXGr/s3ftlbuRqRMblqhuZrT16xHECu3eMEOaXQVBepxxW21SK/3meBjR4P9OK4Yfx/qZ0KAedgqK/5toEx2YHBAREshYEQY943s3oPXt21+uLzE6c1gRHRLR0UhEexZ4/f1SYz3ypUG7uVMkBMJjXSb1hwy+4ZoyAvI/BM/kdqmcnnocb3gT9kwbg3SBcUbTIz8+V7PeoCr8jxo4dpWF3ase3ATiNaYj+O4zjWRhTKzL3FNyfwAMfqp3hetAKLHxzQNk8xUfV3LFBgwbP4BA9aPr0yVWH7DTciHGc6Aue4nMzRo6C1AVeiP+3QN+pHWd3Khod3doJeS0wbzrS40QG7XM4LuhdhhaI+hjhyFsAFppWZPCyCRR8kVCr3eR/QHeNLbIHldOjoLMYYB8vozD4JAh/GXuX5gwnIrhu3ZsClfWzUDgOc4aTe6OSV8bEwHM60AR+Dzm8pjinxi6vYTd7l3qpPqeYMABCEwsy8EpTXMHZMSEjMXAnKNAVxvXm4TQm2nAM+CpoEScliCf8R6iUx6XQLcqiJ4HgSMR8q2vXvhQIYZ5tbVLHqRWg06AS9jd9SzlllIu+76txFkHOFIYodEiFTr2gUxyN4Hzq1au7jpoyzIIMLAzjBRA2WZLhcuPG14LeJZl/ubk5Gk74nYQXkziK6wcGdXsXcg6YMhIVv8D3CpEKD09fAx1E25tQeAJQ7QNHRlEu7lOdc+fOkJ5jK33ExYulYuXKpciGozREQpg3ZMKys4dXbbCMLMJsBtJxlOTmIPf9DC5HteXLF1UNOHPmVIm1IoShCuXGq0n6jcc13hW+R/s49mP/WbOmSUPR1asLJA4YcZucxHFAHNfNmZZB/avSNIn7KW/InEQohD4U+r3Ys2eLSE8frOMO3r3xat++reP559s6X3ihnYPnXhSkLlOFYQy5GUkcFDqBWgd1vFTJBZBJIzo6MsBbfyOB8Aab8llgdujQ3tGuXRv3uJ06dbTzJnrYsKHa2rU/k8ZZgspmJWZkLjPbgPKZ+0FvwYPvgm8B3w6+G312gYPc2W2TiumfqIk8njGNWI4NCgp6Jjy8ZaChJNpnKWPmGEawnf1gXCy/4/eUQ3mUq+Qze+1StJtOoT6cj9QP9PrDsWUu55oZGW/0QGWQcnUJ+53i9xj/NWSbb1VG+kBdtfdjKlbGFKj/S6DcB6rfzRqyZQXH8Ri3XPV94FVfhUwBBljLQbmOsPTAoFmgdFavLPrA+z0iLQl8IBc+5dF5oDeIGGR9Ri+ZUusdlcIrFb9jSu1l7M/VnN9TDuSNo1yMMZBriGncvqBEvE+hXkq/ybyVo97UH7KW2fibNGmsEYPm+PXkwvjv+SsrOyNYECITubAwtuapCQZYqBa4mzRA8U/xfgFrKvbDPHVxbpSWHhIWodZ5Re61D455tR073hM2ZAmhyhEB8salL3zw4BQxatQIaR4I6T4EiKWCCsmxZwoxt48ePYLlkCHHbw79mWnFfwGWB6omxVHfzgAAAABJRU5ErkJggg==',
+	  author: pkg.author,
+	  version: pkg.version,
+	  license: pkg.license,
+	  changelog: `${emoji('1F595')} Baidu`,
+	  greasyfork: 'https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new',
+	  updateTime: `${now.getFullYear()}/${now.getMonth() + 1}/${now.getDate()}`,
+	  homepageURL: pkg.homepage,
+	  feedbackURL: pkg.bugs.url,
+	  // rewrite storage for these versions
+	  rewriteStorage: '6.6.83'
+	};
+	// SCRIPT_INFO.downloadURL = `${SCRIPT_INFO.greasyfork}/code/${SCRIPT_INFO.name}.user.js`;
+	// SCRIPT_INFO.metaURL = `${SCRIPT_INFO.greasyfork}/code/${SCRIPT_INFO.name}.meta.js`;
+	SCRIPT_INFO.downloadURL = 'https://machsix.github.io/Super-preloader/Super_preloaderPlus_one_New.user.js';
+	SCRIPT_INFO.updateURL = SCRIPT_INFO.downloadURL;
+
+	// New notification to send
+	var NOTIFICATION = {
+	  title: SCRIPT_INFO.name,
+	  image: SCRIPT_INFO.icon,
+	  onload: function onload() {},
+	  // eslint-disable-next-line no-unused-vars
+	  show: function show(oldVersion, newVersion) {
+	    return compareVersions(oldVersion, '6.15.1') < 0 && compareVersions(newVersion, '6.15.1') >= 0;
+	  },
+	  extratext: {
+	    zh_CN: '你现在可以修改css自定义外观！',
+	    en_US: 'You can now change the appearence by CustomCSS!'
+	  }
+	};
+
+	// Meta for userscript
+`// ==UserScript==
+// @name         ${SCRIPT_INFO.name}
+// @name:zh-CN   ${SCRIPT_INFO['name-CN']}
+// @name:zh-TW   ${SCRIPT_INFO['name-CN']}
+// @namespace    ${SCRIPT_INFO.namespace}
+// @description  Preload and Autopager
+// @description:zh-CN  预读+翻页..全加速你的浏览体验
+// @description:zh-TW  预读+翻页..全加速你的浏览体验
+// @author       ${SCRIPT_INFO.author}
+// @contributers alexolog, heroboy, suchunchen, YFdyh000
+// @thanksto     ywzhaiqi, NLF
+// @version      ${SCRIPT_INFO.version}
+// @license      ${SCRIPT_INFO.license}
+// @update       ${SCRIPT_INFO.updateTime}
+// @homepageURL  ${SCRIPT_INFO.homepageURL}
+// @downloadURL  ${SCRIPT_INFO.downloadURL}
+// @updateURL    ${SCRIPT_INFO.updateURL}
+// @supportURL   ${SCRIPT_INFO.homepageURL}/issue
+// @contributionURL https://ko-fi.com/machsix
+// @icon         ${SCRIPT_INFO.icon}
+// @require      https://cdn.jsdelivr.net/gh/machsix/gm4-polyfill@3ac89770e4dcb69123c749a71f101fb462eaada8/gm4-polyfill-mach6-legacy.js
+// @grant        GM.getValue
+// @grant        GM_getValue
+// @grant        GM.setValue
+// @grant        GM_setValue
+// @grant        GM.notification
+// @grant        GM_notification
+// @grant        GM.xmlHttpRequest
+// @grant        GM_xmlhttpRequest
+// @grant        GM.info
+// @grant        GM_info
+// @grant        GM_registerMenuCommand
+// @connect      wedata.net
+// @connect      github.io
+// @run-at       document-idle
+// @include      http*
+// @exclude      http*://mail.google.com/*
+// @exclude      http*://maps.google*
+// @exclude      http*://www.google.com/reader*
+// @exclude      http*://www.google.com/calendar*
+// @exclude      https://docs.google.com/*
+// @exclude      http*://app.yinxiang.com/*
+// @exclude      http*://www.dropbox.com/*
+// @exclude      http*://www.toodledo.com/*
+// @exclude      http*://cloud.feedly.com/*
+// @exclude      http*://weibo.com/*
+// @exclude      http*://w.qq.com/*
+// @exclude      http*://web2.qq.com/*
+// @exclude      http*://openapi.qzone.qq.com/*
+// @exclude      http*://*cloud.vip.xunlei.com/*
+// @exclude      http*://www.wumii.com/*
+// @exclude      http*://pan.baidu.com/*
+// @exclude      http*://yun.baidu.com/*
+// @exclude      http*://www.cnbeta.com/*
+// @exclude      http*://www.youku.com/
+// @exclude      http*://v.youku.com/*
+// @exclude      http*://www.iqiyi.com/*
+// @exclude      http*://www.duokan.com/reader/*
+// @exclude      https://www.kohls.com/*
+// @exclude      http*://list.jd.com/*
+// @exclude      http*://eclick.baidu.com/*
+// @exclude      http*://googleads.g.doubleclick.net/*
+// @exclude      http*://pos.baidu.com/*
+// @exclude      http*://tpc.googlesyndication.com/*
+// @exclude      http*://ad.doubleclick.net/*
+// @exclude      http*://ad.agrantsem.com/*
+// @exclude      http*://www.youtube.com/embed/*
+// @exclude      https://assets.tumblr.com/*
+// @exclude      http*://www.paypal.com/*
+// @exclude      http*://dash.cloudflare.com/*
+// @exclude      http*://assets.tumblr.com/*
+// @exclude      http*://www.tumblr.com/video/*
+// @exclude      http*://*.awsapps.com/*
+// @exlucde      http*://www.commcarehq.org/accounts/login/*gre
+// @exclude      http*://simkl.com/*
+// ==/UserScript==
+`;
+
+	// 动画库
+	var Tween = {
+	  Linear: function Linear(t, b, c, d) {
+	    return c * t / d + b;
+	  },
+	  Quad: {
+	    easeIn: function easeIn(t, b, c, d) {
+	      return c * (t /= d) * t + b;
+	    },
+	    easeOut: function easeOut(t, b, c, d) {
+	      return -c * (t /= d) * (t - 2) + b;
+	    },
+	    easeInOut: function easeInOut(t, b, c, d) {
+	      if ((t /= d / 2) < 1) return c / 2 * t * t + b;
+	      return -c / 2 * (--t * (t - 2) - 1) + b;
+	    }
+	  },
+	  Cubic: {
+	    easeIn: function easeIn(t, b, c, d) {
+	      return c * (t /= d) * t * t + b;
+	    },
+	    easeOut: function easeOut(t, b, c, d) {
+	      return c * ((t = t / d - 1) * t * t + 1) + b;
+	    },
+	    easeInOut: function easeInOut(t, b, c, d) {
+	      if ((t /= d / 2) < 1) return c / 2 * t * t * t + b;
+	      return c / 2 * ((t -= 2) * t * t + 2) + b;
+	    }
+	  },
+	  Quart: {
+	    easeIn: function easeIn(t, b, c, d) {
+	      return c * (t /= d) * t * t * t + b;
+	    },
+	    easeOut: function easeOut(t, b, c, d) {
+	      return -c * ((t = t / d - 1) * t * t * t - 1) + b;
+	    },
+	    easeInOut: function easeInOut(t, b, c, d) {
+	      if ((t /= d / 2) < 1) return c / 2 * t * t * t * t + b;
+	      return -c / 2 * ((t -= 2) * t * t * t - 2) + b;
+	    }
+	  },
+	  Quint: {
+	    easeIn: function easeIn(t, b, c, d) {
+	      return c * (t /= d) * t * t * t * t + b;
+	    },
+	    easeOut: function easeOut(t, b, c, d) {
+	      return c * ((t = t / d - 1) * t * t * t * t + 1) + b;
+	    },
+	    easeInOut: function easeInOut(t, b, c, d) {
+	      if ((t /= d / 2) < 1) return c / 2 * t * t * t * t * t + b;
+	      return c / 2 * ((t -= 2) * t * t * t * t + 2) + b;
+	    }
+	  },
+	  Sine: {
+	    easeIn: function easeIn(t, b, c, d) {
+	      return -c * Math.cos(t / d * (Math.PI / 2)) + c + b;
+	    },
+	    easeOut: function easeOut(t, b, c, d) {
+	      return c * Math.sin(t / d * (Math.PI / 2)) + b;
+	    },
+	    easeInOut: function easeInOut(t, b, c, d) {
+	      return -c / 2 * (Math.cos(Math.PI * t / d) - 1) + b;
+	    }
+	  },
+	  Expo: {
+	    easeIn: function easeIn(t, b, c, d) {
+	      return t == 0 ? b : c * Math.pow(2, 10 * (t / d - 1)) + b;
+	    },
+	    easeOut: function easeOut(t, b, c, d) {
+	      return t == d ? b + c : c * (-Math.pow(2, -10 * t / d) + 1) + b;
+	    },
+	    easeInOut: function easeInOut(t, b, c, d) {
+	      if (t == 0) return b;
+	      if (t == d) return b + c;
+	      if ((t /= d / 2) < 1) return c / 2 * Math.pow(2, 10 * (t - 1)) + b;
+	      return c / 2 * (-Math.pow(2, -10 * --t) + 2) + b;
+	    }
+	  },
+	  Circ: {
+	    easeIn: function easeIn(t, b, c, d) {
+	      return -c * (Math.sqrt(1 - (t /= d) * t) - 1) + b;
+	    },
+	    easeOut: function easeOut(t, b, c, d) {
+	      return c * Math.sqrt(1 - (t = t / d - 1) * t) + b;
+	    },
+	    easeInOut: function easeInOut(t, b, c, d) {
+	      if ((t /= d / 2) < 1) return -c / 2 * (Math.sqrt(1 - t * t) - 1) + b;
+	      return c / 2 * (Math.sqrt(1 - (t -= 2) * t) + 1) + b;
+	    }
+	  },
+	  Elastic: {
+	    easeIn: function easeIn(t, b, c, d, a, p) {
+	      if (t == 0) return b;
+	      if ((t /= d) == 1) return b + c;
+	      if (!p) p = d * 0.3;
+	      var s;
+	      if (!a || a < Math.abs(c)) {
+	        a = c;
+	        s = p / 4;
+	      } else {
+	        s = p / (2 * Math.PI) * Math.asin(c / a);
+	      }
+	      return -(a * Math.pow(2, 10 * (t -= 1)) * Math.sin((t * d - s) * (2 * Math.PI) / p)) + b;
+	    },
+	    easeOut: function easeOut(t, b, c, d, a, p) {
+	      if (t == 0) return b;
+	      if ((t /= d) == 1) return b + c;
+	      if (!p) p = d * 0.3;
+	      var s;
+	      if (!a || a < Math.abs(c)) {
+	        a = c;
+	        s = p / 4;
+	      } else {
+	        s = p / (2 * Math.PI) * Math.asin(c / a);
+	      }
+	      return a * Math.pow(2, -10 * t) * Math.sin((t * d - s) * (2 * Math.PI) / p) + c + b;
+	    },
+	    easeInOut: function easeInOut(t, b, c, d, a, p) {
+	      if (t == 0) return b;
+	      if ((t /= d / 2) == 2) return b + c;
+	      if (!p) p = d * (0.3 * 1.5);
+	      var s;
+	      if (!a || a < Math.abs(c)) {
+	        a = c;
+	        s = p / 4;
+	      } else {
+	        s = p / (2 * Math.PI) * Math.asin(c / a);
+	      }
+	      if (t < 1) return -0.5 * (a * Math.pow(2, 10 * (t -= 1)) * Math.sin((t * d - s) * (2 * Math.PI) / p)) + b;
+	      return a * Math.pow(2, -10 * (t -= 1)) * Math.sin((t * d - s) * (2 * Math.PI) / p) * 0.5 + c + b;
+	    }
+	  },
+	  Back: {
+	    easeIn: function easeIn(t, b, c, d, s) {
+	      if (s == undefined) s = 1.70158;
+	      return c * (t /= d) * t * ((s + 1) * t - s) + b;
+	    },
+	    easeOut: function easeOut(t, b, c, d, s) {
+	      if (s == undefined) s = 1.70158;
+	      return c * ((t = t / d - 1) * t * ((s + 1) * t + s) + 1) + b;
+	    },
+	    easeInOut: function easeInOut(t, b, c, d, s) {
+	      if (s == undefined) s = 1.70158;
+	      if ((t /= d / 2) < 1) return c / 2 * (t * t * (((s *= 1.525) + 1) * t - s)) + b;
+	      return c / 2 * ((t -= 2) * t * (((s *= 1.525) + 1) * t + s) + 2) + b;
+	    }
+	  },
+	  Bounce: {
+	    easeIn: function easeIn(t, b, c, d) {
+	      return c - Tween.Bounce.easeOut(d - t, 0, c, d) + b;
+	    },
+	    easeOut: function easeOut(t, b, c, d) {
+	      if ((t /= d) < 1 / 2.75) {
+	        return c * (7.5625 * t * t) + b;
+	      } else if (t < 2 / 2.75) {
+	        return c * (7.5625 * (t -= 1.5 / 2.75) * t + 0.75) + b;
+	      } else if (t < 2.5 / 2.75) {
+	        return c * (7.5625 * (t -= 2.25 / 2.75) * t + 0.9375) + b;
+	      } else {
+	        return c * (7.5625 * (t -= 2.625 / 2.75) * t + 0.984375) + b;
+	      }
+	    },
+	    easeInOut: function easeInOut(t, b, c, d) {
+	      if (t < d / 2) return Tween.Bounce.easeIn(t * 2, 0, c, d) * 0.5 + b;else return Tween.Bounce.easeOut(t * 2 - d, 0, c, d) * 0.5 + c * 0.5 + b;
+	    }
+	  }
+	};
+	var TweenM = ['Linear', 'Quad', 'Cubic', 'Quart', 'Quint', 'Sine', 'Expo', 'Circ', 'Elastic', 'Back', 'Bounce'];
+	var TweenEase = ['easeIn', 'easeOut', 'easeInOut'];
+
+	/**
+	 * Set multiple attributes of a dom element
+	 * @param {object} el dom element
+	 * @param {object} attr dom attributes
+	 * @returns {null} null
+	 */
+	function setMultipleAttributes(el, attr) {
+	  for (var _i = 0, _Object$entries = Object.entries(attr); _i < _Object$entries.length; _i++) {
+	    var _Object$entries$_i = _slicedToArray$1(_Object$entries[_i], 2),
+	      key = _Object$entries$_i[0],
+	      val = _Object$entries$_i[1];
+	    el.setAttribute(key, val);
+	  }
+	}
+
+	/**
+	 * Create a dom element
+	 * @param {string} type element type
+	 * @param {object} conf configuration of the dom, could be 'attr', 'innnerHTML', 'children', 'eventListner'
+	 * @param {Document} doc dom to attach
+	 * @returns {HTMLElement} dom element
+	 */
+	function createDOM(type, conf) {
+	  var doc = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : document;
+	  var e = doc.createElement(type);
+	  if (conf.hasOwnProperty('attr')) {
+	    setMultipleAttributes(e, conf.attr);
+	  }
+	  if (conf.hasOwnProperty('innerHTML')) {
+	    e.innerHTML = conf.innerHTML;
+	  }
+	  if (Array.isArray(conf.children)) {
+	    if (conf.children.length > 0) {
+	      conf.children.forEach(function (c) {
+	        e.appendChild(c);
+	      });
+	    }
+	  }
+	  if (Array.isArray(conf.eventListener)) {
+	    if (conf.eventListener.length > 0) {
+	      conf.eventListener.forEach(function (x) {
+	        e.addEventListener(x.type, x.listener, x.useCapture || false);
+	      });
+	    }
+	  }
+	  return e;
+	}
+
+	/**
+	 * Get attributes for settings
+	 * @param {HTMLElement} obj dom element
+	 * @returns {string|boolean|number} dom element main property
+	 */
+	function getProperty(obj) {
+	  if (obj.nodeName === 'INPUT') {
+	    switch (obj.type) {
+	      case 'checkbox':
+	        return !!obj.checked;
+	      case 'number':
+	        {
+	          var min = obj.hasAttribute('min') ? parseInt(obj.min) : undefined;
+	          var max = obj.hasAttribute('max') ? parseInt(obj.max) : undefined;
+	          if (min >= obj.valueAsNumber) return min;
+	          if (max < obj.valueAsNumber) return max;
+	          return obj.valueAsNumber;
+	        }
+	      default:
+	        return obj.value;
+	    }
+	  } else if (obj.nodeName === 'SELECT') {
+	    return obj.selectedOptions[0].value;
+	  } else if (obj.nodeName === 'TEXTAREA') {
+	    return obj.value;
+	  } else if (obj.nodeName === 'A') {
+	    return obj.href;
+	  } else {
+	    return obj.innerHTML;
+	  }
+	}
+
+	/**
+	 * Set attributes for settings
+	 * @param {object} obj dom element
+	 * @param {object} value value set to dom element
+	 * @returns {undefined}
+	 */
+	function setProperty(obj, value) {
+	  if (obj.nodeName === 'INPUT') {
+	    switch (obj.type) {
+	      case 'checkbox':
+	        obj.checked = !!value;
+	        break;
+	      case 'number':
+	        {
+	          if (obj.hasAttribute('min')) {
+	            if (value < obj.min) {
+	              value = obj.min;
+	            }
+	          }
+	          if (obj.hasAttribute('max')) {
+	            if (value > obj.max) {
+	              value = obj.max;
+	            }
+	          }
+	          obj.value = value;
+	          break;
+	        }
+	      default:
+	        obj.value = value;
+	    }
+	  } else if (obj.nodeName === 'SELECT') {
+	    for (var i = 0; i < obj.options.length; i++) {
+	      if (obj.options[i].value === value) {
+	        obj.selectedIndex = i;
+	        break;
+	      }
+	    }
+	  } else if (obj.nodeName === 'TEXTAREA') {
+	    obj.value = value;
+	  } else if (obj.nodeName === 'A') {
+	    obj.href = value;
+	  } else {
+	    obj.innerHTML = value;
+	  }
+	}
+
+	function _defineProperty$1(obj, key, value) {
+	  if (key in obj) {
+	    Object.defineProperty(obj, key, {
+	      value: value,
+	      enumerable: true,
+	      configurable: true,
+	      writable: true
+	    });
+	  } else {
+	    obj[key] = value;
+	  }
+
+	  return obj;
+	}
+
+	var defineProperty$2 = _defineProperty$1;
+
+	var _defineProperty$2 = /*@__PURE__*/getDefaultExportFromCjs(defineProperty$2);
+
+	var baseGetTag$1 = _baseGetTag,
+	    isArray$2 = isArray_1,
+	    isObjectLike$2 = isObjectLike_1;
+
+	/** `Object#toString` result references. */
+	var stringTag = '[object String]';
+
+	/**
+	 * Checks if `value` is classified as a `String` primitive or object.
+	 *
+	 * @static
+	 * @since 0.1.0
+	 * @memberOf _
+	 * @category Lang
+	 * @param {*} value The value to check.
+	 * @returns {boolean} Returns `true` if `value` is a string, else `false`.
+	 * @example
+	 *
+	 * _.isString('abc');
+	 * // => true
+	 *
+	 * _.isString(1);
+	 * // => false
+	 */
+	function isString(value) {
+	  return typeof value == 'string' ||
+	    (!isArray$2(value) && isObjectLike$2(value) && baseGetTag$1(value) == stringTag);
+	}
+
+	var isString_1 = isString;
+
+	var _isString = /*@__PURE__*/getDefaultExportFromCjs(isString_1);
+
+	/**
+	 * The base implementation of `_.isNaN` without support for number objects.
+	 *
+	 * @private
+	 * @param {*} value The value to check.
+	 * @returns {boolean} Returns `true` if `value` is `NaN`, else `false`.
+	 */
+
+	function baseIsNaN$1(value) {
+	  return value !== value;
+	}
+
+	var _baseIsNaN = baseIsNaN$1;
+
+	/**
+	 * A specialized version of `_.indexOf` which performs strict equality
+	 * comparisons of values, i.e. `===`.
+	 *
+	 * @private
+	 * @param {Array} array The array to inspect.
+	 * @param {*} value The value to search for.
+	 * @param {number} fromIndex The index to search from.
+	 * @returns {number} Returns the index of the matched value, else `-1`.
+	 */
+
+	function strictIndexOf$1(array, value, fromIndex) {
+	  var index = fromIndex - 1,
+	      length = array.length;
+
+	  while (++index < length) {
+	    if (array[index] === value) {
+	      return index;
+	    }
+	  }
+	  return -1;
+	}
+
+	var _strictIndexOf = strictIndexOf$1;
+
+	var baseFindIndex = _baseFindIndex,
+	    baseIsNaN = _baseIsNaN,
+	    strictIndexOf = _strictIndexOf;
+
+	/**
+	 * The base implementation of `_.indexOf` without `fromIndex` bounds checks.
+	 *
+	 * @private
+	 * @param {Array} array The array to inspect.
+	 * @param {*} value The value to search for.
+	 * @param {number} fromIndex The index to search from.
+	 * @returns {number} Returns the index of the matched value, else `-1`.
+	 */
+	function baseIndexOf$1(array, value, fromIndex) {
+	  return value === value
+	    ? strictIndexOf(array, value, fromIndex)
+	    : baseFindIndex(array, baseIsNaN, fromIndex);
+	}
+
+	var _baseIndexOf = baseIndexOf$1;
+
+	var baseIndexOf = _baseIndexOf;
+
+	/**
+	 * A specialized version of `_.includes` for arrays without support for
+	 * specifying an index to search from.
+	 *
+	 * @private
+	 * @param {Array} [array] The array to inspect.
+	 * @param {*} target The value to search for.
+	 * @returns {boolean} Returns `true` if `target` is found, else `false`.
+	 */
+	function arrayIncludes$1(array, value) {
+	  var length = array == null ? 0 : array.length;
+	  return !!length && baseIndexOf(array, value, 0) > -1;
+	}
+
+	var _arrayIncludes = arrayIncludes$1;
+
+	/**
+	 * This function is like `arrayIncludes` except that it accepts a comparator.
+	 *
+	 * @private
+	 * @param {Array} [array] The array to inspect.
+	 * @param {*} target The value to search for.
+	 * @param {Function} comparator The comparator invoked per element.
+	 * @returns {boolean} Returns `true` if `target` is found, else `false`.
+	 */
+
+	function arrayIncludesWith$1(array, value, comparator) {
+	  var index = -1,
+	      length = array == null ? 0 : array.length;
+
+	  while (++index < length) {
+	    if (comparator(value, array[index])) {
+	      return true;
+	    }
+	  }
+	  return false;
+	}
+
+	var _arrayIncludesWith = arrayIncludesWith$1;
+
+	var SetCache = _SetCache,
+	    arrayIncludes = _arrayIncludes,
+	    arrayIncludesWith = _arrayIncludesWith,
+	    arrayMap = _arrayMap,
+	    baseUnary = _baseUnary,
+	    cacheHas = _cacheHas;
+
+	/** Used as the size to enable large array optimizations. */
+	var LARGE_ARRAY_SIZE = 200;
+
+	/**
+	 * The base implementation of methods like `_.difference` without support
+	 * for excluding multiple arrays or iteratee shorthands.
+	 *
+	 * @private
+	 * @param {Array} array The array to inspect.
+	 * @param {Array} values The values to exclude.
+	 * @param {Function} [iteratee] The iteratee invoked per element.
+	 * @param {Function} [comparator] The comparator invoked per element.
+	 * @returns {Array} Returns the new array of filtered values.
+	 */
+	function baseDifference$1(array, values, iteratee, comparator) {
+	  var index = -1,
+	      includes = arrayIncludes,
+	      isCommon = true,
+	      length = array.length,
+	      result = [],
+	      valuesLength = values.length;
+
+	  if (!length) {
+	    return result;
+	  }
+	  if (iteratee) {
+	    values = arrayMap(values, baseUnary(iteratee));
+	  }
+	  if (comparator) {
+	    includes = arrayIncludesWith;
+	    isCommon = false;
+	  }
+	  else if (values.length >= LARGE_ARRAY_SIZE) {
+	    includes = cacheHas;
+	    isCommon = false;
+	    values = new SetCache(values);
+	  }
+	  outer:
+	  while (++index < length) {
+	    var value = array[index],
+	        computed = iteratee == null ? value : iteratee(value);
+
+	    value = (comparator || value !== 0) ? value : 0;
+	    if (isCommon && computed === computed) {
+	      var valuesIndex = valuesLength;
+	      while (valuesIndex--) {
+	        if (values[valuesIndex] === computed) {
+	          continue outer;
+	        }
+	      }
+	      result.push(value);
+	    }
+	    else if (!includes(values, computed, comparator)) {
+	      result.push(value);
+	    }
+	  }
+	  return result;
+	}
+
+	var _baseDifference = baseDifference$1;
+
+	var Symbol$1 = _Symbol,
+	    isArguments$1 = isArguments_1,
+	    isArray$1 = isArray_1;
+
+	/** Built-in value references. */
+	var spreadableSymbol = Symbol$1 ? Symbol$1.isConcatSpreadable : undefined;
+
+	/**
+	 * Checks if `value` is a flattenable `arguments` object or array.
+	 *
+	 * @private
+	 * @param {*} value The value to check.
+	 * @returns {boolean} Returns `true` if `value` is flattenable, else `false`.
+	 */
+	function isFlattenable$1(value) {
+	  return isArray$1(value) || isArguments$1(value) ||
+	    !!(spreadableSymbol && value && value[spreadableSymbol]);
+	}
+
+	var _isFlattenable = isFlattenable$1;
+
+	var arrayPush = _arrayPush,
+	    isFlattenable = _isFlattenable;
+
+	/**
+	 * The base implementation of `_.flatten` with support for restricting flattening.
+	 *
+	 * @private
+	 * @param {Array} array The array to flatten.
+	 * @param {number} depth The maximum recursion depth.
+	 * @param {boolean} [predicate=isFlattenable] The function invoked per iteration.
+	 * @param {boolean} [isStrict] Restrict to values that pass `predicate` checks.
+	 * @param {Array} [result=[]] The initial result value.
+	 * @returns {Array} Returns the new flattened array.
+	 */
+	function baseFlatten$2(array, depth, predicate, isStrict, result) {
+	  var index = -1,
+	      length = array.length;
+
+	  predicate || (predicate = isFlattenable);
+	  result || (result = []);
+
+	  while (++index < length) {
+	    var value = array[index];
+	    if (depth > 0 && predicate(value)) {
+	      if (depth > 1) {
+	        // Recursively flatten arrays (susceptible to call stack limits).
+	        baseFlatten$2(value, depth - 1, predicate, isStrict, result);
+	      } else {
+	        arrayPush(result, value);
+	      }
+	    } else if (!isStrict) {
+	      result[result.length] = value;
+	    }
+	  }
+	  return result;
+	}
+
+	var _baseFlatten = baseFlatten$2;
+
+	/**
+	 * A faster alternative to `Function#apply`, this function invokes `func`
+	 * with the `this` binding of `thisArg` and the arguments of `args`.
+	 *
+	 * @private
+	 * @param {Function} func The function to invoke.
+	 * @param {*} thisArg The `this` binding of `func`.
+	 * @param {Array} args The arguments to invoke `func` with.
+	 * @returns {*} Returns the result of `func`.
+	 */
+
+	function apply$1(func, thisArg, args) {
+	  switch (args.length) {
+	    case 0: return func.call(thisArg);
+	    case 1: return func.call(thisArg, args[0]);
+	    case 2: return func.call(thisArg, args[0], args[1]);
+	    case 3: return func.call(thisArg, args[0], args[1], args[2]);
+	  }
+	  return func.apply(thisArg, args);
+	}
+
+	var _apply = apply$1;
+
+	var apply = _apply;
+
+	/* Built-in method references for those with the same name as other `lodash` methods. */
+	var nativeMax = Math.max;
+
+	/**
+	 * A specialized version of `baseRest` which transforms the rest array.
+	 *
+	 * @private
+	 * @param {Function} func The function to apply a rest parameter to.
+	 * @param {number} [start=func.length-1] The start position of the rest parameter.
+	 * @param {Function} transform The rest array transform.
+	 * @returns {Function} Returns the new function.
+	 */
+	function overRest$1(func, start, transform) {
+	  start = nativeMax(start === undefined ? (func.length - 1) : start, 0);
+	  return function() {
+	    var args = arguments,
+	        index = -1,
+	        length = nativeMax(args.length - start, 0),
+	        array = Array(length);
+
+	    while (++index < length) {
+	      array[index] = args[start + index];
+	    }
+	    index = -1;
+	    var otherArgs = Array(start + 1);
+	    while (++index < start) {
+	      otherArgs[index] = args[index];
+	    }
+	    otherArgs[start] = transform(array);
+	    return apply(func, this, otherArgs);
+	  };
+	}
+
+	var _overRest = overRest$1;
+
+	/**
+	 * Creates a function that returns `value`.
+	 *
+	 * @static
+	 * @memberOf _
+	 * @since 2.4.0
+	 * @category Util
+	 * @param {*} value The value to return from the new function.
+	 * @returns {Function} Returns the new constant function.
+	 * @example
+	 *
+	 * var objects = _.times(2, _.constant({ 'a': 1 }));
+	 *
+	 * console.log(objects);
+	 * // => [{ 'a': 1 }, { 'a': 1 }]
+	 *
+	 * console.log(objects[0] === objects[1]);
+	 * // => true
+	 */
+
+	function constant$1(value) {
+	  return function() {
+	    return value;
+	  };
+	}
+
+	var constant_1 = constant$1;
+
+	var getNative = _getNative;
+
+	var defineProperty$1 = (function() {
+	  try {
+	    var func = getNative(Object, 'defineProperty');
+	    func({}, '', {});
+	    return func;
+	  } catch (e) {}
+	}());
+
+	var _defineProperty = defineProperty$1;
+
+	var constant = constant_1,
+	    defineProperty = _defineProperty,
+	    identity$1 = identity_1;
+
+	/**
+	 * The base implementation of `setToString` without support for hot loop shorting.
+	 *
+	 * @private
+	 * @param {Function} func The function to modify.
+	 * @param {Function} string The `toString` result.
+	 * @returns {Function} Returns `func`.
+	 */
+	var baseSetToString$1 = !defineProperty ? identity$1 : function(func, string) {
+	  return defineProperty(func, 'toString', {
+	    'configurable': true,
+	    'enumerable': false,
+	    'value': constant(string),
+	    'writable': true
+	  });
+	};
+
+	var _baseSetToString = baseSetToString$1;
+
+	/** Used to detect hot functions by number of calls within a span of milliseconds. */
+
+	var HOT_COUNT = 800,
+	    HOT_SPAN = 16;
+
+	/* Built-in method references for those with the same name as other `lodash` methods. */
+	var nativeNow = Date.now;
+
+	/**
+	 * Creates a function that'll short out and invoke `identity` instead
+	 * of `func` when it's called `HOT_COUNT` or more times in `HOT_SPAN`
+	 * milliseconds.
+	 *
+	 * @private
+	 * @param {Function} func The function to restrict.
+	 * @returns {Function} Returns the new shortable function.
+	 */
+	function shortOut$1(func) {
+	  var count = 0,
+	      lastCalled = 0;
+
+	  return function() {
+	    var stamp = nativeNow(),
+	        remaining = HOT_SPAN - (stamp - lastCalled);
+
+	    lastCalled = stamp;
+	    if (remaining > 0) {
+	      if (++count >= HOT_COUNT) {
+	        return arguments[0];
+	      }
+	    } else {
+	      count = 0;
+	    }
+	    return func.apply(undefined, arguments);
+	  };
+	}
+
+	var _shortOut = shortOut$1;
+
+	var baseSetToString = _baseSetToString,
+	    shortOut = _shortOut;
+
+	/**
+	 * Sets the `toString` method of `func` to return `string`.
+	 *
+	 * @private
+	 * @param {Function} func The function to modify.
+	 * @param {Function} string The `toString` result.
+	 * @returns {Function} Returns `func`.
+	 */
+	var setToString$1 = shortOut(baseSetToString);
+
+	var _setToString = setToString$1;
+
+	var identity = identity_1,
+	    overRest = _overRest,
+	    setToString = _setToString;
+
+	/**
+	 * The base implementation of `_.rest` which doesn't validate or coerce arguments.
+	 *
+	 * @private
+	 * @param {Function} func The function to apply a rest parameter to.
+	 * @param {number} [start=func.length-1] The start position of the rest parameter.
+	 * @returns {Function} Returns the new function.
+	 */
+	function baseRest$1(func, start) {
+	  return setToString(overRest(func, start, identity), func + '');
+	}
+
+	var _baseRest = baseRest$1;
+
+	var isArrayLike$1 = isArrayLike_1,
+	    isObjectLike$1 = isObjectLike_1;
+
+	/**
+	 * This method is like `_.isArrayLike` except that it also checks if `value`
+	 * is an object.
+	 *
+	 * @static
+	 * @memberOf _
+	 * @since 4.0.0
+	 * @category Lang
+	 * @param {*} value The value to check.
+	 * @returns {boolean} Returns `true` if `value` is an array-like object,
+	 *  else `false`.
+	 * @example
+	 *
+	 * _.isArrayLikeObject([1, 2, 3]);
+	 * // => true
+	 *
+	 * _.isArrayLikeObject(document.body.children);
+	 * // => true
+	 *
+	 * _.isArrayLikeObject('abc');
+	 * // => false
+	 *
+	 * _.isArrayLikeObject(_.noop);
+	 * // => false
+	 */
+	function isArrayLikeObject$1(value) {
+	  return isObjectLike$1(value) && isArrayLike$1(value);
+	}
+
+	var isArrayLikeObject_1 = isArrayLikeObject$1;
+
+	var baseDifference = _baseDifference,
+	    baseFlatten$1 = _baseFlatten,
+	    baseRest = _baseRest,
+	    isArrayLikeObject = isArrayLikeObject_1;
+
+	/**
+	 * Creates an array of `array` values not included in the other given arrays
+	 * using [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
+	 * for equality comparisons. The order and references of result values are
+	 * determined by the first array.
+	 *
+	 * **Note:** Unlike `_.pullAll`, this method returns a new array.
+	 *
+	 * @static
+	 * @memberOf _
+	 * @since 0.1.0
+	 * @category Array
+	 * @param {Array} array The array to inspect.
+	 * @param {...Array} [values] The values to exclude.
+	 * @returns {Array} Returns the new array of filtered values.
+	 * @see _.without, _.xor
+	 * @example
+	 *
+	 * _.difference([2, 1], [2, 3]);
+	 * // => [1]
+	 */
+	var difference = baseRest(function(array, values) {
+	  return isArrayLikeObject(array)
+	    ? baseDifference(array, baseFlatten$1(values, 1, isArrayLikeObject, true))
+	    : [];
+	});
+
+	var difference_1 = difference;
+
+	var _difference = /*@__PURE__*/getDefaultExportFromCjs(difference_1);
 
 	function anonymous$6(locals, escapeFn, include, rethrow
 	) {
@@ -9084,25 +9084,61 @@
 	  autopager: {
 	    ip: ['209.141.54.79', '137.175.36.112'],
 	    ipages: [true, 5],
-	    startFilter: function startFilter(doc, _win) {
-	      var items = doc.querySelectorAll('div.node > a');
-	      if (items.length > 0) {
-	        items.forEach(function (a) {
-	          var link = a.getAttribute('href');
-	          got$1.get(link).then(function (res) {
-	            var docPage = new DOMParser().parseFromString(res.data, 'text/html');
-	            var imgHref = docPage.querySelector('article.article-content > p > img').getAttribute('src');
-	            var newImg = createDOM('img', {
-	              attr: {
-	                src: imgHref,
-	                style: 'display:block; width:50%; height:auto;'
+	    startFilter: function () {
+	      var _startFilter = _asyncToGenerator$1( /*#__PURE__*/_regeneratorRuntime.mark(function _callee2(doc, _win) {
+	        var items;
+	        return _regeneratorRuntime.wrap(function _callee2$(_context2) {
+	          while (1) switch (_context2.prev = _context2.next) {
+	            case 0:
+	              items = doc.querySelectorAll('div.node > a');
+	              if (!(items.length > 0)) {
+	                _context2.next = 4;
+	                break;
 	              }
-	            });
-	            a.parentNode.insertBefore(newImg, a.nextSibling);
-	          });
-	        });
+	              _context2.next = 4;
+	              return Promise.all([].map.call(items, /*#__PURE__*/function () {
+	                var _ref = _asyncToGenerator$1( /*#__PURE__*/_regeneratorRuntime.mark(function _callee(a) {
+	                  var link, res, docPage, img, newImg;
+	                  return _regeneratorRuntime.wrap(function _callee$(_context) {
+	                    while (1) switch (_context.prev = _context.next) {
+	                      case 0:
+	                        link = a.getAttribute('href');
+	                        _context.next = 3;
+	                        return got$1.get(link);
+	                      case 3:
+	                        res = _context.sent;
+	                        docPage = new DOMParser().parseFromString(res.data, 'text/html');
+	                        img = docPage.querySelector('article.article-content > p > img');
+	                        if (img) {
+	                          newImg = createDOM('img', {
+	                            attr: {
+	                              src: img.getAttribute('src'),
+	                              style: 'display:block; width:50%; height:auto;'
+	                            }
+	                          });
+	                          a.parentNode.insertBefore(newImg, a.nextSibling);
+	                        }
+	                      case 7:
+	                      case "end":
+	                        return _context.stop();
+	                    }
+	                  }, _callee);
+	                }));
+	                return function (_x3) {
+	                  return _ref.apply(this, arguments);
+	                };
+	              }()));
+	            case 4:
+	            case "end":
+	              return _context2.stop();
+	          }
+	        }, _callee2);
+	      }));
+	      function startFilter(_x, _x2) {
+	        return _startFilter.apply(this, arguments);
 	      }
-	    },
+	      return startFilter;
+	    }(),
 	    documentFilter: 'startFilter'
 	  }
 	}, {
@@ -11363,17 +11399,34 @@
 	        function manualAdiv() {
 	          if (!manualDiv) {
 	            addStyle(spcss['sp-separator']);
-	            var spage = function spage(el) {
-	              if (doc) {
-	                var value = Number(el.value);
-	                if (isNaN(value) || value < 1) {
-	                  el.value = value = 1;
-	                }
-	                ipagesmode = true;
-	                ipagesnumber = value + paged;
-	                insertedIntoDoc();
-	              }
-	            };
+	            var spage = /*#__PURE__*/function () {
+	              var _ref4 = _asyncToGenerator$1( /*#__PURE__*/_regeneratorRuntime.mark(function _callee(el) {
+	                var value;
+	                return _regeneratorRuntime.wrap(function _callee$(_context) {
+	                  while (1) switch (_context.prev = _context.next) {
+	                    case 0:
+	                      if (!doc) {
+	                        _context.next = 7;
+	                        break;
+	                      }
+	                      value = Number(el.value);
+	                      if (isNaN(value) || value < 1) {
+	                        el.value = value = 1;
+	                      }
+	                      ipagesmode = true;
+	                      ipagesnumber = value + paged;
+	                      _context.next = 7;
+	                      return insertedIntoDoc();
+	                    case 7:
+	                    case "end":
+	                      return _context.stop();
+	                  }
+	                }, _callee);
+	              }));
+	              return function spage(_x) {
+	                return _ref4.apply(this, arguments);
+	              };
+	            }();
 	            var div = createDOM('div', {
 	              attr: {
 	                id: 'sp-sp-manualdiv',
@@ -11430,25 +11483,44 @@
 	            div.addEventListener('click', function (e) {
 	              //@ts-ignore
 	              if (e.target.id === 'sp-sp-md-number') return;
-	              spage(document.getElementById('sp-sp-md-number'));
-	              manualDiv.remove();
+	              spage(document.getElementById('sp-sp-md-number')).then(function () {
+	                manualDiv.remove();
+	              });
 	            }, false);
 	          }
 	          addIntoDoc(manualDiv);
 	          //manualDiv.style.display = "block";
 	        }
-
 	        function beforeInsertIntoDoc() {
-	          working = true;
-	          if (SSS.a_manualA && !ipagesmode) {
-	            // 显示手动翻页触发条.
-	            logger.debug("[Super-preloader]", 'Manual stitching');
-	            manualAdiv();
-	          } else {
-	            // 直接拼接.
-	            logger.debug("[Super-preloader]", 'Direct stitching');
-	            insertedIntoDoc();
-	          }
+	          return _beforeInsertIntoDoc.apply(this, arguments);
+	        }
+	        function _beforeInsertIntoDoc() {
+	          _beforeInsertIntoDoc = _asyncToGenerator$1( /*#__PURE__*/_regeneratorRuntime.mark(function _callee3() {
+	            return _regeneratorRuntime.wrap(function _callee3$(_context3) {
+	              while (1) switch (_context3.prev = _context3.next) {
+	                case 0:
+	                  working = true;
+	                  if (!(SSS.a_manualA && !ipagesmode)) {
+	                    _context3.next = 6;
+	                    break;
+	                  }
+	                  // 显示手动翻页触发条.
+	                  logger.debug("[Super-preloader]", 'Manual stitching');
+	                  manualAdiv();
+	                  _context3.next = 9;
+	                  break;
+	                case 6:
+	                  // 直接拼接.
+	                  logger.debug("[Super-preloader]", 'Direct stitching');
+	                  _context3.next = 9;
+	                  return insertedIntoDoc();
+	                case 9:
+	                case "end":
+	                  return _context3.stop();
+	              }
+	            }, _callee3);
+	          }));
+	          return _beforeInsertIntoDoc.apply(this, arguments);
 	        }
 	        var sepStyle;
 	        //looks like goNextImg is useless here.
@@ -11547,226 +11619,265 @@
 	        }
 	        var paged = 0;
 	        function insertedIntoDoc() {
-	          if (!doc) {
-	            logger.error("[Super-preloader]", 'No document');
-	            return;
-	          }
-	          if (SSS.a_documentFilter) {
-	            try {
-	              SSS.a_documentFilter(doc, typeof nextlink === 'string' && nextlink);
-	              logger.debug("[Super-preloader]", 'Successfully executeed documentFilter');
-	            } catch (e) {
-	              logger.error("[Super-preloader]", 'Error executing documentFilter', e, SSS.a_documentFilter.toString());
-	            }
-	          }
-	          var docTitle = getElementByCSS('title', doc).textContent;
-	          var fragment = document.createDocumentFragment();
-	          var pageElements = getAllElements(SSS.a_pageElement, undefined, doc, win, typeof nextlink === 'string' && nextlink);
-	          var ii = pageElements.length;
-	          if (ii <= 0) {
-	            logger.error("[Super-preloader]", 'Failed to get the main content of the next page', SSS.a_pageElement);
-	            removeL();
-	            return;
-	          } else {
-	            logger.debug("[Super-preloader]", 'Successfully got the main content of the next page', pageElements);
-	          }
+	          return _insertedIntoDoc.apply(this, arguments);
+	        } // 返回,剩余高度是总高度的比值.
+	        function _insertedIntoDoc() {
+	          _insertedIntoDoc = _asyncToGenerator$1( /*#__PURE__*/_regeneratorRuntime.mark(function _callee4() {
+	            var docTitle, fragment, pageElements, ii, lastUrl, nl, i, pe_x, pe_x_nn, nodes, nodes_x, imgs, arr, sepdiv, toInsert, insertParent, colNodes, _ncol, trs, _ncol2, oldE, oldE_lt, newE, newE_lt, oldE_x, newE_x, ev, delayiframe;
+	            return _regeneratorRuntime.wrap(function _callee4$(_context4) {
+	              while (1) switch (_context4.prev = _context4.next) {
+	                case 0:
+	                  if (doc) {
+	                    _context4.next = 3;
+	                    break;
+	                  }
+	                  logger.error("[Super-preloader]", 'No document');
+	                  return _context4.abrupt("return");
+	                case 3:
+	                  if (!SSS.a_documentFilter) {
+	                    _context4.next = 13;
+	                    break;
+	                  }
+	                  _context4.prev = 4;
+	                  _context4.next = 7;
+	                  return SSS.a_documentFilter(doc, typeof nextlink === 'string' && nextlink);
+	                case 7:
+	                  logger.debug("[Super-preloader]", 'Successfully executeed documentFilter');
+	                  _context4.next = 13;
+	                  break;
+	                case 10:
+	                  _context4.prev = 10;
+	                  _context4.t0 = _context4["catch"](4);
+	                  logger.error("[Super-preloader]", 'Error executing documentFilter', _context4.t0, SSS.a_documentFilter.toString());
+	                case 13:
+	                  docTitle = getElementByCSS('title', doc).textContent;
+	                  fragment = document.createDocumentFragment();
+	                  pageElements = getAllElements(SSS.a_pageElement, undefined, doc, win, typeof nextlink === 'string' && nextlink);
+	                  ii = pageElements.length;
+	                  if (!(ii <= 0)) {
+	                    _context4.next = 23;
+	                    break;
+	                  }
+	                  logger.error("[Super-preloader]", 'Failed to get the main content of the next page', SSS.a_pageElement);
+	                  removeL();
+	                  return _context4.abrupt("return");
+	                case 23:
+	                  logger.debug("[Super-preloader]", 'Successfully got the main content of the next page', pageElements);
+	                case 24:
+	                  // 提前查找下一页链接，后面再赋值
+	                  lastUrl = cplink;
+	                  cplink = String(nextlink);
+	                  /** @type {HTMLElement | String} */
+	                  nl = getElement(SSS.nextLink, undefined, doc, win);
+	                  if (nl) {
+	                    if (nl === nextlinkElem) {
+	                      nextlinkElem = null;
+	                    } else {
+	                      nextlinkElem = nl;
+	                    }
+	                  } else {
+	                    nextlinkElem = null;
+	                  }
+	                  nextlink = elemToHref(nextlinkElem);
+	                  // 有部分下一页的信息是在script中（比如新加的csdn的规则），因此先查找下一页信息，再执行 removeScripts
+	                  removeScripts(doc, SSS.a_scriptFilter);
+	                  i = 0;
+	                case 31:
+	                  if (!(i < ii)) {
+	                    _context4.next = 40;
+	                    break;
+	                  }
+	                  pe_x = pageElements[i];
+	                  pe_x_nn = pe_x.nodeName;
+	                  if (!(pe_x_nn == 'BODY' || pe_x_nn == 'HTML' || pe_x_nn == 'SCRIPT')) {
+	                    _context4.next = 36;
+	                    break;
+	                  }
+	                  return _context4.abrupt("continue", 37);
+	                case 36:
+	                  fragment.appendChild(pe_x);
+	                case 37:
+	                  i++;
+	                  _context4.next = 31;
+	                  break;
+	                case 40:
+	                  if (SSS.filter && typeof SSS.filter === 'string') {
+	                    // 功能未完善.
+	                    nodes = [];
+	                    try {
+	                      nodes = getAllElements(SSS.filter, fragment);
+	                    } catch (e) {}
+	                    for (i = nodes.length - 1; i >= 0; i--) {
+	                      nodes_x = nodes[i];
+	                      nodes_x.parentNode.removeChild(nodes_x);
+	                    }
+	                  }
 
-	          // 提前查找下一页链接，后面再赋值
-	          var lastUrl = cplink;
-	          cplink = String(nextlink);
-	          /** @type {HTMLElement | String} */
-	          var nl = getElement(SSS.nextLink, undefined, doc, win);
-	          if (nl) {
-	            if (nl === nextlinkElem) {
-	              nextlinkElem = null;
-	            } else {
-	              nextlinkElem = nl;
-	            }
-	          } else {
-	            nextlinkElem = null;
-	          }
-	          nextlink = elemToHref(nextlinkElem);
-	          // 有部分下一页的信息是在script中（比如新加的csdn的规则），因此先查找下一页信息，再执行 removeScripts
-	          removeScripts(doc, SSS.a_scriptFilter);
-	          var i, pe_x, pe_x_nn;
-	          for (i = 0; i < ii; i++) {
-	            pe_x = pageElements[i];
-	            pe_x_nn = pe_x.nodeName;
-	            if (pe_x_nn == 'BODY' || pe_x_nn == 'HTML' || pe_x_nn == 'SCRIPT') continue;
-	            fragment.appendChild(pe_x);
-	          }
-	          if (SSS.filter && typeof SSS.filter === 'string') {
-	            // 功能未完善.
-	            var nodes = [];
-	            try {
-	              nodes = getAllElements(SSS.filter, fragment);
-	            } catch (e) {}
-	            var nodes_x;
-	            for (i = nodes.length - 1; i >= 0; i--) {
-	              nodes_x = nodes[i];
-	              nodes_x.parentNode.removeChild(nodes_x);
-	            }
-	          }
+	                  // lazyImgSrc
+	                  if (SSS.lazyImgSrc) {
+	                    handleLazyImgSrc(SSS.lazyImgSrc, fragment);
+	                  }
+	                  //@ts-ignore
+	                  if (!window.opera && SSS.a_useiframe && !SSS.a_iloaded) {
+	                    imgs = getAllElements('css;img[src]', fragment); // 收集所有图片
+	                  }
 
-	          // lazyImgSrc
-	          if (SSS.lazyImgSrc) {
-	            handleLazyImgSrc(SSS.lazyImgSrc, fragment);
-	          }
-	          var imgs;
-	          //@ts-ignore
-	          if (!window.opera && SSS.a_useiframe && !SSS.a_iloaded) {
-	            imgs = getAllElements('css;img[src]', fragment); // 收集所有图片
-	          }
+	                  // 处理下一页内容部分链接是否新标签页打开
+	                  if (prefs.forceTargetWindow) {
+	                    arr = Array.prototype.slice.call(fragment.querySelectorAll('a[href]:not([href^="mailto:"]):not([href^="javascript:"]):not([href^="#"])'));
+	                    arr.forEach(function (elem) {
+	                      elem.setAttribute('target', '_blank');
+	                      if (elem.getAttribute('onclick') == 'atarget(this)') {
+	                        // 卡饭论坛的控制是否在新标签页打开
+	                        elem.removeAttribute('onclick');
+	                      }
+	                    });
+	                  }
 
-	          // 处理下一页内容部分链接是否新标签页打开
-	          if (prefs.forceTargetWindow) {
-	            var arr = Array.prototype.slice.call(fragment.querySelectorAll('a[href]:not([href^="mailto:"]):not([href^="javascript:"]):not([href^="#"])'));
-	            arr.forEach(function (elem) {
-	              elem.setAttribute('target', '_blank');
-	              if (elem.getAttribute('onclick') == 'atarget(this)') {
-	                // 卡饭论坛的控制是否在新标签页打开
-	                elem.removeAttribute('onclick');
+	                  /** @type {HTMLElement} */
+	                  sepdiv = createSep(lastUrl, cplink, nextlink);
+	                  toInsert = sepdiv;
+	                  if (SSS.a_sepdivDom !== undefined && typeof SSS.a_sepdivDom === 'function') {
+	                    toInsert = SSS.a_sepdivDom(doc, sepdiv);
+	                  } else if (pageElements[0] && pageElements[0].tagName === 'TR' && pageElements[pageElements.length - 1].tagName === 'TR') {
+	                    insertParent = insertPoint.parentNode;
+	                    colNodes = getAllElements('child::tr[1]/child::*[self::td or self::th]', insertParent);
+	                    if (colNodes.length == 0) {
+	                      colNodes = getAllElements('child::*[self::td or self::th]', pageElements[0]);
+	                    }
+	                    _ncol = [].reduce.call(colNodes, function (acc, cur) {
+	                      return acc + (parseInt(cur.getAttribute('colspan'), 10) || 1);
+	                    }, 0);
+	                    toInsert = createDOM('tr', {
+	                      children: [createDOM('td', {
+	                        attr: {
+	                          colspan: _ncol
+	                        },
+	                        children: [sepdiv]
+	                      })]
+	                    });
+	                  } else if (pageElements[0] && pageElements[0].tagName === 'TBODY' && pageElements[pageElements.length - 1].tagName === 'TBODY') {
+	                    // https://bbs.kafan.cn/forum-8-1.html
+	                    trs = pageElements[pageElements.length - 1].getElementsByTagName('tr');
+	                    if (trs) {
+	                      _ncol2 = [].reduce.call(trs[trs.length - 1].children, function (acc, cur) {
+	                        return acc + (parseInt(cur.getAttribute('colspan'), 10) || 1);
+	                      }, 0);
+	                      toInsert = createDOM('tbody', {
+	                        children: [createDOM('tr', {
+	                          children: [createDOM('td', {
+	                            attr: {
+	                              colspan: _ncol2
+	                            },
+	                            children: [sepdiv]
+	                          })]
+	                        })]
+	                      });
+	                    } else {
+	                      logger.warn("[Super-preloader]", 'No trs found');
+	                    }
+	                  }
+	                  fragment.insertBefore(toInsert, fragment.firstChild);
+	                  addIntoDoc(fragment);
+
+	                  // filter
+	                  if (SSS.filter && typeof SSS.filter === 'function') {
+	                    try {
+	                      SSS.filter(pageElements);
+	                      logger.debug("[Super-preloader]", 'Execution of filter(pages) succeeded');
+	                    } catch (e) {
+	                      logger.error("[Super-preloader]", 'Error executing filter(pages)', e, SSS.filter.toString());
+	                    }
+	                  }
+	                  if (imgs) {
+	                    // 非opera,在iframeDOM取出数据时需要重载图片.
+	                    setTimeout(function () {
+	                      var _imgs = imgs;
+	                      var i, ii, img;
+	                      for (i = 0, ii = _imgs.length; i < ii; i++) {
+	                        img = _imgs[i];
+	                        var src = img.src;
+	                        img.src = src;
+	                      }
+	                    }, 99);
+	                  }
+	                  if (SSS.a_replaceE) {
+	                    oldE = getAllElements(SSS.a_replaceE);
+	                    oldE_lt = oldE.length;
+	                    if (oldE_lt > 0) {
+	                      newE = getAllElements(SSS.a_replaceE, undefined, doc, win);
+	                      newE_lt = newE.length;
+	                      if (newE_lt == oldE_lt) {
+	                        // 替换
+
+	                        for (i = 0; i < newE_lt; i++) {
+	                          oldE_x = oldE[i];
+	                          newE_x = newE[i];
+	                          newE_x = doc.importNode(newE_x, true);
+	                          oldE_x.parentNode.replaceChild(newE_x, oldE_x);
+	                        }
+	                      }
+	                    }
+	                  }
+	                  paged += 1;
+	                  if (ipagesmode && paged >= ipagesnumber) {
+	                    ipagesmode = false;
+	                  }
+	                  floatWO.loadedIcon('hide');
+	                  if (manualDiv) {
+	                    manualDiv.style.display = 'none';
+	                  }
+	                  //if (goNextImg[0]) goNextImg[0].src = _sep_icons.next;
+	                  ev = document.createEvent('Event');
+	                  ev.initEvent('Super_preloaderPageLoaded', true, false);
+	                  document.dispatchEvent(ev);
+	                  if (prefs.enableHistory) {
+	                    try {
+	                      window.history.pushState(null, docTitle, cplink);
+	                    } catch (e) {}
+	                  }
+	                  if (!(paged >= SSS.a_maxpage)) {
+	                    _context4.next = 66;
+	                    break;
+	                  }
+	                  logger.debug("[Super-preloader]", `Reached the set maximum number of page turns ${SSS.a_maxpage}`);
+	                  notice('<b>Status</b>:' + 'Reached the set maximum number of page turns:<b style="color:red">' + SSS.a_maxpage + '</b>');
+	                  removeL();
+	                  return _context4.abrupt("return");
+	                case 66:
+	                  delayiframe = function delayiframe(fn) {
+	                    setTimeout(fn, 199);
+	                  };
+	                  if (nextlink && !pagedLinks.includes(nextlink)) {
+	                    // debug('Found the next page link:', nextlink);
+	                    doc = win = null;
+	                    if (ipagesmode) {
+	                      if (SSS.a_useiframe) {
+	                        // 延时点,firefox,太急会卡-_-!
+	                        delayiframe(doRequest);
+	                      } else {
+	                        doRequest();
+	                      }
+	                    } else {
+	                      working = false;
+	                      if (SSS.a_useiframe) {
+	                        delayiframe(afterInsertDo);
+	                      } else {
+	                        afterInsertDo();
+	                      }
+	                    }
+	                  } else {
+	                    logger.error("[Super-preloader]", 'No next page link found.', SSS.nextLink);
+	                    removeL();
+	                  }
+	                case 68:
+	                case "end":
+	                  return _context4.stop();
 	              }
-	            });
-	          }
-
-	          /** @type {HTMLElement} */
-	          var sepdiv = createSep(lastUrl, cplink, nextlink);
-	          var toInsert = sepdiv;
-	          if (SSS.a_sepdivDom !== undefined && typeof SSS.a_sepdivDom === 'function') {
-	            toInsert = SSS.a_sepdivDom(doc, sepdiv);
-	          } else if (pageElements[0] && pageElements[0].tagName === 'TR' && pageElements[pageElements.length - 1].tagName === 'TR') {
-	            var insertParent = insertPoint.parentNode;
-	            var colNodes = getAllElements('child::tr[1]/child::*[self::td or self::th]', insertParent);
-	            if (colNodes.length == 0) {
-	              colNodes = getAllElements('child::*[self::td or self::th]', pageElements[0]);
-	            }
-	            var _ncol = [].reduce.call(colNodes, function (acc, cur) {
-	              return acc + (parseInt(cur.getAttribute('colspan'), 10) || 1);
-	            }, 0);
-	            toInsert = createDOM('tr', {
-	              children: [createDOM('td', {
-	                attr: {
-	                  colspan: _ncol
-	                },
-	                children: [sepdiv]
-	              })]
-	            });
-	          } else if (pageElements[0] && pageElements[0].tagName === 'TBODY' && pageElements[pageElements.length - 1].tagName === 'TBODY') {
-	            // https://bbs.kafan.cn/forum-8-1.html
-	            var trs = pageElements[pageElements.length - 1].getElementsByTagName('tr');
-	            if (trs) {
-	              var _ncol2 = [].reduce.call(trs[trs.length - 1].children, function (acc, cur) {
-	                return acc + (parseInt(cur.getAttribute('colspan'), 10) || 1);
-	              }, 0);
-	              toInsert = createDOM('tbody', {
-	                children: [createDOM('tr', {
-	                  children: [createDOM('td', {
-	                    attr: {
-	                      colspan: _ncol2
-	                    },
-	                    children: [sepdiv]
-	                  })]
-	                })]
-	              });
-	            } else {
-	              logger.warn("[Super-preloader]", 'No trs found');
-	            }
-	          }
-	          fragment.insertBefore(toInsert, fragment.firstChild);
-	          addIntoDoc(fragment);
-
-	          // filter
-	          if (SSS.filter && typeof SSS.filter === 'function') {
-	            try {
-	              SSS.filter(pageElements);
-	              logger.debug("[Super-preloader]", 'Execution of filter(pages) succeeded');
-	            } catch (e) {
-	              logger.error("[Super-preloader]", 'Error executing filter(pages)', e, SSS.filter.toString());
-	            }
-	          }
-	          if (imgs) {
-	            // 非opera,在iframeDOM取出数据时需要重载图片.
-	            setTimeout(function () {
-	              var _imgs = imgs;
-	              var i, ii, img;
-	              for (i = 0, ii = _imgs.length; i < ii; i++) {
-	                img = _imgs[i];
-	                var src = img.src;
-	                img.src = src;
-	              }
-	            }, 99);
-	          }
-	          if (SSS.a_replaceE) {
-	            var oldE = getAllElements(SSS.a_replaceE);
-	            var oldE_lt = oldE.length;
-	            if (oldE_lt > 0) {
-	              var newE = getAllElements(SSS.a_replaceE, undefined, doc, win);
-	              var newE_lt = newE.length;
-	              if (newE_lt == oldE_lt) {
-	                // 替换
-	                var oldE_x, newE_x;
-	                for (i = 0; i < newE_lt; i++) {
-	                  oldE_x = oldE[i];
-	                  newE_x = newE[i];
-	                  newE_x = doc.importNode(newE_x, true);
-	                  oldE_x.parentNode.replaceChild(newE_x, oldE_x);
-	                }
-	              }
-	            }
-	          }
-	          paged += 1;
-	          if (ipagesmode && paged >= ipagesnumber) {
-	            ipagesmode = false;
-	          }
-	          floatWO.loadedIcon('hide');
-	          if (manualDiv) {
-	            manualDiv.style.display = 'none';
-	          }
-	          //if (goNextImg[0]) goNextImg[0].src = _sep_icons.next;
-
-	          var ev = document.createEvent('Event');
-	          ev.initEvent('Super_preloaderPageLoaded', true, false);
-	          document.dispatchEvent(ev);
-	          if (prefs.enableHistory) {
-	            try {
-	              window.history.pushState(null, docTitle, cplink);
-	            } catch (e) {}
-	          }
-	          if (paged >= SSS.a_maxpage) {
-	            logger.debug("[Super-preloader]", `Reached the set maximum number of page turns ${SSS.a_maxpage}`);
-	            notice('<b>Status</b>:' + 'Reached the set maximum number of page turns:<b style="color:red">' + SSS.a_maxpage + '</b>');
-	            removeL();
-	            return;
-	          }
-	          var delayiframe = function delayiframe(fn) {
-	            setTimeout(fn, 199);
-	          };
-	          if (nextlink && !pagedLinks.includes(nextlink)) {
-	            // debug('Found the next page link:', nextlink);
-	            doc = win = null;
-	            if (ipagesmode) {
-	              if (SSS.a_useiframe) {
-	                // 延时点,firefox,太急会卡-_-!
-	                delayiframe(doRequest);
-	              } else {
-	                doRequest();
-	              }
-	            } else {
-	              working = false;
-	              if (SSS.a_useiframe) {
-	                delayiframe(afterInsertDo);
-	              } else {
-	                afterInsertDo();
-	              }
-	            }
-	          } else {
-	            logger.error("[Super-preloader]", 'No next page link found.', SSS.nextLink);
-	            removeL();
-	          }
+	            }, _callee4, null, [[4, 10]]);
+	          }));
+	          return _insertedIntoDoc.apply(this, arguments);
 	        }
-
-	        // 返回,剩余高度是总高度的比值.
 	        var relatedObj_0, relatedObj_1;
 	        if (SSS.a_relatedObj) {
 	          if (_isArray(SSS.a_relatedObj)) {
@@ -11865,15 +11976,37 @@
 	          window.removeEventListener('scroll', timeoutfn, false);
 	        });
 	        autoPO = {
-	          startipages: function startipages(value) {
-	            if (value > 0) {
-	              ipagesmode = true;
-	              ipagesnumber = value + paged;
-	              notice('<b>Status</b>:' + 'Current number of pages turned: <b>' + paged + '</b>,' + 'Continue to turn page <b style="color:red!important;">' + ipagesnumber + '</b>');
-	              if (SSS.a_manualA) insertedIntoDoc();
-	              scroll();
+	          startipages: function () {
+	            var _startipages = _asyncToGenerator$1( /*#__PURE__*/_regeneratorRuntime.mark(function _callee2(value) {
+	              return _regeneratorRuntime.wrap(function _callee2$(_context2) {
+	                while (1) switch (_context2.prev = _context2.next) {
+	                  case 0:
+	                    if (!(value > 0)) {
+	                      _context2.next = 8;
+	                      break;
+	                    }
+	                    ipagesmode = true;
+	                    ipagesnumber = value + paged;
+	                    notice('<b>Status</b>:' + 'Current number of pages turned: <b>' + paged + '</b>,' + 'Continue to turn page <b style="color:red!important;">' + ipagesnumber + '</b>');
+	                    if (!SSS.a_manualA) {
+	                      _context2.next = 7;
+	                      break;
+	                    }
+	                    _context2.next = 7;
+	                    return insertedIntoDoc();
+	                  case 7:
+	                    scroll();
+	                  case 8:
+	                  case "end":
+	                    return _context2.stop();
+	                }
+	              }, _callee2);
+	            }));
+	            function startipages(_x2) {
+	              return _startipages.apply(this, arguments);
 	            }
-	          }
+	            return startipages;
+	          }()
 	        };
 	      }
 
@@ -12071,295 +12204,367 @@
 
 	      /**@type {IRuntimeRule} */
 	      var SSS = {};
-	      var findCurSiteInfo = function findCurSiteInfo() {
-	        var SIIAD = SITEINFO_D.autopager;
-	        var Rurl;
-	        var ii = SSRules.length;
-	        if (userLang === 'zh_CN') {
-	          logger.debug("[Super-preloader]", `高级规则数目:${ii}`);
-	          logger.debug("[Super-preloader]", `Number of rules > ${ii - jsonRule.length} from other sources, such as: wedata.net`);
-	        } else {
-	          logger.debug("[Super-preloader]", `Number of advanced rules:${ii}`);
-	        }
-	        var _loop = function _loop() {
-	            var SII = SSRules[i];
-	            if (SII.autopager && SII.autopager.ip) {
-	              if (SII.autopager.ip.indexOf(serverIp) < 0) {
-	                return 0; // continue
-	              }
-	            }
-	            Rurl = toRE(SII.url);
-	            if (Rurl.test(url)) {
-	              if (userLang === 'zh_CN') {
-	                logger.debug("[Super-preloader]", 'Find current site rules:', SII);
-	                logger.debug("[Super-preloader]", `规则ID: ${i + 1}`);
-	              } else {
-	                logger.debug("[Super-preloader]", 'Find rule for this website:', SII);
-	                logger.debug("[Super-preloader]", `Rule ID: ${i + 1}`);
-	              }
-
-	              // 运行规则的 startFilter
-	              if (SII.autopager && SII.autopager.startFilter) {
-	                try {
-	                  SII.autopager.startFilter(document, window);
-	                  logger.debug("[Super-preloader]", 'startFilter executed successfully');
-	                } catch (e) {
-	                  logger.error("[Super-preloader]", 'Error executing startFilter', e);
-	                }
-	              }
-	              nextlinkElem = getElement(SII.nextLink || 'auto;');
-	              if (!nextlinkElem) {
-	                logger.warn("[Super-preloader]", 'Could not find the next page link, continue searching for other rules, skiping rule:', SII);
-	                return 0; // continue
-	              }
-	              // extract next page link from an a link
-	              nextlink = getFullHref(nextlinkElem);
-	              if (nextlink === document.location.href) {
-	                nextlinkElem = null;
-	                return 0; // continue
-	              }
-	              if (SII.preLink && SII.preLink != 'auto;') {
-	                // 如果设定了具体的preLink
-	                prelink = getElement(SII.preLink);
-	              } else {
-	                if (prefs.autoGetPreLink) {
-	                  prelink = getElement('auto;');
-	                }
-	              }
-	              SSS = {};
-	              SSS.Rurl = String(Rurl);
-	              SSS.nextLink = SII.nextLink || 'auto;';
-	              SSS.viewcontent = SII.viewcontent;
-	              SSS.enable = SII.enable === undefined ? SITEINFO_D.enable : SII.enable;
-	              SSS.useiframe = SII.useiframe === undefined ? SITEINFO_D.useiframe : SII.useiframe;
-	              if (SII.pageElement) {
-	                // 如果是Oautopager的规则..
-	                if (typeof SII.autopager !== 'object') SII.autopager = {};
-	                SII.autopager.pageElement = SII.pageElement;
-	                if (!SII.autopager.useiframe) SII.autopager.useiframe = SII.useiframe;
-	                if (SII.preLink) SII.autopager.preLink = SII.preLink;
-	                if (SII.insertBefore) SII.autopager.HT_insert = [SII.insertBefore, 1];
-	              }
-
-	              // 自动翻页设置.
-	              var SIIA = SII.autopager;
-	              if (SIIA) {
-	                SSS.a_pageElement = SIIA.pageElement;
-	                if (!SSS.a_pageElement) return 1; // break
-	                SSS.a_manualA = SIIA.manualA === undefined ? SIIAD.manualA : SIIA.manualA;
-	                SSS.a_enable = SIIA.enable === undefined ? SIIAD.enable : SIIA.enable;
-	                SSS.a_useiframe = SIIA.useiframe === undefined ? SIIAD.useiframe : SIIA.useiframe;
-	                SSS.a_mutationObserver = SSS.a_useiframe ? SIIA.mutationObserver === undefined ? null : SIIA.mutationObserver : null;
-	                SSS.a_newIframe = SIIA.newIframe === undefined ? SIIAD.newIframe : SIIA.newIframe;
-	                SSS.a_iloaded = SIIA.iloaded === undefined ? SIIAD.iloaded : SIIA.iloaded;
-	                SSS.a_itimeout = SIIA.itimeout === undefined ? SIIAD.itimeout : SIIA.itimeout;
-	                SSS.a_remain = SIIA.remain === undefined ? SIIAD.remain : SIIA.remain;
-	                SSS.a_maxpage = SIIA.maxpage === undefined ? SIIAD.maxpage : SIIA.maxpage;
-	                SSS.a_separator = SIIA.separator === undefined ? SIIAD.separator : SIIA.separator;
-	                SSS.a_sepdivDom = SIIA.sepdivDom === undefined ? undefined : SIIA.sepdivDom;
-	                SSS.a_separatorReal = SIIA.separatorReal === undefined ? SIIAD.separatorReal : SIIA.separatorReal;
-	                SSS.a_replaceE = SIIA.replaceE;
-	                SSS.a_HT_insert = SIIA.HT_insert;
-	                SSS.a_relatedObj = SIIA.relatedObj === undefined ? SIIAD.relatedObj : SIIA.relatedObj;
-	                SSS.a_ipages = SIIA.ipages === undefined ? SIIAD.ipages : SIIA.ipages;
-
-	                // new
-	                SSS.filter = SII.filter || SIIA.filter; // 新增了函数的形式，原来的功能是移除 pageElement
-	                var documentFilter = SII.documentFilter || SIIA.documentFilter;
-	                if (documentFilter === 'startFilter') {
-	                  SSS.a_documentFilter = function (doc) {
-	                    return SII.autopager.startFilter(doc);
-	                  };
-	                } else if (typeof documentFilter === 'function') {
-	                  SSS.a_documentFilter = documentFilter;
+	      var findCurSiteInfo = /*#__PURE__*/function () {
+	        var _ref5 = _asyncToGenerator$1( /*#__PURE__*/_regeneratorRuntime.mark(function _callee5() {
+	          var SIIAD, Rurl, ii, _loop, _ret, i, FA;
+	          return _regeneratorRuntime.wrap(function _callee5$(_context6) {
+	            while (1) switch (_context6.prev = _context6.next) {
+	              case 0:
+	                SIIAD = SITEINFO_D.autopager;
+	                ii = SSRules.length;
+	                if (userLang === 'zh_CN') {
+	                  logger.debug("[Super-preloader]", `高级规则数目:${ii}`);
+	                  logger.debug("[Super-preloader]", `Number of rules > ${ii - jsonRule.length} from other sources, such as: wedata.net`);
 	                } else {
-	                  SSS.a_documentFilter = undefined;
+	                  logger.debug("[Super-preloader]", `Number of advanced rules:${ii}`);
 	                }
-	                SSS.a_scriptFilter = SIIA.scriptFilter === undefined ? '' : SIIA.scriptFilter;
-	                SSS.a_stylish = SII.stylish || SIIA.stylish;
-	                SSS.lazyImgSrc = SIIA.lazyImgSrc;
-	                SSS.a_headers = SIIA.headers === undefined ? undefined : SIIA.headers; // custom header for XHRLoaded
-	                SSS.a_reload = SIIA.reload === undefined ? SIIAD.reload : SIIA.reload; // force reload iframe
-	                SSS.a_sandbox = SIIA.sandbox === undefined ? SIIAD.sandbox : SIIA.sandbox;
+	                _loop = /*#__PURE__*/_regeneratorRuntime.mark(function _loop() {
+	                  var SII, SIIA, documentFilter, pageElement;
+	                  return _regeneratorRuntime.wrap(function _loop$(_context5) {
+	                    while (1) switch (_context5.prev = _context5.next) {
+	                      case 0:
+	                        SII = SSRules[i];
+	                        if (!(SII.autopager && SII.autopager.ip)) {
+	                          _context5.next = 4;
+	                          break;
+	                        }
+	                        if (!(SII.autopager.ip.indexOf(serverIp) < 0)) {
+	                          _context5.next = 4;
+	                          break;
+	                        }
+	                        return _context5.abrupt("return", 0);
+	                      case 4:
+	                        Rurl = toRE(SII.url);
+	                        if (!Rurl.test(url)) {
+	                          _context5.next = 71;
+	                          break;
+	                        }
+	                        if (userLang === 'zh_CN') {
+	                          logger.debug("[Super-preloader]", 'Find current site rules:', SII);
+	                          logger.debug("[Super-preloader]", `规则ID: ${i + 1}`);
+	                        } else {
+	                          logger.debug("[Super-preloader]", 'Find rule for this website:', SII);
+	                          logger.debug("[Super-preloader]", `Rule ID: ${i + 1}`);
+	                        }
 
-	                // 在翻页的时候会有一些其他元素占据了页面的高度，导致翻页不精准。
-	                // 比如正文下面的推荐文章列表（占据超过整个页面10%就很难受）
-	                SSS.a_excludeElement = SIIA.excludeElement;
-	              }
+	                        // 运行规则的 startFilter
+	                        if (!(SII.autopager && SII.autopager.startFilter)) {
+	                          _context5.next = 17;
+	                          break;
+	                        }
+	                        _context5.prev = 8;
+	                        _context5.next = 11;
+	                        return SII.autopager.startFilter(document, window);
+	                      case 11:
+	                        logger.debug("[Super-preloader]", 'startFilter executed successfully');
+	                        _context5.next = 17;
+	                        break;
+	                      case 14:
+	                        _context5.prev = 14;
+	                        _context5.t0 = _context5["catch"](8);
+	                        logger.error("[Super-preloader]", 'Error executing startFilter', _context5.t0);
+	                      case 17:
+	                        nextlinkElem = getElement(SII.nextLink || 'auto;');
+	                        if (nextlinkElem) {
+	                          _context5.next = 21;
+	                          break;
+	                        }
+	                        logger.warn("[Super-preloader]", 'Could not find the next page link, continue searching for other rules, skiping rule:', SII);
+	                        return _context5.abrupt("return", 0);
+	                      case 21:
+	                        // extract next page link from an a link
+	                        nextlink = getFullHref(nextlinkElem);
+	                        if (!(nextlink === document.location.href)) {
+	                          _context5.next = 25;
+	                          break;
+	                        }
+	                        nextlinkElem = null;
+	                        return _context5.abrupt("return", 0);
+	                      case 25:
+	                        if (SII.preLink && SII.preLink != 'auto;') {
+	                          // 如果设定了具体的preLink
+	                          prelink = getElement(SII.preLink);
+	                        } else {
+	                          if (prefs.autoGetPreLink) {
+	                            prelink = getElement('auto;');
+	                          }
+	                        }
+	                        SSS = {};
+	                        SSS.Rurl = String(Rurl);
+	                        SSS.nextLink = SII.nextLink || 'auto;';
+	                        SSS.viewcontent = SII.viewcontent;
+	                        SSS.enable = SII.enable === undefined ? SITEINFO_D.enable : SII.enable;
+	                        SSS.useiframe = SII.useiframe === undefined ? SITEINFO_D.useiframe : SII.useiframe;
+	                        if (SII.pageElement) {
+	                          // 如果是Oautopager的规则..
+	                          if (typeof SII.autopager !== 'object') SII.autopager = {};
+	                          SII.autopager.pageElement = SII.pageElement;
+	                          if (!SII.autopager.useiframe) SII.autopager.useiframe = SII.useiframe;
+	                          if (SII.preLink) SII.autopager.preLink = SII.preLink;
+	                          if (SII.insertBefore) SII.autopager.HT_insert = [SII.insertBefore, 1];
+	                        }
 
-	              // 检验是否存在内容
-	              var pageElement = getElement(SSS.a_pageElement);
-	              if (!pageElement || Array.isArray(pageElement) && pageElement.length === 0) {
-	                nextlinkElem = null;
-	                logger.error("[Super-preloader]", 'Could not find content, skiping rule:', SII, 'Continue to search for other rules.');
-	                return 0; // continue
-	              }
-	              SSS.hasRule = true;
-	              return 1; // break
+	                        // 自动翻页设置.
+	                        SIIA = SII.autopager;
+	                        if (!SIIA) {
+	                          _context5.next = 64;
+	                          break;
+	                        }
+	                        SSS.a_pageElement = SIIA.pageElement;
+	                        if (SSS.a_pageElement) {
+	                          _context5.next = 38;
+	                          break;
+	                        }
+	                        return _context5.abrupt("return", 1);
+	                      case 38:
+	                        SSS.a_manualA = SIIA.manualA === undefined ? SIIAD.manualA : SIIA.manualA;
+	                        SSS.a_enable = SIIA.enable === undefined ? SIIAD.enable : SIIA.enable;
+	                        SSS.a_useiframe = SIIA.useiframe === undefined ? SIIAD.useiframe : SIIA.useiframe;
+	                        SSS.a_mutationObserver = SSS.a_useiframe ? SIIA.mutationObserver === undefined ? null : SIIA.mutationObserver : null;
+	                        SSS.a_newIframe = SIIA.newIframe === undefined ? SIIAD.newIframe : SIIA.newIframe;
+	                        SSS.a_iloaded = SIIA.iloaded === undefined ? SIIAD.iloaded : SIIA.iloaded;
+	                        SSS.a_itimeout = SIIA.itimeout === undefined ? SIIAD.itimeout : SIIA.itimeout;
+	                        SSS.a_remain = SIIA.remain === undefined ? SIIAD.remain : SIIA.remain;
+	                        SSS.a_maxpage = SIIA.maxpage === undefined ? SIIAD.maxpage : SIIA.maxpage;
+	                        SSS.a_separator = SIIA.separator === undefined ? SIIAD.separator : SIIA.separator;
+	                        SSS.a_sepdivDom = SIIA.sepdivDom === undefined ? undefined : SIIA.sepdivDom;
+	                        SSS.a_separatorReal = SIIA.separatorReal === undefined ? SIIAD.separatorReal : SIIA.separatorReal;
+	                        SSS.a_replaceE = SIIA.replaceE;
+	                        SSS.a_HT_insert = SIIA.HT_insert;
+	                        SSS.a_relatedObj = SIIA.relatedObj === undefined ? SIIAD.relatedObj : SIIA.relatedObj;
+	                        SSS.a_ipages = SIIA.ipages === undefined ? SIIAD.ipages : SIIA.ipages;
+
+	                        // new
+	                        SSS.filter = SII.filter || SIIA.filter; // 新增了函数的形式，原来的功能是移除 pageElement
+	                        documentFilter = SII.documentFilter || SIIA.documentFilter;
+	                        if (documentFilter === 'startFilter') {
+	                          SSS.a_documentFilter = function (doc) {
+	                            return SII.autopager.startFilter(doc);
+	                          };
+	                        } else if (typeof documentFilter === 'function') {
+	                          SSS.a_documentFilter = documentFilter;
+	                        } else {
+	                          SSS.a_documentFilter = undefined;
+	                        }
+	                        SSS.a_scriptFilter = SIIA.scriptFilter === undefined ? '' : SIIA.scriptFilter;
+	                        SSS.a_stylish = SII.stylish || SIIA.stylish;
+	                        SSS.lazyImgSrc = SIIA.lazyImgSrc;
+	                        SSS.a_headers = SIIA.headers === undefined ? undefined : SIIA.headers; // custom header for XHRLoaded
+	                        SSS.a_reload = SIIA.reload === undefined ? SIIAD.reload : SIIA.reload; // force reload iframe
+	                        SSS.a_sandbox = SIIA.sandbox === undefined ? SIIAD.sandbox : SIIA.sandbox;
+
+	                        // 在翻页的时候会有一些其他元素占据了页面的高度，导致翻页不精准。
+	                        // 比如正文下面的推荐文章列表（占据超过整个页面10%就很难受）
+	                        SSS.a_excludeElement = SIIA.excludeElement;
+	                      case 64:
+	                        // 检验是否存在内容
+	                        pageElement = getElement(SSS.a_pageElement);
+	                        if (!(!pageElement || Array.isArray(pageElement) && pageElement.length === 0)) {
+	                          _context5.next = 69;
+	                          break;
+	                        }
+	                        nextlinkElem = null;
+	                        logger.error("[Super-preloader]", 'Could not find content, skiping rule:', SII, 'Continue to search for other rules.');
+	                        return _context5.abrupt("return", 0);
+	                      case 69:
+	                        SSS.hasRule = true;
+	                        return _context5.abrupt("return", 1);
+	                      case 71:
+	                      case "end":
+	                        return _context5.stop();
+	                    }
+	                  }, _loop, null, [[8, 14]]);
+	                });
+	                i = 0;
+	              case 5:
+	                if (!(i < ii)) {
+	                  _context6.next = 15;
+	                  break;
+	                }
+	                return _context6.delegateYield(_loop(), "t0", 7);
+	              case 7:
+	                _ret = _context6.t0;
+	                if (!(_ret === 0)) {
+	                  _context6.next = 10;
+	                  break;
+	                }
+	                return _context6.abrupt("continue", 12);
+	              case 10:
+	                if (!(_ret === 1)) {
+	                  _context6.next = 12;
+	                  break;
+	                }
+	                return _context6.abrupt("break", 15);
+	              case 12:
+	                i++;
+	                _context6.next = 5;
+	                break;
+	              case 15:
+	                if (!SSS.hasRule) {
+	                  // 自动搜索.
+	                  if (!autoMatch.keyMatch) {
+	                    logger.warn("[Super-preloader]", 'Auto match is disabled');
+	                  } else {
+	                    logger.warn("[Super-preloader]", 'No rules are found. Auto match starts');
+	                    nextlinkElem = autoGetLink();
+	                    if (nextlinkElem) {
+	                      // 强制模式.
+	                      FA = autoMatch.FA;
+	                      SSS.Rurl = window.localStorage ? 'am:' + (url.match(/^https?:\/\/[^:]*\//i) || [])[0] : 'am:automatch';
+	                      SSS.enable = true;
+	                      SSS.nextLink = 'auto;';
+	                      SSS.viewcontent = autoMatch.viewcontent;
+	                      SSS.useiframe = autoMatch.useiframe || SITEINFO_D.autopager.useiframe;
+	                      SSS.a_force = true;
+	                      SSS.a_manualA = FA.manualA;
+	                      SSS.a_enable = FA.enable || SITEINFO_D.autopager.force_enable; // Force join is enabled when this becomes true
+	                      SSS.a_useiframe = FA.useiframe || SITEINFO_D.useiframe;
+	                      SSS.a_iloaded = FA.iloaded;
+	                      SSS.a_itimeout = FA.itimeout;
+	                      SSS.a_remain = FA.remain;
+	                      SSS.a_maxpage = FA.maxpage;
+	                      SSS.a_separator = FA.separator;
+	                      SSS.a_ipages = FA.ipages;
+	                    }
+	                  }
+	                }
+
+	                // 如果规则没 lazyImgSrc，设置默认值
+	                if (!SSS.lazyImgSrc) {
+	                  SSS.lazyImgSrc = prefs.lazyImgSrc;
+	                }
+	                logger.debug("[Super-preloader]", `Total time spent on searching for advanced rules and automatic matching: ${new Date().getTime() - startTime.getTime()}ms`);
+	              case 18:
+	              case "end":
+	                return _context6.stop();
 	            }
+	          }, _callee5);
+	        }));
+	        return function findCurSiteInfo() {
+	          return _ref5.apply(this, arguments);
+	        };
+	      }();
+	      findCurSiteInfo().then(function () {
+	        // 上下页都没有找到啊
+	        if (!nextlinkElem && !prelink) {
+	          logger.warn("[Super-preloader]", `No related links found, JS execution stopped. Total time spent: ${new Date().getTime() - startTime.getTime()}ms`);
+	          return;
+	        } else if (!nextlink) {
+	          logger.error("[Super-preloader]", 'The link to the next page does not exist, JS cannot continue.');
+	          logger.debug("[Super-preloader]", `Total time spent:${new Date().getTime() - startTime.getTime()}ms`);
+	          return;
+	        } else {
+	          logger.debug("[Super-preloader]", 'Previous link element:', prelink);
+	          logger.debug("[Super-preloader]", 'Next link element:', nextlinkElem);
+	          nextlink = elemToHref(nextlinkElem);
+	          logger.debug("[Super-preloader]", 'Next link:', nextlink);
+	          //@ts-ignore
+	          prelink = prelink ? prelink.href || prelink : undefined;
+	        }
+	        var keyBinding = {
+	          go: function go() {
+	            if (typeof nextlink === 'string') window.location.href = nextlink;
 	          },
-	          _ret;
-	        for (var i = 0; i < ii; i++) {
-	          _ret = _loop();
-	          if (_ret === 0) continue;
-	          if (_ret === 1) break;
+	          back: function back() {
+	            //fixme
+	            if (!prelink) getElement('auto;');
+	            if (typeof prelink === 'string') window.location.href = prelink;
+	          },
+	          register: function register( /**@type {IPrefs} */prefs) {
+	            var _this = this;
+	            if (prefs.arrowKeyPage) {
+	              logger.debug("[Super-preloader]", 'Adding left and right arrow keys to autopager listener.');
+	              document.addEventListener('keyup', function (e) {
+	                //@ts-ignore
+	                var tarNN = e.target.nodeName;
+	                if (tarNN != 'BODY' && tarNN != 'HTML') return;
+
+	                // check is a combo pressed
+	                if (e.ctrlKey || e.shiftKey || e.altKey || e.metaKey) {
+	                  return;
+	                }
+	                switch (e.keyCode) {
+	                  case 37:
+	                    _this.back();
+	                    break;
+	                  case 39:
+	                    _this.go();
+	                    break;
+	                }
+	              }, false);
+
+	              // 监听下一页事件.
+	              logger.debug("[Super-preloader]", '添加鼠标手势翻页监听');
+	              document.addEventListener('superPreloader.go', function () {
+	                _this.go();
+	              }, false);
+
+	              // 监听下一页事件.
+	              document.addEventListener('superPreloader.back', function () {
+	                _this.back();
+	              }, false);
+	            }
+	          }
+	        };
+	        keyBinding.register(prefs);
+	        loadLocalSetting(SSS);
+	        if (!SSS.enable) {
+	          logger.warn("[Super-preloader]", 'This rule is disabled, script execution is stopped');
+	          logger.debug("[Super-preloader]", `Total time spent:${new Date().getTime() - startTime.getTime()}ms`);
+	          return;
 	        }
 	        if (!SSS.hasRule) {
-	          // 自动搜索.
-	          if (!autoMatch.keyMatch) {
-	            logger.warn("[Super-preloader]", 'Auto match is disabled');
-	          } else {
-	            logger.warn("[Super-preloader]", 'No rules are found. Auto match starts');
-	            nextlinkElem = autoGetLink();
-	            if (nextlinkElem) {
-	              // 强制模式.
-	              var FA = autoMatch.FA;
-	              SSS.Rurl = window.localStorage ? 'am:' + (url.match(/^https?:\/\/[^:]*\//i) || [])[0] : 'am:automatch';
-	              SSS.enable = true;
-	              SSS.nextLink = 'auto;';
-	              SSS.viewcontent = autoMatch.viewcontent;
-	              SSS.useiframe = autoMatch.useiframe || SITEINFO_D.autopager.useiframe;
-	              SSS.a_force = true;
-	              SSS.a_manualA = FA.manualA;
-	              SSS.a_enable = FA.enable || SITEINFO_D.autopager.force_enable; // Force join is enabled when this becomes true
-	              SSS.a_useiframe = FA.useiframe || SITEINFO_D.useiframe;
-	              SSS.a_iloaded = FA.iloaded;
-	              SSS.a_itimeout = FA.itimeout;
-	              SSS.a_remain = FA.remain;
-	              SSS.a_maxpage = FA.maxpage;
-	              SSS.a_separator = FA.separator;
-	              SSS.a_ipages = FA.ipages;
+	          SSS.a_force = true;
+	        }
+	        if (SSS.a_force) {
+	          SSS.a_pageElement = '//body/*';
+	          SSS.a_HT_insert = undefined;
+	          SSS.a_relatedObj = undefined;
+	        }
+	        if (prefs.floatWindow) {
+	          logger.debug("[Super-preloader]", 'Creating a floating window');
+	          floatWindow(SSS);
+	          var floatWindowWidth = getFloatWindowWith();
+	          displace(document.getElementById('sp-fw-container'), {
+	            handle: document.getElementById('sp-fw-rect'),
+	            customMove: function customMove(el, x, y) {
+	              delete el.style.left;
+	              delete el.style.bottom;
+	              var right = document.body.clientWidth - floatWindowWidth - x;
+	              if (right < 0) {
+	                right = 0;
+	              } else if (right > window.innerWidth - floatWindowWidth) {
+	                right = window.innerWidth - floatWindowWidth;
+	              }
+	              var top = y;
+	              if (top > window.innerHeight - document.getElementById('sp-fw-rect').scrollHeight) {
+	                top = window.innerHeight - document.getElementById('sp-fw-rect').scrollHeight;
+	              } else if (top < 0) {
+	                top = 0;
+	              }
+	              el.style.right = `${right}px`;
+	              el.style.top = `${top}px`;
+	            },
+	            onMouseUp: function onMouseUp(el) {
+	              prefs.FW_offset[0] = parseInt(el.style.top.replace('px', ''), 10);
+	              prefs.FW_offset[1] = parseInt(el.style.right.replace('px', ''), 10);
+	              prefs.FW_position = 2;
+	              GM.setValue('prefs', prefs);
 	            }
-	          }
+	          });
+	          document.getElementById('sp-fw-container').style.position = 'fixed';
 	        }
-
-	        // 如果规则没 lazyImgSrc，设置默认值
-	        if (!SSS.lazyImgSrc) {
-	          SSS.lazyImgSrc = prefs.lazyImgSrc;
-	        }
-	        logger.debug("[Super-preloader]", `Total time spent on searching for advanced rules and automatic matching: ${new Date().getTime() - startTime.getTime()}ms`);
-	      };
-	      findCurSiteInfo();
-
-	      // 上下页都没有找到啊
-	      if (!nextlinkElem && !prelink) {
-	        logger.warn("[Super-preloader]", `No related links found, JS execution stopped. Total time spent: ${new Date().getTime() - startTime.getTime()}ms`);
-	        return;
-	      } else {
-	        logger.debug("[Super-preloader]", 'Previous link element:', prelink);
-	        logger.debug("[Super-preloader]", 'Next link element:', nextlinkElem);
-	        nextlink = elemToHref(nextlinkElem);
-	        logger.debug("[Super-preloader]", 'Next link:', nextlink);
-	        //@ts-ignore
-	        prelink = prelink ? prelink.href || prelink : undefined;
-	      }
-	      var superPreloader = {
-	        go: function go() {
-	          if (typeof nextlink === 'string') window.location.href = nextlink;
-	        },
-	        back: function back() {
-	          //fixme
-	          if (!prelink) getElement('auto;');
-	          if (typeof prelink === 'string') window.location.href = prelink;
-	        }
-	      };
-	      if (prefs.arrowKeyPage) {
-	        logger.debug("[Super-preloader]", 'Adding left and right arrow keys to autopager listener.');
-	        document.addEventListener('keyup', function (e) {
-	          //@ts-ignore
-	          var tarNN = e.target.nodeName;
-	          if (tarNN != 'BODY' && tarNN != 'HTML') return;
-
-	          // check is a combo pressed
-	          if (e.ctrlKey || e.shiftKey || e.altKey || e.metaKey) {
-	            return;
-	          }
-	          switch (e.keyCode) {
-	            case 37:
-	              superPreloader.back();
-	              break;
-	            case 39:
-	              superPreloader.go();
-	              break;
-	          }
-	        }, false);
-	      }
-
-	      // 监听下一页事件.
-	      logger.debug("[Super-preloader]", '添加鼠标手势翻页监听');
-	      document.addEventListener('superPreloader.go', function () {
-	        superPreloader.go();
-	      }, false);
-
-	      // 监听下一页事件.
-	      document.addEventListener('superPreloader.back', function () {
-	        superPreloader.back();
-	      }, false);
-
-	      // 没找到下一页的链接
-	      if (!nextlink) {
-	        logger.error("[Super-preloader]", 'The link to the next page does not exist, JS cannot continue.');
 	        logger.debug("[Super-preloader]", `Total time spent:${new Date().getTime() - startTime.getTime()}ms`);
-	        return;
-	      }
-	      loadLocalSetting(SSS);
-	      if (!SSS.hasRule) {
-	        SSS.a_force = true;
-	      }
-	      if (SSS.a_force) {
-	        SSS.a_pageElement = '//body/*';
-	        SSS.a_HT_insert = undefined;
-	        SSS.a_relatedObj = undefined;
-	      }
-	      if (prefs.floatWindow) {
-	        logger.debug("[Super-preloader]", 'Creating a floating window');
-	        floatWindow(SSS);
-	        var floatWindowWidth = getFloatWindowWith();
-	        displace(document.getElementById('sp-fw-container'), {
-	          handle: document.getElementById('sp-fw-rect'),
-	          customMove: function customMove(el, x, y) {
-	            delete el.style.left;
-	            delete el.style.bottom;
-	            var right = document.body.clientWidth - floatWindowWidth - x;
-	            if (right < 0) {
-	              right = 0;
-	            } else if (right > window.innerWidth - floatWindowWidth) {
-	              right = window.innerWidth - floatWindowWidth;
-	            }
-	            var top = y;
-	            if (top > window.innerHeight - document.getElementById('sp-fw-rect').scrollHeight) {
-	              top = window.innerHeight - document.getElementById('sp-fw-rect').scrollHeight;
-	            } else if (top < 0) {
-	              top = 0;
-	            }
-	            el.style.right = `${right}px`;
-	            el.style.top = `${top}px`;
-	          },
-	          onMouseUp: function onMouseUp(el) {
-	            prefs.FW_offset[0] = parseInt(el.style.top.replace('px', ''), 10);
-	            prefs.FW_offset[1] = parseInt(el.style.right.replace('px', ''), 10);
-	            prefs.FW_position = 2;
-	            GM.setValue('prefs', prefs);
-	          }
-	        });
-	        document.getElementById('sp-fw-container').style.position = 'fixed';
-	      }
-	      if (!SSS.enable) {
-	        logger.warn("[Super-preloader]", 'This rule is disabled, script execution is stopped');
-	        logger.debug("[Super-preloader]", `Total time spent:${new Date().getTime() - startTime.getTime()}ms`);
-	        return;
-	      }
-	      logger.debug("[Super-preloader]", `Total time spent:${new Date().getTime() - startTime.getTime()}ms`);
 
-	      // 预读或者翻页.
-	      if (SSS.a_enable) {
-	        logger.debug("[Super-preloader]", 'Initializing, autopager mode.');
-	        autopager(SSS, floatWO);
-	      } else {
-	        logger.debug("[Super-preloader]", 'Initializing, prefetch mode.');
-	        prefetcher(SSS, floatWO);
-	      }
-	      var docChecked;
+	        // 预读或者翻页.
+	        if (SSS.a_enable) {
+	          logger.debug("[Super-preloader]", 'Initializing, autopager mode.');
+	          autopager(SSS, floatWO);
+	        } else {
+	          logger.debug("[Super-preloader]", 'Initializing, prefetch mode.');
+	          prefetcher(SSS, floatWO);
+	        }
+	      });
 
 	      // 获取单个元素,混合
 	      /**
@@ -12399,7 +12604,7 @@
 	        }
 	        return ret;
 	      }
-
+	      var docChecked;
 	      /**
 	       *
 	       * @param {Document=} doc document

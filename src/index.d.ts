@@ -135,8 +135,8 @@ interface IRule {
     ipages?: [boolean, number];
     separator?: boolean;
     sepdivDom?: (doc: Document, sep: HTMLElement) => HTMLElement;
-    startFilter?: (doc: Document, win?: Window) => void;
-    documentFilter?: ((doc: Document, nextLink?: string) => void) | 'startFilter';
+    startFilter?: (doc: Document, win?: Window) => Promise<void> | void;
+    documentFilter?: ((doc: Document, nextLink?: string) => Promise<void> | void) | 'startFilter';
     scriptFilter?: string;
     filter?: (pageElements: HTMLElement[]) => void;
     stylish?: string;

@@ -220,23 +220,26 @@ export const jsSiteRule = [
     autopager: {
       ip: ['209.141.54.79', '137.175.36.112'],
       ipages: [true, 5],
-      startFilter: function (doc, _win) {
+      startFilter: async function (doc, _win) {
         const items = doc.querySelectorAll('div.node > a');
         if (items.length > 0) {
-          items.forEach((a) => {
-            const link = a.getAttribute('href');
-            got.get(link).then((res) => {
+          await Promise.all(
+            [].map.call(items, async (a) => {
+              const link = a.getAttribute('href');
+              const res = await got.get(link);
               const docPage = new DOMParser().parseFromString(res.data, 'text/html');
-              const imgHref = docPage.querySelector('article.article-content > p > img').getAttribute('src');
-              const newImg = createDOM('img', {
-                attr: {
-                  src: imgHref,
-                  style: 'display:block; width:50%; height:auto;'
-                }
-              });
-              a.parentNode.insertBefore(newImg, a.nextSibling);
-            });
-          });
+              const img = docPage.querySelector('article.article-content > p > img');
+              if (img) {
+                const newImg = createDOM('img', {
+                  attr: {
+                    src: img.getAttribute('src'),
+                    style: 'display:block; width:50%; height:auto;'
+                  }
+                });
+                a.parentNode.insertBefore(newImg, a.nextSibling);
+              }
+            })
+          );
         }
       },
       documentFilter: 'startFilter'

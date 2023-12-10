@@ -1283,7 +1283,7 @@ import notice from './utils/notice.js';
           function manualAdiv() {
             if (!manualDiv) {
               addStyle(spcss['sp-separator']);
-              const spage = (el) => {
+              const spage = async (el) => {
                 if (doc) {
                   let value = Number(el.value);
                   if (isNaN(value) || value < 1) {
@@ -1291,7 +1291,7 @@ import notice from './utils/notice.js';
                   }
                   ipagesmode = true;
                   ipagesnumber = value + paged;
-                  insertedIntoDoc();
+                  await insertedIntoDoc();
                 }
               };
 
@@ -1362,8 +1362,9 @@ import notice from './utils/notice.js';
                 function (e) {
                   //@ts-ignore
                   if (e.target.id === 'sp-sp-md-number') return;
-                  spage(document.getElementById('sp-sp-md-number'));
-                  manualDiv.remove();
+                  spage(document.getElementById('sp-sp-md-number')).then(() => {
+                    manualDiv.remove();
+                  });
                 },
                 false
               );
@@ -1372,7 +1373,7 @@ import notice from './utils/notice.js';
             //manualDiv.style.display = "block";
           }
 
-          function beforeInsertIntoDoc() {
+          async function beforeInsertIntoDoc() {
             working = true;
             if (SSS.a_manualA && !ipagesmode) {
               // 显示手动翻页触发条.
@@ -1381,7 +1382,7 @@ import notice from './utils/notice.js';
             } else {
               // 直接拼接.
               logger.debug('Direct stitching');
-              insertedIntoDoc();
+              await insertedIntoDoc();
             }
           }
 
@@ -1503,7 +1504,7 @@ import notice from './utils/notice.js';
 
           var paged = 0;
 
-          function insertedIntoDoc() {
+          async function insertedIntoDoc() {
             if (!doc) {
               logger.error('No document');
               return;
@@ -1511,7 +1512,7 @@ import notice from './utils/notice.js';
 
             if (SSS.a_documentFilter) {
               try {
-                SSS.a_documentFilter(doc, typeof nextlink === 'string' && nextlink);
+                await SSS.a_documentFilter(doc, typeof nextlink === 'string' && nextlink);
                 logger.debug('Successfully executeed documentFilter');
               } catch (e) {
                 logger.error('Error executing documentFilter', e, SSS.a_documentFilter.toString());
@@ -1845,12 +1846,12 @@ import notice from './utils/notice.js';
           });
 
           autoPO = {
-            startipages: function (value) {
+            startipages: async function (value) {
               if (value > 0) {
                 ipagesmode = true;
                 ipagesnumber = value + paged;
                 notice('<b>Status</b>:' + 'Current number of pages turned: <b>' + paged + '</b>,' + 'Continue to turn page <b style="color:red!important;">' + ipagesnumber + '</b>');
-                if (SSS.a_manualA) insertedIntoDoc();
+                if (SSS.a_manualA) await insertedIntoDoc();
                 scroll();
               }
             }
@@ -2070,7 +2071,7 @@ import notice from './utils/notice.js';
 
         /**@type {IRuntimeRule} */
         let SSS = {};
-        const findCurSiteInfo = function () {
+        const findCurSiteInfo = async function () {
           const SIIAD = SITEINFO_D.autopager;
           var Rurl;
           const ii = SSRules.length;
@@ -2102,7 +2103,7 @@ import notice from './utils/notice.js';
               // 运行规则的 startFilter
               if (SII.autopager && SII.autopager.startFilter) {
                 try {
-                  SII.autopager.startFilter(document, window);
+                  await SII.autopager.startFilter(document, window);
                   logger.debug('startFilter executed successfully');
                 } catch (e) {
                   logger.error('Error executing startFilter', e);
@@ -2240,151 +2241,149 @@ import notice from './utils/notice.js';
           logger.debug(`Total time spent on searching for advanced rules and automatic matching: ${new Date().getTime() - startTime.getTime()}ms`);
         };
 
-        findCurSiteInfo();
-
-        // 上下页都没有找到啊
-        if (!nextlinkElem && !prelink) {
-          logger.warn(`No related links found, JS execution stopped. Total time spent: ${new Date().getTime() - startTime.getTime()}ms`);
-          return;
-        } else if (!nextlink) {
-          logger.error('The link to the next page does not exist, JS cannot continue.');
-          logger.debug(`Total time spent:${new Date().getTime() - startTime.getTime()}ms`);
-          return;
-        } else {
-          logger.debug('Previous link element:', prelink);
-          logger.debug('Next link element:', nextlinkElem);
-          nextlink = elemToHref(nextlinkElem);
-          logger.debug('Next link:', nextlink);
-          //@ts-ignore
-          prelink = prelink ? prelink.href || prelink : undefined;
-        }
-
-        const keyBinding = {
-          go: function () {
-            if (typeof nextlink === 'string') window.location.href = nextlink;
-          },
-          back: function () {
-            //fixme
-            if (!prelink) getElement('auto;');
-            if (typeof prelink === 'string') window.location.href = prelink;
-          },
-          register: function (/**@type {IPrefs} */ prefs) {
-            if (prefs.arrowKeyPage) {
-              logger.debug('Adding left and right arrow keys to autopager listener.');
-              document.addEventListener(
-                'keyup',
-                (e) => {
-                  //@ts-ignore
-                  const tarNN = e.target.nodeName;
-                  if (tarNN != 'BODY' && tarNN != 'HTML') return;
-
-                  // check is a combo pressed
-                  if (e.ctrlKey || e.shiftKey || e.altKey || e.metaKey) {
-                    return;
-                  }
-
-                  switch (e.keyCode) {
-                    case 37:
-                      this.back();
-                      break;
-                    case 39:
-                      this.go();
-                      break;
-                    default:
-                      break;
-                  }
-                },
-                false
-              );
-
-              // 监听下一页事件.
-              logger.debug('添加鼠标手势翻页监听');
-              document.addEventListener(
-                'superPreloader.go',
-                () => {
-                  this.go();
-                },
-                false
-              );
-
-              // 监听下一页事件.
-              document.addEventListener(
-                'superPreloader.back',
-                () => {
-                  this.back();
-                },
-                false
-              );
-            }
+        findCurSiteInfo().then(() => {
+          // 上下页都没有找到啊
+          if (!nextlinkElem && !prelink) {
+            logger.warn(`No related links found, JS execution stopped. Total time spent: ${new Date().getTime() - startTime.getTime()}ms`);
+            return;
+          } else if (!nextlink) {
+            logger.error('The link to the next page does not exist, JS cannot continue.');
+            logger.debug(`Total time spent:${new Date().getTime() - startTime.getTime()}ms`);
+            return;
+          } else {
+            logger.debug('Previous link element:', prelink);
+            logger.debug('Next link element:', nextlinkElem);
+            nextlink = elemToHref(nextlinkElem);
+            logger.debug('Next link:', nextlink);
+            //@ts-ignore
+            prelink = prelink ? prelink.href || prelink : undefined;
           }
-        };
 
-        keyBinding.register(prefs);
-
-        loadLocalSetting(SSS);
-        if (!SSS.enable) {
-          logger.warn('This rule is disabled, script execution is stopped');
-          logger.debug(`Total time spent:${new Date().getTime() - startTime.getTime()}ms`);
-          return;
-        }
-
-        if (!SSS.hasRule) {
-          SSS.a_force = true;
-        }
-
-        if (SSS.a_force) {
-          SSS.a_pageElement = '//body/*';
-          SSS.a_HT_insert = undefined;
-          SSS.a_relatedObj = undefined;
-        }
-
-        if (prefs.floatWindow) {
-          logger.debug('Creating a floating window');
-          floatWindow(SSS);
-          const floatWindowWidth = getFloatWindowWith();
-          const d = displace(document.getElementById('sp-fw-container'), {
-            handle: document.getElementById('sp-fw-rect'),
-            customMove: (el, x, y) => {
-              delete el.style.left;
-              delete el.style.bottom;
-              let right = document.body.clientWidth - floatWindowWidth - x;
-              if (right < 0) {
-                right = 0;
-              } else if (right > window.innerWidth - floatWindowWidth) {
-                right = window.innerWidth - floatWindowWidth;
-              }
-
-              let top = y;
-              if (top > window.innerHeight - document.getElementById('sp-fw-rect').scrollHeight) {
-                top = window.innerHeight - document.getElementById('sp-fw-rect').scrollHeight;
-              } else if (top < 0) {
-                top = 0;
-              }
-              el.style.right = `${right}px`;
-              el.style.top = `${top}px`;
+          const keyBinding = {
+            go: function () {
+              if (typeof nextlink === 'string') window.location.href = nextlink;
             },
-            onMouseUp: (el) => {
-              prefs.FW_offset[0] = parseInt(el.style.top.replace('px', ''), 10);
-              prefs.FW_offset[1] = parseInt(el.style.right.replace('px', ''), 10);
-              prefs.FW_position = 2;
-              GM.setValue('prefs', prefs);
+            back: function () {
+              //fixme
+              if (!prelink) getElement('auto;');
+              if (typeof prelink === 'string') window.location.href = prelink;
+            },
+            register: function (/**@type {IPrefs} */ prefs) {
+              if (prefs.arrowKeyPage) {
+                logger.debug('Adding left and right arrow keys to autopager listener.');
+                document.addEventListener(
+                  'keyup',
+                  (e) => {
+                    //@ts-ignore
+                    const tarNN = e.target.nodeName;
+                    if (tarNN != 'BODY' && tarNN != 'HTML') return;
+
+                    // check is a combo pressed
+                    if (e.ctrlKey || e.shiftKey || e.altKey || e.metaKey) {
+                      return;
+                    }
+
+                    switch (e.keyCode) {
+                      case 37:
+                        this.back();
+                        break;
+                      case 39:
+                        this.go();
+                        break;
+                      default:
+                        break;
+                    }
+                  },
+                  false
+                );
+
+                // 监听下一页事件.
+                logger.debug('添加鼠标手势翻页监听');
+                document.addEventListener(
+                  'superPreloader.go',
+                  () => {
+                    this.go();
+                  },
+                  false
+                );
+
+                // 监听下一页事件.
+                document.addEventListener(
+                  'superPreloader.back',
+                  () => {
+                    this.back();
+                  },
+                  false
+                );
+              }
             }
-          });
-          document.getElementById('sp-fw-container').style.position = 'fixed';
-        }
+          };
 
-        logger.debug(`Total time spent:${new Date().getTime() - startTime.getTime()}ms`);
+          keyBinding.register(prefs);
 
-        // 预读或者翻页.
-        if (SSS.a_enable) {
-          logger.debug('Initializing, autopager mode.');
-          autopager(SSS, floatWO);
-        } else {
-          logger.debug('Initializing, prefetch mode.');
-          prefetcher(SSS, floatWO);
-        }
+          loadLocalSetting(SSS);
+          if (!SSS.enable) {
+            logger.warn('This rule is disabled, script execution is stopped');
+            logger.debug(`Total time spent:${new Date().getTime() - startTime.getTime()}ms`);
+            return;
+          }
 
-        var docChecked;
+          if (!SSS.hasRule) {
+            SSS.a_force = true;
+          }
+
+          if (SSS.a_force) {
+            SSS.a_pageElement = '//body/*';
+            SSS.a_HT_insert = undefined;
+            SSS.a_relatedObj = undefined;
+          }
+
+          if (prefs.floatWindow) {
+            logger.debug('Creating a floating window');
+            floatWindow(SSS);
+            const floatWindowWidth = getFloatWindowWith();
+            const d = displace(document.getElementById('sp-fw-container'), {
+              handle: document.getElementById('sp-fw-rect'),
+              customMove: (el, x, y) => {
+                delete el.style.left;
+                delete el.style.bottom;
+                let right = document.body.clientWidth - floatWindowWidth - x;
+                if (right < 0) {
+                  right = 0;
+                } else if (right > window.innerWidth - floatWindowWidth) {
+                  right = window.innerWidth - floatWindowWidth;
+                }
+
+                let top = y;
+                if (top > window.innerHeight - document.getElementById('sp-fw-rect').scrollHeight) {
+                  top = window.innerHeight - document.getElementById('sp-fw-rect').scrollHeight;
+                } else if (top < 0) {
+                  top = 0;
+                }
+                el.style.right = `${right}px`;
+                el.style.top = `${top}px`;
+              },
+              onMouseUp: (el) => {
+                prefs.FW_offset[0] = parseInt(el.style.top.replace('px', ''), 10);
+                prefs.FW_offset[1] = parseInt(el.style.right.replace('px', ''), 10);
+                prefs.FW_position = 2;
+                GM.setValue('prefs', prefs);
+              }
+            });
+            document.getElementById('sp-fw-container').style.position = 'fixed';
+          }
+
+          logger.debug(`Total time spent:${new Date().getTime() - startTime.getTime()}ms`);
+
+          // 预读或者翻页.
+          if (SSS.a_enable) {
+            logger.debug('Initializing, autopager mode.');
+            autopager(SSS, floatWO);
+          } else {
+            logger.debug('Initializing, prefetch mode.');
+            prefetcher(SSS, floatWO);
+          }
+        });
 
         // 获取单个元素,混合
         /**
@@ -2425,6 +2424,7 @@ import notice from './utils/notice.js';
           return ret;
         }
 
+        var docChecked;
         /**
          *
          * @param {Document=} doc document
