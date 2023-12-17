@@ -1,10 +1,10 @@
 //@ts-check
 ///<reference path="../index.d.ts"/>
 import {getAllElementsByXpath, getElementByXpath} from '../utils/domSelector.js';
+import {addStyle} from '../utils/gm-enhanced.js';
 import {createDOM} from '../utils/domTools.js';
 import emoji from '../utils/emoji.js';
 import got from '../utils/got.js';
-import {addStyle} from '../utils/gm-enhanced.js';
 
 /**@type {Array<IRule>} */
 export const jsSiteRule = [

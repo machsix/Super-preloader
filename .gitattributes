@@ -13,6 +13,7 @@
 *.rdf        text eol=lf
 *.jade       text eol=lf
 *.coffee     text eol=lf
+*.mjs        text eol=lf
 
 # PDF files shall not modify CRLF line endings
 *.pdf -crlf

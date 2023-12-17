@@ -361,6 +361,7 @@ import notice from './utils/notice.js';
       }
       logger.debug('Script Manager: ', JSON.stringify({name: SCRIPT_MANAGER.name, version: SCRIPT_MANAGER.version || 'unknown'}));
       logger.debug('Browser: ', JSON.stringify(BROWSER));
+      logger.debug(`Server ip: ', ${serverIp}`);
       const setup = function () {
         const d = document;
 
