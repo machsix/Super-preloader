@@ -252,10 +252,10 @@ export const jsSiteRule = [
   },
   {
     name: '性感尤物2',
-    url: '^https?://[^/]*/[^/]*/',
-    pageElement: "//div[@class='widget-title']/div",
+    url: '^https?://[^/]+/new\\.html',
+    pageElement: "//li[@class='related_box']",
     exampleUrl: 'http://www.xgyw.cc/Xgyw',
-    nextLink: "//div[@class='pagination']/ul/a[text()='下一页']",
+    nextLink: 'null;',
     autopager: {
       ip: ['209.141.54.79', '137.175.36.112'],
       ipages: [true, 10],

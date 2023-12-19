@@ -9,9 +9,9 @@
 // @author       Mach6
 // @contributers alexolog, heroboy, suchunchen, YFdyh000
 // @thanksto     ywzhaiqi, NLF
-// @version      7.0.8
+// @version      7.0.9
 // @license      GPL-3.0
-// @update       2023/12/17
+// @update       2023/12/19
 // @homepageURL  https://github.com/machsix/Super-preloader
 // @downloadURL  https://machsix.github.io/Super-preloader/Super_preloaderPlus_one_New.user.js
 // @updateURL    https://machsix.github.io/Super-preloader/Super_preloaderPlus_one_New.user.js
@@ -4923,7 +4923,7 @@
 	  }
 	}
 
-	var name="super-preloader";var version="7.0.8";var description="Super-preloader";var main="dist/Super_preloaderPlus_one_New.user.js";var author="Mach6";var license="GPL-3.0";var type="module";var bugs={url:"https://github.com/machsix/Super-preloader/issues"};var homepage="https://github.com/machsix/Super-preloader";var directories={doc:"docs"};var repository={type:"git",url:"git+https://github.com/machsix/Super-preloader.git"};var scripts={lint:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.mjs\"",fix:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.mjs\" --fix",format:"prettier --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.mjs\" \"docs/**/*.{js,md}\"","format:check":"prettier --check \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.mjs\" \"docs/**/*.{js,md}\"","format:staged":"lint-staged -v",check:"npm run lint && npm run typecheck",test:"cd test && node test.js",dev:"rollup -c --dev -w",build:"rollup -c","docs:dev":"cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress dev docs","docs:build":"cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh",preversion:"npm run check",version:"npm run build  && git add dist/*.js && git add dist/*.json",postversion:"git add package.json package-lock.json && npm run test","publish:patch":"npm --no-git-tag-version version patch",publish:"npm --no-git-tag-version version minor",typecheck:"tsc -p jsconfig.json --noEmit"};var husky={hooks:{"pre-commit":"npm run check"}};var keywords=["userscript"];var devDependencies={"@vuepress/plugin-back-to-top":"2.0.0-rc.0","@vuepress/plugin-google-analytics":"2.0.0-rc.0","@vuepress/plugin-register-components":"2.0.0-rc.0",typescript:"5.3.3",vuepress:"2.0.0-rc.0"};var dependencies={"@babel/core":"7.23.6","@babel/plugin-syntax-import-attributes":"7.23.3","@babel/plugin-transform-runtime":"7.23.6","@babel/preset-env":"7.23.6","@rollup/plugin-babel":"6.0.4","@rollup/plugin-commonjs":"25.0.7","@rollup/plugin-json":"6.1.0","@rollup/plugin-node-resolve":"15.2.3","@types/greasemonkey":"4.0.7","@types/lodash":"4.14.202","babel-plugin-lodash":"3.3.4","babel-plugin-wildcard":"7.0.0","compare-versions":"6.1.0","cross-env":"7.0.3",displacejs:"https://github.com/machsix/displace.git#v1.4.0",eslint:"8.56.0","eslint-config-prettier":"9.1.0","eslint-plugin-import":"2.29.1","eslint-plugin-json":"3.1.0","eslint-plugin-prettier":"5.0.1","extract-zip":"2.0.1",got:"14.0.0",husky:"8.0.3","lint-staged":"15.2.0",lodash:"4.17.21",loglevel:"1.8.1",prettier:"3.1.1",puppeteer:"21.6.1",rollup:"4.9.0","rollup-plugin-banner2":"1.2.2","rollup-plugin-dev":"2.0.4","rollup-plugin-ejs":"4.0.0","rollup-plugin-re":"1.0.7","rollup-plugin-scss-string":"github:machsix/rollup-plugin-scss-string",yargs:"17.7.2"};var pkg = {name:name,version:version,description:description,main:main,author:author,license:license,type:type,bugs:bugs,homepage:homepage,directories:directories,repository:repository,scripts:scripts,husky:husky,keywords:keywords,devDependencies:devDependencies,dependencies:dependencies};
+	var name="super-preloader";var version="7.0.9";var description="Super-preloader";var main="dist/Super_preloaderPlus_one_New.user.js";var author="Mach6";var license="GPL-3.0";var type="module";var bugs={url:"https://github.com/machsix/Super-preloader/issues"};var homepage="https://github.com/machsix/Super-preloader";var directories={doc:"docs"};var repository={type:"git",url:"git+https://github.com/machsix/Super-preloader.git"};var scripts={lint:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.mjs\"",fix:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.mjs\" --fix",format:"prettier --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.mjs\" \"docs/**/*.{js,md}\"","format:check":"prettier --check \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.mjs\" \"docs/**/*.{js,md}\"","format:staged":"lint-staged -v",check:"npm run lint && npm run typecheck",test:"cd test && node test.js",dev:"rollup -c --dev -w",build:"rollup -c","docs:dev":"cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress dev docs","docs:build":"cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh",preversion:"npm run check",version:"npm run build  && git add dist/*.js && git add dist/*.json",postversion:"git add package.json package-lock.json && npm run test","publish:patch":"npm --no-git-tag-version version patch",publish:"npm --no-git-tag-version version minor",typecheck:"tsc -p jsconfig.json --noEmit"};var husky={hooks:{"pre-commit":"npm run check"}};var keywords=["userscript"];var devDependencies={"@vuepress/plugin-back-to-top":"2.0.0-rc.0","@vuepress/plugin-google-analytics":"2.0.0-rc.0","@vuepress/plugin-register-components":"2.0.0-rc.0",typescript:"5.3.3",vuepress:"2.0.0-rc.0"};var dependencies={"@babel/core":"7.23.6","@babel/plugin-syntax-import-attributes":"7.23.3","@babel/plugin-transform-runtime":"7.23.6","@babel/preset-env":"7.23.6","@rollup/plugin-babel":"6.0.4","@rollup/plugin-commonjs":"25.0.7","@rollup/plugin-json":"6.1.0","@rollup/plugin-node-resolve":"15.2.3","@types/greasemonkey":"4.0.7","@types/lodash":"4.14.202","babel-plugin-lodash":"3.3.4","babel-plugin-wildcard":"7.0.0","compare-versions":"6.1.0","cross-env":"7.0.3",displacejs:"https://github.com/machsix/displace.git#v1.4.0",eslint:"8.56.0","eslint-config-prettier":"9.1.0","eslint-plugin-import":"2.29.1","eslint-plugin-json":"3.1.0","eslint-plugin-prettier":"5.0.1","extract-zip":"2.0.1",got:"14.0.0",husky:"8.0.3","lint-staged":"15.2.0",lodash:"4.17.21",loglevel:"1.8.1",prettier:"3.1.1",puppeteer:"2.1.0",rollup:"4.9.1","rollup-plugin-banner2":"1.2.2","rollup-plugin-dev":"2.0.4","rollup-plugin-ejs":"4.0.0","rollup-plugin-re":"1.0.7","rollup-plugin-scss-string":"github:machsix/rollup-plugin-scss-string",yargs:"17.7.2"};var pkg = {name:name,version:version,description:description,main:main,author:author,license:license,type:type,bugs:bugs,homepage:homepage,directories:directories,repository:repository,scripts:scripts,husky:husky,keywords:keywords,devDependencies:devDependencies,dependencies:dependencies};
 
 	// Information of script
 	var now = new Date();
@@ -9144,10 +9144,10 @@
 	  }
 	}, {
 	  name: '性感尤物2',
-	  url: '^https?://[^/]*/[^/]*/',
-	  pageElement: "//div[@class='widget-title']/div",
+	  url: '^https?://[^/]+/new\\.html',
+	  pageElement: "//li[@class='related_box']",
 	  exampleUrl: 'http://www.xgyw.cc/Xgyw',
-	  nextLink: "//div[@class='pagination']/ul/a[text()='下一页']",
+	  nextLink: 'null;',
 	  autopager: {
 	    ip: ['209.141.54.79', '137.175.36.112'],
 	    ipages: [true, 10],
@@ -12237,7 +12237,7 @@
 	                      case 4:
 	                        Rurl = toRE(SII.url);
 	                        if (!Rurl.test(url)) {
-	                          _context5.next = 71;
+	                          _context5.next = 75;
 	                          break;
 	                        }
 	                        if (userLang === 'zh_CN') {
@@ -12265,23 +12265,31 @@
 	                        _context5.t0 = _context5["catch"](8);
 	                        logger.error("[Super-preloader]", 'Error executing startFilter', _context5.t0);
 	                      case 17:
+	                        if (!(SII.nextLink === 'null;')) {
+	                          _context5.next = 21;
+	                          break;
+	                        }
+	                        logger.debug("[Super-preloader]", 'Find the rule for a site without nextpage', SII);
+	                        SSS.hasRule = false;
+	                        return _context5.abrupt("return", 1);
+	                      case 21:
 	                        nextlinkElem = getElement(SII.nextLink || 'auto;');
 	                        if (nextlinkElem) {
-	                          _context5.next = 21;
+	                          _context5.next = 25;
 	                          break;
 	                        }
 	                        logger.warn("[Super-preloader]", 'Could not find the next page link, continue searching for other rules, skiping rule:', SII);
 	                        return _context5.abrupt("return", 0);
-	                      case 21:
+	                      case 25:
 	                        // extract next page link from an a link
 	                        nextlink = getFullHref(nextlinkElem);
 	                        if (!(nextlink === document.location.href)) {
-	                          _context5.next = 25;
+	                          _context5.next = 29;
 	                          break;
 	                        }
 	                        nextlinkElem = null;
 	                        return _context5.abrupt("return", 0);
-	                      case 25:
+	                      case 29:
 	                        if (SII.preLink && SII.preLink != 'auto;') {
 	                          // 如果设定了具体的preLink
 	                          prelink = getElement(SII.preLink);
@@ -12308,16 +12316,16 @@
 	                        // 自动翻页设置.
 	                        SIIA = SII.autopager;
 	                        if (!SIIA) {
-	                          _context5.next = 64;
+	                          _context5.next = 68;
 	                          break;
 	                        }
 	                        SSS.a_pageElement = SIIA.pageElement;
 	                        if (SSS.a_pageElement) {
-	                          _context5.next = 38;
+	                          _context5.next = 42;
 	                          break;
 	                        }
 	                        return _context5.abrupt("return", 1);
-	                      case 38:
+	                      case 42:
 	                        SSS.a_manualA = SIIA.manualA === undefined ? SIIAD.manualA : SIIA.manualA;
 	                        SSS.a_enable = SIIA.enable === undefined ? SIIAD.enable : SIIA.enable;
 	                        SSS.a_useiframe = SIIA.useiframe === undefined ? SIIAD.useiframe : SIIA.useiframe;
@@ -12357,20 +12365,20 @@
 	                        // 在翻页的时候会有一些其他元素占据了页面的高度，导致翻页不精准。
 	                        // 比如正文下面的推荐文章列表（占据超过整个页面10%就很难受）
 	                        SSS.a_excludeElement = SIIA.excludeElement;
-	                      case 64:
+	                      case 68:
 	                        // 检验是否存在内容
 	                        pageElement = getElement(SSS.a_pageElement);
 	                        if (!(!pageElement || Array.isArray(pageElement) && pageElement.length === 0)) {
-	                          _context5.next = 69;
+	                          _context5.next = 73;
 	                          break;
 	                        }
 	                        nextlinkElem = null;
 	                        logger.error("[Super-preloader]", 'Could not find content, skiping rule:', SII, 'Continue to search for other rules.');
 	                        return _context5.abrupt("return", 0);
-	                      case 69:
+	                      case 73:
 	                        SSS.hasRule = true;
 	                        return _context5.abrupt("return", 1);
-	                      case 71:
+	                      case 75:
 	                      case "end":
 	                        return _context5.stop();
 	                    }

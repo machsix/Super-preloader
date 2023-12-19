@@ -2111,6 +2111,12 @@ import notice from './utils/notice.js';
                 }
               }
 
+              if (SII.nextLink === 'null;') {
+                logger.debug('Find the rule for a site without nextpage', SII);
+                SSS.hasRule = false;
+                break;
+              }
+
               nextlinkElem = getElement(SII.nextLink || 'auto;');
               if (!nextlinkElem) {
                 logger.warn('Could not find the next page link, continue searching for other rules, skiping rule:', SII);
