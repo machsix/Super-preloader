@@ -81,7 +81,7 @@
     "loglevel": "1.8.1",
     "prettier": "3.1.1",
     "puppeteer": "2.1.0",
-    "rollup": "4.9.1",
+    "rollup": "4.9.2",
     "rollup-plugin-banner2": "1.2.2",
     "rollup-plugin-dev": "2.0.4",
     "rollup-plugin-ejs": "4.0.0",
