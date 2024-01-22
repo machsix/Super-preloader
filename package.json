@@ -79,7 +79,7 @@
     "lint-staged": "15.2.0",
     "lodash": "4.17.21",
     "loglevel": "1.8.1",
-    "prettier": "3.2.2",
+    "prettier": "3.2.4",
     "puppeteer": "2.1.0",
     "rollup": "4.9.5",
     "rollup-plugin-banner2": "1.2.2",
