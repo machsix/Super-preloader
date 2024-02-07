@@ -1,5 +1,94 @@
 [
 {
+  "resource_url": "http://wedata.net/items/86208",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "id('article')/div[@id]",
+    "nextLink": "//ul[contains(concat(' ',@class,' '),' pagenav ')]/li[a/@class='active']/following-sibling::li/a",
+    "url": "^https://kyotolove\\.kyoto/",
+    "exampleUrl": "https://kyotolove.kyoto/I0000332/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m'",
+  "name": "Kyoto Love. Kyoto KLK",
+  "created_at": "2024-02-06T02:30:53+09:00",
+  "updated_at": "2024-02-06T02:30:53+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/86206",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//div[@class='index_box']/*",
+    "nextLink": "//a[@class='novelview_pager-next']",
+    "url": "^https://(?:ncode|novel18)\\.syosetu\\.com/n[^/]+/",
+    "exampleUrl": "https://ncode.syosetu.com/n8799hu/\r\nhttps://novel18.syosetu.com/n6382hq/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m'",
+  "name": "小説家になろう 作品目次",
+  "created_at": "2024-01-26T21:47:14+09:00",
+  "updated_at": "2024-01-26T21:47:14+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/86205",
+  "data": {
+    "pageElement": "//ul[contains(@class,'-list')]",
+    "nextLink": "//a[contains(@id,'lnkNext')]",
+    "url": "^https:\\/\\/minkara.carview.co.jp\\/",
+    "exampleUrl": "https://minkara.carview.co.jp/search/?q=f-zero&c=0\r\nhttps://minkara.carview.co.jp/blog/\r\nhttps://minkara.carview.co.jp/review/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "foo2",
+  "name": "みんカラ",
+  "created_at": "2024-01-23T11:13:33+09:00",
+  "updated_at": "2024-01-23T13:20:45+09:00"
+},
+{
+  "data": {
+    "insertBefore": "",
+    "pageElement": "id('category_list')/ul/li",
+    "nextLink": "//div[@class='page_nav']/ul/li[@class='active']/following-sibling::a",
+    "url": "^https://www\\.megahobby\\.jp/products/",
+    "exampleUrl": "https://www.megahobby.jp/products/lookup/9/?sort=new"
+  },
+  "created_by": "t_f_m'",
+  "name": "メガホビ MEGA HOBBY STATION メガハウスのホビー商品情報サイト",
+  "created_at": "2024-01-15T14:29:37+09:00",
+  "updated_at": "2024-01-15T14:29:37+09:00",
+  "resource_url": "http://wedata.net/items/86204",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize"
+},
+{
+  "resource_url": "http://wedata.net/items/86203",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "id('ichiran-first')/div[@class='booklist']",
+    "nextLink": "id('pager')/a[@title='next page']",
+    "url": "^https://www\\.h-up\\.com/e/index\\.php",
+    "exampleUrl": "https://www.h-up.com/e/index.php?Series=S01&flg_searchmode=shousai&ORDERBY=DateShuppan&ORDERBY2=DateShotenhatsubai&SORTORDER=DESC&action_search_do=true&page=8"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m'",
+  "name": "法政大学出版局",
+  "created_at": "2024-01-11T16:15:48+09:00",
+  "updated_at": "2024-01-11T16:15:48+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/86201",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//div[@class=\"l-section\"]/a",
+    "nextLink": "//span[@class=\"mod-pager__next\"]/a",
+    "url": "^https://search\\.shinchosha\\.co\\.jp/search",
+    "exampleUrl": "https://search.shinchosha.co.jp/search?site=ZXE8UIDC&design=sitesearch&group=sitesearch&charset=UTF-8&query=%E3%83%AD%E3%83%B3%E3%83%89%E3%83%B3#result-list"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m'",
+  "name": "新潮社 検索",
+  "created_at": "2024-01-04T17:12:40+09:00",
+  "updated_at": "2024-01-04T17:12:40+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/86198",
   "data": {
     "insertBefore": "",
@@ -712,7 +801,7 @@
 {
   "resource_url": "http://wedata.net/items/86122",
   "data": {
-    "pageElement": "id('main')//div[@class='panel-body']//div[contains(@class,'row-eq-height')]/div",
+    "pageElement": "id('main')//div[@class='panel-body']//div[contains(@class,'row-eq-height')]",
     "nextLink": "(//a[@rel='next'])[1]",
     "url": "^https://fantia\\.jp/fanclubs/\\d+/posts\r\n"
   },
@@ -720,7 +809,7 @@
   "created_by": "jawata",
   "name": "Fantia Club",
   "created_at": "2023-05-23T13:32:13+09:00",
-  "updated_at": "2023-05-23T13:48:11+09:00"
+  "updated_at": "2024-01-29T13:41:54+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/86116",
@@ -11305,16 +11394,16 @@
 {
   "resource_url": "http://wedata.net/items/82058",
   "data": {
-    "pageElement": "//div[contains(@class, 'articleBody')]/nav/preceding-sibling::*[not(./following-sibling::*[1][self::nav])]",
-    "nextLink": "//li[contains(@class, \"p-pagination_list_item\") and contains(@class, \"-next\")]/a[@aria-label=\"次のページへリンク\"]",
+    "pageElement": "//div[contains(concat(' ',@class,' '), ' articleBody ')]/node()[self::nav or contains(.,'.p-article_watchBox')]/preceding-sibling::*",
+    "nextLink": "//li[contains(concat(' ',@class,' '), ' -next ')]/a[@aria-label=\"次のページへリンク\"]",
     "url": "^https://business\\.nikkei\\.com/",
-    "exampleUrl": "https://business.nikkei.com/atcl/seminar/19/00030/032200460/\r\nhttps://business.nikkei.com/atcl/gen/19/00533/030600006/\r\nhttps://business.nikkei.com/atcl/gen/19/00297/041900122/"
+    "exampleUrl": "https://business.nikkei.com/atcl/seminar/19/00030/032200460/\r\nhttps://business.nikkei.com/atcl/gen/19/00533/030600006/\r\nhttps://business.nikkei.com/atcl/gen/19/00297/041900122/\r\nhttps://business.nikkei.com/atcl/gen/19/00562/012900029/"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "love_livedoor",
   "name": "日経ビジネス電子版",
   "created_at": "2019-01-16T14:26:53+09:00",
-  "updated_at": "2023-08-04T14:01:33+09:00"
+  "updated_at": "2024-01-31T17:56:47+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/82056",
@@ -28818,17 +28907,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/72582",
-  "name": "All About　ガイド記事一覧",
-  "created_by": "memi",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-03-19T17:06:41+09:00",
   "data": {
-    "exampleUrl": "http://allabout.co.jp/gm/gp/714/library/\r\nhttp://allabout.co.jp/gm/gc/462037/\r\nhttp://allabout.co.jp/gm/gc/13353/\r\nhttp://allabout.co.jp/gm/gl/421/\r\nhttp://allabout.co.jp/recipe/search/material/10/",
+    "pageElement": "//div[@class=\"article-list\"]//li|//div[@class='aa_article-content']|//main[@class=\"aa_main\"]//ul[@class=\"aa_media-list\"]/li",
+    "nextLink": "//a[(text()=\"次のページへ\")]",
     "url": "^https://allabout\\.co\\.jp/gm/(gc|gp|gl)|^https://allabout\\.co\\.jp/recipe",
-    "pageElement": "//div[@class=\"article-list\"]//li|id(\"popin_read\")|//main[@class=\"aa_main\"]//ul[@class=\"aa_media-list\"]/li",
-    "nextLink": "//a[(text()=\"次のページへ\")]"
+    "exampleUrl": "https://allabout.co.jp/gm/gp/714/library/\r\nhttps://allabout.co.jp/gm/gc/462037/\r\nhttps://allabout.co.jp/gm/gc/13353/\r\nhttps://allabout.co.jp/gm/gl/421/\r\nhttps://allabout.co.jp/recipe/search/material/10/"
   },
-  "created_at": "2013-05-01T09:39:59+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "memi",
+  "name": "All About　ガイド記事一覧",
+  "created_at": "2013-05-01T09:39:59+09:00",
+  "updated_at": "2024-01-08T21:21:21+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/72581",
@@ -33927,16 +34016,16 @@
 {
   "resource_url": "http://wedata.net/items/60005",
   "data": {
-    "pageElement": "//div[@class='img']",
+    "pageElement": "//div[@class='extMdlSeriesMngrArticleMargin']/div",
     "nextLink": "//a[@class='btnNext']\r\n",
     "url": "^https?://mangalifewin\\.takeshobo\\.co\\.jp/",
-    "exampleUrl": "http://mangalifewin.takeshobo.co.jp/rensai/halfde_ittoko/item-1/001/\r\nhttp://mangalifewin.takeshobo.co.jp/rensai/halfde_ittoko/item-3/033/"
+    "exampleUrl": "https://mangalifewin.takeshobo.co.jp/rensai/slanleat/slanleat-001/25887/\r\nhttp://mangalifewin.takeshobo.co.jp/rensai/halfde_ittoko/item-1/001/\r\nhttp://mangalifewin.takeshobo.co.jp/rensai/halfde_ittoko/item-3/033/"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "jigendaddy_be",
   "name": "ゆるっとcafe / まんがライフWIN",
   "created_at": "2012-04-08T11:52:07+09:00",
-  "updated_at": "2023-03-18T09:19:42+09:00"
+  "updated_at": "2024-01-01T16:27:07+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/59945",
@@ -38515,17 +38604,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/41315",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "name": "Weblio英語例文検索",
-  "created_by": "mi",
-  "updated_at": "2017-04-03T10:10:03+09:00",
   "data": {
-    "exampleUrl": "http://ejje.weblio.jp/sentence/content/%E6%84%9F%E3%81%98%E3%82%8B",
+    "pageElement": "id('main')//div[contains(concat(' ', @class, ' '), ' mainBlock ')][.//div[contains(concat(' ', @class, ' '), ' qotC ')]]",
+    "nextLink": "//span[@class='TargetPage']/following-sibling::a[1]",
     "url": "^https?://ejje\\.weblio\\.jp/sentence/content/",
-    "pageElement": "id('main')//div[contains(concat(' ', @class, ' '), ' kiji ')]/div[contains(concat(' ', @class, ' '), ' qotC ')]",
-    "nextLink": "//span[@class='TargetPage']/following-sibling::a[1]"
+    "exampleUrl": "http://ejje.weblio.jp/sentence/content/%E6%84%9F%E3%81%98%E3%82%8B"
   },
-  "created_at": "2011-01-11T20:11:35+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "mi",
+  "name": "Weblio英語例文検索",
+  "created_at": "2011-01-11T20:11:35+09:00",
+  "updated_at": "2024-01-13T17:03:32+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/41272",
@@ -50615,14 +50704,14 @@
   "data": {
     "pageElement": "id('searched')/li|//table[@class='rank']/tbody/tr",
     "nextLink": "//a[@class='next']",
-    "url": "^https://(?:\\w+db\\.)?supleks\\.jp/search",
-    "exampleUrl": "https://ramendb.supleks.jp/search\r\nhttps://supleks.jp/search?q=カレー"
+    "url": "^https://(?:[^/]+db\\.)?supleks\\.jp/search",
+    "exampleUrl": "https://ramendb.supleks.jp/search\r\nhttps://supleks.jp/search?q=カレー\r\nhttps://tokyo-ramendb.supleks.jp/search?state=tokyo"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "ngs",
   "name": "なんとかデータベース",
   "created_at": "2008-07-23T00:07:49+09:00",
-  "updated_at": "2020-07-01T17:58:28+09:00"
+  "updated_at": "2024-02-04T10:42:36+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/2025",
