@@ -181,7 +181,7 @@ export const jsSiteRule = [
   {
     name: '4khd_post',
     url: '^https?://www\\.4khd\\.com/.*\\.html$',
-    pageElement: "//div[contains(@class,'entry-content')]/div[@class='page-link-box']/preceding::div[1]",
+    pageElement: "//div[contains(@class,'entry-content')]",
     nextLink: "//li[@class='numpages current']/following-sibling::li/a",
     useiframe: true,
     autopager: {
