@@ -1,5 +1,79 @@
 [
 {
+  "resource_url": "http://wedata.net/items/86215",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//section[contains(concat(' ', @class, ' '), ' main-post-list ')]/ul",
+    "nextLink": "//div[contains(concat(' ', @class, ' '), ' pagination ')]/span[contains(@class, 'current')][number()>0]/following-sibling::a[1]",
+    "url": "^https://blog\\.domesoccer\\.jp/",
+    "exampleUrl": "https://blog.domesoccer.jp/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "Griever3",
+  "name": "ドメサカブログ",
+  "created_at": "2024-03-11T18:17:35+09:00",
+  "updated_at": "2024-03-11T18:17:35+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/86214",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//div[contains(concat(' ', @class, ' '), ' hentry ')]",
+    "nextLink": "//a[@rel='next']",
+    "url": "^https://worldfn\\.net/",
+    "exampleUrl": "https://worldfn.net/\r\nhttps://worldfn.net/search/%E6%97%A5%E6%9C%AC?p=2"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "Griever3",
+  "name": "WorldFootballNewS",
+  "created_at": "2024-03-11T18:12:36+09:00",
+  "updated_at": "2024-03-11T18:12:36+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/86213",
+  "data": {
+    "pageElement": "//div[@class='theme-grid row justify-content-center']",
+    "nextLink": "//a[@data-toggle='page-jump']/following-sibling::a[1]",
+    "url": "^https?://themeplaza\\.art/",
+    "exampleUrl": "https://themeplaza.art/themes"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "タックン君",
+  "name": "Theme Plaza",
+  "created_at": "2024-03-09T17:58:59+09:00",
+  "updated_at": "2024-03-09T23:42:39+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/86212",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//table[contains(@class, 'a-bordered')]/tbody/tr",
+    "nextLink": "//a[text()='次へ']",
+    "url": "^https?://www\\.amazon\\.co\\.jp/gp/css/gc/balance",
+    "exampleUrl": "https://www.amazon.co.jp/gp/css/gc/balance?ref_=ya_d_c_gc"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "foo2",
+  "name": "Amazon.co.jp - ギフトカード残高",
+  "created_at": "2024-03-07T23:04:44+09:00",
+  "updated_at": "2024-03-07T23:04:44+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/86211",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//div[@class='pagesprit01']/preceding-sibling::*|id('writer01')",
+    "nextLink": "//p[@class='next-page-link']/a",
+    "url": "^https://monomax\\.jp/archives/\\d+",
+    "exampleUrl": "https://monomax.jp/archives/213091/3/\r\nhttps://monomax.jp/archives/213091/4/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "Griever3",
+  "name": "モノマックス（MonoMax）",
+  "created_at": "2024-03-03T20:05:40+09:00",
+  "updated_at": "2024-03-03T20:05:40+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/86208",
   "data": {
     "insertBefore": "",
@@ -20027,16 +20101,16 @@
 {
   "resource_url": "http://wedata.net/items/77625",
   "data": {
-    "pageElement": "//div[@class='block--2_RlJqhg']",
+    "pageElement": "id('maincontent')/*[not(contains(@class, 'pagination'))]",
     "nextLink": "//a[@rel='next']",
     "url": "^https?://(www\\.)?macrumors\\.com/",
-    "exampleUrl": "https://www.macrumors.com/mac/"
+    "exampleUrl": "https://www.macrumors.com/\r\nhttps://www.macrumors.com/mac/"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "Tanookirby",
   "name": "Mac Rumors: Apple Mac iOS Rumors and News You Care About",
   "created_at": "2015-11-01T09:39:03+09:00",
-  "updated_at": "2020-06-15T08:36:34+09:00"
+  "updated_at": "2024-03-09T12:25:29+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/77624",
@@ -26488,7 +26562,7 @@
   "resource_url": "http://wedata.net/items/74897",
   "data": {
     "pageElement": "//div[@class='l-article']/div[@class='article-body']",
-    "nextLink": "//div[contains(concat(' ',@class,' '),' m-pagination ')]/a[@class='is-active']/following-sibling::a",
+    "nextLink": "//div[contains(concat(' ',@class,' '),' m-pagination ')]/*[@class='is-active']/following-sibling::a",
     "url": "^https?://dot\\.asahi\\.com/",
     "exampleUrl": "https://dot.asahi.com/wa/2022080300076.html?page=1\r\nhttps://dot.asahi.com/dot/photoarticle/2019060500079.html?page=1\r\nhttps://dot.asahi.com/articles/-/196996?page=1"
   },
@@ -26496,7 +26570,7 @@
   "created_by": "t_f_m",
   "name": "dot asahi",
   "created_at": "2014-06-13T17:32:13+09:00",
-  "updated_at": "2023-07-26T15:14:34+09:00"
+  "updated_at": "2024-02-27T19:25:45+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/74895",
@@ -27066,16 +27140,16 @@
 {
   "resource_url": "http://wedata.net/items/74789",
   "data": {
-    "pageElement": "//div[@itemprop='articleBody']/p[last()]|//div[@itemprop='articleBody']/p[last()]/preceding-sibling::*",
-    "nextLink": "//link[@rel=\"next\"]",
-    "url": "https://bizgate\\.nikkei\\.co\\.jp/article/.+",
-    "exampleUrl": "https://bizgate.nikkei.co.jp/article/DGXMZO5957527026052020000000?channel=DF050420183723"
+    "pageElement": "//ul[contains(concat(' ', @class, ' '), ' pagination-article ')]/preceding-sibling::*",
+    "nextLink": "//li[contains(@class, 'current')][number()>0]/following-sibling::li[1]/a",
+    "url": "^https://bizgate\\.nikkei\\.com/article/.+",
+    "exampleUrl": "https://bizgate.nikkei.com/article/DGXMZO5957527026052020000000?channel=DF050420183723\r\nhttps://bizgate.nikkei.com/article/DGXZQOLM2752S027112023000000?page=3"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "nkmry",
   "name": "日経BizGate",
   "created_at": "2014-04-22T20:37:42+09:00",
-  "updated_at": "2023-02-05T14:07:30+09:00"
+  "updated_at": "2024-02-08T18:05:58+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/74786",
@@ -50098,18 +50172,18 @@
   "created_at": "2008-08-27T17:07:44+09:00"
 },
 {
-  "name": "Amazon.co.jp - \u6ce8\u6587\u5c65\u6b74",
-  "resource_url": "http:\/\/wedata.net\/items\/2351",
-  "updated_at": "2012-01-17T01:42:18+09:00",
-  "created_by": "haoyayoi@hatena",
-  "database_resource_url": "http:\/\/wedata.net\/databases\/AutoPagerize",
+  "resource_url": "http://wedata.net/items/2351",
   "data": {
-    "pageElement": "id(\"cs-orders\")\/div[@class=\"action-box rounded\"]",
-    "url": "^https:\/\/www\\.amazon\\.co\\.jp\/gp\/css\/history(?:\/orders)?\/view\\.html",
-    "nextLink": "id(\"cs-orders\")\/div\/div\/div\/a[.=\"\u6b21\u3078 \u00bb\"]",
-    "exampleUrl": "https:\/\/www.amazon.co.jp\/gp\/css\/history\/view.html?ie=UTF8&startAtIndex=0&orderFilter=year-2007&groupID=0"
+    "pageElement": "//div[@class='order-card js-order-card']",
+    "nextLink": "//a[text()='次へ']",
+    "url": "^https?://www\\.amazon\\.co\\.jp/(gp/css/order-history||your-orders/)",
+    "exampleUrl": "https://www.amazon.co.jp/gp/css/order-history?ref_=nav_orders_first\r\nhttps://www.amazon.co.jp/your-orders/orders?timeFilter=year-2024&ref_=ppx_yo2ov_dt_b_filter_all_y2024"
   },
-  "created_at": "2008-08-27T12:11:07+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "haoyayoi@hatena",
+  "name": "Amazon.co.jp - 注文履歴",
+  "created_at": "2008-08-27T12:11:07+09:00",
+  "updated_at": "2024-03-07T11:17:10+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/2258",
@@ -53961,17 +54035,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/414",
-  "name": "All About　新着記事一覧",
-  "created_by": "swdyh",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-01-17T10:18:19+09:00",
   "data": {
-    "exampleUrl": "https://allabout.co.jp/gm/latest/1732/",
+    "pageElement": "//main/section[contains(@data-tracking-zone, 'mainContents')]|\r\n//ul[contains(concat(' ', @class, ' '), ' aa_media-list ')]",
+    "nextLink": "//a[.='次のページへ']",
     "url": "^https?://allabout\\.co\\.jp/",
-    "pageElement": "id('popin_read')/div/ul/*",
-    "nextLink": "//a[.='次のページへ']"
+    "exampleUrl": "https://allabout.co.jp/gm/latest/1732/\r\nhttps://allabout.co.jp/r_hobby/latest/"
   },
-  "created_at": "2008-04-16T12:35:21+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "swdyh",
+  "name": "All About　新着記事一覧",
+  "created_at": "2008-04-16T12:35:21+09:00",
+  "updated_at": "2024-02-24T18:13:35+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/412",
