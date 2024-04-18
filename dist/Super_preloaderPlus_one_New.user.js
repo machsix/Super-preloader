@@ -11,7 +11,7 @@
 // @thanksto     ywzhaiqi, NLF
 // @version      7.0.12
 // @license      GPL-3.0
-// @update       2024/3/15
+// @update       2024/4/18
 // @homepageURL  https://github.com/machsix/Super-preloader
 // @downloadURL  https://machsix.github.io/Super-preloader/Super_preloaderPlus_one_New.user.js
 // @updateURL    https://machsix.github.io/Super-preloader/Super_preloaderPlus_one_New.user.js
@@ -4642,9 +4642,6 @@
 		        "error"
 		    ];
 
-		    var _loggersByName = {};
-		    var defaultLogger = null;
-
 		    // Cross-browser bind equivalent that works at least back to IE6
 		    function bindMethod(obj, methodName) {
 		        var method = obj[methodName];
@@ -4697,33 +4694,25 @@
 
 		    // These private functions always need `this` to be set properly
 
-		    function replaceLoggingMethods() {
+		    function replaceLoggingMethods(level, loggerName) {
 		        /*jshint validthis:true */
-		        var level = this.getLevel();
-
-		        // Replace the actual methods.
 		        for (var i = 0; i < logMethods.length; i++) {
 		            var methodName = logMethods[i];
 		            this[methodName] = (i < level) ?
 		                noop :
-		                this.methodFactory(methodName, level, this.name);
+		                this.methodFactory(methodName, level, loggerName);
 		        }
 
 		        // Define log.log as an alias for log.debug
 		        this.log = this.debug;
-
-		        // Return any important warnings.
-		        if (typeof console === undefinedType && level < this.levels.SILENT) {
-		            return "No console available for logging";
-		        }
 		    }
 
 		    // In old IE versions, the console isn't present until you first open it.
 		    // We build realMethod() replacements here that regenerate logging methods
-		    function enableLoggingWhenConsoleArrives(methodName) {
+		    function enableLoggingWhenConsoleArrives(methodName, level, loggerName) {
 		        return function () {
 		            if (typeof console !== undefinedType) {
-		                replaceLoggingMethods.call(this);
+		                replaceLoggingMethods.call(this, level, loggerName);
 		                this[methodName].apply(this, arguments);
 		            }
 		        };
@@ -4731,36 +4720,16 @@
 
 		    // By default, we use closely bound real methods wherever possible, and
 		    // otherwise we wait for a console to appear, and then try again.
-		    function defaultMethodFactory(methodName, _level, _loggerName) {
+		    function defaultMethodFactory(methodName, level, loggerName) {
 		        /*jshint validthis:true */
 		        return realMethod(methodName) ||
 		               enableLoggingWhenConsoleArrives.apply(this, arguments);
 		    }
 
-		    function Logger(name, factory) {
-		      // Private instance variables.
+		    function Logger(name, defaultLevel, factory) {
 		      var self = this;
-		      /**
-		       * The level inherited from a parent logger (or a global default). We
-		       * cache this here rather than delegating to the parent so that it stays
-		       * in sync with the actual logging methods that we have installed (the
-		       * parent could change levels but we might not have rebuilt the loggers
-		       * in this child yet).
-		       * @type {number}
-		       */
-		      var inheritedLevel;
-		      /**
-		       * The default level for this logger, if any. If set, this overrides
-		       * `inheritedLevel`.
-		       * @type {number|null}
-		       */
-		      var defaultLevel;
-		      /**
-		       * A user-specific level for this logger. If set, this overrides
-		       * `defaultLevel`.
-		       * @type {number|null}
-		       */
-		      var userLevel;
+		      var currentLevel;
+		      defaultLevel = defaultLevel == null ? "WARN" : defaultLevel;
 
 		      var storageKey = "loglevel";
 		      if (typeof name === "string") {
@@ -4800,12 +4769,10 @@
 		          if (typeof storedLevel === undefinedType) {
 		              try {
 		                  var cookie = window.document.cookie;
-		                  var cookieName = encodeURIComponent(storageKey);
-		                  var location = cookie.indexOf(cookieName + "=");
+		                  var location = cookie.indexOf(
+		                      encodeURIComponent(storageKey) + "=");
 		                  if (location !== -1) {
-		                      storedLevel = /^([^;]+)/.exec(
-		                          cookie.slice(location + cookieName.length + 1)
-		                      )[1];
+		                      storedLevel = /^([^;]+)/.exec(cookie.slice(location))[1];
 		                  }
 		              } catch (ignore) {}
 		          }
@@ -4824,6 +4791,7 @@
 		          // Use localStorage if available
 		          try {
 		              window.localStorage.removeItem(storageKey);
+		              return;
 		          } catch (ignore) {}
 
 		          // Use session cookie as fallback
@@ -4831,18 +4799,6 @@
 		              window.document.cookie =
 		                encodeURIComponent(storageKey) + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 		          } catch (ignore) {}
-		      }
-
-		      function normalizeLevel(input) {
-		          var level = input;
-		          if (typeof level === "string" && self.levels[level.toUpperCase()] !== undefined) {
-		              level = self.levels[level.toUpperCase()];
-		          }
-		          if (typeof level === "number" && level >= 0 && level <= self.levels.SILENT) {
-		              return level;
-		          } else {
-		              throw new TypeError("log.setLevel() called with invalid level: " + input);
-		          }
 		      }
 
 		      /*
@@ -4859,36 +4815,37 @@
 		      self.methodFactory = factory || defaultMethodFactory;
 
 		      self.getLevel = function () {
-		          if (userLevel != null) {
-		            return userLevel;
-		          } else if (defaultLevel != null) {
-		            return defaultLevel;
-		          } else {
-		            return inheritedLevel;
-		          }
+		          return currentLevel;
 		      };
 
 		      self.setLevel = function (level, persist) {
-		          userLevel = normalizeLevel(level);
-		          if (persist !== false) {  // defaults to true
-		              persistLevelIfPossible(userLevel);
+		          if (typeof level === "string" && self.levels[level.toUpperCase()] !== undefined) {
+		              level = self.levels[level.toUpperCase()];
 		          }
-
-		          // NOTE: in v2, this should call rebuild(), which updates children.
-		          return replaceLoggingMethods.call(self);
+		          if (typeof level === "number" && level >= 0 && level <= self.levels.SILENT) {
+		              currentLevel = level;
+		              if (persist !== false) {  // defaults to true
+		                  persistLevelIfPossible(level);
+		              }
+		              replaceLoggingMethods.call(self, level, name);
+		              if (typeof console === undefinedType && level < self.levels.SILENT) {
+		                  return "No console available for logging";
+		              }
+		          } else {
+		              throw "log.setLevel() called with invalid level: " + level;
+		          }
 		      };
 
 		      self.setDefaultLevel = function (level) {
-		          defaultLevel = normalizeLevel(level);
+		          defaultLevel = level;
 		          if (!getPersistedLevel()) {
 		              self.setLevel(level, false);
 		          }
 		      };
 
 		      self.resetLevel = function () {
-		          userLevel = null;
+		          self.setLevel(defaultLevel, false);
 		          clearPersistedLevel();
-		          replaceLoggingMethods.call(self);
 		      };
 
 		      self.enableAll = function(persist) {
@@ -4899,28 +4856,12 @@
 		          self.setLevel(self.levels.SILENT, persist);
 		      };
 
-		      self.rebuild = function () {
-		          if (defaultLogger !== self) {
-		              inheritedLevel = normalizeLevel(defaultLogger.getLevel());
-		          }
-		          replaceLoggingMethods.call(self);
-
-		          if (defaultLogger === self) {
-		              for (var childName in _loggersByName) {
-		                _loggersByName[childName].rebuild();
-		              }
-		          }
-		      };
-
-		      // Initialize all the internal levels.
-		      inheritedLevel = normalizeLevel(
-		          defaultLogger ? defaultLogger.getLevel() : "WARN"
-		      );
+		      // Initialize with the right level
 		      var initialLevel = getPersistedLevel();
-		      if (initialLevel != null) {
-		          userLevel = normalizeLevel(initialLevel);
+		      if (initialLevel == null) {
+		          initialLevel = defaultLevel;
 		      }
-		      replaceLoggingMethods.call(self);
+		      self.setLevel(initialLevel, false);
 		    }
 
 		    /*
@@ -4929,19 +4870,18 @@
 		     *
 		     */
 
-		    defaultLogger = new Logger();
+		    var defaultLogger = new Logger();
 
+		    var _loggersByName = {};
 		    defaultLogger.getLogger = function getLogger(name) {
 		        if ((typeof name !== "symbol" && typeof name !== "string") || name === "") {
-		            throw new TypeError("You must supply a name when creating a logger.");
+		          throw new TypeError("You must supply a name when creating a logger.");
 		        }
 
 		        var logger = _loggersByName[name];
 		        if (!logger) {
-		            logger = _loggersByName[name] = new Logger(
-		                name,
-		                defaultLogger.methodFactory
-		            );
+		          logger = _loggersByName[name] = new Logger(
+		            name, defaultLogger.getLevel(), defaultLogger.methodFactory);
 		        }
 		        return logger;
 		    };
@@ -4983,7 +4923,7 @@
 	  }
 	}
 
-	var name="super-preloader";var version="7.0.12";var description="Super-preloader";var main="dist/Super_preloaderPlus_one_New.user.js";var author="Mach6";var license="GPL-3.0";var type="module";var bugs={url:"https://github.com/machsix/Super-preloader/issues"};var homepage="https://github.com/machsix/Super-preloader";var directories={doc:"docs"};var repository={type:"git",url:"git+https://github.com/machsix/Super-preloader.git"};var scripts={lint:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.mjs\"",fix:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.mjs\" --fix",format:"prettier --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.mjs\" \"docs/**/*.{js,md}\"","format:check":"prettier --check \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.mjs\" \"docs/**/*.{js,md}\"","format:staged":"lint-staged -v",check:"npm run lint && npm run typecheck",test:"cd test && node test.js",dev:"rollup -c --dev -w",build:"rollup -c","docs:dev":"cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress dev docs","docs:build":"cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh",preversion:"npm run check",version:"npm run build  && git add dist/*.js && git add dist/*.json",postversion:"git add package.json package-lock.json && npm run test","publish:patch":"npm --no-git-tag-version version patch",publish:"npm --no-git-tag-version version minor",typecheck:"tsc -p jsconfig.json --noEmit"};var husky={hooks:{"pre-commit":"npm run check"}};var keywords=["userscript"];var devDependencies={"@vuepress/plugin-back-to-top":"2.0.0-rc.0","@vuepress/plugin-google-analytics":"2.0.0-rc.0","@vuepress/plugin-register-components":"2.0.0-rc.0",typescript:"5.3.3",vuepress:"2.0.0-rc.0"};var dependencies={"@babel/core":"7.24.0","@babel/plugin-syntax-import-attributes":"7.23.3","@babel/plugin-transform-runtime":"7.24.0","@babel/preset-env":"7.24.0","@rollup/plugin-babel":"6.0.4","@rollup/plugin-commonjs":"25.0.7","@rollup/plugin-json":"6.1.0","@rollup/plugin-node-resolve":"15.2.3","@types/greasemonkey":"4.0.7","@types/lodash":"4.14.202","babel-plugin-lodash":"3.3.4","babel-plugin-wildcard":"7.0.0","compare-versions":"6.1.0","cross-env":"7.0.3",displacejs:"https://github.com/machsix/displace.git#v1.4.0",eslint:"8.57.0","eslint-config-prettier":"9.1.0","eslint-plugin-import":"2.29.1","eslint-plugin-json":"3.1.0","eslint-plugin-prettier":"5.1.3","extract-zip":"2.0.1",got:"14.2.1",husky:"9.0.11","lint-staged":"15.2.2",lodash:"4.17.21",loglevel:"1.9.1",prettier:"3.2.5",puppeteer:"2.1.0",rollup:"4.12.1","rollup-plugin-banner2":"1.2.2","rollup-plugin-dev":"2.0.4","rollup-plugin-ejs":"4.0.0","rollup-plugin-re":"1.0.7","rollup-plugin-scss-string":"github:machsix/rollup-plugin-scss-string",yargs:"17.7.2"};var pkg = {name:name,version:version,description:description,main:main,author:author,license:license,type:type,bugs:bugs,homepage:homepage,directories:directories,repository:repository,scripts:scripts,husky:husky,keywords:keywords,devDependencies:devDependencies,dependencies:dependencies};
+	var name="super-preloader";var version="7.0.12";var description="Super-preloader";var main="dist/Super_preloaderPlus_one_New.user.js";var author="Mach6";var license="GPL-3.0";var type="module";var bugs={url:"https://github.com/machsix/Super-preloader/issues"};var homepage="https://github.com/machsix/Super-preloader";var directories={doc:"docs"};var repository={type:"git",url:"git+https://github.com/machsix/Super-preloader.git"};var scripts={lint:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.mjs\"",fix:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.mjs\" --fix",format:"prettier --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.mjs\" \"docs/**/*.{js,md}\"","format:check":"prettier --check \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.mjs\" \"docs/**/*.{js,md}\"","format:staged":"lint-staged -v",check:"npm run lint && npm run typecheck",test:"cd test && node test.js",dev:"rollup -c --dev -w",build:"rollup -c","docs:dev":"cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress dev docs","docs:build":"cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress build docs","docs:publish":"npm run docs:build && bash ./ci/gen_ghpage.sh",preversion:"npm run check",version:"npm run build  && git add dist/*.js && git add dist/*.json",postversion:"git add package.json package-lock.json && npm run test","publish:patch":"npm --no-git-tag-version version patch",publish:"npm --no-git-tag-version version minor",typecheck:"tsc -p jsconfig.json --noEmit"};var husky={hooks:{"pre-commit":"npm run check"}};var keywords=["userscript"];var devDependencies={"@vuepress/plugin-back-to-top":"2.0.0-rc.0","@vuepress/plugin-google-analytics":"2.0.0-rc.0","@vuepress/plugin-register-components":"2.0.0-rc.0",typescript:"5.4.5",vuepress:"2.0.0-rc.0"};var dependencies={"@babel/core":"7.24.3","@babel/plugin-syntax-import-attributes":"7.24.1","@babel/plugin-transform-runtime":"7.24.3","@babel/preset-env":"7.24.3","@rollup/plugin-babel":"6.0.4","@rollup/plugin-commonjs":"25.0.7","@rollup/plugin-json":"6.1.0","@rollup/plugin-node-resolve":"15.2.3","@types/greasemonkey":"4.0.7","@types/lodash":"4.17.0","babel-plugin-lodash":"3.3.4","babel-plugin-wildcard":"7.0.0","compare-versions":"6.1.0","cross-env":"7.0.3",displacejs:"https://github.com/machsix/displace.git#v1.4.0",eslint:"9.0.0","eslint-config-prettier":"9.1.0","eslint-plugin-import":"2.29.1","eslint-plugin-json":"3.1.0","eslint-plugin-prettier":"5.1.3","extract-zip":"2.0.1",got:"14.2.1",husky:"9.0.11","lint-staged":"15.2.2",lodash:"4.17.21",loglevel:"1.9.1",prettier:"3.2.5",puppeteer:"2.1.0",rollup:"4.14.3","rollup-plugin-banner2":"1.2.3","rollup-plugin-dev":"2.0.4","rollup-plugin-ejs":"4.0.0","rollup-plugin-re":"1.0.7","rollup-plugin-scss-string":"github:machsix/rollup-plugin-scss-string",yargs:"17.7.2"};var pkg = {name:name,version:version,description:description,main:main,author:author,license:license,type:type,bugs:bugs,homepage:homepage,directories:directories,repository:repository,scripts:scripts,husky:husky,keywords:keywords,devDependencies:devDependencies,dependencies:dependencies};
 
 	// Information of script
 	var now = new Date();
@@ -9117,7 +9057,7 @@
 	  exampleUrl: 'http://www.xgyw.cc/Xgyw/Xgyw6874.html',
 	  nextLink: "//div[@class='pagination']/ul/a[text()='下一页']",
 	  autopager: {
-	    ip: ['198.251.80.139', '137.175.36.112'],
+	    ip: ['198.54.115.248'],
 	    ipages: [true, 30],
 	    startFilter: function startFilter(doc, _win) {
 	      var p = [doc.querySelector('div.pagination > p'), doc.querySelector('header > a[href^="http"]'), doc.querySelector('ins')];
@@ -9139,7 +9079,7 @@
 	  exampleUrl: 'https://www.xgmn5.xyz/plus/search/index.asp?keyword=%E5%B0%A4%E5%A6%AE%E4%B8%9D',
 	  nextLink: "//div[@class='pagination']/ul/a[@class='current']/following-sibling::a",
 	  autopager: {
-	    ip: ['198.251.80.139', '137.175.36.112'],
+	    ip: ['198.54.115.248'],
 	    ipages: [true, 5],
 	    startFilter: function () {
 	      var _startFilter = _asyncToGenerator$1( /*#__PURE__*/_regeneratorRuntime.mark(function _callee2(doc, _win) {
@@ -9209,7 +9149,7 @@
 	  exampleUrl: 'http://www.xgyw.cc/Xgyw',
 	  nextLink: 'null;',
 	  autopager: {
-	    ip: ['198.251.80.139', '137.175.36.112'],
+	    ip: ['198.54.115.248'],
 	    ipages: [true, 10],
 	    startFilter: function startFilter(doc, _win) {
 	      var a = doc.querySelectorAll('li > a[href^="/html"]');
