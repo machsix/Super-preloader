@@ -1,5 +1,63 @@
 [
 {
+  "resource_url": "http://wedata.net/items/86219",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//ul[contains(concat(' ', @class, ' '), ' usercar-list ')]",
+    "nextLink": "//a[contains(@id,'lnkNext') or @class='page-num next']",
+    "url": "^https://minkara\\.carview\\.co\\.jp/usercar/",
+    "exampleUrl": "https://minkara.carview.co.jp/usercar/\r\nhttps://minkara.carview.co.jp/usercar/decotora/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "Griever3",
+  "name": "みんカラ /usercar/",
+  "created_at": "2024-04-03T16:29:47+09:00",
+  "updated_at": "2024-04-03T16:29:47+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/86218",
+  "data": {
+    "insertBefore": "",
+    "pageElement": "//div[@class='single_page_text']",
+    "nextLink": "//span[contains(@class, 'current')][number()>0]/following-sibling::a[1]",
+    "url": "^https://juventus-journal\\.com/archives/\\d+",
+    "exampleUrl": "https://juventus-journal.com/archives/129133"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "Griever3",
+  "name": "J-JOURNAL 記事",
+  "created_at": "2024-04-02T18:03:47+09:00",
+  "updated_at": "2024-04-02T18:03:47+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/86217",
+  "data": {
+    "pageElement": "//div[contains(@class,'page-num') or @class='pagechunk']/preceding-sibling::*[self::ul[starts-with(@class, 'summary')] or .//a[contains(@href, '/userid/')]]",
+    "nextLink": "//a[contains(@id,'lnkNext') or @class='page-num next']",
+    "url": "^https?://minkara\\.carview\\.co\\.jp/",
+    "exampleUrl": "https://minkara.carview.co.jp/car/mini/mini/partsreview/ https://minkara.carview.co.jp/car/mini/mini/note/ https://minkara.carview.co.jp/usercar/decotora/ https://minkara.carview.co.jp/note/?ci=1 https://minkara.carview.co.jp/partsreview/?bi=1&ci=1\r\n\r\nhttps://minkara.carview.co.jp/search/?q=f-zero&c=0\r\nhttps://minkara.carview.co.jp/blog/\r\nhttps://minkara.carview.co.jp/review/\r\n\r\nhttps://minkara.carview.co.jp/spot/unit.aspx\r\nhttps://minkara.carview.co.jp/like/1/\r\nhttps://minkara.carview.co.jp/select/\r\nhttps://minkara.carview.co.jp/summary/newly/\r\nhttps://minkara.carview.co.jp/summary/ranking/"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "kenzou_ogawa2",
+  "name": "みんカラ",
+  "created_at": "2024-03-30T10:35:10+09:00",
+  "updated_at": "2024-04-02T22:19:12+09:00"
+},
+{
+  "resource_url": "http://wedata.net/items/86216",
+  "data": {
+    "pageElement": "//div[@class='product-list product-list--collection product-list--with-sidebar']",
+    "nextLink": "//a[@rel='next']",
+    "url": "^https://jp\\.daisonet\\.com/",
+    "exampleUrl": "https://jp.daisonet.com/collections/electricity"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "タックン君",
+  "name": "ダイソーネットストア",
+  "created_at": "2024-03-20T15:18:37+09:00",
+  "updated_at": "2024-03-20T15:21:04+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/86215",
   "data": {
     "insertBefore": "",
@@ -106,16 +164,16 @@
 {
   "resource_url": "http://wedata.net/items/86205",
   "data": {
-    "pageElement": "//ul[contains(@class,'-list')]",
+    "pageElement": "//section[@class='itemlist']/ul",
     "nextLink": "//a[contains(@id,'lnkNext')]",
-    "url": "^https:\\/\\/minkara.carview.co.jp\\/",
-    "exampleUrl": "https://minkara.carview.co.jp/search/?q=f-zero&c=0\r\nhttps://minkara.carview.co.jp/blog/\r\nhttps://minkara.carview.co.jp/review/"
+    "url": "^https://minkara\\.carview\\.co\\.jp/search/",
+    "exampleUrl": "https://minkara.carview.co.jp/search/?q=f-zero&c=0"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "foo2",
-  "name": "みんカラ",
+  "name": "みんカラ /search/",
   "created_at": "2024-01-23T11:13:33+09:00",
-  "updated_at": "2024-01-23T13:20:45+09:00"
+  "updated_at": "2024-04-03T18:34:02+09:00"
 },
 {
   "data": {
@@ -4806,14 +4864,14 @@
   "data": {
     "pageElement": "//div[@class=\"interview-container\"]/div[position()>2]",
     "nextLink": "descendant::div[contains(@class,\"bottom\")][1]//a[not(contains(@class,\"prev\"))]",
-    "url": "^https://www\\.nintendo\\.co\\.jp/interview/",
-    "exampleUrl": "https://www.nintendo.co.jp/interview/switch-oled/index.html"
+    "url": "^https://www\\.nintendo\\.com/jp/interview/",
+    "exampleUrl": "https://www.nintendo.com/jp/interview/switch-oled/index.html"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "t_f_m_",
   "name": "開発者に訊きました 任天堂",
   "created_at": "2021-10-08T23:17:05+09:00",
-  "updated_at": "2021-10-09T08:07:07+09:00"
+  "updated_at": "2024-04-07T07:46:34+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/85725",
@@ -6134,16 +6192,16 @@
 {
   "resource_url": "http://wedata.net/items/85518",
   "data": {
-    "pageElement": "//*[./div[contains(@data-href,\"/article/\")]] | //div[@class=\"cmp-thmb002\"]/div[@class=\"wrp\"]",
-    "nextLink": "//div[@class=\"pager\"]//a[contains(span/text(),\"次\")] | //a[@class=\"lnk next\"]",
+    "pageElement": "//div[@class='pager']/../preceding-sibling::div[1][contains(@class, '-lst00')]",
+    "nextLink": "//div[@class='cmp-misc002']//li[@class='is-active']/following-sibling::li[1]/a[number() > 0]",
     "url": "^https?://www\\.tokyo-np\\.co\\.jp/",
-    "exampleUrl": "https://www.tokyo-np.co.jp/tokyo/t_news\r\nhttps://www.tokyo-np.co.jp/tokyo/hotweb/1\r\nhttps://www.tokyo-np.co.jp/article_photo/list?article_id=159660&pid=589621"
+    "exampleUrl": "https://www.tokyo-np.co.jp/tokyo/t_news\r\nhttps://www.tokyo-np.co.jp/tokyo/gururi/1\r\nhttps://www.tokyo-np.co.jp/f/photo/square\r\nhttps://www.tokyo-np.co.jp/beans/recipe\r\nhttps://www.tokyo-np.co.jp/tags/tag_movie\r\nhttps://www.tokyo-np.co.jp/english_articles/covid19_in_english\r\nhttps://www.tokyo-np.co.jp/tags/tokyo140th\r\nhttps://www.tokyo-np.co.jp/n/genpatsu\r\nhttps://www.tokyo-np.co.jp/event/list/buyou"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "brib2",
   "name": "東京新聞",
   "created_at": "2020-09-29T21:12:21+09:00",
-  "updated_at": "2022-02-14T14:20:36+09:00"
+  "updated_at": "2024-04-11T22:18:50+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/85517",
@@ -7750,15 +7808,15 @@
   "resource_url": "http://wedata.net/items/85355",
   "data": {
     "pageElement": "//article[contains(@class, 'hentry')]",
-    "nextLink": "//span[@class='current']/following-sibling::a[1]|//link[@rel='prev']",
+    "nextLink": "//span[@class='current']/following-sibling::a[1]|//a[@rel='prev']",
     "url": "^https://mon-ja\\.net/.+",
-    "exampleUrl": "https://mon-ja.net/articles/page/2/ https://mon-ja.net/200523-01_bicycle-insurance-mandatory/"
+    "exampleUrl": "https://mon-ja.net/articles/page/2/ https://mon-ja.net/tag/nisa/page/2/ https://mon-ja.net/200523-01_bicycle-insurance-mandatory/"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "kenzou_ogawa",
   "name": "MonJa",
   "created_at": "2020-05-28T12:12:09+09:00",
-  "updated_at": "2020-07-16T20:42:07+09:00"
+  "updated_at": "2024-03-17T21:40:07+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/85354",
@@ -10014,17 +10072,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/82197",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "data": {
-    "pageElement": "//div[@class=\"p-cardList\"]",
+    "pageElement": "//div[contains(concat(' ', @class, ' '), ' p-cardList ')]",
     "nextLink": "//link[@rel=\"next\"]",
     "url": "^https?://www\\.businessinsider\\.jp/.",
-    "exampleUrl": "https://www.businessinsider.jp/articles/"
+    "exampleUrl": "https://www.businessinsider.jp/articles/\r\nhttps://www.businessinsider.jp/moneyplan/"
   },
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "jigendaddy_be",
   "name": "BUSINESS INSIDER JAPAN",
   "created_at": "2019-06-29T07:18:24+09:00",
-  "updated_at": "2022-01-19T17:21:08+09:00"
+  "updated_at": "2024-04-13T22:27:04+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/82196",
@@ -19181,17 +19239,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/77750",
-  "name": "小説家になろう ユーザーページ",
-  "created_by": "phodra",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-08-25T18:58:43+09:00",
   "data": {
-    "exampleUrl": "https://syosetu.com/favnovelmain/list/?nowcategory=1&order=newlist\r\nhttps://syosetu.com/favnovelmain/isnoticelist/\r\nhttps://syosetu.com/usernovelimpression/list/\r\nhttps://syosetu.com/favuser/list/\r\nhttps://syosetu.com/messagebox/top/",
+    "pageElement": "//ul[contains(concat(' ',@class,' '),' c-up-panel__list ')]/li",
+    "nextLink": "//div[@class='c-pager']/span[contains(concat(' ',@class,' '),' is-current ')]/following-sibling::a",
     "url": "^https?://syosetu\\.com/",
-    "pageElement": "id('favuser writtingnovellist favuser') | //table | //div[@class='novelcomment_list'] | //ul[@class='bloglist']",
-    "nextLink": "//div[@class='pager_idou']/a[@title='next page'] | //div[@class='page_bar']//a[contains(., '>>')]"
+    "exampleUrl": "https://syosetu.com/favnovelmain/list/?nowcategory=1&order=newlist\r\nhttps://syosetu.com/favnovelmain/isnoticelist/\r\nhttps://syosetu.com/usernovelimpression/list/\r\nhttps://syosetu.com/favuser/list/\r\nhttps://syosetu.com/messagebox/top/"
   },
-  "created_at": "2016-01-04T01:43:02+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "phodra",
+  "name": "小説家になろう ユーザーページ",
+  "created_at": "2016-01-04T01:43:02+09:00",
+  "updated_at": "2024-04-08T19:51:00+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/77749",
@@ -22799,18 +22857,18 @@
   "updated_at": "2020-06-07T06:42:42+09:00"
 },
 {
-  "resource_url": "http://wedata.net/items/77057",
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "data": {
-    "pageElement": "//div[@class='topPageNav']/following-sibling::*[./following-sibling::div[@class='btmPageNav']][not(id('kiji'))]|id('kiji')/p[last()]/preceding-sibling::*|id('kiji')/p[last()][./text()]|id('newsListResult')//li",
+    "pageElement": "//div[@class='topPageNav']/following-sibling::*[./following-sibling::div[@class='btmPageNav']][not(id('kiji'))]|id('kiji')/*|id('newsListResult')//li",
     "nextLink": "//a[@class='nextPage']|//span[@class='next']/a",
     "url": "^https://natgeo\\.nikkeibp\\.co\\.jp",
-    "exampleUrl": "https://natgeo.nikkeibp.co.jp/nng/article/20150312/438925/?P=1 https://natgeo.nikkeibp.co.jp/nng/article/20121107/329698/ https://natgeo.nikkeibp.co.jp/atcl/web/15/050700006/050700001/ https://natgeo.nikkeibp.co.jp/atcl/news/22/013100045/ https://natgeo.nikkeibp.co.jp/nng/news/"
+    "exampleUrl": "https://natgeo.nikkeibp.co.jp/nng/article/20150312/438925/?P=1 https://natgeo.nikkeibp.co.jp/nng/article/20121107/329698/ https://natgeo.nikkeibp.co.jp/atcl/web/15/050700006/050700001/ https://natgeo.nikkeibp.co.jp/atcl/news/22/013100045/ https://natgeo.nikkeibp.co.jp/atcl/news/24/041000202/?P=1 https://natgeo.nikkeibp.co.jp/nng/news/"
   },
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "t_f_m",
+  "resource_url": "http://wedata.net/items/77057",
   "name": "ナショナルジオグラフィック 日経BP",
   "created_at": "2015-03-31T18:06:35+09:00",
-  "updated_at": "2022-02-08T17:14:18+09:00"
+  "updated_at": "2024-04-10T19:45:55+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/77056",
@@ -24987,17 +25045,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/76358",
-  "name": "小説家になろう 他ユーザーの各ページ",
-  "created_by": "t_f_m",
-  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-10-28T03:35:11+09:00",
   "data": {
-    "exampleUrl": "http://mypage.syosetu.com/mypageblog/list/userid/227614/\r\nhttp://mypage.syosetu.com/mypageblog/list/userid/76491/\r\nhttp://mypage.syosetu.com/mypageblog/view/userid/227614/blogkey/894986/\r\nhttp://mypage.syosetu.com/mypageblog/view/userid/76491/blogkey/145793/index.php?p=1\r\nhttp://mypage.syosetu.com/mypageblog/view/userid/76491/blogkey/145793/index.php?p=2\r\nhttp://mypage.syosetu.com/mypagefavnovelmain/list/userid/88780/\r\nhttp://mypage.syosetu.com/mypagefavuser/list/userid/88780/\r\nhttp://mypage.syosetu.com/mypagenovelhyoka/list/userid/88780/\r\nhttp://mypage.syosetu.com/mypage/reviewlist/userid/88780/\r\nhttp://xmypage.syosetu.com/mypageblog/list/xid/44910/\r\nhttp://xmypage.syosetu.com/mypageblog/view/xid/24986/blogkey/144187/",
+    "pageElement": "id('bloglistbg bloglist')/div|(id('blogbg')|id('main')/div[@id='blogview']|id('blog_comment')/h3)[not(id('blog_comment')//div[@class='blogcomment_l']/a)]|//div[@class='comment_view']|id('novellist novelpointlist novelreviewlist')/ul|id('favuser')//li|//div[@class='c-novel-list' or contains(concat(' ',@class,' '),' c-panel__list ')]/div",
+    "nextLink": "//a[@title='next page' or @title='次へ' or ../@class='blogcomment_r']|(id('my_blog_l')|//div[@class='my_blog_l'])/a[not(//a[../@class='blogcomment_r'])]",
     "url": "^https?://x?mypage\\.syosetu\\.com/mypage",
-    "pageElement": "id('bloglistbg bloglist')/div|(id('blogbg')|id('main')/div[@id='blogview']|id('blog_comment')/h3)[not(id('blog_comment')//div[@class='blogcomment_l']/a)]|//div[@class='comment_view']|id('novellist novelpointlist novelreviewlist')/ul|id('favuser')//li",
-    "nextLink": "//a[@title='next page' or ../@class='blogcomment_r']|(id('my_blog_l')|//div[@class='my_blog_l'])/a[not(//a[../@class='blogcomment_r'])]"
+    "exampleUrl": "http://mypage.syosetu.com/mypageblog/list/userid/227614/\r\nhttp://mypage.syosetu.com/mypageblog/list/userid/76491/\r\nhttp://mypage.syosetu.com/mypageblog/view/userid/227614/blogkey/894986/\r\nhttp://mypage.syosetu.com/mypageblog/view/userid/76491/blogkey/145793/index.php?p=1\r\nhttp://mypage.syosetu.com/mypageblog/view/userid/76491/blogkey/145793/index.php?p=2\r\nhttp://mypage.syosetu.com/mypagefavnovelmain/list/userid/88780/\r\nhttp://mypage.syosetu.com/mypagefavuser/list/userid/88780/\r\nhttp://mypage.syosetu.com/mypagenovelhyoka/list/userid/88780/\r\nhttp://mypage.syosetu.com/mypage/reviewlist/userid/88780/\r\nhttp://xmypage.syosetu.com/mypageblog/list/xid/44910/\r\nhttp://xmypage.syosetu.com/mypageblog/view/xid/24986/blogkey/144187/\r\nhttps://xmypage.syosetu.com/mypage/novellist/xid/x7149bl/?xid=377112&all=1&all2=1&all3=1&all4=1&p=1"
   },
-  "created_at": "2014-09-21T11:42:50+09:00"
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m",
+  "name": "小説家になろう 他ユーザーの各ページ",
+  "created_at": "2014-09-21T11:42:50+09:00",
+  "updated_at": "2024-03-23T03:29:17+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/76357",
@@ -49149,17 +49207,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/25601",
-  "name": "みんカラ",
   "data": {
-    "url": "^https?://minkara\\.carview\\.co\\.jp/",
-    "pageElement": "//div[@class='mainright']/table[@class='car-table']//tr|//ul[ ../@class='maincontents_body displaymode-detail' or @class='pr_search_result_box' or @class='gallery-list-photo clearfix']/li",
-    "exampleUrl": "http://minkara.carview.co.jp/en/car/mini/mini/partsreview/? http://minkara.carview.co.jp/en/car/mini/mini/note/ http://minkara.carview.co.jp/en/usercar/decotora/ http://minkara.carview.co.jp/en/note/?ci=1 http://minkara.carview.co.jp/en/partsreview/?bi=1&ci=1",
-    "nextLink": "//a[contains(@id,'lnkNext') or @class='page-num next']"
+    "pageElement": "//div[@class='contents'][count(./*)>1]",
+    "nextLink": "//div[@class='paging']//a[contains(., '>')]",
+    "url": "^https?://minkara\\.carview\\.co\\.jp/userid/\\d+/blog/",
+    "exampleUrl": "https://minkara.carview.co.jp/userid/2209010/blog/b/"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "x2xx",
+  "name": "みんカラ ブログ",
   "created_at": "2008-10-26T01:16:07+09:00",
-  "updated_at": "2020-04-05T07:13:38+09:00"
+  "updated_at": "2024-03-30T11:03:00+09:00"
 },
 {
   "name": "\u3044\u3061\u3054\u3046\u3057\u3064",
@@ -51298,17 +51356,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/1868",
-  "name": "dafont.com",
   "data": {
+    "pageElement": "//a[@name]|//a[@name]/following-sibling::*[preceding-sibling::div/@class=\"dfxsmall\"][following-sibling::div/@class=\"titlebar\"]",
+    "nextLink": "//a[@title=\"Keyboard shortcut: Right arrow\"]",
     "url": "^https://(www\\.)?dafont\\.com/",
-    "pageElement": "//div[@class='titlebar'][1]/following-sibling::div[form/@name='nb'][1]/following-sibling::*[following-sibling::div/@class='titlebar']",
-    "exampleUrl": "https://www.dafont.com/theme.php?cat=113\r\nhttps://www.dafont.com/new.php",
-    "nextLink": "//span[@class='select']/following-sibling::a[1]"
+    "exampleUrl": "https://www.dafont.com/theme.php?cat=113\r\nhttps://www.dafont.com/new.php"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "cool_ni_ikou",
+  "name": "dafont.com",
   "created_at": "2008-06-28T06:32:03+09:00",
-  "updated_at": "2020-03-28T11:57:55+09:00"
+  "updated_at": "2024-04-13T16:02:33+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/1867",
@@ -52780,17 +52838,17 @@
 },
 {
   "resource_url": "http://wedata.net/items/731",
-  "name": "ニコニコ動画",
+  "data": {
+    "pageElement": "//div[contains(concat(' ', @class, ' '), ' NewVideosPage-videoList ')]|\r\n//div[contains(concat(' ', @class, ' '), ' OpenlistPage-openList ')]|\r\n//ul[contains(concat(' ', @class, ' '), ' RelatedTagPage-tagList ')]|\r\n//div[contains(concat(' ',normalize-space(@class),' '), ' main ') or @data-main-contents]/div[contains(@class,'contentBody')]/ul[@class='videoListInner']/node()",
+    "nextLink": "//li[contains(@class, 'current')][number()>0]/following-sibling::li[1]/a[number()>0]|\r\n//div[@class='pager']/a[contains(@class,'active')]/following-sibling::a[1]",
+    "url": "^https?://www\\.nicovideo\\.jp/(?:newarrival|openlist|recent|related_tag|search|tag)",
+    "exampleUrl": "http://www.nicovideo.jp/newarrival\r\nhttp://www.nicovideo.jp/openlist/sm9\r\nhttp://www.nicovideo.jp/recent\r\nhttp://www.nicovideo.jp/related_tag/test\r\nhttp://www.nicovideo.jp/search/test\r\nhttp://www.nicovideo.jp/tag/test"
+  },
   "created_by": "swdyh",
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
-  "updated_at": "2017-12-15T17:30:26+09:00",
-  "data": {
-    "exampleUrl": "http://www.nicovideo.jp/newarrival\r\nhttp://www.nicovideo.jp/mylist_search/test\r\nhttp://www.nicovideo.jp/openlist/sm9\r\nhttp://www.nicovideo.jp/recent\r\nhttp://www.nicovideo.jp/related_tag/test\r\nhttp://www.nicovideo.jp/search/test\r\nhttp://www.nicovideo.jp/tag/test",
-    "url": "^https?://(?:www|nine)\\.nicovideo\\.jp/(?:newarrival|mylist_search|migiue|openlist|recent|related_tag|search|tag)",
-    "pageElement": "id('PAGEBODY')/div[starts-with(@class,'content_672')]/*[preceding::table/@class='pager' or preceding-sibling::div[h1][not(count(following::table[@class='pager'])=2)]][following::table/@class='pager'][not(self::script)]|//div[contains(concat(' ',normalize-space(@class),' '), ' main ') or @data-main-contents]/div[contains(@class,'contentBody')]/ul[@class='list']/node()",
-    "nextLink": "(/descendant::span|//div[@class='pager']/a)[contains(@class,'active') or contains(@class,'here')]/following-sibling::a[1]"
-  },
-  "created_at": "2008-04-16T12:36:46+09:00"
+  "name": "ニコニコ動画",
+  "created_at": "2008-04-16T12:36:46+09:00",
+  "updated_at": "2024-04-05T22:43:44+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/728",
