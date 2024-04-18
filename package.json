@@ -1,6 +1,6 @@
 {
   "name": "super-preloader",
-  "version": "7.0.12",
+  "version": "7.0.13",
   "description": "Super-preloader",
   "main": "dist/Super_preloaderPlus_one_New.user.js",
   "author": "Mach6",
@@ -53,10 +53,10 @@
     "vuepress": "2.0.0-rc.0"
   },
   "dependencies": {
-    "@babel/core": "7.24.3",
+    "@babel/core": "7.24.4",
     "@babel/plugin-syntax-import-attributes": "7.24.1",
     "@babel/plugin-transform-runtime": "7.24.3",
-    "@babel/preset-env": "7.24.3",
+    "@babel/preset-env": "7.24.4",
     "@rollup/plugin-babel": "6.0.4",
     "@rollup/plugin-commonjs": "25.0.7",
     "@rollup/plugin-json": "6.1.0",
@@ -68,7 +68,7 @@
     "compare-versions": "6.1.0",
     "cross-env": "7.0.3",
     "displacejs": "https://github.com/machsix/displace.git#v1.4.0",
-    "eslint": "9.0.0",
+    "eslint": "^8.0.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-import": "2.29.1",
     "eslint-plugin-json": "3.1.0",
