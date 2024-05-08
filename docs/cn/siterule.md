@@ -9,7 +9,7 @@ sidebarDepth: 3
 - [JavaScript object](https://en.wikipedia.org/wiki/JavaScript) stored in file [https://github.com/machsix/Super-preloader/blob/master/src/rules/jsSiteRule.js](https://github.com/machsix/Super-preloader/blob/master/src/rules/jsSiteRule.js). You need to submit [pull request](https://github.com/machsix/Super-preloader/pulls) through Github
 - [JSON data](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/JSON) 存储于[https://github.com/machsix/Super-preloader/blob/master/dist/mydata.json](https://github.com/machsix/Super-preloader/blob/master/dist/mydata.json)的规则. 你可以自行添加到`设置`中的`自定义站点规则`
 
-我们更倾向于[JSON data](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/JSON)因为[JSON]()可以实现热更新. 🌰 在[文末](/siterule.md#例子).
+我们更倾向于[JSON data](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/JSON)因为[JSON]()可以实现热更新. 🌰 在[文末](#例子).
 
 ## 规则的基本构成
 
@@ -139,7 +139,7 @@ sidebarDepth: 3
 
 - **type**: `Boolean` <Jbadge/> <Badge text="Not Recommend" type="error" />
 - **default**: `false`
-- **description**: 如果实在难以找出[pageElement](/siterule.md#pageelement),开启该选项会使整个页面被拼接上去
+- **description**: 如果实在难以找出[pageElement](#pageelement),开启该选项会使整个页面被拼接上去
 
 ### headers
 
@@ -201,7 +201,7 @@ observer:
 ### sepdivDom
 
 - **type**: `JS function` <Jbadge :json="false"/>
-- **description**: 对于部分页面，脚本自动添加的导航栏可能造成页面格式错乱。`sepdivDom`定义了一个函数来生成合适的导航栏，该导航栏会被插入在最后一个[pageElement](/siterule.md#pageelement)之后。 一个例子是`小木虫-帖子`
+- **description**: 对于部分页面，脚本自动添加的导航栏可能造成页面格式错乱。`sepdivDom`定义了一个函数来生成合适的导航栏，该导航栏会被插入在最后一个[pageElement](#pageelement)之后。 一个例子是`小木虫-帖子`
 - **example**
 
 ```js
@@ -221,7 +221,7 @@ function(currentDocument, sepdiv) {
 ### startFilter
 
 - **type**: `JS function` <Jbadge :json="false"/>
-- **description**: 一个作用于首页(i.e. 当前页面)的 js 函数，用于修正页面。接收`currentDocument`, `currentWindow`两个参数。 详情请查看[documentFilter (1)](/siterule.md#documentfilter)
+- **description**: 一个作用于首页(i.e. 当前页面)的 js 函数，用于修正页面。接收`currentDocument`, `currentWindow`两个参数。 详情请查看[documentFilter (1)](#documentfilter)
 
 ### documentFilter
 
@@ -229,7 +229,7 @@ function(currentDocument, sepdiv) {
    - **description**: 一个作用于预读内容整体的 js 函数，执行于预读内容被插入到当前页面前。可以用来修正预读内容(比如 csdn)、去除广告(比如很多 nsfw)、根据 XHR 结果生成页面内容而避免使用 iframe(比如 bl-novel)甚至生成新的内容(比如 m-team)。 理论上你可以用 js 实现对 DOM 静态内容的修改
    - **content**: `function (currentDocument, nextPageLink) {return newDocument}`
 2. ["startFilter"]()
-   - **description**: 重复使用[startFilter](/siterule.md#startfilter)
+   - **description**: 重复使用[startFilter](#startfilter)
 
 ### scriptFilter
 
@@ -249,7 +249,7 @@ function(currentDocument, sepdiv) {
 
 ### replaceE
 
-- **description**: 类似[pageElement](/siterule.md#pageelement), 选择用于替换导航栏的`node`。
+- **description**: 类似[pageElement](#pageelement), 选择用于替换导航栏的`node`。
 
 ## 例子
 

@@ -1,10 +1,15 @@
+<script setup>
+import { withBase } from 'vitepress'
+</script>
+
 <p align="center" class="logo-img">
-    <img :src="$withBase('/logo.png')" alt="logo" width="100">
+    <img :src="withBase('/images/logo.png')" alt="logo" width="100">
 </p>
 <h1 align="center" class="logo-text">Super-preloader</h1>
 <br>
 <div class="center">Install from <a href="http://cdn.jsdelivr.net/gh/machsix/Super-preloader/dist/Super_preloaderPlus_one_New.user.js" target="_blank">JS Delivr</a>,
-<a href="https://github.com/machsix/Super-preloader/raw/master/dist/Super_preloaderPlus_one_New.user.js" target="_blank">Github DEV</a> or <a :href="$withBase('/Super_preloaderPlus_one_New.user.js')" target="_blank">here</a> </div>
+<a href="https://github.com/machsix/Super-preloader/raw/master/dist/Super_preloaderPlus_one_New.user.js" target="_blank">Github DEV</a> or <a :href="withBase('/Super_preloaderPlus_one_New.user.js')" target="_blank">here</a> </div>
+<br>
 
 # Introduction
 

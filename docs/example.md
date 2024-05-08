@@ -4,18 +4,18 @@
 
 ### Google:
 
-<img :src="$withBase('/image/example/google.png')" alt="Google">
+![Google](./images/google.png)
 
 ### Baidu
 
-<img :src="$withBase('/image/example/baidu.png')" alt="Baidu">
+![Baidu](./images/baidu.png)
 
 ## Manga
 
 ### XKCD:
 
-<img :src="$withBase('/image/example/xkcd.png')" alt="XKCD">
+![XKCD](./images/xkcd.png)
 
 ### hhmm:
 
-<img :src="$withBase('/image/example/hhmm.png')" alt="hhmm">
+![hhmm](./images/hhmm.png)

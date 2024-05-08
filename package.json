@@ -18,39 +18,39 @@
     "url": "git+https://github.com/machsix/Super-preloader.git"
   },
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "lint": "eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.mjs\"",
     "fix": "eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.mjs\" --fix",
-    "format": "prettier --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.mjs\" \"docs/**/*.{js,md}\"",
-    "format:check": "prettier --check \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.mjs\" \"docs/**/*.{js,md}\"",
+    "format": "prettier --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.mjs\" \"docs/**/*.{ts,js,md}\"",
+    "format:check": "prettier --check \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.mjs\" \"docs/**/*.{ts,js,md}\"",
     "format:staged": "lint-staged -v",
-    "check": "npm run lint && npm run typecheck",
+    "check": "pnpm run lint && pnpm run typecheck",
     "test": "cd test && node test.js",
     "dev": "rollup -c --dev -w",
     "build": "rollup -c",
-    "docs:dev": "cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress dev docs",
-    "docs:build": "cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress build docs",
-    "docs:publish": "npm run docs:build && bash ./ci/gen_ghpage.sh",
-    "preversion": "npm run check",
-    "version": "npm run build  && git add dist/*.js && git add dist/*.json",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:publish": "pnpm run docs:build && bash ./ci/gen_ghpage.sh",
+    "preversion": "pnpm run check",
+    "version": "pnpm run build  && git add dist/*.js && git add dist/*.json",
     "postversion": "git add package.json package-lock.json && npm run test",
-    "publish:patch": "npm --no-git-tag-version version patch",
-    "publish": "npm --no-git-tag-version version minor",
-    "typecheck": "tsc -p jsconfig.json --noEmit"
+    "publish:patch": "pnpm --no-git-tag-version version patch",
+    "publish": "pnpm --no-git-tag-version version minor",
+    "typecheck": "tsc -p jsconfig.json --noEmit",
+    "docs:preview": "vitepress preview docs"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run check"
+      "pre-commit": "pnpm run check"
     }
   },
   "keywords": [
     "userscript"
   ],
   "devDependencies": {
-    "@vuepress/plugin-back-to-top": "2.0.0-rc.0",
-    "@vuepress/plugin-google-analytics": "2.0.0-rc.0",
-    "@vuepress/plugin-register-components": "2.0.0-rc.0",
     "typescript": "5.4.5",
-    "vuepress": "2.0.0-rc.0"
+    "vitepress": "^1.1.4",
+    "vue": "^3.4.26"
   },
   "dependencies": {
     "@babel/core": "7.24.4",

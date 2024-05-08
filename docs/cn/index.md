@@ -1,10 +1,15 @@
+<script setup>
+import { withBase } from 'vitepress'
+</script>
+
 <p align="center" class="logo-img">
-    <img :src="$withBase('/logo.png')" alt="logo" width="100">
+    <img :src="withBase('/images/logo.png')" alt="logo" width="100">
 </p>
 <h1 align="center" class="logo-text">Super-preloader</h1>
 <br>
 <div class="center">从<a href="https://greasyfork.org/en/scripts/33522-super-preloaderplus-one-new" target="_blank">Greasy Fork</a>,
-<a href="https://github.com/machsix/Super-preloader/raw/master/dist/Super_preloaderPlus_one_New.user.js" target="_blank">Github</a> 或 <a :href="$withBase('/Super_preloaderPlus_one_New.user.js')" target="_blank">Dev version</a>安装</div>
+<a href="https://github.com/machsix/Super-preloader/raw/master/dist/Super_preloaderPlus_one_New.user.js" target="_blank">Github</a> 或 <a :href="withBase('/Super_preloaderPlus_one_New.user.js')" target="_blank">Dev version</a>安装</div>
+<br>
 
 # 简介
 

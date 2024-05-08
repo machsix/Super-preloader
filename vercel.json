@@ -1,0 +1,4 @@
+{
+  "buildCommand": "sed -i \"s|base: '.*'|base: '/'|\" docs/.vitepress/config.ts && pnpm run docs:build && cp dist/*.{json,js} docs/.vitepress/dist/",
+  "outputDirectory": "docs/.vitepress/dist"
+}

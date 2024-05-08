@@ -15,7 +15,7 @@ Site rules can be
 - [JavaScript object](https://en.wikipedia.org/wiki/JavaScript) stored in file [https://github.com/machsix/Super-preloader/blob/master/src/rules/jsSiteRule.js](https://github.com/machsix/Super-preloader/blob/master/src/rules/jsSiteRule.js). You need to submit [pull request](https://github.com/machsix/Super-preloader/pulls) through Github
 - [JSON data](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/JSON) stored in [https://github.com/machsix/Super-preloader/blob/master/dist/mydata.json](https://github.com/machsix/Super-preloader/blob/master/dist/mydata.json). You can add it into `Custom rules` textarea in the `Global Settings`
 
-We prefer [JSON data](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/JSON) because [JSON]() can implement hot update. An example is shown at the [end](/en/siterule.md#example).
+We prefer [JSON data](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/JSON) because [JSON]() can implement hot update. An example is shown at the [end](#example).
 
 ## The basic composition of the rules
 
@@ -157,7 +157,7 @@ In addition to the basic elements, the rule can also contain an `Object` with `k
 
 - **type**: `Boolean` <Jbadge/> <Badge text="Not Recommend" type="danger" />
 - **default**: `false`
-- **description**: If it is really difficult to find [pageElement](/en/siterule.md#pageelement), turning this option on will make the entire page spliced ​​up.
+- **description**: If it is really difficult to find [pageElement](#pageelement), turning this option on will make the entire page spliced ​​up.
 
 ### headers
 
@@ -192,7 +192,7 @@ In addition to the basic elements, the rule can also contain an `Object` with `k
 ### sepdivDom
 
 - **type**: `JS function` <Jbadge :json="false"/>
-- **description**: For some pages, the navigation bar automatically added by the script may cause the page format to be garbled. `sepdivDom` defines a function to generate the appropriate navigation bar that will be inserted after the last [pageElement](/en/siterule.md#pageelement). An example is `小木虫-posts`
+- **description**: For some pages, the navigation bar automatically added by the script may cause the page format to be garbled. `sepdivDom` defines a function to generate the appropriate navigation bar that will be inserted after the last [pageElement](#pageelement). An example is `小木虫-posts`
 - **example**
 
 ```js
@@ -212,7 +212,7 @@ Function(currentDocument, sepdiv) {
 ### startFilter
 
 - **type**: `JS function` <Jbadge :json="false"/>
-- **description**: A js function that acts on the home page (i.e. current page) to fix the page. Receive `currentDocument`, `currentWindow` two parameters. For details, please see [documentFilter (1)](/en/siterule.md#documentfilter)
+- **description**: A js function that acts on the home page (i.e. current page) to fix the page. Receive `currentDocument`, `currentWindow` two parameters. For details, please see [documentFilter (1)](#documentfilter)
 
 ### documentFilter
 
@@ -220,12 +220,12 @@ Function(currentDocument, sepdiv) {
    - **description**: A js function for prefetching content that can be used to correct prefetched content (such as csdn), remove ads (such as many nsfw), generate page content based on XHR results, and avoid using iframes (such as bl -novel) even generate new content (like m-team). In theory, you can use js to modify the static content of DOM.
    - **content**: `function (currentDocument, nextPageLink) {return newDocument}`
 2. ["startFilter"]()
-   - **description**: Reuse [startFilter](/en/siterule.md#startfilter)
+   - **description**: Reuse [startFilter](#startfilter)
 
 ### scriptFilter
 
 - **type**: String <Jbadge/>
-- **description**: The script will delete all `<script>` nodes before inserting the preloaded content into the page. You can set `scriptFilter` as a Regex string to match the `src` or inline content of the `<script>` node to keep some nodes. In this way, you can use these inline js scripts in the [filter](/en/siterule.md#filter). This only take effect in `iframe` mode
+- **description**: The script will delete all `<script>` nodes before inserting the preloaded content into the page. You can set `scriptFilter` as a Regex string to match the `src` or inline content of the `<script>` node to keep some nodes. In this way, you can use these inline js scripts in the [filter](#filter). This only take effect in `iframe` mode
 
 ### filter
 
@@ -240,7 +240,7 @@ Function(currentDocument, sepdiv) {
 
 ### replaceE
 
-- **description**: Similar to [pageElement](/en/siterule.md#pageelement), select the `node` to replace the navigation bar.
+- **description**: Similar to [pageElement](#pageelement), select the `node` to replace the navigation bar.
 
 ## example
 

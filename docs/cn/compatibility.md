@@ -1,6 +1,6 @@
-# Compatibility
+# 兼容性
 
-## Browser + Script Manager
+## 浏览器及脚本管理器
 
 | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="48px" height="48px" />](http://godban.github.io/browsers-support-badges/) + [<img src="https://github.com/violentmonkey.png" width="48px" alt="violentmonkey"/>](https://github.com/violentmonkey) <br>Firefox + Violentmonkey | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="48px" height="48px" />](http://godban.github.io/browsers-support-badges/) [<img src="https://github.com/Tampermonkey.png" width="48px" alt="violentmonkey"/>](https://github.com/Tampermonkey) <br>Chrome/Microsoft Edge Dev + Tampermonkey | [<img src="https://upload.wikimedia.org/wikipedia/commons/4/43/Waterfox_Logo_%28redesigned_2015%29.png" alt="Microsoft Edge Dev" width="48px" height="48px" />](http://godban.github.io/browsers-support-badges/)+ [<img src="https://github.com/greasemonkey.png" width="48px" alt="violentmonkey"/>](https://github.com/Tampermonkey) <br>Waterfox + Greasemonkey 4 |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -16,7 +16,7 @@
 - Known issue:
   - Firefox < 62 + Tampermonkey is incompatible with webpack or core-js. I don't really know where the :bug: is. I have submitted an issue to Tampermonkey [https://github.com/Tampermonkey/tampermonkey/issues/834](https://github.com/Tampermonkey/tampermonkey/issues/834). Unless he fixes it, I can do nothing.
 
-## Manga websites
+## 漫画网站
 
 | Website                | Chrome                      | Firefox                       |
 | ---------------------- | --------------------------- | ----------------------------- |
