@@ -1,5 +1,20 @@
 [
 {
+  "resource_url": "http://wedata.net/items/86223",
+  "data": {
+    "insertBefore": "//div[@class='width-container']/node()[last()]",
+    "pageElement": "//div[@class='book-product-wrapper']",
+    "nextLink": "//li[contains(concat(' ',@class,' '),' to-next ')]/a",
+    "url": "^https://comic-boost\\.com/content/",
+    "exampleUrl": "https://comic-boost.com/content/00050001"
+  },
+  "database_resource_url": "http://wedata.net/databases/AutoPagerize",
+  "created_by": "t_f_m'",
+  "name": "comic boost",
+  "created_at": "2024-04-23T03:06:24+09:00",
+  "updated_at": "2024-04-23T03:06:24+09:00"
+},
+{
   "resource_url": "http://wedata.net/items/86219",
   "data": {
     "insertBefore": "",
@@ -312,8 +327,7 @@
 {
   "resource_url": "http://wedata.net/items/86189",
   "data": {
-    "insertBefore": "",
-    "pageElement": "//div[contains(concat(' ',@class,' '),' itemcolmn ')]/div",
+    "pageElement": "//div[@class='searchinfo-mainwrap-center']/div[contains(concat(' ',@class,' '),' itemcolmn ')]/div",
     "nextLink": "//a[contains(concat(' ',@class,' '),' next ')]",
     "url": "^https://netmall\\.hardoff\\.co\\.jp/cate/",
     "exampleUrl": "https://netmall.hardoff.co.jp/cate/00010012/?q=%E3%83%9D%E3%82%B1%E3%83%A2%E3%83%B3"
@@ -322,7 +336,7 @@
   "created_by": "t_f_m'",
   "name": "HARD OFF 通販 netmall",
   "created_at": "2023-11-24T18:38:36+09:00",
-  "updated_at": "2023-11-24T18:38:36+09:00"
+  "updated_at": "2024-04-21T11:38:31+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/86188",
@@ -975,7 +989,7 @@
 {
   "resource_url": "http://wedata.net/items/86110",
   "data": {
-    "pageElement": "//section[@class='content']/*[not((.|preceding-sibling::div)[contains(@class, 'pagination')])]|id('wym_custom_archive')",
+    "pageElement": "(//section[@class='content']|//div[@class='fc content selector'])[last()]/*[not((.|preceding-sibling::div)[contains(@class, 'pagination')])]|id('wym_custom_archive')",
     "nextLink": "//li[contains(@class, 'current')][number()>0]/following-sibling::li[1]/a",
     "url": "^https://young-machine\\.com/",
     "exampleUrl": "https://young-machine.com/2022/08/06/354094/\r\nhttps://young-machine.com/latest-model/\r\nhttps://young-machine.com/2023/09/15/489213/"
@@ -984,7 +998,7 @@
   "created_by": "t_f_m'",
   "name": "WEBヤングマシン",
   "created_at": "2023-04-25T20:55:07+09:00",
-  "updated_at": "2023-09-28T18:34:32+09:00"
+  "updated_at": "2024-05-02T20:02:01+09:00"
 },
 {
   "data": {
@@ -5511,7 +5525,7 @@
 {
   "resource_url": "http://wedata.net/items/85630",
   "data": {
-    "pageElement": "//main//div[contains(@class, 'kanren')]/*\r\n|//div[@class='entry-content']/h2[1]/preceding-sibling::*[1]/following-sibling::*",
+    "pageElement": "//main//aside/div[contains(@class, 'kanren')]/*\r\n|//div[@class='entry-content']/h2[1]/preceding-sibling::*[1]/following-sibling::*",
     "nextLink": "//link[@rel=\"next\"]",
     "url": "^https?://bushoojapan\\.com/",
     "exampleUrl": "https://bushoojapan.com/\r\nhttps://bushoojapan.com/bushoo/others/2022/01/05/87277"
@@ -5520,7 +5534,7 @@
   "created_by": "kenzou_ogawa",
   "name": "BUSHOO!JAPAN（武将ジャパン）",
   "created_at": "2021-03-29T13:14:01+09:00",
-  "updated_at": "2022-01-10T08:48:36+09:00"
+  "updated_at": "2024-05-02T20:14:59+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/85627",
@@ -25598,19 +25612,19 @@
 },
 {
   "resource_url": "http://wedata.net/items/76290",
-  "name": "Variety",
   "data": {
-    "url": "^https://variety\\.com",
     "pageElement": "//ul[contains(@class,'o-tease-news-list')]/li[not(.//div[contains(@id,'sponsored')])]",
-    "Stylish": "@-moz-document url(\"https://variety.com/\") {\r\n img.lazy { display: inline-block !important; } \r\nli.l-list__item figure a{padding:0;}\r\nli.l-list__item:nth-of-type(-n+14) figure a{opacity:0;height:100%}\r\n}",
     "bookmarklet": "Array.prototype.forEach.call(document.querySelectorAll('img'), function(img) { var lazySrc = img.hasAttribute('data-src') ? img.getAttribute('data-src') : img.getAttribute('data-original'); if (lazySrc) { img.src = lazySrc;} });",
-    "exampleUrl": "https://variety.com https://variety.com/v/tv/",
-    "nextLink": "//div[@class='o-more-link // lrv-u-margin-l-auto']/a"
+    "Stylish": "@-moz-document url(\"https://variety.com/\") {\r\n img.lazy { display: inline-block !important; } \r\nli.l-list__item figure a{padding:0;}\r\nli.l-list__item:nth-of-type(-n+14) figure a{opacity:0;height:100%}\r\n}",
+    "nextLink": "//div[starts-with(normalize-space(@class),'o-more-link // lrv-u-text-align-right ')]/a",
+    "url": "^https://variety\\.com",
+    "exampleUrl": "https://variety.com https://variety.com/v/tv/"
   },
   "database_resource_url": "http://wedata.net/databases/AutoPagerize",
   "created_by": "Tanookirby",
+  "name": "Variety",
   "created_at": "2014-09-03T07:41:14+09:00",
-  "updated_at": "2020-04-03T06:27:04+09:00"
+  "updated_at": "2024-04-24T23:16:02+09:00"
 },
 {
   "resource_url": "http://wedata.net/items/76288",
