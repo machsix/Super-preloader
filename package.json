@@ -1,6 +1,6 @@
 {
   "name": "super-preloader",
-  "version": "7.0.13",
+  "version": "7.0.15",
   "description": "Super-preloader",
   "main": "dist/Super_preloaderPlus_one_New.user.js",
   "author": "Mach6",
@@ -31,13 +31,13 @@
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:publish": "pnpm run docs:build && bash ./ci/gen_ghpage.sh",
+    "docs:preview": "vitepress preview docs",
     "preversion": "pnpm run check",
     "version": "pnpm run build  && git add dist/*.js && git add dist/*.json",
-    "postversion": "git add package.json package-lock.json && npm run test",
-    "publish:patch": "pnpm --no-git-tag-version version patch",
-    "publish": "pnpm --no-git-tag-version version minor",
-    "typecheck": "tsc -p jsconfig.json --noEmit",
-    "docs:preview": "vitepress preview docs"
+    "postversion": "git add package.json package-lock.json && pnpm run test",
+    "publish:patch": "npm --no-git-tag-version version patch",
+    "publish": "npm --no-git-tag-version version minor",
+    "typecheck": "tsc -p jsconfig.json --noEmit"
   },
   "husky": {
     "hooks": {
@@ -57,6 +57,7 @@
     "@babel/plugin-syntax-import-attributes": "7.24.1",
     "@babel/plugin-transform-runtime": "7.24.3",
     "@babel/preset-env": "7.24.4",
+    "@babel/runtime-corejs3": "^7.24.5",
     "@rollup/plugin-babel": "6.0.4",
     "@rollup/plugin-commonjs": "25.0.7",
     "@rollup/plugin-json": "6.1.0",
@@ -88,5 +89,10 @@
     "rollup-plugin-re": "1.0.7",
     "rollup-plugin-scss-string": "github:machsix/rollup-plugin-scss-string",
     "yargs": "17.7.2"
+  },
+  "pnpm": {
+    "overrides": {
+      "babel-plugin-lodash>@babel/types": "~7.20.0"
+    }
   }
 }

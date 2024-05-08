@@ -40,7 +40,7 @@ jobs:
         env:
           CI: 'true'
         with:
-          args: pnpm test
+          args: npm test
   doc:
     runs-on: ubuntu-latest
     steps:

@@ -4,6 +4,9 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  babel-plugin-lodash>@babel/types: ~7.20.0
+
 importers:
 
   .:
@@ -20,6 +23,9 @@ importers:
       '@babel/preset-env':
         specifier: 7.24.4
         version: 7.24.4(@babel/core@7.24.4)
+      '@babel/runtime-corejs3':
+        specifier: ^7.24.5
+        version: 7.24.5
       '@rollup/plugin-babel':
         specifier: 6.0.4
         version: 6.0.4(@babel/core@7.24.4)(rollup@4.14.3)
@@ -761,6 +767,10 @@ packages:
   '@babel/regjsgen@0.8.0':
     resolution: {integrity: sha512-x/rqGMdzj+fWZvCOYForTghzbtqPDZ5gPwaoNGHdgDfF2QA/XZbCBp4Moo5scrkAMPhB7z26XM/AaHuIJdgauA==}
 
+  '@babel/runtime-corejs3@7.24.5':
+    resolution: {integrity: sha512-GWO0mgzNMLWaSYM4z4NVIuY0Cd1fl8cPnuetuddu5w/qGuvt5Y7oUi/kvvQGK9xgOkFJDQX2heIvTRn/OQ1XTg==}
+    engines: {node: '>=6.9.0'}
+
   '@babel/runtime@7.24.5':
     resolution: {integrity: sha512-Nms86NXrsaeU9vbBJKni6gXiEXZ4CVpYVzEjDH9Sb8vmZ3UljyA1GSOJl/6LGPO8EHLuSF9H+IxNXHPX8QHJ4g==}
     engines: {node: '>=6.9.0'}
@@ -771,6 +781,10 @@ packages:
 
   '@babel/traverse@7.24.5':
     resolution: {integrity: sha512-7aaBLeDQ4zYcUFDUD41lJc1fG8+5IU9DaNSJAgal866FGvmD5EbWQgnEC6kO1gGLsX0esNkfnJSndbTXA3r7UA==}
+    engines: {node: '>=6.9.0'}
+
+  '@babel/types@7.20.7':
+    resolution: {integrity: sha512-69OnhBxSSgK0OzTJai4kyPDiKTIe3j+ctaHdIGVbRahTLAT7L3R9oeXHC2aVSuGYt3cVnoAMDmOCgJ2yaiLMvg==}
     engines: {node: '>=6.9.0'}
 
   '@babel/types@7.24.5':
@@ -1679,6 +1693,9 @@ packages:
 
   core-js-compat@3.37.0:
     resolution: {integrity: sha512-vYq4L+T8aS5UuFg4UwDhc7YNRWVeVZwltad9C/jV3R2LgVOpS9BDr7l/WL6BN0dbV3k1XejPTHqqEzJgsa0frA==}
+
+  core-js-pure@3.37.0:
+    resolution: {integrity: sha512-d3BrpyFr5eD4KcbRvQ3FTUx/KWmaDesr7+a3+1+P46IUnNoEt+oiLijPINZMEon7w9oGkIINWxrBAU9DEciwFQ==}
 
   core-util-is@1.0.3:
     resolution: {integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==}
@@ -4588,6 +4605,11 @@ snapshots:
 
   '@babel/regjsgen@0.8.0': {}
 
+  '@babel/runtime-corejs3@7.24.5':
+    dependencies:
+      core-js-pure: 3.37.0
+      regenerator-runtime: 0.14.1
+
   '@babel/runtime@7.24.5':
     dependencies:
       regenerator-runtime: 0.14.1
@@ -4612,6 +4634,12 @@ snapshots:
       globals: 11.12.0
     transitivePeerDependencies:
       - supports-color
+
+  '@babel/types@7.20.7':
+    dependencies:
+      '@babel/helper-string-parser': 7.24.1
+      '@babel/helper-validator-identifier': 7.24.5
+      to-fast-properties: 2.0.0
 
   '@babel/types@7.24.5':
     dependencies:
@@ -5282,7 +5310,7 @@ snapshots:
   babel-plugin-lodash@3.3.4:
     dependencies:
       '@babel/helper-module-imports': 7.24.3
-      '@babel/types': 7.24.5
+      '@babel/types': 7.20.7
       glob: 7.2.3
       lodash: 4.17.21
       require-package-name: 2.0.1
@@ -5522,6 +5550,8 @@ snapshots:
   core-js-compat@3.37.0:
     dependencies:
       browserslist: 4.23.0
+
+  core-js-pure@3.37.0: {}
 
   core-util-is@1.0.3: {}
 

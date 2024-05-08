@@ -13,6 +13,7 @@ import scss from 'rollup-plugin-scss-string';
 // TODO commonjs bug https://github.com/rollup/plugins/issues/304
 
 const basicConfig = {
+  context: 'window',
   input: {
     [SCRIPT_INFO.name]: './src/index.js'
   },

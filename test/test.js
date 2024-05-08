@@ -97,7 +97,7 @@ async function main() {
   // open website
   pages = await browser.pages();
   targetPage = pages[0];
-  await targetPage.goto('https://www.google.com/search?q=apple');
+  await targetPage.goto('https://www.xkcd.com');
 
   // check floatWindow
   try {
