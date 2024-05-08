@@ -3,7 +3,7 @@ set -e
 
 # !Run from the root of the repository
 REPO_DIR=${1:-$(pwd)}
-DOCS_DIR=${REPO_DIR}/docs/.vuepress/dist
+DOCS_DIR=${REPO_DIR}/docs/.vitepress/dist
 UPDATE_FLAG=""
 if [ -z ${TRAVIS_COMMIT_MESSAGE+x} ]; then
   TRAVIS_COMMIT_MESSAGE=$(git log -1 --pretty=format:"%s")

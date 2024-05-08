@@ -6,7 +6,7 @@ import {cn} from './cn';
 export default defineConfig({
   title: 'Super-preloader',
   description: 'Super-preloader',
-  base: '/Super-preloader/',
+  // base: '/Super-preloader/',
   lastUpdated: true,
   locales: {
     root: {
