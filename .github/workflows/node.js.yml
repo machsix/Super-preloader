@@ -24,7 +24,10 @@ jobs:
           node-version: 20
           cache: 'pnpm'
       - name: Install npm packages
-        run: pnpm install
+        run: |
+          git config --global url."https://github.com/".insteadOf git@github.com:
+          git config --global url."https://".insteadOf git://
+          pnpm install
       - name: Build
         run: |
           pnpm run check
@@ -58,7 +61,10 @@ jobs:
           node-version: 20
           cache: 'pnpm'
       - name: Install npm packages
-        run: pnpm install
+        run: |
+          git config --global url."https://github.com/".insteadOf git@github.com:
+          git config --global url."https://".insteadOf git://
+          pnpm install
       - name: Build
         run: |
           pnpm run check
