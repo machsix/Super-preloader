@@ -9,9 +9,9 @@
 // @author       Mach6
 // @contributers alexolog, heroboy, suchunchen, YFdyh000
 // @thanksto     ywzhaiqi, NLF
-// @version      7.0.15
+// @version      7.0.16
 // @license      GPL-3.0
-// @update       2024/5/8
+// @update       2024/5/26
 // @homepageURL  https://github.com/machsix/Super-preloader
 // @downloadURL  https://machsix.github.io/Super-preloader/Super_preloaderPlus_one_New.user.js
 // @updateURL    https://machsix.github.io/Super-preloader/Super_preloaderPlus_one_New.user.js
@@ -9673,7 +9673,7 @@
 	  }
 	}
 
-	var name="super-preloader";var version="7.0.15";var description="Super-preloader";var main="dist/Super_preloaderPlus_one_New.user.js";var author="Mach6";var license="GPL-3.0";var type="module";var bugs={url:"https://github.com/machsix/Super-preloader/issues"};var homepage="https://github.com/machsix/Super-preloader";var directories={doc:"docs"};var repository={type:"git",url:"git+https://github.com/machsix/Super-preloader.git"};var scripts={preinstall:"npx only-allow pnpm",lint:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.mjs\"",fix:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.mjs\" --fix",format:"prettier --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.mjs\" \"docs/**/*.{ts,js,md}\"","format:check":"prettier --check \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.mjs\" \"docs/**/*.{ts,js,md}\"","format:staged":"lint-staged -v",check:"pnpm run lint && pnpm run typecheck",test:"cd test && node test.js",dev:"rollup -c --dev -w",build:"rollup -c","docs:dev":"vitepress dev docs","docs:build":"vitepress build docs","docs:publish":"pnpm run docs:build && bash ./ci/gen_ghpage.sh","docs:preview":"vitepress preview docs",preversion:"pnpm run check",version:"pnpm run build  && git add dist/*.js && git add dist/*.json",postversion:"git add package.json package-lock.json && pnpm run test","publish:patch":"npm --no-git-tag-version version patch",publish:"npm --no-git-tag-version version minor",typecheck:"tsc -p jsconfig.json --noEmit"};var husky={hooks:{"pre-commit":"pnpm run check"}};var keywords=["userscript"];var devDependencies={typescript:"5.4.5",vitepress:"^1.1.4",vue:"^3.4.26"};var dependencies={"@babel/core":"7.24.4","@babel/plugin-syntax-import-attributes":"7.24.1","@babel/plugin-transform-runtime":"7.24.3","@babel/preset-env":"7.24.4","@babel/runtime-corejs3":"^7.24.5","@rollup/plugin-babel":"6.0.4","@rollup/plugin-commonjs":"25.0.7","@rollup/plugin-json":"6.1.0","@rollup/plugin-node-resolve":"15.2.3","@types/greasemonkey":"4.0.7","@types/lodash":"4.17.0","babel-plugin-lodash":"3.3.4","babel-plugin-wildcard":"7.0.0","compare-versions":"6.1.0","cross-env":"7.0.3",displacejs:"https://github.com/machsix/displace.git#v1.4.0",eslint:"^8.0.0","eslint-config-prettier":"9.1.0","eslint-plugin-import":"2.29.1","eslint-plugin-json":"3.1.0","eslint-plugin-prettier":"5.1.3","extract-zip":"2.0.1",got:"14.2.1",husky:"9.0.11","lint-staged":"15.2.2",lodash:"4.17.21",loglevel:"1.9.1",prettier:"3.2.5",puppeteer:"2.1.0",rollup:"4.14.3","rollup-plugin-banner2":"1.2.3","rollup-plugin-dev":"2.0.4","rollup-plugin-ejs":"4.0.0","rollup-plugin-re":"1.0.7","rollup-plugin-scss-string":"github:machsix/rollup-plugin-scss-string",yargs:"17.7.2"};var pnpm={overrides:{"babel-plugin-lodash>@babel/types":"~7.20.0"}};var pkg = {name:name,version:version,description:description,main:main,author:author,license:license,type:type,bugs:bugs,homepage:homepage,directories:directories,repository:repository,scripts:scripts,husky:husky,keywords:keywords,devDependencies:devDependencies,dependencies:dependencies,pnpm:pnpm};
+	var name="super-preloader";var version="7.0.16";var description="Super-preloader";var main="dist/Super_preloaderPlus_one_New.user.js";var author="Mach6";var license="GPL-3.0";var type="module";var bugs={url:"https://github.com/machsix/Super-preloader/issues"};var homepage="https://github.com/machsix/Super-preloader";var directories={doc:"docs"};var repository={type:"git",url:"git+https://github.com/machsix/Super-preloader.git"};var scripts={preinstall:"npx only-allow pnpm",lint:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.mjs\"",fix:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.mjs\" --fix",format:"prettier --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.mjs\" \"docs/**/*.{ts,js,md}\"","format:check":"prettier --check \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.mjs\" \"docs/**/*.{ts,js,md}\"","format:staged":"lint-staged -v",check:"pnpm run lint && pnpm run typecheck",test:"cd test && node test.js",dev:"rollup -c --dev -w",build:"rollup -c","docs:dev":"vitepress dev docs","docs:build":"vitepress build docs","docs:publish":"pnpm run docs:build && bash ./ci/gen_ghpage.sh","docs:preview":"vitepress preview docs",preversion:"pnpm run check",version:"pnpm run build  && git add dist/*.js && git add dist/*.json",postversion:"git add package.json && pnpm run test","publish:patch":"npm --no-git-tag-version version patch",publish:"npm --no-git-tag-version version minor",typecheck:"tsc -p jsconfig.json --noEmit"};var husky={hooks:{"pre-commit":"pnpm run check"}};var keywords=["userscript"];var devDependencies={typescript:"5.4.5",vitepress:"^1.1.4",vue:"^3.4.26"};var dependencies={"@babel/core":"7.24.4","@babel/plugin-syntax-import-attributes":"7.24.1","@babel/plugin-transform-runtime":"7.24.3","@babel/preset-env":"7.24.4","@babel/runtime-corejs3":"^7.24.5","@rollup/plugin-babel":"6.0.4","@rollup/plugin-commonjs":"25.0.7","@rollup/plugin-json":"6.1.0","@rollup/plugin-node-resolve":"15.2.3","@types/greasemonkey":"4.0.7","@types/lodash":"4.17.0","babel-plugin-lodash":"3.3.4","babel-plugin-wildcard":"7.0.0","compare-versions":"6.1.0","cross-env":"7.0.3",displacejs:"github:machsix/displace#v1.4.0",eslint:"^8.0.0","eslint-config-prettier":"9.1.0","eslint-plugin-import":"2.29.1","eslint-plugin-json":"3.1.0","eslint-plugin-prettier":"5.1.3","extract-zip":"2.0.1",got:"14.2.1",husky:"9.0.11","lint-staged":"15.2.2",lodash:"4.17.21",loglevel:"1.9.1",prettier:"3.2.5",puppeteer:"2.1.0",rollup:"4.14.3","rollup-plugin-banner2":"1.2.3","rollup-plugin-dev":"2.0.4","rollup-plugin-ejs":"4.0.0","rollup-plugin-re":"1.0.7","rollup-plugin-scss-string":"github:machsix/rollup-plugin-scss-string",yargs:"17.7.2"};var pnpm={overrides:{"babel-plugin-lodash>@babel/types":"~7.20.0"}};var pkg = {name:name,version:version,description:description,main:main,author:author,license:license,type:type,bugs:bugs,homepage:homepage,directories:directories,repository:repository,scripts:scripts,husky:husky,keywords:keywords,devDependencies:devDependencies,dependencies:dependencies,pnpm:pnpm};
 
 	// Information of script
 	var now = new Date();
@@ -14167,12 +14167,11 @@
 	  }
 	}, {
 	  name: '性感尤物',
-	  url: '^https?://[^/]*/[^/]*/[^/]*\\.html',
+	  url: '^https?://(www\\.)?jpxgmn\\.com/[^/]*/[^/]*\\.html',
 	  pageElement: "//article[@class='article-content']/p",
 	  exampleUrl: 'http://www.xgyw.cc/Xgyw/Xgyw6874.html',
 	  nextLink: "//div[@class='pagination']/ul/a[text()='下一页']",
 	  autopager: {
-	    ip: ['198.54.115.248'],
 	    ipages: [true, 30],
 	    startFilter: function startFilter(doc, _win) {
 	      var p = [doc.querySelector('div.pagination > p'), doc.querySelector('header > a[href^="http"]'), doc.querySelector('ins')];
@@ -14189,12 +14188,11 @@
 	  }
 	}, {
 	  name: '性感尤物search',
-	  url: '^https?://[^/]*/plus/search.*',
+	  url: '^https?://(www\\.)?jpxgmn\\.com/plus/search.*',
 	  pageElement: "//div[@class='node']",
 	  exampleUrl: 'https://www.xgmn5.xyz/plus/search/index.asp?keyword=%E5%B0%A4%E5%A6%AE%E4%B8%9D',
 	  nextLink: "//div[@class='pagination']/ul/a[@class='current']/following-sibling::a",
 	  autopager: {
-	    ip: ['198.54.115.248'],
 	    ipages: [true, 5],
 	    startFilter: function () {
 	      var _startFilter = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee2(doc, _win) {
@@ -14259,12 +14257,11 @@
 	  }
 	}, {
 	  name: '性感尤物2',
-	  url: '^https?://[^/]+/new\\.html',
+	  url: '^https?://(www\\.)?jpxgmn\\.com/new\\.html',
 	  pageElement: "//li[@class='related_box']",
 	  exampleUrl: 'http://www.xgyw.cc/Xgyw',
 	  nextLink: 'null;',
 	  autopager: {
-	    ip: ['198.54.115.248'],
 	    ipages: [true, 10],
 	    startFilter: function startFilter(doc, _win) {
 	      var a = doc.querySelectorAll('li > a[href^="/html"]');

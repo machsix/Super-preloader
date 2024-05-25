@@ -191,12 +191,11 @@ export const jsSiteRule = [
   },
   {
     name: '性感尤物',
-    url: '^https?://[^/]*/[^/]*/[^/]*\\.html',
+    url: '^https?://(www\\.)?jpxgmn\\.com/[^/]*/[^/]*\\.html',
     pageElement: "//article[@class='article-content']/p",
     exampleUrl: 'http://www.xgyw.cc/Xgyw/Xgyw6874.html',
     nextLink: "//div[@class='pagination']/ul/a[text()='下一页']",
     autopager: {
-      ip: ['198.54.115.248'],
       ipages: [true, 30],
       startFilter: function (doc, _win) {
         const p = [doc.querySelector('div.pagination > p'), doc.querySelector('header > a[href^="http"]'), doc.querySelector('ins')];
@@ -214,12 +213,11 @@ export const jsSiteRule = [
   },
   {
     name: '性感尤物search',
-    url: '^https?://[^/]*/plus/search.*',
+    url: '^https?://(www\\.)?jpxgmn\\.com/plus/search.*',
     pageElement: "//div[@class='node']",
     exampleUrl: 'https://www.xgmn5.xyz/plus/search/index.asp?keyword=%E5%B0%A4%E5%A6%AE%E4%B8%9D',
     nextLink: "//div[@class='pagination']/ul/a[@class='current']/following-sibling::a",
     autopager: {
-      ip: ['198.54.115.248'],
       ipages: [true, 5],
       startFilter: async function (doc, _win) {
         if (!doc.getElementById('thumbCss')) {
@@ -252,12 +250,11 @@ export const jsSiteRule = [
   },
   {
     name: '性感尤物2',
-    url: '^https?://[^/]+/new\\.html',
+    url: '^https?://(www\\.)?jpxgmn\\.com/new\\.html',
     pageElement: "//li[@class='related_box']",
     exampleUrl: 'http://www.xgyw.cc/Xgyw',
     nextLink: 'null;',
     autopager: {
-      ip: ['198.54.115.248'],
       ipages: [true, 10],
       startFilter: function (doc, _win) {
         const a = doc.querySelectorAll('li > a[href^="/html"]');

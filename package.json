@@ -1,6 +1,6 @@
 {
   "name": "super-preloader",
-  "version": "7.0.15",
+  "version": "7.0.16",
   "description": "Super-preloader",
   "main": "dist/Super_preloaderPlus_one_New.user.js",
   "author": "Mach6",
@@ -34,7 +34,7 @@
     "docs:preview": "vitepress preview docs",
     "preversion": "pnpm run check",
     "version": "pnpm run build  && git add dist/*.js && git add dist/*.json",
-    "postversion": "git add package.json package-lock.json && pnpm run test",
+    "postversion": "git add package.json && pnpm run test",
     "publish:patch": "npm --no-git-tag-version version patch",
     "publish": "npm --no-git-tag-version version minor",
     "typecheck": "tsc -p jsconfig.json --noEmit"
