@@ -50,7 +50,7 @@
   "devDependencies": {
     "typescript": "5.4.5",
     "vitepress": "^1.1.4",
-    "vue": "^3.4.26"
+    "vue": "^3.4.27"
   },
   "dependencies": {
     "@babel/core": "7.24.4",
