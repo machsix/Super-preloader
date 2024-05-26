@@ -11,7 +11,7 @@
 // @thanksto     ywzhaiqi, NLF
 // @version      7.0.15
 // @license      GPL-3.0
-// @update       2024/5/22
+// @update       2024/5/26
 // @homepageURL  https://github.com/machsix/Super-preloader
 // @downloadURL  https://machsix.github.io/Super-preloader/Super_preloaderPlus_one_New.user.js
 // @updateURL    https://machsix.github.io/Super-preloader/Super_preloaderPlus_one_New.user.js
@@ -14172,7 +14172,7 @@
 	  exampleUrl: 'http://www.xgyw.cc/Xgyw/Xgyw6874.html',
 	  nextLink: "//div[@class='pagination']/ul/a[text()='下一页']",
 	  autopager: {
-	    ip: ['198.54.115.248'],
+	    ip: ['198.54.115.248', '206.237.29.173'],
 	    ipages: [true, 30],
 	    startFilter: function startFilter(doc, _win) {
 	      var p = [doc.querySelector('div.pagination > p'), doc.querySelector('header > a[href^="http"]'), doc.querySelector('ins')];
@@ -14194,7 +14194,7 @@
 	  exampleUrl: 'https://www.xgmn5.xyz/plus/search/index.asp?keyword=%E5%B0%A4%E5%A6%AE%E4%B8%9D',
 	  nextLink: "//div[@class='pagination']/ul/a[@class='current']/following-sibling::a",
 	  autopager: {
-	    ip: ['198.54.115.248'],
+	    ip: ['198.54.115.248', '206.237.29.173'],
 	    ipages: [true, 5],
 	    startFilter: function () {
 	      var _startFilter = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime.mark(function _callee2(doc, _win) {
@@ -14264,7 +14264,7 @@
 	  exampleUrl: 'http://www.xgyw.cc/Xgyw',
 	  nextLink: 'null;',
 	  autopager: {
-	    ip: ['198.54.115.248'],
+	    ip: ['198.54.115.248', '206.237.29.173'],
 	    ipages: [true, 10],
 	    startFilter: function startFilter(doc, _win) {
 	      var a = doc.querySelectorAll('li > a[href^="/html"]');
