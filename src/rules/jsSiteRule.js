@@ -158,7 +158,7 @@ export const jsSiteRule = [
   },
   {
     name: '4khd',
-    url: '^https?://www\\.4khd\\.com(/(pages|search|\\?query).*)?',
+    url: '^https?://(www\\.)?4khd\\.(com|[^/]*workers\\.dev)(/(pages|search|\\?query).*)?',
     pageElement: "//li[contains(@class,'post')]",
     exampleUrl: 'https://www.4khd.com/search/forger',
     nextLink: "//span[contains(@class, 'current')]/following-sibling::a",
@@ -180,7 +180,7 @@ export const jsSiteRule = [
   },
   {
     name: '4khd_post',
-    url: '^https?://www\\.4khd\\.com/.*\\.html$',
+    url: '^https?://(www\\.)?4khd\\.(com|[^/]*workers\\.dev)/.*\\.html$',
     pageElement: "//div[contains(@class,'entry-content')]",
     nextLink: "//li[@class='numpages current']/following-sibling::li/a",
     useiframe: true,
@@ -191,7 +191,7 @@ export const jsSiteRule = [
   },
   {
     name: '性感尤物',
-    url: '^https?://(www\\.)?jpxgmn\\.com/[^/]*/[^/]*\\.html',
+    url: '^https?://(www\\.)?jpxgmn\\.(com|[^/]*workers\\.dev)/[^/]*/[^/]*\\.html',
     pageElement: "//article[@class='article-content']/p",
     exampleUrl: 'http://www.xgyw.cc/Xgyw/Xgyw6874.html',
     nextLink: "//div[@class='pagination']/ul/a[text()='下一页']",
@@ -213,7 +213,7 @@ export const jsSiteRule = [
   },
   {
     name: '性感尤物search',
-    url: '^https?://(www\\.)?jpxgmn\\.com/plus/search.*',
+    url: '^https?://(www\\.)?jpxgmn\\.(com|[^/]*workers\\.dev)/plus/search.*',
     pageElement: "//div[@class='node']",
     exampleUrl: 'https://www.xgmn5.xyz/plus/search/index.asp?keyword=%E5%B0%A4%E5%A6%AE%E4%B8%9D',
     nextLink: "//div[@class='pagination']/ul/a[@class='current']/following-sibling::a",

@@ -9,7 +9,7 @@
 // @author       Mach6
 // @contributers alexolog, heroboy, suchunchen, YFdyh000
 // @thanksto     ywzhaiqi, NLF
-// @version      7.0.16
+// @version      7.0.17
 // @license      GPL-3.0
 // @update       2024/5/26
 // @homepageURL  https://github.com/machsix/Super-preloader
@@ -3034,33 +3034,28 @@
 
 	var _Promise$2 = /*@__PURE__*/getDefaultExportFromCjs(promise$1);
 
-	function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
+	function asyncGeneratorStep(n, t, e, r, o, a, c) {
 	  try {
-	    var info = gen[key](arg);
-	    var value = info.value;
-	  } catch (error) {
-	    reject(error);
-	    return;
+	    var i = n[a](c),
+	      u = i.value;
+	  } catch (n) {
+	    return void e(n);
 	  }
-	  if (info.done) {
-	    resolve(value);
-	  } else {
-	    _Promise$2.resolve(value).then(_next, _throw);
-	  }
+	  i.done ? t(u) : _Promise$2.resolve(u).then(r, o);
 	}
-	function _asyncToGenerator(fn) {
+	function _asyncToGenerator(n) {
 	  return function () {
-	    var self = this,
-	      args = arguments;
-	    return new _Promise$2(function (resolve, reject) {
-	      var gen = fn.apply(self, args);
-	      function _next(value) {
-	        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
+	    var t = this,
+	      e = arguments;
+	    return new _Promise$2(function (r, o) {
+	      var a = n.apply(t, e);
+	      function _next(n) {
+	        asyncGeneratorStep(a, r, o, _next, _throw, "next", n);
 	      }
-	      function _throw(err) {
-	        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
+	      function _throw(n) {
+	        asyncGeneratorStep(a, r, o, _next, _throw, "throw", n);
 	      }
-	      _next(undefined);
+	      _next(void 0);
 	    });
 	  };
 	}
@@ -3103,8 +3098,8 @@
 
 	var _Array$isArray = /*@__PURE__*/getDefaultExportFromCjs(isArray$i);
 
-	function _arrayWithHoles(arr) {
-	  if (_Array$isArray(arr)) return arr;
+	function _arrayWithHoles(r) {
+	  if (_Array$isArray(r)) return r;
 	}
 
 	var $TypeError$3 = TypeError;
@@ -4423,28 +4418,27 @@
 
 	var _Array$from$1 = /*@__PURE__*/getDefaultExportFromCjs(from$1);
 
-	function _arrayLikeToArray$3(arr, len) {
-	  if (len == null || len > arr.length) len = arr.length;
-	  for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
-	  return arr2;
+	function _arrayLikeToArray$3(r, a) {
+	  (null == a || a > r.length) && (a = r.length);
+	  for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e];
+	  return n;
 	}
 
-	function _unsupportedIterableToArray$3(o, minLen) {
-	  var _context;
-	  if (!o) return;
-	  if (typeof o === "string") return _arrayLikeToArray$3(o, minLen);
-	  var n = _sliceInstanceProperty$1(_context = Object.prototype.toString.call(o)).call(_context, 8, -1);
-	  if (n === "Object" && o.constructor) n = o.constructor.name;
-	  if (n === "Map" || n === "Set") return _Array$from$1(o);
-	  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray$3(o, minLen);
+	function _unsupportedIterableToArray$3(r, a) {
+	  if (r) {
+	    var _context;
+	    if ("string" == typeof r) return _arrayLikeToArray$3(r, a);
+	    var t = _sliceInstanceProperty$1(_context = {}.toString.call(r)).call(_context, 8, -1);
+	    return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? _Array$from$1(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray$3(r, a) : void 0;
+	  }
 	}
 
 	function _nonIterableRest() {
 	  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 	}
 
-	function _slicedToArray(arr, i) {
-	  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray$3(arr, i) || _nonIterableRest();
+	function _slicedToArray(r, e) {
+	  return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray$3(r, e) || _nonIterableRest();
 	}
 
 	/**
@@ -9673,7 +9667,7 @@
 	  }
 	}
 
-	var name="super-preloader";var version="7.0.16";var description="Super-preloader";var main="dist/Super_preloaderPlus_one_New.user.js";var author="Mach6";var license="GPL-3.0";var type="module";var bugs={url:"https://github.com/machsix/Super-preloader/issues"};var homepage="https://github.com/machsix/Super-preloader";var directories={doc:"docs"};var repository={type:"git",url:"git+https://github.com/machsix/Super-preloader.git"};var scripts={preinstall:"npx only-allow pnpm",lint:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.mjs\"",fix:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.mjs\" --fix",format:"prettier --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.mjs\" \"docs/**/*.{ts,js,md}\"","format:check":"prettier --check \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.mjs\" \"docs/**/*.{ts,js,md}\"","format:staged":"lint-staged -v",check:"pnpm run lint && pnpm run typecheck",test:"cd test && node test.js",dev:"rollup -c --dev -w",build:"rollup -c","docs:dev":"vitepress dev docs","docs:build":"vitepress build docs","docs:publish":"pnpm run docs:build && bash ./ci/gen_ghpage.sh","docs:preview":"vitepress preview docs",preversion:"pnpm run check",version:"pnpm run build  && git add dist/*.js && git add dist/*.json",postversion:"git add package.json && pnpm run test","publish:patch":"npm --no-git-tag-version version patch",publish:"npm --no-git-tag-version version minor",typecheck:"tsc -p jsconfig.json --noEmit"};var husky={hooks:{"pre-commit":"pnpm run check"}};var keywords=["userscript"];var devDependencies={typescript:"5.4.5",vitepress:"^1.1.4",vue:"^3.4.26"};var dependencies={"@babel/core":"7.24.4","@babel/plugin-syntax-import-attributes":"7.24.1","@babel/plugin-transform-runtime":"7.24.3","@babel/preset-env":"7.24.4","@babel/runtime-corejs3":"^7.24.5","@rollup/plugin-babel":"6.0.4","@rollup/plugin-commonjs":"25.0.7","@rollup/plugin-json":"6.1.0","@rollup/plugin-node-resolve":"15.2.3","@types/greasemonkey":"4.0.7","@types/lodash":"4.17.0","babel-plugin-lodash":"3.3.4","babel-plugin-wildcard":"7.0.0","compare-versions":"6.1.0","cross-env":"7.0.3",displacejs:"github:machsix/displace#v1.4.0",eslint:"^8.0.0","eslint-config-prettier":"9.1.0","eslint-plugin-import":"2.29.1","eslint-plugin-json":"3.1.0","eslint-plugin-prettier":"5.1.3","extract-zip":"2.0.1",got:"14.2.1",husky:"9.0.11","lint-staged":"15.2.2",lodash:"4.17.21",loglevel:"1.9.1",prettier:"3.2.5",puppeteer:"2.1.0",rollup:"4.14.3","rollup-plugin-banner2":"1.2.3","rollup-plugin-dev":"2.0.4","rollup-plugin-ejs":"4.0.0","rollup-plugin-re":"1.0.7","rollup-plugin-scss-string":"github:machsix/rollup-plugin-scss-string",yargs:"17.7.2"};var pnpm={overrides:{"babel-plugin-lodash>@babel/types":"~7.20.0"}};var pkg = {name:name,version:version,description:description,main:main,author:author,license:license,type:type,bugs:bugs,homepage:homepage,directories:directories,repository:repository,scripts:scripts,husky:husky,keywords:keywords,devDependencies:devDependencies,dependencies:dependencies,pnpm:pnpm};
+	var name="super-preloader";var version="7.0.17";var description="Super-preloader";var main="dist/Super_preloaderPlus_one_New.user.js";var author="Mach6";var license="GPL-3.0";var type="module";var bugs={url:"https://github.com/machsix/Super-preloader/issues"};var homepage="https://github.com/machsix/Super-preloader";var directories={doc:"docs"};var repository={type:"git",url:"git+https://github.com/machsix/Super-preloader.git"};var scripts={preinstall:"npx only-allow pnpm",lint:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.mjs\"",fix:"eslint \"dist/*.json\" \"src/**/*.js\" \"ci/*.js\" \"rollup.config.mjs\" --fix",format:"prettier --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.mjs\" \"docs/**/*.{ts,js,md}\"","format:check":"prettier --check \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.mjs\" \"docs/**/*.{ts,js,md}\"","format:staged":"lint-staged -v",check:"pnpm run lint && pnpm run typecheck",test:"cd test && node test.js",dev:"rollup -c --dev -w",build:"rollup -c","docs:dev":"vitepress dev docs","docs:build":"vitepress build docs","docs:publish":"pnpm run docs:build && bash ./ci/gen_ghpage.sh","docs:preview":"vitepress preview docs",preversion:"pnpm run check",version:"pnpm run build  && git add dist/*.js && git add dist/*.json",postversion:"git add package.json && pnpm run test","publish:patch":"npm --no-git-tag-version version patch",publish:"npm --no-git-tag-version version minor",typecheck:"tsc -p jsconfig.json --noEmit"};var husky={hooks:{"pre-commit":"pnpm run check"}};var keywords=["userscript"];var devDependencies={typescript:"5.4.5",vitepress:"^1.2.2",vue:"^3.4.27"};var dependencies={"@babel/core":"7.24.6","@babel/plugin-syntax-import-attributes":"7.24.6","@babel/plugin-transform-runtime":"7.24.6","@babel/preset-env":"7.24.6","@babel/runtime-corejs3":"^7.24.6","@rollup/plugin-babel":"6.0.4","@rollup/plugin-commonjs":"25.0.8","@rollup/plugin-json":"6.1.0","@rollup/plugin-node-resolve":"15.2.3","@types/greasemonkey":"4.0.7","@types/lodash":"4.17.4","babel-plugin-lodash":"3.3.4","babel-plugin-wildcard":"7.0.0","compare-versions":"6.1.0","cross-env":"7.0.3",displacejs:"github:machsix/displace#v1.4.0",eslint:"^8.0.0","eslint-config-prettier":"9.1.0","eslint-plugin-import":"2.29.1","eslint-plugin-json":"3.1.0","eslint-plugin-prettier":"5.1.3","extract-zip":"2.0.1",got:"14.3.0",husky:"9.0.11","lint-staged":"15.2.5",lodash:"4.17.21",loglevel:"1.9.1",prettier:"3.2.5",puppeteer:"2.1.0",rollup:"4.18.0","rollup-plugin-banner2":"1.3.0","rollup-plugin-dev":"2.0.4","rollup-plugin-ejs":"4.0.0","rollup-plugin-re":"1.0.7","rollup-plugin-scss-string":"github:machsix/rollup-plugin-scss-string",yargs:"17.7.2"};var pnpm={overrides:{"babel-plugin-lodash>@babel/types":"~7.20.0"}};var pkg = {name:name,version:version,description:description,main:main,author:author,license:license,type:type,bugs:bugs,homepage:homepage,directories:directories,repository:repository,scripts:scripts,husky:husky,keywords:keywords,devDependencies:devDependencies,dependencies:dependencies,pnpm:pnpm};
 
 	// Information of script
 	var now = new Date();
@@ -10264,19 +10258,13 @@
 	  return "symbol" == _typeof(i) ? i : i + "";
 	}
 
-	function _defineProperty$1(obj, key, value) {
-	  key = toPropertyKey(key);
-	  if (key in obj) {
-	    _Object$defineProperty(obj, key, {
-	      value: value,
-	      enumerable: true,
-	      configurable: true,
-	      writable: true
-	    });
-	  } else {
-	    obj[key] = value;
-	  }
-	  return obj;
+	function _defineProperty$1(e, r, t) {
+	  return (r = toPropertyKey(r)) in e ? _Object$defineProperty(e, r, {
+	    value: t,
+	    enumerable: !0,
+	    configurable: !0,
+	    writable: !0
+	  }) : e[r] = t, e;
 	}
 
 	var baseGetTag$1 = _baseGetTag,
@@ -12077,9 +12065,9 @@
 
 	function ownKeys$1(e, r) { var t = Object.keys(e); if (_Object$getOwnPropertySymbols) { var o = _Object$getOwnPropertySymbols(e); r && (o = _filterInstanceProperty(o).call(o, function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
 	function _objectSpread$1(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$1(Object(t), !0).forEach(function (r) { _defineProperty$1(e, r, t[r]); }) : _Object$getOwnPropertyDescriptors ? Object.defineProperties(e, _Object$getOwnPropertyDescriptors(t)) : ownKeys$1(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
-	function _createForOfIteratorHelper$2(o, allowArrayLike) { var it = typeof _Symbol !== "undefined" && o[_Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray$2(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
-	function _unsupportedIterableToArray$2(o, minLen) { var _context10; if (!o) return; if (typeof o === "string") return _arrayLikeToArray$2(o, minLen); var n = _sliceInstanceProperty(_context10 = Object.prototype.toString.call(o)).call(_context10, 8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return _Array$from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray$2(o, minLen); }
-	function _arrayLikeToArray$2(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+	function _createForOfIteratorHelper$2(r, e) { var t = "undefined" != typeof _Symbol && r[_Symbol.iterator] || r["@@iterator"]; if (!t) { if (Array.isArray(r) || (t = _unsupportedIterableToArray$2(r)) || e  ) { t && (r = t); var _n = 0, F = function F() {}; return { s: F, n: function n() { return _n >= r.length ? { done: !0 } : { done: !1, value: r[_n++] }; }, e: function e(r) { throw r; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var o, a = !0, u = !1; return { s: function s() { t = t.call(r); }, n: function n() { var r = t.next(); return a = r.done, r; }, e: function e(r) { u = !0, o = r; }, f: function f() { try { a || null == t.return || t.return(); } finally { if (u) throw o; } } }; }
+	function _unsupportedIterableToArray$2(r, a) { if (r) { var _context10; if ("string" == typeof r) return _arrayLikeToArray$2(r, a); var t = _sliceInstanceProperty(_context10 = {}.toString.call(r)).call(_context10, 8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? _Array$from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray$2(r, a) : void 0; } }
+	function _arrayLikeToArray$2(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 	var got = got$1.create({
 	  cache: false
 	});
@@ -12411,9 +12399,9 @@
 
 	function ownKeys(e, r) { var t = Object.keys(e); if (_Object$getOwnPropertySymbols) { var o = _Object$getOwnPropertySymbols(e); r && (o = _filterInstanceProperty(o).call(o, function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
 	function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty$1(e, r, t[r]); }) : _Object$getOwnPropertyDescriptors ? Object.defineProperties(e, _Object$getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
-	function _createForOfIteratorHelper$1(o, allowArrayLike) { var it = typeof _Symbol !== "undefined" && o[_Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray$1(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
-	function _unsupportedIterableToArray$1(o, minLen) { var _context11; if (!o) return; if (typeof o === "string") return _arrayLikeToArray$1(o, minLen); var n = _sliceInstanceProperty(_context11 = Object.prototype.toString.call(o)).call(_context11, 8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return _Array$from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray$1(o, minLen); }
-	function _arrayLikeToArray$1(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+	function _createForOfIteratorHelper$1(r, e) { var t = "undefined" != typeof _Symbol && r[_Symbol.iterator] || r["@@iterator"]; if (!t) { if (Array.isArray(r) || (t = _unsupportedIterableToArray$1(r)) || e  ) { t && (r = t); var _n = 0, F = function F() {}; return { s: F, n: function n() { return _n >= r.length ? { done: !0 } : { done: !1, value: r[_n++] }; }, e: function e(r) { throw r; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var o, a = !0, u = !1; return { s: function s() { t = t.call(r); }, n: function n() { var r = t.next(); return a = r.done, r; }, e: function e(r) { u = !0, o = r; }, f: function f() { try { a || null == t.return || t.return(); } finally { if (u) throw o; } } }; }
+	function _unsupportedIterableToArray$1(r, a) { if (r) { var _context11; if ("string" == typeof r) return _arrayLikeToArray$1(r, a); var t = _sliceInstanceProperty(_context11 = {}.toString.call(r)).call(_context11, 8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? _Array$from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray$1(r, a) : void 0; } }
+	function _arrayLikeToArray$1(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 	// ---------------------- Settings stored in GM storaged, changed by control pannel ---------------
 	/**@type {ISettings} */
 	var factorySettings = {
@@ -13951,9 +13939,9 @@
 
 	var _lastIndexOfInstanceProperty = /*@__PURE__*/getDefaultExportFromCjs(lastIndexOf);
 
-	function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof _Symbol !== "undefined" && o[_Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
-	function _unsupportedIterableToArray(o, minLen) { var _context5; if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = _sliceInstanceProperty(_context5 = Object.prototype.toString.call(o)).call(_context5, 8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return _Array$from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-	function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+	function _createForOfIteratorHelper(r, e) { var t = "undefined" != typeof _Symbol && r[_Symbol.iterator] || r["@@iterator"]; if (!t) { if (Array.isArray(r) || (t = _unsupportedIterableToArray(r)) || e  ) { t && (r = t); var _n = 0, F = function F() {}; return { s: F, n: function n() { return _n >= r.length ? { done: !0 } : { done: !1, value: r[_n++] }; }, e: function e(r) { throw r; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var o, a = !0, u = !1; return { s: function s() { t = t.call(r); }, n: function n() { var r = t.next(); return a = r.done, r; }, e: function e(r) { u = !0, o = r; }, f: function f() { try { a || null == t.return || t.return(); } finally { if (u) throw o; } } }; }
+	function _unsupportedIterableToArray(r, a) { if (r) { var _context5; if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = _sliceInstanceProperty(_context5 = {}.toString.call(r)).call(_context5, 8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? _Array$from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+	function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 
 	/**@type {Array<IRule>} */
 	var jsSiteRule = [{
@@ -14136,7 +14124,7 @@
 	  }
 	}, {
 	  name: '4khd',
-	  url: '^https?://www\\.4khd\\.com(/(pages|search|\\?query).*)?',
+	  url: '^https?://(www\\.)?4khd\\.(com|[^/]*workers\\.dev)(/(pages|search|\\?query).*)?',
 	  pageElement: "//li[contains(@class,'post')]",
 	  exampleUrl: 'https://www.4khd.com/search/forger',
 	  nextLink: "//span[contains(@class, 'current')]/following-sibling::a",
@@ -14157,7 +14145,7 @@
 	  }
 	}, {
 	  name: '4khd_post',
-	  url: '^https?://www\\.4khd\\.com/.*\\.html$',
+	  url: '^https?://(www\\.)?4khd\\.(com|[^/]*workers\\.dev)/.*\\.html$',
 	  pageElement: "//div[contains(@class,'entry-content')]",
 	  nextLink: "//li[@class='numpages current']/following-sibling::li/a",
 	  useiframe: true,
@@ -14167,7 +14155,7 @@
 	  }
 	}, {
 	  name: '性感尤物',
-	  url: '^https?://(www\\.)?jpxgmn\\.com/[^/]*/[^/]*\\.html',
+	  url: '^https?://(www\\.)?jpxgmn\\.(com|[^/]*workers\\.dev)/[^/]*/[^/]*\\.html',
 	  pageElement: "//article[@class='article-content']/p",
 	  exampleUrl: 'http://www.xgyw.cc/Xgyw/Xgyw6874.html',
 	  nextLink: "//div[@class='pagination']/ul/a[text()='下一页']",
@@ -14188,7 +14176,7 @@
 	  }
 	}, {
 	  name: '性感尤物search',
-	  url: '^https?://(www\\.)?jpxgmn\\.com/plus/search.*',
+	  url: '^https?://(www\\.)?jpxgmn\\.(com|[^/]*workers\\.dev)/plus/search.*',
 	  pageElement: "//div[@class='node']",
 	  exampleUrl: 'https://www.xgmn5.xyz/plus/search/index.asp?keyword=%E5%B0%A4%E5%A6%AE%E4%B8%9D',
 	  nextLink: "//div[@class='pagination']/ul/a[@class='current']/following-sibling::a",
@@ -15842,7 +15830,6 @@
 	            prefs.mouseA = false;
 	            prefs.Pbutton = [0, 0, 0];
 	          }
-	          if (reload) location.reload();
 	        };
 	        var loadCustomSiteInfo = function loadCustomSiteInfo() {
 	          var userRules;
@@ -15874,7 +15861,6 @@
 	      var nullFn = function nullFn() {}; // 空函数.
 	      var url = document.location.href.replace(/#.*$/, ''); // url 去掉hash
 	      var cplink = url; // 翻上来的最近的页面的url;
-	      document.domain; // 取得域名.
 	      var domain_port = url.match(/https?:\/\/([^\/]+)/)[1]; // 端口和域名,用来验证是否跨域.
 
 	      // 新加的，以示区别
