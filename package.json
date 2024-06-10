@@ -57,7 +57,7 @@
     "@babel/plugin-syntax-import-attributes": "7.24.6",
     "@babel/plugin-transform-runtime": "7.24.6",
     "@babel/preset-env": "7.24.6",
-    "@babel/runtime-corejs3": "^7.24.6",
+    "@babel/runtime-corejs3": "^7.24.7",
     "@rollup/plugin-babel": "6.0.4",
     "@rollup/plugin-commonjs": "25.0.8",
     "@rollup/plugin-json": "6.1.0",
