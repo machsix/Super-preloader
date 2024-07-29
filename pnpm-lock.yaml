@@ -58,7 +58,7 @@ importers:
         version: 7.0.3
       displacejs:
         specifier: github:machsix/displace#v1.4.0
-        version: https://codeload.github.com/machsix/displace/tar.gz/6a4318ce3ec6ca80ded44581248528f7ee68d9f4
+        version: git+https://git@github.com:machsix/displace.git#6a4318ce3ec6ca80ded44581248528f7ee68d9f4
       eslint:
         specifier: ^8.0.0
         version: 8.57.0
@@ -78,8 +78,8 @@ importers:
         specifier: 2.0.1
         version: 2.0.1
       got:
-        specifier: 14.3.0
-        version: 14.3.0
+        specifier: 14.4.2
+        version: 14.4.2
       husky:
         specifier: 9.0.11
         version: 9.0.11
@@ -115,7 +115,7 @@ importers:
         version: 1.0.7
       rollup-plugin-scss-string:
         specifier: github:machsix/rollup-plugin-scss-string
-        version: https://codeload.github.com/machsix/rollup-plugin-scss-string/tar.gz/9ee6743d0999512dc6db104251153fed9a968031
+        version: git+https://git@github.com:machsix/rollup-plugin-scss-string.git#9ee6743d0999512dc6db104251153fed9a968031
       yargs:
         specifier: 17.7.2
         version: 17.7.2
@@ -125,7 +125,7 @@ importers:
         version: 5.4.5
       vitepress:
         specifier: ^1.2.2
-        version: 1.2.2(@algolia/client-search@4.23.3)(@types/node@20.12.8)(nprogress@0.2.0)(postcss@8.4.38)(sass@1.76.0)(search-insights@2.13.0)(stylus@0.54.8)(terser@4.8.1)(typescript@5.4.5)
+        version: 1.2.2(@algolia/client-search@4.23.3)(@types/node@20.12.8)(nprogress@0.2.0)(postcss@8.4.38)(sass@1.76.0)(search-insights@2.13.0)(stylus@0.54.8)(typescript@5.4.5)
       vue:
         specifier: ^3.4.27
         version: 3.4.27(typescript@5.4.5)
@@ -1045,6 +1045,7 @@ packages:
   '@humanwhocodes/config-array@0.11.14':
     resolution: {integrity: sha512-3T8LkOmg45BV5FICb15QQMsyUSWrQ8AygVfC7ZG32zOalnqrilm018ZVCw0eapXux8FtA33q8PSRSstjee3jSg==}
     engines: {node: '>=10.10.0'}
+    deprecated: Use @eslint/config-array instead
 
   '@humanwhocodes/module-importer@1.0.1':
     resolution: {integrity: sha512-bxveV4V8v5Yb4ncFTT3rPSgZBOpCkjfK0y4oVVVJwIuDVBRMDXrPyXRL988i5ap9m9bnyEEjWfm5WkBmtffLfA==}
@@ -1052,6 +1053,7 @@ packages:
 
   '@humanwhocodes/object-schema@2.0.3':
     resolution: {integrity: sha512-93zYdMES/c1D69yZiKDBj0V24vqNzB/koF26KPaagAfd3P/4gUlh3Dys5ogAK+Exi9QyzlD8x/08Zt7wIKcDcA==}
+    deprecated: Use @eslint/object-schema instead
 
   '@jridgewell/gen-mapping@0.3.5':
     resolution: {integrity: sha512-IzL8ZoEDIBRWEzlCcRhOaCupYyN5gdIK+Q6fbFdPDg6HqX6jpkItn7DFIpW9LQzXG6Df9sA7+OKnq0qlz/GaQg==}
@@ -1255,9 +1257,9 @@ packages:
   '@sideway/pinpoint@2.0.0':
     resolution: {integrity: sha512-RNiOoTPkptFtSVzQevY/yWtZwf/RxyVnPy/OcA9HBM3MlGDnBEYL5B41H0MTn0Uec8Hi+2qUtTfG2WWZBmMejQ==}
 
-  '@sindresorhus/is@6.3.1':
-    resolution: {integrity: sha512-FX4MfcifwJyFOI2lPoX7PQxCqx8BG1HCho7WdiXwpEQx1Ycij0JxkfYtGK7yqNScrZGSlt6RE6sw8QYoH7eKnQ==}
-    engines: {node: '>=16'}
+  '@sindresorhus/is@7.0.0':
+    resolution: {integrity: sha512-WDTlVTyvFivSOuyvMeedzg2hdoBLZ3f1uNVuEida2Rl9BrfjrIRjWA/VZIrMRLvSwJYCAlCRA3usDt1THytxWQ==}
+    engines: {node: '>=18'}
 
   '@szmarczak/http-timer@5.0.1':
     resolution: {integrity: sha512-+PmQX0PiAYPMeVYe237LJAYvOMYW1j2rH5YROyS3b4CTVJum34HfRvKvAzozHAQG0TnHNdUfY9nCeUyRAs//cw==}
@@ -1867,8 +1869,8 @@ packages:
   destroy@1.0.4:
     resolution: {integrity: sha512-3NdhDuEXnfun/z7x9GOElY49LoqVHoGScmOKwmxhsS8N5Y+Z8KyPPDnaSzqWgYt/ji4mqwfTS34Htrk0zPIXVg==}
 
-  displacejs@https://codeload.github.com/machsix/displace/tar.gz/6a4318ce3ec6ca80ded44581248528f7ee68d9f4:
-    resolution: {tarball: https://codeload.github.com/machsix/displace/tar.gz/6a4318ce3ec6ca80ded44581248528f7ee68d9f4}
+  displacejs@git+https://git@github.com:machsix/displace.git#6a4318ce3ec6ca80ded44581248528f7ee68d9f4:
+    resolution: {commit: 6a4318ce3ec6ca80ded44581248528f7ee68d9f4, repo: git@github.com:machsix/displace.git, type: git}
     version: 1.4.0
     engines: {node: '>=5.6.0'}
 
@@ -2276,6 +2278,7 @@ packages:
 
   glob@7.2.3:
     resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==}
+    deprecated: Glob versions prior to v9 are no longer supported
 
   glob@8.1.0:
     resolution: {integrity: sha512-r8hpEjiQEYlF2QU0df3dS+nxxSIreXQS1qRhMJM0Q5NDdR386C7jb7Hwwod8Fgiuex+k0GFjgft18yvxm5XoCQ==}
@@ -2301,8 +2304,8 @@ packages:
   gopd@1.0.1:
     resolution: {integrity: sha512-d65bNlIadxvpb/A2abVdlqKqV563juRnZ1Wtk6s1sIR8uNsXR70xqIzVqxVf1eTqDunwT2MkczEeaezCKTZhwA==}
 
-  got@14.3.0:
-    resolution: {integrity: sha512-vZkrXdq5BtPWTXqvjXSpl6zky3zpHaOVfSug/RfFHu3YrtSsvYzopVMDqrh2do77WnGoCSSRCHW25zXOSAQ9zw==}
+  got@14.4.2:
+    resolution: {integrity: sha512-+Te/qEZ6hr7i+f0FNgXx/6WQteSM/QqueGvxeYQQFm0GDfoxLVJ/oiwUKYMTeioColWUTdewZ06hmrBjw6F7tw==}
     engines: {node: '>=20'}
 
   graceful-fs@4.2.11:
@@ -2894,6 +2897,7 @@ packages:
   node-sass@9.0.0:
     resolution: {integrity: sha512-yltEuuLrfH6M7Pq2gAj5B6Zm7m+gdZoG66wTqG6mIZV/zijq3M2OO2HswtT6oBspPyFhHDcaxWpsBm0fRNDHPg==}
     engines: {node: '>=16'}
+    deprecated: Node Sass is no longer supported. Please use `sass` or `sass-embedded` instead.
     hasBin: true
 
   nopt@5.0.0:
@@ -3116,7 +3120,7 @@ packages:
   puppeteer@2.1.0:
     resolution: {integrity: sha512-PC4oKMtwAElo8YtS/cYnk2/dew/3TonsGKKzjpFLWwkhBCteFsOZCVOXTt2QlP6w53mH0YsJE+fPLPzOW+DCug==}
     engines: {node: '>=8.16.0'}
-    deprecated: < 21.9.0 is no longer supported
+    deprecated: < 22.8.2 is no longer supported
 
   queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
@@ -3239,6 +3243,7 @@ packages:
 
   rimraf@2.7.1:
     resolution: {integrity: sha512-uWjbaKIK3T1OSVptzX7Nl6PvQ3qAGtKEtVRjRuazjfL3Bx5eI409VZSqgND+4UNnmzLVdPj9FqFJNPqBZFve4w==}
+    deprecated: Rimraf versions prior to v4 are no longer supported
     hasBin: true
 
   rimraf@3.0.2:
@@ -3262,8 +3267,8 @@ packages:
   rollup-plugin-re@1.0.7:
     resolution: {integrity: sha512-TyFf3QaV/eJ/50k4wp5BM0SodGy0Idq0uOgvA1q3gHRwgXLPVX5y3CRKkBuHzKTZPC9CTZX7igKw5UvgjDls8w==}
 
-  rollup-plugin-scss-string@https://codeload.github.com/machsix/rollup-plugin-scss-string/tar.gz/9ee6743d0999512dc6db104251153fed9a968031:
-    resolution: {tarball: https://codeload.github.com/machsix/rollup-plugin-scss-string/tar.gz/9ee6743d0999512dc6db104251153fed9a968031}
+  rollup-plugin-scss-string@git+https://git@github.com:machsix/rollup-plugin-scss-string.git#9ee6743d0999512dc6db104251153fed9a968031:
+    resolution: {commit: 9ee6743d0999512dc6db104251153fed9a968031, repo: git@github.com:machsix/rollup-plugin-scss-string.git, type: git}
     version: 0.2.1
 
   rollup-pluginutils@2.8.2:
@@ -3413,9 +3418,6 @@ packages:
     resolution: {integrity: sha512-Htz+RnsXWk5+P2slx5Jh3Q66vhQj1Cllm0zvnaY98+NFx+Dv2CF/f5O/t8x+KaNdrdIAsruNzoh/KpialbqAnw==}
     deprecated: See https://github.com/lydell/source-map-resolve#deprecated
 
-  source-map-support@0.5.21:
-    resolution: {integrity: sha512-uBHU3L3czsIyYXKX88fdrGovxdSCoTGDRZ6SYXtSRxLZUzHg5P/66Ht6uoUlHu9EZod+inXhKo3qQgwXUT/y1w==}
-
   source-map-url@0.4.1:
     resolution: {integrity: sha512-cPiFOTLUKvJFIg4SKVScy4ilPPW6rFgMgfuZJPNoDuMs3nC1HbMUycBoJw77xFIp6z1UJQJOfx6C9GMH80DiTw==}
     deprecated: See https://github.com/lydell/source-map-url#deprecated
@@ -3554,11 +3556,6 @@ packages:
     resolution: {integrity: sha512-DZ4yORTwrbTj/7MZYq2w+/ZFdI6OZ/f9SFHR+71gIVUZhOQPHzVCLpvRnPgyaMpfWxxk/4ONva3GQSyNIKRv6A==}
     engines: {node: '>=10'}
 
-  terser@4.8.1:
-    resolution: {integrity: sha512-4GnLC0x667eJG0ewJTa6z/yXrbLGv80D9Ru6HIpCQmO+Q4PfEtBFi0ObSckqwL6VyQv/7ENJieXHo2ANmdQwgw==}
-    engines: {node: '>=6.0.0'}
-    hasBin: true
-
   text-table@0.2.0:
     resolution: {integrity: sha512-N+8UisAXDGk8PFXP4HAzVR9nbfmVJ3zYLAWiTIoqC5v5isinhr+r5uaO8+7r3BMfuNIufIsA7RdpVgacC2cSpw==}
 
@@ -3614,6 +3611,10 @@ packages:
   type-fest@0.8.1:
     resolution: {integrity: sha512-4dbzIzqvjtgiM5rw1k5rEHtBANKmdudhGyBEajN01fEyhaAIhsoKNy6y7+IN93IfpFtwY9iqi7kD+xwKhQsNJA==}
     engines: {node: '>=8'}
+
+  type-fest@4.23.0:
+    resolution: {integrity: sha512-ZiBujro2ohr5+Z/hZWHESLz3g08BBdrdLMieYFULJO+tWc437sn8kQsWLJoZErY8alNhxre9K4p3GURAG11n+w==}
+    engines: {node: '>=16'}
 
   typed-array-buffer@1.0.2:
     resolution: {integrity: sha512-gEymJYKZtKXzzBzM4jqa9w6Q1Jjm7x2d+sh19AdsD4wqnMPDYyvwpsIc2Q/835kHuo3BEQ7CjelGhfTsoBb2MQ==}
@@ -5089,7 +5090,7 @@ snapshots:
 
   '@sideway/pinpoint@2.0.0': {}
 
-  '@sindresorhus/is@6.3.1': {}
+  '@sindresorhus/is@7.0.0': {}
 
   '@szmarczak/http-timer@5.0.1':
     dependencies:
@@ -5140,9 +5141,9 @@ snapshots:
 
   '@ungap/structured-clone@1.2.0': {}
 
-  '@vitejs/plugin-vue@5.0.4(vite@5.2.11(@types/node@20.12.8)(sass@1.76.0)(stylus@0.54.8)(terser@4.8.1))(vue@3.4.27(typescript@5.4.5))':
+  '@vitejs/plugin-vue@5.0.4(vite@5.2.11(@types/node@20.12.8)(sass@1.76.0)(stylus@0.54.8))(vue@3.4.27(typescript@5.4.5))':
     dependencies:
-      vite: 5.2.11(@types/node@20.12.8)(sass@1.76.0)(stylus@0.54.8)(terser@4.8.1)
+      vite: 5.2.11(@types/node@20.12.8)(sass@1.76.0)(stylus@0.54.8)
       vue: 3.4.27(typescript@5.4.5)
 
   '@vue/compiler-core@3.4.27':
@@ -5769,7 +5770,7 @@ snapshots:
 
   destroy@1.0.4: {}
 
-  displacejs@https://codeload.github.com/machsix/displace/tar.gz/6a4318ce3ec6ca80ded44581248528f7ee68d9f4: {}
+  displacejs@git+https://git@github.com:machsix/displace.git#6a4318ce3ec6ca80ded44581248528f7ee68d9f4: {}
 
   doctrine@2.1.0:
     dependencies:
@@ -6332,19 +6333,19 @@ snapshots:
     dependencies:
       get-intrinsic: 1.2.4
 
-  got@14.3.0:
+  got@14.4.2:
     dependencies:
-      '@sindresorhus/is': 6.3.1
+      '@sindresorhus/is': 7.0.0
       '@szmarczak/http-timer': 5.0.1
       cacheable-lookup: 7.0.0
       cacheable-request: 12.0.1
       decompress-response: 6.0.0
       form-data-encoder: 4.0.2
-      get-stream: 8.0.1
       http2-wrapper: 2.2.1
       lowercase-keys: 3.0.0
       p-cancelable: 4.0.1
       responselike: 3.0.0
+      type-fest: 4.23.0
 
   graceful-fs@4.2.11: {}
 
@@ -7351,7 +7352,7 @@ snapshots:
       magic-string: 0.16.0
       rollup-pluginutils: 2.8.2
 
-  rollup-plugin-scss-string@https://codeload.github.com/machsix/rollup-plugin-scss-string/tar.gz/9ee6743d0999512dc6db104251153fed9a968031:
+  rollup-plugin-scss-string@git+https://git@github.com:machsix/rollup-plugin-scss-string.git#9ee6743d0999512dc6db104251153fed9a968031:
     dependencies:
       rollup-pluginutils: 2.8.2
       sass: 1.76.0
@@ -7555,12 +7556,6 @@ snapshots:
       urix: 0.1.0
     optional: true
 
-  source-map-support@0.5.21:
-    dependencies:
-      buffer-from: 1.1.2
-      source-map: 0.6.1
-    optional: true
-
   source-map-url@0.4.1:
     optional: true
 
@@ -7705,14 +7700,6 @@ snapshots:
       mkdirp: 1.0.4
       yallist: 4.0.0
 
-  terser@4.8.1:
-    dependencies:
-      acorn: 8.11.3
-      commander: 2.20.3
-      source-map: 0.6.1
-      source-map-support: 0.5.21
-    optional: true
-
   text-table@0.2.0: {}
 
   time-zone@2.0.0: {}
@@ -7751,6 +7738,8 @@ snapshots:
   type-fest@0.6.0: {}
 
   type-fest@0.8.1: {}
+
+  type-fest@4.23.0: {}
 
   typed-array-buffer@1.0.2:
     dependencies:
@@ -7853,7 +7842,7 @@ snapshots:
       spdx-correct: 3.2.0
       spdx-expression-parse: 3.0.1
 
-  vite@5.2.11(@types/node@20.12.8)(sass@1.76.0)(stylus@0.54.8)(terser@4.8.1):
+  vite@5.2.11(@types/node@20.12.8)(sass@1.76.0)(stylus@0.54.8):
     dependencies:
       esbuild: 0.20.2
       postcss: 8.4.38
@@ -7863,16 +7852,15 @@ snapshots:
       fsevents: 2.3.3
       sass: 1.76.0
       stylus: 0.54.8
-      terser: 4.8.1
 
-  vitepress@1.2.2(@algolia/client-search@4.23.3)(@types/node@20.12.8)(nprogress@0.2.0)(postcss@8.4.38)(sass@1.76.0)(search-insights@2.13.0)(stylus@0.54.8)(terser@4.8.1)(typescript@5.4.5):
+  vitepress@1.2.2(@algolia/client-search@4.23.3)(@types/node@20.12.8)(nprogress@0.2.0)(postcss@8.4.38)(sass@1.76.0)(search-insights@2.13.0)(stylus@0.54.8)(typescript@5.4.5):
     dependencies:
       '@docsearch/css': 3.6.0
       '@docsearch/js': 3.6.0(@algolia/client-search@4.23.3)(search-insights@2.13.0)
       '@shikijs/core': 1.6.0
       '@shikijs/transformers': 1.6.0
       '@types/markdown-it': 14.1.1
-      '@vitejs/plugin-vue': 5.0.4(vite@5.2.11(@types/node@20.12.8)(sass@1.76.0)(stylus@0.54.8)(terser@4.8.1))(vue@3.4.27(typescript@5.4.5))
+      '@vitejs/plugin-vue': 5.0.4(vite@5.2.11(@types/node@20.12.8)(sass@1.76.0)(stylus@0.54.8))(vue@3.4.27(typescript@5.4.5))
       '@vue/devtools-api': 7.2.1(vue@3.4.27(typescript@5.4.5))
       '@vue/shared': 3.4.27
       '@vueuse/core': 10.9.0(vue@3.4.27(typescript@5.4.5))
@@ -7881,7 +7869,7 @@ snapshots:
       mark.js: 8.11.1
       minisearch: 6.3.0
       shiki: 1.6.0
-      vite: 5.2.11(@types/node@20.12.8)(sass@1.76.0)(stylus@0.54.8)(terser@4.8.1)
+      vite: 5.2.11(@types/node@20.12.8)(sass@1.76.0)(stylus@0.54.8)
       vue: 3.4.27(typescript@5.4.5)
     optionalDependencies:
       postcss: 8.4.38
