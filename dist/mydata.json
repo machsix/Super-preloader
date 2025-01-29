@@ -3694,5 +3694,12 @@
     "url": "^https?://bluemoonroleplaying\\.com/community/*",
     "pageElement": "//*[@class='block-container lbContainer']",
     "nextLink": "//li[contains(@class,'current')]/following-sibling::li[1]/a"
+  },
+  {
+    "name": "Google Basic Variant",
+    "url": "^https?://www\\.google\\.com/search\\?(?:[^/]+&)?gbv=1(?:$|[&/])",
+    "pageElement": "css;div#main",
+    "exampleUrl": "https://www.google.com/search?q=foo&gbv=1",
+    "nextLink": "//a[@aria-label=\"Next page\"]"
   }
 ]
