@@ -71,8 +71,10 @@
 // @exclude      http*://assets.tumblr.com/*
 // @exclude      http*://www.tumblr.com/video/*
 // @exclude      http*://*.awsapps.com/*
-// @exlucde      http*://www.commcarehq.org/accounts/login/*gre
+// @exclude      http*://www.commcarehq.org/accounts/login/*gre
 // @exclude      http*://simkl.com/*
+// @exclude      http*://docs.fauna.com/*
+// @exclude      http*://mailgw.com/cgi-bin/login
 // ==/UserScript==
 (function () {
 
@@ -6122,7 +6124,7 @@
 		 */
 		var isBuffer = nativeIsBuffer || stubFalse;
 
-		module.exports = isBuffer; 
+		module.exports = isBuffer;
 	} (isBuffer$3, isBuffer$3.exports));
 
 	var isBufferExports = isBuffer$3.exports;
@@ -6302,7 +6304,7 @@
 		  } catch (e) {}
 		}());
 
-		module.exports = nodeUtil; 
+		module.exports = nodeUtil;
 	} (_nodeUtil, _nodeUtil.exports));
 
 	var _nodeUtilExports = _nodeUtil.exports;
@@ -7996,7 +7998,7 @@
 		    return o && "function" == typeof _Symbol && o.constructor === _Symbol && o !== _Symbol.prototype ? "symbol" : typeof o;
 		  }, module.exports.__esModule = true, module.exports["default"] = module.exports), _typeof(o);
 		}
-		module.exports = _typeof, module.exports.__esModule = true, module.exports["default"] = module.exports; 
+		module.exports = _typeof, module.exports.__esModule = true, module.exports["default"] = module.exports;
 	} (_typeof$1));
 
 	var _typeofExports = _typeof$1.exports;
@@ -8568,7 +8570,7 @@
 		    }
 		  }, e;
 		}
-		module.exports = _regeneratorRuntime, module.exports.__esModule = true, module.exports["default"] = module.exports; 
+		module.exports = _regeneratorRuntime, module.exports.__esModule = true, module.exports["default"] = module.exports;
 	} (regeneratorRuntime$1));
 
 	var regeneratorRuntimeExports = regeneratorRuntime$1.exports;
@@ -9649,7 +9651,7 @@
 		    defaultLogger['default'] = defaultLogger;
 
 		    return defaultLogger;
-		})); 
+		}));
 	} (loglevel));
 
 	var loglevelExports = loglevel.exports;
