@@ -33,7 +33,7 @@ jobs:
           pnpm run check
           pnpm run build
       - name: Artiface Archive
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@main
         with:
           name: Super_preloaderPlus_one_New.user.js
           path: dist/Super_preloaderPlus_one_New.user.js
