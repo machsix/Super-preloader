@@ -1,26 +1,48 @@
-/* eslint-disable no-await-in-loop */
-/* eslint-disable no-process-exit */
-/* eslint-disable no-process-env */
-import {promisify} from 'util';
+#!/usr/bin/env node
+/* eslint-disable jsdoc/require-jsdoc */
 // node --experimental-repl-await
 
 import extract from 'extract-zip';
 import fs from 'fs';
-import got from 'got';
 import path from 'path';
 import process from 'process';
 import {platform} from 'process';
 import puppeteer from 'puppeteer';
-import stream from 'stream';
 import {fileURLToPath} from 'url';
+import https from 'https';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const pipeline = promisify(stream.pipeline);
+const TIMEOUT = 30 * 1000;
 
 function download(url, dest) {
-  return pipeline(got.stream(url), fs.createWriteStream(dest));
+  return new Promise((resolve, reject) => {
+    const file = fs.createWriteStream(dest);
+    const request = https.get(url, (response) => {
+      if (response.statusCode === 302 || response.statusCode === 301) {
+        // Handle redirect
+        const redirectUrl = response.headers.location;
+        if (redirectUrl) {
+          download(redirectUrl, dest).then(resolve).catch(reject);
+        } else {
+          reject(new Error(`Redirected with no location header for '${url}'`));
+        }
+        return;
+      }
+      if (response.statusCode !== 200) {
+        reject(new Error(`Failed to get '${url}' (${response.statusCode})`));
+        return;
+      }
+      response.pipe(file);
+      file.on('finish', () => {
+        file.close(resolve);
+      });
+    });
+    request.on('error', (err) => {
+      fs.unlink(dest, () => reject(err));
+    });
+  });
 }
 
 async function waitSeconds(seconds) {
@@ -44,7 +66,6 @@ async function main() {
 
   await download(violentmonkey.url, violentmonkey.file);
   console.log('Download VM \u2714');
-
   await extract(violentmonkey.file, {dir: violentmonkey.folder});
   console.log('Unzip VM \u2714');
 
@@ -59,7 +80,9 @@ async function main() {
     config.executablePath = process.env.PUPPETEER_EXEC_PATH;
   }
   const browser = await puppeteer.launch(config);
-  console.log('Launch Chrome \u2714');
+  const version = await browser.version();
+
+  console.log(`Launch Chrome ${version} \u2714`);
 
   let pages, targetPage;
   for (let itry = 1; itry <= 5; itry++) {
@@ -76,12 +99,11 @@ async function main() {
 
     // handle installation
     targetPage = pages[1];
-    await waitSeconds(3);
-    await targetPage.click('body > div > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > button:nth-child(2)');
+    await targetPage.waitForFunction(() => document.querySelector('.page-confirm') !== null, {timeout: TIMEOUT});
+    await targetPage.click('.page-confirm button:nth-child(2)');
+
     try {
-      await targetPage.waitFor(() => document.querySelector('.page-confirm .ellipsis+div').innerHTML.includes('Script installed'), {
-        timeout: 500 * 1000
-      });
+      await targetPage.waitForFunction(() => document.querySelector('.page-confirm .ellipsis+div').innerHTML.includes('Script installed'), {timeout: TIMEOUT});
     } catch (err) {
       // it may fail due to dependency
       console.log('Error', err.name, err.message);
@@ -89,7 +111,7 @@ async function main() {
       await targetPage.close();
       continue;
     }
-    await targetPage.click('body > div > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > button:nth-child(3)');
+    await targetPage.click('.page-confirm button:nth-child(3)');
     console.log(`Script installation ${itry}/5: \u2714`);
     break;
   }
@@ -101,8 +123,8 @@ async function main() {
 
   // check floatWindow
   try {
-    await targetPage.waitFor('#sp-fw-rect', {
-      timeout: 30 * 1000
+    await targetPage.waitForSelector('#sp-fw-rect', {
+      timeout: TIMEOUT
     });
     console.log('FloatWindow: \u2714');
   } catch (err) {
@@ -111,18 +133,18 @@ async function main() {
   }
 
   // check seperator
-  // await targetPage.evaluate((_) => {
-  //   window.scrollTo(0, document.body.scrollHeight + 20);
-  // });
-  // try {
-  //   await targetPage.waitFor('#sp-separator-2', {
-  //     timeout: 30 * 1000
-  //   });
-  //   console.log('Seperator: \u2714');
-  // } catch (err) {
-  //   console.log('Error', err.name, err.message);
-  //   throw new Error('Seperator: \u274c');
-  // }
+  await targetPage.evaluate((_) => {
+    window.scrollTo(0, document.body.scrollHeight + 20);
+  });
+  try {
+    await targetPage.waitForSelector('#sp-separator-2', {
+      timeout: 30 * 1000
+    });
+    console.log('Seperator: \u2714');
+  } catch (err) {
+    console.log('Error', err.name, err.message);
+    throw new Error('Seperator: \u274c');
+  }
 
   // check CSP
   // if (process.env.CI !== 'true') {

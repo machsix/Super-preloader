@@ -1,7 +1,6 @@
 import {compareVersions} from 'compare-versions';
 import emoji from './utils/emoji.js';
-import pkg from '../package.json' assert {type: 'json'}; // this feature is provided by @rollup/plugin-json
-
+import pkg from '../package.json' with {type: 'json'}; // https://github.com/eslint/eslint/discussions/15305
 // Information of script
 const now = new Date();
 export const SCRIPT_INFO = {
@@ -31,7 +30,6 @@ export const NOTIFICATION = {
   title: SCRIPT_INFO.name,
   image: SCRIPT_INFO.icon,
   onload: function () {},
-  // eslint-disable-next-line no-unused-vars
   show: (oldVersion, newVersion) => compareVersions(oldVersion, '6.15.1') < 0 && compareVersions(newVersion, '6.15.1') >= 0,
   extratext: {
     zh_CN: '你现在可以修改css自定义外观！',

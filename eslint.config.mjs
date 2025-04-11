@@ -17,8 +17,16 @@ export default defineConfig([
     plugins: {
       json
     },
-    ignores: ['package-lock.json'],
+    ignores: ['package-lock.json', 'babel.config.json'],
     language: 'json/json',
+    ...json.configs.recommended
+  },
+  {
+    files: ['babel.config.json'],
+    plugins: {
+      json
+    },
+    language: 'json/json5',
     ...json.configs.recommended
   },
   {

@@ -1,21 +1,18 @@
 {
   "plugins": [
     "lodash",
+    // Enables support for `async` functions and `await` expressions
     "@babel/plugin-transform-async-to-generator",
-    [
-      "@babel/plugin-syntax-import-attributes",
-      {
-        "deprecatedAssertSyntax": true
-      }
-    ],
-    [
-      "@babel/plugin-transform-runtime",
-      {
-        "corejs": 3,
-        "useESModules": true,
-        "proposals": false
-      }
-    ],
+    // Enables support for `import foo from "./foo.json" with { type: "json" };`
+    "@babel/plugin-syntax-import-attributes",
+    // [
+    //   "@babel/plugin-transform-runtime",
+    //   {
+    //     "corejs": 3,
+    //     "useESModules": true,
+    //     "proposals": false
+    //   }
+    // ],
     [
       "wildcard",
       {

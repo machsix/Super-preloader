@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 set -e
 
-# !Run from the root of the repository
+# Run from the root of the repository
 REPO_DIR=${1:-$(pwd)}
 DOCS_DIR=${REPO_DIR}/docs/.vitepress/dist
 UPDATE_FLAG=""
-if [ -z ${TRAVIS_COMMIT_MESSAGE+x} ]; then
-  TRAVIS_COMMIT_MESSAGE=$(git log -1 --pretty=format:"%s")
+if [ -z ${COMMIT_MESSAGE+x} ]; then
+  COMMIT_MESSAGE=$(git log -1 --pretty=format:"%s")
 fi
 echo "var is unset";
-if [[ $TRAVIS_COMMIT_MESSAGE == *"[UPDATE]"* ]]; then
+if [[ $COMMIT_MESSAGE == *"[UPDATE]"* ]]; then
   echo -e "\e[1m\e[41m\e[97mMandatory Update\e[0m"
   UPDATE_FLAG="--update"
 fi

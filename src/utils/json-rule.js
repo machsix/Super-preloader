@@ -9,14 +9,14 @@ class RuleProvider {
   /**
    * Constructor of a rule provider
    * @param {string} name Identifier of rule provider
-   * @param {Array} url URL to fetch rule
-   * @param {string} detailUrl URL to fetch rule detail
+   * @param {Array[string]} url URL to fetch rule
+   * @param {Array[string]} detailUrl URL to fetch rule detail
    * @param {Function} ruleParser parser to parse axios response
    */
   constructor(name, url, detailUrl, ruleParser = null) {
     this.name = name;
     this.url = _.isArray(url) ? url : [url];
-    this.detailUrl = detailUrl;
+    this.detailUrl = _.isArray(detailUrl) ? detailUrl : [detailUrl];
     this.rule = [];
     if (_.isFunction(ruleParser)) {
       this.ruleParser = ruleParser;
@@ -65,24 +65,36 @@ class RuleProvider {
    * @returns {Array} rule
    */
   async updateRule(lastUpdate) {
-    let res = null;
-    try {
-      res = await got.get(this.detailUrl);
-    } catch (error) {
-      logger.error(`[UpdateRule] ${this.name} [Status] ${error}`);
+    let detail = null;
+    let error = null;
+    for (const url of this.detailUrl) {
+      try {
+        const res = await got.get(url);
+        if (res.statusCode !== 200) {
+          throw new Error(`Status code: ${res.statusCode}`);
+        }
+        detail = res.data;
+        break;
+      } catch (err) {
+        logger.error(`[UpdateRule] ${this.name} from ${url} [Status] ${err}`);
+        detail = null;
+        error = err;
+      }
+    }
+
+    if (!detail) {
       // mimic Promise.allSettled
       return {status: 'rejected', reason: error};
     }
 
-    const detail = res.data;
     const ruleLastUpdate = new Date(detail.updated_at);
     if (lastUpdate < ruleLastUpdate || this.rule.length < 1) {
       try {
         const rule = await this.downloadRule();
         logger.info(`[UpdateRule] ${this.name} [Status] Success`);
         this.rule = rule;
-      } catch (error) {
-        return {status: 'rejected', reason: error};
+      } catch (err) {
+        return {status: 'rejected', reason: err};
       }
     } else {
       logger.info(`[UpdateRule] ${this.name} [Status] No need to update`);
@@ -92,19 +104,23 @@ class RuleProvider {
 }
 
 // Providers
-const MyData = new RuleProvider('machsix.github.io', ['https://machsix.github.io/Super-preloader/mydata.json'], 'https://machsix.github.io/Super-preloader/mydata_detail.json');
-const WeData = new RuleProvider('wedata.net', ['http://wedata.net/databases/AutoPagerize/items.json', 'https://machsix.github.io/Super-preloader/wedata.json'], 'http://wedata.net/databases/AutoPagerize.json', (res) =>
-  (_.isString(res.data) ? JSON.parse(res.data) : res.data)
-    .filter((i) => {
-      const nameFilter = ['Generic Posts Rule', 'hAtom'];
-      for (let j = 0; j < nameFilter.length; j++) {
-        if (nameFilter[j].indexOf(i.name) >= 0) {
-          return false;
+const MyData = new RuleProvider('machsix.github.io', ['https://machsix.github.io/Super-preloader/mydata.json'], ['https://machsix.github.io/Super-preloader/mydata_detail.json']);
+const WeData = new RuleProvider(
+  'wedata.net',
+  ['http://wedata.net/databases/autopagerize/items_all.json', 'https://machsix.github.io/Super-preloader/wedata.json'],
+  ['http://wedata.net/databases/AutoPagerize.json', 'https://machsix.github.io/Super-preloader/wedata_detail.json'],
+  (res) =>
+    (_.isString(res.data) ? JSON.parse(res.data) : res.data)
+      .filter((i) => {
+        const nameFilter = ['Generic Posts Rule', 'hAtom'];
+        for (let j = 0; j < nameFilter.length; j++) {
+          if (nameFilter[j].indexOf(i.name) >= 0) {
+            return false;
+          }
         }
-      }
-      return true;
-    })
-    .map((i) => ({name: i.name, resource_url: i.resource_url, ...i.data}))
+        return true;
+      })
+      .map((i) => ({name: i.name, resource_url: i.resource_url, ...i.data}))
 );
 
 const p = [MyData, WeData];

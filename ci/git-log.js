@@ -4,7 +4,7 @@ import {spawnSync} from 'child_process';
 export default function (obj, repoDir, magicKey) {
   const args = ['log'];
   magicKey = magicKey || '^^';
-  repoDir = repoDir || '../';
+  repoDir = repoDir || './';
 
   let logFormat = {
     commit: '%H',
@@ -22,6 +22,10 @@ export default function (obj, repoDir, magicKey) {
 
     if (obj.hasOwnProperty('logFormat')) {
       logFormat = obj.logFormat;
+    }
+
+    if (obj.hasOwnProperty('repoDir')) {
+      repoDir = obj.repoDir;
     }
   }
   let strLogFormat = '{%n';

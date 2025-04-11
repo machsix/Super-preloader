@@ -1,13 +1,21 @@
-name: workflow
+name: script
 on:
   push:
     branches: [master]
+    paths:
+      - 'src/**.js'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - 'rollup.config.mjs'
+      - '**.md'
+      - '**.ts'
   pull_request:
-    branches: [master]
+
 env:
-  TRAVIS_COMMIT_MESSAGE: ${{github.event.commits[0].message}}
+  PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: "true"
+  COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
 jobs:
-  ci:
+  update_script:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -15,13 +23,11 @@ jobs:
       - uses: pnpm/action-setup@v4
         name: Install pnpm
         with:
-          version: 9
+          version: 10
       - name: Install Node.js
-        env:
-          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: 'true'
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version-file: ".node-version"
           cache: 'pnpm'
       - name: Install npm packages
         run: |
@@ -33,51 +39,26 @@ jobs:
           pnpm run check
           pnpm run build
       - name: Artiface Archive
-        uses: actions/upload-artifact@main
+        uses: actions/upload-artifact@v4
         with:
           name: Super_preloaderPlus_one_New.user.js
           path: dist/Super_preloaderPlus_one_New.user.js
           if-no-files-found: error
       - name: Test
-        uses: mujo-code/puppeteer-headful@master
+        uses: machsix/puppeteer-headful@v22.8.2
         env:
           CI: 'true'
         with:
-          args: npm test
-  doc:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-        name: Install pnpm
-        with:
-          version: 9
-      - name: Install Node.js
-        env:
-          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: 'true'
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: 'pnpm'
-      - name: Install npm packages
-        run: |
-          git config --global url."https://github.com/".insteadOf git@github.com:
-          git config --global url."https://".insteadOf git://
-          pnpm install
-      - name: Build
-        run: |
-          pnpm run check
-          pnpm run build
+          args: npm run test
       - name: Build documentation
         run: pnpm run docs:publish
       - name: Deploy to Github Pages
-        if: ${{ github.event_name == 'push' && success() }}
-        uses: crazy-max/ghaction-github-pages@v2
+        if: ${{ github.event_name == 'push' && success() && github.actor == 'machsix'}}
+        uses:  crazy-max/ghaction-github-pages@v4
         with:
           target_branch: gh-pages
           build_dir: docs/.vitepress/dist
           keep_history: true
           commit_message: ${{ format('Commit sha {0}', github.sha)}}
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

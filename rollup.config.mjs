@@ -6,24 +6,23 @@ import dev from 'rollup-plugin-dev';
 import ejs from 'rollup-plugin-ejs';
 import json from '@rollup/plugin-json';
 import replace from 'rollup-plugin-re';
-import resolve from '@rollup/plugin-node-resolve';
+import {nodeResolve} from '@rollup/plugin-node-resolve';
 import scss from 'rollup-plugin-scss-string';
 // import {terser} from "rollup-plugin-terser";
-
-// TODO commonjs bug https://github.com/rollup/plugins/issues/304
 
 const basicConfig = {
   context: 'window',
   input: {
     [SCRIPT_INFO.name]: './src/index.js'
   },
+  external: ['@babel/runtime'], // Mark @babel/runtime as external
   output: {
     dir: './dist',
     entryFileNames: '[name].user.js',
     format: 'iife',
     strict: false // fix https://github.com/facebook/regenerator/blob/a755f3f0cd7928c1b89c251e5e84472aa31b7e33/packages/regenerator-runtime/runtime.js#L725
     // globals: {
-    //   "@babel/runtime/regenerator": "regeneratorRuntime"
+    //   '@babel/runtime/helpers/asyncToGenerator': '_asyncToGenerator' // Map to global variable
     // }
     // https://github.com/rollup/rollup-plugin-babel/issues/306
   },
@@ -80,11 +79,7 @@ const basicConfig = {
     scss({
       include: ['**/*.scss', '**/*.sass', '**/*.css']
     }),
-    babel({
-      babelHelpers: 'runtime',
-      exclude: 'node_modules/**'
-    }),
-    resolve({
+    nodeResolve({
       browser: true
     }),
     commonjs({
@@ -92,6 +87,10 @@ const basicConfig = {
       namedExport: {
         loglevel: ['noConflict']
       }
+    }),
+    babel({
+      babelHelpers: 'bundled',
+      exclude: 'node_modules/**'
     })
     // terser({
     //   keep_fnames: true,
