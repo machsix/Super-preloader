@@ -3475,7 +3475,7 @@
     "url": "^https://nhentai\\.net",
     "pageElement": "//div[@class=\"container index-container\"]|//section[@id=\"image-container\"]",
     "exampleUrl": "https://nhentai.net/tag/akigami-satoru/",
-    "nextLink": "//section[@class=\"pagination\"]/a[@class=\"next\"]"
+    "nextLink": "//section[@class=\"reader-pagination\"]/a[@class=\"next\"]"
   },
   {
     "name": "DL.Getchu.com",
