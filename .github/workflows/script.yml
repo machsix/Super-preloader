@@ -3,12 +3,11 @@ on:
   push:
     branches: [master]
     paths:
-      - 'src/**.js'
+      - 'src/**/*.js'
+      - 'dist/*.js'
       - 'package.json'
       - 'pnpm-lock.yaml'
-      - 'rollup.config.mjs'
-      - '**.md'
-      - '**.ts'
+      - '.node-version'
   pull_request:
 
 env:
@@ -20,38 +19,46 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - uses: pnpm/action-setup@v4
         name: Install pnpm
         with:
           version: 10
+
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
           node-version-file: ".node-version"
           cache: 'pnpm'
+
       - name: Install npm packages
         run: |
           git config --global url."https://github.com/".insteadOf git@github.com:
           git config --global url."https://".insteadOf git://
           pnpm install
+
       - name: Build
         run: |
           pnpm run check
           pnpm run build
+
       - name: Artiface Archive
         uses: actions/upload-artifact@v4
         with:
           name: Super_preloaderPlus_one_New.user.js
           path: dist/Super_preloaderPlus_one_New.user.js
           if-no-files-found: error
+
       - name: Test
         uses: machsix/puppeteer-headful@v22.8.2
         env:
           CI: 'true'
         with:
           args: npm run test
+
       - name: Build documentation
         run: pnpm run docs:publish
+
       - name: Deploy to Github Pages
         if: ${{ github.event_name == 'push' && success() && github.actor == 'machsix'}}
         uses:  crazy-max/ghaction-github-pages@v4

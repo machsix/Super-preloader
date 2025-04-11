@@ -3,6 +3,7 @@
 
 import {execSync} from 'child_process';
 import {existsSync, copyFileSync, createWriteStream} from 'fs';
+import fs from 'node:fs/promises';
 import {resolve, basename} from 'path';
 import rewrite_db from './rewrite_db.js';
 import http from 'http';
@@ -46,14 +47,21 @@ const local_db_paths = [resolve(repo_dir, 'dist/mydata.json')];
       continue;
     }
     await rewrite_db(db_path, force_update, true);
+    const db_detail_path = db_path.slice(0, db_path.lastIndexOf('.')) + '_detail.json';
+    if (!existsSync(db_detail_path)) {
+      throw new Error('Detail database file does not exist. Please check the rewrite_db function.');
+    }
+    // print conent of db_detail_path
+    const data = await fs.readFile(db_detail_path, {encoding: 'utf8'});
+    console.log(JSON.parse(data));
 
-    const db_name = basename(db_path).slice(0, db_path.lastIndexOf('.'));
-
+    let db_name = basename(db_path);
+    db_name = db_name.slice(0, db_name.lastIndexOf('.'));
     const docs_db = resolve(docs_dir, `${db_name}.json`);
     const docs_db_detail = resolve(docs_dir, `${db_name}_detail.json`);
 
-    copyFileSync(db_path, docs_db);
-    copyFileSync(db_path.slice(0, db_path.lastIndexOf('.')) + '_detail.json', docs_db_detail);
+    await fs.copyFile(db_path, docs_db);
+    await fs.copyFile(db_detail_path, docs_db_detail);
     console.log(`\x1b[1m\x1b[41m\x1b[97mFinish adding ${db_name}.json\x1b[0m`);
   }
 })();

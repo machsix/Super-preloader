@@ -63,7 +63,7 @@ async function rewriteDatabase(jsonFilePath, mandatoryUpdate, readable) {
   } else {
     await fs.writeFile(jsonFilePath, JSON.stringify(formattedDB), 'utf8');
   }
-  console.log(`${jsonFilePath} is re-written`);
+  // console.log(`${jsonFilePath} is re-written`);
 
   // get latest update time
   const commitInfo = gitLog({
@@ -71,7 +71,7 @@ async function rewriteDatabase(jsonFilePath, mandatoryUpdate, readable) {
     nCommit: 1,
     repoDir: path.dirname(jsonFilePath)
   });
-  console.log(commitInfo);
+  // console.log(commitInfo);
   let lastUpdateDate = new Date(commitInfo[0].date);
   if (mandatoryUpdate) {
     lastUpdateDate = new Date();
@@ -89,8 +89,8 @@ async function rewriteDatabase(jsonFilePath, mandatoryUpdate, readable) {
   };
 
   const detailFilePath = path.resolve(path.dirname(jsonFilePath), `${jsonFileName}_detail.json`);
-  console.log(`Detail file path: ${detailFilePath}`);
-  console.log(info);
+  // console.log(`Detail file path: ${detailFilePath}`);
+  // console.log(info);
   if (readable) {
     await fs.writeFile(detailFilePath, JSON.stringify(info, null, 2), 'utf8');
   } else {

@@ -1,45 +1,81 @@
 name: rule
 on:
   push:
-    branches: [master]
-    paths:
-      - 'dist/*.json'
-      - '!**.js'
-  pull_request:
-
 
 env:
-  PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: "true"
+  PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: 'true'
   COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+
 jobs:
+  check-js-update:
+    runs-on: ubuntu-latest
+    outputs:
+      js_changed: ${{ steps.check.outputs.js_changed }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Needed to compare with previous commit
+
+      - name: Check for changed .js files
+        id: check
+        run: |
+          if git cat-file -e ${{ github.event.before }}^{commit}; then
+            export base_commit="${{ github.event.before }}"
+          else
+            export base_commit="HEAD^"
+          fi
+          git diff --name-only "$base_commit" HEAD > changed_files.txt
+          echo "Changed files:"
+          cat changed_files.txt
+
+          js_changed=false
+          while read file; do
+            if [[ "$file" == src/*.js || "$file" == src/**/*.js ]]; then
+              js_changed=true
+              break
+            fi
+          done < changed_files.txt
+
+          echo "js_changed=$js_changed"
+          echo "js_changed=$js_changed" >> $GITHUB_OUTPUT
+
   update_rules:
+    needs: check-js-update
+    if: needs.check-js-update.outputs.js_changed == 'false'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - uses: pnpm/action-setup@v4
         name: Install pnpm
         with:
           version: 10
+
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          node-version-file: ".node-version"
+          node-version-file: '.node-version'
           cache: 'pnpm'
+
       - name: Install npm packages
         run: |
           git config --global url."https://github.com/".insteadOf git@github.com:
           git config --global url."https://".insteadOf git://
           pnpm install
+
       - name: Build
         run: |
           pnpm run check
           pnpm run build
+
       - name: Build documentation
         run: pnpm run docs:publish
+
       - name: Deploy to Github Pages
         if: ${{ github.event_name == 'push' && success() && github.actor == 'machsix'}}
-        uses:  crazy-max/ghaction-github-pages@v4
+        uses: crazy-max/ghaction-github-pages@v4
         with:
           target_branch: gh-pages
           build_dir: docs/.vitepress/dist
