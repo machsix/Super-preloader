@@ -3485,16 +3485,6 @@
     "nextLink": "//div[@class=\"pgr2\"]/b/following-sibling::a[1]"
   },
   {
-    "name": "porn-image-xxx.com",
-    "url": "^https?://(\\w*\\.)?porn-image-xxx\\.com/image/\\.*",
-    "pageElement": "//div[@id=\"display_image_detail\"]",
-    "exampleUrl": "https://zh.porn-image-xxx.com/image/g-cup-beauty-big-breasts-image-intertwined-konno-anzu-minami-and-shore-sayaka/page/1/",
-    "nextLink": "auto;",
-    "autopager": {
-      "ipages": [true, 30]
-    }
-  },
-  {
     "name": "图集谷",
     "url": "^https?://www\\.tujigu\\.com",
     "pageElement": "//div[@class=\"content\"]",
