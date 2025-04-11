@@ -108,7 +108,7 @@ export default (commandLineArgs) => {
     basicConfig.plugins.push(
       dev({
         dirs: ['dist'],
-        host: 'localhost',
+        host: '0.0.0.0',
         port: 8081
       })
     );

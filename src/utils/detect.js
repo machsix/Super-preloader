@@ -80,7 +80,7 @@ function parseUserAgent(ua) {
 
 export const BROWSER = parseUserAgent(navigator.userAgent);
 
-const INFO = GM.info || GM_info;
+const INFO = GM.info;
 if (!('scriptHandler' in INFO) || !('version' in INFO)) {
   console.warn('[Super-preloader] You may use an unsupported userscript manager');
   if (!('scriptHander' in INFO)) {

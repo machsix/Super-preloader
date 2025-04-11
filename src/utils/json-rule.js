@@ -11,12 +11,14 @@ class RuleProvider {
    * @param {string} name Identifier of rule provider
    * @param {Array[string]} url URL to fetch rule
    * @param {Array[string]} detailUrl URL to fetch rule detail
+   * @param {boolean} allowFail Allow fail to download rule
    * @param {Function} ruleParser parser to parse axios response
    */
-  constructor(name, url, detailUrl, ruleParser = null) {
+  constructor(name, url, detailUrl, allowFail, ruleParser = null) {
     this.name = name;
     this.url = _.isArray(url) ? url : [url];
     this.detailUrl = _.isArray(detailUrl) ? detailUrl : [detailUrl];
+    this.allowFail = allowFail;
     this.rule = [];
     if (_.isFunction(ruleParser)) {
       this.ruleParser = ruleParser;
@@ -67,13 +69,26 @@ class RuleProvider {
   async updateRule(lastUpdate) {
     let detail = null;
     let error = null;
+    const r = {
+      ok: this.allowFail,
+      value: [],
+      error: null
+    };
     for (const url of this.detailUrl) {
       try {
         const res = await got.get(url);
         if (res.statusCode !== 200) {
           throw new Error(`Status code: ${res.statusCode}`);
         }
-        detail = res.data;
+        try {
+          detail = JSON.parse(res.data);
+          // eslint-disable-next-line no-unused-vars
+        } catch (parseError) {
+          detail = {};
+        }
+        if (!Object.hasOwnProperty.call(detail, 'updated_at')) {
+          throw new Error('No updated_at field');
+        }
         break;
       } catch (err) {
         logger.error(`[UpdateRule] ${this.name} from ${url} [Status] ${err}`);
@@ -83,8 +98,8 @@ class RuleProvider {
     }
 
     if (!detail) {
-      // mimic Promise.allSettled
-      return {status: 'rejected', reason: error};
+      r.error = error;
+      return r;
     }
 
     const ruleLastUpdate = new Date(detail.updated_at);
@@ -94,21 +109,25 @@ class RuleProvider {
         logger.info(`[UpdateRule] ${this.name} [Status] Success`);
         this.rule = rule;
       } catch (err) {
-        return {status: 'rejected', reason: err};
+        r.error = err;
+        return r;
       }
     } else {
       logger.info(`[UpdateRule] ${this.name} [Status] No need to update`);
     }
-    return {status: 'fulfilled', value: this.rule};
+    r.ok = true;
+    r.value = this.rule;
+    return r;
   }
 }
 
 // Providers
-const MyData = new RuleProvider('machsix.github.io', ['https://machsix.github.io/Super-preloader/mydata.json'], ['https://machsix.github.io/Super-preloader/mydata_detail.json']);
+const MyData = new RuleProvider('machsix.github.io', ['https://machsix.github.io/Super-preloader/mydata.json'], ['https://machsix.github.io/Super-preloader/mydata_detail.json'], false);
 const WeData = new RuleProvider(
   'wedata.net',
   ['http://wedata.net/databases/autopagerize/items_all.json', 'https://machsix.github.io/Super-preloader/wedata.json'],
   ['http://wedata.net/databases/AutoPagerize.json', 'https://machsix.github.io/Super-preloader/wedata_detail.json'],
+  true,
   (res) =>
     (_.isString(res.data) ? JSON.parse(res.data) : res.data)
       .filter((i) => {
@@ -158,8 +177,8 @@ export default {
     if (today > this.expire) {
       const promises = this.providers.map((x) => x.updateRule(lastUpdate));
       await Promise.all(promises).then((values) => {
-        const status = values.map(({status}) => status === 'fulfilled' || false);
-        if (status.every((x) => x)) {
+        const status = values.every((x) => x.ok);
+        if (status) {
           this.rule = values.map(({value}) => (value ? value : this.rule));
           this.expire = new Date(+today + this.updatePeriodInDay * 24 * 60 * 60 * 1000);
           logger.info(`[UpdateRule] Next update at: ${this.expire}`);

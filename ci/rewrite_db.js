@@ -1,10 +1,10 @@
-import fs from 'fs';
+import fs from 'node:fs/promises';
 import gitLog from './git-log.js';
 // import {hideBin} from 'yargs/helpers';
 import path from 'path';
 // import yargs from 'yargs';
 
-function rewriteDatabase(jsonFilePath, mandatoryUpdate, readable) {
+async function rewriteDatabase(jsonFilePath, mandatoryUpdate, readable) {
   // 1. Filename
   const jsonFile = path.basename(jsonFilePath);
   const jsonFileName = path.basename(jsonFile, path.extname(jsonFile));
@@ -55,21 +55,16 @@ function rewriteDatabase(jsonFilePath, mandatoryUpdate, readable) {
   }
 
   // strip whitespace in the file
-  fs.readFile(jsonFilePath, {encoding: 'utf8'}, (err, data) => {
-    if (!err) {
-      const mydata = JSON.parse(data);
-      const formattedDB = mydata.map((i) => formatDB(i));
-      if (readable) {
-        fs.writeFile(jsonFilePath, JSON.stringify(formattedDB, null, 2), 'utf8', () => {});
-      } else {
-        fs.writeFile(jsonFilePath, JSON.stringify(formattedDB), 'utf8', () => {});
-      }
-    } else {
-      throw err;
-    }
-  });
-
+  const data = await fs.readFile(jsonFilePath, {encoding: 'utf8'});
+  const mydata = JSON.parse(data);
+  const formattedDB = mydata.map((i) => formatDB(i));
+  if (readable) {
+    await fs.writeFile(jsonFilePath, JSON.stringify(formattedDB, null, 2), 'utf8');
+  } else {
+    await fs.writeFile(jsonFilePath, JSON.stringify(formattedDB), 'utf8');
+  }
   console.log(`${jsonFilePath} is re-written`);
+
   // get latest update time
   const commitInfo = gitLog({
     fileList: [jsonFilePath],
@@ -97,29 +92,11 @@ function rewriteDatabase(jsonFilePath, mandatoryUpdate, readable) {
   console.log(`Detail file path: ${detailFilePath}`);
   console.log(info);
   if (readable) {
-    fs.writeFile(detailFilePath, JSON.stringify(info, null, 2), 'utf8', () => {
-      console.log(`${detailFilePath} is written`);
-    });
+    await fs.writeFile(detailFilePath, JSON.stringify(info, null, 2), 'utf8');
   } else {
-    fs.writeFile(detailFilePath, JSON.stringify(info), 'utf8', () => {
-      console.log(`${detailFilePath} is written`);
-    });
+    await fs.writeFile(detailFilePath, JSON.stringify(info), 'utf8');
   }
+  console.log(`${detailFilePath} is written`);
 }
-
-// if (import.meta.url === `file://${process.argv[1]}`) {
-//   const argv = yargs(hideBin(process.argv)).argv;
-//   console.log(argv);
-//   // 1. Filename
-//   const jsonFilePath = argv._.length ? argv._[0] : path.resolve('../dist/mydata.json');
-
-//   // 2. Mandatory update
-//   const mandatoryUpdate = argv.update || false;
-
-//   // 3. Human readable
-//   const readable = argv.h || false;
-
-//   rewriteDatabase(jsonFilePath, mandatoryUpdate, readable);
-// }
 
 export default rewriteDatabase;

@@ -58,7 +58,7 @@ export const METADATA = `// ==UserScript==
 // @supportURL   ${SCRIPT_INFO.homepageURL}/issue
 // @contributionURL https://ko-fi.com/machsix
 // @icon         ${SCRIPT_INFO.icon}
-// @require      https://cdn.jsdelivr.net/gh/machsix/gm4-polyfill@3ac89770e4dcb69123c749a71f101fb462eaada8/gm4-polyfill-mach6-legacy.js
+// @require      https://cdn.jsdelivr.net/gh/machsix/gm4-polyfill@2.0/gm4-polyfill-mach6-legacy.js
 // @grant        GM.getValue
 // @grant        GM_getValue
 // @grant        GM.setValue
@@ -70,6 +70,7 @@ export const METADATA = `// ==UserScript==
 // @grant        GM.info
 // @grant        GM_info
 // @grant        GM_registerMenuCommand
+// @grant        GM.registerMenuCommand
 // @connect      wedata.net
 // @connect      github.io
 // @run-at       document-idle

@@ -3,7 +3,7 @@
 
 import {execSync} from 'child_process';
 import {existsSync, copyFileSync, createWriteStream} from 'fs';
-import {resolve, basename, dirname} from 'path';
+import {resolve, basename} from 'path';
 import rewrite_db from './rewrite_db.js';
 import http from 'http';
 import https from 'https';
@@ -39,21 +39,25 @@ if (force_update) {
 console.log('\x1b[1m\x1b[44m\x1b[97mStep 1: rewrite and minimize database\x1b[0m');
 const local_db_paths = [resolve(repo_dir, 'dist/mydata.json')];
 
-for (const db_path of local_db_paths) {
-  if (!existsSync(db_path)) {
-    console.console.warn(`Warning: Database file ${db_path} does not exist.`);
-    continue;
+(async () => {
+  for (const db_path of local_db_paths) {
+    if (!existsSync(db_path)) {
+      console.warn(`Warning: Database file ${db_path} does not exist.`);
+      continue;
+    }
+    await rewrite_db(db_path, force_update, true);
+
+    const db_name = basename(db_path).slice(0, db_path.lastIndexOf('.'));
+
+    const docs_db = resolve(docs_dir, `${db_name}.json`);
+    const docs_db_detail = resolve(docs_dir, `${db_name}_detail.json`);
+
+    copyFileSync(db_path, docs_db);
+    copyFileSync(db_path.slice(0, db_path.lastIndexOf('.')) + '_detail.json', docs_db_detail);
+    console.log(`\x1b[1m\x1b[41m\x1b[97mFinish adding ${db_name}.json\x1b[0m`);
   }
-  rewrite_db(db_path, force_update, true);
+})();
 
-  const db_file = basename(db_path);
-  const db_dir = dirname(db_path);
-  const db_detail = resolve(db_dir, db_file.slice(0, db_file.lastIndexOf('.')) + '_detail.json');
-
-  copyFileSync(db_path, resolve(docs_dir, db_file));
-  copyFileSync(db_detail, resolve(docs_dir, basename(db_detail)));
-  console.log(`\x1b[1m\x1b[41m\x1b[97mFinish adding ${db_file}\x1b[0m`);
-}
 copyFileSync(resolve(repo_dir, 'dist/Super_preloaderPlus_one_New.user.js'), resolve(docs_dir, 'Super_preloaderPlus_one_New.user.js'));
 
 // Step 2: Download remote wedata.json and wedata_detail.json
@@ -91,29 +95,57 @@ try {
   throw new Error('An error occurred while processing the files.');
 }
 
-const fetchAndSave = (url, outputPath) => {
+const fetchAndSave = async (url, outputPath) => {
   const protocol = url.startsWith('https') ? https : http;
 
-  const handleResponse = (res) => {
-    if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
-      console.log(`Redirecting to ${res.headers.location}`);
-      protocol.get(res.headers.location, handleResponse);
-    } else if (res.statusCode === 200) {
-      const file = createWriteStream(outputPath);
-      res.pipe(file);
-      file.on('finish', () => {
-        file.close();
-        console.log(`Saved ${url} to ${outputPath}`);
+  const fetch = (url) => {
+    return new Promise((resolve, reject) => {
+      const req = protocol.get(url, (res) => {
+        if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
+          console.log(`Redirecting to ${res.headers.location}`);
+          resolve(fetch(res.headers.location));
+        } else if (res.statusCode === 200) {
+          resolve(res);
+        } else {
+          reject(new Error(`Failed to fetch ${url}: ${res.statusCode} ${res.statusMessage}`));
+        }
       });
-    } else {
-      console.error(`Failed to fetch ${url}: ${res.statusCode}`);
-    }
+
+      req.on('error', (err) => {
+        reject(new Error(`Error fetching ${url}: ${err.message}`));
+      });
+
+      // Add a timeout to prevent hanging
+      req.setTimeout(10000, () => {
+        req.destroy();
+        reject(new Error(`Request timed out for ${url}`));
+      });
+    });
   };
 
-  protocol.get(url, handleResponse).on('error', (err) => {
-    console.error(`Error fetching ${url}: ${err.message}`);
-  });
+  try {
+    const res = await fetch(url);
+    const file = createWriteStream(outputPath);
+
+    await new Promise((resolve, reject) => {
+      res.pipe(file);
+      res.on('error', reject); // Handle response stream errors
+      file.on('finish', resolve);
+      file.on('error', reject); // Handle file stream errors
+    });
+
+    console.log(`Saved ${url} to ${outputPath}`);
+  } catch (error) {
+    console.error(`Error fetching ${url}: ${error.message}`);
+    console.error(`Error saving ${url} to ${outputPath}`);
+  }
 };
 
-fetchAndSave('http://wedata.net/databases/autopagerize/items_all.json', resolve(docs_dir, 'wedata.json'));
-fetchAndSave('http://wedata.net/databases/AutoPagerize.json', resolve(docs_dir, 'wedata_detail.json'));
+(async () => {
+  // eslint-disable-next-line prettier/prettier
+  await Promise.all([
+    fetchAndSave('http://wedata.net/databases/autopagerize/items_all.json', resolve(docs_dir, 'wedata.json')),
+    fetchAndSave('http://wedata.net/databases/AutoPagerize.json', resolve(docs_dir, 'wedata_detail.json'))
+  ]);
+  console.log('Fetched and saved wedata.json and wedata_detail.json');
+})();

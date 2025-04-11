@@ -9,7 +9,7 @@
 // @author       Mach6
 // @contributers alexolog, heroboy, suchunchen, YFdyh000
 // @thanksto     ywzhaiqi, NLF
-// @version      7.1.0
+// @version      7.2.0
 // @license      GPL-3.0
 // @update       2025/4/11
 // @homepageURL  https://github.com/machsix/Super-preloader
@@ -18,7 +18,7 @@
 // @supportURL   https://github.com/machsix/Super-preloader/issue
 // @contributionURL https://ko-fi.com/machsix
 // @icon         data:image/png;base64,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
-// @require      https://cdn.jsdelivr.net/gh/machsix/gm4-polyfill@3ac89770e4dcb69123c749a71f101fb462eaada8/gm4-polyfill-mach6-legacy.js
+// @require      https://cdn.jsdelivr.net/gh/machsix/gm4-polyfill@2.0/gm4-polyfill-mach6-legacy.js
 // @grant        GM.getValue
 // @grant        GM_getValue
 // @grant        GM.setValue
@@ -30,6 +30,7 @@
 // @grant        GM.info
 // @grant        GM_info
 // @grant        GM_registerMenuCommand
+// @grant        GM.registerMenuCommand
 // @connect      wedata.net
 // @connect      github.io
 // @run-at       document-idle
@@ -5097,7 +5098,7 @@
   // above functions are modified from https://www.npmjs.com/package/detect-browser
 
   var BROWSER = parseUserAgent(navigator.userAgent);
-  var INFO = GM.info || GM_info;
+  var INFO = GM.info;
   if (!('scriptHandler' in INFO) || !('version' in INFO)) {
     console.warn('[Super-preloader] You may use an unsupported userscript manager');
     if (!('scriptHander' in INFO)) {
@@ -5555,7 +5556,7 @@
     }
   }
 
-  var version="7.1.0";var author="Mach6";var license="GPL-3.0";var bugs={url:"https://github.com/machsix/Super-preloader/issues"};var homepage="https://github.com/machsix/Super-preloader";var pkg = {version:version,author:author,license:license,bugs:bugs,homepage:homepage};
+  var version="7.2.0";var author="Mach6";var license="GPL-3.0";var bugs={url:"https://github.com/machsix/Super-preloader/issues"};var homepage="https://github.com/machsix/Super-preloader";var pkg = {version:version,author:author,license:license,bugs:bugs,homepage:homepage};
 
   // Information of script
   var now = new Date();
@@ -5616,7 +5617,7 @@
 // @supportURL   ${SCRIPT_INFO.homepageURL}/issue
 // @contributionURL https://ko-fi.com/machsix
 // @icon         ${SCRIPT_INFO.icon}
-// @require      https://cdn.jsdelivr.net/gh/machsix/gm4-polyfill@3ac89770e4dcb69123c749a71f101fb462eaada8/gm4-polyfill-mach6-legacy.js
+// @require      https://cdn.jsdelivr.net/gh/machsix/gm4-polyfill@2.0/gm4-polyfill-mach6-legacy.js
 // @grant        GM.getValue
 // @grant        GM_getValue
 // @grant        GM.setValue
@@ -5628,6 +5629,7 @@
 // @grant        GM.info
 // @grant        GM_info
 // @grant        GM_registerMenuCommand
+// @grant        GM.registerMenuCommand
 // @connect      wedata.net
 // @connect      github.io
 // @run-at       document-idle
@@ -7849,13 +7851,15 @@
      * @param {string} name Identifier of rule provider
      * @param {Array[string]} url URL to fetch rule
      * @param {Array[string]} detailUrl URL to fetch rule detail
+     * @param {boolean} allowFail Allow fail to download rule
      * @param {Function} ruleParser parser to parse axios response
      */
-    constructor(name, url, detailUrl) {
-      var ruleParser = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
+    constructor(name, url, detailUrl, allowFail) {
+      var ruleParser = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : null;
       this.name = name;
       this.url = _isArray(url) ? url : [url];
       this.detailUrl = _isArray(detailUrl) ? detailUrl : [detailUrl];
+      this.allowFail = allowFail;
       this.rule = [];
       if (_isFunction(ruleParser)) {
         this.ruleParser = ruleParser;
@@ -7945,107 +7949,118 @@
     updateRule(lastUpdate) {
       var _this2 = this;
       return _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
-        var detail, error, _iterator2, _step2, url, res, ruleLastUpdate, rule;
+        var detail, error, r, _iterator2, _step2, url, res, ruleLastUpdate, rule;
         return _regeneratorRuntime().wrap(function _callee2$(_context2) {
           while (1) switch (_context2.prev = _context2.next) {
             case 0:
               detail = null;
               error = null;
+              r = {
+                ok: _this2.allowFail,
+                value: [],
+                error: null
+              };
               _iterator2 = _createForOfIteratorHelper(_this2.detailUrl);
-              _context2.prev = 3;
+              _context2.prev = 4;
               _iterator2.s();
-            case 5:
+            case 6:
               if ((_step2 = _iterator2.n()).done) {
-                _context2.next = 24;
+                _context2.next = 27;
                 break;
               }
               url = _step2.value;
-              _context2.prev = 7;
-              _context2.next = 10;
+              _context2.prev = 8;
+              _context2.next = 11;
               return got.get(url);
-            case 10:
+            case 11:
               res = _context2.sent;
               if (!(res.statusCode !== 200)) {
-                _context2.next = 13;
+                _context2.next = 14;
                 break;
               }
               throw new Error(`Status code: ${res.statusCode}`);
-            case 13:
-              detail = res.data;
-              return _context2.abrupt("break", 24);
+            case 14:
+              try {
+                detail = JSON.parse(res.data);
+                // eslint-disable-next-line no-unused-vars
+              } catch (parseError) {
+                detail = {};
+              }
+              if (Object.hasOwnProperty.call(detail, 'updated_at')) {
+                _context2.next = 17;
+                break;
+              }
+              throw new Error('No updated_at field');
             case 17:
-              _context2.prev = 17;
-              _context2.t0 = _context2["catch"](7);
+              return _context2.abrupt("break", 27);
+            case 20:
+              _context2.prev = 20;
+              _context2.t0 = _context2["catch"](8);
               logger.error("[Super-preloader]", `[UpdateRule] ${_this2.name} from ${url} [Status] ${_context2.t0}`);
               detail = null;
               error = _context2.t0;
-            case 22:
-              _context2.next = 5;
+            case 25:
+              _context2.next = 6;
               break;
-            case 24:
-              _context2.next = 29;
+            case 27:
+              _context2.next = 32;
               break;
-            case 26:
-              _context2.prev = 26;
-              _context2.t1 = _context2["catch"](3);
-              _iterator2.e(_context2.t1);
             case 29:
               _context2.prev = 29;
-              _iterator2.f();
-              return _context2.finish(29);
+              _context2.t1 = _context2["catch"](4);
+              _iterator2.e(_context2.t1);
             case 32:
+              _context2.prev = 32;
+              _iterator2.f();
+              return _context2.finish(32);
+            case 35:
               if (detail) {
-                _context2.next = 34;
+                _context2.next = 38;
                 break;
               }
-              return _context2.abrupt("return", {
-                status: 'rejected',
-                reason: error
-              });
-            case 34:
+              r.error = error;
+              return _context2.abrupt("return", r);
+            case 38:
               ruleLastUpdate = new Date(detail.updated_at);
               if (!(lastUpdate < ruleLastUpdate || _this2.rule.length < 1)) {
-                _context2.next = 49;
+                _context2.next = 54;
                 break;
               }
-              _context2.prev = 36;
-              _context2.next = 39;
+              _context2.prev = 40;
+              _context2.next = 43;
               return _this2.downloadRule();
-            case 39:
+            case 43:
               rule = _context2.sent;
               logger.info("[Super-preloader]", `[UpdateRule] ${_this2.name} [Status] Success`);
               _this2.rule = rule;
-              _context2.next = 47;
+              _context2.next = 52;
               break;
-            case 44:
-              _context2.prev = 44;
-              _context2.t2 = _context2["catch"](36);
-              return _context2.abrupt("return", {
-                status: 'rejected',
-                reason: _context2.t2
-              });
-            case 47:
-              _context2.next = 50;
+            case 48:
+              _context2.prev = 48;
+              _context2.t2 = _context2["catch"](40);
+              r.error = _context2.t2;
+              return _context2.abrupt("return", r);
+            case 52:
+              _context2.next = 55;
               break;
-            case 49:
+            case 54:
               logger.info("[Super-preloader]", `[UpdateRule] ${_this2.name} [Status] No need to update`);
-            case 50:
-              return _context2.abrupt("return", {
-                status: 'fulfilled',
-                value: _this2.rule
-              });
-            case 51:
+            case 55:
+              r.ok = true;
+              r.value = _this2.rule;
+              return _context2.abrupt("return", r);
+            case 58:
             case "end":
               return _context2.stop();
           }
-        }, _callee2, null, [[3, 26, 29, 32], [7, 17], [36, 44]]);
+        }, _callee2, null, [[4, 29, 32, 35], [8, 20], [40, 48]]);
       }))();
     }
   }
 
   // Providers
-  var MyData = new RuleProvider('machsix.github.io', ['https://machsix.github.io/Super-preloader/mydata.json'], ['https://machsix.github.io/Super-preloader/mydata_detail.json']);
-  var WeData = new RuleProvider('wedata.net', ['http://wedata.net/databases/autopagerize/items_all.json', 'https://machsix.github.io/Super-preloader/wedata.json'], ['http://wedata.net/databases/AutoPagerize.json', 'https://machsix.github.io/Super-preloader/wedata_detail.json'], function (res) {
+  var MyData = new RuleProvider('machsix.github.io', ['https://machsix.github.io/Super-preloader/mydata.json'], ['https://machsix.github.io/Super-preloader/mydata_detail.json'], false);
+  var WeData = new RuleProvider('wedata.net', ['http://wedata.net/databases/autopagerize/items_all.json', 'https://machsix.github.io/Super-preloader/wedata.json'], ['http://wedata.net/databases/AutoPagerize.json', 'https://machsix.github.io/Super-preloader/wedata_detail.json'], true, function (res) {
     return (_isString(res.data) ? JSON.parse(res.data) : res.data).filter(function (i) {
       var nameFilter = ['Generic Posts Rule', 'hAtom'];
       for (var j = 0; j < nameFilter.length; j++) {
@@ -8128,15 +8143,12 @@
               });
               _context4.next = 7;
               return Promise.all(promises).then(function (values) {
-                var status = values.map(function (_ref) {
-                  var status = _ref.status;
-                  return status === 'fulfilled' || false;
+                var status = values.every(function (x) {
+                  return x.ok;
                 });
-                if (status.every(function (x) {
-                  return x;
-                })) {
-                  _this4.rule = values.map(function (_ref2) {
-                    var value = _ref2.value;
+                if (status) {
+                  _this4.rule = values.map(function (_ref) {
+                    var value = _ref.value;
                     return value ? value : _this4.rule;
                   });
                   _this4.expire = new Date(+today + _this4.updatePeriodInDay * 24 * 60 * 60 * 1000);
