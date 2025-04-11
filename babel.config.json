@@ -2,7 +2,7 @@
   "plugins": [
     "lodash",
     // Enables support for `async` functions and `await` expressions
-    "@babel/plugin-transform-async-to-generator",
+    // "@babel/plugin-transform-async-to-generator",
     // Enables support for `import foo from "./foo.json" with { type: "json" };`
     "@babel/plugin-syntax-import-attributes",
     // [

@@ -30,10 +30,10 @@ export const NOTIFICATION = {
   title: SCRIPT_INFO.name,
   image: SCRIPT_INFO.icon,
   onload: function () {},
-  show: (oldVersion, newVersion) => compareVersions(oldVersion, '6.15.1') < 0 && compareVersions(newVersion, '6.15.1') >= 0,
+  show: (oldVersion, newVersion) => compareVersions(oldVersion, '8.0.0') < 0 && compareVersions(newVersion, '8.0.0') >= 0,
   extratext: {
-    zh_CN: '你现在可以修改css自定义外观！',
-    en_US: 'You can now change the appearence by CustomCSS!'
+    zh_CN: 'Drop support of non ES6 browsers',
+    en_US: 'Drop support of non ES6 browsers'
   }
 };
 
