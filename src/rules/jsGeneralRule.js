@@ -22,7 +22,9 @@ export const jsGeneralRule = [
       startFilter: function startFilter(doc) {
         try {
           doc.querySelector('tr[onmouseover]').remove();
-        } catch (_err) {}
+        } catch (err) {
+          console.error(err);
+        }
         var trs = doc.querySelectorAll('#ajaxtable .tr3');
 
         if (trs.length > 0) {
@@ -240,6 +242,7 @@ export const jsGeneralRule = [
         try {
           return getAllElementsByXpath("//article[@class='post'] | //div[@class='blog-post']", doc, doc);
         } catch (error) {
+          console.error(error);
           return null;
         }
       },

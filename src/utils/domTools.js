@@ -2,7 +2,6 @@
  * Set multiple attributes of a dom element
  * @param {object} el dom element
  * @param {object} attr dom attributes
- * @returns {null} null
  */
 export function setMultipleAttributes(el, attr) {
   for (const [key, val] of Object.entries(attr)) {

@@ -93,6 +93,7 @@ function normalizeArguments(options, thisDefaults = defaults) {
         options.prefixUrl += '/';
       }
     } catch (error) {
+      logger.error(`[Super-preloader] [got] prefixUrl: ${options.prefixUrl} error: ${error}`);
       delete options.prefixUrl;
     }
   } else if (options.url[0] === '/') {

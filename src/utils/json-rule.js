@@ -9,9 +9,9 @@ class RuleProvider {
   /**
    * Constructor of a rule provider
    * @param {string} name Identifier of rule provider
-   * @param {array} url URL to fetch rule
+   * @param {Array} url URL to fetch rule
    * @param {string} detailUrl URL to fetch rule detail
-   * @param {function} ruleParser parser to parse axios response
+   * @param {Function} ruleParser parser to parse axios response
    */
   constructor(name, url, detailUrl, ruleParser = null) {
     this.name = name;
@@ -35,14 +35,13 @@ class RuleProvider {
 
   /**
    * Download rule and return the rule
-   * @returns {array} rule
+   * @returns {Array} rule
    */
   async downloadRule() {
     let rule = [];
     let e = null;
     for (const url of this.url) {
       try {
-        // eslint-disable-next-line no-await-in-loop
         const res = await got.get(url);
         rule = this.ruleParser(res);
         logger.info(`[DownloadRule] ${this.name} from ${url} [Status] Success`);
@@ -63,7 +62,7 @@ class RuleProvider {
   /**
    * Update rule
    * @param {object} lastUpdate Date
-   * @returns {array} rule
+   * @returns {Array} rule
    */
   async updateRule(lastUpdate) {
     let res = null;

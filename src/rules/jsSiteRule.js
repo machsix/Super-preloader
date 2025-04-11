@@ -1,3 +1,4 @@
+/* eslint-disable no-new-func */
 //@ts-check
 ///<reference path="../index.d.ts"/>
 import {getAllElementsByXpath, getElementByXpath} from '../utils/domSelector.js';
@@ -80,9 +81,11 @@ export const jsSiteRule = [
         const x = doc.evaluate('//script/text()[contains(self::text(), "setImagesSrc")]', doc, null, 9, null).singleNodeValue;
         if (x) {
           try {
-            //@ts-ignore
+            // @ts-ignore
             new Function('document', 'window', 'google', x.nodeValue)(doc, unsafeWindow, unsafeWindow.google);
-          } catch (e) {}
+          } catch (err) {
+            console.log('Error in setImagesSrc: ', err);
+          }
         }
         // Fix images
         // add horizontal flexibly first
@@ -174,7 +177,9 @@ export const jsSiteRule = [
             const className = elem.className;
             elem.setAttribute('class', className.replace('fr-mobile-hide', '').replace('fr-tablet-hide', ''));
           }
-        } catch (ex) {}
+        } catch (error) {
+          console.error(error);
+        }
       }
     }
   },
@@ -282,7 +287,9 @@ export const jsSiteRule = [
         // 设置百度搜索类型为 s?wd=
         try {
           win.document.cookie = 'ISSW=1';
-        } catch (ex) {}
+        } catch (error) {
+          console.error(error);
+        }
       },
       filter: function (_pageElements) {
         ['c-img-border', 'c-img-radius-large'].forEach((style) => {
@@ -310,7 +317,9 @@ export const jsSiteRule = [
           for (const s of scripts) {
             try {
               new Function(s.innerText)();
-            } catch (e) {}
+            } catch (error) {
+              console.error(error);
+            }
           }
         }
       }
@@ -1360,7 +1369,7 @@ export const jsSiteRule = [
     nextLink: 'css;.pagination-zan li:last-child a',
     pageElement: 'css;#article-list',
     /**
-     * @callback
+     * callback
      * @description 一个作用预读内容 element 的 js 函数，执行于预读内容被插入到当前页面后。
      * @param {HTMLElement[]} pageElements 页面元素
      * @returns {void}
@@ -1372,7 +1381,6 @@ export const jsSiteRule = [
         return;
       }
       let firstFlag = true;
-      // eslint-disable-next-line valid-jsdoc
       /**@type {IntersectionObserverCallback} */
       const intersectionCallback = (entries) => {
         // 第一次进入不执行

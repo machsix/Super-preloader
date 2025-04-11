@@ -1,7 +1,6 @@
 /**
  * Waits for an element satisfying selector to exist, then resolves promise with the element.
  * Useful for resolving race conditions.
- *
  * @param {object} element dom element
  * @param {string} type type of observer
  * @returns {Promise} promise when observed

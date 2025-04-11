@@ -33,12 +33,14 @@ function reviver(_key, val) {
       case magicKey.null:
         return null;
       case magicKey.function:
+        // eslint-disable-next-line no-new-func
         return new Function(`return ${val.slice(1)}`)();
       default:
         return val;
     }
   } catch (error) {
     // CSP rule may block new Function
+    console.error('Error parsing function:', error);
     return null;
   }
 }

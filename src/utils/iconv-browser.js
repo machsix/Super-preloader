@@ -10,7 +10,7 @@
 /**
  * Arraybuffer -> Hex
  * @param {ArrayBuffer} buffer The bytes in an ArrayBuffer.
- * @returns {array} hex representation of bytes
+ * @returns {Array} hex representation of bytes
  */
 function buf2hex(buffer) {
   // buffer is an ArrayBuffer
@@ -19,9 +19,8 @@ function buf2hex(buffer) {
 
 /**
  * Hex -> Arraybuffer
- *
- * @param {string/array} text hex representation of bytes
- * @return {ArrayBuffer} The bytes in an ArrayBuffer.
+ * @param {string | Array} text hex representation of bytes
+ * @returns {ArrayBuffer} The bytes in an ArrayBuffer.
  */
 function hex2buf(text) {
   let hexString = text;
@@ -59,7 +58,7 @@ export function encode(text) {
 /**
  *
  * @param {string} text string to encode
- * @returns {array} array of hex value for the corresponding arraybuffer
+ * @returns {Array} array of hex value for the corresponding arraybuffer
  */
 export function encodeHex(text) {
   return buf2hex(encode(text));

@@ -33,6 +33,7 @@ export function getElementByXpath(xpath, contextNode, doc = document) {
     //@ts-ignore should always return an element node
     return result.singleNodeValue && result.singleNodeValue.nodeType === 1 && result.singleNodeValue;
   } catch (err) {
+    console.error(err);
     throw new Error(`Invalid xpath: ${xpath}`);
   }
 }
@@ -52,13 +53,13 @@ export function getAllElementsByXpath(xpath, contextNode, doc = document) {
     for (let i = 0; i < query.snapshotLength; i++) {
       const node = query.snapshotItem(i);
       //if node is an element node
-      if (node.nodeType === 1) result.push(node);
+      if (node.nodeType === 1 && node instanceof HTMLElement) result.push(node);
     }
   } catch (err) {
+    console.error(err);
     throw new Error(`Invalid xpath: ${xpath}`);
   }
-  //@ts-ignore
-  return result;
+  return result.filter((node) => node instanceof HTMLElement);
 }
 
 /**

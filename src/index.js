@@ -1,6 +1,5 @@
 //@ts-check
 /* eslint-disable no-unused-vars */
-/* eslint-disable no-empty */
 
 // import "core-js";
 // import "regenerator-runtime/runtime";
@@ -349,7 +348,7 @@ import notice from './utils/notice.js';
 
   // ------------------------下面的不要管他-----------------
   /// ////////////////////////////////////////////////////////////////
-  // eslint-disable-next-line prettier/prettier
+
   Promise.all([loadSettings(), getServerIp(location.hostname)])
     .then(function ([values, serverIp]) {
       let {jsonRule} = values;
@@ -569,7 +568,6 @@ import notice from './utils/notice.js';
        */
       function init(window, document) {
         const startTime = new Date();
-        // eslint-disable-next-line valid-jsdoc
         /**@type {(...rest:any[])=>void} */
         const nullFn = function () {}; // 空函数.
         const url = document.location.href.replace(/#.*$/, ''); // url 去掉hash
@@ -606,7 +604,7 @@ import notice from './utils/notice.js';
            *
            * @param {string} id id
            * @returns {HTMLInputElement} return
-           * */
+           */
           function $(id) {
             //@ts-ignore
             return document.getElementById(id);
@@ -1536,7 +1534,7 @@ import notice from './utils/notice.js';
             // 提前查找下一页链接，后面再赋值
             const lastUrl = cplink;
             cplink = String(nextlink);
-            /** @type {HTMLElement | String} */
+            /** @type {HTMLElement | string} */
             const nl = getElement(SSS.nextLink, undefined, doc, win);
             if (nl) {
               if (nl === nextlinkElem) {
@@ -2436,10 +2434,10 @@ import notice from './utils/notice.js';
          *
          * @param {Document=} doc document
          * @param {Window=} win window
-         * @returns {HTMLElement} a
+         * @returns {HTMLElement|null} a
          */
         function autoGetLink(doc, win) {
-          if (!autoMatch.keyMatch) return;
+          if (!autoMatch.keyMatch) return null;
           //@ts-ignore
           if (!parseKWRE.done) {
             parseKWRE();
@@ -2891,7 +2889,7 @@ import notice from './utils/notice.js';
       if (index == -1) {
         _cplink = getHref(_cplink);
         index = _cplink.indexOf(sa);
-        if (index == -1) return;
+        if (index == -1) return null;
       }
     } else {
       const tsa = _cplink.match(sa);
@@ -2925,6 +2923,7 @@ import notice from './utils/notice.js';
       if (ilresult) return;
       return aStr + nbStr;
     }
+    return null;
   }
 
   // ====================  functions  ==============================
@@ -2945,7 +2944,7 @@ import notice from './utils/notice.js';
   /**
    *
    * @param {HTMLDocument} doc Document Fragment
-   * @param {String} scriptFilter Regex string
+   * @param {string} scriptFilter Regex string
    * @description Remove scripts node from doc
    * @returns {void}
    */
@@ -2991,7 +2990,7 @@ import notice from './utils/notice.js';
     // string转为DOM
     if (!str) {
       logger.error('No string found to be converted to DOM');
-      return;
+      return null;
     }
     if (document.documentElement.nodeName != 'HTML') {
       return new DOMParser().parseFromString(str, 'application/xhtml+xml');
@@ -3082,7 +3081,7 @@ import notice from './utils/notice.js';
   /**
    * Get next page link from an element
    * @param {string | HTMLElement} elem nextlink element
-   * @returns {String} link of next page
+   * @returns {string} link of next page
    */
   function elemToHref(elem) {
     if (!elem) return undefined;

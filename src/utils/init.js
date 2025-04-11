@@ -192,6 +192,7 @@ export async function getServerIp(hostname) {
     }
     return '127.0.0.1';
   } catch (error) {
+    logger.error('Error fetching DNS:', error);
     return '127.0.0.1';
   }
 }
@@ -293,6 +294,7 @@ export function getLocalStorage(key = 'spfwset', fallback = null) {
   try {
     return JSONE.parse(valStr) || fallback;
   } catch (err) {
+    console.error('Error parsing localStorage value:', err);
     // compatability with old version
     const val = JSONE.parse(decodeURIComponent(valStr)) || fallback;
     setLocalStorage(val, key);
