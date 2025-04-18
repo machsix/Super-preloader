@@ -1,3 +1,4 @@
+/* eslint-disable jsdoc/require-jsdoc */
 //@ts-check
 /* eslint-disable no-unused-vars */
 
@@ -350,6 +351,7 @@ import notice from './utils/notice.js';
   /// ////////////////////////////////////////////////////////////////
 
   Promise.all([loadSettings(), getServerIp(location.hostname)])
+    // @ts-ignore
     .then(function ([values, serverIp]) {
       let {jsonRule} = values;
       const {prefs, SITEINFO_D, autoMatch, version, blackList} = values;
@@ -542,7 +544,6 @@ import notice from './utils/notice.js';
           const loadCustomSiteInfo = function () {
             let userRules;
             try {
-              // eslint-disable-next-line no-new-func
               userRules = new Function('', 'return ' + prefs.custom_siteinfo)();
             } catch (e) {
               logger.error('Custom site rule error:', prefs.custom_siteinfo);
@@ -573,7 +574,7 @@ import notice from './utils/notice.js';
         const url = document.location.href.replace(/#.*$/, ''); // url 去掉hash
         var cplink = url; // 翻上来的最近的页面的url;
         const domain = document.domain; // 取得域名.
-        const domain_port = url.match(/https?:\/\/([^\/]+)/)[1]; // 端口和域名,用来验证是否跨域.
+        const domain_port = url.match(/https?:\/\/([^/]+)/)[1]; // 端口和域名,用来验证是否跨域.
 
         // 新加的，以示区别
         const remove = []; // 需要移除的事件
@@ -2506,7 +2507,7 @@ import notice from './utils/notice.js';
             ahref = _getFullHref(ahref); // 从相对路径获取完全的href;
 
             // 3个条件:http协议链接,非跳到当前页面的链接,非跨域
-            if (/^https?:/i.test(ahref) && ahref.replace(/#.*$/, '') != curLHref && ahref.match(/https?:\/\/([^\/]+)/)[1] == _domain_port) {
+            if (/^https?:/i.test(ahref) && ahref.replace(/#.*$/, '') != curLHref && ahref.match(/https?:\/\/([^/]+)/)[1] == _domain_port) {
               logger.debug(type == 'pre' ? 'previous' : 'next' + 'match:', atext);
               return a; // 返回对象A
               // return ahref;
@@ -2725,9 +2726,9 @@ import notice from './utils/notice.js';
             return [0, 0];
           }
 
-          const lasturlarray = lasturl.split(/-|\.|\&|\/|=|#|\?/);
+          const lasturlarray = lasturl.split(/-|\.|&|\/|=|#|\?/);
 
-          const urlarray = url.split(/-|\.|\&|\/|=|#|\?/);
+          const urlarray = url.split(/-|\.|&|\/|=|#|\?/);
 
           var url_info;
 
@@ -2962,7 +2963,7 @@ import notice from './utils/notice.js';
       scripts_x = scripts[i];
       var iremove = false;
       if (regFilter) {
-        if (scripts_x.hasOwnProperty('src')) {
+        if (Object.prototype.hasOwnProperty.call(scripts_x, 'src')) {
           if (!regFilter.test(scripts_x.src)) {
             iremove = true;
           }
@@ -3088,7 +3089,6 @@ import notice from './utils/notice.js';
     if (typeof elem === 'string' || elem.hasAttribute('href')) {
       return getFullHref(elem);
     } else {
-      // eslint-disable-next-line no-script-url
       return 'javascript:void(0);'; // pseudo href
     }
   }

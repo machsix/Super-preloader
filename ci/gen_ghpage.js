@@ -1,6 +1,4 @@
 #!/usr/bin/env node
-/* eslint-disable no-process-env */
-
 import {execSync} from 'child_process';
 import {existsSync, copyFileSync, createWriteStream} from 'fs';
 import fs from 'node:fs/promises';

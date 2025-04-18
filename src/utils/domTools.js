@@ -19,11 +19,11 @@ export function setMultipleAttributes(el, attr) {
 export function createDOM(type, conf, doc = document) {
   const e = doc.createElement(type);
 
-  if (conf.hasOwnProperty('attr')) {
+  if (Object.prototype.hasOwnProperty.call(conf, 'attr')) {
     setMultipleAttributes(e, conf.attr);
   }
 
-  if (conf.hasOwnProperty('innerHTML')) {
+  if (Object.prototype.hasOwnProperty.call(conf, 'innerHTML')) {
     e.innerHTML = conf.innerHTML;
   }
 

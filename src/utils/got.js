@@ -109,7 +109,7 @@ function normalizeArguments(options, thisDefaults = defaults) {
   }
 
   // `options.html` and `options.encoding`
-  if (options.hasOwnProperty('html')) {
+  if (Object.prototype.hasOwnProperty.call(options, 'html')) {
     if (options.html) {
       options.binary = false;
     }
@@ -149,7 +149,7 @@ function normalizeArguments(options, thisDefaults = defaults) {
       options.cookie = document.cookie;
     }
     if (_.isString(options.cookie)) {
-      if (options.hasOwnProperty('headers')) {
+      if (Object.prototype.hasOwnProperty.call(options, 'headers')) {
         options.headers.cookie = options.cookie;
       } else {
         options.headers = {cookie: options.cookie};
@@ -295,7 +295,6 @@ function create(thisDefaults) {
   };
 
   request.defaults = {};
-  // eslint-disable-next-line guard-for-in
   for (const key in defaults) {
     request.defaults[key] = isNullOrUndefined(thisDefaults[key]) ? defaults[key] : thisDefaults[key];
   }

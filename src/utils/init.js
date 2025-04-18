@@ -159,11 +159,20 @@ function mergeProperty(oldProp, newProp) {
   return hasDifferency;
 }
 
+/**
+ * Resets the settings to their factory defaults and saves them using GM storage.
+ * @returns {Promise<void>} A promise that resolves when the settings are reset.
+ */
 export async function resetSettings() {
   logger.info('settings are reset');
   await Promise.all(settingsKeys.map((key) => GM.setValue(key, factorySettings[key])));
 }
 
+/**
+ * Saves the provided settings values to GM storage.
+ * @param {object} values - The settings values to save.
+ * @returns {Promise<void>} A promise that resolves when the settings are saved.
+ */
 export async function saveSettings(values) {
   await Promise.all(
     Object.keys(values)
@@ -172,6 +181,11 @@ export async function saveSettings(values) {
   );
 }
 
+/**
+ * Fetches the IPv4 address of a given hostname using a DNS-over-HTTPS query.
+ * @param {string} hostname - The hostname to resolve to an IP address.
+ * @returns {Promise<string>} A promise that resolves to the IPv4 address or '127.0.0.1' on error.
+ */
 export async function getServerIp(hostname) {
   const ipv4Regex = /^(\d{1,3}\.){3}\d{1,3}$/;
   try {
@@ -197,6 +211,10 @@ export async function getServerIp(hostname) {
   }
 }
 
+/**
+ * Loads the settings from GM storage, merges them with factory defaults, and performs necessary updates.
+ * @returns {Promise<object>} A promise that resolves to the loaded settings, including jsonRule and blackList.
+ */
 export async function loadSettings() {
   const values = await Promise.all(settingsKeys.map((key) => GM.getValue(key, factorySettings[key])));
   settingsKeys.forEach((x, i) => {
@@ -289,6 +307,13 @@ export async function loadSettings() {
 let domainSettings = [];
 let localSettingIndex = -1;
 
+/**
+ * Retrieves a value from localStorage and parses it as JSON.
+ * If parsing fails or the key does not exist, returns the provided fallback value.
+ * @param {string} [key] - The key to retrieve from localStorage.
+ * @param {*} [fallback] - The fallback value to return if the key does not exist or parsing fails.
+ * @returns {*} The parsed value from localStorage or the fallback value.
+ */
 export function getLocalStorage(key = 'spfwset', fallback = null) {
   const valStr = localStorage.getItem(key);
   try {
@@ -302,6 +327,11 @@ export function getLocalStorage(key = 'spfwset', fallback = null) {
   }
 }
 
+/**
+ * Saves a value to localStorage after stringifying it.
+ * @param {*} val - The value to save in localStorage.
+ * @param {string} [key] - The key under which the value will be stored.
+ */
 export function setLocalStorage(val, key = 'spfwset') {
   localStorage.setItem(key, JSONE.stringify(val));
 }
@@ -331,6 +361,12 @@ export function loadLocalSetting(pageSetting) {
   return pageSetting;
 }
 
+/**
+ * Saves the local settings for a specific domain or page.
+ * If no existing settings are found, it adds a new entry.
+ * @param {object} localSetting - The local settings object to save.
+ * @returns {object[]} The updated list of domain settings.
+ */
 export function saveLocalSetting(localSetting) {
   if (domainSettings.length === 0 || localSettingIndex === -1) {
     // no local setting or no suitable local setting

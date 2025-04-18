@@ -71,7 +71,7 @@ export const jsGeneralRule = [
   },
   {
     name: 'Discuz 论坛 - 导读',
-    url: /^https?:\/\/(?:bbs|u)\.[^\/]+\/(?:forum\.php\?mod=guide|home\.php\?mod=space)/i,
+    url: /^https?:\/\/(?:bbs|u)\.[^/]+\/(?:forum\.php\?mod=guide|home\.php\?mod=space)/i,
     preLink: '//div[@class="pages" or @class="pg"]/descendant::a[@class="prev"][@href]',
     nextLink: '//div[@class="pages" or @class="pg"]/descendant::a[@class="next" or @class="nxt"][@href]',
     autopager: {
@@ -81,7 +81,7 @@ export const jsGeneralRule = [
   },
   {
     name: 'Discuz论坛列表',
-    url: /^https?:\/\/(?:www\.[^\/]+\/|[^\/]+\/(?:bbs\/)?)(?:2b\/)?(?:(?:forum)|(?:showforum)|(?:viewforum)|(?:forumdisplay))+/i,
+    url: /^https?:\/\/(?:www\.[^/]+\/|[^/]+\/(?:bbs\/)?)(?:2b\/)?(?:(?:forum)|(?:showforum)|(?:viewforum)|(?:forumdisplay))+/i,
     preLink: '//div[@class="pages" or @class="pg"]/descendant::a[@class="prev"][@href]',
     nextLink: '//div[@class="pages" or @class="pg"]/descendant::a[@class="next" or @class="nxt"][@href] | //div[@class="p_bar"]/a[@class="p_curpage"]/following-sibling::a[@class="p_num"]',
     autopager: {
@@ -92,7 +92,7 @@ export const jsGeneralRule = [
   },
   {
     name: 'Discuz论坛帖子',
-    url: /^https?:\/\/(?:www\.[^\/]+\/|[^\/]+\/(?:bbs\/)?)(?:2b\/)?(?:(?:thread)|(?:viewthread)|(?:showtopic)|(?:viewtopic))+/i,
+    url: /^https?:\/\/(?:www\.[^/]+\/|[^/]+\/(?:bbs\/)?)(?:2b\/)?(?:(?:thread)|(?:viewthread)|(?:showtopic)|(?:viewtopic))+/i,
     preLink: '//div[@class="pages" or @class="pg"]/descendant::a[@class="prev"][@href]',
     nextLink: '//div[@class="pages" or @class="pg"]/descendant::a[@class="next" or @class="nxt"][@href] | //div[@class="p_bar"]/descendant::a[text()="??"]',
     autopager: {
@@ -126,7 +126,7 @@ export const jsGeneralRule = [
   },
   {
     name: 'phpWind论坛列表',
-    url: /^https?:\/\/(?:www\.[^\/]+\/|[^\/]+\/(?:bbs\/)?)?thread/i,
+    url: /^https?:\/\/(?:www\.[^/]+\/|[^/]+\/(?:bbs\/)?)?thread/i,
     preLink: '//div[starts-with(@class,"pages")]/b[1]/preceding-sibling::a[1][not(@class)][@href] | //div[starts-with(@class,"pages")]/ul[1]/li[b]/preceding-sibling::li/a[1][not(@class)][@href]',
     nextLink: '//div[starts-with(@class,"pages")]/b[1]/following-sibling::a[1][not(@class)] | //div[starts-with(@class,"pages")]/ul[1]/li[b]/following-sibling::li/a[1][not(@class)]',
     autopager: {
@@ -135,7 +135,7 @@ export const jsGeneralRule = [
   },
   {
     name: 'phpWind论坛帖子',
-    url: /^https?:\/\/(?:www\.[^\/]+\/|[^\/]+\/(?:bbs\/)?)?read/i,
+    url: /^https?:\/\/(?:www\.[^/]+\/|[^/]+\/(?:bbs\/)?)?read/i,
     preLink: '//div[starts-with(@class,"pages")]/b[1]/preceding-sibling::a[1][not(@class)][@href] | //div[starts-with(@class,"pages")]/ul[1]/li[b]/preceding-sibling::li/a[1][not(@class)][@href]',
     nextLink: '//div[starts-with(@class,"pages")]/b[1]/following-sibling::a[1][not(@class)] | //div[starts-with(@class,"pages")]/ul[1]/li[b]/following-sibling::li/a[1][not(@class)]',
     autopager: {
@@ -144,7 +144,7 @@ export const jsGeneralRule = [
   },
   {
     name: 'phpBB列表',
-    url: /^https?:\/\/[^\/]+(\/[a-z,0-9]+)?\/viewforum/i,
+    url: /^https?:\/\/[^/]+(\/[a-z,0-9]+)?\/viewforum/i,
     exampleUrl: 'http://www.firefox.net.cn/forum/viewforum.php?f=4',
     nextLink: 'auto;',
     autopager: {
@@ -155,7 +155,7 @@ export const jsGeneralRule = [
   },
   {
     name: 'phpBB帖子',
-    url: /^https?:\/\/[^\/]+(\/[a-z,0-9]+)?\/viewtopic/i,
+    url: /^https?:\/\/[^/]+(\/[a-z,0-9]+)?\/viewtopic/i,
     exampleUrl: 'http://www.firefox.net.cn/forum/viewtopic.php?t=34339',
     nextLink: 'auto;',
     autopager: {
@@ -166,7 +166,7 @@ export const jsGeneralRule = [
   },
   {
     name: 'phpBB Search',
-    url: /^https?:\/\/forum\.[^\/]+\/search\.php/i,
+    url: /^https?:\/\/forum\.[^/]+\/search\.php/i,
     exampleUrl: 'http://forum.everedit.net/search.php?keywords=%E5%A4%A7%E7%BA%B2',
     nextLink: 'auto;',
     autopager: {
@@ -260,7 +260,7 @@ export const jsGeneralRule = [
     name: 'WordPress',
     url: '^https?://[^/]+(/page/\\d+)?',
     nextLink: function (_doc, _win, _cplink) {
-      const cplink = _cplink.replace(/^(.*)(#[^\/]*)?$/, '$1');
+      const cplink = _cplink.replace(/^(.*)(#[^/]*)?$/, '$1');
       if (cplink.slice(cplink.length - 5, cplink.length) === '.html') {
         return undefined;
       }

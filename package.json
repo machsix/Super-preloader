@@ -54,7 +54,7 @@
     "@babel/preset-env": "7.26.9",
     "@eslint/eslintrc": "^3.3.1",
     "@eslint/js": "^9.24.0",
-    "@eslint/markdown": "^6.3.0",
+    "@eslint/markdown": "^6.4.0",
     "@rollup/plugin-babel": "6.0.4",
     "@rollup/plugin-commonjs": "^28.0.3",
     "@rollup/plugin-json": "^6.1.0",
@@ -83,13 +83,13 @@
     "vue": "^3.4.27"
   },
   "dependencies": {
-    "compare-versions": "6.1.0",
+    "compare-versions": "6.1.1",
     "cross-env": "7.0.3",
     "displacejs": "github:machsix/displace#v1.4.0",
     "extract-zip": "2.0.1",
     "husky": "9.0.11",
     "lint-staged": "15.2.5",
-    "loglevel": "1.9.1"
+    "loglevel": "1.9.2"
   },
   "pnpm": {
     "overrides": {

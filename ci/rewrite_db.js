@@ -4,6 +4,12 @@ import gitLog from './git-log.js';
 import path from 'path';
 // import yargs from 'yargs';
 
+/**
+ * Rewrites the database JSON file with formatted data and additional metadata.
+ * @param {string} jsonFilePath - The path to the JSON file to be rewritten.
+ * @param {boolean} mandatoryUpdate - Whether to force an update of the last update date.
+ * @param {boolean} readable - Whether to format the output JSON for readability.
+ */
 async function rewriteDatabase(jsonFilePath, mandatoryUpdate, readable) {
   // 1. Filename
   const jsonFile = path.basename(jsonFilePath);

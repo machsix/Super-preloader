@@ -1,4 +1,3 @@
-/* eslint-disable no-new-func */
 //@ts-check
 ///<reference path="../index.d.ts"/>
 import {getAllElementsByXpath, getElementByXpath} from '../utils/domSelector.js';
@@ -1266,7 +1265,7 @@ export const jsSiteRule = [
   },
   {
     name: 'sis001.com',
-    url: /^https?:\/\/(\w+\.)?sis001\.com\/forum\/(forum|thread)[0-9\-]+\.html/i,
+    url: /^https?:\/\/(\w+\.)?sis001\.com\/forum\/(forum|thread)[0-9-]+\.html/i,
     exampleUrl: 'https://www.sis001.com/forum/forum-230-1.html',
     nextLink: '//div[@class="pages_btns"]//a[@class="next"]',
     autopager: {
@@ -1418,6 +1417,11 @@ export const jsSiteRule = [
   }
 ];
 
+/**
+ * Extracts the protocol and domain from a given URL.
+ * @param {string} cplink - The complete URL string.
+ * @returns {string} The protocol and domain part of the URL.
+ */
 function getDomain(cplink) {
   // Get [PROTOCOL]://[DOMAIN]
   var a = getAllIndexes(cplink, '/');
@@ -1428,6 +1432,12 @@ function getDomain(cplink) {
   }
 }
 
+/**
+ * Finds all indexes of a specified value in an array.
+ * @param {string} arr - The array to search.
+ * @param {string} val - The value to find in the array.
+ * @returns {Array<number>} An array of indexes where the value is found.
+ */
 function getAllIndexes(arr, val) {
   var indexes = [];
   var i = -1;

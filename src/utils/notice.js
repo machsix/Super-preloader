@@ -1,6 +1,11 @@
 import {createDOM} from './domTools.js';
 export let noticeDiv, noticeDivto, noticeDivto2;
 
+/**
+ * Displays a notification with the specified HTML content and duration.
+ * @param {string} html_txt - The HTML content to display in the notification.
+ * @param {number} [showTime] - The duration (in milliseconds) to show the notification. Defaults to 1666 ms.
+ */
 export default function notice(html_txt, showTime) {
   if (!noticeDiv) {
     const div = createDOM('div', {

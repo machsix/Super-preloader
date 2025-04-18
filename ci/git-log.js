@@ -1,6 +1,13 @@
 import path from 'path';
 import {spawnSync} from 'child_process';
 
+/**
+ * Generates a JSON representation of the git log for a repository.
+ * @param {object} obj - Configuration object for the git log.
+ * @param {string} [repoDir] - The directory of the git repository.
+ * @param {string} [magicKey] - A unique string used to split log entries.
+ * @returns {object[]} - An array of commit information objects.
+ */
 export default function (obj, repoDir, magicKey) {
   const args = ['log'];
   magicKey = magicKey || '^^';
@@ -16,15 +23,15 @@ export default function (obj, repoDir, magicKey) {
   };
 
   if (obj) {
-    if (obj.hasOwnProperty('nCommit')) {
+    if (Object.prototype.hasOwnProperty.call(obj, 'nCommit')) {
       args.push(`-${obj.nCommit}`);
     }
 
-    if (obj.hasOwnProperty('logFormat')) {
+    if (Object.prototype.hasOwnProperty.call(obj, 'logFormat')) {
       logFormat = obj.logFormat;
     }
 
-    if (obj.hasOwnProperty('repoDir')) {
+    if (Object.prototype.hasOwnProperty.call(obj, 'repoDir')) {
       repoDir = obj.repoDir;
     }
   }
@@ -41,7 +48,7 @@ export default function (obj, repoDir, magicKey) {
 
   args.push('HEAD');
   if (obj) {
-    if (obj.hasOwnProperty('fileList')) {
+    if (Object.prototype.hasOwnProperty.call(obj, 'fileList')) {
       args.push('--');
       obj.fileList.forEach((x) => {
         args.push(x);
