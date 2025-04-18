@@ -1,7 +1,7 @@
 import {defineConfig} from 'eslint/config';
 import globals from 'globals';
 import js from '@eslint/js';
-import json from '@eslint/json';
+import json from 'eslint-plugin-json';
 import markdown from '@eslint/markdown';
 import eslintConfigPrettier from 'eslint-config-prettier/flat';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
@@ -14,20 +14,21 @@ export default defineConfig([
   },
   {
     files: ['**/*.json'],
-    plugins: {
-      json
-    },
+    plugins: {json},
+    processor: 'json/json',
     ignores: ['package-lock.json', 'babel.config.json'],
-    language: 'json/json',
-    ...json.configs.recommended
+    rules: {
+      'json/*': ['error', {allowComments: false}],
+      'json/invalid-escape-character': ['error']
+    }
   },
   {
     files: ['babel.config.json'],
-    plugins: {
-      json
-    },
-    language: 'json/json5',
-    ...json.configs.recommended
+    plugins: {json},
+    processor: 'json/json',
+    rules: {
+      'json/*': ['error', {allowComments: true}]
+    }
   },
   {
     files: ['**/*.md'],
