@@ -3,17 +3,30 @@ import globals from 'globals';
 import js from '@eslint/js';
 import json from 'eslint-plugin-json';
 import markdown from '@eslint/markdown';
-import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
+import prettier from 'eslint-plugin-prettier';
+import {FlatCompat} from '@eslint/eslintrc';
+// import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 import jsdoc from 'eslint-plugin-jsdoc';
 
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const compat = new FlatCompat({
+  baseDirectory: __dirname,
+  recommendedConfig: js.configs.recommended
+});
+
 export default defineConfig([
+  ...compat.extends('eslint:recommended', 'plugin:prettier/recommended'),
   {
     ...jsdoc.configs['flat/recommended-typescript-flavor'],
     ignores: ['**/*.json', '**/*.md']
   },
   {
     files: ['**/*.json'],
-    plugins: {json},
+    plugins: {json, prettier},
     processor: 'json/json',
     ignores: ['package-lock.json', 'babel.config.json'],
     rules: {
@@ -45,6 +58,7 @@ export default defineConfig([
     ignores: ['src/meta.js'],
     plugins: {
       jsdoc,
+      prettier,
       js
     },
 
@@ -55,8 +69,8 @@ export default defineConfig([
         ...globals.node
       },
 
-      ecmaVersion: 9,
-      sourceType: 'module'
+      ecmaVersion: 2022, // Ensure ECMAScript version supports ES modules
+      sourceType: 'module' // Explicitly set source type to 'module'
     },
     rules: {
       'no-empty': [2, {allowEmptyCatch: true}],
@@ -68,6 +82,5 @@ export default defineConfig([
         }
       ]
     }
-  },
-  eslintPluginPrettierRecommended
+  }
 ]);

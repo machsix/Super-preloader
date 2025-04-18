@@ -11,7 +11,7 @@
 // @thanksto     ywzhaiqi, NLF
 // @version      8.0.0
 // @license      GPL-3.0
-// @update       2025/4/11
+// @update       2025/4/18
 // @homepageURL  https://github.com/machsix/Super-preloader
 // @downloadURL  https://machsix.github.io/Super-preloader/Super_preloaderPlus_one_New.user.js
 // @updateURL    https://machsix.github.io/Super-preloader/Super_preloaderPlus_one_New.user.js
@@ -4577,8 +4577,14 @@
 
 	var _wcImport = "#sp-fw-container {\n  z-index: 999999 !important;\n  text-align: left !important;\n}\n@media print {\n  #sp-fw-container {\n    display: none;\n  }\n}\n\n#sp-fw-container * {\n  font-size: 13px !important;\n  color: black !important;\n  float: none !important;\n  line-height: 13px !important;\n  width: auto;\n}\n\n#sp-fw-main-head {\n  position: relative !important;\n  top: 0 !important;\n  left: 0 !important;\n}\n\n#sp-fw-span-info {\n  position: absolute !important;\n  right: 1px !important;\n  top: 0 !important;\n  font-size: 11px !important;\n  line-height: 11px !important;\n  background: none !important;\n  font-style: italic !important;\n  color: #5a5a5a !important;\n  text-shadow: white 0px 1px 1px !important;\n}\n\n#sp-fw-main select {\n  background: white;\n  height: auto;\n}\n\n#sp-fw-container input {\n  vertical-align: middle !important;\n  display: inline-block !important;\n  outline: none !important;\n  padding: 0px !important;\n  margin: 0 !important;\n  margin-right: 3px !important;\n  background: white;\n  border: 1px solid gray;\n  cursor: pointer !important;\n  height: auto;\n}\n\n#sp-fw-container input[type=number] {\n  width: 6ch !important;\n  text-align: left !important;\n  margin: 0 3px !important;\n}\n\n#sp-fw-container input[type=number]:hover::-webkit-inner-spin-button {\n  height: 60px;\n}\n\n#sp-fw-container input[type=checkbox] {\n  position: static !important;\n}\n\n#sp-fw-container input[type=button] {\n  width: auto !important;\n  height: auto !important;\n}\n\n#sp-fw-container li {\n  list-style: none !important;\n  margin: 3px 0 !important;\n  border: none !important;\n  float: none !important;\n}\n\n#sp-fw-container fieldset {\n  border: 2px groove #ccc !important;\n  -moz-border-radius: 3px !important;\n  border-radius: 3px !important;\n  padding: 4px 9px 6px 9px !important;\n  margin: 2px !important;\n  display: block !important;\n  width: auto !important;\n  height: auto !important;\n}\n\n#sp-fw-container legend {\n  line-height: 20px !important;\n  margin-bottom: 0px !important;\n}\n\n#sp-fw-container fieldset > ul {\n  padding: 0 !important;\n  margin: 0 !important;\n}\n\n#sp-fw-container ul#sp-fw-a_useiframe-extend {\n  padding-left: 40px !important;\n}\n\n#sp-fw-rect {\n  position: relative !important;\n  top: 0 !important;\n  left: 0 !important;\n  float: right !important;\n  height: 10px !important;\n  width: 10px !important;\n  padding: 0 !important;\n  margin: 0 !important;\n  -moz-border-radius: 3px !important;\n  border-radius: 3px !important;\n  border: 1px solid white !important;\n  -webkit-box-shadow: inset 0 5px 0 rgba(255, 255, 255, 0.3), 0 0 3px rgba(0, 0, 0, 0.8) !important;\n  -moz-box-shadow: inset 0 5px 0 rgba(255, 255, 255, 0.3), 0 0 3px rgba(0, 0, 0, 0.8) !important;\n  box-shadow: inset 0 5px 0 rgba(255, 255, 255, 0.3), 0 0 3px rgba(0, 0, 0, 0.8) !important;\n  opacity: 0.8 !important;\n}\n\n#sp-fw-dot,\n#sp-fw-cur-mode {\n  position: absolute !important;\n  z-index: 9999 !important;\n  width: 5px !important;\n  height: 5px !important;\n  padding: 0 !important;\n  -moz-border-radius: 3px !important;\n  border-radius: 3px !important;\n  border: 1px solid white !important;\n  opacity: 1 !important;\n  -webkit-box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.3), inset 0 2px 1px rgba(255, 255, 255, 0.3), 0px 1px 2px rgba(0, 0, 0, 0.9) !important;\n  -moz-box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.3), inset 0 2px 1px rgba(255, 255, 255, 0.3), 0px 1px 2px rgba(0, 0, 0, 0.9) !important;\n  box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.3), inset 0 2px 1px rgba(255, 255, 255, 0.3), 0px 1px 2px rgba(0, 0, 0, 0.9) !important;\n}\n\n#sp-fw-dot {\n  right: -3px !important;\n  top: -3px !important;\n}\n\n#sp-fw-cur-mode {\n  left: -3px !important;\n  top: -3px !important;\n  width: 6px !important;\n  height: 6px !important;\n}\n\n#sp-fw-content {\n  padding: 0 !important;\n  margin: 5px 5px 0 0 !important;\n  -moz-border-radius: 3px !important;\n  border-radius: 3px !important;\n  border: 1px solid #a0a0a0 !important;\n  -webkit-box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.3) !important;\n  -moz-box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.3) !important;\n  box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.3) !important;\n}\n\n#sp-fw-main {\n  padding: 5px !important;\n  border: 1px solid white !important;\n  -moz-border-radius: 3px !important;\n  border-radius: 3px !important;\n  background-color: #f2f2f7 !important;\n  background: -moz-linear-gradient(top, #fcfcfc, #f2f2f7 100%) !important;\n  background: -webkit-gradient(linear, 0 0, 0 100%, from(#fcfcfc), to(#f2f2f7)) !important;\n}\n\n#sp-fw-foot {\n  position: relative !important;\n  left: 0 !important;\n  right: 0 !important;\n  top: 2px !important;\n  padding-left: 2px;\n  min-height: 20px !important;\n}\n\n#sp-fw-container .sp-fw-spanbutton {\n  padding: 2px 3px !important;\n  border: 1px solid #ccc !important;\n  -moz-border-radius: 3px !important;\n  border-radius: 3px !important;\n  cursor: pointer !important;\n  background-color: #f9f9f9 !important;\n  -webkit-box-shadow: inset 0 10px 5px white !important;\n  -moz-box-shadow: inset 0 10px 5px white !important;\n  box-shadow: inset 0 10px 5px white !important;\n  display: inline-block;\n}\n\n#sp-fw-container #sp-fw-savebutton {\n  position: absolute !important;\n  right: 2px !important;\n}\n\n#sp-fw-container label {\n  cursor: pointer;\n  user-select: none;\n  display: inline;\n}";
 
-	const userAgentRules = [['aol', /AOLShield\/([0-9\._]+)/], ['edge', /Edge\/([0-9\._]+)/], ['edge-ios', /EdgiOS\/([0-9\._]+)/], ['yandexbrowser', /YaBrowser\/([0-9\._]+)/], ['kakaotalk', /KAKAOTALK\s([0-9\.]+)/], ['samsung', /SamsungBrowser\/([0-9\.]+)/], ['silk', /\bSilk\/([0-9._-]+)\b/], ['miui', /MiuiBrowser\/([0-9\.]+)$/], ['beaker', /BeakerBrowser\/([0-9\.]+)/], ['edge-chromium', /Edg\/([0-9\.]+)/], ['chromium-webview', /(?!Chrom.*OPR)wv\).*Chrom(?:e|ium)\/([0-9\.]+)(:?\s|$)/], ['chrome', /(?!Chrom.*OPR)Chrom(?:e|ium)\/([0-9\.]+)(:?\s|$)/], ['phantomjs', /PhantomJS\/([0-9\.]+)(:?\s|$)/], ['crios', /CriOS\/([0-9\.]+)(:?\s|$)/], ['waterfox', /Waterfox\/([0-9\.]+)(?:\s|$)/], ['firefox', /Firefox\/([0-9\.]+)(?:\s|$)/], ['fxios', /FxiOS\/([0-9\.]+)/], ['opera-mini', /Opera Mini.*Version\/([0-9\.]+)/], ['opera', /Opera\/([0-9\.]+)(?:\s|$)/], ['opera', /OPR\/([0-9\.]+)(:?\s|$)/], ['ie', /Trident\/7\.0.*rv\:([0-9\.]+).*\).*Gecko$/], ['ie', /MSIE\s([0-9\.]+);.*Trident\/[4-7].0/], ['ie', /MSIE\s(7\.0)/], ['bb10', /BB10;\sTouch.*Version\/([0-9\.]+)/], ['android', /Android\s([0-9\.]+)/], ['ios', /Version\/([0-9\._]+).*Mobile.*Safari.*/], ['safari', /Version\/([0-9\._]+).*Safari/], ['facebook', /FBAV\/([0-9\.]+)/], ['instagram', /Instagram\s([0-9\.]+)/], ['ios-webview', /AppleWebKit\/([0-9\.]+).*Mobile/], ['ios-webview', /AppleWebKit\/([0-9\.]+).*Gecko\)$/]];
+	const userAgentRules = [['aol', /AOLShield\/([0-9._]+)/], ['edge', /Edge\/([0-9._]+)/], ['edge-ios', /EdgiOS\/([0-9._]+)/], ['yandexbrowser', /YaBrowser\/([0-9._]+)/], ['kakaotalk', /KAKAOTALK\s([0-9.]+)/], ['samsung', /SamsungBrowser\/([0-9.]+)/], ['silk', /\bSilk\/([0-9._-]+)\b/], ['miui', /MiuiBrowser\/([0-9.]+)$/], ['beaker', /BeakerBrowser\/([0-9.]+)/], ['edge-chromium', /Edg\/([0-9.]+)/], ['chromium-webview', /(?!Chrom.*OPR)wv\).*Chrom(?:e|ium)\/([0-9.]+)(:?\s|$)/], ['chrome', /(?!Chrom.*OPR)Chrom(?:e|ium)\/([0-9.]+)(:?\s|$)/], ['phantomjs', /PhantomJS\/([0-9.]+)(:?\s|$)/], ['crios', /CriOS\/([0-9.]+)(:?\s|$)/], ['waterfox', /Waterfox\/([0-9.]+)(?:\s|$)/], ['firefox', /Firefox\/([0-9.]+)(?:\s|$)/], ['fxios', /FxiOS\/([0-9.]+)/], ['opera-mini', /Opera Mini.*Version\/([0-9.]+)/], ['opera', /Opera\/([0-9.]+)(?:\s|$)/], ['opera', /OPR\/([0-9.]+)(:?\s|$)/], ['ie', /Trident\/7\.0.*rv:([0-9.]+).*\).*Gecko$/], ['ie', /MSIE\s([0-9.]+);.*Trident\/[4-7].0/], ['ie', /MSIE\s(7\.0)/], ['bb10', /BB10;\sTouch.*Version\/([0-9.]+)/], ['android', /Android\s([0-9.]+)/], ['ios', /Version\/([0-9._]+).*Mobile.*Safari.*/], ['safari', /Version\/([0-9._]+).*Safari/], ['facebook', /FBAV\/([0-9.]+)/], ['instagram', /Instagram\s([0-9.]+)/], ['ios-webview', /AppleWebKit\/([0-9.]+).*Mobile/], ['ios-webview', /AppleWebKit\/([0-9.]+).*Gecko\)$/]];
 	const REQUIRED_VERSION_PARTS = 3;
+
+	/**
+	 * Matches the user agent string against a set of predefined browser rules.
+	 * @param {string} ua - The user agent string to be matched.
+	 * @returns {Array|boolean} - Returns an array with the browser name and match details if found, otherwise false.
+	 */
 	function matchUserAgent(ua) {
 	  // opted for using reduce here rather than Array#first with a regex.test call
 	  // this is primarily because using the reduce we only perform the regex
@@ -4594,6 +4600,11 @@
 	    return !!uaMatch && [browser, uaMatch];
 	  }, false);
 	}
+	/**
+	 * Parses the user agent string to extract browser name and version.
+	 * @param {string} ua - The user agent string to be parsed.
+	 * @returns {object} - An object containing the browser name and version.
+	 */
 	function parseUserAgent(ua) {
 	  const matchedRule = matchUserAgent(ua);
 	  if (!matchedRule) {
@@ -5069,6 +5080,11 @@
 
 	const logger = log.noConflict();
 
+	/**
+	 * Converts a Unicode code point (in hexadecimal format) to its corresponding emoji character.
+	 * @param {string} unifiedValue - The Unicode code point in hexadecimal format.
+	 * @returns {string} The emoji character or an empty string if the browser does not support `String.fromCodePoint`.
+	 */
 	function emoji(unifiedValue) {
 	  if (String.fromCodePoint) {
 	    var emoji = parseInt(unifiedValue, 16);
@@ -5120,7 +5136,6 @@
 	// Meta for userscript
 	"// ==UserScript==\n// @name         ".concat(SCRIPT_INFO.name, "\n// @name:zh-CN   ").concat(SCRIPT_INFO['name-CN'], "\n// @name:zh-TW   ").concat(SCRIPT_INFO['name-CN'], "\n// @namespace    ").concat(SCRIPT_INFO.namespace, "\n// @description  Preload and Autopager\n// @description:zh-CN  \u9884\u8BFB+\u7FFB\u9875..\u5168\u52A0\u901F\u4F60\u7684\u6D4F\u89C8\u4F53\u9A8C\n// @description:zh-TW  \u9884\u8BFB+\u7FFB\u9875..\u5168\u52A0\u901F\u4F60\u7684\u6D4F\u89C8\u4F53\u9A8C\n// @author       ").concat(SCRIPT_INFO.author, "\n// @contributers alexolog, heroboy, suchunchen, YFdyh000\n// @thanksto     ywzhaiqi, NLF\n// @version      ").concat(SCRIPT_INFO.version, "\n// @license      ").concat(SCRIPT_INFO.license, "\n// @update       ").concat(SCRIPT_INFO.updateTime, "\n// @homepageURL  ").concat(SCRIPT_INFO.homepageURL, "\n// @downloadURL  ").concat(SCRIPT_INFO.downloadURL, "\n// @updateURL    ").concat(SCRIPT_INFO.updateURL, "\n// @supportURL   ").concat(SCRIPT_INFO.homepageURL, "/issue\n// @contributionURL https://ko-fi.com/machsix\n// @icon         ").concat(SCRIPT_INFO.icon, "\n// @require      https://cdn.jsdelivr.net/gh/machsix/gm4-polyfill@2.0/gm4-polyfill-mach6-legacy.js\n// @grant        GM.getValue\n// @grant        GM_getValue\n// @grant        GM.setValue\n// @grant        GM_setValue\n// @grant        GM.notification\n// @grant        GM_notification\n// @grant        GM.xmlHttpRequest\n// @grant        GM_xmlhttpRequest\n// @grant        GM.info\n// @grant        GM_info\n// @grant        GM_registerMenuCommand\n// @grant        GM.registerMenuCommand\n// @connect      wedata.net\n// @connect      github.io\n// @run-at       document-idle\n// @include      http*\n// @exclude      http*://mail.google.com/*\n// @exclude      http*://maps.google*\n// @exclude      http*://www.google.com/reader*\n// @exclude      http*://www.google.com/calendar*\n// @exclude      https://docs.google.com/*\n// @exclude      http*://app.yinxiang.com/*\n// @exclude      http*://www.dropbox.com/*\n// @exclude      http*://www.toodledo.com/*\n// @exclude      http*://cloud.feedly.com/*\n// @exclude      http*://weibo.com/*\n// @exclude      http*://w.qq.com/*\n// @exclude      http*://web2.qq.com/*\n// @exclude      http*://openapi.qzone.qq.com/*\n// @exclude      http*://*cloud.vip.xunlei.com/*\n// @exclude      http*://www.wumii.com/*\n// @exclude      http*://pan.baidu.com/*\n// @exclude      http*://yun.baidu.com/*\n// @exclude      http*://www.cnbeta.com/*\n// @exclude      http*://www.youku.com/\n// @exclude      http*://v.youku.com/*\n// @exclude      http*://www.iqiyi.com/*\n// @exclude      http*://www.duokan.com/reader/*\n// @exclude      https://www.kohls.com/*\n// @exclude      http*://list.jd.com/*\n// @exclude      http*://eclick.baidu.com/*\n// @exclude      http*://googleads.g.doubleclick.net/*\n// @exclude      http*://pos.baidu.com/*\n// @exclude      http*://tpc.googlesyndication.com/*\n// @exclude      http*://ad.doubleclick.net/*\n// @exclude      http*://ad.agrantsem.com/*\n// @exclude      http*://www.youtube.com/embed/*\n// @exclude      https://assets.tumblr.com/*\n// @exclude      http*://www.paypal.com/*\n// @exclude      http*://dash.cloudflare.com/*\n// @exclude      http*://assets.tumblr.com/*\n// @exclude      http*://www.tumblr.com/video/*\n// @exclude      http*://*.awsapps.com/*\n// @exlucde      http*://www.commcarehq.org/accounts/login/*gre\n// @exclude      http*://simkl.com/*\n// ==/UserScript==\n");
 
-	// 动画库
 	const Tween = {
 	  Linear: function Linear(t, b, c, d) {
 	    return c * t / d + b;
@@ -5311,10 +5326,10 @@
 	function createDOM(type, conf) {
 	  let doc = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : document;
 	  const e = doc.createElement(type);
-	  if (conf.hasOwnProperty('attr')) {
+	  if (Object.prototype.hasOwnProperty.call(conf, 'attr')) {
 	    setMultipleAttributes(e, conf.attr);
 	  }
-	  if (conf.hasOwnProperty('innerHTML')) {
+	  if (Object.prototype.hasOwnProperty.call(conf, 'innerHTML')) {
 	    e.innerHTML = conf.innerHTML;
 	  }
 	  if (Array.isArray(conf.children)) {
@@ -6614,6 +6629,11 @@
 
 	const availableLangs = Object.keys(ejs);
 	let template = ejs.en_US;
+
+	/**
+	 * Detects the user's language based on the browser's settings.
+	 * @returns {string} The detected language code ('zh_CN' or 'en_US').
+	 */
 	function langDetect() {
 	  const userLang = navigator.language || navigator.userLanguage;
 	  if (userLang.indexOf('zh') !== -1) {
@@ -6623,6 +6643,10 @@
 	  }
 	}
 	let userLang = langDetect();
+	/**
+	 * Sets the user's language and updates the template accordingly.
+	 * @param {string} x - The language code to set ('zh_CN' or 'en_US').
+	 */
 	function setLang(x) {
 	  if (availableLangs.includes(x)) {
 	    userLang = x;
@@ -6638,6 +6662,14 @@
 	  undefined: '\u0001',
 	  null: '\u0002'
 	};
+
+	/**
+	 * Custom replacer function for JSON.stringify.
+	 * Converts special types like RegExp, functions, null, and undefined into string representations.
+	 * @param {string} _key - The key of the property being stringified.
+	 * @param {*} val - The value of the property being stringified.
+	 * @returns {*} The transformed value.
+	 */
 	function replacer(_key, val) {
 	  if (val instanceof RegExp) {
 	    return "".concat(val.toString());
@@ -6653,6 +6685,14 @@
 	  }
 	  return val;
 	}
+
+	/**
+	 * Custom reviver function for JSON.parse.
+	 * Restores special types like RegExp, functions, null, and undefined from string representations.
+	 * @param {string} _key - The key of the property being parsed.
+	 * @param {*} val - The value of the property being parsed.
+	 * @returns {*} The restored value.
+	 */
 	function reviver(_key, val) {
 	  if (typeof val !== 'string') {
 	    return val;
@@ -6666,7 +6706,6 @@
 	      case magicKey.null:
 	        return null;
 	      case magicKey.function:
-	        // eslint-disable-next-line no-new-func
 	        return new Function("return ".concat(val.slice(1)))();
 	      default:
 	        return val;
@@ -6677,9 +6716,21 @@
 	    return null;
 	  }
 	}
+
+	/**
+	 * Converts an object into a JSON string with custom handling for special types.
+	 * @param {*} obj - The object to stringify.
+	 * @returns {string} The JSON string representation of the object.
+	 */
 	function stringify(obj) {
 	  return JSON.stringify(obj, replacer);
 	}
+
+	/**
+	 * Parses a JSON string with custom handling for special types.
+	 * @param {string} obj - The JSON string to parse.
+	 * @returns {*} The parsed object.
+	 */
 	function parse(obj) {
 	  return JSON.parse(obj, reviver);
 	}
@@ -6927,7 +6978,18 @@
 	function encodeHex(text) {
 	  return buf2hex(encode(text));
 	}
+
+	/**
+	 * Encode a string into a URI-encoded format.
+	 * @param {string} text The string to encode.
+	 * @returns {string} The URI-encoded string.
+	 */
 	function encodeURIE(text) {
+	  /**
+	   * Checks if a string is a valid URI component.
+	   * @param {string} str The string to check.
+	   * @returns {boolean} True if the string is a valid URI component, false otherwise.
+	   */
 	  function isURIcomponent(str) {
 	    return /^[A-Za-z0-9;,/?:@&=+$-_.!~*'()#]*$/.test(str);
 	  }
@@ -7060,7 +7122,7 @@
 	  }
 
 	  // `options.html` and `options.encoding`
-	  if (options.hasOwnProperty('html')) {
+	  if (Object.prototype.hasOwnProperty.call(options, 'html')) {
 	    if (options.html) {
 	      options.binary = false;
 	    }
@@ -7100,7 +7162,7 @@
 	      options.cookie = document.cookie;
 	    }
 	    if (_isString(options.cookie)) {
-	      if (options.hasOwnProperty('headers')) {
+	      if (Object.prototype.hasOwnProperty.call(options, 'headers')) {
 	        options.headers.cookie = options.cookie;
 	      } else {
 	        options.headers = {
@@ -7242,7 +7304,6 @@
 	    });
 	  };
 	  request.defaults = {};
-	  // eslint-disable-next-line guard-for-in
 	  for (const key in defaults) {
 	    request.defaults[key] = isNullOrUndefined(thisDefaults[key]) ? defaults[key] : thisDefaults[key];
 	  }
@@ -7714,13 +7775,30 @@
 	  }
 	  return hasDifferency;
 	}
+
+	/**
+	 * Resets the settings to their factory defaults and saves them using GM storage.
+	 * @returns {Promise<void>} A promise that resolves when the settings are reset.
+	 */
 	async function resetSettings() {
 	  logger.info("[Super-preloader]", 'settings are reset');
 	  await Promise.all(settingsKeys.map(key => GM.setValue(key, factorySettings[key])));
 	}
+
+	/**
+	 * Saves the provided settings values to GM storage.
+	 * @param {object} values - The settings values to save.
+	 * @returns {Promise<void>} A promise that resolves when the settings are saved.
+	 */
 	async function saveSettings(values) {
 	  await Promise.all(Object.keys(values).filter(x => settingsKeys.includes(x)).map(key => GM.setValue(key, values[key])));
 	}
+
+	/**
+	 * Fetches the IPv4 address of a given hostname using a DNS-over-HTTPS query.
+	 * @param {string} hostname - The hostname to resolve to an IP address.
+	 * @returns {Promise<string>} A promise that resolves to the IPv4 address or '127.0.0.1' on error.
+	 */
 	async function getServerIp(hostname) {
 	  const ipv4Regex = /^(\d{1,3}\.){3}\d{1,3}$/;
 	  try {
@@ -7745,6 +7823,11 @@
 	    return '127.0.0.1';
 	  }
 	}
+
+	/**
+	 * Loads the settings from GM storage, merges them with factory defaults, and performs necessary updates.
+	 * @returns {Promise<object>} A promise that resolves to the loaded settings, including jsonRule and blackList.
+	 */
 	async function loadSettings() {
 	  const values = await Promise.all(settingsKeys.map(key => GM.getValue(key, factorySettings[key])));
 	  settingsKeys.forEach((x, i) => {
@@ -7833,6 +7916,14 @@
 	// ---------------------- Settings stored in localStorage, changed by floatWindow ---------------
 	let domainSettings = [];
 	let localSettingIndex = -1;
+
+	/**
+	 * Retrieves a value from localStorage and parses it as JSON.
+	 * If parsing fails or the key does not exist, returns the provided fallback value.
+	 * @param {string} [key] - The key to retrieve from localStorage.
+	 * @param {*} [fallback] - The fallback value to return if the key does not exist or parsing fails.
+	 * @returns {*} The parsed value from localStorage or the fallback value.
+	 */
 	function getLocalStorage() {
 	  let key = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'spfwset';
 	  let fallback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
@@ -7847,6 +7938,12 @@
 	    return val;
 	  }
 	}
+
+	/**
+	 * Saves a value to localStorage after stringifying it.
+	 * @param {*} val - The value to save in localStorage.
+	 * @param {string} [key] - The key under which the value will be stored.
+	 */
 	function setLocalStorage(val) {
 	  let key = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'spfwset';
 	  localStorage.setItem(key, JSONE.stringify(val));
@@ -7875,6 +7972,13 @@
 	  localSettingIndex = -1;
 	  return pageSetting;
 	}
+
+	/**
+	 * Saves the local settings for a specific domain or page.
+	 * If no existing settings are found, it adds a new entry.
+	 * @param {object} localSetting - The local settings object to save.
+	 * @returns {object[]} The updated list of domain settings.
+	 */
 	function saveLocalSetting(localSetting) {
 	  if (domainSettings.length === 0 || localSettingIndex === -1) {
 	    // no local setting or no suitable local setting
@@ -8063,6 +8167,11 @@
 	  }
 	}
 
+	/**
+	 * Converts an input object to a regular expression.
+	 * @param {RegExp|Array|string} obj - The input object to convert. Can be a RegExp, an array with pattern and flags, or a string.
+	 * @returns {RegExp} - The resulting regular expression.
+	 */
 	function toRE(obj) {
 	  if (obj instanceof RegExp) {
 	    return obj;
@@ -8075,16 +8184,29 @@
 	    return new RegExp(obj);
 	  }
 	}
+
+	/**
+	 * Converts a wildcard string to a regular expression string.
+	 * @param {string} urlstr - The input string containing wildcards.
+	 * @returns {string} - The resulting regular expression string.
+	 */
 	function wildcardToRegExpStr(urlstr) {
 	  if (urlstr.source) return urlstr.source;
-	  const reg = urlstr.replace(/[()\[\]{}|+.,^$?\\]/g, '\\$&').replace(/\*+/g, function (str) {
+	  const reg = urlstr.replace(/[()[\]{}|+.,^$?\\]/g, '\\$&').replace(/\*+/g, function (str) {
 	    return str === '*' ? '.*' : '[^/]*';
 	  });
 	  return '^' + reg + '$';
 	}
 
-	function addStyle(aCss, aId, doc) {
-	  doc = doc || document;
+	/**
+	 * Adds a CSS style block to the document.
+	 * @param {string} aCss - The CSS rules to add.
+	 * @param {string} [aId] - The optional ID to assign to the style element.
+	 * @param {Document} [doc] - The document to which the style will be added.
+	 * @returns {HTMLStyleElement|null} The appended style element or null if no head element exists.
+	 */
+	function addStyle(aCss, aId) {
+	  let doc = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : document;
 	  let head = doc.getElementsByTagName('head');
 	  if (!head) {
 	    head = doc.documentElement;
@@ -8621,7 +8743,7 @@
 	  }
 	}, {
 	  name: 'Discuz 论坛 - 导读',
-	  url: /^https?:\/\/(?:bbs|u)\.[^\/]+\/(?:forum\.php\?mod=guide|home\.php\?mod=space)/i,
+	  url: /^https?:\/\/(?:bbs|u)\.[^/]+\/(?:forum\.php\?mod=guide|home\.php\?mod=space)/i,
 	  preLink: '//div[@class="pages" or @class="pg"]/descendant::a[@class="prev"][@href]',
 	  nextLink: '//div[@class="pages" or @class="pg"]/descendant::a[@class="next" or @class="nxt"][@href]',
 	  autopager: {
@@ -8630,7 +8752,7 @@
 	  }
 	}, {
 	  name: 'Discuz论坛列表',
-	  url: /^https?:\/\/(?:www\.[^\/]+\/|[^\/]+\/(?:bbs\/)?)(?:2b\/)?(?:(?:forum)|(?:showforum)|(?:viewforum)|(?:forumdisplay))+/i,
+	  url: /^https?:\/\/(?:www\.[^/]+\/|[^/]+\/(?:bbs\/)?)(?:2b\/)?(?:(?:forum)|(?:showforum)|(?:viewforum)|(?:forumdisplay))+/i,
 	  preLink: '//div[@class="pages" or @class="pg"]/descendant::a[@class="prev"][@href]',
 	  nextLink: '//div[@class="pages" or @class="pg"]/descendant::a[@class="next" or @class="nxt"][@href] | //div[@class="p_bar"]/a[@class="p_curpage"]/following-sibling::a[@class="p_num"]',
 	  autopager: {
@@ -8640,7 +8762,7 @@
 	  }
 	}, {
 	  name: 'Discuz论坛帖子',
-	  url: /^https?:\/\/(?:www\.[^\/]+\/|[^\/]+\/(?:bbs\/)?)(?:2b\/)?(?:(?:thread)|(?:viewthread)|(?:showtopic)|(?:viewtopic))+/i,
+	  url: /^https?:\/\/(?:www\.[^/]+\/|[^/]+\/(?:bbs\/)?)(?:2b\/)?(?:(?:thread)|(?:viewthread)|(?:showtopic)|(?:viewtopic))+/i,
 	  preLink: '//div[@class="pages" or @class="pg"]/descendant::a[@class="prev"][@href]',
 	  nextLink: '//div[@class="pages" or @class="pg"]/descendant::a[@class="next" or @class="nxt"][@href] | //div[@class="p_bar"]/descendant::a[text()="??"]',
 	  autopager: {
@@ -8672,7 +8794,7 @@
 	  }
 	}, {
 	  name: 'phpWind论坛列表',
-	  url: /^https?:\/\/(?:www\.[^\/]+\/|[^\/]+\/(?:bbs\/)?)?thread/i,
+	  url: /^https?:\/\/(?:www\.[^/]+\/|[^/]+\/(?:bbs\/)?)?thread/i,
 	  preLink: '//div[starts-with(@class,"pages")]/b[1]/preceding-sibling::a[1][not(@class)][@href] | //div[starts-with(@class,"pages")]/ul[1]/li[b]/preceding-sibling::li/a[1][not(@class)][@href]',
 	  nextLink: '//div[starts-with(@class,"pages")]/b[1]/following-sibling::a[1][not(@class)] | //div[starts-with(@class,"pages")]/ul[1]/li[b]/following-sibling::li/a[1][not(@class)]',
 	  autopager: {
@@ -8680,7 +8802,7 @@
 	  }
 	}, {
 	  name: 'phpWind论坛帖子',
-	  url: /^https?:\/\/(?:www\.[^\/]+\/|[^\/]+\/(?:bbs\/)?)?read/i,
+	  url: /^https?:\/\/(?:www\.[^/]+\/|[^/]+\/(?:bbs\/)?)?read/i,
 	  preLink: '//div[starts-with(@class,"pages")]/b[1]/preceding-sibling::a[1][not(@class)][@href] | //div[starts-with(@class,"pages")]/ul[1]/li[b]/preceding-sibling::li/a[1][not(@class)][@href]',
 	  nextLink: '//div[starts-with(@class,"pages")]/b[1]/following-sibling::a[1][not(@class)] | //div[starts-with(@class,"pages")]/ul[1]/li[b]/following-sibling::li/a[1][not(@class)]',
 	  autopager: {
@@ -8688,7 +8810,7 @@
 	  }
 	}, {
 	  name: 'phpBB列表',
-	  url: /^https?:\/\/[^\/]+(\/[a-z,0-9]+)?\/viewforum/i,
+	  url: /^https?:\/\/[^/]+(\/[a-z,0-9]+)?\/viewforum/i,
 	  exampleUrl: 'http://www.firefox.net.cn/forum/viewforum.php?f=4',
 	  nextLink: 'auto;',
 	  autopager: {
@@ -8698,7 +8820,7 @@
 	  }
 	}, {
 	  name: 'phpBB帖子',
-	  url: /^https?:\/\/[^\/]+(\/[a-z,0-9]+)?\/viewtopic/i,
+	  url: /^https?:\/\/[^/]+(\/[a-z,0-9]+)?\/viewtopic/i,
 	  exampleUrl: 'http://www.firefox.net.cn/forum/viewtopic.php?t=34339',
 	  nextLink: 'auto;',
 	  autopager: {
@@ -8708,7 +8830,7 @@
 	  }
 	}, {
 	  name: 'phpBB Search',
-	  url: /^https?:\/\/forum\.[^\/]+\/search\.php/i,
+	  url: /^https?:\/\/forum\.[^/]+\/search\.php/i,
 	  exampleUrl: 'http://forum.everedit.net/search.php?keywords=%E5%A4%A7%E7%BA%B2',
 	  nextLink: 'auto;',
 	  autopager: {
@@ -8790,7 +8912,7 @@
 	  name: 'WordPress',
 	  url: '^https?://[^/]+(/page/\\d+)?',
 	  nextLink: function nextLink(_doc, _win, _cplink) {
-	    const cplink = _cplink.replace(/^(.*)(#[^\/]*)?$/, '$1');
+	    const cplink = _cplink.replace(/^(.*)(#[^/]*)?$/, '$1');
 	    if (cplink.slice(cplink.length - 5, cplink.length) === '.html') {
 	      return undefined;
 	    }
@@ -8882,7 +9004,6 @@
 	  }
 	}];
 
-	/* eslint-disable no-new-func */
 	//@ts-check
 	///<reference path="../index.d.ts"/>
 
@@ -10098,7 +10219,7 @@
 	  }
 	}, {
 	  name: 'sis001.com',
-	  url: /^https?:\/\/(\w+\.)?sis001\.com\/forum\/(forum|thread)[0-9\-]+\.html/i,
+	  url: /^https?:\/\/(\w+\.)?sis001\.com\/forum\/(forum|thread)[0-9-]+\.html/i,
 	  exampleUrl: 'https://www.sis001.com/forum/forum-230-1.html',
 	  nextLink: '//div[@class="pages_btns"]//a[@class="next"]',
 	  autopager: {
@@ -10244,6 +10365,12 @@
 	    });
 	  }
 	}];
+
+	/**
+	 * Extracts the protocol and domain from a given URL.
+	 * @param {string} cplink - The complete URL string.
+	 * @returns {string} The protocol and domain part of the URL.
+	 */
 	function getDomain(cplink) {
 	  // Get [PROTOCOL]://[DOMAIN]
 	  var a = getAllIndexes(cplink, '/');
@@ -10253,6 +10380,13 @@
 	    return cplink;
 	  }
 	}
+
+	/**
+	 * Finds all indexes of a specified value in an array.
+	 * @param {string} arr - The array to search.
+	 * @param {string} val - The value to find in the array.
+	 * @returns {Array<number>} An array of indexes where the value is found.
+	 */
 	function getAllIndexes(arr, val) {
 	  var indexes = [];
 	  var i = -1;
@@ -10263,6 +10397,12 @@
 	}
 
 	let noticeDiv, noticeDivto, noticeDivto2;
+
+	/**
+	 * Displays a notification with the specified HTML content and duration.
+	 * @param {string} html_txt - The HTML content to display in the notification.
+	 * @param {number} [showTime] - The duration (in milliseconds) to show the notification. Defaults to 1666 ms.
+	 */
 	function notice(html_txt, showTime) {
 	  if (!noticeDiv) {
 	    const div = createDOM('div', {
@@ -10311,7 +10451,7 @@
 	  }
 	}
 
-	const spcss = {}; //@ts-check
+	const spcss = {};
 	spcss["sp-separator"] = _wcImport4;
 	spcss["sp-prefs-spinner"] = _wcImport3;
 	spcss["sp-prefs-setup"] = _wcImport2;
@@ -10501,7 +10641,9 @@
 	  // ------------------------下面的不要管他-----------------
 	  /// ////////////////////////////////////////////////////////////////
 
-	  Promise.all([loadSettings(), getServerIp(location.hostname)]).then(function (_ref2) {
+	  Promise.all([loadSettings(), getServerIp(location.hostname)])
+	  // @ts-ignore
+	  .then(function (_ref2) {
 	    let [values, serverIp] = _ref2;
 	    let {
 	      jsonRule
@@ -10686,7 +10828,6 @@
 	        const loadCustomSiteInfo = function loadCustomSiteInfo() {
 	          let userRules;
 	          try {
-	            // eslint-disable-next-line no-new-func
 	            userRules = new Function('', 'return ' + prefs.custom_siteinfo)();
 	          } catch (e) {
 	            logger.error("[Super-preloader]", 'Custom site rule error:', prefs.custom_siteinfo);
@@ -10712,7 +10853,7 @@
 	      const nullFn = function nullFn() {}; // 空函数.
 	      const url = document.location.href.replace(/#.*$/, ''); // url 去掉hash
 	      var cplink = url; // 翻上来的最近的页面的url;
-	      const domain_port = url.match(/https?:\/\/([^\/]+)/)[1]; // 端口和域名,用来验证是否跨域.
+	      const domain_port = url.match(/https?:\/\/([^/]+)/)[1]; // 端口和域名,用来验证是否跨域.
 
 	      // 新加的，以示区别
 	      const remove = []; // 需要移除的事件
@@ -12443,7 +12584,7 @@
 	          ahref = _getFullHref(ahref); // 从相对路径获取完全的href;
 
 	          // 3个条件:http协议链接,非跳到当前页面的链接,非跨域
-	          if (/^https?:/i.test(ahref) && ahref.replace(/#.*$/, '') != curLHref && ahref.match(/https?:\/\/([^\/]+)/)[1] == _domain_port) {
+	          if (/^https?:/i.test(ahref) && ahref.replace(/#.*$/, '') != curLHref && ahref.match(/https?:\/\/([^/]+)/)[1] == _domain_port) {
 	            logger.debug("[Super-preloader]", type == 'pre' ? 'previous' : 'next' + 'match:', atext);
 	            return a; // 返回对象A
 	            // return ahref;
@@ -12616,8 +12757,8 @@
 	        if (!lasturl || !url) {
 	          return [0, 0];
 	        }
-	        const lasturlarray = lasturl.split(/-|\.|\&|\/|=|#|\?/);
-	        const urlarray = url.split(/-|\.|\&|\/|=|#|\?/);
+	        const lasturlarray = lasturl.split(/-|\.|&|\/|=|#|\?/);
+	        const urlarray = url.split(/-|\.|&|\/|=|#|\?/);
 	        var url_info;
 	        var lasturl_info;
 	        // 一些 url_info 为 p1,p2,p3 之类的
@@ -12838,7 +12979,7 @@
 	      scripts_x = scripts[i];
 	      var iremove = false;
 	      if (regFilter) {
-	        if (scripts_x.hasOwnProperty('src')) {
+	        if (Object.prototype.hasOwnProperty.call(scripts_x, 'src')) {
 	          if (!regFilter.test(scripts_x.src)) {
 	            iremove = true;
 	          }
@@ -12960,7 +13101,6 @@
 	    if (typeof elem === 'string' || elem.hasAttribute('href')) {
 	      return getFullHref(elem);
 	    } else {
-	      // eslint-disable-next-line no-script-url
 	      return 'javascript:void(0);'; // pseudo href
 	    }
 	  }

@@ -24,7 +24,7 @@
     "format": "prettier --write \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.mjs\" \"docs/**/*.{ts,js,md}\"",
     "format:check": "prettier --check \"dist/*.json\" \"src/**/*.{js,css}\" \"ci/*.js\" \"rollup.config.mjs\" \"docs/**/*.{ts,js,md}\"",
     "format:staged": "lint-staged -v",
-    "check": "pnpm run lint && pnpm run typecheck",
+    "check": "pnpm run lint && pnpm run typecheck && pnpm run format:check",
     "test": "cd test && node test.js",
     "wintest": "npx puppeteer browsers install chrome && pnpm run test",
     "dev": "rollup -c --dev -w",
