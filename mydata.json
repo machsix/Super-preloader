@@ -3757,6 +3757,18 @@
     "useiframe": true
   },
   {
+    "name": "xhamster",
+    "url": "^https?://(?:www\\.)?xhamster\\.com/",
+    "pageElement": "//div[@class='pager-section']/preceding-sibling::div[1]",
+    "exampleUrl": "https://xhamster.com/users/serverporno/videos/3",
+    "nextLink": "//div[contains(@class, 'pager-section')]//li[a[contains(@class, 'active')]]/following-sibling::li[1]/a",
+    "useiframe": true,
+    "autopager": {
+      "iloaded": true,
+      "reload": true
+    }
+  },
+  {
     "name": "AV百科",
     "url": "^https?://www\\.avbaike\\.net/\\d+\\.html",
     "pageElement": "//div[@id=\"post_content\"]",
