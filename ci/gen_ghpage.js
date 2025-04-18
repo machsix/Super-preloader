@@ -148,7 +148,10 @@ const fetchAndSave = async (url, outputPath) => {
 };
 
 (async () => {
-  // eslint-disable-next-line prettier/prettier
-  await Promise.all([fetchAndSave('http://wedata.net/databases/autopagerize/items_all.json', resolve(docs_dir, 'wedata.json')), fetchAndSave('http://wedata.net/databases/AutoPagerize.json', resolve(docs_dir, 'wedata_detail.json'))]);
+  // prettier-ignore
+  await Promise.all([
+    fetchAndSave('http://wedata.net/databases/autopagerize/items_all.json', resolve(docs_dir, 'wedata.json')),
+    fetchAndSave('http://wedata.net/databases/AutoPagerize.json', resolve(docs_dir, 'wedata_detail.json'))
+  ]);
   console.log('Fetched and saved wedata.json and wedata_detail.json');
 })();

@@ -9,7 +9,7 @@
 // @author       Mach6
 // @contributers alexolog, heroboy, suchunchen, YFdyh000
 // @thanksto     ywzhaiqi, NLF
-// @version      8.0.0
+// @version      8.0.1
 // @license      GPL-3.0
 // @update       2025/4/18
 // @homepageURL  https://github.com/machsix/Super-preloader
@@ -5095,7 +5095,7 @@
 	  }
 	}
 
-	var version="8.0.0";var author="Mach6";var license="GPL-3.0";var bugs={url:"https://github.com/machsix/Super-preloader/issues"};var homepage="https://github.com/machsix/Super-preloader";var pkg = {version:version,author:author,license:license,bugs:bugs,homepage:homepage};
+	var version="8.0.1";var author="Mach6";var license="GPL-3.0";var bugs={url:"https://github.com/machsix/Super-preloader/issues"};var homepage="https://github.com/machsix/Super-preloader";var pkg = {version:version,author:author,license:license,bugs:bugs,homepage:homepage};
 
 	// Information of script
 	const now = new Date();
@@ -8016,18 +8016,19 @@
 
 	/**
 	 * Select an element by xpath selector
-	 * @param {string} xpath a string representing the XPath to be evaluated, the attribute will be removed
-	 * @param {Node=} contextNode contextNode specifies the context node for the query (see the XPath specification). It's common to pass document as the context node.
-	 * @param {HTMLDocument=} doc the document to select from
+	 * @param {string} xpath a string representing the XPath to be evaluated
+	 * @param {Node} contextNode contextNode specifies the context node for the query (see the XPath specification). It's common to pass document as the context node.
+	 * @param {Document} doc the document to select from
 	 * @returns {HTMLElement} a dom node
 	 */
-	function getElementByXpath(xpath, contextNode) {
+	function getElementByXpath(xpath) {
+	  let contextNode = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
 	  let doc = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : document;
 	  contextNode = contextNode || doc;
 	  try {
 	    const result = doc.evaluate(xpath, contextNode, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
-	    //@ts-ignore should always return an element node
-	    return result.singleNodeValue && result.singleNodeValue.nodeType === 1 && result.singleNodeValue;
+	    // @ts-ignore
+	    return /** @type {HTMLElement} */result.singleNodeValue && result.singleNodeValue.nodeType === 1 && result.singleNodeValue;
 	  } catch (err) {
 	    console.error(err);
 	    throw new Error("Invalid xpath: ".concat(xpath));
@@ -8050,13 +8051,14 @@
 	    for (let i = 0; i < query.snapshotLength; i++) {
 	      const node = query.snapshotItem(i);
 	      //if node is an element node
-	      if (node.nodeType === 1 && node instanceof HTMLElement) result.push(node);
+	      if (node.nodeType === 1) result.push(node);
 	    }
 	  } catch (err) {
 	    console.error(err);
 	    throw new Error("Invalid xpath: ".concat(xpath));
 	  }
-	  return result.filter(node => node instanceof HTMLElement);
+	  // @ts-ignore
+	  return result;
 	}
 
 	/**
@@ -8151,13 +8153,17 @@
 	/**
 	 * Get the last visible element matching the given selector
 	 * @param {ISelectorFunction} selector selector
-	 * @param {string=} _cplink _cplink
-	 * @param {HTMLElement=} contextNode contextNode
-	 * @param {HTMLDocument=} doc doc
-	 * @param {Window=} win win
+	 * @param {string} _cplink _cplink
+	 * @param {HTMLElement} contextNode contextNode
+	 * @param {Document} doc doc
+	 * @param {Window} win win
 	 * @returns {HTMLElement} Last dom element
 	 */
-	function getLastVisibleElement(selector, _cplink, contextNode, doc, win) {
+	// @ts-ignore
+	function getLastVisibleElement(selector, _cplink) {
+	  let contextNode = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : (/** @type {HTMLElement | Document} */document);
+	  let doc = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : document;
+	  let win = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : window;
 	  let eles = getAllElementsDuplicate(selector, contextNode, doc, win, _cplink);
 	  eles = eles.filter(e => e.offsetParent !== null);
 	  if (eles.length > 0) {
@@ -11335,7 +11341,7 @@
 	          if (body && body.firstChild) {
 	            setTimeout(function () {
 	              doc = iframe.contentDocument;
-	              removeScripts(doc, SSS.a_scriptFilter);
+	              // removeScripts(doc, SSS.a_scriptFilter);
 	              win = iframe.contentWindow || doc;
 	              floatWO.updateColor('autopager');
 	              floatWO.CmodeIcon('hide');

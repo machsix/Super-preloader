@@ -1120,7 +1120,7 @@ import notice from './utils/notice.js';
             if (body && body.firstChild) {
               setTimeout(function () {
                 doc = iframe.contentDocument;
-                removeScripts(doc, SSS.a_scriptFilter);
+                // removeScripts(doc, SSS.a_scriptFilter);
                 win = iframe.contentWindow || doc;
                 floatWO.updateColor('autopager');
                 floatWO.CmodeIcon('hide');

@@ -21,17 +21,17 @@ export function getAllElementsByCSS(css, contextNode = document) {
 
 /**
  * Select an element by xpath selector
- * @param {string} xpath a string representing the XPath to be evaluated, the attribute will be removed
- * @param {Node=} contextNode contextNode specifies the context node for the query (see the XPath specification). It's common to pass document as the context node.
- * @param {HTMLDocument=} doc the document to select from
+ * @param {string} xpath a string representing the XPath to be evaluated
+ * @param {Node} contextNode contextNode specifies the context node for the query (see the XPath specification). It's common to pass document as the context node.
+ * @param {Document} doc the document to select from
  * @returns {HTMLElement} a dom node
  */
-export function getElementByXpath(xpath, contextNode, doc = document) {
+export function getElementByXpath(xpath, contextNode = null, doc = document) {
   contextNode = contextNode || doc;
   try {
     const result = doc.evaluate(xpath, contextNode, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
-    //@ts-ignore should always return an element node
-    return result.singleNodeValue && result.singleNodeValue.nodeType === 1 && result.singleNodeValue;
+    // @ts-ignore
+    return /** @type {HTMLElement} */ result.singleNodeValue && result.singleNodeValue.nodeType === 1 && result.singleNodeValue;
   } catch (err) {
     console.error(err);
     throw new Error(`Invalid xpath: ${xpath}`);
@@ -53,13 +53,14 @@ export function getAllElementsByXpath(xpath, contextNode, doc = document) {
     for (let i = 0; i < query.snapshotLength; i++) {
       const node = query.snapshotItem(i);
       //if node is an element node
-      if (node.nodeType === 1 && node instanceof HTMLElement) result.push(node);
+      if (node.nodeType === 1) result.push(node);
     }
   } catch (err) {
     console.error(err);
     throw new Error(`Invalid xpath: ${xpath}`);
   }
-  return result.filter((node) => node instanceof HTMLElement);
+  // @ts-ignore
+  return result;
 }
 
 /**
@@ -146,10 +147,10 @@ function getAllElementsDuplicate(selector, contextNode = undefined, doc = docume
 /**
  * Get the last element matching the given selector
  * @param {ISelectorFunction} selector selector
- * @param {string=} _cplink _cplink
- * @param {HTMLElement=} contextNode contextNode
- * @param {HTMLDocument=} doc doc
- * @param {Window=} win win
+ * @param {string} _cplink _cplink
+ * @param {HTMLElement} contextNode contextNode
+ * @param {Document} doc doc
+ * @param {Window} win win
  * @returns {HTMLElement} Last dom element
  */
 export function getLastElement(selector, _cplink, contextNode, doc, win) {
@@ -164,13 +165,14 @@ export function getLastElement(selector, _cplink, contextNode, doc, win) {
 /**
  * Get the last visible element matching the given selector
  * @param {ISelectorFunction} selector selector
- * @param {string=} _cplink _cplink
- * @param {HTMLElement=} contextNode contextNode
- * @param {HTMLDocument=} doc doc
- * @param {Window=} win win
+ * @param {string} _cplink _cplink
+ * @param {HTMLElement} contextNode contextNode
+ * @param {Document} doc doc
+ * @param {Window} win win
  * @returns {HTMLElement} Last dom element
  */
-export function getLastVisibleElement(selector, _cplink, contextNode, doc, win) {
+// @ts-ignore
+export function getLastVisibleElement(selector, _cplink, contextNode = /** @type {HTMLElement | Document} */ (document), doc = document, win = window) {
   let eles = getAllElementsDuplicate(selector, contextNode, doc, win, _cplink);
   eles = eles.filter((e) => e.offsetParent !== null);
   if (eles.length > 0) {
