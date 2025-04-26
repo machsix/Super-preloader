@@ -1,0 +1,414 @@
+{
+  "6.6.17": {
+    "commit": "a94c760c4a1f08ef1ef3b59987d1e07ce3090e13",
+    "link": "https://github.com/machsix/Super-preloader/commit/a94c760c4a1f08ef1ef3b59987d1e07ce3090e13"
+  },
+  "6.6.23": {
+    "commit": "fce669fe264bbdb03806c44c17eb75da6a8eaf23",
+    "link": "https://github.com/machsix/Super-preloader/commit/fce669fe264bbdb03806c44c17eb75da6a8eaf23"
+  },
+  "6.6.26": {
+    "commit": "36c19d82e40af4cb36e5973e23cc0342bb6e96be",
+    "link": "https://github.com/machsix/Super-preloader/commit/36c19d82e40af4cb36e5973e23cc0342bb6e96be"
+  },
+  "6.6.30": {
+    "commit": "bb588d7fd284b958dd01c242e4a5dadbd21b3ddb",
+    "link": "https://github.com/machsix/Super-preloader/commit/bb588d7fd284b958dd01c242e4a5dadbd21b3ddb"
+  },
+  "6.6.31": {
+    "commit": "7237e894bd1dffcaf5b43df9a03ddd8c223bc857",
+    "link": "https://github.com/machsix/Super-preloader/commit/7237e894bd1dffcaf5b43df9a03ddd8c223bc857"
+  },
+  "6.6.32": {
+    "commit": "2c6093d10698419a29806609411af428a6f6c54b",
+    "link": "https://github.com/machsix/Super-preloader/commit/2c6093d10698419a29806609411af428a6f6c54b"
+  },
+  "6.6.33": {
+    "commit": "b4a6d01267b81f165a11dac7355863aa8196a46e",
+    "link": "https://github.com/machsix/Super-preloader/commit/b4a6d01267b81f165a11dac7355863aa8196a46e"
+  },
+  "6.6.34": {
+    "commit": "6ab0129be3c88735f929a02118fa4c895399ccdd",
+    "link": "https://github.com/machsix/Super-preloader/commit/6ab0129be3c88735f929a02118fa4c895399ccdd"
+  },
+  "6.6.70": {
+    "commit": "9e6a0e32355a91da9e04711c52b7cda7a5c73d0d",
+    "link": "https://github.com/machsix/Super-preloader/commit/9e6a0e32355a91da9e04711c52b7cda7a5c73d0d"
+  },
+  "6.6.71": {
+    "commit": "3c7c24cbcdae4b11cc2f3ebba6a4edcdc7efc4ab",
+    "link": "https://github.com/machsix/Super-preloader/commit/3c7c24cbcdae4b11cc2f3ebba6a4edcdc7efc4ab"
+  },
+  "6.6.77": {
+    "commit": "9b2380b6c18e62a668afbec5fd1349539cd5ac79",
+    "link": "https://github.com/machsix/Super-preloader/commit/9b2380b6c18e62a668afbec5fd1349539cd5ac79"
+  },
+  "6.6.78": {
+    "commit": "a2b590929b9ff51a7dbf5e4f259bbfe5d292b2d9",
+    "link": "https://github.com/machsix/Super-preloader/commit/a2b590929b9ff51a7dbf5e4f259bbfe5d292b2d9"
+  },
+  "6.6.79": {
+    "commit": "f5f53327e354f5773af82aa203415bd35a6f0899",
+    "link": "https://github.com/machsix/Super-preloader/commit/f5f53327e354f5773af82aa203415bd35a6f0899"
+  },
+  "6.6.80": {
+    "commit": "2443a3a416f5c399c2db72dad100d87d0bc07927",
+    "link": "https://github.com/machsix/Super-preloader/commit/2443a3a416f5c399c2db72dad100d87d0bc07927"
+  },
+  "6.6.81": {
+    "commit": "bf62b09c6a669706c80f7b785ca257f9965d08e3",
+    "link": "https://github.com/machsix/Super-preloader/commit/bf62b09c6a669706c80f7b785ca257f9965d08e3"
+  },
+  "6.6.83": {
+    "commit": "935d2f1bde07507c656005c4307d1134a1478dd0",
+    "link": "https://github.com/machsix/Super-preloader/commit/935d2f1bde07507c656005c4307d1134a1478dd0"
+  },
+  "6.7.0": {
+    "commit": "de85b6bb2713f5176502539605ca8091ed45a46e",
+    "link": "https://github.com/machsix/Super-preloader/commit/de85b6bb2713f5176502539605ca8091ed45a46e"
+  },
+  "6.8.0": {
+    "commit": "6328cbda58d7cc844f3984ccfe9379e66d8abb6b",
+    "link": "https://github.com/machsix/Super-preloader/commit/6328cbda58d7cc844f3984ccfe9379e66d8abb6b"
+  },
+  "6.8.1": {
+    "commit": "49bb3d0404d4a3b913fb1ca50a11a764451c4d30",
+    "link": "https://github.com/machsix/Super-preloader/commit/49bb3d0404d4a3b913fb1ca50a11a764451c4d30"
+  },
+  "6.8.2": {
+    "commit": "72a8c1897e71f6e2175e7d5a13a4ce6dae580c4b",
+    "link": "https://github.com/machsix/Super-preloader/commit/72a8c1897e71f6e2175e7d5a13a4ce6dae580c4b"
+  },
+  "6.8.3": {
+    "commit": "dc33dc73d704631e3f58d88c6a9bf158828dcbd1",
+    "link": "https://github.com/machsix/Super-preloader/commit/dc33dc73d704631e3f58d88c6a9bf158828dcbd1"
+  },
+  "6.8.4": {
+    "commit": "f5a55c078ab2aa0aba4f61c95a008de277a76c5c",
+    "link": "https://github.com/machsix/Super-preloader/commit/f5a55c078ab2aa0aba4f61c95a008de277a76c5c"
+  },
+  "6.8.5": {
+    "commit": "29a019ab1835db396483814d9bc37fe64402963b",
+    "link": "https://github.com/machsix/Super-preloader/commit/29a019ab1835db396483814d9bc37fe64402963b"
+  },
+  "6.8.6": {
+    "commit": "6319182f06795271f3acfdd10f5350feaa403ce6",
+    "link": "https://github.com/machsix/Super-preloader/commit/6319182f06795271f3acfdd10f5350feaa403ce6"
+  },
+  "6.8.7": {
+    "commit": "8cdbcd9c37ccbc3c30ecec59cb3dfe140c7ea10b",
+    "link": "https://github.com/machsix/Super-preloader/commit/8cdbcd9c37ccbc3c30ecec59cb3dfe140c7ea10b"
+  },
+  "6.9.0": {
+    "commit": "440e4d095cea6580fbe207c2efc3dbdb935233dd",
+    "link": "https://github.com/machsix/Super-preloader/commit/440e4d095cea6580fbe207c2efc3dbdb935233dd"
+  },
+  "6.9.1": {
+    "commit": "5910b408561ad173430c92d641392a0cb143e229",
+    "link": "https://github.com/machsix/Super-preloader/commit/5910b408561ad173430c92d641392a0cb143e229"
+  },
+  "6.9.2": {
+    "commit": "55e626d421c9b6d91209f6c6c598c68d9c9da8ab",
+    "link": "https://github.com/machsix/Super-preloader/commit/55e626d421c9b6d91209f6c6c598c68d9c9da8ab"
+  },
+  "6.10.0": {
+    "commit": "652604d6758265370006c0d8bb9e1cba967bddf3",
+    "link": "https://github.com/machsix/Super-preloader/commit/652604d6758265370006c0d8bb9e1cba967bddf3"
+  },
+  "6.10.1": {
+    "commit": "5ceed3f402266f0458f41d570d02ae79dd793e2b",
+    "link": "https://github.com/machsix/Super-preloader/commit/5ceed3f402266f0458f41d570d02ae79dd793e2b"
+  },
+  "6.10.2": {
+    "commit": "f42b6f948c36bc5b10e4e25c588b0b8b54164f43",
+    "link": "https://github.com/machsix/Super-preloader/commit/f42b6f948c36bc5b10e4e25c588b0b8b54164f43"
+  },
+  "6.10.3": {
+    "commit": "5a4f08d6423e3a263377e57423acd9d3be312ac4",
+    "link": "https://github.com/machsix/Super-preloader/commit/5a4f08d6423e3a263377e57423acd9d3be312ac4"
+  },
+  "6.10.4": {
+    "commit": "2d5cb132a3e541290ca5da38fe6ac65c5e4600b8",
+    "link": "https://github.com/machsix/Super-preloader/commit/2d5cb132a3e541290ca5da38fe6ac65c5e4600b8"
+  },
+  "6.10.5": {
+    "commit": "b3973bdb9f18e8253a50cc760412cc7eb86bbf8c",
+    "link": "https://github.com/machsix/Super-preloader/commit/b3973bdb9f18e8253a50cc760412cc7eb86bbf8c"
+  },
+  "6.10.6": {
+    "commit": "cbe1530344a662819fdb039f508f5f00d580093f",
+    "link": "https://github.com/machsix/Super-preloader/commit/cbe1530344a662819fdb039f508f5f00d580093f"
+  },
+  "6.11.0": {
+    "commit": "e81adde8179dc96598d2d96cdda8b9dacde8f07f",
+    "link": "https://github.com/machsix/Super-preloader/commit/e81adde8179dc96598d2d96cdda8b9dacde8f07f"
+  },
+  "6.11.1": {
+    "commit": "fd9bf37ccd702d7be4db1df3ae6cc6c722832b81",
+    "link": "https://github.com/machsix/Super-preloader/commit/fd9bf37ccd702d7be4db1df3ae6cc6c722832b81"
+  },
+  "6.11.2": {
+    "commit": "10565dbe836a9905d37aec2cccee85d502192a98",
+    "link": "https://github.com/machsix/Super-preloader/commit/10565dbe836a9905d37aec2cccee85d502192a98"
+  },
+  "6.11.3": {
+    "commit": "34f59751f7a4f95174a4f4fb511617b3206ed88d",
+    "link": "https://github.com/machsix/Super-preloader/commit/34f59751f7a4f95174a4f4fb511617b3206ed88d"
+  },
+  "6.11.4": {
+    "commit": "2d4b5e3f9f6c370497f6bf1dcfb60efd43d9f4a5",
+    "link": "https://github.com/machsix/Super-preloader/commit/2d4b5e3f9f6c370497f6bf1dcfb60efd43d9f4a5"
+  },
+  "6.12.0": {
+    "commit": "8b7943139a26b992c3338d0762103dbcbb453e27",
+    "link": "https://github.com/machsix/Super-preloader/commit/8b7943139a26b992c3338d0762103dbcbb453e27"
+  },
+  "6.12.1": {
+    "commit": "21843d7aa1b58a4160458c9c8e02364a2f7b02be",
+    "link": "https://github.com/machsix/Super-preloader/commit/21843d7aa1b58a4160458c9c8e02364a2f7b02be"
+  },
+  "6.12.2": {
+    "commit": "b47c076334c910f86f4ec18810e74b80f308de9d",
+    "link": "https://github.com/machsix/Super-preloader/commit/b47c076334c910f86f4ec18810e74b80f308de9d"
+  },
+  "6.13.0": {
+    "commit": "445cb7f68c6d9e13f8d6cbfa3e7b428c72b4de43",
+    "link": "https://github.com/machsix/Super-preloader/commit/445cb7f68c6d9e13f8d6cbfa3e7b428c72b4de43"
+  },
+  "6.13.1": {
+    "commit": "d430400e3b4f681b2167a755d248fb3043bdae2b",
+    "link": "https://github.com/machsix/Super-preloader/commit/d430400e3b4f681b2167a755d248fb3043bdae2b"
+  },
+  "6.13.2": {
+    "commit": "301dbdaab541488f2e5d7f70ff667aec66e41b0a",
+    "link": "https://github.com/machsix/Super-preloader/commit/301dbdaab541488f2e5d7f70ff667aec66e41b0a"
+  },
+  "6.13.3": {
+    "commit": "c9293e80f1796535663d9245e96f418df6b34ba1",
+    "link": "https://github.com/machsix/Super-preloader/commit/c9293e80f1796535663d9245e96f418df6b34ba1"
+  },
+  "6.13.4": {
+    "commit": "2de2815887442da5651a98cc99b8d76ff47149bb",
+    "link": "https://github.com/machsix/Super-preloader/commit/2de2815887442da5651a98cc99b8d76ff47149bb"
+  },
+  "6.13.5": {
+    "commit": "493ec4c724100dce401af146e0be4c0846497b7c",
+    "link": "https://github.com/machsix/Super-preloader/commit/493ec4c724100dce401af146e0be4c0846497b7c"
+  },
+  "6.13.6": {
+    "commit": "418d045522e9519cd562ed18999073039fa0c056",
+    "link": "https://github.com/machsix/Super-preloader/commit/418d045522e9519cd562ed18999073039fa0c056"
+  },
+  "6.13.8": {
+    "commit": "5cf85c07557a54efe9cfa82f38a18a5bd22f53bb",
+    "link": "https://github.com/machsix/Super-preloader/commit/5cf85c07557a54efe9cfa82f38a18a5bd22f53bb"
+  },
+  "6.13.9": {
+    "commit": "927c8fc03f32982b11d7a2c82bffb2ccc081be45",
+    "link": "https://github.com/machsix/Super-preloader/commit/927c8fc03f32982b11d7a2c82bffb2ccc081be45"
+  },
+  "6.13.11": {
+    "commit": "123a24bdad46f564baf59fdf0d852d0fe58618c5",
+    "link": "https://github.com/machsix/Super-preloader/commit/123a24bdad46f564baf59fdf0d852d0fe58618c5"
+  },
+  "6.13.12": {
+    "commit": "b307d267df8ece6c5002c21badfe9c75b9f59664",
+    "link": "https://github.com/machsix/Super-preloader/commit/b307d267df8ece6c5002c21badfe9c75b9f59664"
+  },
+  "6.13.13": {
+    "commit": "8ba92598d9ef0f0ca08cb3d213d1d9be463147ad",
+    "link": "https://github.com/machsix/Super-preloader/commit/8ba92598d9ef0f0ca08cb3d213d1d9be463147ad"
+  },
+  "6.13.14": {
+    "commit": "a2dfc36b2d31a5ddef6fb1baf2065a045d2dd370",
+    "link": "https://github.com/machsix/Super-preloader/commit/a2dfc36b2d31a5ddef6fb1baf2065a045d2dd370"
+  },
+  "6.13.15": {
+    "commit": "38d3edfe1e4f55d43ec1c02ce243ccbe79d26652",
+    "link": "https://github.com/machsix/Super-preloader/commit/38d3edfe1e4f55d43ec1c02ce243ccbe79d26652"
+  },
+  "6.13.16": {
+    "commit": "f545de654386331b135a4d3d6dd85ec4a713d3ac",
+    "link": "https://github.com/machsix/Super-preloader/commit/f545de654386331b135a4d3d6dd85ec4a713d3ac"
+  },
+  "6.13.18": {
+    "commit": "318ee1d90223e58ef0e6c7872fde1b92ce45459f",
+    "link": "https://github.com/machsix/Super-preloader/commit/318ee1d90223e58ef0e6c7872fde1b92ce45459f"
+  },
+  "6.13.20": {
+    "commit": "13f21edfc2160bd2fe9bbebde431bc6e456babb7",
+    "link": "https://github.com/machsix/Super-preloader/commit/13f21edfc2160bd2fe9bbebde431bc6e456babb7"
+  },
+  "6.13.21": {
+    "commit": "2ed9903f10e42526360e7f5fe4f69fe07a2b272a",
+    "link": "https://github.com/machsix/Super-preloader/commit/2ed9903f10e42526360e7f5fe4f69fe07a2b272a"
+  },
+  "6.13.22": {
+    "commit": "d8a39a6a7beade396a037c9ddb3b2bd1aa3418f9",
+    "link": "https://github.com/machsix/Super-preloader/commit/d8a39a6a7beade396a037c9ddb3b2bd1aa3418f9"
+  },
+  "6.13.23": {
+    "commit": "80e8b88bac6716ad902242859dfc12f3edb8b42c",
+    "link": "https://github.com/machsix/Super-preloader/commit/80e8b88bac6716ad902242859dfc12f3edb8b42c"
+  },
+  "6.14.0": {
+    "commit": "9808fb1a32a8cb33e4306d2e52a3f8fccf930e35",
+    "link": "https://github.com/machsix/Super-preloader/commit/9808fb1a32a8cb33e4306d2e52a3f8fccf930e35"
+  },
+  "6.14.1": {
+    "commit": "8392ba8ea0730195adf7d6965e87f29756b819ce",
+    "link": "https://github.com/machsix/Super-preloader/commit/8392ba8ea0730195adf7d6965e87f29756b819ce"
+  },
+  "6.15.0": {
+    "commit": "cb6dc2d0de97a6d2117a873fbd0113d12cf44859",
+    "link": "https://github.com/machsix/Super-preloader/commit/cb6dc2d0de97a6d2117a873fbd0113d12cf44859"
+  },
+  "6.15.1": {
+    "commit": "6e243052fa878cde38ab401e112398bf36804159",
+    "link": "https://github.com/machsix/Super-preloader/commit/6e243052fa878cde38ab401e112398bf36804159"
+  },
+  "6.15.2": {
+    "commit": "ef9699921fec5f882d838af2b281d7472531dc6f",
+    "link": "https://github.com/machsix/Super-preloader/commit/ef9699921fec5f882d838af2b281d7472531dc6f"
+  },
+  "6.15.3": {
+    "commit": "8bda0f82982e7ba21320ee811902b74171bcd358",
+    "link": "https://github.com/machsix/Super-preloader/commit/8bda0f82982e7ba21320ee811902b74171bcd358"
+  },
+  "6.15.4": {
+    "commit": "a670cbbd662e22ce98a80aba90296e97ad31001f",
+    "link": "https://github.com/machsix/Super-preloader/commit/a670cbbd662e22ce98a80aba90296e97ad31001f"
+  },
+  "6.15.5": {
+    "commit": "c9b3a9dacb37258235896affceb918fac6ab49da",
+    "link": "https://github.com/machsix/Super-preloader/commit/c9b3a9dacb37258235896affceb918fac6ab49da"
+  },
+  "6.15.6": {
+    "commit": "6a4d7ff2f92b53d5117412d3b12c4cd6ade75a16",
+    "link": "https://github.com/machsix/Super-preloader/commit/6a4d7ff2f92b53d5117412d3b12c4cd6ade75a16"
+  },
+  "6.15.7": {
+    "commit": "852ef1919e63c413092d5e28c60da4455f7ac045",
+    "link": "https://github.com/machsix/Super-preloader/commit/852ef1919e63c413092d5e28c60da4455f7ac045"
+  },
+  "6.15.8": {
+    "commit": "55380dd586c1f1094438e1dc246be4920f539746",
+    "link": "https://github.com/machsix/Super-preloader/commit/55380dd586c1f1094438e1dc246be4920f539746"
+  },
+  "6.15.9": {
+    "commit": "604b5aa8fb92c1448bfd3bfee5a48c3e06444f70",
+    "link": "https://github.com/machsix/Super-preloader/commit/604b5aa8fb92c1448bfd3bfee5a48c3e06444f70"
+  },
+  "6.16.0": {
+    "commit": "4147fe84e76b83325959dee2c4661fa7a0453e91",
+    "link": "https://github.com/machsix/Super-preloader/commit/4147fe84e76b83325959dee2c4661fa7a0453e91"
+  },
+  "6.16.1": {
+    "commit": "31c3e1395174df2a88aaca71c796fe65e4522b7d",
+    "link": "https://github.com/machsix/Super-preloader/commit/31c3e1395174df2a88aaca71c796fe65e4522b7d"
+  },
+  "6.16.3": {
+    "commit": "2786cdc6b536106f388cb9f94e876f80f00bf674",
+    "link": "https://github.com/machsix/Super-preloader/commit/2786cdc6b536106f388cb9f94e876f80f00bf674"
+  },
+  "6.16.4": {
+    "commit": "de3f92b425c807e5d0e173ea452f2cc126480bb0",
+    "link": "https://github.com/machsix/Super-preloader/commit/de3f92b425c807e5d0e173ea452f2cc126480bb0"
+  },
+  "6.16.5": {
+    "commit": "d60f7efab66844174c7bbfcbf0d31c2c2182b459",
+    "link": "https://github.com/machsix/Super-preloader/commit/d60f7efab66844174c7bbfcbf0d31c2c2182b459"
+  },
+  "6.17.0": {
+    "commit": "cd47cfcb1ded07d310bcb9410992ff112d524b88",
+    "link": "https://github.com/machsix/Super-preloader/commit/cd47cfcb1ded07d310bcb9410992ff112d524b88"
+  },
+  "6.17.1": {
+    "commit": "bac10e2a87a85008aa4eebe12a967de9fa342ba3",
+    "link": "https://github.com/machsix/Super-preloader/commit/bac10e2a87a85008aa4eebe12a967de9fa342ba3"
+  },
+  "7.0.0": {
+    "commit": "a256447e328895df4a37be666e9579a3959a1210",
+    "link": "https://github.com/machsix/Super-preloader/commit/a256447e328895df4a37be666e9579a3959a1210"
+  },
+  "7.0.1": {
+    "commit": "4035e0fb79809ccb50df85143b83af81122cf442",
+    "link": "https://github.com/machsix/Super-preloader/commit/4035e0fb79809ccb50df85143b83af81122cf442"
+  },
+  "7.0.2": {
+    "commit": "0fed3e9d5784c85291d735769f0df99a7b070cb3",
+    "link": "https://github.com/machsix/Super-preloader/commit/0fed3e9d5784c85291d735769f0df99a7b070cb3"
+  },
+  "7.0.3": {
+    "commit": "6ad6b98e62efa9a975538e50658504c9a6bd3457",
+    "link": "https://github.com/machsix/Super-preloader/commit/6ad6b98e62efa9a975538e50658504c9a6bd3457"
+  },
+  "7.0.4": {
+    "commit": "aeeb52ee23dce2548d2a186caedde64889be4e72",
+    "link": "https://github.com/machsix/Super-preloader/commit/aeeb52ee23dce2548d2a186caedde64889be4e72"
+  },
+  "7.0.5": {
+    "commit": "9b175b738ef6ad6de9444c127556994f6fd25158",
+    "link": "https://github.com/machsix/Super-preloader/commit/9b175b738ef6ad6de9444c127556994f6fd25158"
+  },
+  "7.0.6": {
+    "commit": "c5f2fa7a2c8327c98b5df432aecbd7de6db3cb4d",
+    "link": "https://github.com/machsix/Super-preloader/commit/c5f2fa7a2c8327c98b5df432aecbd7de6db3cb4d"
+  },
+  "7.0.7": {
+    "commit": "0d211678bc69ab991e22cdc7a865d92c7326ca10",
+    "link": "https://github.com/machsix/Super-preloader/commit/0d211678bc69ab991e22cdc7a865d92c7326ca10"
+  },
+  "7.0.8": {
+    "commit": "290fb83c815ef575767d331e7c788420c0233e42",
+    "link": "https://github.com/machsix/Super-preloader/commit/290fb83c815ef575767d331e7c788420c0233e42"
+  },
+  "7.0.9": {
+    "commit": "7349cc24e2c098ef86050c8e320a970d3f42aacf",
+    "link": "https://github.com/machsix/Super-preloader/commit/7349cc24e2c098ef86050c8e320a970d3f42aacf"
+  },
+  "7.0.10": {
+    "commit": "118f1fbbc337c3422621613d742a6b4e53d6da3f",
+    "link": "https://github.com/machsix/Super-preloader/commit/118f1fbbc337c3422621613d742a6b4e53d6da3f"
+  },
+  "7.0.11": {
+    "commit": "dbef3eb7b4df73a3cc9d8a6fb35c3f80aa77a320",
+    "link": "https://github.com/machsix/Super-preloader/commit/dbef3eb7b4df73a3cc9d8a6fb35c3f80aa77a320"
+  },
+  "7.0.12": {
+    "commit": "c6f33b58c666ed070cf427f7c79f4da21d8c81eb",
+    "link": "https://github.com/machsix/Super-preloader/commit/c6f33b58c666ed070cf427f7c79f4da21d8c81eb"
+  },
+  "7.0.13": {
+    "commit": "72b0554f2e2effb8be869ff3c309c29b5a3ae3ec",
+    "link": "https://github.com/machsix/Super-preloader/commit/72b0554f2e2effb8be869ff3c309c29b5a3ae3ec"
+  },
+  "7.0.15": {
+    "commit": "1ae0191d153c0e44f05a82e220cbf27e1e4d237b",
+    "link": "https://github.com/machsix/Super-preloader/commit/1ae0191d153c0e44f05a82e220cbf27e1e4d237b"
+  },
+  "7.0.16": {
+    "commit": "cc30c02860577c69bcde8232b3125b93073743f3",
+    "link": "https://github.com/machsix/Super-preloader/commit/cc30c02860577c69bcde8232b3125b93073743f3"
+  },
+  "7.0.17": {
+    "commit": "d4e9a9017c9869720ef72cadd41bbeafa0e47b67",
+    "link": "https://github.com/machsix/Super-preloader/commit/d4e9a9017c9869720ef72cadd41bbeafa0e47b67"
+  },
+  "7.1.0": {
+    "commit": "8a03fd8d0ef8f0e799000eccd6d85774e3475088",
+    "link": "https://github.com/machsix/Super-preloader/commit/8a03fd8d0ef8f0e799000eccd6d85774e3475088"
+  },
+  "7.2.0": {
+    "commit": "c24691bc9fd7ab6f675565438409689dea9cd6f5",
+    "link": "https://github.com/machsix/Super-preloader/commit/c24691bc9fd7ab6f675565438409689dea9cd6f5"
+  },
+  "8.0.0": {
+    "commit": "e3fb7fca8fdf89c570af5a4550bcc672d694a0a1",
+    "link": "https://github.com/machsix/Super-preloader/commit/e3fb7fca8fdf89c570af5a4550bcc672d694a0a1"
+  },
+  "8.0.1": {
+    "commit": "946a90e02c90980bf984de94524057b020e62cf4",
+    "link": "https://github.com/machsix/Super-preloader/commit/946a90e02c90980bf984de94524057b020e62cf4"
+  }
+}
