@@ -23,9 +23,6 @@ importers:
       extract-zip:
         specifier: 2.0.1
         version: 2.0.1
-      husky:
-        specifier: 9.0.11
-        version: 9.0.11
       lint-staged:
         specifier: 15.2.5
         version: 15.2.5
@@ -93,6 +90,9 @@ importers:
       globals:
         specifier: ^16.0.0
         version: 16.0.0
+      husky:
+        specifier: 9.0.11
+        version: 9.0.11
       lodash:
         specifier: 4.17.21
         version: 4.17.21
