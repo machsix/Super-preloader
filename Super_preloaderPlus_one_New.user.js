@@ -11,7 +11,7 @@
 // @thanksto     ywzhaiqi, NLF
 // @version      8.0.1
 // @license      GPL-3.0
-// @update       2025/4/18
+// @update       2025/4/26
 // @homepageURL  https://github.com/machsix/Super-preloader
 // @downloadURL  https://machsix.github.io/Super-preloader/Super_preloaderPlus_one_New.user.js
 // @updateURL    https://machsix.github.io/Super-preloader/Super_preloaderPlus_one_New.user.js

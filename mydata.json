@@ -3966,10 +3966,15 @@
     "nextLink": "//li[contains(@class,'current')]/following-sibling::li[1]/a"
   },
   {
-    "name": "Google Basic Variant",
-    "url": "^https?://w{3}\\.google\\.(?:a[delmstz]|b[aefgijsty]|c(?:o(?:m(?:\\.(?:a[fgru]|b[dhnorz]|c[ouy]|do|e[cgt]|fj|g[hit]|hk|jm|k[hw]|l[by]|m[mtxy]|n[agip]|om|p[aeghkry]|qa|s[abglv]|t[jrw]|u[ay]|v[cn]))?|\\.(?:ao|bw|c[kr]|i[dln]|jp|k[er]|ls|m[az]|nz|t[hz]|u[gkz]|v[ei]|z[amw]))|[adfghilmnvz])|d[ejkmz]|e[es]|f[imr]|g[aeglmry]|h[nrtu]|i[emqst]|j[eo]|k[giz]|l[aiktuv]|m[degklnuvw]|n[eloru]|p[lnst]|r[osuw]|s[cehikmnort]|t[dglmnot]|vu|ws)/search\\?(?:[^/]+&)?gbv=1(?:$|[&/])",
-    "pageElement": "css;div#main",
-    "exampleUrl": "https://www.google.com/search?q=foo&gbv=1",
-    "nextLink": "//a[@aria-label=\"Next page\"]"
+    "name": "xchina.co",
+    "url": "^https?://xchina\\.co",
+    "pageElement": "//div[@class='article']/div[contains(@class, 'list') or contains(@class, 'videos')]",
+    "nextLink": "//div[@class='pager']//a[@current]/following-sibling::a[1]"
+  },
+  {
+    "name": "xchina.co",
+    "url": "^https?://xchina\\.co",
+    "pageElement": "//div[@class='body']/div[@class='article mask']/div[@class='photos']",
+    "nextLink": "//div[@class='pager']//a[@current]/following-sibling::a[1]"
   }
 ]
