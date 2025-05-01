@@ -1731,11 +1731,11 @@
       }
     },
     {
-      name: 'gelbooru, safebooru etc',
-      url: '^https?://(?:www\\.)?\\w{3,4}booru\\.(?:com|org)',
+      name: 'safebooru',
+      url: '^https?://(?:www\\.)?safebooru\\.org',
       nextLink: 'id("paginator")//b/following-sibling::a[1]',
       pageElement: 'id("post-list")/div[@class="content"]//span[contains(@class,"thumb")]|id("content")/table',
-      exampleUrl: 'http://gelbooru.com/index.php?page=post&s=list http://safebooru.org/index.php?page=post&s=list&tags=all http://safebooru.org/index.php?page=tags&s=list'
+      exampleUrl: 'https://safebooru.org/index.php?page=post&s=list&tags=all https://safebooru.org/index.php?page=tags&s=list'
     },
     {
       name: '耳机大家坛 全球最大中文耳机论坛',
