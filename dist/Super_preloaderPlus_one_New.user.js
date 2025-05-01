@@ -74,6 +74,7 @@
 // @exclude      http*://*.awsapps.com/*
 // @exlucde      http*://www.commcarehq.org/accounts/login/*gre
 // @exclude      http*://simkl.com/*
+// @exclude      http*://login.tidal.com/*
 // ==/UserScript==
 (function () {
 
@@ -2284,7 +2285,7 @@
 			 */
 			var isBuffer = nativeIsBuffer || stubFalse;
 
-			module.exports = isBuffer; 
+			module.exports = isBuffer;
 		} (isBuffer, isBuffer.exports));
 		return isBuffer.exports;
 	}
@@ -2501,7 +2502,7 @@
 			  } catch (e) {}
 			}());
 
-			module.exports = nodeUtil; 
+			module.exports = nodeUtil;
 		} (_nodeUtil, _nodeUtil.exports));
 		return _nodeUtil.exports;
 	}
@@ -5070,7 +5071,7 @@
 			    defaultLogger['default'] = defaultLogger;
 
 			    return defaultLogger;
-			})); 
+			}));
 		} (loglevel));
 		return loglevel.exports;
 	}
