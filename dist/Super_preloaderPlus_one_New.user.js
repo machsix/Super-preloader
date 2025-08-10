@@ -74,6 +74,7 @@
 // @exclude      http*://*.awsapps.com/*
 // @exlucde      http*://www.commcarehq.org/accounts/login/*gre
 // @exclude      http*://simkl.com/*
+// @exclude      http*://myanimelist.net/*
 // ==/UserScript==
 (function () {
 
