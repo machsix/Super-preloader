@@ -23,7 +23,7 @@
     }
   },
   {
-    "name": "wnacglist",
+    "name": "wnacg list",
     "url": "^https?://(www\\.)?wnacg\\.(org|net|com)",
     "pageElement": "//div[@class='gallary_wrap']",
     "exampleUrl": "http://www.wnacg.org/photos-view-id-2132443.html",
@@ -51,17 +51,6 @@
     "exampleUrl": "Why do you masturbate!!",
     "nextLink": "auto;",
     "category": ["forum"]
-  },
-  {
-    "name": "24fa",
-    "url": "^https?://www\\.24fa\\.com",
-    "pageElement": "css;#content",
-    "nextLink": "//li[@class='p_current']/following-sibling::li/a",
-    "autopager": {
-      "lazyImgSrc": "original",
-      "stylish": "#content img {display: inline}",
-      "ipages": [true, 30]
-    }
   },
   {
     "name": "小众软件",
@@ -151,16 +140,17 @@
     "nextLink": "//div[@class='paginator']/span[@class='next']/a"
   },
   {
-    "name": "fuxsb",
-    "url": "https?://fuxsb\\.com",
-    "pageElement": "css;div.nr_bzm",
-    "nextLink": "css;li.thisclass+li>a"
-  },
-  {
     "name": "豆瓣全站",
     "url": "^https?://.*\\.douban\\.com/(\\w*)(?!statuses)$",
     "pageElement": "id('miniblog') | //*[@class='photolst clearfix' or @class='photolst clearbox' or @class='event-photo-list' or @class='poster-col4 clearfix'] | //div[@id='comment-section'] | //table[@class='olt' or @class='list-b']/tbody | //div[contains(@class,'clearfix')]/div[@class='article' and not(.//div[@class='stream-items'])]",
     "nextLink": "//div[@class='paginator']/span[@class='next']/a[contains(text(),'后页>')]"
+  },
+  {
+    "name": "fuxsb",
+    "url": "https?://fuxsb\\.com",
+    "pageElement": "css;div.nr_bzm",
+    "nextLink": "css;li.thisclass+li>a",
+    "category": ["novel"]
   },
   {
     "name": "anime1.me",
@@ -171,18 +161,6 @@
     "category": ["anime"]
   },
   {
-    "name": "gssy",
-    "url": "^https?://www\\.gssy\\.cc",
-    "pageElement": "//div[@id='image_div']",
-    "exampleUrl": "http://www.gssy.cc/30856/5",
-    "nextLink": "//a[@title='下一页']",
-    "useiframe": true,
-    "category": ["gallery", "nsfw"],
-    "autopager": {
-      "ipages": [true, 30]
-    }
-  },
-  {
     "name": "free-proxy",
     "url": "^https?://free-proxy.cz",
     "pageElement": "//table[@id='proxy_list']",
@@ -191,18 +169,18 @@
     "useiframe": true
   },
   {
-    "name": "烈火软件",
-    "url": "^https?://hrtsea.(com|cc)",
+    "name": "App热（原烈火软件）",
+    "url": "^https?://apphot.cc",
     "pageElement": "//div[@class='content']/article",
-    "exampleUrl": "https://hrtsea.com/",
-    "nextLink": "//div[@class='pagination']/ul/li[@class='next-page']/a",
-    "category": ["blog"]
+    "exampleUrl": "https://apphot.cc/",
+    "nextLink": "//div[@class='pagination']/ul/li[@class='next-page']/a"
   },
   {
     "name": "宽带山",
     "url": "^https?://club\\.kdslife\\.com/.*\\.html$",
     "pageElement": "id('reply_list_panel')",
-    "nextLink": "//div[@class='pages']/a[last()]"
+    "nextLink": "//div[@class='pages']/a[last()]",
+    "category": ["forum"]
   },
   {
     "name": "llss",
@@ -229,7 +207,8 @@
     "nextLink": "id('page-container')//a[@class='lbf-pagination-next ']",
     "autopager": {
       "replaceE": "id('page-container')"
-    }
+    },
+    "category": ["novel"]
   },
   {
     "name": "sasaone.com-album",
@@ -247,25 +226,13 @@
     "nextLink": "//a[text()=\"下一页\"]"
   },
   {
-    "name": "flhkk",
-    "url": "^https?://www\\.flhhkk\\.com",
-    "pageElement": "//div[@class='container']//div[contains(@class,'posts-con') or @class='clearfix']",
-    "nextLink": "auto;"
-  },
-  {
-    "name": "wzfou-category",
+    "name": "挖站否 WZFou-category",
     "url": "^https://wzfou.com/.+",
     "pageElement": "//div[@class='grid-box']/div[@class='row']",
     "nextLink": "//a[@class='next page-numbers']",
     "autopager": {
       "relatedObj": true
     }
-  },
-  {
-    "name": "精品绿色便携软件",
-    "url": "^https?://www\\.portablesoft\\.org/",
-    "pageElement": "id(\"main\")/div[@class=\"post-entry\"]|id(\"main\")/div[@class=\"clear\"]",
-    "nextLink": "auto;"
   },
   {
     "name": "小木虫-帖子列表",
@@ -281,7 +248,8 @@
     "name": "阳光盒子",
     "url": "^https?://sunbox\\.cc/.*\\.html$",
     "pageElement": "//div[@id='primary']//article",
-    "nextLink": "//div[@class='nav-links']/a[last()]"
+    "nextLink": "//div[@class='nav-links']/a[last()]",
+    "category": ["blog"]
   },
   {
     "name": "wearn.com-threads",
@@ -305,14 +273,16 @@
     "url": "^https?://avgle\\.com/.*/",
     "pageElement": "//div[@id='wrapper']/div[1]/div[@class='row']/div[script]",
     "exampleUrl": "https://avgle.com/search/videos?search_query=%E5%A5%B3%E6%95%99%E5%B8%AB&search_type=videos&o=tr",
-    "nextLink": "//a[@class=\"prevnext\"]"
+    "nextLink": "//a[@class=\"prevnext\"]",
+    "category": ["NSFW"]
   },
   {
     "name": "rule34",
     "url": "https://rule34\\.xxx/index\\.php",
     "pageElement": "//div[@class='content']/div[span[@class='thumb']]",
     "exampleUrl": "https://rule34.xxx/index.php?page=post&s=list&tags=3d",
-    "nextLink": "//div[@class='pagination']/a[@alt='next']"
+    "nextLink": "//div[@class='pagination']/a[@alt='next']",
+    "category": ["forum", "NSFW"]
   },
   {
     "name": "jav777",
@@ -320,7 +290,8 @@
     "pageElement": "//div[@class=\"content section-inner\"]",
     "exampleUrl": "https://www.jav777.cc/",
     "nextLink": "auto;",
-    "useiframe": true
+    "useiframe": true,
+    "category": ["NSFW"]
   },
   {
     "name": "电玩巴士 - 攻略",
@@ -449,7 +420,7 @@
     "nextLink": "//div[@class=\"page-content\"]/a[@class=\"next\"]"
   },
   {
-    "name": "smzdm-search",
+    "name": "什么值得买smzdm-search",
     "url": "^https?://search\\.smzdm\\.com/\\?c=",
     "pageElement": "css;ul#feed-main-list >*",
     "exampleUrl": "http://search.smzdm.com/?c=post&s=%E7%A9%BA%E8%B0%83&v=b",
@@ -460,7 +431,7 @@
     }
   },
   {
-    "name": "smzdm-fenlei",
+    "name": "什么值得买smzdm-fenlei",
     "url": "^https?://www\\.smzdm\\.com/fenlei/",
     "pageElement": "//li[@class=\"feed-row-wide\"]",
     "exampleUrl": "https://www.smzdm.com/fenlei/shuiguo/",
@@ -468,7 +439,7 @@
     "preLink": "//li/a[text()=\"上一页\"]"
   },
   {
-    "name": "smzdm-tag",
+    "name": "什么值得买smzdm-tag",
     "url": "^https?://www\\.smzdm\\.com/tag/",
     "pageElement": "//div[contains(@class,\"list list_preferential\")]",
     "exampleUrl": "https://www.smzdm.com/tag/%E5%8D%8A%E4%BB%B7%E7%89%B9%E6%83%A0/youhui/",
@@ -476,7 +447,7 @@
     "preLink": "//li/a[text()=\"上一页\"]"
   },
   {
-    "name": "smzdm-值友评论",
+    "name": "什么值得买smzdm-值友评论",
     "url": "^https?://zhiyou\\.smzdm\\.com/member/\\d+/pinglun",
     "pageElement": "//div[@class=\"infoPerBlock infoCommentBlock\"]",
     "exampleUrl": "https://zhiyou.smzdm.com/member/1823681945/pinglun/",
@@ -542,7 +513,7 @@
     }
   },
   {
-    "name": "中关村在线新闻页面",
+    "name": "中关村在线 新闻页面",
     "url": "^https?://(?:[^\\.]+\\.)?zol\\.com\\.cn/\\d+/\\d+",
     "pageElement": "//div[@id=\"cotent_idd\" or @id=\"article-content\"]",
     "exampleUrl": "http://lcd.zol.com.cn/187/1875145.html",
@@ -698,7 +669,7 @@
     "nextLink": "//a[text()=\"下一页＞\"][@href]"
   },
   {
-    "name": "新闻 - 加拿大华人网",
+    "name": "加拿大华人网 新闻",
     "url": "^https?://www\\.sinonet\\.org/.*\\.html",
     "pageElement": "id(\"zoom\")",
     "exampleUrl": "http://www.sinonet.org/news/society/2013-11-15/301940.html",
@@ -750,7 +721,7 @@
     "nextLink": "id(\"next_page\")"
   },
   {
-    "name": "中国网山东频道",
+    "name": "中国网 山东频道",
     "url": "^https?://sd\\.china\\.com\\.cn/.*\\.html",
     "pageElement": "css;.content",
     "autopager": {
@@ -905,7 +876,7 @@
     }
   },
   {
-    "name": "知乎收藏夹",
+    "name": "知乎 收藏夹",
     "url": "^https?://www\\.zhihu\\.com/collection",
     "pageElement": "id(\"zh-list-collection-wrap\")/div[@class=\"zm-item\"]",
     "exampleUrl": "https?://www.zhihu.com/collection/19561986",
@@ -930,7 +901,7 @@
     }
   },
   {
-    "name": " 译言小组",
+    "name": "译言小组",
     "url": "^https?://group\\.yeeyan\\.org/",
     "pageElement": "//div[contains(@class, \"column-main\")]/div[contains(@class, \"stream\")]",
     "nextLink": "//div[@class=\"paginator\"]/a[@class=\"next\"]",
@@ -939,7 +910,7 @@
     }
   },
   {
-    "name": "主题站 | 果壳网 ",
+    "name": "果壳网 主题站",
     "url": "^https?://www\\.guokr\\.com/(?:site|group|ask|event)/",
     "pageElement": "//div[@class=\"article-list\"] | //ul[@class=\"titles\"] | //ul[@class=\"ask-list\"] | //ul[@class=\"event_list gclear\"]",
     "nextLink": "//ul[@class=\"gpages\"]/li/a[contains(.,\"下一页\")]"
@@ -1049,7 +1020,7 @@
     "nextLink": "//div[@class=\"x\"]/descendant::a[text()=\"下一页\"]"
   },
   {
-    "name": "最新电影 | 龙部落",
+    "name": "龙部落 最新电影",
     "url": "^https?://www\\.longbuluo\\.com/",
     "pageElement": "//div[@class=\"postlist\"]",
     "exampleUrl": "http://www.longbuluo.com/category/movie",
@@ -1059,7 +1030,7 @@
     }
   },
   {
-    "name": "高清连续剧 | 一起下载吧",
+    "name": "一起下载吧",
     "url": "^https?://17down\\.net/category",
     "pageElement": "id(\"content\")/div[starts-with(@class, \"entry_box\")]",
     "exampleUrl": "http://17down.net/category/tv",
@@ -1079,11 +1050,11 @@
     }
   },
   {
-    "name": "720P电影下载,1080P电影下载,bt蓝光电影下载,BT原盘电影下载：BT之家老牌电影下载网站，百万用户选择了这里",
-    "url": "^https?://bbs\\.1lou\\.com/",
-    "pageElement": "id(\"threadlist\") | id(\"body\")/div/table[@class=\"post_table\"]",
-    "exampleUrl": "http://bbs.1lou.com/forum-index-fid-1183.htm",
-    "nextLink": "//div[@class=\"page\"]/a[text()=\"?\"]"
+    "name": "BT之家1LOU站",
+    "url": "^https?://www\\.1lou\\.me/",
+    "pageElement": "css;.threadlist,.postlist",
+    "exampleUrl": "https://www.1lou.me/forum-3-1.htm",
+    "nextLink": "//li[@class=\"page-item\"]/a[@class=\"page-link\"][text()=\"▶\"]"
   },
   {
     "name": "很BT电影联盟",
@@ -2905,7 +2876,7 @@
     "exampleUrl": "https://danbooru.donmai.us/posts?page=2&tags=haruna_%28kantai_collection%29",
     "nextLink": "//a[contains(@*,'next')]",
     "useiframe": true,
-    "category": "NSFW"
+    "category": ["NSFW"]
   },
   {
     "name": "动漫屋",
