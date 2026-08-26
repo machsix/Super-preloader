@@ -109,8 +109,8 @@ importers:
         specifier: 1.3.1
         version: 1.3.1
       rollup-plugin-dev:
-        specifier: 2.0.5
-        version: 2.0.5
+        specifier: 2.1.0
+        version: 2.1.0
       rollup-plugin-ejs:
         specifier: 4.0.1
         version: 4.0.1(html-minifier@4.0.0)(rollup@4.39.0)(sass@1.76.0)
@@ -1720,6 +1720,15 @@ packages:
       supports-color:
         optional: true
 
+  debug@4.4.3:
+    resolution: {integrity: sha512-RGwwWnwQvkVfavKVt22FGLw+xYSdzARwm0ru6DhTVA3umU5hZc28V3kO4stgYryrTlLpuvgI9GiijltAjNbcqA==}
+    engines: {node: '>=6.0'}
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
+
   decode-named-character-reference@1.1.0:
     resolution: {integrity: sha512-Wy+JTSbFThEOXQIR2L6mxJvEs+veIzpmqD7ynWxMXGpnk3smkHQOp6forLdHsKpAMW9iJpaBBIxz285t1n1C3w==}
 
@@ -1794,6 +1803,9 @@ packages:
 
   end-of-stream@1.4.4:
     resolution: {integrity: sha512-+uw1inIHVPQoaVuHzRyXd21icM+cnt4CzD5rW+NC1wjOUSTOs+Te7FOv7AhN7vS9x/oIyhLP5PR1H+phQAHu5Q==}
+
+  end-of-stream@1.4.5:
+    resolution: {integrity: sha512-ooEGc6HP26xXq/N+GCGOT0JKCLDGrq2bQUZrQ7gyrJiZANJ/8YDTxTpQBXGMn+WbIQXNVpyWymm7KYVICQnyOg==}
 
   entities@4.5.0:
     resolution: {integrity: sha512-V0hjH4dGPh9Ao5p0MoRY6BVqtwCjhz6vI5LT8AJ55H+4g9/4vbHx1I54fS0XuclLhDHArPQCiMjDxjaL8fPxhw==}
@@ -1965,8 +1977,8 @@ packages:
   fast-safe-stringify@2.1.1:
     resolution: {integrity: sha512-W+KJc2dmILlPplD/H4K9l9LcAHAfPtP6BY84uVLXQ6Evcz9Lcg33Y2z1IVblT6xdY54PXYVHEv+0Wpq8Io6zkA==}
 
-  fast-uri@3.0.6:
-    resolution: {integrity: sha512-Atfo14OibSv5wAp4VWNsFYE1AchQRTv9cBGWET4pZWHzYshFSS9NQI6I57rdKn9croWVMbYFbLhJ+yJvmZIIHw==}
+  fast-uri@3.1.0:
+    resolution: {integrity: sha512-iPeeDKJSWf4IEOasVVrknXpaBV0IApz/gp7S2bb7Z4Lljbl2MGJRqInZiUrQwV16cpzw/D3S5j5Julj/gT52AA==}
 
   fastify-plugin@3.0.1:
     resolution: {integrity: sha512-qKcDXmuZadJqdTm6vlCqioEbyewF60b/0LOFCcYN1B6BIZGlYJumWWOYs70SFYLDAH4YqdE1cxH/RKMG7rFxgA==}
@@ -1977,8 +1989,8 @@ packages:
   fastify@3.29.5:
     resolution: {integrity: sha512-FBDgb1gkenZxxh4sTD6AdI6mFnZnsgckpjIXzIvfLSYCa4isfQeD8QWGPib63dxq6btnY0l1j8I0xYhMvUb+sw==}
 
-  fastq@1.19.1:
-    resolution: {integrity: sha512-GwLTyxkCXjXbxqIhTsMI2Nui8huMPtnxg7krajPJAjnEG/iiOS7i+zCtWGZR9G0NBKbXKh6X9m9UIsYX/N6vvQ==}
+  fastq@1.20.1:
+    resolution: {integrity: sha512-GGToxJ/w1x32s/D2EKND7kTil4n8OVk/9mycTc4VDza13lOvpUZTGX3mFSCtV9ksdGBVzvsyAVLM6mHFThxXxw==}
 
   fault@2.0.1:
     resolution: {integrity: sha512-WtySTkS4OKev5JtpHXnib4Gxiurzh5NCGvWrFaZ34m6JehfTUhKZvn9njTfw48t6JumVQOmrKqpmGcdwxnhqBQ==}
@@ -2141,8 +2153,8 @@ packages:
     resolution: {integrity: sha512-Kpk9Sm7NmI+RHhnj6OIWDI1d6fIoFAtFt9RLaTMRlg/8w49juAStsrBgp0Dp4OdxdVbRIeKhtCUvoi/RuAhO4g==}
     engines: {node: '>= 0.6'}
 
-  http-errors@2.0.0:
-    resolution: {integrity: sha512-FtwrG/euBzaEjYeRqOgly7G0qviiXoJWnvEH2Z1plBdXgbyjv34pHTSb9zoeHMyDy33+DWy5Wt9Wo+TURtOYSQ==}
+  http-errors@2.0.1:
+    resolution: {integrity: sha512-4FbRdAX+bSdmo4AUFuS0WNiPz8NgFt+r8ThgNWmlrjQjt1Q7ZR9+zTlce2859x4KSXrwIsaeTqDoKQmtP8pLmQ==}
     engines: {node: '>= 0.8'}
 
   http-proxy-agent@7.0.2:
@@ -2734,6 +2746,9 @@ packages:
   pump@3.0.2:
     resolution: {integrity: sha512-tUPXtzlGM8FE3P0ZL6DVs/3P58k9nk8/jZeQCurTJylQA8qFYzHFfhBJkuqyE0FifOsQ0uKWekiZ5g8wtr28cw==}
 
+  pump@3.0.3:
+    resolution: {integrity: sha512-todwxLMY7/heScKmntwQG8CXVkWUOdYxIvY2s0VWAAMh/nd8SoYiRaKjlr7+iCs984f2P8zvrfWcDDYVb73NfA==}
+
   punycode@2.3.1:
     resolution: {integrity: sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==}
     engines: {node: '>=6'}
@@ -2745,6 +2760,7 @@ packages:
   puppeteer@22.8.2:
     resolution: {integrity: sha512-yNZmKZHhCtBAjwuzonMyzgXLYxnvR+tbpatuyMffK+zmag84xyqE2EvPEWV1FvDXwW3m+/PT4Zp4KLerWWydQQ==}
     engines: {node: '>=18'}
+    deprecated: < 24.15.0 is no longer supported
     hasBin: true
 
   queue-microtask@1.2.3:
@@ -2850,8 +2866,8 @@ packages:
     resolution: {integrity: sha512-BUxYj2FbSCxgfyvln6f1AWG1n+b1ZUXXb/LkKpClB12CTIjwDFexWw35V/STz7xT+BLat475I204aRzpxRQwKg==}
     engines: {node: '>=12.13'}
 
-  rollup-plugin-dev@2.0.5:
-    resolution: {integrity: sha512-DV6slBM7wH9tWzlvvT4c+4/klrk7cpdyfxhbYfmdk3/IJjQpcq/uoSZK15VsHl/l4uWdv4rpvrIB8iWx/WY7NQ==}
+  rollup-plugin-dev@2.1.0:
+    resolution: {integrity: sha512-inO900zr8OCsXK8D5ZjWnw1D+OolUz7ozrVBFLyr+/0WosbWD6x87FTUqsOKSutxbT7dgPfxwJgSyiXZMbqYQg==}
 
   rollup-plugin-ejs@4.0.1:
     resolution: {integrity: sha512-JFTKcaxQ/cHHm4qUQQxO0cd26ZetJsIcZuKPImwHOZAR7UdWDjopAdzKfpHW+QNbovyjRmNyYBkBjNuM/BpR3Q==}
@@ -2914,12 +2930,17 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
 
+  semver@7.7.3:
+    resolution: {integrity: sha512-SdsKMrI9TdgjdweUSR9MweHA4EJ8YxHn8DFaDisvhVlUOe4BF1tLD7GAj0lIqWVl+dPb/rExr0Btby5loQm20Q==}
+    engines: {node: '>=10'}
+    hasBin: true
+
   send@0.17.2:
     resolution: {integrity: sha512-UJYB6wFSJE3G00nEivR5rgWp8c2xXvJ3OPWPhmuteU0IKj8nKbG3DrjiOmLwpnHGYWAVwA69zmTm++YG0Hmwww==}
     engines: {node: '>= 0.8.0'}
 
-  set-cookie-parser@2.7.1:
-    resolution: {integrity: sha512-IOc8uWeOZgnb3ptbCURJWNjWUPcO3ZnTTdzsurqERrP6nPyv+paC55vJM0LpOlT2ne+Ix+9+CRG1MNLlyZ4GjQ==}
+  set-cookie-parser@2.7.2:
+    resolution: {integrity: sha512-oeM1lpU/UvhTxw+g3cIfxXHyJRc/uidd3yK1P242gzHds0udQBYzs3y8j4gCCW+ZJ7ad0yctld8RYO+bdurlvw==}
 
   setprototypeof@1.2.0:
     resolution: {integrity: sha512-E5LDX7Wrp85Kil5bhZv46j8jOeboKq5JMmYM3gVGdGH8xFpPWXUMsNrlODCrkoxMEeNi/XZIwuRvY4XNwYMJpw==}
@@ -2984,9 +3005,9 @@ packages:
     resolution: {integrity: sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==}
     engines: {node: '>=0.10.0'}
 
-  source-map@0.7.4:
-    resolution: {integrity: sha512-l3BikUxvPOcn5E74dZiq5BGsTb5yEwhaTSzccU6t4sDOH8NWJCstKO5QT2CvtFoK6F0saL7p9xHAqHOlCPJygA==}
-    engines: {node: '>= 8'}
+  source-map@0.7.6:
+    resolution: {integrity: sha512-i5uvt8C3ikiWeNZSVZNWcfZPItFQOsYTUAOkcUPGd8DqDy1uOUikjt5dG+uRlwyvR108Fb9DOd4GvXfT0N2/uQ==}
+    engines: {node: '>= 12'}
 
   sourcemap-codec@1.4.8:
     resolution: {integrity: sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==}
@@ -3015,8 +3036,8 @@ packages:
     resolution: {integrity: sha512-OpZ3zP+jT1PI7I8nemJX4AKmAX070ZkYPVWV/AaKTJl+tXCTGyVdC1a4SL8RUQYEwk/f34ZX8UTykN68FwrqAA==}
     engines: {node: '>= 0.6'}
 
-  statuses@2.0.1:
-    resolution: {integrity: sha512-RwNA9Z/7PrK06rYLIzFMlaF+l73iwpzsqRIFgbMLbTcLD6cOao82TaWefPXQvB2fOC4AjuYSEndS7N/mTCbkdQ==}
+  statuses@2.0.2:
+    resolution: {integrity: sha512-DvEy55V3DB7uknRo+4iOGT5fP1slR8wQohVdknigZPMpMstaKJQWhwiYBACJE3Ul2pTnATihhBYnRhZQHGBiRw==}
     engines: {node: '>= 0.8'}
 
   streamx@2.22.0:
@@ -3317,8 +3338,8 @@ packages:
       utf-8-validate:
         optional: true
 
-  ws@8.18.1:
-    resolution: {integrity: sha512-RKW2aJZMXeMxVpnZ6bck+RswznaxmzdULiBr6KY7XkTnW8uvt0iT9H5DkHUChXrc+uurzwa0rVI16n/Xzjdz1w==}
+  ws@8.19.0:
+    resolution: {integrity: sha512-blAT2mjOEIi0ZzruJfIhb3nps74PRWTCz1IjglWEEpQl5XS/UNama6u2/rjFkDDouqr4L67ry+1aGIALViWjDg==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
       bufferutil: ^4.0.1
@@ -4310,18 +4331,18 @@ snapshots:
   '@fastify/http-proxy@7.2.0':
     dependencies:
       '@fastify/reply-from': 7.0.1
-      ws: 8.18.1
+      ws: 8.19.0
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
 
   '@fastify/reply-from@7.0.1':
     dependencies:
-      end-of-stream: 1.4.4
+      end-of-stream: 1.4.5
       fastify-plugin: 3.0.1
-      http-errors: 2.0.0
-      pump: 3.0.2
-      semver: 7.7.1
+      http-errors: 2.0.1
+      pump: 3.0.3
+      semver: 7.7.3
       tiny-lru: 8.0.2
       undici: 5.29.0
 
@@ -4780,7 +4801,7 @@ snapshots:
   ajv@8.17.1:
     dependencies:
       fast-deep-equal: 3.1.3
-      fast-uri: 3.0.6
+      fast-uri: 3.1.0
       json-schema-traverse: 1.0.0
       require-from-string: 2.0.2
 
@@ -4837,8 +4858,8 @@ snapshots:
   avvio@7.2.5:
     dependencies:
       archy: 1.0.0
-      debug: 4.4.0
-      fastq: 1.19.1
+      debug: 4.4.3
+      fastq: 1.20.1
       queue-microtask: 1.2.3
     transitivePeerDependencies:
       - supports-color
@@ -5112,6 +5133,10 @@ snapshots:
     dependencies:
       ms: 2.1.3
 
+  debug@4.4.3:
+    dependencies:
+      ms: 2.1.3
+
   decode-named-character-reference@1.1.0:
     dependencies:
       character-entities: 2.0.2
@@ -5164,6 +5189,10 @@ snapshots:
   encoding-negotiator@2.0.1: {}
 
   end-of-stream@1.4.4:
+    dependencies:
+      once: 1.4.0
+
+  end-of-stream@1.4.5:
     dependencies:
       once: 1.4.0
 
@@ -5378,7 +5407,7 @@ snapshots:
 
   fast-safe-stringify@2.1.1: {}
 
-  fast-uri@3.0.6: {}
+  fast-uri@3.1.0: {}
 
   fastify-plugin@3.0.1: {}
 
@@ -5402,12 +5431,12 @@ snapshots:
       proxy-addr: 2.0.7
       rfdc: 1.4.1
       secure-json-parse: 2.7.0
-      semver: 7.7.1
+      semver: 7.7.3
       tiny-lru: 8.0.2
     transitivePeerDependencies:
       - supports-color
 
-  fastq@1.19.1:
+  fastq@1.20.1:
     dependencies:
       reusify: 1.1.0
 
@@ -5497,7 +5526,7 @@ snapshots:
     dependencies:
       basic-ftp: 5.0.5
       data-uri-to-buffer: 6.0.2
-      debug: 4.4.0
+      debug: 4.4.3
     transitivePeerDependencies:
       - supports-color
 
@@ -5572,12 +5601,12 @@ snapshots:
       statuses: 1.5.0
       toidentifier: 1.0.1
 
-  http-errors@2.0.0:
+  http-errors@2.0.1:
     dependencies:
       depd: 2.0.0
       inherits: 2.0.4
       setprototypeof: 1.2.0
-      statuses: 2.0.1
+      statuses: 2.0.2
       toidentifier: 1.0.1
 
   http-proxy-agent@7.0.2:
@@ -5720,7 +5749,7 @@ snapshots:
       ajv: 8.17.1
       cookie: 0.5.0
       process-warning: 1.0.0
-      set-cookie-parser: 2.7.1
+      set-cookie-parser: 2.7.2
 
   lilconfig@3.1.1: {}
 
@@ -6342,7 +6371,12 @@ snapshots:
 
   pump@3.0.2:
     dependencies:
-      end-of-stream: 1.4.4
+      end-of-stream: 1.4.5
+      once: 1.4.0
+
+  pump@3.0.3:
+    dependencies:
+      end-of-stream: 1.4.5
       once: 1.4.0
 
   punycode@2.3.1: {}
@@ -6464,7 +6498,7 @@ snapshots:
     dependencies:
       magic-string: 0.25.9
 
-  rollup-plugin-dev@2.0.5:
+  rollup-plugin-dev@2.1.0:
     dependencies:
       '@fastify/http-proxy': 7.2.0
       '@fastify/static': 5.0.2
@@ -6562,6 +6596,8 @@ snapshots:
 
   semver@7.7.1: {}
 
+  semver@7.7.3: {}
+
   send@0.17.2:
     dependencies:
       debug: 2.6.9
@@ -6580,7 +6616,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  set-cookie-parser@2.7.1: {}
+  set-cookie-parser@2.7.2: {}
 
   setprototypeof@1.2.0: {}
 
@@ -6653,7 +6689,7 @@ snapshots:
 
   source-map@0.6.1: {}
 
-  source-map@0.7.4:
+  source-map@0.7.6:
     optional: true
 
   sourcemap-codec@1.4.8: {}
@@ -6675,7 +6711,7 @@ snapshots:
 
   statuses@1.5.0: {}
 
-  statuses@2.0.1: {}
+  statuses@2.0.2: {}
 
   streamx@2.22.0:
     dependencies:
@@ -6730,7 +6766,7 @@ snapshots:
       safer-buffer: 2.1.2
       sax: 1.2.4
       semver: 6.3.1
-      source-map: 0.7.4
+      source-map: 0.7.6
     transitivePeerDependencies:
       - supports-color
     optional: true
@@ -6998,7 +7034,7 @@ snapshots:
 
   ws@8.17.0: {}
 
-  ws@8.18.1: {}
+  ws@8.19.0: {}
 
   y18n@5.0.8: {}
 
