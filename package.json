@@ -96,5 +96,8 @@
     "overrides": {
       "babel-plugin-lodash>@babel/types": "~7.20.0"
     }
+  },
+  "engines": {
+    "node": "24.x"
   }
 }
