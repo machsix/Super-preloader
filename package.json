@@ -71,7 +71,7 @@
     "eslint-plugin-prettier": "^5.2.6",
     "globals": "^16.0.0",
     "husky": "9.0.11",
-    "lodash": "4.17.21",
+    "lodash": "4.18.1",
     "prettier": "3.5.3",
     "puppeteer": "22.8.2",
     "rollup": "4.39.0",
