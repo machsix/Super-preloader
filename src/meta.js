@@ -69,11 +69,14 @@ export const METADATA = `// ==UserScript==
 // @grant        GM_xmlhttpRequest
 // @grant        GM.info
 // @grant        GM_info
+// @grant        unsafeWindow
 // @grant        GM_registerMenuCommand
 // @grant        GM.registerMenuCommand
 // @connect      wedata.net
 // @connect      github.io
-// @run-at       document-idle
+// @connect      exhentai.org
+// @connect      e-hentai.org
+// @run-at       document-start
 // @include      http*
 // @exclude      http*://mail.google.com/*
 // @exclude      http*://maps.google*
