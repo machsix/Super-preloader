@@ -86,7 +86,7 @@
   },
   "dependencies": {
     "compare-versions": "6.1.1",
-    "cross-env": "7.0.3",
+    "cross-env": "10.1.0",
     "displacejs": "github:machsix/displace#v1.4.0",
     "extract-zip": "2.0.1",
     "lint-staged": "15.2.5",
